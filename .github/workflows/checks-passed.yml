@@ -197,7 +197,7 @@ jobs:
             .github/scripts/pick_reviewer.py
           sparse-checkout-cone-mode: false
 
-      - name: Detect task field from PR
+      - name: Detect task contest from PR
         if: steps.pr-info.outputs.skip != 'true' && steps.status.outputs.all_passed == 'true' && steps.pr-info.outputs.reviewer_assigned == 'false'
         id: field
         env:
@@ -216,10 +216,10 @@ jobs:
           fields = []
           for f in files:
               parts = f.split("/")
-              # All domains (including `other`) now use 4-segment paths:
-              # tasks/<domain>/<field>/<task>/...
-              if len(parts) >= 4:
-                  fields.append(parts[2])
+              # TB-MathModeling uses first-class contest paths:
+              # tasks/<contest>/<task>/...
+              if len(parts) >= 3:
+                  fields.append(parts[1])
           if fields:
               print(Counter(fields).most_common(1)[0][0])
           PYEOF
@@ -251,7 +251,7 @@ jobs:
             --exclude "$PR_AUTHOR")
 
           if [ "$REVIEWER" = "EMPTY" ]; then
-            echo "::warning::No eligible reviewers in pool (field=${FIELD:-<none>})"
+            echo "::warning::No eligible reviewers in pool (contest=${FIELD:-<none>})"
             echo "reviewer=NONE" >> $GITHUB_OUTPUT
             exit 0
           fi

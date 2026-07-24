@@ -1,12 +1,12 @@
 # Single reviewer pool config for the 3-pass review model.
 #
 # 1st pass — field-routed:
-#   For a task in field <F>, the candidate pool is reviewers_by_field[<F>].
+#   For a task in contest <F>, the candidate pool is reviewers_by_field[<F>].
 #   If that pool is empty, the picker falls back to `reviewers_general`.
 #   Least-loaded reviewer (by active review requests on open `new task`
 #   PRs) is assigned. PR author always excluded.
-#   Field is parsed from the task folder
-#   (`tasks/<domain>/<field>/<task>/...` → <field>).
+#   Contest is parsed from the task folder
+#   (`tasks/<contest>/<task>/...` → <contest>).
 #
 # 2nd pass — secondary reviewers:
 #   Assigned when `1st review ✅` label is added. Least-loaded picked,
@@ -17,38 +17,12 @@
 #   excluding prior-pass reviewers.
 
 # ────────────────────────────────────────────────────────────────────
-# 1st pass: domain-specific reviewers
+# 1st pass: contest-specific reviewers
 # ────────────────────────────────────────────────────────────────────
 
 reviewers_by_field:
-  # earth-sciences
-  atmospheric-sciences: []
-  ocean-sciences: []
-  geosciences: []
-  environmental-sciences: [AllenGrahamHart]
-
-  # life-sciences
-  biology: [k-rl, AaronFeller]
-  medicine: [k-rl, AaronFeller]
-  neuroscience: [stebo85]
-  ecology: [AllenGrahamHart]
-
-  # mathematical-sciences
-  applied-mathematics: [AllenGrahamHart]
-  autoformalization: [AllenGrahamHart]
-  statistics: [AllenGrahamHart]
-  scientific-computing: [AllenGrahamHart]
-
-  # physical-sciences
-  astronomy: [StevenDillmann]
-  chemistry: [AaronFeller]
-  materials-science: [AllenGrahamHart]
-  physics: [AllenGrahamHart]
-
-  # other-sciences
-  engineering-sciences: [AllenGrahamHart]
-  interdisciplinary-sciences: [AllenGrahamHart]
-  miscellaneous-sciences: [AllenGrahamHart]
+  CUMCM: [AllenGrahamHart]
+  MCM: [AllenGrahamHart]
 
 # Used when a task's field has no populated reviewer list above.
 reviewers_general:

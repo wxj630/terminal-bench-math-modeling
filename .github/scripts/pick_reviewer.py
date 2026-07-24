@@ -4,9 +4,9 @@ Pick the least-loaded reviewer from the 3-pass pool config, excluding given hand
 
 Pool YAML (`.github/reviewer-pool.yml`):
 
-    reviewers_by_field:            # 1st pass (per field)
-      biology: [bob]
-    reviewers_general:             # 1st pass fallback when the field pool is empty
+    reviewers_by_field:            # 1st pass (per contest)
+      CUMCM: [bob]
+    reviewers_general:             # 1st pass fallback when the contest pool is empty
       - carol
     reviewers_secondary:                # 2nd pass
       - dan

@@ -23,7 +23,7 @@ check_task_for_global() {
     fi
 
     if [ -f "$verifier_dockerfile" ]; then
-        if grep -i -E "pip install .*pytest|python -m pip install .*pytest" "$verifier_dockerfile" > /dev/null 2>&1; then
+        if grep -i -E "pip install .*pytest|python -m pip install .*pytest|uv pip install .*pytest" "$verifier_dockerfile" > /dev/null 2>&1; then
             return 0
         fi
     fi

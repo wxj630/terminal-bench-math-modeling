@@ -127,7 +127,7 @@ Ensures all expected output files are documented in `instruction.md`. Extracts f
 
 #### check-test-sh-sanity
 
-Validates test.sh configuration for Python environment isolation. Checks if `test.sh` uses `uv venv` or if `task.toml`/`instruction.md` explicitly documents system-wide Python usage.
+Validates `test.sh` configuration for Python environment isolation. For TB-MathModeling, verifier images should bake dependencies into a virtual environment, typically with `uv venv` plus `uv pip install` in `tests/Dockerfile`, so `test.sh` can run the preinstalled verifier command without trial-time installs.
 
 #### check-task-fields
 
@@ -143,11 +143,11 @@ Validates that `gpu_types` values in `task.toml` are canonical Modal GPU type st
 
 #### check-task-slug
 
-Caps the task folder name at 3 hyphen-separated tokens. Long slugs become unwieldy in CLI output, CI logs, and artifact paths. Edit `MAX_TOKENS` in `ci_checks/check-task-slug.sh` to tune.
+Caps the task folder name at 5 hyphen-separated tokens. Long slugs become unwieldy in CLI output, CI logs, and artifact paths. Edit `MAX_TOKENS` in `ci_checks/check-task-slug.sh` to tune.
 
 #### check-allow-internet
 
-Fails if `task.toml` sets `[environment].allow_internet = false`. Assumes the benchmark runs tasks with open internet access; tasks that disable network would diverge from the rest of the benchmark and break agents that rely on internet to install dependencies, fetch data, or hit live APIs. The default (`true`) is fine — only explicit `false` is rejected. Remove or invert this check if your benchmark is offline-only.
+Fails unless `task.toml` sets `[environment].allow_internet = false`. TB-MathModeling tasks should package all contest statements, attachments, and runtime dependencies into the environment, with internet disabled to reduce answer lookup and dependency-fetching variance.
 
 #### check-separate-verifier
 
@@ -175,13 +175,11 @@ Fails if any `pip install`, `uv pip install`, `uvx --with`, or `uv tool install`
 
 #### check-task-path
 
-Validates each task folder's path matches `tasks/<domain>/<field>/<task>/` where `<domain>` is one of the 5 canonical domains and `<field>` is a valid key in `.github/reviewer-pool.yml`'s `reviewers_by_field`. Catches:
-- Tasks placed directly under a domain (`tasks/<domain>/<task>/` — missing field segment)
-- Tasks using stale field names (e.g. `others`, `chemistry-and-materials` after the rename)
-- Tasks under invalid domains
-- task.toml `[metadata].domain`/`[metadata].field` values that don't match the folder (lenient comparison: case-insensitive, treats space/hyphen as equivalent so `"life sciences"` matches `life-sciences`)
-
-The valid-field list comes from `.github/reviewer-pool.yml` on the **base** branch — PRs can't sneak in a fake field by also editing the pool file. Failure message points to the corrected path.
+Validates each task folder's path matches `tasks/<contest>/<task>/`, where `<contest>` is `CUMCM` or `MCM`. Catches:
+- Tasks placed under the old scientific-domain hierarchy
+- Tasks placed under a non-contest first-level directory
+- task.toml `[metadata].domain` values that do not match the contest folder
+- task.toml `[metadata].field` values that are not `math-modeling`
 
 #### check-nproc
 

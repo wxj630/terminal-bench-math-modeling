@@ -4,7 +4,8 @@ This repository is a Harbor benchmark for mathematical-modeling contest workflow
 
 ## Structure
 
-- `tasks/mathematical-sciences/applied-mathematics/`: generated benchmark tasks.
+- `tasks/CUMCM/`: generated China Undergraduate Mathematical Contest in Modeling tasks.
+- `tasks/MCM/`: generated Mathematical Contest in Modeling tasks.
 - `scripts/build_mathmodel_tasks.py`: task generator backed by the local `Math-Modeling-BAO` corpus.
 - `ci_checks/`: copied Harbor/static-check utilities.
 - `rubrics/`: Harbor rubric files adapted for modeling tasks.
@@ -37,13 +38,14 @@ Oracle solutions should use the outstanding-paper reproduction code and results 
 Use Harbor to validate the oracle:
 
 ```bash
-harbor run -p tasks/mathematical-sciences/applied-mathematics -a oracle
+harbor run -p tasks/CUMCM -a oracle
+harbor run -p tasks/MCM -a oracle
 ```
 
 For one task:
 
 ```bash
-harbor run -p tasks/mathematical-sciences/applied-mathematics/<task-slug> -a oracle
+harbor run -p tasks/<CUMCM-or-MCM>/<task-slug> -a oracle
 ```
 
 Do not commit `jobs/` output unless explicitly requested.

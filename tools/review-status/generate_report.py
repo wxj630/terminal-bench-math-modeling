@@ -170,7 +170,7 @@ def task_name(pr: dict) -> str:
     """Extract task name from changed files.
 
     Tasks may be nested under category folders (e.g., TB-MathModeling uses
-    ``tasks/<domain>/<field>/<task>/...``), so the task name is the directory
+    ``tasks/<contest>/<task>/...``), so the task name is the directory
     containing ``task.toml``. Fallbacks: deepest common folder under ``tasks/``
     across changed files, then the PR title.
     """

@@ -14,9 +14,17 @@
 set -e
 
 if [ $# -eq 0 ]; then
-    TASK_DIRS=$(find tasks -mindepth 1 -maxdepth 1 -type d)
+    TASK_DIRS=$(find tasks -type f -name "task.toml" -exec dirname {} \; | sort)
 else
-    TASK_DIRS="$@"
+    TASK_DIRS=""
+    for task_dir in "$@"; do
+        if [ -d "$task_dir" ] && [ -f "$task_dir/task.toml" ]; then
+            TASK_DIRS="$TASK_DIRS $task_dir"
+        elif [ -d "$task_dir" ]; then
+            nested=$(find "$task_dir" -type f -name "task.toml" -exec dirname {} \; | sort)
+            TASK_DIRS="$TASK_DIRS $nested"
+        fi
+    done
 fi
 
 if [ -z "$TASK_DIRS" ]; then

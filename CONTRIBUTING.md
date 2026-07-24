@@ -12,7 +12,7 @@ A good TB-MathModeling task should:
 - Produce concrete artifacts that can be verified programmatically.
 - Include an oracle solution derived from reproducible reference code or a clearly documented solution path.
 
-Tasks live under `tasks/mathematical-sciences/applied-mathematics/<task-slug>/`.
+Tasks live under `tasks/CUMCM/<task-slug>/` or `tasks/MCM/<task-slug>/`.
 
 ## Task Layout
 
@@ -35,20 +35,21 @@ The required agent artifact for generated tasks is:
 Run an oracle validation for a single task:
 
 ```bash
-harbor run -p tasks/mathematical-sciences/applied-mathematics/<task-slug> -a oracle
+harbor run -p tasks/<CUMCM-or-MCM>/<task-slug> -a oracle
 ```
 
-Run the whole applied-mathematics set:
+Run each contest set:
 
 ```bash
-harbor run -p tasks/mathematical-sciences/applied-mathematics -a oracle
+harbor run -p tasks/CUMCM -a oracle
+harbor run -p tasks/MCM -a oracle
 ```
 
 Run static checks where useful:
 
 ```bash
-for check in ci_checks/check-*.sh; do bash "$check" tasks/mathematical-sciences/applied-mathematics/<task-slug>; done
-for check in ci_checks/check-*.py; do python3 "$check" tasks/mathematical-sciences/applied-mathematics/<task-slug>; done
+for check in ci_checks/check-*.sh; do bash "$check" tasks/<CUMCM-or-MCM>/<task-slug>; done
+for check in ci_checks/check-*.py; do python3 "$check" tasks/<CUMCM-or-MCM>/<task-slug>; done
 ```
 
 ## Regenerating Generated Tasks

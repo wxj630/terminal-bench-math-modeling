@@ -301,13 +301,13 @@ PASS if the explanation clearly and concisely describes the verification strateg
 name = "category_and_tags"
 description = "Classification fields and tags are meaningful and relevant to the task"
 guidance = """
-TB-MathModeling tasks use domain/field/subfield instead of a category field. Do NOT flag the absence of a 'category' field — it is intentionally not used in this benchmark.
+TB-MathModeling tasks use first-class contest domains (`CUMCM` or `MCM`), `field = "math-modeling"`, and a descriptive subfield instead of a category field. Do NOT flag the absence of a 'category' field — it is intentionally not used in this benchmark.
 
 Tags should be specific, relevant keywords that help classify the task and make it discoverable. Tags should describe the skills, tools, contest source, mathematical domains, or methods involved — not generic terms. Good tags: ["optimization", "simulation", "time-series", "python"]. Bad tags: ["hard", "coding", "task"].
 
 The template default is tags = []. If tags are unchanged (empty list), the author likely forgot to set them.
 
-PASS if domain/field/subfield accurately reflect the task's modeling domain and tags are specific and relevant. FAIL if the classification is wrong, tags are generic or irrelevant, or defaults were left unchanged. Suggest better tags if applicable."""
+PASS if domain/field/subfield accurately reflect the contest source and modeling topic, and tags are specific and relevant. FAIL if the classification is wrong, tags are generic or irrelevant, or defaults were left unchanged. Suggest better tags if applicable."""
 
 [[criteria]]
 name = "task_name"

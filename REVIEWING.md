@@ -26,13 +26,14 @@ Review tasks from a benchmark integrity perspective first: correctness, verifiab
 For one task:
 
 ```bash
-harbor run -p tasks/mathematical-sciences/applied-mathematics/<task-slug> -a oracle
+harbor run -p tasks/<CUMCM-or-MCM>/<task-slug> -a oracle
 ```
 
 For the full generated set:
 
 ```bash
-harbor run -p tasks/mathematical-sciences/applied-mathematics -a oracle
+harbor run -p tasks/CUMCM -a oracle
+harbor run -p tasks/MCM -a oracle
 ```
 
 A generated task should pass oracle validation before it is considered ready.

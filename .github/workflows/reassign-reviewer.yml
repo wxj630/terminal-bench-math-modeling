@@ -5,7 +5,7 @@ name: Reassign Reviewer
 # assigns a replacement. If @user is omitted, picks the least-loaded
 # reviewer from the stage-appropriate section of
 # `.github/reviewer-pool.yml`:
-#   - 1st pass (default):              default + reviewers_by_field[<F>]
+#   - 1st pass (default):              default + reviewers_by_field[<contest>]
 #   - 2nd pass (`1st review ✅`):      reviewers_secondary
 #   - 3rd pass (`2nd review ✅`):      reviewers_final
 # Gated to write/admin users.
@@ -111,10 +111,10 @@ jobs:
           fields = []
           for f in files:
               parts = f.split("/")
-              # All domains (including `other`) now use 4-segment paths:
-              # tasks/<domain>/<field>/<task>/...
-              if len(parts) >= 4:
-                  fields.append(parts[2])
+              # TB-MathModeling uses first-class contest paths:
+              # tasks/<contest>/<task>/...
+              if len(parts) >= 3:
+                  fields.append(parts[1])
           if fields:
               print(Counter(fields).most_common(1)[0][0])
           PYEOF
