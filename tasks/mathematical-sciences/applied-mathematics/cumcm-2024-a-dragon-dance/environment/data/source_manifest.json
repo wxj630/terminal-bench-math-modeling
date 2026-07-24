@@ -1,0 +1,9 @@
+{
+  "contest": "cumcm",
+  "problem_id": "2024-A",
+  "problem_statement": "cumcm/problems/2024/A.md",
+  "visible_data": [
+    "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/A题"
+  ],
+  "required_output": "/root/results/cumcm-2024-a-dragon-dance_result.json"
+}

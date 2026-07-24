@@ -1,0 +1,9 @@
+{
+  "contest": "cumcm",
+  "problem_id": "2023-C",
+  "problem_statement": "cumcm/problems/2023/C.md",
+  "visible_data": [
+    "cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题"
+  ],
+  "required_output": "/root/results/cumcm-2023-c-vegetable-pricing_result.json"
+}

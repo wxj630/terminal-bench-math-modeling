@@ -1,0 +1,9 @@
+{
+  "contest": "cumcm",
+  "problem_id": "2025-A",
+  "problem_statement": "cumcm/problems/2025/A.md",
+  "visible_data": [
+    "cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/A题"
+  ],
+  "required_output": "/root/results/cumcm-2025-a-smoke-screen_result.json"
+}

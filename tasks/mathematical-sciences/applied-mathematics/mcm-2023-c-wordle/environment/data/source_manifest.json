@@ -1,0 +1,10 @@
+{
+  "contest": "mcm",
+  "problem_id": "2023-C",
+  "problem_statement": "mcm/problems/2023/C.md",
+  "visible_data": [
+    "mcm/source_materials/official_extracted/2023/Predicting Wordle Results.pdf",
+    "mcm/source_materials/official_extracted/2023/Problem Data- Predicting Wordle Results"
+  ],
+  "required_output": "/root/results/mcm-2023-c-wordle_result.json"
+}

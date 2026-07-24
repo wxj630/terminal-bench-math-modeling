@@ -1,0 +1,9 @@
+{
+  "contest": "cumcm",
+  "problem_id": "2024-C",
+  "problem_statement": "cumcm/problems/2024/C.md",
+  "visible_data": [
+    "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题"
+  ],
+  "required_output": "/root/results/cumcm-2024-c-crop-planting_result.json"
+}

@@ -1,0 +1,9 @@
+{
+  "contest": "mcm",
+  "problem_id": "2025-A",
+  "problem_statement": "mcm/problems/2025/A.md",
+  "visible_data": [
+    "docs/mcm-2015-2025/official_assets_extracted/2025/2025_MCM_Problem_A.pdf"
+  ],
+  "required_output": "/root/results/mcm-2025-a-stair-wear_result.json"
+}

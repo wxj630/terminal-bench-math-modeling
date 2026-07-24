@@ -1,0 +1,48 @@
+{
+  "problem_id": "string",
+  "paper_id": "string",
+  "paper_title": "string",
+  "paper_source_ocr": "string",
+  "paper_source_pdf": "string",
+  "official_problem": "string",
+  "reproduction_level": "string",
+  "reproduction_scope": "string",
+  "methods": "string",
+  "experiment_result": {
+    "data_source": {
+      "type": "string",
+      "land_path": "string",
+      "stat_path": "string",
+      "plots": "integer",
+      "crops": "integer",
+      "candidate_rows": "integer"
+    },
+    "q1": {
+      "waste_profit_yuan": "number",
+      "discount_profit_yuan": "number",
+      "discount_gain_pct": "number"
+    },
+    "q2_q3": {
+      "risk_summary": [
+        {
+          "plan": "string",
+          "deterministic_profit_yuan": "number",
+          "mean_profit_yuan": "number",
+          "q10_profit_yuan": "number",
+          "cvar10_profit_yuan": "number",
+          "correlated_cvar10_profit_yuan": "number"
+        }
+      ],
+      "best_correlated_cvar_plan": "string",
+      "best_correlated_cvar10_profit_yuan": "number",
+      "spearman_price_cost": "number"
+    },
+    "artifact_paths": [
+      "string"
+    ]
+  },
+  "artifacts": [
+    "string"
+  ],
+  "difference_from_advanced": "string"
+}

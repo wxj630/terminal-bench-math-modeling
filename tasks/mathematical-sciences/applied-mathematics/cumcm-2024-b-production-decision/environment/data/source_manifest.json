@@ -1,0 +1,9 @@
+{
+  "contest": "cumcm",
+  "problem_id": "2024-B",
+  "problem_statement": "cumcm/problems/2024/B.md",
+  "visible_data": [
+    "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/B题"
+  ],
+  "required_output": "/root/results/cumcm-2024-b-production-decision_result.json"
+}

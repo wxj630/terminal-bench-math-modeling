@@ -1,0 +1,9 @@
+{
+  "contest": "mcm",
+  "problem_id": "2024-B",
+  "problem_statement": "mcm/problems/2024/B.md",
+  "visible_data": [
+    "mcm/source_materials/official_extracted/2024/Searching for Submersibles.pdf"
+  ],
+  "required_output": "/root/results/mcm-2024-b-submersible-search_result.json"
+}

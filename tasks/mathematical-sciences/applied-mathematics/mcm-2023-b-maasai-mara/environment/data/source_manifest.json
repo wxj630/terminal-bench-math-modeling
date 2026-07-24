@@ -1,0 +1,9 @@
+{
+  "contest": "mcm",
+  "problem_id": "2023-B",
+  "problem_statement": "mcm/problems/2023/B.md",
+  "visible_data": [
+    "mcm/source_materials/official_extracted/2023/Reimagining Maasai Mara.pdf"
+  ],
+  "required_output": "/root/results/mcm-2023-b-maasai-mara_result.json"
+}

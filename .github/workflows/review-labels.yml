@@ -1,0 +1,226 @@
+name: Review Label Automation
+
+# Automates label transitions based on GitHub review actions:
+# - changes_requested → switch to "waiting on author"
+# - approved by DRI → add pass label ("1st review ✅", "2nd review ✅", or "3rd review ✅"),
+#                     remove "waiting on reviewer", and assign the next-pass reviewer
+# - review re-requested → switch to "waiting on reviewer"
+#
+# The changes_requested/approved triggers use a workflow_run bridge because
+# pull_request_review gets read-only GITHUB_TOKEN on fork PRs. The trigger
+# workflow (review-labels-trigger.yml) captures review context as an artifact,
+# and this workflow picks it up with write permissions.
+#
+# The review_requested trigger uses pull_request_target directly since it
+# already runs in the base repo context with write permissions.
+
+on:
+  workflow_run:
+    workflows: ["Review Labels Trigger"]
+    types: [completed]
+  pull_request_target:
+    types: [review_requested]
+
+jobs:
+  review-submitted:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'workflow_run'
+      && github.event.workflow_run.conclusion == 'success'
+    permissions:
+      pull-requests: write
+      issues: write
+      actions: read
+      contents: read
+    steps:
+      - name: Download review context
+        uses: actions/download-artifact@v4
+        with:
+          name: review-context
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Apply label changes
+        id: labels
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          PR_NUMBER=$(jq -r '.pr_number' review-context.json)
+          REVIEW_STATE=$(jq -r '.review_state' review-context.json)
+          REVIEWER=$(jq -r '.reviewer' review-context.json)
+
+          echo "pr_number=$PR_NUMBER" >> $GITHUB_OUTPUT
+          echo "PR: #$PR_NUMBER, State: $REVIEW_STATE, Reviewer: $REVIEWER"
+
+          if [ "$REVIEW_STATE" = "changes_requested" ]; then
+            echo "Switching to waiting on author"
+            gh pr edit "$PR_NUMBER" --repo "$REPO" \
+              --remove-label "waiting on reviewer" \
+              --add-label "waiting on author" 2>/dev/null || true
+
+          elif [ "$REVIEW_STATE" = "approved" ]; then
+            # Get current PR labels and assignees
+            pr_data=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json labels,assignees)
+            labels=$(echo "$pr_data" | jq -r '.labels[].name')
+            assignees=$(echo "$pr_data" | jq -r '.assignees[].login')
+
+            # Only act if the approver is assigned to the PR (the DRI)
+            if ! echo "$assignees" | grep -qx "$REVIEWER"; then
+              echo "Approver $REVIEWER is not assigned to the PR. Skipping."
+              exit 0
+            fi
+
+            # Determine which pass label to add
+            has_1st=0
+            has_2nd=0
+            has_3rd=0
+            echo "$labels" | grep -q "1st review ✅" && has_1st=1
+            echo "$labels" | grep -q "2nd review ✅" && has_2nd=1
+            echo "$labels" | grep -q "3rd review ✅" && has_3rd=1
+
+            # Unique chronological list of past approvers (for self-approval guards)
+            past_approvers=$(gh api "repos/$REPO/issues/$PR_NUMBER/timeline" --paginate \
+              --jq '[.[] | select(.event == "reviewed" and .state == "approved") | .user.login]' 2>/dev/null \
+              | jq -s 'add // [] | . as $arr | reduce range(0; length) as $i ([]; if any(. == $arr[$i]) then . else . + [$arr[$i]] end)' 2>/dev/null \
+              || echo "[]")
+            first_reviewer=$(echo "$past_approvers" | jq -r '.[0] // empty')
+            second_reviewer=$(echo "$past_approvers" | jq -r '.[1] // empty')
+
+            if [ "$has_3rd" -eq 1 ]; then
+              echo "Already has 3rd review label. Nothing to do."
+              exit 0
+            elif [ "$has_2nd" -eq 1 ]; then
+              # 3rd-pass approval. Guard against the 1st or 2nd reviewer re-approving.
+              if [ "$REVIEWER" = "$first_reviewer" ] || [ "$REVIEWER" = "$second_reviewer" ]; then
+                echo "Approver $REVIEWER already did an earlier review. Skipping."
+                exit 0
+              fi
+              echo "Adding 3rd review ✅"
+              gh pr edit "$PR_NUMBER" --repo "$REPO" \
+                --remove-label "waiting on reviewer" \
+                --add-label "3rd review ✅" 2>/dev/null || true
+            elif [ "$has_1st" -eq 1 ]; then
+              # 2nd-pass approval. Guard against the 1st reviewer re-approving.
+              if [ "$REVIEWER" = "$first_reviewer" ]; then
+                echo "Approver $REVIEWER already did the 1st review. Skipping."
+                exit 0
+              fi
+              echo "Adding 2nd review ✅"
+              # Keep "waiting on reviewer" — 3rd-pass reviewer is assigned next.
+              gh pr edit "$PR_NUMBER" --repo "$REPO" \
+                --add-label "2nd review ✅" 2>/dev/null || true
+
+              # Assign 3rd-pass reviewer immediately (can't rely on labeled event
+              # since GITHUB_TOKEN label changes don't trigger other workflows)
+              echo "assign_next=3rd" >> $GITHUB_OUTPUT
+            else
+              echo "Adding 1st review ✅"
+              # Keep "waiting on reviewer" — 2nd-pass reviewer is assigned next.
+              gh pr edit "$PR_NUMBER" --repo "$REPO" \
+                --add-label "1st review ✅" 2>/dev/null || true
+
+              # Assign 2nd-pass reviewer immediately (can't rely on labeled event
+              # since GITHUB_TOKEN label changes don't trigger other workflows)
+              echo "assign_next=2nd" >> $GITHUB_OUTPUT
+            fi
+          fi
+
+      - name: Checkout base (for reviewer pool config)
+        if: steps.labels.outputs.assign_next != ''
+        uses: actions/checkout@v4
+
+      - name: Assign next-pass reviewer
+        if: steps.labels.outputs.assign_next != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.labels.outputs.pr_number }}
+          STAGE: ${{ steps.labels.outputs.assign_next }}
+          CONFIG: .github/reviewer-pool.yml
+        run: |
+          case "$STAGE" in
+            2nd) PASS=2; SECTION=reviewers_secondary ;;
+            3rd) PASS=3; SECTION=reviewers_final ;;
+            *)   echo "Unknown stage: $STAGE"; exit 0 ;;
+          esac
+
+          if [ ! -f "$CONFIG" ]; then
+            echo "No reviewer pool config found at $CONFIG"
+            exit 0
+          fi
+
+          # Pool members for this pass (used for the SKIP check).
+          POOL_MEMBERS=$(python3 -c "
+          import sys, yaml
+          with open('$CONFIG') as f: d = yaml.safe_load(f) or {}
+          for x in (d.get('$SECTION') or []): print(x)
+          ")
+
+          # If any pool member is already on the PR (reviewer or assignee),
+          # they'll serve as this pass's reviewer — don't pile another on.
+          ON_PR=$(gh pr view "$PR_NUMBER" --repo "$REPO" \
+            --json reviewRequests,assignees \
+            --jq '[.reviewRequests[].login, .assignees[].login] | unique | .[]')
+          SKIP=false
+          for m in $POOL_MEMBERS; do
+            for u in $ON_PR; do
+              if [ "$m" = "$u" ]; then SKIP=true; break 2; fi
+            done
+          done
+          if [ "$SKIP" = "true" ]; then
+            echo "A ${STAGE}-pass pool member is already on the PR; not assigning another."
+            exit 0
+          fi
+
+          # Exclude prior approvers so a past-pass reviewer isn't re-picked.
+          PAST=$(gh api "repos/${REPO}/issues/${PR_NUMBER}/timeline" --paginate \
+            --jq '[.[] | select(.event == "reviewed" and .state == "approved") | .user.login] | unique | .[]')
+          EXCLUDE_ARGS=""
+          for r in $PAST; do
+            EXCLUDE_ARGS="$EXCLUDE_ARGS --exclude $r"
+          done
+
+          REVIEWER=$(python3 .github/scripts/pick_reviewer.py \
+            --config "$CONFIG" \
+            --repo "$REPO" \
+            --pass "$PASS" \
+            $EXCLUDE_ARGS)
+
+          if [ "$REVIEWER" = "EMPTY" ]; then
+            echo "::warning::No eligible ${STAGE}-pass reviewers (all excluded or pool empty)"
+            exit 0
+          fi
+
+          echo "Assigning ${STAGE}-pass reviewer: $REVIEWER"
+          gh pr edit "$PR_NUMBER" --repo "$REPO" \
+            --add-reviewer "$REVIEWER"
+          gh pr edit "$PR_NUMBER" --repo "$REPO" \
+            --add-assignee "$REVIEWER" || echo "::warning::Could not add assignee $REVIEWER (may not be an org member)"
+          gh pr edit "$PR_NUMBER" --repo "$REPO" \
+            --add-label "waiting on reviewer"
+
+  review-requested:
+    runs-on: ubuntu-latest
+    if: |
+      github.event_name == 'pull_request_target'
+      && github.event.action == 'review_requested'
+    permissions:
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Switch to waiting on reviewer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
+        run: |
+          # Check for 'new task' label via API (pull_request_target doesn't reliably include labels in payload)
+          has_label=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json labels --jq '.labels[].name' | grep -c "new task" || true)
+          if [ "$has_label" -eq 0 ]; then
+            echo "PR does not have 'new task' label. Skipping."
+            exit 0
+          fi
+          gh pr edit "$PR_NUMBER" --repo "$REPO" \
+            --remove-label "waiting on author" \
+            --add-label "waiting on reviewer" 2>/dev/null || true

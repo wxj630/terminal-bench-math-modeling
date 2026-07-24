@@ -1,0 +1,9 @@
+{
+  "contest": "mcm",
+  "problem_id": "2023-A",
+  "problem_statement": "mcm/problems/2023/A.md",
+  "visible_data": [
+    "mcm/source_materials/official_extracted/2023/Drought-Stricken Plant Communities.pdf"
+  ],
+  "required_output": "/root/results/mcm-2023-a-plant-community_result.json"
+}

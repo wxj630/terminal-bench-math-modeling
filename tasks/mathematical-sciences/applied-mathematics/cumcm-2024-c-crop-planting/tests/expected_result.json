@@ -1,0 +1,84 @@
+{
+  "problem_id": "2024-C",
+  "paper_id": "C038",
+  "paper_title": "基于差分遗传算法的农作物种植策略优化",
+  "paper_source_ocr": "Outstanding_Solutions/CUMCM/2024/CUMCM-OCR-2024/C038/C038.md",
+  "paper_source_pdf": "Outstanding_Solutions/CUMCM/2024/CUMCM-PDF-2024/C038.pdf",
+  "official_problem": "cumcm/source_materials/cleaned_text/problems_md/2024/C_C题_pdf.md",
+  "reproduction_level": "algorithmic",
+  "reproduction_scope": "独立读取 CUMCM 2024 C 题官方附件，复现 C038 的种植优化、CVaR 和相关性鲁棒策略，不读取既有逐问结果。",
+  "methods": "官方附件清洗 + 候选种植组合 + 贪心/风险调整优化 + Monte Carlo 情景 + CVaR + Spearman 相关性",
+  "experiment_result": {
+    "data_source": {
+      "type": "official_cumcm_xlsx",
+      "land_path": "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件1.xlsx",
+      "stat_path": "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件2.xlsx",
+      "plots": 54,
+      "crops": 42,
+      "candidate_rows": 1230
+    },
+    "q1": {
+      "waste_profit_yuan": -5389476.0,
+      "discount_profit_yuan": 75678478.0,
+      "discount_gain_pct": 8.1067954e+18
+    },
+    "q2_q3": {
+      "risk_summary": [
+        {
+          "plan": "waste",
+          "deterministic_profit_yuan": -5389476.0,
+          "mean_profit_yuan": 119827636.74,
+          "q10_profit_yuan": 119159280.66,
+          "cvar10_profit_yuan": 118937552.19,
+          "correlated_cvar10_profit_yuan": 118550698.19
+        },
+        {
+          "plan": "discount_surplus",
+          "deterministic_profit_yuan": 75678478.0,
+          "mean_profit_yuan": 119827636.74,
+          "q10_profit_yuan": 119159280.66,
+          "cvar10_profit_yuan": 118937552.19,
+          "correlated_cvar10_profit_yuan": 118550698.19
+        },
+        {
+          "plan": "cvar_risk",
+          "deterministic_profit_yuan": 75678478.0,
+          "mean_profit_yuan": 119827636.74,
+          "q10_profit_yuan": 119159280.66,
+          "cvar10_profit_yuan": 118937552.19,
+          "correlated_cvar10_profit_yuan": 118550698.19
+        }
+      ],
+      "best_correlated_cvar_plan": "waste",
+      "best_correlated_cvar10_profit_yuan": 118550698.19,
+      "spearman_price_cost": 0.2551
+    },
+    "artifact_paths": [
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/candidate_crop_plot_table.csv",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/correlation_heatmap.png",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/profit_risk_comparison.png",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/profit_risk_summary.csv",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_1_plan.csv",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_1_reproduction.xlsx",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_2_plan.csv",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_2_reproduction.xlsx",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/result2_cvar_plan.csv",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/result2_reproduction.xlsx",
+      "cumcm/outstanding_solutions/2024/C/C038/artifacts/spearman_factor_correlation.csv"
+    ]
+  },
+  "artifacts": [
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/candidate_crop_plot_table.csv",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/correlation_heatmap.png",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/profit_risk_comparison.png",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/profit_risk_summary.csv",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_1_plan.csv",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_1_reproduction.xlsx",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_2_plan.csv",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/result1_2_reproduction.xlsx",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/result2_cvar_plan.csv",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/result2_reproduction.xlsx",
+    "cumcm/outstanding_solutions/2024/C/C038/artifacts/spearman_factor_correlation.csv"
+  ],
+  "difference_from_advanced": "从逐问线性规划结果升级为 O 奖论文式全局农业计划：同一候选表贯穿 q1/q2/q3，显式比较超产处置、不确定性下行风险和相关性扰动。"
+}

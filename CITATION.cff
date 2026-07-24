@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you find this work useful, please cite it as below."
+title: "Terminal-Bench Math Modeling: Evaluating AI Agents on Mathematical Modeling Contest Workflows"
+date-released: 2026-07-24
+url: "https://github.com/harbor-framework/terminal-bench-math-modeling"
+repository-code: "https://github.com/harbor-framework/terminal-bench-math-modeling"
+type: dataset
+authors:
+  - name: "Terminal-Bench Math Modeling Team"
+keywords:
+  - "artificial intelligence"
+  - "agent evaluation"
+  - "AI for Mathematical Modeling"
+  - "mathematical modeling contests"
+  - "benchmark"
+license: Apache-2.0

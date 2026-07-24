@@ -1,0 +1,10 @@
+{
+  "contest": "mcm",
+  "problem_id": "2024-C",
+  "problem_statement": "mcm/problems/2024/C.md",
+  "visible_data": [
+    "mcm/source_materials/official_extracted/2024/Momentum in Tennis.pdf",
+    "mcm/source_materials/official_extracted/2024/Problem Data- Momentum in Tennis"
+  ],
+  "required_output": "/root/results/mcm-2024-c-tennis-momentum_result.json"
+}
