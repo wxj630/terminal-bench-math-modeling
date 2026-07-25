@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "mean 2024 holdout accuracy for Olympic medal prediction",
+  "metric_path": "model_evaluation.mean_accuracy_2024",
+  "direction": "higher_is_better",
+  "oracle_value": 0.850591,
+  "baseline_value": 0.499943,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2505964",
+    "result_path": "mcm/outstanding_solutions/2025/C/2505964/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2025/C/q06/result.json",
+    "question_index": 6,
+    "question_label": "原创洞察与国家奥委会决策含义",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

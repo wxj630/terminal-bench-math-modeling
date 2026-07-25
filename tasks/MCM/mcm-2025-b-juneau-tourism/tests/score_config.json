@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "best cumulative sustainability-management score",
+  "metric_path": "dynamic_programming.best_cumulative_score",
+  "direction": "higher_is_better",
+  "oracle_value": 4.793367,
+  "baseline_value": 0.545543,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2504448",
+    "result_path": "mcm/outstanding_solutions/2025/B/2504448/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2025/B/q03/result.json",
+    "question_index": 3,
+    "question_label": "给朱诺旅游委员会的一页备忘录",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "diversity buffer gain under severe frequent drought",
+  "metric_path": "reproduced.drought_buffer[2].diversity_buffer_gain_pct",
+  "direction": "higher_is_better",
+  "oracle_value": 14.96,
+  "baseline_value": 0.463114,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2309229",
+    "result_path": "mcm/outstanding_solutions/2023/A/2309229/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2023/A/q06/result.json",
+    "question_index": 6,
+    "question_label": "长期可行性和大环境管理建议",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

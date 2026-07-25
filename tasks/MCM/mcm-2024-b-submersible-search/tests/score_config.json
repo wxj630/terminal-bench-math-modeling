@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "top search-equipment selection score",
+  "metric_path": "experiment_result.equipment_selection.top_score",
+  "direction": "higher_is_better",
+  "oracle_value": 0.8357,
+  "baseline_value": 0.525257,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2419984",
+    "result_path": "mcm/outstanding_solutions/2024/B/2419984/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2024/B/q04/result.json",
+    "question_index": 4,
+    "question_label": "加勒比海迁移、多潜水器协调与希腊政府备忘录",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

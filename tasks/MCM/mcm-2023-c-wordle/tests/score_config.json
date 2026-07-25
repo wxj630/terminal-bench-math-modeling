@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "final Wordle difficulty-classification accuracy",
+  "metric_path": "target_comparison.lightgbm_like_accuracy.actual",
+  "direction": "higher_is_better",
+  "oracle_value": 0.7,
+  "baseline_value": 0.517514,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2307946",
+    "result_path": "mcm/outstanding_solutions/2023/C/2307946/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2023/C/q05/result.json",
+    "question_index": 5,
+    "question_label": "给纽约时报 Puzzle Editor 的摘要信",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "best correlated CVaR profit for the final crop-planting strategy",
+  "metric_path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
+  "direction": "higher_is_better",
+  "oracle_value": 118550698.19,
+  "baseline_value": 23.963979880339547,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "C038",
+    "result_path": "cumcm/outstanding_solutions/2024/C/C038/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2024/C/q03/result.json",
+    "question_index": 3,
+    "question_label": "问题 3",
+    "metric_path": "experiment_result.objective_max"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

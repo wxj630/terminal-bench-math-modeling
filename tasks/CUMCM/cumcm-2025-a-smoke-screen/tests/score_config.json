@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "total effective smoke-screen duration in the final multi-UAV strategy",
+  "metric_path": "experiment_result.q5_union_duration_s.total",
+  "direction": "higher_is_better",
+  "oracle_value": 19.9,
+  "baseline_value": 0.0,
+  "baseline_note": "terminal slack scalar from the final generic-baseline optimization output",
+  "oracle_source": {
+    "paper_id": "A196",
+    "result_path": "cumcm/outstanding_solutions/2025/A/A196/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2025/A/q05/result.json",
+    "question_index": 5,
+    "question_label": "问题5",
+    "metric_path": "experiment_result.resource_slack[2]"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

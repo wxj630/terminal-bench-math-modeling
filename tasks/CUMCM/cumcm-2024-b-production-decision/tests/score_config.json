@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "posterior expected profit of the final production-inspection policy",
+  "metric_path": "experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior",
+  "direction": "higher_is_better",
+  "oracle_value": 86.8529,
+  "baseline_value": 6.160197122253828,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "B159",
+    "result_path": "cumcm/outstanding_solutions/2024/B/B159/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2024/B/q04/result.json",
+    "question_index": 4,
+    "question_label": "问题 4",
+    "metric_path": "experiment_result.objective_max"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

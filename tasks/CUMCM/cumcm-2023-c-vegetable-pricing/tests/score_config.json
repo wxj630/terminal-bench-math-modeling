@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "maximum projected profit for the final replenishment-pricing plan",
+  "metric_path": "target_comparison.future_week_max_profit_yuan.actual",
+  "direction": "higher_is_better",
+  "oracle_value": 5105.6,
+  "baseline_value": 5.7763291263739855,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "C050",
+    "result_path": "cumcm/outstanding_solutions/2023/C/C050/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2023/C/q04/result.json",
+    "question_index": 4,
+    "question_label": "问题4",
+    "metric_path": "experiment_result.objective_max"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

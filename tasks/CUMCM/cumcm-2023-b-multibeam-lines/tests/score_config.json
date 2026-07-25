@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "missed survey area percentage in the final multibeam-line plan",
+  "metric_path": "target_comparison.problem4_missed_area_pct.actual",
+  "direction": "lower_is_better",
+  "oracle_value": 3.48,
+  "baseline_value": 110.440909090909,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "B226",
+    "result_path": "cumcm/outstanding_solutions/2023/B/B226/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2023/B/q04/result.json",
+    "question_index": 4,
+    "question_label": "问题4",
+    "metric_path": "experiment_result.mean_abs_error"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

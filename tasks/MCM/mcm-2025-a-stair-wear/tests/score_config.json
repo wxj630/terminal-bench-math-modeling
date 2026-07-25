@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "estimated stair age in the final historical-traffic inversion",
+  "metric_path": "experiment_result.estimated_age_years",
+  "direction": "higher_is_better",
+  "oracle_value": 340.3,
+  "baseline_value": 0.503314,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2501909",
+    "result_path": "mcm/outstanding_solutions/2025/A/2501909/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2025/A/q08/result.json",
+    "question_index": 8,
+    "question_label": "典型日人数与短时峰值",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

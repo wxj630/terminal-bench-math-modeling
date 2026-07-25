@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "maximum feasible head speed in the final bench-dragon scenario",
+  "metric_path": "experiment_result.q5.max_head_speed_mps",
+  "direction": "higher_is_better",
+  "oracle_value": 2.00002,
+  "baseline_value": 0.0036116456287834018,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "A016",
+    "result_path": "cumcm/outstanding_solutions/2024/A/A016/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2024/A/q05/result.json",
+    "question_index": 5,
+    "question_label": "问题 5",
+    "metric_path": "experiment_result.mean_squared_error"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "annual thermal power for the final heliostat design",
+  "metric_path": "target_comparison.q3_annual_thermal_power_mw.actual",
+  "direction": "higher_is_better",
+  "oracle_value": 60.336111,
+  "baseline_value": 0.0023665430469887914,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "A175",
+    "result_path": "cumcm/outstanding_solutions/2023/A/A175/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2023/A/q03/result.json",
+    "question_index": 3,
+    "question_label": "问题3",
+    "metric_path": "experiment_result.mean_squared_error"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

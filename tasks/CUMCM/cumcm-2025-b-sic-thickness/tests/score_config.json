@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "Airy-corrected RMSE percentage for the final Si thickness inversion",
+  "metric_path": "single_angle_fits[2].airy_rmse_pct",
+  "direction": "lower_is_better",
+  "oracle_value": 12.2041,
+  "baseline_value": 2500.0,
+  "baseline_note": "observable scale from the final generic-baseline result, used as a conservative error baseline",
+  "oracle_source": {
+    "paper_id": "B157",
+    "result_path": "cumcm/outstanding_solutions/2025/B/B157/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2025/B/q03/result.json",
+    "question_index": 3,
+    "question_label": "问题3",
+    "metric_path": "data_source.rows"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

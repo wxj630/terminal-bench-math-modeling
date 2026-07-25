@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "leave-one-out accuracy for final female-fetus abnormality classification",
+  "metric_path": "experiment_result.female_loo_accuracy",
+  "direction": "higher_is_better",
+  "oracle_value": 0.8659,
+  "baseline_value": 0.062412,
+  "baseline_note": "terminal TOPSIS score from the final generic-baseline ranking vector",
+  "oracle_source": {
+    "paper_id": "C023",
+    "result_path": "cumcm/outstanding_solutions/2025/C/C023/result.json"
+  },
+  "baseline_source": {
+    "result_path": "cumcm/generic_baselines/results/2025/C/q04/result.json",
+    "question_index": 4,
+    "question_label": "问题4",
+    "metric_path": "experiment_result.scores[39]"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

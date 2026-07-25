@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "best final land-use scenario benefit",
+  "metric_path": "reproduced.best_scenario_benefit_million",
+  "direction": "higher_is_better",
+  "oracle_value": 154948.974,
+  "baseline_value": 0.465257,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2315379",
+    "result_path": "mcm/outstanding_solutions/2023/B/2315379/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2023/B/q04/result.json",
+    "question_index": 4,
+    "question_label": "给 Kenyan Tourism and Wildlife Committee 的非技术报告",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}

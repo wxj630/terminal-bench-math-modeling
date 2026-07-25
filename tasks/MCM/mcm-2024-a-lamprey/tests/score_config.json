@@ -1,0 +1,27 @@
+{
+  "scoring_version": "tb-mathmodeling-v0",
+  "metric_label": "adaptive ecological stability in the largest-gain scenario",
+  "metric_path": "experiment_result.largest_stability_gain.adaptive_stability",
+  "direction": "higher_is_better",
+  "oracle_value": 0.9144,
+  "baseline_value": 0.410543,
+  "baseline_note": "final generic-baseline subproblem scalar",
+  "oracle_source": {
+    "paper_id": "2407093",
+    "result_path": "mcm/outstanding_solutions/2024/A/2407093/result.json"
+  },
+  "baseline_source": {
+    "result_path": "mcm/generic_baselines/results/2024/A/q04/result.json",
+    "question_index": 4,
+    "question_label": "对寄生虫和其他生态系统成员的优势",
+    "metric_path": "experiment_result.baseline_score"
+  },
+  "normalization": {
+    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
+    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
+    "clamp": [
+      0.0,
+      1.0
+    ]
+  }
+}
