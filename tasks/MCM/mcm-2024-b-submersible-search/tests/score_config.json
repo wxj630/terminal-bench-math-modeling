@@ -1,27 +1,104 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "top search-equipment selection score",
-  "metric_path": "experiment_result.equipment_selection.top_score",
-  "direction": "higher_is_better",
-  "oracle_value": 0.8357,
-  "baseline_value": 0.525257,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 13,
+  "metrics": [
+    {
+      "path": "experiment_result.caribbean_adaptation.current_multiplier",
+      "oracle_value": 1.35,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier",
+      "oracle_value": 1.2,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.equipment_selection.top_score",
+      "oracle_value": 0.8357,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.location_model.final_mean_x_m",
+      "oracle_value": 7698.65,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.location_model.final_mean_y_m",
+      "oracle_value": -2324.78,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.location_model.final_p95_area_km2",
+      "oracle_value": 0.9722,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.calibrated_detection_multiplier",
+      "oracle_value": 0.8557,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.find_probability_10h_start_1h",
+      "oracle_value": 0.43,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.find_probability_10h_start_3h",
+      "oracle_value": 0.2338,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.find_probability_10h_start_5h",
+      "oracle_value": 0.1158,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.find_probability_18h",
+      "oracle_value": 0.4377,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.find_probability_6h",
+      "oracle_value": 0.4068,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.search_strategy.searched_cells",
+      "oracle_value": 18.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "2419984",
     "result_path": "mcm/outstanding_solutions/2024/B/2419984/result.json"
-  },
-  "baseline_source": {
-    "result_path": "mcm/generic_baselines/results/2024/B/q04/result.json",
-    "question_index": 4,
-    "question_label": "加勒比海迁移、多潜水器协调与希腊政府备忘录",
-    "metric_path": "experiment_result.baseline_score"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

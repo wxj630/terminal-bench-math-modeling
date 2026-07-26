@@ -1,27 +1,1161 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "total effective smoke-screen duration in the final multi-UAV strategy",
-  "metric_path": "experiment_result.q5_union_duration_s.total",
-  "direction": "higher_is_better",
-  "oracle_value": 19.9,
-  "baseline_value": 0.0,
-  "baseline_note": "terminal slack scalar from the final generic-baseline optimization output",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 164,
+  "metrics": [
+    {
+      "path": "experiment_result.q1_duration_s",
+      "oracle_value": 1.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_duration_s",
+      "oracle_value": 4.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q3_union_duration_s.M1",
+      "oracle_value": 6.8,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q3_union_duration_s.total",
+      "oracle_value": 6.8,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q4_union_duration_s.M1",
+      "oracle_value": 8.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q4_union_duration_s.total",
+      "oracle_value": 8.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q5_union_duration_s.M1",
+      "oracle_value": 10.3,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q5_union_duration_s.M2",
+      "oracle_value": 6.2,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q5_union_duration_s.M3",
+      "oracle_value": 3.4,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q5_union_duration_s.total",
+      "oracle_value": 19.9,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.effective_duration_s",
+      "oracle_value": 1.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.drop_time_s",
+      "oracle_value": 1.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.drop_x",
+      "oracle_value": 17620.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.drop_y",
+      "oracle_value": -0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.explode_time_s",
+      "oracle_value": 5.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.explode_x",
+      "oracle_value": 17188.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.explode_y",
+      "oracle_value": -0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.explode_z",
+      "oracle_value": 1736.496,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.fuse_time_s",
+      "oracle_value": 3.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.heading_deg",
+      "oracle_value": 180.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.individual_duration_s",
+      "oracle_value": 1.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q1.strategy.speed_mps",
+      "oracle_value": 120.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.effective_duration_s",
+      "oracle_value": 4.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.drop_time_s",
+      "oracle_value": 0.5,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.drop_x",
+      "oracle_value": 17740.004,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.drop_y",
+      "oracle_value": 0.674,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.explode_time_s",
+      "oracle_value": 4.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.explode_x",
+      "oracle_value": 17308.031,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.explode_y",
+      "oracle_value": 5.528,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.explode_z",
+      "oracle_value": 1736.496,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.fuse_time_s",
+      "oracle_value": 3.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.heading_deg",
+      "oracle_value": 179.356,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.individual_duration_s",
+      "oracle_value": 4.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q2.strategy.speed_mps",
+      "oracle_value": 120.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].drop_time_s",
+      "oracle_value": 0.5,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].drop_x",
+      "oracle_value": 17740.004,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].drop_y",
+      "oracle_value": 0.674,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].explode_time_s",
+      "oracle_value": 4.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].explode_x",
+      "oracle_value": 17308.031,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].explode_y",
+      "oracle_value": 5.528,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].explode_z",
+      "oracle_value": 1736.496,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].fuse_time_s",
+      "oracle_value": 3.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].heading_deg",
+      "oracle_value": 179.356,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].individual_duration_s",
+      "oracle_value": 4.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[0].speed_mps",
+      "oracle_value": 120.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].drop_time_s",
+      "oracle_value": 3.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].drop_x",
+      "oracle_value": 17380.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].drop_y",
+      "oracle_value": -0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].explode_time_s",
+      "oracle_value": 8.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].explode_x",
+      "oracle_value": 16680.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].explode_y",
+      "oracle_value": -0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].explode_z",
+      "oracle_value": 1677.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].fuse_time_s",
+      "oracle_value": 5.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].heading_deg",
+      "oracle_value": 180.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].individual_duration_s",
+      "oracle_value": 2.3,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.strategies[1].speed_mps",
+      "oracle_value": 140.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.union_duration_s.M1",
+      "oracle_value": 6.8,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q3.union_duration_s.total",
+      "oracle_value": 6.8,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].drop_time_s",
+      "oracle_value": 0.5,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].drop_x",
+      "oracle_value": 17740.004,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].drop_y",
+      "oracle_value": 0.674,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].explode_time_s",
+      "oracle_value": 4.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].explode_x",
+      "oracle_value": 17308.031,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].explode_y",
+      "oracle_value": 5.528,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].explode_z",
+      "oracle_value": 1736.496,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].fuse_time_s",
+      "oracle_value": 3.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].heading_deg",
+      "oracle_value": 179.356,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].individual_duration_s",
+      "oracle_value": 4.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[0].speed_mps",
+      "oracle_value": 120.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].drop_time_s",
+      "oracle_value": 31.977,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].drop_x",
+      "oracle_value": 2283.971,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].drop_y",
+      "oracle_value": -641.153,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].drop_z",
+      "oracle_value": 700.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].explode_time_s",
+      "oracle_value": 43.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].explode_x",
+      "oracle_value": 1002.963,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].explode_y",
+      "oracle_value": 172.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].explode_z",
+      "oracle_value": 104.596,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].fuse_time_s",
+      "oracle_value": 11.023,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].heading_deg",
+      "oracle_value": 147.594,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].individual_duration_s",
+      "oracle_value": 3.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.strategies[1].speed_mps",
+      "oracle_value": 137.646,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.union_duration_s.M1",
+      "oracle_value": 8.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q4.union_duration_s.total",
+      "oracle_value": 8.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].drop_time_s",
+      "oracle_value": 32.892,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].drop_x",
+      "oracle_value": 2130.79,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].drop_y",
+      "oracle_value": -609.343,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].drop_z",
+      "oracle_value": 700.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].explode_time_s",
+      "oracle_value": 44.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].explode_x",
+      "oracle_value": 824.089,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].explode_y",
+      "oracle_value": 198.024,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].explode_z",
+      "oracle_value": 95.384,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].fuse_time_s",
+      "oracle_value": 11.108,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].heading_deg",
+      "oracle_value": 148.289,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].individual_duration_s",
+      "oracle_value": 3.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[0].speed_mps",
+      "oracle_value": 138.277,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].drop_time_s",
+      "oracle_value": 34.64,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].drop_x",
+      "oracle_value": 1933.416,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].drop_y",
+      "oracle_value": -626.432,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].drop_z",
+      "oracle_value": 700.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].explode_time_s",
+      "oracle_value": 46.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].explode_x",
+      "oracle_value": 599.729,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].explode_y",
+      "oracle_value": 152.009,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].explode_z",
+      "oracle_value": 67.605,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].fuse_time_s",
+      "oracle_value": 11.36,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].heading_deg",
+      "oracle_value": 149.729,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].individual_duration_s",
+      "oracle_value": 3.4,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[1].speed_mps",
+      "oracle_value": 135.931,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].drop_time_s",
+      "oracle_value": 0.5,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].drop_x",
+      "oracle_value": 17740.004,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].drop_y",
+      "oracle_value": 0.674,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].explode_time_s",
+      "oracle_value": 4.1,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].explode_x",
+      "oracle_value": 17308.031,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].explode_y",
+      "oracle_value": 5.528,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].explode_z",
+      "oracle_value": 1736.496,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].fuse_time_s",
+      "oracle_value": 3.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].heading_deg",
+      "oracle_value": 179.356,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].individual_duration_s",
+      "oracle_value": 4.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[2].speed_mps",
+      "oracle_value": 120.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].drop_time_s",
+      "oracle_value": 23.606,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].drop_x",
+      "oracle_value": 3595.615,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].drop_y",
+      "oracle_value": -748.142,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].drop_z",
+      "oracle_value": 700.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].explode_time_s",
+      "oracle_value": 33.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].explode_x",
+      "oracle_value": 2638.774,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].explode_y",
+      "oracle_value": 148.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].explode_z",
+      "oracle_value": 267.577,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].fuse_time_s",
+      "oracle_value": 9.394,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].heading_deg",
+      "oracle_value": 136.876,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].individual_duration_s",
+      "oracle_value": 3.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[3].speed_mps",
+      "oracle_value": 139.551,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].drop_time_s",
+      "oracle_value": 8.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].drop_x",
+      "oracle_value": 11079.087,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].drop_y",
+      "oracle_value": 835.803,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].drop_z",
+      "oracle_value": 1400.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].explode_time_s",
+      "oracle_value": 15.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].explode_x",
+      "oracle_value": 10273.287,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].explode_y",
+      "oracle_value": 342.13,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].explode_z",
+      "oracle_value": 1159.9,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].fuse_time_s",
+      "oracle_value": 7.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].heading_deg",
+      "oracle_value": 211.494,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].individual_duration_s",
+      "oracle_value": 2.7,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[4].speed_mps",
+      "oracle_value": 135.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].drop_time_s",
+      "oracle_value": 3.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].drop_x",
+      "oracle_value": 17380.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].drop_y",
+      "oracle_value": -0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].drop_z",
+      "oracle_value": 1800.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].explode_time_s",
+      "oracle_value": 8.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].explode_x",
+      "oracle_value": 16680.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].explode_y",
+      "oracle_value": -0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].explode_z",
+      "oracle_value": 1677.5,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].fuse_time_s",
+      "oracle_value": 5.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].heading_deg",
+      "oracle_value": 180.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].individual_duration_s",
+      "oracle_value": 2.3,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.strategies[5].speed_mps",
+      "oracle_value": 140.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.union_duration_s.M1",
+      "oracle_value": 10.3,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.union_duration_s.M2",
+      "oracle_value": 6.2,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.union_duration_s.M3",
+      "oracle_value": 3.4,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "q5.union_duration_s.total",
+      "oracle_value": 19.9,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "A196",
     "result_path": "cumcm/outstanding_solutions/2025/A/A196/result.json"
-  },
-  "baseline_source": {
-    "result_path": "cumcm/generic_baselines/results/2025/A/q05/result.json",
-    "question_index": 5,
-    "question_label": "问题5",
-    "metric_path": "experiment_result.resource_slack[2]"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

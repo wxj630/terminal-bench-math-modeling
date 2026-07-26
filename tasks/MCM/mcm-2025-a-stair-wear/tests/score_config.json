@@ -1,27 +1,62 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "estimated stair age in the final historical-traffic inversion",
-  "metric_path": "experiment_result.estimated_age_years",
-  "direction": "higher_is_better",
-  "oracle_value": 340.3,
-  "baseline_value": 0.503314,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 7,
+  "metrics": [
+    {
+      "path": "experiment_result.age_interval_years[0]",
+      "oracle_value": 283.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.age_interval_years[1]",
+      "oracle_value": 397.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.estimated_age_years",
+      "oracle_value": 340.3,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.estimated_daily_users",
+      "oracle_value": 73.52,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.estimated_passages_per_tread",
+      "oracle_value": 9666667.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.lateral_centroid",
+      "oracle_value": -0.0261,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.median_center_wear_depth_mm",
+      "oracle_value": 4.35,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "2501909",
     "result_path": "mcm/outstanding_solutions/2025/A/2501909/result.json"
-  },
-  "baseline_source": {
-    "result_path": "mcm/generic_baselines/results/2025/A/q08/result.json",
-    "question_index": 8,
-    "question_label": "典型日人数与短时峰值",
-    "metric_path": "experiment_result.baseline_score"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

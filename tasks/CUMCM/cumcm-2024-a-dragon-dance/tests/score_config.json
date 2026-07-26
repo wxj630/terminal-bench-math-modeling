@@ -1,27 +1,76 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "maximum feasible head speed in the final bench-dragon scenario",
-  "metric_path": "experiment_result.q5.max_head_speed_mps",
-  "direction": "higher_is_better",
-  "oracle_value": 2.00002,
-  "baseline_value": 0.0036116456287834018,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 9,
+  "metrics": [
+    {
+      "path": "experiment_result.q1.handles",
+      "oracle_value": 224.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2.terminal_min_margin_m",
+      "oracle_value": 0.249958,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2.terminal_time_s",
+      "oracle_value": 464.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q3.minimum_pitch_m",
+      "oracle_value": 0.4,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q4.base_ratio_2_to_1_length_m",
+      "oracle_value": 14.1372,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q4.shortest_candidate_length_m",
+      "oracle_value": 14.1372,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q4.shortest_candidate_ratio",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q5.max_head_speed_mps",
+      "oracle_value": 2.00002,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q5.max_speed_ratio_when_head_1mps",
+      "oracle_value": 0.99999,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "A016",
     "result_path": "cumcm/outstanding_solutions/2024/A/A016/result.json"
-  },
-  "baseline_source": {
-    "result_path": "cumcm/generic_baselines/results/2024/A/q05/result.json",
-    "question_index": 5,
-    "question_label": "问题 5",
-    "metric_path": "experiment_result.mean_squared_error"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

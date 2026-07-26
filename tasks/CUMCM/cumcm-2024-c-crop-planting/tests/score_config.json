@@ -1,27 +1,153 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "best correlated CVaR profit for the final crop-planting strategy",
-  "metric_path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
-  "direction": "higher_is_better",
-  "oracle_value": 118550698.19,
-  "baseline_value": 23.963979880339547,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 20,
+  "metrics": [
+    {
+      "path": "experiment_result.q1.discount_gain_pct",
+      "oracle_value": 8.1067954e+18,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q1.discount_profit_yuan",
+      "oracle_value": 75678478.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q1.waste_profit_yuan",
+      "oracle_value": -5389476.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
+      "oracle_value": 118550698.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[0].correlated_cvar10_profit_yuan",
+      "oracle_value": 118550698.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[0].cvar10_profit_yuan",
+      "oracle_value": 118937552.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[0].deterministic_profit_yuan",
+      "oracle_value": -5389476.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[0].mean_profit_yuan",
+      "oracle_value": 119827636.74,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[0].q10_profit_yuan",
+      "oracle_value": 119159280.66,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[1].correlated_cvar10_profit_yuan",
+      "oracle_value": 118550698.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[1].cvar10_profit_yuan",
+      "oracle_value": 118937552.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[1].deterministic_profit_yuan",
+      "oracle_value": 75678478.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[1].mean_profit_yuan",
+      "oracle_value": 119827636.74,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[1].q10_profit_yuan",
+      "oracle_value": 119159280.66,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[2].correlated_cvar10_profit_yuan",
+      "oracle_value": 118550698.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[2].cvar10_profit_yuan",
+      "oracle_value": 118937552.19,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[2].deterministic_profit_yuan",
+      "oracle_value": 75678478.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[2].mean_profit_yuan",
+      "oracle_value": 119827636.74,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.risk_summary[2].q10_profit_yuan",
+      "oracle_value": 119159280.66,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.q2_q3.spearman_price_cost",
+      "oracle_value": 0.2551,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "C038",
     "result_path": "cumcm/outstanding_solutions/2024/C/C038/result.json"
-  },
-  "baseline_source": {
-    "result_path": "cumcm/generic_baselines/results/2024/C/q03/result.json",
-    "question_index": 3,
-    "question_label": "问题 3",
-    "metric_path": "experiment_result.objective_max"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

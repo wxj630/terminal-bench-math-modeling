@@ -1,27 +1,125 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "final Wordle difficulty-classification accuracy",
-  "metric_path": "target_comparison.lightgbm_like_accuracy.actual",
-  "direction": "higher_is_better",
-  "oracle_value": 0.7,
-  "baseline_value": 0.517514,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 16,
+  "metrics": [
+    {
+      "path": "reproduced.best_tree_holdout_accuracy",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.calibrated_lightgbm_like_accuracy",
+      "oracle_value": 0.7,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.difficulty_metrics[0].holdout_accuracy",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.difficulty_metrics[0].train_accuracy",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.difficulty_metrics[1].holdout_accuracy",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.difficulty_metrics[1].train_accuracy",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.eerie.difficulty_group",
+      "oracle_value": 2.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.forecast_record.horizon_days",
+      "oracle_value": 60.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.forecast_record.raw_80_lower",
+      "oracle_value": 0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.forecast_record.raw_80_upper",
+      "oracle_value": 59621.565,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.forecast_record.raw_ma_forecast",
+      "oracle_value": 16662.852,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.eerie_distribution_sum_pct.actual",
+      "oracle_value": 100.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.eerie_group.actual",
+      "oracle_value": 2.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.forecast_lower.actual",
+      "oracle_value": 10139.23,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.forecast_upper.actual",
+      "oracle_value": 30808.07,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.lightgbm_like_accuracy.actual",
+      "oracle_value": 0.7,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "2307946",
     "result_path": "mcm/outstanding_solutions/2023/C/2307946/result.json"
-  },
-  "baseline_source": {
-    "result_path": "mcm/generic_baselines/results/2023/C/q05/result.json",
-    "question_index": 5,
-    "question_label": "给纽约时报 Puzzle Editor 的摘要信",
-    "metric_path": "experiment_result.baseline_score"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

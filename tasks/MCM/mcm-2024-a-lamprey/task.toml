@@ -18,7 +18,7 @@ author_profile = "https://scholar.google.com/citations?user=nWK11zgAAAAJ&hl=zh-C
 conflicts_of_interest = "None"
 difficulty_explanation = "This task asks the agent to solve a full recent mathematical-modeling contest problem, integrate the official statement and any attachments, choose and implement an appropriate computational model, and report structured quantitative conclusions. The difficulty is in translating a broad contest prompt into a reproducible model whose key outputs agree with an outstanding-paper reproduction without access to the verifier."
 solution_explanation = "The oracle solution runs the local outstanding-paper reproduction for MCM 2024 problem A (2407093) and exports its structured result JSON as the required artifact."
-verification_explanation = "The verifier runs in a separate container and checks only the declared JSON artifact. It validates that the artifact is structured and scoreable, then writes a continuous reward by normalizing the submitted final metric between a generic-baseline endpoint and the outstanding-paper reproduction endpoint, with direction-aware handling for higher-is-better and lower-is-better metrics."
+verification_explanation = "The verifier runs in a separate container and checks only the declared JSON artifact. It validates that the artifact is structured and scoreable, then writes a continuous reward by averaging normalized closeness over the numeric subproblem outputs selected from the outstanding-paper reproduction."
 domain = "MCM"
 field = "math-modeling"
 subfield = "population dynamics"

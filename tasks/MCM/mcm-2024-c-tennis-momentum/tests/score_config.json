@@ -1,27 +1,167 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "strongest dual-temporal Bayesian momentum-transition probability",
-  "metric_path": "experiment_result.dual_temporal_bayes.strongest_transition.probability",
-  "direction": "higher_is_better",
-  "oracle_value": 0.6726,
-  "baseline_value": 0.579514,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 22,
+  "metrics": [
+    {
+      "path": "experiment_result.dual_temporal_bayes.final_match_warning_rate",
+      "oracle_value": 0.006,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.dual_temporal_bayes.strongest_transition.probability",
+      "oracle_value": 0.6726,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.dual_temporal_bayes.swing_warning_rate",
+      "oracle_value": 0.0032,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.momentum_model.final_momentum_range",
+      "oracle_value": 0.7895,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.randomness_tests.matches_rejecting_iid_at_5pct",
+      "oracle_value": 0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.randomness_tests.median_ljung_box_p",
+      "oracle_value": 0.712832,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.randomness_tests.median_runs_p",
+      "oracle_value": 0.290172,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[0].mean_otherwise",
+      "oracle_value": 0.1257,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[0].mean_when_warning",
+      "oracle_value": 0.3043,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[0].warning_correlation",
+      "oracle_value": 0.0302,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[1].mean_otherwise",
+      "oracle_value": 0.1363,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[1].mean_when_warning",
+      "oracle_value": 0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[1].warning_correlation",
+      "oracle_value": -0.0223,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[2].mean_otherwise",
+      "oracle_value": 100.773,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[2].mean_when_warning",
+      "oracle_value": 110.7391,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[2].warning_correlation",
+      "oracle_value": 0.0154,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[3].mean_otherwise",
+      "oracle_value": 0.1719,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[3].mean_when_warning",
+      "oracle_value": 0.087,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[3].warning_correlation",
+      "oracle_value": -0.0126,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[4].mean_otherwise",
+      "oracle_value": 0.0313,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[4].mean_when_warning",
+      "oracle_value": 0.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.top_swing_features[4].warning_correlation",
+      "oracle_value": -0.0101,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "2401298",
     "result_path": "mcm/outstanding_solutions/2024/C/2401298/result.json"
-  },
-  "baseline_source": {
-    "result_path": "mcm/generic_baselines/results/2024/C/q05/result.json",
-    "question_index": 5,
-    "question_label": "给教练的备忘录与训练建议",
-    "metric_path": "experiment_result.baseline_score"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

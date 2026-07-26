@@ -1,27 +1,69 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "leave-one-out accuracy for final female-fetus abnormality classification",
-  "metric_path": "experiment_result.female_loo_accuracy",
-  "direction": "higher_is_better",
-  "oracle_value": 0.8659,
-  "baseline_value": 0.062412,
-  "baseline_note": "terminal TOPSIS score from the final generic-baseline ranking vector",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 8,
+  "metrics": [
+    {
+      "path": "experiment_result.earliest_recommended_week",
+      "oracle_value": 12.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.female_loo_accuracy",
+      "oracle_value": 0.8659,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.latest_recommended_week",
+      "oracle_value": 20.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.male_pseudo_r2",
+      "oracle_value": 0.90064,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "male_lmm.mother_count",
+      "oracle_value": 267.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "male_lmm.pseudo_r2",
+      "oracle_value": 0.90064,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "male_lmm.residual_sigma_logit",
+      "oracle_value": 0.47707,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "male_lmm.rmse_fetal_fraction",
+      "oracle_value": 0.01056,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "C023",
     "result_path": "cumcm/outstanding_solutions/2025/C/C023/result.json"
-  },
-  "baseline_source": {
-    "result_path": "cumcm/generic_baselines/results/2025/C/q04/result.json",
-    "question_index": 4,
-    "question_label": "问题4",
-    "metric_path": "experiment_result.scores[39]"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

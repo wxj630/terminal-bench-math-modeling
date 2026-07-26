@@ -1,27 +1,174 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "best cumulative sustainability-management score",
-  "metric_path": "dynamic_programming.best_cumulative_score",
-  "direction": "higher_is_better",
-  "oracle_value": 4.793367,
-  "baseline_value": 0.545543,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 23,
+  "metrics": [
+    {
+      "path": "destination_adaptation.district_population_reference",
+      "oracle_value": 180000.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "destination_adaptation.scaled_annual_visitor_target",
+      "oracle_value": 8949156.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.best_cumulative_score",
+      "oracle_value": 4.793367,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.horizon_years[0]",
+      "oracle_value": 2024.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.horizon_years[1]",
+      "oracle_value": 2028.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.annual_visitors",
+      "oracle_value": 1491526.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.conservation_share",
+      "oracle_value": 0.35,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.daily_cap",
+      "oracle_value": 11000.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.glacier_pressure_fields_per_year",
+      "oracle_value": 0.3319,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.net_benefit_usd",
+      "oracle_value": 341049399.55,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.resident_acceptance_index",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.sustainability_score",
+      "oracle_value": 1.007,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.total_revenue_usd",
+      "oracle_value": 431610327.83,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.visitor_fee_usd",
+      "oracle_value": 55.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "dynamic_programming.optimal_terminal_policy.year",
+      "oracle_value": 2028.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.annual_visitors",
+      "oracle_value": 1491526.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.optimal_conservation_share",
+      "oracle_value": 0.35,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.optimal_daily_cap",
+      "oracle_value": 11000.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.optimal_visitor_fee_usd",
+      "oracle_value": 55.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.resident_acceptance_index",
+      "oracle_value": 1.0,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.sustainability_score",
+      "oracle_value": 1.007,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.terminal_year",
+      "oracle_value": 2028.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "experiment_result.total_revenue_usd",
+      "oracle_value": 431610327.83,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "2504448",
     "result_path": "mcm/outstanding_solutions/2025/B/2504448/result.json"
-  },
-  "baseline_source": {
-    "result_path": "mcm/generic_baselines/results/2025/B/q03/result.json",
-    "question_index": 3,
-    "question_label": "给朱诺旅游委员会的一页备忘录",
-    "metric_path": "experiment_result.baseline_score"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }

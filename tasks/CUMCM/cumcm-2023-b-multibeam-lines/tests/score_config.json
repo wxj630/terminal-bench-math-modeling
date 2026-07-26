@@ -1,27 +1,160 @@
 {
-  "scoring_version": "tb-mathmodeling-v0",
-  "metric_label": "missed survey area percentage in the final multibeam-line plan",
-  "metric_path": "target_comparison.problem4_missed_area_pct.actual",
-  "direction": "lower_is_better",
-  "oracle_value": 3.48,
-  "baseline_value": 110.440909090909,
-  "baseline_note": "final generic-baseline subproblem scalar",
+  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "metric_count": 21,
+  "metrics": [
+    {
+      "path": "reproduced.problem3_last_position_m",
+      "oracle_value": 7226.14,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem3_line_count",
+      "oracle_value": 34.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem3_total_length_m",
+      "oracle_value": 125936.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem4_summary.avg_position_error_m",
+      "oracle_value": 9.27,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem4_summary.greedy_avg_overlap_pct",
+      "oracle_value": 10.35,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem4_summary.missed_area_pct",
+      "oracle_value": 3.48,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles",
+      "oracle_value": 30.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem4_summary.sa_avg_overlap_pct",
+      "oracle_value": 10.48,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.problem4_summary.total_length_nautical_miles",
+      "oracle_value": 622.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.max_depth_m",
+      "oracle_value": 197.2,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.mean_depth_m",
+      "oracle_value": 62.539,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.min_depth_m",
+      "oracle_value": 20.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.x_count",
+      "oracle_value": 201.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.x_range_nm",
+      "oracle_value": 4.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.y_count",
+      "oracle_value": 251.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "reproduced.seabed_grid_summary.y_range_nm",
+      "oracle_value": 5.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.problem3_last_position_m.actual",
+      "oracle_value": 7226.14,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.problem3_line_count.actual",
+      "oracle_value": 34.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.problem3_total_length_m.actual",
+      "oracle_value": 125936.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.problem4_missed_area_pct.actual",
+      "oracle_value": 3.48,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    },
+    {
+      "path": "target_comparison.problem4_total_length_nm.actual",
+      "oracle_value": 622.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0
+    }
+  ],
+  "aggregation": "weighted_mean",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "missing_or_nonnumeric_metric_reward": 0.0,
   "oracle_source": {
     "paper_id": "B226",
     "result_path": "cumcm/outstanding_solutions/2023/B/B226/result.json"
-  },
-  "baseline_source": {
-    "result_path": "cumcm/generic_baselines/results/2023/B/q04/result.json",
-    "question_index": 4,
-    "question_label": "问题4",
-    "metric_path": "experiment_result.mean_abs_error"
-  },
-  "normalization": {
-    "higher_is_better": "(score - baseline_value) / (oracle_value - baseline_value)",
-    "lower_is_better": "(baseline_value - score) / (baseline_value - oracle_value)",
-    "clamp": [
-      0.0,
-      1.0
-    ]
   }
 }
