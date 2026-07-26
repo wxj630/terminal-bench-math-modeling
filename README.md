@@ -14,9 +14,11 @@ TB-MathModeling benchmarks whether terminal agents can perform this applied-math
 
 ## Scoring
 
-Unlike short-answer terminal tasks, real-world mathematical-modeling problems rarely have a single exact answer. TB-MathModeling therefore uses a continuous task reward. Each verifier extracts a panel of numeric subproblem outputs from the submitted JSON and compares them with the outstanding-paper reproduction endpoints.
+Unlike short-answer terminal tasks, real-world mathematical-modeling problems rarely have a single exact answer. TB-MathModeling therefore uses a continuous task reward anchored by two comparison objects: a generic baseline and an outstanding-paper reproduction.
 
-For each numeric scoring item, exact agreement with the O-award reproduction receives 1. Missing or nonnumeric values receive 0. Otherwise the item receives a smooth normalized-closeness score, `1 / (1 + normalized_error)`, where `normalized_error = abs(actual - oracle) / max(abs_scale, rel_scale * abs(oracle))`. The task reward is the weighted mean over all selected numeric subproblem items and is clamped to `[0, 1]`. The current release scores numerical modeling outputs; future versions can add rubric-based scoring for modeling quality, assumptions, validation, and paper writing.
+Each verifier first extracts a panel of numeric subproblem outputs from the submitted JSON. For each numeric item, exact agreement with the O-award reproduction receives raw item score 1. Missing or nonnumeric values receive 0. Otherwise the item receives a smooth normalized-closeness score, `1 / (1 + normalized_error)`, where `normalized_error = abs(actual - oracle) / max(abs_scale, rel_scale * abs(oracle))`. The raw panel score is the weighted mean over all selected numeric subproblem items.
+
+The final reward is then normalized between the baseline and outstanding endpoints: `clamp((raw_panel_score - baseline_panel_score) / (1 - baseline_panel_score), 0, 1)`. For MCM tasks the baseline endpoint comes from the archived generic baseline scores for that problem. For CUMCM tasks, when no explicit generic baseline score is available, the verifier falls back to the generic baseline's matched numeric-panel score against the same outstanding reproduction. The current release scores numerical modeling outputs; future versions can add rubric-based scoring for modeling quality, assumptions, validation, and paper writing.
 
 ## Tasks
 

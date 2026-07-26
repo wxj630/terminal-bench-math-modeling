@@ -1,5 +1,5 @@
 {
-  "scoring_version": "tb-mathmodeling-v1-multi-numeric",
+  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
   "metric_count": 7,
   "metrics": [
     {
@@ -52,9 +52,64 @@
       "weight": 1.0
     }
   ],
-  "aggregation": "weighted_mean",
+  "raw_panel_aggregation": "weighted_mean",
   "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
   "missing_or_nonnumeric_metric_reward": 0.0,
+  "baseline_endpoint": {
+    "kind": "explicit_generic_baseline_score_mean",
+    "panel_score": 0.454092875,
+    "matched_metric_count": null,
+    "result_count": 8,
+    "result_paths": [
+      "mcm/generic_baselines/results/2025/A/q01/result.json",
+      "mcm/generic_baselines/results/2025/A/q02/result.json",
+      "mcm/generic_baselines/results/2025/A/q03/result.json",
+      "mcm/generic_baselines/results/2025/A/q04/result.json",
+      "mcm/generic_baselines/results/2025/A/q05/result.json",
+      "mcm/generic_baselines/results/2025/A/q06/result.json",
+      "mcm/generic_baselines/results/2025/A/q07/result.json",
+      "mcm/generic_baselines/results/2025/A/q08/result.json"
+    ],
+    "sources": [
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q01/result.json",
+        "explicit_score": 0.418886
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q02/result.json",
+        "explicit_score": 0.436886
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q03/result.json",
+        "explicit_score": 0.415257
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q04/result.json",
+        "explicit_score": 0.428743
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q05/result.json",
+        "explicit_score": 0.433886
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q06/result.json",
+        "explicit_score": 0.470171
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q07/result.json",
+        "explicit_score": 0.5256
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2025/A/q08/result.json",
+        "explicit_score": 0.503314
+      }
+    ]
+  },
+  "outstanding_endpoint": {
+    "kind": "outstanding_paper_reproduction",
+    "panel_score": 1.0
+  },
+  "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)",
   "oracle_source": {
     "paper_id": "2501909",
     "result_path": "mcm/outstanding_solutions/2025/A/2501909/result.json"

@@ -91,19 +91,31 @@ def main() -> None:
         weighted_sum += weight * float(item["reward"])
         weight_total += weight
         details.append(item)
-    reward = weighted_sum / weight_total if weight_total else 0.0
+    raw_panel_score = weighted_sum / weight_total if weight_total else 0.0
+    raw_panel_score = min(1.0, max(0.0, raw_panel_score))
+    baseline_score = _as_float(SCORE_CONFIG.get("baseline_endpoint", {}).get("panel_score", 0.0))
+    outstanding_score = _as_float(SCORE_CONFIG.get("outstanding_endpoint", {}).get("panel_score", 1.0))
+    if outstanding_score <= baseline_score:
+        reward = raw_panel_score
+    else:
+        reward = (raw_panel_score - baseline_score) / (outstanding_score - baseline_score)
     reward = min(1.0, max(0.0, reward))
     REWARD.write_text(f"{reward:.12g}\n", encoding="utf-8")
     DETAILS.write_text(json.dumps({
         "reward": reward,
+        "raw_panel_score": raw_panel_score,
+        "baseline_panel_score": baseline_score,
+        "outstanding_panel_score": outstanding_score,
         "scoring_version": SCORE_CONFIG.get("scoring_version"),
         "metric_count": len(details),
         "scoreable_count": sum(1 for item in details if item.get("found") and not item.get("nonnumeric")),
         "metrics": details,
     }, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
-        "tb-mathmodeling reward={:.12g} scoreable_metrics={}/{}".format(
+        "tb-mathmodeling reward={:.12g} raw_panel_score={:.12g} baseline={:.12g} scoreable_metrics={}/{}".format(
             reward,
+            raw_panel_score,
+            baseline_score,
             sum(1 for item in details if item.get("found") and not item.get("nonnumeric")),
             len(details),
         )
