@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 23,
+  "effective_metric_count": 23,
   "metrics": [
     {
       "path": "destination_adaptation.district_population_reference",

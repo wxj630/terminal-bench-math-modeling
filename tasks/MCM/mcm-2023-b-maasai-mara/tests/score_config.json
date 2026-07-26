@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 11,
+  "effective_metric_count": 11,
   "metrics": [
     {
       "path": "reproduced.best_scenario_benefit_million",

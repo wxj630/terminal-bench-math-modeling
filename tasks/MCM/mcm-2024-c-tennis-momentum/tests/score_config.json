@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 22,
+  "effective_metric_count": 22,
   "metrics": [
     {
       "path": "experiment_result.dual_temporal_bayes.final_match_warning_rate",

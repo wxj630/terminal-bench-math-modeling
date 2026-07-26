@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 13,
+  "effective_metric_count": 13,
   "metrics": [
     {
       "path": "experiment_result.caribbean_adaptation.current_multiplier",

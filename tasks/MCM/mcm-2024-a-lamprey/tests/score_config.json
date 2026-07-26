@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 105,
+  "effective_metric_count": 105,
   "metrics": [
     {
       "path": "experiment_result.adaptive_vs_fixed[0].adaptive_gain_pct",

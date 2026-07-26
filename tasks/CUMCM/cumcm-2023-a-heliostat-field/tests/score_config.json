@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 29,
+  "effective_metric_count": 29,
   "metrics": [
     {
       "path": "reproduced.design_summary[0].annual_optical_efficiency",

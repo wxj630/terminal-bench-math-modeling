@@ -116,16 +116,32 @@ def test_required_json_identifiers():
 def test_scoring_metric_panel_is_configured():
     metrics = SCORE_CONFIG.get("metrics")
     assert isinstance(metrics, list) and metrics, "score_config must declare numeric scoring metrics"
+    endpoint_modes = 0
     for metric in metrics:
         assert isinstance(metric.get("path"), str) and metric["path"], "each scoring metric needs a path"
         _as_float(metric.get("oracle_value"), metric["path"])
+        if metric.get("normalization_mode") == "baseline_to_outstanding_minmax":
+            endpoint_modes += 1
+            _as_float(metric.get("baseline_value"), metric["path"] + ".baseline_value")
+            _as_float(metric.get("outstanding_value"), metric["path"] + ".outstanding_value")
+            assert metric.get("direction") in ("higher_is_better", "lower_is_better"), (
+                "min-max metrics must declare whether higher or lower values move toward the outstanding endpoint"
+            )
     baseline = SCORE_CONFIG.get("baseline_endpoint", {})
     outstanding = SCORE_CONFIG.get("outstanding_endpoint", {})
-    baseline_score = _as_float(baseline.get("panel_score", 0.0), "baseline_endpoint.panel_score")
-    outstanding_score = _as_float(outstanding.get("panel_score", 1.0), "outstanding_endpoint.panel_score")
+    baseline_score = _as_float(
+        baseline.get("normalized_panel_score", baseline.get("panel_score", 0.0)),
+        "baseline_endpoint normalized score",
+    )
+    outstanding_score = _as_float(
+        outstanding.get("normalized_panel_score", outstanding.get("panel_score", 1.0)),
+        "outstanding_endpoint normalized score",
+    )
     assert 0.0 <= baseline_score < outstanding_score <= 1.0, (
         "score_config must define baseline and outstanding endpoints with baseline < outstanding"
     )
+    if SCORE_CONFIG.get("scoring_version") == "tb-mathmodeling-v3-endpoint-minmax":
+        assert endpoint_modes > 0, "endpoint min-max scoring requires at least one directional metric"
 
 
 def test_result_has_enough_substantive_structure():

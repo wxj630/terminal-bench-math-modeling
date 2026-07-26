@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 2,
+  "effective_metric_count": 2,
   "metrics": [
     {
       "path": "experiment_result.si_recommended_thickness_um",

@@ -1,127 +1,355 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
-  "metric_count": 16,
+  "scoring_version": "tb-mathmodeling-v3-endpoint-minmax",
+  "metric_count": 23,
+  "effective_metric_count": 17,
   "metrics": [
     {
       "path": "reproduced.best_tree_holdout_accuracy",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "baseline_source_path": "difficulty_model.holdout_accuracy",
+      "baseline_value": 0.422222,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.calibrated_lightgbm_like_accuracy",
       "oracle_value": 0.7,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 0.7,
+      "baseline_source_path": "difficulty_model.holdout_accuracy",
+      "baseline_value": 0.422222,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.difficulty_metrics[0].holdout_accuracy",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "baseline_source_path": "difficulty_model.holdout_accuracy",
+      "baseline_value": 0.422222,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.difficulty_metrics[0].train_accuracy",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "reproduced.difficulty_metrics[1].holdout_accuracy",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "baseline_source_path": "difficulty_model.holdout_accuracy",
+      "baseline_value": 0.422222,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.difficulty_metrics[1].train_accuracy",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "reproduced.eerie.difficulty_group",
       "oracle_value": 2.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 2.0,
+      "baseline_source_path": "difficulty_model.eerie_classifier_class",
+      "baseline_value": 2.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[0]",
+      "oracle_value": 0.649,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.649,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.1 try",
+      "baseline_value": 0.245,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[1]",
+      "oracle_value": 7.5792,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 7.5792,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.2 tries",
+      "baseline_value": 7.01,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[2]",
+      "oracle_value": 26.2985,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 26.2985,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.3 tries",
+      "baseline_value": 22.062,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[3]",
+      "oracle_value": 32.6147,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 32.6147,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.4 tries",
+      "baseline_value": 30.668,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[4]",
+      "oracle_value": 20.9304,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 20.9304,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.5 tries",
+      "baseline_value": 22.491,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[5]",
+      "oracle_value": 9.6302,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 9.6302,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.6 tries",
+      "baseline_value": 11.839,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+    },
+    {
+      "path": "reproduced.eerie.paper_aligned_distribution_pct[6]",
+      "oracle_value": 2.298,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 2.298,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent.7 or more tries (X)",
+      "baseline_value": 5.685,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "reproduced.forecast_record.horizon_days",
       "oracle_value": 60.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 60.0,
+      "baseline_source_path": "data_source.date_max -> report_count_model.prediction_date",
+      "baseline_value": 60.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "reproduced.forecast_record.raw_80_lower",
       "oracle_value": 0.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 0.0,
+      "baseline_source_path": "report_count_model.prediction_interval_80[0]",
+      "baseline_value": 20365.0,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "reproduced.forecast_record.raw_80_upper",
       "oracle_value": 59621.565,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 59621.565,
+      "baseline_source_path": "report_count_model.prediction_interval_80[1]",
+      "baseline_value": 30713.0,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.forecast_record.raw_ma_forecast",
       "oracle_value": 16662.852,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 16662.852,
+      "baseline_source_path": "report_count_model.predicted_reported_results",
+      "baseline_value": 23612.0,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "target_comparison.eerie_distribution_sum_pct.actual",
       "oracle_value": 100.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 100.0,
+      "baseline_source_path": "eerie_prediction.predicted_distribution_percent",
+      "baseline_value": 100.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "target_comparison.eerie_group.actual",
       "oracle_value": 2.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 2.0,
+      "baseline_source_path": "difficulty_model.eerie_classifier_class",
+      "baseline_value": 2.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "target_comparison.forecast_lower.actual",
       "oracle_value": 10139.23,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 10139.23,
+      "baseline_source_path": "report_count_model.prediction_interval_80[0]",
+      "baseline_value": 20365.0,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "target_comparison.forecast_upper.actual",
       "oracle_value": 30808.07,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 30808.07,
+      "baseline_source_path": "report_count_model.prediction_interval_80[1]",
+      "baseline_value": 30713.0,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "target_comparison.lightgbm_like_accuracy.actual",
       "oracle_value": 0.7,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 0.7,
+      "baseline_source_path": "difficulty_model.holdout_accuracy",
+      "baseline_value": 0.422222,
+      "normalization_mode": "baseline_to_outstanding_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
-  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "metric_reward": "per-metric min-max between baseline_value and outstanding_value, using direction",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "question_result_numeric_panel",
-    "panel_score": 0.40521212083208996,
-    "matched_metric_count": 14,
+    "kind": "question_result_minmax_endpoint",
+    "panel_score": 0.40827618419633227,
+    "matched_metric_count": 21,
     "unmatched_metric_count": 2,
     "result_count": 5,
     "result_paths": [
@@ -142,135 +370,197 @@
     "metric_details": [
       {
         "path": "reproduced.best_tree_holdout_accuracy",
-        "oracle_value": 1.0,
+        "outstanding_value": 1.0,
         "found": true,
-        "reward": 0.1719744675240549,
+        "closeness_reward": 0.1719744675240549,
         "baseline_source_path": "difficulty_model.holdout_accuracy",
         "baseline_actual": 0.422222
       },
       {
         "path": "reproduced.calibrated_lightgbm_like_accuracy",
-        "oracle_value": 0.7,
+        "outstanding_value": 0.7,
         "found": true,
-        "reward": 0.23218658956597693,
+        "closeness_reward": 0.23218658956597693,
         "baseline_source_path": "difficulty_model.holdout_accuracy",
         "baseline_actual": 0.422222
       },
       {
         "path": "reproduced.difficulty_metrics[0].holdout_accuracy",
-        "oracle_value": 1.0,
+        "outstanding_value": 1.0,
         "found": true,
-        "reward": 0.1719744675240549,
+        "closeness_reward": 0.1719744675240549,
         "baseline_source_path": "difficulty_model.holdout_accuracy",
         "baseline_actual": 0.422222
       },
       {
         "path": "reproduced.difficulty_metrics[0].train_accuracy",
-        "oracle_value": 1.0,
+        "outstanding_value": 1.0,
         "found": false,
-        "reward": 0.0
+        "closeness_reward": 0.0
       },
       {
         "path": "reproduced.difficulty_metrics[1].holdout_accuracy",
-        "oracle_value": 1.0,
+        "outstanding_value": 1.0,
         "found": true,
-        "reward": 0.1719744675240549,
+        "closeness_reward": 0.1719744675240549,
         "baseline_source_path": "difficulty_model.holdout_accuracy",
         "baseline_actual": 0.422222
       },
       {
         "path": "reproduced.difficulty_metrics[1].train_accuracy",
-        "oracle_value": 1.0,
+        "outstanding_value": 1.0,
         "found": false,
-        "reward": 0.0
+        "closeness_reward": 0.0
       },
       {
         "path": "reproduced.eerie.difficulty_group",
-        "oracle_value": 2.0,
+        "outstanding_value": 2.0,
         "found": true,
-        "reward": 1.0,
+        "closeness_reward": 1.0,
         "baseline_source_path": "difficulty_model.eerie_classifier_class",
         "baseline_actual": 2.0
       },
       {
-        "path": "reproduced.forecast_record.horizon_days",
-        "oracle_value": 60.0,
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[0]",
+        "outstanding_value": 0.649,
         "found": true,
-        "reward": 1.0,
+        "closeness_reward": 0.16161700008300822,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.1 try",
+        "baseline_actual": 0.245
+      },
+      {
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[1]",
+        "outstanding_value": 7.5792,
+        "found": true,
+        "closeness_reward": 0.6150683301052813,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.2 tries",
+        "baseline_actual": 7.01
+      },
+      {
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[2]",
+        "outstanding_value": 26.2985,
+        "found": true,
+        "closeness_reward": 0.42690522055322283,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.3 tries",
+        "baseline_actual": 22.062
+      },
+      {
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[3]",
+        "outstanding_value": 32.6147,
+        "found": true,
+        "closeness_reward": 0.6678249367285594,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.4 tries",
+        "baseline_actual": 30.668
+      },
+      {
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[4]",
+        "outstanding_value": 20.9304,
+        "found": true,
+        "closeness_reward": 0.6167718665464381,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.5 tries",
+        "baseline_actual": 22.491
+      },
+      {
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[5]",
+        "outstanding_value": 9.6302,
+        "found": true,
+        "closeness_reward": 0.34348346106198263,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.6 tries",
+        "baseline_actual": 11.839
+      },
+      {
+        "path": "reproduced.eerie.paper_aligned_distribution_pct[6]",
+        "outstanding_value": 2.298,
+        "found": true,
+        "closeness_reward": 0.07528748812371,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent.7 or more tries (X)",
+        "baseline_actual": 5.685
+      },
+      {
+        "path": "reproduced.forecast_record.horizon_days",
+        "outstanding_value": 60.0,
+        "found": true,
+        "closeness_reward": 1.0,
         "baseline_source_path": "data_source.date_max -> report_count_model.prediction_date",
         "baseline_actual": 60
       },
       {
         "path": "reproduced.forecast_record.raw_80_lower",
-        "oracle_value": 0.0,
+        "outstanding_value": 0.0,
         "found": true,
-        "reward": 4.910385441147138e-09,
+        "closeness_reward": 4.910385441147138e-09,
         "baseline_source_path": "report_count_model.prediction_interval_80[0]",
         "baseline_actual": 20365
       },
       {
         "path": "reproduced.forecast_record.raw_80_upper",
-        "oracle_value": 59621.565,
+        "outstanding_value": 59621.565,
         "found": true,
-        "reward": 0.1983905245245224,
+        "closeness_reward": 0.1983905245245224,
         "baseline_source_path": "report_count_model.prediction_interval_80[1]",
         "baseline_actual": 30713
       },
       {
         "path": "reproduced.forecast_record.raw_ma_forecast",
-        "oracle_value": 16662.852,
+        "outstanding_value": 16662.852,
         "found": true,
-        "reward": 0.22344524018299236,
+        "closeness_reward": 0.22344524018299236,
         "baseline_source_path": "report_count_model.predicted_reported_results",
         "baseline_actual": 23612
       },
       {
         "path": "target_comparison.eerie_distribution_sum_pct.actual",
-        "oracle_value": 100.0,
+        "outstanding_value": 100.0,
         "found": true,
-        "reward": 1.0,
+        "closeness_reward": 1.0,
         "baseline_source_path": "eerie_prediction.predicted_distribution_percent",
         "baseline_actual": 100.0
       },
       {
         "path": "target_comparison.eerie_group.actual",
-        "oracle_value": 2.0,
+        "outstanding_value": 2.0,
         "found": true,
-        "reward": 1.0,
+        "closeness_reward": 1.0,
         "baseline_source_path": "difficulty_model.eerie_classifier_class",
         "baseline_actual": 2.0
       },
       {
         "path": "target_comparison.forecast_lower.actual",
-        "oracle_value": 10139.23,
+        "outstanding_value": 10139.23,
         "found": true,
-        "reward": 0.1063325306400425,
+        "closeness_reward": 0.1063325306400425,
         "baseline_source_path": "report_count_model.prediction_interval_80[0]",
         "baseline_actual": 20365
       },
       {
         "path": "target_comparison.forecast_upper.actual",
-        "oracle_value": 30808.07,
+        "outstanding_value": 30808.07,
         "found": true,
-        "reward": 0.9749290513513788,
+        "closeness_reward": 0.9749290513513788,
         "baseline_source_path": "report_count_model.prediction_interval_80[1]",
         "baseline_actual": 30713
       },
       {
         "path": "target_comparison.lightgbm_like_accuracy.actual",
-        "oracle_value": 0.7,
+        "outstanding_value": 0.7,
         "found": true,
-        "reward": 0.23218658956597693,
+        "closeness_reward": 0.23218658956597693,
         "baseline_source_path": "difficulty_model.holdout_accuracy",
         "baseline_actual": 0.422222
       }
-    ]
+    ],
+    "normalized_panel_score": 0.0,
+    "effective_metric_count": 17,
+    "constant_endpoint_metric_count": 4,
+    "missing_baseline_metric_count": 2
   },
   "outstanding_endpoint": {
-    "kind": "outstanding_paper_reproduction",
-    "panel_score": 1.0
+    "kind": "outstanding_paper_reproduction_metric_values",
+    "normalized_panel_score": 1.0,
+    "effective_metric_count": 17,
+    "note": "The normalized endpoint is 1 because each metric uses its own outstanding_value as the max/min endpoint."
   },
-  "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)",
+  "final_reward": "weighted_mean(metric_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization",
   "oracle_source": {
     "paper_id": "2307946",
     "result_path": "mcm/outstanding_solutions/2023/C/2307946/result.json"

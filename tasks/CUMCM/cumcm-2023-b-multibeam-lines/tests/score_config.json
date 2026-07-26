@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 21,
+  "effective_metric_count": 21,
   "metrics": [
     {
       "path": "reproduced.problem3_last_position_m",

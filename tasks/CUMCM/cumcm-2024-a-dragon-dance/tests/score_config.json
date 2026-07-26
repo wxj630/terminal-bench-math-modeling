@@ -1,6 +1,7 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-baseline-outstanding-panel",
+  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
   "metric_count": 9,
+  "effective_metric_count": 9,
   "metrics": [
     {
       "path": "experiment_result.q1.handles",
