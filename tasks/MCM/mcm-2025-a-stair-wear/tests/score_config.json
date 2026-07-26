@@ -1,113 +1,331 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
-  "metric_count": 7,
-  "effective_metric_count": 7,
+  "scoring_version": "tb-mathmodeling-v4-endpoint-target-minmax",
+  "metric_count": 21,
+  "effective_metric_count": 5,
   "metrics": [
+    {
+      "path": "daily_use_pattern.peak_period_share_of_daily_use",
+      "oracle_value": 0.376,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.376,
+      "baseline_source_path": "daily_use_pattern.peak_period_share_of_daily_use",
+      "baseline_value": 0.376,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "daily_use_pattern.peak_period_users",
+      "oracle_value": 27.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 27.6,
+      "baseline_source_path": "daily_use_pattern.peak_period_users",
+      "baseline_value": 27.3,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "daily_use_pattern.regular_hour_users_if_spread_over_10_hours",
+      "oracle_value": 4.6,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 4.6,
+      "baseline_source_path": "daily_use_pattern.regular_hour_users_if_spread_over_10_hours",
+      "baseline_value": 4.5,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
     {
       "path": "experiment_result.age_interval_years[0]",
       "oracle_value": 283.6,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 283.6,
+      "baseline_source_path": "age_reliability.plausible_interval_years[0]",
+      "baseline_value": 283.6,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "experiment_result.age_interval_years[1]",
       "oracle_value": 397.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 397.0,
+      "baseline_source_path": "age_reliability.plausible_interval_years[1]",
+      "baseline_value": 397.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "experiment_result.estimated_age_years",
       "oracle_value": 340.3,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 340.3,
+      "baseline_source_path": "age_reliability.estimated_age_years",
+      "baseline_value": 340.3,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "experiment_result.estimated_daily_users",
       "oracle_value": 73.52,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 73.52,
+      "baseline_source_path": "inverse_wear_model.usage_frequency.estimated_daily_users",
+      "baseline_value": 72.67,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.estimated_passages_per_tread",
       "oracle_value": 9666667.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 9666667.0,
+      "baseline_source_path": "inverse_wear_model.usage_frequency.estimated_passages_per_tread",
+      "baseline_value": 9555556.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.lateral_centroid",
       "oracle_value": -0.0261,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": -0.0261,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "experiment_result.median_center_wear_depth_mm",
       "oracle_value": 4.35,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 4.35,
+      "baseline_source_path": "inverse_wear_model.usage_frequency.median_center_wear_depth_mm",
+      "baseline_value": 4.3,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "material_consistency.worked_example_material_proxy.material_density_proxy_g_cm3",
+      "oracle_value": 2.35,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 2.35,
+      "baseline_source_path": "material_source_guidance.worked_example_material_proxy.material_density_proxy",
+      "baseline_value": 2.35,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "material_consistency.worked_example_material_proxy.surface_hardness_proxy",
+      "oracle_value": 4.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 4.0,
+      "baseline_source_path": "material_source_guidance.worked_example_material_proxy.surface_hardness_proxy",
+      "baseline_value": 4.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "renovation_detection.repair_candidates[0].candidate_score",
+      "oracle_value": 5.35,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 5.35,
+      "baseline_source_path": "renovation_detection.repair_candidates[0].candidate_score",
+      "baseline_value": 5.35,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "renovation_detection.repair_candidates[0].patch_boundary_score",
+      "oracle_value": 5.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 5.0,
+      "baseline_source_path": "renovation_detection.repair_candidates[0].patch_boundary_score",
+      "baseline_value": 5.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "renovation_detection.repair_candidates[0].wear_jump_mm",
+      "oracle_value": -2.4,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": -2.4,
+      "baseline_source_path": "renovation_detection.repair_candidates[0].wear_jump_mm",
+      "baseline_value": -2.4,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "renovation_detection.repair_candidates[1].candidate_score",
+      "oracle_value": 3.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 3.0,
+      "baseline_source_path": "renovation_detection.repair_candidates[1].candidate_score",
+      "baseline_value": 3.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "renovation_detection.repair_candidates[1].patch_boundary_score",
+      "oracle_value": 2.0,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 2.0,
+      "baseline_source_path": "renovation_detection.repair_candidates[1].patch_boundary_score",
+      "baseline_value": 2.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "renovation_detection.repair_candidates[1].wear_jump_mm",
+      "oracle_value": 1.4,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 1.4,
+      "baseline_source_path": "renovation_detection.repair_candidates[1].wear_jump_mm",
+      "baseline_value": 1.4,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "wdm.front_to_back_rounding_ratio",
+      "oracle_value": 1.497,
+      "rel_scale": 0.12,
+      "abs_scale": 1e-06,
+      "weight": 1.0,
+      "outstanding_value": 1.497,
+      "baseline_source_path": "inverse_wear_model.direction_preference.front_to_back_rounding_ratio",
+      "baseline_value": 1.497,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "wdm.side_to_center_wear_ratio",
+      "oracle_value": 0.526,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.526,
+      "baseline_source_path": "inverse_wear_model.simultaneous_use.side_to_center_wear_ratio",
+      "baseline_value": 0.526,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
+    },
+    {
+      "path": "wdm.simultaneous_use_index_0_1",
+      "oracle_value": 0.391,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.391,
+      "baseline_source_path": "inverse_wear_model.simultaneous_use.simultaneous_use_index_0_1",
+      "baseline_value": 0.391,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
-  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "metric_reward": "per-metric target-distance min-max between baseline_value and outstanding_value, using direction",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "legacy_explicit_generic_baseline_score_mean_no_question_metric_match",
-    "panel_score": 0.454092875,
-    "matched_metric_count": null,
+    "kind": "question_result_minmax_endpoint",
+    "panel_score": 0.9286126325222258,
+    "matched_metric_count": 20,
+    "unmatched_metric_count": 1,
     "result_count": 8,
     "result_paths": [
-      "mcm/generic_baselines/results/2025/A/q01/result.json",
-      "mcm/generic_baselines/results/2025/A/q02/result.json",
-      "mcm/generic_baselines/results/2025/A/q03/result.json",
-      "mcm/generic_baselines/results/2025/A/q04/result.json",
-      "mcm/generic_baselines/results/2025/A/q05/result.json",
-      "mcm/generic_baselines/results/2025/A/q06/result.json",
-      "mcm/generic_baselines/results/2025/A/q07/result.json",
-      "mcm/generic_baselines/results/2025/A/q08/result.json"
-    ],
-    "sources": [
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q01/result.json",
-        "explicit_score": 0.418886
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q02/result.json",
-        "explicit_score": 0.436886
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q03/result.json",
-        "explicit_score": 0.415257
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q04/result.json",
-        "explicit_score": 0.428743
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q05/result.json",
-        "explicit_score": 0.433886
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q06/result.json",
-        "explicit_score": 0.470171
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q07/result.json",
-        "explicit_score": 0.5256
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/A/q08/result.json",
-        "explicit_score": 0.503314
-      }
-    ],
-    "note": "Fallback retained only because no comparable question_results numeric metrics were matched.",
-    "question_result_dir": "mcm/question_results/2025/A",
-    "question_result_paths": [
       "mcm/question_results/2025/A/q01/result.json",
       "mcm/question_results/2025/A/q02/result.json",
       "mcm/question_results/2025/A/q03/result.json",
@@ -117,14 +335,197 @@
       "mcm/question_results/2025/A/q07/result.json",
       "mcm/question_results/2025/A/q08/result.json"
     ],
-    "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 7
+    "question_result_dir": "mcm/question_results/2025/A",
+    "legacy_generic_result_paths": [
+      "mcm/generic_baselines/results/2025/A/q01/result.json",
+      "mcm/generic_baselines/results/2025/A/q02/result.json",
+      "mcm/generic_baselines/results/2025/A/q03/result.json",
+      "mcm/generic_baselines/results/2025/A/q04/result.json",
+      "mcm/generic_baselines/results/2025/A/q05/result.json",
+      "mcm/generic_baselines/results/2025/A/q06/result.json",
+      "mcm/generic_baselines/results/2025/A/q07/result.json",
+      "mcm/generic_baselines/results/2025/A/q08/result.json"
+    ],
+    "metric_details": [
+      {
+        "path": "daily_use_pattern.peak_period_share_of_daily_use",
+        "outstanding_value": 0.376,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "daily_use_pattern.peak_period_share_of_daily_use",
+        "baseline_actual": 0.376
+      },
+      {
+        "path": "daily_use_pattern.peak_period_users",
+        "outstanding_value": 27.6,
+        "found": true,
+        "closeness_reward": 0.9169435215946843,
+        "baseline_source_path": "daily_use_pattern.peak_period_users",
+        "baseline_actual": 27.3
+      },
+      {
+        "path": "daily_use_pattern.regular_hour_users_if_spread_over_10_hours",
+        "outstanding_value": 4.6,
+        "found": true,
+        "closeness_reward": 0.846625766871166,
+        "baseline_source_path": "daily_use_pattern.regular_hour_users_if_spread_over_10_hours",
+        "baseline_actual": 4.5
+      },
+      {
+        "path": "experiment_result.age_interval_years[0]",
+        "outstanding_value": 283.6,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "age_reliability.plausible_interval_years[0]",
+        "baseline_actual": 283.6
+      },
+      {
+        "path": "experiment_result.age_interval_years[1]",
+        "outstanding_value": 397.0,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "age_reliability.plausible_interval_years[1]",
+        "baseline_actual": 397.0
+      },
+      {
+        "path": "experiment_result.estimated_age_years",
+        "outstanding_value": 340.3,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "age_reliability.estimated_age_years",
+        "baseline_actual": 340.3
+      },
+      {
+        "path": "experiment_result.estimated_daily_users",
+        "outstanding_value": 73.52,
+        "found": true,
+        "closeness_reward": 0.9121210868036894,
+        "baseline_source_path": "inverse_wear_model.usage_frequency.estimated_daily_users",
+        "baseline_actual": 72.67
+      },
+      {
+        "path": "experiment_result.estimated_passages_per_tread",
+        "outstanding_value": 9666667.0,
+        "found": true,
+        "closeness_reward": 0.9125874951097899,
+        "baseline_source_path": "inverse_wear_model.usage_frequency.estimated_passages_per_tread",
+        "baseline_actual": 9555556
+      },
+      {
+        "path": "experiment_result.lateral_centroid",
+        "outstanding_value": -0.0261,
+        "found": false,
+        "closeness_reward": 0.0
+      },
+      {
+        "path": "experiment_result.median_center_wear_depth_mm",
+        "outstanding_value": 4.35,
+        "found": true,
+        "closeness_reward": 0.9125874125874128,
+        "baseline_source_path": "inverse_wear_model.usage_frequency.median_center_wear_depth_mm",
+        "baseline_actual": 4.3
+      },
+      {
+        "path": "material_consistency.worked_example_material_proxy.material_density_proxy_g_cm3",
+        "outstanding_value": 2.35,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "material_source_guidance.worked_example_material_proxy.material_density_proxy",
+        "baseline_actual": 2.35
+      },
+      {
+        "path": "material_consistency.worked_example_material_proxy.surface_hardness_proxy",
+        "outstanding_value": 4.0,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "material_source_guidance.worked_example_material_proxy.surface_hardness_proxy",
+        "baseline_actual": 4.0
+      },
+      {
+        "path": "renovation_detection.repair_candidates[0].candidate_score",
+        "outstanding_value": 5.35,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "renovation_detection.repair_candidates[0].candidate_score",
+        "baseline_actual": 5.35
+      },
+      {
+        "path": "renovation_detection.repair_candidates[0].patch_boundary_score",
+        "outstanding_value": 5.0,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "renovation_detection.repair_candidates[0].patch_boundary_score",
+        "baseline_actual": 5
+      },
+      {
+        "path": "renovation_detection.repair_candidates[0].wear_jump_mm",
+        "outstanding_value": -2.4,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "renovation_detection.repair_candidates[0].wear_jump_mm",
+        "baseline_actual": -2.4
+      },
+      {
+        "path": "renovation_detection.repair_candidates[1].candidate_score",
+        "outstanding_value": 3.0,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "renovation_detection.repair_candidates[1].candidate_score",
+        "baseline_actual": 3.0
+      },
+      {
+        "path": "renovation_detection.repair_candidates[1].patch_boundary_score",
+        "outstanding_value": 2.0,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "renovation_detection.repair_candidates[1].patch_boundary_score",
+        "baseline_actual": 2
+      },
+      {
+        "path": "renovation_detection.repair_candidates[1].wear_jump_mm",
+        "outstanding_value": 1.4,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "renovation_detection.repair_candidates[1].wear_jump_mm",
+        "baseline_actual": 1.4
+      },
+      {
+        "path": "wdm.front_to_back_rounding_ratio",
+        "outstanding_value": 1.497,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "inverse_wear_model.direction_preference.front_to_back_rounding_ratio",
+        "baseline_actual": 1.497
+      },
+      {
+        "path": "wdm.side_to_center_wear_ratio",
+        "outstanding_value": 0.526,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "inverse_wear_model.simultaneous_use.side_to_center_wear_ratio",
+        "baseline_actual": 0.526
+      },
+      {
+        "path": "wdm.simultaneous_use_index_0_1",
+        "outstanding_value": 0.391,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "inverse_wear_model.simultaneous_use.simultaneous_use_index_0_1",
+        "baseline_actual": 0.391
+      }
+    ],
+    "normalized_panel_score": 0.0,
+    "effective_metric_count": 5,
+    "constant_endpoint_metric_count": 15,
+    "missing_baseline_metric_count": 1
   },
   "outstanding_endpoint": {
-    "kind": "outstanding_paper_reproduction",
-    "panel_score": 1.0
+    "kind": "outstanding_paper_reproduction_metric_values",
+    "normalized_panel_score": 1.0,
+    "effective_metric_count": 5,
+    "note": "The normalized endpoint is 1 because each metric uses its own outstanding_value as the max/min endpoint."
   },
-  "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)",
+  "final_reward": "weighted_mean(metric_target_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization",
   "oracle_source": {
     "paper_id": "2501909",
     "result_path": "mcm/outstanding_solutions/2025/A/2501909/result.json"

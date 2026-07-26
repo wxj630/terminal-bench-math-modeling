@@ -63,7 +63,7 @@ def _metric_reward(actual: float, metric: dict[str, Any]) -> float:
 
 def _metric_endpoint_score(actual: float, metric: dict[str, Any]) -> float:
     mode = metric.get("normalization_mode")
-    if mode != "baseline_to_outstanding_minmax":
+    if mode != "baseline_to_outstanding_target_minmax":
         return _metric_reward(actual, metric)
     baseline = _as_float(metric["baseline_value"])
     outstanding = _as_float(metric["outstanding_value"])
@@ -71,11 +71,11 @@ def _metric_endpoint_score(actual: float, metric: dict[str, Any]) -> float:
     if direction == "higher_is_better":
         if outstanding <= baseline:
             return 0.0
-        score = (actual - baseline) / (outstanding - baseline)
+        score = 1.0 - abs(actual - outstanding) / (outstanding - baseline)
     elif direction == "lower_is_better":
         if outstanding >= baseline:
             return 0.0
-        score = (baseline - actual) / (baseline - outstanding)
+        score = 1.0 - abs(actual - outstanding) / (baseline - outstanding)
     else:
         return 0.0
     return min(1.0, max(0.0, score))
@@ -92,7 +92,7 @@ def main() -> None:
         configured_weight = max(0.0, _as_float(metric.get("weight", 1.0)))
         weight = max(0.0, _as_float(metric.get("score_weight", configured_weight)))
         endpoint_minmax = endpoint_minmax or (
-            metric.get("normalization_mode") == "baseline_to_outstanding_minmax" and weight > 0.0
+            metric.get("normalization_mode") == "baseline_to_outstanding_target_minmax" and weight > 0.0
         )
         found, value = _try_get(data, path)
         item = {

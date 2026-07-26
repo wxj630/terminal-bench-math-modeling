@@ -1,5 +1,5 @@
 {
-  "scoring_version": "tb-mathmodeling-v3-endpoint-minmax",
+  "scoring_version": "tb-mathmodeling-v4-endpoint-target-minmax",
   "metric_count": 23,
   "effective_metric_count": 17,
   "metrics": [
@@ -12,11 +12,11 @@
       "outstanding_value": 1.0,
       "baseline_source_path": "difficulty_model.holdout_accuracy",
       "baseline_value": 0.422222,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.calibrated_lightgbm_like_accuracy",
@@ -27,11 +27,11 @@
       "outstanding_value": 0.7,
       "baseline_source_path": "difficulty_model.holdout_accuracy",
       "baseline_value": 0.422222,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.difficulty_metrics[0].holdout_accuracy",
@@ -42,11 +42,11 @@
       "outstanding_value": 1.0,
       "baseline_source_path": "difficulty_model.holdout_accuracy",
       "baseline_value": 0.422222,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.difficulty_metrics[0].train_accuracy",
@@ -69,11 +69,11 @@
       "outstanding_value": 1.0,
       "baseline_source_path": "difficulty_model.holdout_accuracy",
       "baseline_value": 0.422222,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.difficulty_metrics[1].train_accuracy",
@@ -97,7 +97,7 @@
       "baseline_source_path": "difficulty_model.eerie_classifier_class",
       "baseline_value": 2.0,
       "normalization_mode": "constant_endpoint",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 0.0,
       "direction": "exact_value",
       "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
@@ -111,11 +111,11 @@
       "outstanding_value": 0.649,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.1 try",
       "baseline_value": 0.245,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.eerie.paper_aligned_distribution_pct[1]",
@@ -126,11 +126,11 @@
       "outstanding_value": 7.5792,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.2 tries",
       "baseline_value": 7.01,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.eerie.paper_aligned_distribution_pct[2]",
@@ -141,11 +141,11 @@
       "outstanding_value": 26.2985,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.3 tries",
       "baseline_value": 22.062,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.eerie.paper_aligned_distribution_pct[3]",
@@ -156,11 +156,11 @@
       "outstanding_value": 32.6147,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.4 tries",
       "baseline_value": 30.668,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.eerie.paper_aligned_distribution_pct[4]",
@@ -171,11 +171,11 @@
       "outstanding_value": 20.9304,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.5 tries",
       "baseline_value": 22.491,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "lower_is_better",
-      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "reproduced.eerie.paper_aligned_distribution_pct[5]",
@@ -186,11 +186,11 @@
       "outstanding_value": 9.6302,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.6 tries",
       "baseline_value": 11.839,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "lower_is_better",
-      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "reproduced.eerie.paper_aligned_distribution_pct[6]",
@@ -201,11 +201,11 @@
       "outstanding_value": 2.298,
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent.7 or more tries (X)",
       "baseline_value": 5.685,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "lower_is_better",
-      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "reproduced.forecast_record.horizon_days",
@@ -217,7 +217,7 @@
       "baseline_source_path": "data_source.date_max -> report_count_model.prediction_date",
       "baseline_value": 60.0,
       "normalization_mode": "constant_endpoint",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 0.0,
       "direction": "exact_value",
       "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
@@ -231,11 +231,11 @@
       "outstanding_value": 0.0,
       "baseline_source_path": "report_count_model.prediction_interval_80[0]",
       "baseline_value": 20365.0,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "lower_is_better",
-      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "reproduced.forecast_record.raw_80_upper",
@@ -246,11 +246,11 @@
       "outstanding_value": 59621.565,
       "baseline_source_path": "report_count_model.prediction_interval_80[1]",
       "baseline_value": 30713.0,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "reproduced.forecast_record.raw_ma_forecast",
@@ -261,11 +261,11 @@
       "outstanding_value": 16662.852,
       "baseline_source_path": "report_count_model.predicted_reported_results",
       "baseline_value": 23612.0,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "lower_is_better",
-      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "target_comparison.eerie_distribution_sum_pct.actual",
@@ -277,7 +277,7 @@
       "baseline_source_path": "eerie_prediction.predicted_distribution_percent",
       "baseline_value": 100.0,
       "normalization_mode": "constant_endpoint",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 0.0,
       "direction": "exact_value",
       "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
@@ -292,7 +292,7 @@
       "baseline_source_path": "difficulty_model.eerie_classifier_class",
       "baseline_value": 2.0,
       "normalization_mode": "constant_endpoint",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 0.0,
       "direction": "exact_value",
       "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
@@ -306,11 +306,11 @@
       "outstanding_value": 10139.23,
       "baseline_source_path": "report_count_model.prediction_interval_80[0]",
       "baseline_value": 20365.0,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "lower_is_better",
-      "normalization_formula": "clamp((baseline_value - actual) / (baseline_value - outstanding_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "target_comparison.forecast_upper.actual",
@@ -321,11 +321,11 @@
       "outstanding_value": 30808.07,
       "baseline_source_path": "report_count_model.prediction_interval_80[1]",
       "baseline_value": 30713.0,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "target_comparison.lightgbm_like_accuracy.actual",
@@ -336,15 +336,15 @@
       "outstanding_value": 0.7,
       "baseline_source_path": "difficulty_model.holdout_accuracy",
       "baseline_value": 0.422222,
-      "normalization_mode": "baseline_to_outstanding_minmax",
-      "direction_basis": "outstanding_value compared with baseline_value",
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
       "score_weight": 1.0,
       "direction": "higher_is_better",
-      "normalization_formula": "clamp((actual - baseline_value) / (outstanding_value - baseline_value), 0, 1)"
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
-  "metric_reward": "per-metric min-max between baseline_value and outstanding_value, using direction",
+  "metric_reward": "per-metric target-distance min-max between baseline_value and outstanding_value, using direction",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
     "kind": "question_result_minmax_endpoint",
@@ -560,7 +560,7 @@
     "effective_metric_count": 17,
     "note": "The normalized endpoint is 1 because each metric uses its own outstanding_value as the max/min endpoint."
   },
-  "final_reward": "weighted_mean(metric_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization",
+  "final_reward": "weighted_mean(metric_target_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization",
   "oracle_source": {
     "paper_id": "2307946",
     "result_path": "mcm/outstanding_solutions/2023/C/2307946/result.json"

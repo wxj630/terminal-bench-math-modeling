@@ -120,7 +120,7 @@ def test_scoring_metric_panel_is_configured():
     for metric in metrics:
         assert isinstance(metric.get("path"), str) and metric["path"], "each scoring metric needs a path"
         _as_float(metric.get("oracle_value"), metric["path"])
-        if metric.get("normalization_mode") == "baseline_to_outstanding_minmax":
+        if metric.get("normalization_mode") == "baseline_to_outstanding_target_minmax":
             endpoint_modes += 1
             _as_float(metric.get("baseline_value"), metric["path"] + ".baseline_value")
             _as_float(metric.get("outstanding_value"), metric["path"] + ".outstanding_value")
@@ -140,7 +140,7 @@ def test_scoring_metric_panel_is_configured():
     assert 0.0 <= baseline_score < outstanding_score <= 1.0, (
         "score_config must define baseline and outstanding endpoints with baseline < outstanding"
     )
-    if SCORE_CONFIG.get("scoring_version") == "tb-mathmodeling-v3-endpoint-minmax":
+    if SCORE_CONFIG.get("scoring_version") == "tb-mathmodeling-v4-endpoint-target-minmax":
         assert endpoint_modes > 0, "endpoint min-max scoring requires at least one directional metric"
 
 

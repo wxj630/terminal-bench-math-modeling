@@ -1,212 +1,639 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
-  "metric_count": 23,
-  "effective_metric_count": 23,
+  "scoring_version": "tb-mathmodeling-v4-endpoint-target-minmax",
+  "metric_count": 27,
+  "effective_metric_count": 19,
   "metrics": [
     {
       "path": "destination_adaptation.district_population_reference",
       "oracle_value": 180000.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 180000.0,
+      "baseline_source_path": "destination_adaptation.adapted_constraints.district_level_planning_population",
+      "baseline_value": 180000.0,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "destination_adaptation.scaled_annual_visitor_target",
       "oracle_value": 8949156.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 8949156.0,
+      "baseline_source_path": "destination_adaptation.adapted_constraints.recommended_annual_visitor_target_for_district",
+      "baseline_value": 8448000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.best_cumulative_score",
       "oracle_value": 4.793367,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 4.793367,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "dynamic_programming.horizon_years[0]",
       "oracle_value": 2024.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 2024.0,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "dynamic_programming.horizon_years[1]",
       "oracle_value": 2028.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 2028.0,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.annual_visitors",
       "oracle_value": 1491526.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1491526.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.annual_visitors",
+      "baseline_value": 1408000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.conservation_share",
       "oracle_value": 0.35,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 0.35,
+      "baseline_source_path": "sustainability_model.optimal_policy.conservation_share",
+      "baseline_value": 0.35,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.daily_cap",
       "oracle_value": 11000.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 11000.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.daily_cap",
+      "baseline_value": 10000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.glacier_pressure_fields_per_year",
       "oracle_value": 0.3319,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 0.3319,
+      "baseline_source_path": "sustainability_model.optimal_policy.projected_glacier_recession_fields_per_year",
+      "baseline_value": 0.3353,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.net_benefit_usd",
       "oracle_value": 341049399.55,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 341049399.55,
+      "baseline_source_path": "sustainability_model.optimal_policy.net_benefit_usd",
+      "baseline_value": 313532032.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.resident_acceptance_index",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.resident_acceptance_index",
+      "baseline_value": 0.78,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.sustainability_score",
       "oracle_value": 1.007,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.007,
+      "baseline_source_path": "sustainability_model.optimal_policy.sustainability_score",
+      "baseline_value": 0.908447,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.total_revenue_usd",
       "oracle_value": 431610327.83,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 431610327.83,
+      "baseline_source_path": "sustainability_model.optimal_policy.total_revenue_usd",
+      "baseline_value": 400400000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.visitor_fee_usd",
       "oracle_value": 55.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 55.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.visitor_fee_usd",
+      "baseline_value": 50.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "dynamic_programming.optimal_terminal_policy.year",
       "oracle_value": 2028.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 2028.0,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "experiment_result.annual_visitors",
       "oracle_value": 1491526.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1491526.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.annual_visitors",
+      "baseline_value": 1408000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.optimal_conservation_share",
       "oracle_value": 0.35,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 0.35,
+      "baseline_source_path": "sustainability_model.optimal_policy.conservation_share",
+      "baseline_value": 0.35,
+      "normalization_mode": "constant_endpoint",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 0.0,
+      "direction": "exact_value",
+      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
     },
     {
       "path": "experiment_result.optimal_daily_cap",
       "oracle_value": 11000.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 11000.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.daily_cap",
+      "baseline_value": 10000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.optimal_visitor_fee_usd",
       "oracle_value": 55.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 55.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.visitor_fee_usd",
+      "baseline_value": 50.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.resident_acceptance_index",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.0,
+      "baseline_source_path": "sustainability_model.optimal_policy.resident_acceptance_index",
+      "baseline_value": 0.78,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.sustainability_score",
       "oracle_value": 1.007,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 1.007,
+      "baseline_source_path": "sustainability_model.optimal_policy.sustainability_score",
+      "baseline_value": 0.908447,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     },
     {
       "path": "experiment_result.terminal_year",
       "oracle_value": 2028.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 2028.0,
+      "normalization_mode": "missing_baseline",
+      "direction": "unscored_missing_baseline",
+      "direction_basis": "no numeric baseline endpoint",
+      "score_weight": 0.0
     },
     {
       "path": "experiment_result.total_revenue_usd",
       "oracle_value": 431610327.83,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "outstanding_value": 431610327.83,
+      "baseline_source_path": "sustainability_model.optimal_policy.total_revenue_usd",
+      "baseline_value": 400400000.0,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "sensitivity_analysis[0].correlation_with_score",
+      "oracle_value": 0.59522,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.59522,
+      "baseline_source_path": "sensitivity_analysis.top_factors[1].correlation_with_score",
+      "baseline_value": 0.909965,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
+    },
+    {
+      "path": "sensitivity_analysis[2].correlation_with_score",
+      "oracle_value": -0.19619,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": -0.19619,
+      "baseline_source_path": "sensitivity_analysis.top_factors[2].correlation_with_score",
+      "baseline_value": -0.868509,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+    },
+    {
+      "path": "sensitivity_analysis[3].correlation_with_score",
+      "oracle_value": 0.11805,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.11805,
+      "baseline_source_path": "sensitivity_analysis.top_factors[4].correlation_with_score",
+      "baseline_value": 0.227667,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "lower_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
+    },
+    {
+      "path": "sensitivity_analysis[4].correlation_with_score",
+      "oracle_value": 0.00598,
+      "rel_scale": 0.12,
+      "abs_scale": 0.0001,
+      "weight": 1.0,
+      "outstanding_value": 0.00598,
+      "baseline_source_path": "sensitivity_analysis.top_factors[5].correlation_with_score",
+      "baseline_value": -0.117707,
+      "normalization_mode": "baseline_to_outstanding_target_minmax",
+      "direction_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "score_weight": 1.0,
+      "direction": "higher_is_better",
+      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
-  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
+  "metric_reward": "per-metric target-distance min-max between baseline_value and outstanding_value, using direction",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "legacy_explicit_generic_baseline_score_mean_no_question_metric_match",
-    "panel_score": 0.5036763333333333,
-    "matched_metric_count": null,
+    "kind": "question_result_minmax_endpoint",
+    "panel_score": 0.45315038039459654,
+    "matched_metric_count": 22,
+    "unmatched_metric_count": 5,
     "result_count": 3,
     "result_paths": [
-      "mcm/generic_baselines/results/2025/B/q01/result.json",
-      "mcm/generic_baselines/results/2025/B/q02/result.json",
-      "mcm/generic_baselines/results/2025/B/q03/result.json"
-    ],
-    "sources": [
-      {
-        "result_path": "mcm/generic_baselines/results/2025/B/q01/result.json",
-        "explicit_score": 0.493029
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/B/q02/result.json",
-        "explicit_score": 0.472457
-      },
-      {
-        "result_path": "mcm/generic_baselines/results/2025/B/q03/result.json",
-        "explicit_score": 0.545543
-      }
-    ],
-    "note": "Fallback retained only because no comparable question_results numeric metrics were matched.",
-    "question_result_dir": "mcm/question_results/2025/B",
-    "question_result_paths": [
       "mcm/question_results/2025/B/q01/result.json",
       "mcm/question_results/2025/B/q02/result.json",
       "mcm/question_results/2025/B/q03/result.json"
     ],
-    "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 23
+    "question_result_dir": "mcm/question_results/2025/B",
+    "legacy_generic_result_paths": [
+      "mcm/generic_baselines/results/2025/B/q01/result.json",
+      "mcm/generic_baselines/results/2025/B/q02/result.json",
+      "mcm/generic_baselines/results/2025/B/q03/result.json"
+    ],
+    "metric_details": [
+      {
+        "path": "destination_adaptation.district_population_reference",
+        "outstanding_value": 180000.0,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "destination_adaptation.adapted_constraints.district_level_planning_population",
+        "baseline_actual": 180000
+      },
+      {
+        "path": "destination_adaptation.scaled_annual_visitor_target",
+        "outstanding_value": 8949156.0,
+        "found": true,
+        "closeness_reward": 0.6818167688802583,
+        "baseline_source_path": "destination_adaptation.adapted_constraints.recommended_annual_visitor_target_for_district",
+        "baseline_actual": 8448000
+      },
+      {
+        "path": "dynamic_programming.best_cumulative_score",
+        "outstanding_value": 4.793367,
+        "found": false,
+        "closeness_reward": 0.0
+      },
+      {
+        "path": "dynamic_programming.horizon_years[0]",
+        "outstanding_value": 2024.0,
+        "found": false,
+        "closeness_reward": 0.0
+      },
+      {
+        "path": "dynamic_programming.horizon_years[1]",
+        "outstanding_value": 2028.0,
+        "found": false,
+        "closeness_reward": 0.0
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.annual_visitors",
+        "outstanding_value": 1491526.0,
+        "found": true,
+        "closeness_reward": 0.6818167688802583,
+        "baseline_source_path": "sustainability_model.optimal_policy.annual_visitors",
+        "baseline_actual": 1408000
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.conservation_share",
+        "outstanding_value": 0.35,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "sustainability_model.optimal_policy.conservation_share",
+        "baseline_actual": 0.35
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.daily_cap",
+        "outstanding_value": 11000.0,
+        "found": true,
+        "closeness_reward": 0.5689655172413793,
+        "baseline_source_path": "sustainability_model.optimal_policy.daily_cap",
+        "baseline_actual": 10000
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.glacier_pressure_fields_per_year",
+        "outstanding_value": 0.3319,
+        "found": true,
+        "closeness_reward": 0.921347274914407,
+        "baseline_source_path": "sustainability_model.optimal_policy.projected_glacier_recession_fields_per_year",
+        "baseline_actual": 0.3353
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.net_benefit_usd",
+        "outstanding_value": 341049399.55,
+        "found": true,
+        "closeness_reward": 0.5979537900595655,
+        "baseline_source_path": "sustainability_model.optimal_policy.net_benefit_usd",
+        "baseline_actual": 313532032.0
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.resident_acceptance_index",
+        "outstanding_value": 1.0,
+        "found": true,
+        "closeness_reward": 0.35294117647058826,
+        "baseline_source_path": "sustainability_model.optimal_policy.resident_acceptance_index",
+        "baseline_actual": 0.78
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.sustainability_score",
+        "outstanding_value": 1.007,
+        "found": true,
+        "closeness_reward": 0.550792413613926,
+        "baseline_source_path": "sustainability_model.optimal_policy.sustainability_score",
+        "baseline_actual": 0.908447
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.total_revenue_usd",
+        "outstanding_value": 431610327.83,
+        "found": true,
+        "closeness_reward": 0.623988114074322,
+        "baseline_source_path": "sustainability_model.optimal_policy.total_revenue_usd",
+        "baseline_actual": 400400000.0
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.visitor_fee_usd",
+        "outstanding_value": 55.0,
+        "found": true,
+        "closeness_reward": 0.5689655172413793,
+        "baseline_source_path": "sustainability_model.optimal_policy.visitor_fee_usd",
+        "baseline_actual": 50.0
+      },
+      {
+        "path": "dynamic_programming.optimal_terminal_policy.year",
+        "outstanding_value": 2028.0,
+        "found": false,
+        "closeness_reward": 0.0
+      },
+      {
+        "path": "experiment_result.annual_visitors",
+        "outstanding_value": 1491526.0,
+        "found": true,
+        "closeness_reward": 0.6818167688802583,
+        "baseline_source_path": "sustainability_model.optimal_policy.annual_visitors",
+        "baseline_actual": 1408000
+      },
+      {
+        "path": "experiment_result.optimal_conservation_share",
+        "outstanding_value": 0.35,
+        "found": true,
+        "closeness_reward": 1.0,
+        "baseline_source_path": "sustainability_model.optimal_policy.conservation_share",
+        "baseline_actual": 0.35
+      },
+      {
+        "path": "experiment_result.optimal_daily_cap",
+        "outstanding_value": 11000.0,
+        "found": true,
+        "closeness_reward": 0.5689655172413793,
+        "baseline_source_path": "sustainability_model.optimal_policy.daily_cap",
+        "baseline_actual": 10000
+      },
+      {
+        "path": "experiment_result.optimal_visitor_fee_usd",
+        "outstanding_value": 55.0,
+        "found": true,
+        "closeness_reward": 0.5689655172413793,
+        "baseline_source_path": "sustainability_model.optimal_policy.visitor_fee_usd",
+        "baseline_actual": 50.0
+      },
+      {
+        "path": "experiment_result.resident_acceptance_index",
+        "outstanding_value": 1.0,
+        "found": true,
+        "closeness_reward": 0.35294117647058826,
+        "baseline_source_path": "sustainability_model.optimal_policy.resident_acceptance_index",
+        "baseline_actual": 0.78
+      },
+      {
+        "path": "experiment_result.sustainability_score",
+        "outstanding_value": 1.007,
+        "found": true,
+        "closeness_reward": 0.550792413613926,
+        "baseline_source_path": "sustainability_model.optimal_policy.sustainability_score",
+        "baseline_actual": 0.908447
+      },
+      {
+        "path": "experiment_result.terminal_year",
+        "outstanding_value": 2028.0,
+        "found": false,
+        "closeness_reward": 0.0
+      },
+      {
+        "path": "experiment_result.total_revenue_usd",
+        "outstanding_value": 431610327.83,
+        "found": true,
+        "closeness_reward": 0.623988114074322,
+        "baseline_source_path": "sustainability_model.optimal_policy.total_revenue_usd",
+        "baseline_actual": 400400000.0
+      },
+      {
+        "path": "sensitivity_analysis[0].correlation_with_score",
+        "outstanding_value": 0.59522,
+        "found": true,
+        "closeness_reward": 0.1849603569813818,
+        "baseline_source_path": "sensitivity_analysis.top_factors[1].correlation_with_score",
+        "baseline_actual": 0.909965
+      },
+      {
+        "path": "sensitivity_analysis[2].correlation_with_score",
+        "outstanding_value": -0.19619,
+        "found": true,
+        "closeness_reward": 0.0338325799749318,
+        "baseline_source_path": "sensitivity_analysis.top_factors[2].correlation_with_score",
+        "baseline_actual": -0.868509
+      },
+      {
+        "path": "sensitivity_analysis[3].correlation_with_score",
+        "outstanding_value": 0.11805,
+        "found": true,
+        "closeness_reward": 0.11444220935023389,
+        "baseline_source_path": "sensitivity_analysis.top_factors[4].correlation_with_score",
+        "baseline_actual": 0.227667
+      },
+      {
+        "path": "sensitivity_analysis[4].correlation_with_score",
+        "outstanding_value": 0.00598,
+        "found": true,
+        "closeness_reward": 0.005768275449621637,
+        "baseline_source_path": "sensitivity_analysis.top_factors[5].correlation_with_score",
+        "baseline_actual": -0.117707
+      }
+    ],
+    "normalized_panel_score": 0.0,
+    "effective_metric_count": 19,
+    "constant_endpoint_metric_count": 3,
+    "missing_baseline_metric_count": 5
   },
   "outstanding_endpoint": {
-    "kind": "outstanding_paper_reproduction",
-    "panel_score": 1.0
+    "kind": "outstanding_paper_reproduction_metric_values",
+    "normalized_panel_score": 1.0,
+    "effective_metric_count": 19,
+    "note": "The normalized endpoint is 1 because each metric uses its own outstanding_value as the max/min endpoint."
   },
-  "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)",
+  "final_reward": "weighted_mean(metric_target_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization",
   "oracle_source": {
     "paper_id": "2504448",
     "result_path": "mcm/outstanding_solutions/2025/B/2504448/result.json"
