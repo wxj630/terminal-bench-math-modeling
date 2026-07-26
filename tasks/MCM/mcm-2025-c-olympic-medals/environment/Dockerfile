@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV MPLBACKEND=Agg
 
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends bash ca-certificates libgomp1 libgfortran5 && \
+    apt-get install -y --no-install-recommends bash ca-certificates libgomp1 libgfortran5 tmux && \
     rm -rf /var/lib/apt/lists/*
 
 ENV VIRTUAL_ENV=/opt/venv

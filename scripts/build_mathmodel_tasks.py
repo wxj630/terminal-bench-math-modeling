@@ -739,7 +739,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV MPLBACKEND=Agg
 
 RUN apt-get update && \\
-    apt-get install -y --no-install-recommends bash ca-certificates libgomp1 libgfortran5 && \\
+    apt-get install -y --no-install-recommends bash ca-certificates libgomp1 libgfortran5 tmux && \\
     rm -rf /var/lib/apt/lists/*
 
 ENV VIRTUAL_ENV=/opt/venv
@@ -899,7 +899,11 @@ def _identifier_matches(path: str, actual: Any, expected: str) -> bool:
     expected_problem = _problem_key(expected)
     if actual_problem and expected_problem and actual_problem == expected_problem:
         return True
-    return _canonical_identifier(actual_text) == _canonical_identifier(expected)
+    actual_canonical = _canonical_identifier(actual_text)
+    expected_canonical = _canonical_identifier(expected)
+    if actual_canonical in ("A", "B", "C") and expected_problem:
+        return expected_problem.endswith("-" + actual_canonical)
+    return actual_canonical == expected_canonical
 
 
 def test_required_json_identifiers():

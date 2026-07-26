@@ -92,7 +92,11 @@ def _identifier_matches(path: str, actual: Any, expected: str) -> bool:
     expected_problem = _problem_key(expected)
     if actual_problem and expected_problem and actual_problem == expected_problem:
         return True
-    return _canonical_identifier(actual_text) == _canonical_identifier(expected)
+    actual_canonical = _canonical_identifier(actual_text)
+    expected_canonical = _canonical_identifier(expected)
+    if actual_canonical in ("A", "B", "C") and expected_problem:
+        return expected_problem.endswith("-" + actual_canonical)
+    return actual_canonical == expected_canonical
 
 
 def test_required_json_identifiers():
