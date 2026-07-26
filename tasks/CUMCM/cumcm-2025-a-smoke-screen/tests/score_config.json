@@ -1155,7 +1155,7 @@
   "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "matched_metric_panel_from_generic_baselines",
+    "kind": "legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match",
     "panel_score": 0.0,
     "matched_metric_count": 0,
     "result_count": 5,
@@ -1187,7 +1187,18 @@
         "result_path": "cumcm/generic_baselines/results/2025/A/q05/result.json",
         "explicit_score": null
       }
-    ]
+    ],
+    "note": "Fallback retained only because no comparable question_results numeric metrics were matched.",
+    "question_result_dir": "cumcm/question_results/2025/A",
+    "question_result_paths": [
+      "cumcm/question_results/2025/A/q01/result.json",
+      "cumcm/question_results/2025/A/q02/result.json",
+      "cumcm/question_results/2025/A/q03/result.json",
+      "cumcm/question_results/2025/A/q04/result.json",
+      "cumcm/question_results/2025/A/q05/result.json"
+    ],
+    "question_matched_metric_count": 0,
+    "question_unmatched_metric_count": 164
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

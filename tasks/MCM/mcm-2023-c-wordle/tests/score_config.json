@@ -119,37 +119,150 @@
   "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "explicit_generic_baseline_score_mean",
-    "panel_score": 0.6470056,
-    "matched_metric_count": null,
+    "kind": "question_result_numeric_panel",
+    "panel_score": 0.40521212083208996,
+    "matched_metric_count": 14,
+    "unmatched_metric_count": 2,
     "result_count": 5,
     "result_paths": [
+      "mcm/question_results/2023/C-Wordle/q01/result.json",
+      "mcm/question_results/2023/C-Wordle/q02/result.json",
+      "mcm/question_results/2023/C-Wordle/q03/result.json",
+      "mcm/question_results/2023/C-Wordle/q04/result.json",
+      "mcm/question_results/2023/C-Wordle/q05/result.json"
+    ],
+    "question_result_dir": "mcm/question_results/2023/C-Wordle",
+    "legacy_generic_result_paths": [
       "mcm/generic_baselines/results/2023/C/q01/result.json",
       "mcm/generic_baselines/results/2023/C/q02/result.json",
       "mcm/generic_baselines/results/2023/C/q03/result.json",
       "mcm/generic_baselines/results/2023/C/q04/result.json",
       "mcm/generic_baselines/results/2023/C/q05/result.json"
     ],
-    "sources": [
+    "metric_details": [
       {
-        "result_path": "mcm/generic_baselines/results/2023/C/q01/result.json",
-        "explicit_score": 0.685086
+        "path": "reproduced.best_tree_holdout_accuracy",
+        "oracle_value": 1.0,
+        "found": true,
+        "reward": 0.1719744675240549,
+        "baseline_source_path": "difficulty_model.holdout_accuracy",
+        "baseline_actual": 0.422222
       },
       {
-        "result_path": "mcm/generic_baselines/results/2023/C/q02/result.json",
-        "explicit_score": 0.827143
+        "path": "reproduced.calibrated_lightgbm_like_accuracy",
+        "oracle_value": 0.7,
+        "found": true,
+        "reward": 0.23218658956597693,
+        "baseline_source_path": "difficulty_model.holdout_accuracy",
+        "baseline_actual": 0.422222
       },
       {
-        "result_path": "mcm/generic_baselines/results/2023/C/q03/result.json",
-        "explicit_score": 0.692571
+        "path": "reproduced.difficulty_metrics[0].holdout_accuracy",
+        "oracle_value": 1.0,
+        "found": true,
+        "reward": 0.1719744675240549,
+        "baseline_source_path": "difficulty_model.holdout_accuracy",
+        "baseline_actual": 0.422222
       },
       {
-        "result_path": "mcm/generic_baselines/results/2023/C/q04/result.json",
-        "explicit_score": 0.512714
+        "path": "reproduced.difficulty_metrics[0].train_accuracy",
+        "oracle_value": 1.0,
+        "found": false,
+        "reward": 0.0
       },
       {
-        "result_path": "mcm/generic_baselines/results/2023/C/q05/result.json",
-        "explicit_score": 0.517514
+        "path": "reproduced.difficulty_metrics[1].holdout_accuracy",
+        "oracle_value": 1.0,
+        "found": true,
+        "reward": 0.1719744675240549,
+        "baseline_source_path": "difficulty_model.holdout_accuracy",
+        "baseline_actual": 0.422222
+      },
+      {
+        "path": "reproduced.difficulty_metrics[1].train_accuracy",
+        "oracle_value": 1.0,
+        "found": false,
+        "reward": 0.0
+      },
+      {
+        "path": "reproduced.eerie.difficulty_group",
+        "oracle_value": 2.0,
+        "found": true,
+        "reward": 1.0,
+        "baseline_source_path": "difficulty_model.eerie_classifier_class",
+        "baseline_actual": 2.0
+      },
+      {
+        "path": "reproduced.forecast_record.horizon_days",
+        "oracle_value": 60.0,
+        "found": true,
+        "reward": 1.0,
+        "baseline_source_path": "data_source.date_max -> report_count_model.prediction_date",
+        "baseline_actual": 60
+      },
+      {
+        "path": "reproduced.forecast_record.raw_80_lower",
+        "oracle_value": 0.0,
+        "found": true,
+        "reward": 4.910385441147138e-09,
+        "baseline_source_path": "report_count_model.prediction_interval_80[0]",
+        "baseline_actual": 20365
+      },
+      {
+        "path": "reproduced.forecast_record.raw_80_upper",
+        "oracle_value": 59621.565,
+        "found": true,
+        "reward": 0.1983905245245224,
+        "baseline_source_path": "report_count_model.prediction_interval_80[1]",
+        "baseline_actual": 30713
+      },
+      {
+        "path": "reproduced.forecast_record.raw_ma_forecast",
+        "oracle_value": 16662.852,
+        "found": true,
+        "reward": 0.22344524018299236,
+        "baseline_source_path": "report_count_model.predicted_reported_results",
+        "baseline_actual": 23612
+      },
+      {
+        "path": "target_comparison.eerie_distribution_sum_pct.actual",
+        "oracle_value": 100.0,
+        "found": true,
+        "reward": 1.0,
+        "baseline_source_path": "eerie_prediction.predicted_distribution_percent",
+        "baseline_actual": 100.0
+      },
+      {
+        "path": "target_comparison.eerie_group.actual",
+        "oracle_value": 2.0,
+        "found": true,
+        "reward": 1.0,
+        "baseline_source_path": "difficulty_model.eerie_classifier_class",
+        "baseline_actual": 2.0
+      },
+      {
+        "path": "target_comparison.forecast_lower.actual",
+        "oracle_value": 10139.23,
+        "found": true,
+        "reward": 0.1063325306400425,
+        "baseline_source_path": "report_count_model.prediction_interval_80[0]",
+        "baseline_actual": 20365
+      },
+      {
+        "path": "target_comparison.forecast_upper.actual",
+        "oracle_value": 30808.07,
+        "found": true,
+        "reward": 0.9749290513513788,
+        "baseline_source_path": "report_count_model.prediction_interval_80[1]",
+        "baseline_actual": 30713
+      },
+      {
+        "path": "target_comparison.lightgbm_like_accuracy.actual",
+        "oracle_value": 0.7,
+        "found": true,
+        "reward": 0.23218658956597693,
+        "baseline_source_path": "difficulty_model.holdout_accuracy",
+        "baseline_actual": 0.422222
       }
     ]
   },
