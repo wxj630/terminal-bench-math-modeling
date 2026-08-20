@@ -144,6 +144,13 @@ def test_scoring_metric_panel_is_configured():
         assert endpoint_modes > 0, "endpoint min-max scoring requires at least one directional metric"
 
 
+def test_eval_method_hyperparameter_is_configured():
+    methods = SCORE_CONFIG.get("supported_eval_methods")
+    assert SCORE_CONFIG.get("default_eval_method") == "B-Eval", "default eval method must be B-Eval"
+    assert isinstance(methods, list), "score_config must declare supported_eval_methods"
+    assert {"B-Eval", "BO-Eval"} <= set(methods), "score_config must support both B-Eval and BO-Eval"
+
+
 def test_result_has_enough_substantive_structure():
     data = _load_output()
     top_keys = set(data)

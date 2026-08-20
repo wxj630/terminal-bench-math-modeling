@@ -3,6 +3,8 @@
 - Task slug: `mcm-2023-a-plant-community`
 - Required output: `/root/results/mcm-2023-a-plant-community_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 41
 - Effective scored metric count: 41
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.502804666667`

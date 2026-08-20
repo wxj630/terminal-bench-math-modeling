@@ -40,6 +40,19 @@ def _markdown_cell(value: Any) -> str:
     return text.replace("\\", "\\\\").replace("|", "\\|").replace("\n", "<br>")
 
 
+def _markdown_value(value: Any) -> str:
+    return _markdown_cell(value) or "N/A"
+
+
+def _as_float_or_none(value: Any) -> float | None:
+    if isinstance(value, (int, float)) and not isinstance(value, bool):
+        return float(value)
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return None
+
+
 def _job_reward(job_name: str) -> float | None:
     info = _job_info(job_name)
     reward = info.get("reward")
@@ -108,6 +121,32 @@ def _status(score: dict[str, Any]) -> str:
     return "legacy fallback"
 
 
+def _eval_values(details: dict[str, Any] | None) -> dict[str, Any]:
+    if not isinstance(details, dict):
+        return {}
+    raw = _as_float_or_none(details.get("raw_panel_score"))
+    baseline = _as_float_or_none(details.get("baseline_panel_score"))
+    selected = _as_float_or_none(details.get("reward"))
+    b_eval = details.get("b_eval")
+    bo_eval = details.get("bo_eval")
+    b_reward = None
+    bo_reward = None
+    if isinstance(b_eval, dict):
+        b_reward = _as_float_or_none(b_eval.get("reward"))
+    if isinstance(bo_eval, dict):
+        bo_reward = _as_float_or_none(bo_eval.get("reward"))
+    if b_reward is None and raw is not None and baseline is not None:
+        b_reward = raw - baseline
+    if bo_reward is None:
+        bo_reward = selected
+    return {
+        "selected_reward": selected,
+        "eval_method": details.get("eval_method", "BO-Eval (legacy job)"),
+        "b_eval_reward": b_reward,
+        "bo_eval_reward": bo_reward,
+    }
+
+
 def _job_status(info: dict[str, Any]) -> str:
     if not info.get("found"):
         return "missing"
@@ -130,6 +169,21 @@ def _metric_value(metric: dict[str, Any], details: dict[str, Any], key: str) -> 
     return metric.get(key)
 
 
+def _metric_b_eval_gain(metric: dict[str, Any], details: dict[str, Any]) -> Any:
+    if "b_eval_signed_gain" in details:
+        return details.get("b_eval_signed_gain")
+    actual = _as_float_or_none(details.get("actual"))
+    baseline = _as_float_or_none(_metric_value(metric, details, "baseline_value"))
+    if actual is None or baseline is None:
+        return ""
+    direction = _metric_value(metric, details, "direction")
+    if direction == "higher_is_better":
+        return actual - baseline
+    if direction == "lower_is_better":
+        return baseline - actual
+    return ""
+
+
 def _metric_scored(metric: dict[str, Any], details: dict[str, Any]) -> str:
     if details.get("unscored"):
         return "no"
@@ -148,8 +202,8 @@ def _task_metric_table(score: dict[str, Any], details: dict[str, Any] | None) ->
         if isinstance(item, dict) and item.get("path") is not None
     }
     rows = [
-        "| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | Metric score | Scored | Baseline source |",
-        "|---:|---|---:|---:|---|---:|---:|---|---|",
+        "| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |",
+        "|---:|---|---:|---:|---|---:|---:|---:|---|---|",
     ]
     for index, metric in enumerate(score.get("metrics", []), 1):
         if not isinstance(metric, dict):
@@ -169,6 +223,7 @@ def _task_metric_table(score: dict[str, Any], details: dict[str, Any] | None) ->
                     f"`{_markdown_cell(direction)}`",
                     _markdown_cell(_metric_value(metric, detail, "actual")),
                     _markdown_cell(detail.get("reward", "")),
+                    _markdown_cell(_metric_b_eval_gain(metric, detail)),
                     _metric_scored(metric, detail),
                     _markdown_cell(source),
                 ]
@@ -185,6 +240,8 @@ def main() -> None:
     endpoint_count = 0
     oracle_rewards: list[float] = []
     model_rewards: list[float] = []
+    model_b_eval_rewards: list[float] = []
+    model_bo_eval_rewards: list[float] = []
     for case in builder.CASES:
         score = _score_config(case)
         baseline = score.get("baseline_endpoint", {})
@@ -196,10 +253,18 @@ def main() -> None:
         model_info = _job_info(model_job)
         oracle_reward = _job_reward(oracle_job)
         model_reward = _job_reward(model_job)
+        model_details = _score_details(model_job)
+        model_evals = _eval_values(model_details)
+        model_b_eval_reward = model_evals.get("b_eval_reward")
+        model_bo_eval_reward = model_evals.get("bo_eval_reward")
         if oracle_reward is not None:
             oracle_rewards.append(oracle_reward)
         if model_reward is not None:
             model_rewards.append(model_reward)
+        if isinstance(model_b_eval_reward, (int, float)):
+            model_b_eval_rewards.append(float(model_b_eval_reward))
+        if isinstance(model_bo_eval_reward, (int, float)):
+            model_bo_eval_rewards.append(float(model_bo_eval_reward))
         rows.append(
             "| "
             + " | ".join(
@@ -209,6 +274,7 @@ def main() -> None:
                     case.code,
                     f"`{case.slug}`",
                     _status(score),
+                    score.get("default_eval_method", "B-Eval"),
                     str(score.get("metric_count")),
                     str(score.get("effective_metric_count")),
                     str(baseline.get("constant_endpoint_metric_count", "")),
@@ -217,22 +283,26 @@ def main() -> None:
                     _markdown_cell(oracle_reward),
                     _job_status(oracle_info),
                     _markdown_cell(model_reward),
+                    _markdown_cell(model_b_eval_reward),
+                    _markdown_cell(model_bo_eval_reward),
                     _job_status(model_info),
                 ]
             )
             + " |"
         )
-        model_details = _score_details(model_job)
         detail_sections.append(
             "\n".join(
                 [
                     f"## {case.contest.upper()} {case.year} {case.code}: `{case.slug}`",
                     "",
                     f"- Scoring status: {_status(score)}",
+                    f"- Default eval method: `{score.get('default_eval_method', 'B-Eval')}`",
                     f"- Metrics: {score.get('metric_count')} total, {score.get('effective_metric_count')} effective",
                     f"- Baseline endpoint: `{baseline.get('kind')}`",
                     f"- Oracle reward: {_markdown_cell(oracle_reward)} ({_job_status(oracle_info)})",
-                    f"- DeepSeek/Terminus-2 reward: {_markdown_cell(model_reward)} ({_job_status(model_info)})",
+                    f"- DeepSeek/Terminus-2 job reward: {_markdown_cell(model_reward)} ({_job_status(model_info)})",
+                    f"- DeepSeek/Terminus-2 B-Eval: {_markdown_value(model_b_eval_reward)}",
+                    f"- DeepSeek/Terminus-2 BO-Eval: {_markdown_value(model_bo_eval_reward)}",
                     "",
                     _task_metric_table(score, model_details),
                 ]
@@ -241,22 +311,27 @@ def main() -> None:
 
     oracle_mean = sum(oracle_rewards) / len(oracle_rewards) if oracle_rewards else None
     model_mean = sum(model_rewards) / len(model_rewards) if model_rewards else None
+    model_b_eval_mean = sum(model_b_eval_rewards) / len(model_b_eval_rewards) if model_b_eval_rewards else None
+    model_bo_eval_mean = sum(model_bo_eval_rewards) / len(model_bo_eval_rewards) if model_bo_eval_rewards else None
     content = f"""# Evaluation Results
 
 This report is generated from local Harbor jobs and task `score_config.json` files.
 
 - Total tasks: {len(builder.CASES)}
+- Default eval method for regenerated tasks: `B-Eval`
 - v4 endpoint target-minmax tasks: {endpoint_count}
 - legacy fallback tasks: {len(builder.CASES) - endpoint_count}
 - Oracle jobs found: {len(oracle_rewards)}
 - Oracle mean reward: {_markdown_cell(oracle_mean)}
 - DeepSeek/Terminus-2 jobs found: {len(model_rewards)}
-- DeepSeek/Terminus-2 mean reward: {_markdown_cell(model_mean)}
+- DeepSeek/Terminus-2 mean job reward: {_markdown_cell(model_mean)}
+- DeepSeek/Terminus-2 mean B-Eval: {_markdown_cell(model_b_eval_mean)}
+- DeepSeek/Terminus-2 mean BO-Eval: {_markdown_cell(model_bo_eval_mean)}
 
-`v4 endpoint target-minmax` means the task has real per-metric `baseline_value` and `outstanding_value` endpoints. `legacy fallback` means no semantically comparable per-metric question-result endpoint has been mapped yet, so the task still uses the older baseline-panel normalization.
+`B-Eval` is the default baseline-only score: `raw_panel_score - baseline_panel_score`, so negative means worse than the baseline. `BO-Eval` is the optional baseline-to-outstanding normalized score. `v4 endpoint target-minmax` means the task has real per-metric `baseline_value` and `outstanding_value` endpoints. `legacy fallback` means no semantically comparable per-metric question-result endpoint has been mapped yet, so the task still uses the older baseline-panel normalization.
 
-| Contest | Year | Problem | Task | Scoring status | Metrics | Effective | Exact-value | Missing baseline | Baseline kind | Oracle reward | Oracle status | DeepSeek/Terminus-2 reward | DeepSeek status |
-|---|---:|---|---|---|---:|---:|---:|---:|---|---:|---|---:|---|
+| Contest | Year | Problem | Task | Scoring status | Default eval | Metrics | Effective | Exact-value | Missing baseline | Baseline kind | Oracle reward | Oracle status | DeepSeek job reward | DeepSeek B-Eval | DeepSeek BO-Eval | DeepSeek status |
+|---|---:|---|---|---|---|---:|---:|---:|---:|---|---:|---|---:|---:|---:|---|
 {chr(10).join(rows)}
 
 # Per-Task Tables

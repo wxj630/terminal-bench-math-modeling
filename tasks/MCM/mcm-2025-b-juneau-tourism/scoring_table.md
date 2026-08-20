@@ -3,6 +3,8 @@
 - Task slug: `mcm-2025-b-juneau-tourism`
 - Required output: `/root/results/mcm-2025-b-juneau-tourism_result.json`
 - Scoring version: `tb-mathmodeling-v4-endpoint-target-minmax`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 27
 - Effective scored metric count: 19
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`

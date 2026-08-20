@@ -3,6 +3,8 @@
 - Task slug: `mcm-2025-c-olympic-medals`
 - Required output: `/root/results/mcm-2025-c-olympic-medals_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 96
 - Effective scored metric count: 96
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.584014166667`

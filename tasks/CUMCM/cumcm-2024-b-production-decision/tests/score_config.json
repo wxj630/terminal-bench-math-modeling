@@ -1,5 +1,14 @@
 {
   "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "default_eval_method": "B-Eval",
+  "supported_eval_methods": [
+    "B-Eval",
+    "BO-Eval"
+  ],
+  "primary_eval": "B-Eval",
+  "secondary_evals": [
+    "BO-Eval"
+  ],
   "metric_count": 69,
   "effective_metric_count": 69,
   "metrics": [
@@ -534,7 +543,22 @@
     "kind": "outstanding_paper_reproduction",
     "panel_score": 1.0
   },
-  "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)",
+  "final_reward": "raw_panel_score - baseline_endpoint_score",
+  "evaluation_methods": {
+    "BO-Eval": {
+      "role": "optional_reward",
+      "name": "Baseline-Outstanding Evaluation",
+      "description": "Compares a submission to the baseline and outstanding-paper endpoints.",
+      "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)"
+    },
+    "B-Eval": {
+      "role": "default_reward",
+      "name": "Baseline Evaluation",
+      "description": "Default TB-MathModeling reward. Reports how much the submission improves over the baseline method. The verifier records panel-level gain over the baseline score for every task; when per-metric baseline values and directions exist, it also records direction-aware per-metric gains.",
+      "final_reward": "raw_panel_score - baseline_endpoint_score",
+      "directional_metric_gain": "for higher_is_better metrics: actual - baseline_value; for lower_is_better metrics: baseline_value - actual"
+    }
+  },
   "oracle_source": {
     "paper_id": "B159",
     "result_path": "cumcm/outstanding_solutions/2024/B/B159/result.json"

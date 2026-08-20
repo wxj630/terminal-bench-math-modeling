@@ -3,6 +3,8 @@
 - Task slug: `mcm-2023-c-wordle`
 - Required output: `/root/results/mcm-2023-c-wordle_result.json`
 - Scoring version: `tb-mathmodeling-v4-endpoint-target-minmax`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 23
 - Effective scored metric count: 17
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`

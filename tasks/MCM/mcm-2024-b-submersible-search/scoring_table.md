@@ -3,6 +3,8 @@
 - Task slug: `mcm-2024-b-submersible-search`
 - Required output: `/root/results/mcm-2024-b-submersible-search_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 13
 - Effective scored metric count: 13
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.57862125`

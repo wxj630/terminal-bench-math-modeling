@@ -3,6 +3,8 @@
 - Task slug: `mcm-2023-b-maasai-mara`
 - Required output: `/root/results/mcm-2023-b-maasai-mara_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 11
 - Effective scored metric count: 11
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.60265725`

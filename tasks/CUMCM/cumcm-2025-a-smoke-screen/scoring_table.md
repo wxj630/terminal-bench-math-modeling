@@ -3,6 +3,8 @@
 - Task slug: `cumcm-2025-a-smoke-screen`
 - Required output: `/root/results/cumcm-2025-a-smoke-screen_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 164
 - Effective scored metric count: 164
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`

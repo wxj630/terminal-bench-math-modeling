@@ -1,6 +1,6 @@
 # Scoring Tables
 
-Each original contest problem has one scoring table. For endpoint tasks, the table shows the real baseline value, the real outstanding-paper value, and whether moving toward the outstanding endpoint is higher-is-better or lower-is-better. Legacy tasks list the oracle metric panel and keep per-metric baseline values blank because those tasks still use a legacy baseline-panel endpoint.
+Each original contest problem has one scoring table. `B-Eval` is the default verifier reward and reports gain over the baseline panel score; `BO-Eval` is available as a verifier hyperparameter for baseline-to-outstanding normalization. For endpoint tasks, the table shows the real baseline value, the real outstanding-paper value, and whether moving toward the outstanding endpoint is higher-is-better or lower-is-better. Legacy tasks list the oracle metric panel and keep per-metric baseline values blank because those tasks still use a legacy baseline-panel endpoint. The generated `test.sh` accepts the eval method as its first argument, and `score_result.py` also exposes `score_result(eval_method=...)`, so tests can select the scoring method directly instead of relying only on shell-level configuration.
 
 ## Contents
 
@@ -30,6 +30,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2023-a-heliostat-field`
 - Required output: `/root/results/cumcm-2023-a-heliostat-field_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 29
 - Effective scored metric count: 29
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -74,6 +76,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2023-b-multibeam-lines`
 - Required output: `/root/results/cumcm-2023-b-multibeam-lines_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 21
 - Effective scored metric count: 21
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -110,6 +114,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2023-c-vegetable-pricing`
 - Required output: `/root/results/cumcm-2023-c-vegetable-pricing_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 38
 - Effective scored metric count: 38
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -163,6 +169,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2024-a-dragon-dance`
 - Required output: `/root/results/cumcm-2024-a-dragon-dance_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 9
 - Effective scored metric count: 9
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -187,6 +195,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2024-b-production-decision`
 - Required output: `/root/results/cumcm-2024-b-production-decision_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 69
 - Effective scored metric count: 69
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -271,6 +281,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2024-c-crop-planting`
 - Required output: `/root/results/cumcm-2024-c-crop-planting_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 20
 - Effective scored metric count: 20
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -306,6 +318,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2025-a-smoke-screen`
 - Required output: `/root/results/cumcm-2025-a-smoke-screen_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 164
 - Effective scored metric count: 164
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -485,6 +499,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2025-b-sic-thickness`
 - Required output: `/root/results/cumcm-2025-b-sic-thickness_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 2
 - Effective scored metric count: 2
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -502,6 +518,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `cumcm-2025-c-nipt`
 - Required output: `/root/results/cumcm-2025-c-nipt_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 8
 - Effective scored metric count: 8
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
@@ -525,6 +543,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2023-a-plant-community`
 - Required output: `/root/results/mcm-2023-a-plant-community_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 41
 - Effective scored metric count: 41
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.502804666667`
@@ -581,6 +601,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2023-b-maasai-mara`
 - Required output: `/root/results/mcm-2023-b-maasai-mara_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 11
 - Effective scored metric count: 11
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.60265725`
@@ -607,6 +629,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2023-c-wordle`
 - Required output: `/root/results/mcm-2023-c-wordle_result.json`
 - Scoring version: `tb-mathmodeling-v4-endpoint-target-minmax`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 23
 - Effective scored metric count: 17
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
@@ -645,6 +669,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2024-a-lamprey`
 - Required output: `/root/results/mcm-2024-a-lamprey_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 105
 - Effective scored metric count: 105
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.45683575`
@@ -765,6 +791,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2024-b-submersible-search`
 - Required output: `/root/results/mcm-2024-b-submersible-search_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 13
 - Effective scored metric count: 13
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.57862125`
@@ -793,6 +821,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2024-c-tennis-momentum`
 - Required output: `/root/results/mcm-2024-c-tennis-momentum_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 22
 - Effective scored metric count: 22
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.5912914`
@@ -830,6 +860,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2025-a-stair-wear`
 - Required output: `/root/results/mcm-2025-a-stair-wear_result.json`
 - Scoring version: `tb-mathmodeling-v4-endpoint-target-minmax`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 21
 - Effective scored metric count: 5
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
@@ -866,6 +898,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2025-b-juneau-tourism`
 - Required output: `/root/results/mcm-2025-b-juneau-tourism_result.json`
 - Scoring version: `tb-mathmodeling-v4-endpoint-target-minmax`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 27
 - Effective scored metric count: 19
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
@@ -908,6 +942,8 @@ Each original contest problem has one scoring table. For endpoint tasks, the tab
 - Task slug: `mcm-2025-c-olympic-medals`
 - Required output: `/root/results/mcm-2025-c-olympic-medals_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 96
 - Effective scored metric count: 96
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.584014166667`

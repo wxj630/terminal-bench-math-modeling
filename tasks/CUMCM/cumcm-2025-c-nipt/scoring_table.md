@@ -3,6 +3,8 @@
 - Task slug: `cumcm-2025-c-nipt`
 - Required output: `/root/results/cumcm-2025-c-nipt_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 8
 - Effective scored metric count: 8
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`

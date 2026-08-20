@@ -3,6 +3,8 @@
 - Task slug: `cumcm-2024-a-dragon-dance`
 - Required output: `/root/results/cumcm-2024-a-dragon-dance_result.json`
 - Scoring version: `tb-mathmodeling-v2-legacy-baseline-panel`
+- Primary evaluation: `B-Eval`
+- Secondary evaluation: `BO-Eval`
 - Metric count: 9
 - Effective scored metric count: 9
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
