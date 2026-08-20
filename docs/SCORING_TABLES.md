@@ -1,6 +1,6 @@
 # Scoring Tables
 
-Each original contest problem has one scoring table. The scoring panel now uses only the numeric core of the final question, because later mathematical-modeling questions usually synthesize the earlier work and are much easier to review manually. If the final question is a memo or qualitative recommendation, the table records the last quantifiable answer that supports that final recommendation. A final answer may still contain a few numeric fields, for example a policy vector or several scenario outcomes, but these fields all belong to the final question rather than the whole contest problem. `B-Eval` is the default verifier reward and reports gain over the baseline panel score; `BO-Eval` is available as a verifier hyperparameter for baseline-to-outstanding normalization. For endpoint tasks, the table shows the real baseline value, the real outstanding-paper value, and whether moving toward the outstanding endpoint is higher-is-better or lower-is-better. Legacy tasks list the oracle metric panel and keep per-metric baseline values blank because their baseline outputs do not expose the same final-answer fields; those tasks still use a legacy baseline-panel endpoint rather than forcing unrelated numbers into the table. The generated `test.sh` accepts the eval method as its first argument, and `score_result.py` also exposes `score_result(eval_method=...)`, so tests can select the scoring method directly instead of relying only on shell-level configuration.
+Each original contest problem has one scoring table. The scoring panel now uses only the numeric core of the final question, because later mathematical-modeling questions usually synthesize the earlier work and are much easier to review manually. If the final question is a memo or qualitative recommendation, the table records the last quantifiable answer that supports that final recommendation. A final answer may still contain a few numeric fields, for example a policy vector or several scenario outcomes, but these fields all belong to the final question rather than the whole contest problem. `B-Eval` is the default verifier reward and reports gain over the baseline panel score; `BO-Eval` is available as a verifier hyperparameter for baseline-to-outstanding normalization. For endpoint tasks, the table shows the real baseline value, the real outstanding-paper value, the semantic direction of the modeled quantity, and the separate normalization direction used by the verifier. Legacy tasks list the oracle metric panel and keep per-metric baseline values blank because their baseline outputs do not expose the same final-answer fields; those tasks still use a legacy baseline-panel endpoint rather than forcing unrelated numbers into the table. The generated `test.sh` accepts the eval method as its first argument, and `score_result.py` also exposes `score_result(eval_method=...)`, so tests can select the scoring method directly instead of relying only on shell-level configuration.
 
 ## Contents
 
@@ -42,13 +42,13 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `reproduced.design_summary[2].annual_optical_efficiency` |  | 0.496428083 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `reproduced.design_summary[2].mirror_area_m2` |  | 119196 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `reproduced.design_summary[2].mirror_count` |  | 3311 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` |  | 0.506192417 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` |  | 60.336111 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `reproduced.design_summary[2].annual_optical_efficiency` |  | 0.496428083 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `reproduced.design_summary[2].mirror_area_m2` |  | 119196 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `reproduced.design_summary[2].mirror_count` |  | 3311 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` |  | 0.506192417 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` |  | 60.336111 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2023-b-multibeam-lines"></a>
 
@@ -69,12 +69,12 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` |  | 30 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` |  | 10.48 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `target_comparison.problem4_missed_area_pct.actual` |  | 3.48 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `target_comparison.problem4_total_length_nm.actual` |  | 622 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` |  | 30 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` |  | 10.48 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `target_comparison.problem4_missed_area_pct.actual` |  | 3.48 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `target_comparison.problem4_total_length_nm.actual` |  | 622 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2023-c-vegetable-pricing"></a>
 
@@ -96,10 +96,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `target_comparison.future_week_max_profit_yuan.actual` |  | 5105.6 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `target_comparison.problem3_selected_item_count.actual` |  | 29 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `target_comparison.future_week_max_profit_yuan.actual` |  | 5105.6 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `target_comparison.problem3_selected_item_count.actual` |  | 29 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2024-a-dragon-dance"></a>
 
@@ -120,10 +120,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.q5.max_head_speed_mps` |  | 2.00002 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` |  | 0.99999 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.q5.max_head_speed_mps` |  | 2.00002 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` |  | 0.99999 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2024-b-production-decision"></a>
 
@@ -144,14 +144,14 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.q4.posterior_rows[0].q2_best_profit_case1` |  | 25.9691 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior` |  | 86.8529 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `experiment_result.q4.posterior_rows[1].q2_best_profit_case1` |  | 25.8694 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior` |  | 86.5588 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `experiment_result.q4.posterior_rows[2].q2_best_profit_case1` |  | 25.7715 | `closeness_to_outstanding` | yes | 1 |  |
-| 6 | `experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior` |  | 86.2647 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.q4.posterior_rows[0].q2_best_profit_case1` |  | 25.9691 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior` |  | 86.8529 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `experiment_result.q4.posterior_rows[1].q2_best_profit_case1` |  | 25.8694 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior` |  | 86.5588 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `experiment_result.q4.posterior_rows[2].q2_best_profit_case1` |  | 25.7715 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 6 | `experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior` |  | 86.2647 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2024-c-crop-planting"></a>
 
@@ -172,10 +172,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.q2_q3.best_correlated_cvar10_profit_yuan` |  | 118550698.19 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.q2_q3.spearman_price_cost` |  | 0.2551 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.q2_q3.best_correlated_cvar10_profit_yuan` |  | 118550698.19 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.q2_q3.spearman_price_cost` |  | 0.2551 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2025-a-smoke-screen"></a>
 
@@ -196,12 +196,12 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.q5_union_duration_s.M1` |  | 10.3 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.q5_union_duration_s.M2` |  | 6.2 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `experiment_result.q5_union_duration_s.M3` |  | 3.4 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `experiment_result.q5_union_duration_s.total` |  | 19.9 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.q5_union_duration_s.M1` |  | 10.3 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.q5_union_duration_s.M2` |  | 6.2 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `experiment_result.q5_union_duration_s.M3` |  | 3.4 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `experiment_result.q5_union_duration_s.total` |  | 19.9 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2025-b-sic-thickness"></a>
 
@@ -222,10 +222,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.si_recommended_thickness_um` |  | 10.5145 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.sic_recommended_thickness_um` |  | 8.9815 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.si_recommended_thickness_um` |  | 10.5145 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.sic_recommended_thickness_um` |  | 8.9815 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="cumcm-2025-c-nipt"></a>
 
@@ -246,10 +246,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.female_loo_accuracy` |  | 0.8659 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `female_abnormality.leave_one_out_f1` |  | 0.3721 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.female_loo_accuracy` |  | 0.8659 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `female_abnormality.leave_one_out_f1` |  | 0.3721 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="mcm-2023-a-plant-community"></a>
 
@@ -270,11 +270,11 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.502804666667`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `target_comparison.beta_decline_pct.actual` |  | 32 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `target_comparison.five_species_pielou_evenness.actual` |  | 0.8826 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `target_comparison.optimal_species_count.actual` |  | 2 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `target_comparison.beta_decline_pct.actual` |  | 32 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `target_comparison.five_species_pielou_evenness.actual` |  | 0.8826 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `target_comparison.optimal_species_count.actual` |  | 2 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="mcm-2023-b-maasai-mara"></a>
 
@@ -295,13 +295,13 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.60265725`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `target_comparison.scenario2_agriculture_cells.actual` |  | 12 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `target_comparison.scenario2_benefit_million.actual` |  | 154948.974 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `target_comparison.scenario2_hunting_cells.actual` |  | 2 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `target_comparison.scenario2_tourism_cells.actual` |  | 9 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `target_comparison.scenario2_wildlife_cells.actual` |  | 13 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `target_comparison.scenario2_agriculture_cells.actual` |  | 12 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `target_comparison.scenario2_benefit_million.actual` |  | 154948.974 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `target_comparison.scenario2_hunting_cells.actual` |  | 2 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `target_comparison.scenario2_tourism_cells.actual` |  | 9 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `target_comparison.scenario2_wildlife_cells.actual` |  | 13 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="mcm-2023-c-wordle"></a>
 
@@ -322,10 +322,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction_metric_values`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `target_comparison.eerie_group.actual` | 2 | 2 | `exact_value` | no: exact value | 0 | `difficulty_model.eerie_classifier_class` |
-| 2 | `target_comparison.lightgbm_like_accuracy.actual` | 0.422222 | 0.7 | `higher_is_better` | yes | 1 | `difficulty_model.holdout_accuracy` |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `target_comparison.eerie_group.actual` | 2 | 2 | `exact_value` | `constant_endpoint` | `exact_value` | no: exact value | 0 | `difficulty_model.eerie_classifier_class` |
+| 2 | `target_comparison.lightgbm_like_accuracy.actual` | 0.422222 | 0.7 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `difficulty_model.holdout_accuracy` |
 
 <a id="mcm-2024-a-lamprey"></a>
 
@@ -346,11 +346,11 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.45683575`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` |  | 8.562 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` |  | 1080.356 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `experiment_result.parasite_coexistence_case.resource_level` |  | 0.55 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` |  | 8.562 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` |  | 1080.356 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `experiment_result.parasite_coexistence_case.resource_level` |  | 0.55 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="mcm-2024-b-submersible-search"></a>
 
@@ -371,10 +371,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.57862125`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.caribbean_adaptation.current_multiplier` |  | 1.35 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier` |  | 1.2 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.caribbean_adaptation.current_multiplier` |  | 1.35 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier` |  | 1.2 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="mcm-2024-c-tennis-momentum"></a>
 
@@ -395,12 +395,12 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.5912914`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` |  | 0.006 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.top_swing_features[0].warning_correlation` |  | 0.0302 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `experiment_result.top_swing_features[1].warning_correlation` |  | -0.0223 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `experiment_result.top_swing_features[2].warning_correlation` |  | 0.0154 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` |  | 0.006 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.top_swing_features[0].warning_correlation` |  | 0.0302 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `experiment_result.top_swing_features[1].warning_correlation` |  | -0.0223 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `experiment_result.top_swing_features[2].warning_correlation` |  | 0.0154 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
 
 <a id="mcm-2025-a-stair-wear"></a>
 
@@ -421,11 +421,11 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction_metric_values`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `daily_use_pattern.peak_period_users` | 27.3 | 27.6 | `higher_is_better` | yes | 1 | `daily_use_pattern.peak_period_users` |
-| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 4.5 | 4.6 | `higher_is_better` | yes | 1 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` |
-| 3 | `experiment_result.estimated_daily_users` | 72.67 | 73.52 | `higher_is_better` | yes | 1 | `inverse_wear_model.usage_frequency.estimated_daily_users` |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `daily_use_pattern.peak_period_users` | 27.3 | 27.6 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `daily_use_pattern.peak_period_users` |
+| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 4.5 | 4.6 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` |
+| 3 | `experiment_result.estimated_daily_users` | 72.67 | 73.52 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `inverse_wear_model.usage_frequency.estimated_daily_users` |
 
 <a id="mcm-2025-b-juneau-tourism"></a>
 
@@ -446,14 +446,14 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction_metric_values`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.annual_visitors` | 1408000 | 1491526 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.annual_visitors` |
-| 2 | `experiment_result.optimal_daily_cap` | 10000 | 11000 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.daily_cap` |
-| 3 | `experiment_result.optimal_visitor_fee_usd` | 50 | 55 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.visitor_fee_usd` |
-| 4 | `experiment_result.resident_acceptance_index` | 0.78 | 1 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.resident_acceptance_index` |
-| 5 | `experiment_result.sustainability_score` | 0.908447 | 1.007 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.sustainability_score` |
-| 6 | `experiment_result.total_revenue_usd` | 400400000 | 431610327.83 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.total_revenue_usd` |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.annual_visitors` | 1408000 | 1491526 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.annual_visitors` |
+| 2 | `experiment_result.optimal_daily_cap` | 10000 | 11000 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.daily_cap` |
+| 3 | `experiment_result.optimal_visitor_fee_usd` | 50 | 55 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.visitor_fee_usd` |
+| 4 | `experiment_result.resident_acceptance_index` | 0.78 | 1 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.resident_acceptance_index` |
+| 5 | `experiment_result.sustainability_score` | 0.908447 | 1.007 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.sustainability_score` |
+| 6 | `experiment_result.total_revenue_usd` | 400400000 | 431610327.83 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.total_revenue_usd` |
 
 <a id="mcm-2025-c-olympic-medals"></a>
 
@@ -474,10 +474,10 @@ Each original contest problem has one scoring table. The scoring panel now uses 
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.584014166667`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `great_coach_model.global_top_jump_75pct` |  | 6 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` |  | 1.666667 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` |  | 2 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` |  | 3 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` |  | 1.777778 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `great_coach_model.global_top_jump_75pct` |  | 6 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` |  | 1.666667 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` |  | 2 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` |  | 3 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` |  | 1.777778 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

@@ -15,11 +15,11 @@
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction_metric_values`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.annual_visitors` | 1408000 | 1491526 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.annual_visitors` |
-| 2 | `experiment_result.optimal_daily_cap` | 10000 | 11000 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.daily_cap` |
-| 3 | `experiment_result.optimal_visitor_fee_usd` | 50 | 55 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.visitor_fee_usd` |
-| 4 | `experiment_result.resident_acceptance_index` | 0.78 | 1 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.resident_acceptance_index` |
-| 5 | `experiment_result.sustainability_score` | 0.908447 | 1.007 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.sustainability_score` |
-| 6 | `experiment_result.total_revenue_usd` | 400400000 | 431610327.83 | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.total_revenue_usd` |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.annual_visitors` | 1408000 | 1491526 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.annual_visitors` |
+| 2 | `experiment_result.optimal_daily_cap` | 10000 | 11000 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.daily_cap` |
+| 3 | `experiment_result.optimal_visitor_fee_usd` | 50 | 55 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.visitor_fee_usd` |
+| 4 | `experiment_result.resident_acceptance_index` | 0.78 | 1 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.resident_acceptance_index` |
+| 5 | `experiment_result.sustainability_score` | 0.908447 | 1.007 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.sustainability_score` |
+| 6 | `experiment_result.total_revenue_usd` | 400400000 | 431610327.83 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `sustainability_model.optimal_policy.total_revenue_usd` |

@@ -641,6 +641,306 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
 }
 
 
+SEMANTIC_METRIC_DIRECTIONS: dict[str, dict[str, tuple[str, str]]] = {
+    "cumcm-2023-a-heliostat-field": {
+        "target_comparison.q3_annual_thermal_power_mw.actual": (
+            "target_value",
+            "The design must meet the 60 MW thermal-power requirement; extra power is not automatically better if it wastes field area.",
+        ),
+        "reproduced.design_summary[2].unit_area_power_kw_m2": (
+            "higher_is_better",
+            "The final design objective asks for stronger output per mirror area.",
+        ),
+        "reproduced.design_summary[2].annual_optical_efficiency": (
+            "higher_is_better",
+            "Higher optical efficiency means the heliostat field uses sunlight more effectively.",
+        ),
+        "reproduced.design_summary[2].mirror_area_m2": (
+            "lower_is_better",
+            "For a design that satisfies the power target, less mirror area is a cheaper/more efficient field.",
+        ),
+        "reproduced.design_summary[2].mirror_count": (
+            "lower_is_better",
+            "For a design that satisfies the power target, fewer mirrors usually means a simpler/cheaper field.",
+        ),
+    },
+    "cumcm-2023-b-multibeam-lines": {
+        "target_comparison.problem4_total_length_nm.actual": (
+            "lower_is_better",
+            "The survey-line design should reduce total sailing length while preserving coverage.",
+        ),
+        "target_comparison.problem4_missed_area_pct.actual": (
+            "lower_is_better",
+            "Missed survey area is a coverage error.",
+        ),
+        "reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles": (
+            "lower_is_better",
+            "Excessive overlap wastes survey length.",
+        ),
+        "reproduced.problem4_summary.sa_avg_overlap_pct": (
+            "target_value",
+            "The task wants controlled overlap, not simply larger or smaller overlap in all circumstances.",
+        ),
+    },
+    "cumcm-2023-c-vegetable-pricing": {
+        "target_comparison.future_week_max_profit_yuan.actual": (
+            "higher_is_better",
+            "The replenishment and pricing model maximizes profit.",
+        ),
+        "target_comparison.problem3_selected_item_count.actual": (
+            "target_value",
+            "The selected SKU count is part of a feasible policy, not a monotone objective by itself.",
+        ),
+    },
+    "cumcm-2024-a-dragon-dance": {
+        "experiment_result.q5.max_head_speed_mps": (
+            "higher_is_better",
+            "The final question asks for the largest feasible head speed under handle-speed limits.",
+        ),
+        "experiment_result.q5.max_speed_ratio_when_head_1mps": (
+            "lower_is_better",
+            "This is a speed-amplification/safety ratio; smaller leaves more margin under the 2 m/s cap.",
+        ),
+    },
+    "cumcm-2024-b-production-decision": {
+        "experiment_result.q4.posterior_rows[0].q2_best_profit_case1": (
+            "higher_is_better",
+            "Expected profit is the decision objective.",
+        ),
+        "experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior": (
+            "higher_is_better",
+            "Expected profit is the decision objective.",
+        ),
+        "experiment_result.q4.posterior_rows[1].q2_best_profit_case1": (
+            "higher_is_better",
+            "Expected profit is the decision objective.",
+        ),
+        "experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior": (
+            "higher_is_better",
+            "Expected profit is the decision objective.",
+        ),
+        "experiment_result.q4.posterior_rows[2].q2_best_profit_case1": (
+            "higher_is_better",
+            "Expected profit is the decision objective.",
+        ),
+        "experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior": (
+            "higher_is_better",
+            "Expected profit is the decision objective.",
+        ),
+    },
+    "cumcm-2024-c-crop-planting": {
+        "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan": (
+            "higher_is_better",
+            "The robust crop strategy maximizes downside-risk-adjusted profit.",
+        ),
+        "experiment_result.q2_q3.spearman_price_cost": (
+            "target_value",
+            "This is an estimated correlation describing the scenario model, not a policy objective.",
+        ),
+    },
+    "cumcm-2025-a-smoke-screen": {
+        "experiment_result.q5_union_duration_s.M1": (
+            "higher_is_better",
+            "Longer effective smoke-screen cover is the objective.",
+        ),
+        "experiment_result.q5_union_duration_s.M2": (
+            "higher_is_better",
+            "Longer effective smoke-screen cover is the objective.",
+        ),
+        "experiment_result.q5_union_duration_s.M3": (
+            "higher_is_better",
+            "Longer effective smoke-screen cover is the objective.",
+        ),
+        "experiment_result.q5_union_duration_s.total": (
+            "higher_is_better",
+            "The joint strategy maximizes total effective cover time.",
+        ),
+    },
+    "cumcm-2025-b-sic-thickness": {
+        "experiment_result.sic_recommended_thickness_um": (
+            "target_value",
+            "Layer thickness is an inferred physical parameter, not a monotone objective.",
+        ),
+        "experiment_result.si_recommended_thickness_um": (
+            "target_value",
+            "Layer thickness is an inferred physical parameter, not a monotone objective.",
+        ),
+    },
+    "cumcm-2025-c-nipt": {
+        "experiment_result.female_loo_accuracy": (
+            "higher_is_better",
+            "Higher diagnostic accuracy means better abnormality classification.",
+        ),
+        "female_abnormality.leave_one_out_f1": (
+            "higher_is_better",
+            "Higher F1 means better balance between precision and recall on abnormal samples.",
+        ),
+    },
+    "mcm-2023-a-plant-community": {
+        "target_comparison.optimal_species_count.actual": (
+            "target_value",
+            "The species count is a recommended threshold/policy value, not a monotone endpoint.",
+        ),
+        "target_comparison.beta_decline_pct.actual": (
+            "lower_is_better",
+            "Biomass decline under stress is a loss.",
+        ),
+        "target_comparison.five_species_pielou_evenness.actual": (
+            "higher_is_better",
+            "Higher evenness means a more balanced plant community.",
+        ),
+    },
+    "mcm-2023-b-maasai-mara": {
+        "target_comparison.scenario2_benefit_million.actual": (
+            "higher_is_better",
+            "The land-use optimization maximizes benefit.",
+        ),
+        "target_comparison.scenario2_agriculture_cells.actual": (
+            "target_value",
+            "This is one component of a feasible land-allocation plan.",
+        ),
+        "target_comparison.scenario2_hunting_cells.actual": (
+            "target_value",
+            "This is one component of a feasible land-allocation plan.",
+        ),
+        "target_comparison.scenario2_tourism_cells.actual": (
+            "target_value",
+            "This is one component of a feasible land-allocation plan.",
+        ),
+        "target_comparison.scenario2_wildlife_cells.actual": (
+            "target_value",
+            "This is one component of a feasible land-allocation plan.",
+        ),
+    },
+    "mcm-2023-c-wordle": {
+        "target_comparison.eerie_group.actual": (
+            "exact_value",
+            "The Wordle difficulty group is a discrete class label.",
+        ),
+        "target_comparison.lightgbm_like_accuracy.actual": (
+            "higher_is_better",
+            "Higher holdout accuracy means a better difficulty classifier.",
+        ),
+    },
+    "mcm-2024-a-lamprey": {
+        "experiment_result.parasite_coexistence_case.resource_level": (
+            "target_value",
+            "The resource level is a simulated ecosystem state in a coexistence scenario.",
+        ),
+        "experiment_result.parasite_coexistence_case.final_parasite_index": (
+            "target_value",
+            "The parasite index is a simulated ecosystem-response indicator, not a one-sided objective.",
+        ),
+        "experiment_result.parasite_coexistence_case.host_fish_index": (
+            "higher_is_better",
+            "A larger host-fish index indicates a healthier supported host population in the coexistence scenario.",
+        ),
+    },
+    "mcm-2024-b-submersible-search": {
+        "experiment_result.caribbean_adaptation.current_multiplier": (
+            "target_value",
+            "The multiplier is a recommended uncertainty adjustment, not a monotone objective.",
+        ),
+        "experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier": (
+            "target_value",
+            "The multiplier is a recommended uncertainty adjustment, not a monotone objective.",
+        ),
+    },
+    "mcm-2024-c-tennis-momentum": {
+        "experiment_result.dual_temporal_bayes.final_match_warning_rate": (
+            "target_value",
+            "The warning rate is a calibrated alert frequency, not simply higher or lower in isolation.",
+        ),
+        "experiment_result.top_swing_features[0].warning_correlation": (
+            "target_value",
+            "The correlation is an explanatory model statistic rather than an objective value.",
+        ),
+        "experiment_result.top_swing_features[1].warning_correlation": (
+            "target_value",
+            "The correlation is an explanatory model statistic rather than an objective value.",
+        ),
+        "experiment_result.top_swing_features[2].warning_correlation": (
+            "target_value",
+            "The correlation is an explanatory model statistic rather than an objective value.",
+        ),
+    },
+    "mcm-2025-a-stair-wear": {
+        "experiment_result.estimated_daily_users": (
+            "target_value",
+            "Daily users is an inferred historical quantity, not a monotone objective.",
+        ),
+        "daily_use_pattern.peak_period_users": (
+            "target_value",
+            "Peak-period users is an inferred traffic-pattern quantity.",
+        ),
+        "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": (
+            "target_value",
+            "Regular-hour users is an inferred traffic-pattern quantity.",
+        ),
+    },
+    "mcm-2025-b-juneau-tourism": {
+        "experiment_result.optimal_daily_cap": (
+            "target_value",
+            "The daily cap is a recommended policy setting, not a monotone objective by itself.",
+        ),
+        "experiment_result.optimal_visitor_fee_usd": (
+            "target_value",
+            "The visitor fee is a recommended policy setting, not a monotone objective by itself.",
+        ),
+        "experiment_result.annual_visitors": (
+            "higher_is_better",
+            "Visitor volume is beneficial when the sustainability constraints are satisfied.",
+        ),
+        "experiment_result.total_revenue_usd": (
+            "higher_is_better",
+            "Revenue is a benefit term in the tourism policy model.",
+        ),
+        "experiment_result.resident_acceptance_index": (
+            "higher_is_better",
+            "Higher resident acceptance is better for a sustainable policy.",
+        ),
+        "experiment_result.sustainability_score": (
+            "higher_is_better",
+            "The model defines this score so larger values mean a stronger sustainable policy.",
+        ),
+    },
+    "mcm-2025-c-olympic-medals": {
+        "great_coach_model.recommendations[0].estimated_medal_count_gain": (
+            "higher_is_better",
+            "The candidate investment value is estimated medal gain.",
+        ),
+        "great_coach_model.recommendations[1].estimated_medal_count_gain": (
+            "higher_is_better",
+            "The candidate investment value is estimated medal gain.",
+        ),
+        "great_coach_model.recommendations[2].estimated_medal_count_gain": (
+            "higher_is_better",
+            "The candidate investment value is estimated medal gain.",
+        ),
+        "great_coach_model.recommendations[3].estimated_medal_count_gain": (
+            "higher_is_better",
+            "The candidate investment value is estimated medal gain.",
+        ),
+        "great_coach_model.global_top_jump_75pct": (
+            "higher_is_better",
+            "A larger 75th-percentile jump indicates a stronger coach-effect signal.",
+        ),
+    },
+}
+
+SEMANTIC_DIRECTION_VALUES = {"higher_is_better", "lower_is_better", "target_value", "exact_value"}
+
+
+def semantic_direction(case: Case, path: str) -> tuple[str, str]:
+    try:
+        direction, basis = SEMANTIC_METRIC_DIRECTIONS[case.slug][path]
+    except KeyError as exc:
+        raise KeyError(f"missing semantic direction for {case.slug}: {path}") from exc
+    if direction not in SEMANTIC_DIRECTION_VALUES:
+        raise ValueError(f"invalid semantic direction {direction!r} for {case.slug}: {path}")
+    return direction, basis
+
+
 def reset_dir(path: Path) -> None:
     if path.exists():
         shutil.rmtree(path)
@@ -937,6 +1237,16 @@ def final_question_metrics(
     for path, metric in by_path.items():
         if path in spec.include_paths or any(path.startswith(prefix) for prefix in spec.include_prefixes):
             item = dict(metric)
+            direction, basis = semantic_direction(case, path)
+            item["direction"] = direction
+            item["semantic_direction"] = direction
+            item["direction_basis"] = basis
+            item["semantic_direction_basis"] = basis
+            item.setdefault("normalization_mode", "legacy_target_distance_to_outstanding")
+            item.setdefault(
+                "normalization_basis",
+                "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
+            )
             item["question_scope"] = "final_question_only"
             item["final_question_label"] = spec.label
             selected.append(item)
@@ -1464,8 +1774,8 @@ def metrics_with_endpoint_normalization(
             item["baseline_source_path"] = source_path
         if not is_number(baseline_actual):
             item["normalization_mode"] = "missing_baseline"
-            item["direction"] = "unscored_missing_baseline"
-            item["direction_basis"] = "no numeric baseline endpoint"
+            item["normalization_direction"] = "missing_baseline"
+            item["normalization_basis"] = "no numeric baseline endpoint"
             item["score_weight"] = 0.0
             missing_baseline_count += 1
             normalized_metrics.append(item)
@@ -1475,22 +1785,24 @@ def metrics_with_endpoint_normalization(
         outstanding_value = _as_float(item["outstanding_value"])
         item["baseline_value"] = baseline_value
         item["normalization_mode"] = "baseline_to_outstanding_target_minmax"
-        item["direction_basis"] = "outstanding_value compared with baseline_value; the outstanding endpoint is the target"
+        item["normalization_basis"] = (
+            "outstanding_value compared with baseline_value; the outstanding endpoint is the target"
+        )
         item["score_weight"] = item.get("weight", 1.0)
         if outstanding_value > baseline_value:
-            item["direction"] = "higher_is_better"
+            item["normalization_direction"] = "higher_is_better"
             item["normalization_formula"] = (
                 "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
             )
             effective_metric_count += 1
         elif outstanding_value < baseline_value:
-            item["direction"] = "lower_is_better"
+            item["normalization_direction"] = "lower_is_better"
             item["normalization_formula"] = (
                 "clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)"
             )
             effective_metric_count += 1
         else:
-            item["direction"] = "exact_value"
+            item["normalization_direction"] = "exact_value"
             item["normalization_mode"] = "constant_endpoint"
             item["normalization_formula"] = "baseline_value == outstanding_value; excluded from min-max panel"
             item["score_weight"] = 0.0
@@ -1545,7 +1857,7 @@ def score_config(case: Case, oracle_result: dict[str, Any]) -> dict[str, Any]:
         "metrics": metrics,
         "raw_panel_aggregation": "weighted_mean",
         "metric_reward": (
-            "per-metric target-distance min-max between baseline_value and outstanding_value, using direction"
+            "per-metric target-distance min-max between baseline_value and outstanding_value, using normalization_direction"
             if uses_minmax
             else "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))"
         ),
@@ -1629,14 +1941,13 @@ def scoring_table_markdown(case: Case, score: dict[str, Any]) -> str:
         f"- Outstanding endpoint: `{outstanding.get('kind')}`"
         + (f", score `{_markdown_cell(outstanding_score)}`" if outstanding_score is not None else ""),
         "",
-        "| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |",
-        "|---:|---|---:|---:|---|---|---:|---|",
+        "| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |",
+        "|---:|---|---:|---:|---|---|---|---|---:|---|",
     ]
     for index, metric in enumerate(score.get("metrics", []), start=1):
-        mode = metric.get("normalization_mode", "legacy_closeness_to_outstanding")
-        direction = metric.get("direction")
-        if direction is None:
-            direction = "closeness_to_outstanding"
+        mode = metric.get("normalization_mode", "legacy_target_distance_to_outstanding")
+        direction = metric.get("semantic_direction", metric.get("direction", "target_value"))
+        normalization_direction = metric.get("normalization_direction", "")
         weight = metric.get("score_weight", metric.get("weight", 1.0))
         scored = "yes" if is_number(weight) and float(weight) > 0.0 else "no"
         if mode == "missing_baseline":
@@ -1652,6 +1963,8 @@ def scoring_table_markdown(case: Case, score: dict[str, Any]) -> str:
                     _metric_display_value(metric, "baseline_value"),
                     _metric_display_value(metric, "outstanding_value"),
                     f"`{_markdown_cell(direction)}`",
+                    f"`{_markdown_cell(mode)}`",
+                    f"`{_markdown_cell(normalization_direction)}`" if normalization_direction else "",
                     _markdown_cell(scored),
                     _markdown_cell(weight),
                     f"`{_markdown_cell(metric.get('baseline_source_path'))}`"
@@ -2003,15 +2316,24 @@ def test_scoring_metric_panel_is_configured():
     assert final_question.get("final_answer_summary"), "final_question must summarize the oracle final answer"
     assert final_question.get("baseline_model_summary"), "final_question must summarize the baseline model"
     endpoint_modes = 0
+    semantic_directions = {{"higher_is_better", "lower_is_better", "target_value", "exact_value"}}
     for metric in metrics:
         assert isinstance(metric.get("path"), str) and metric["path"], "each scoring metric needs a path"
         _as_float(metric.get("oracle_value"), metric["path"])
+        assert metric.get("direction") in semantic_directions, (
+            "each metric direction must describe whether the modeled quantity is higher-is-better, "
+            "lower-is-better, target-like, or an exact discrete value"
+        )
+        if metric.get("semantic_direction") is not None:
+            assert metric.get("semantic_direction") == metric.get("direction"), (
+                "semantic_direction must match the public direction field"
+            )
         if metric.get("normalization_mode") == "baseline_to_outstanding_target_minmax":
             endpoint_modes += 1
             _as_float(metric.get("baseline_value"), metric["path"] + ".baseline_value")
             _as_float(metric.get("outstanding_value"), metric["path"] + ".outstanding_value")
-            assert metric.get("direction") in ("higher_is_better", "lower_is_better"), (
-                "min-max metrics must declare whether higher or lower values move toward the outstanding endpoint"
+            assert metric.get("normalization_direction") in ("higher_is_better", "lower_is_better"), (
+                "min-max metrics must declare whether the outstanding endpoint is above or below the baseline endpoint"
             )
     baseline = SCORE_CONFIG.get("baseline_endpoint", {{}})
     outstanding = SCORE_CONFIG.get("outstanding_endpoint", {{}})
@@ -2173,7 +2495,7 @@ def _metric_endpoint_score(actual: float, metric: dict[str, Any]) -> float:
         return _metric_reward(actual, metric)
     baseline = _as_float(metric["baseline_value"])
     outstanding = _as_float(metric["outstanding_value"])
-    direction = metric.get("direction")
+    direction = metric.get("normalization_direction", metric.get("direction"))
     if direction == "higher_is_better":
         if outstanding <= baseline:
             return 0.0
@@ -2192,7 +2514,7 @@ def _b_eval_metric_gain(actual: float, metric: dict[str, Any]) -> dict[str, floa
         baseline = _as_float(metric.get("baseline_value"))
     except (TypeError, ValueError):
         return None
-    direction = metric.get("direction")
+    direction = metric.get("semantic_direction", metric.get("direction"))
     if direction == "higher_is_better":
         signed_gain = actual - baseline
     elif direction == "lower_is_better":
@@ -2229,9 +2551,13 @@ def score_result(eval_method: str | None = None) -> dict[str, Any]:
             "path": path,
             "outstanding_value": metric.get("outstanding_value", metric["oracle_value"]),
             "baseline_value": metric.get("baseline_value"),
-            "direction": metric.get("direction", "closeness_to_outstanding"),
-            "direction_basis": metric.get("direction_basis"),
-            "normalization_mode": metric.get("normalization_mode", "closeness_to_outstanding"),
+            "direction": metric.get("direction", metric.get("semantic_direction")),
+            "semantic_direction": metric.get("semantic_direction", metric.get("direction")),
+            "direction_basis": metric.get("direction_basis", metric.get("semantic_direction_basis")),
+            "semantic_direction_basis": metric.get("semantic_direction_basis", metric.get("direction_basis")),
+            "normalization_direction": metric.get("normalization_direction"),
+            "normalization_basis": metric.get("normalization_basis"),
+            "normalization_mode": metric.get("normalization_mode", "legacy_target_distance_to_outstanding"),
             "configured_weight": configured_weight,
             "score_weight": weight,
             "found": found,
@@ -2463,8 +2789,8 @@ def write_scoring_tables(tables: list[tuple[Case, str]]) -> None:
         "belong to the final question rather than the whole contest problem. `B-Eval` is the default "
         "verifier reward and reports gain over the baseline panel score; `BO-Eval` is available as a verifier "
         "hyperparameter for baseline-to-outstanding normalization. For endpoint tasks, the table shows the real "
-        "baseline value, the real outstanding-paper value, and whether moving toward the outstanding endpoint "
-        "is higher-is-better or lower-is-better. Legacy tasks list the oracle metric panel and keep per-metric "
+        "baseline value, the real outstanding-paper value, the semantic direction of the modeled quantity, "
+        "and the separate normalization direction used by the verifier. Legacy tasks list the oracle metric panel and keep per-metric "
         "baseline values blank because their baseline outputs do not expose the same final-answer fields; those "
         "tasks still use a legacy baseline-panel endpoint rather than forcing unrelated numbers into the table. The generated "
         "`test.sh` accepts the eval method as its first argument, and `score_result.py` also exposes "
@@ -2506,11 +2832,13 @@ So the number of checked values is no longer "all numbers in the report". It is 
 
 The default method is `B-Eval`, a baseline-only score that reports how much the model improves over the baseline method: `raw_panel_score - baseline_panel_score`. This value is allowed to be negative, which plainly means the submitted result is worse than the baseline under the same final-question numeric panel.
 
-The older two-endpoint method is retained as `BO-Eval`. When comparable baseline and outstanding-paper numeric endpoints are available, each metric stores `baseline_value`, `outstanding_value`, and a `direction` field. The direction records whether the outstanding endpoint lies above or below the baseline endpoint. The metric score is a target-distance min-max score: if `direction` is `higher_is_better`, use `clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)`; if `direction` is `lower_is_better`, use `clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)`. Thus the baseline value scores 0, the outstanding-paper value scores 1, and overshooting the outstanding endpoint is penalized instead of automatically receiving full credit. Metrics where baseline and outstanding have the same value are marked `exact_value` and recorded but excluded from the min-max panel because they have no normalization range.
+The older two-endpoint method is retained as `BO-Eval`. Every metric stores a public `direction` field that describes the meaning of the quantity itself: `higher_is_better`, `lower_is_better`, `target_value`, or `exact_value`. This field is semantic. It is not a synonym for "closer to the O-award value".
+
+When comparable baseline and outstanding-paper numeric endpoints are available, the verifier also stores `baseline_value`, `outstanding_value`, and `normalization_direction`. The metric score is a target-distance min-max score: if `normalization_direction` is `higher_is_better`, use `clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)`; if `normalization_direction` is `lower_is_better`, use `clamp(1 - abs(actual - outstanding_value) / (baseline_value - outstanding_value), 0, 1)`. Thus the baseline value scores 0, the outstanding-paper value scores 1, and overshooting the outstanding endpoint is penalized instead of automatically receiving full credit. Metrics where baseline and outstanding have the same value use `constant_endpoint` normalization and are recorded but excluded from the min-max panel because they have no normalization range.
 
 The verifier supports both methods as a scoring hyperparameter. By default it writes the `B-Eval` reward to `/logs/verifier/reward.txt`. To request the two-endpoint score, run `/tests/test.sh BO-Eval`, set `TB_MATHMODELING_EVAL_METHOD=BO-Eval`, invoke `/tests/score_result.py --eval-method BO-Eval`, or call `score_result(eval_method="BO-Eval")` from a Python test/helper. Every run records both `b_eval` and `bo_eval` in `/logs/verifier/score_details.json`, so reports can compare the simple baseline gain and the baseline-to-outstanding normalized score side by side.
 
-The preferred baseline endpoint is computed from the archived per-question `question_results` outputs after mapping comparable numeric answers onto the same final-question scoring panel used for submissions and the outstanding reproduction. The verifier records the plain-language final question, the oracle final answer, the baseline model summary, each baseline source path, outstanding value, direction, and effective weight in `score_config.json`. Each task directory includes a generated `scoring_table.md`, and the full set is collected in [`docs/SCORING_TABLES.md`](docs/SCORING_TABLES.md). Tasks without a comparable field-level mapping currently keep an explicit legacy fallback endpoint until a task-specific adapter is added; this means `Baseline answer` can be blank in the table even though a baseline run exists. The current release scores numerical modeling outputs; future versions can add rubric-based scoring for modeling quality, assumptions, validation, and paper writing.
+The preferred baseline endpoint is computed from the archived per-question `question_results` outputs after mapping comparable numeric answers onto the same final-question scoring panel used for submissions and the outstanding reproduction. The verifier records the plain-language final question, the oracle final answer, the baseline model summary, each baseline source path, outstanding value, semantic direction, normalization direction, and effective weight in `score_config.json`. Each task directory includes a generated `scoring_table.md`, and the full set is collected in [`docs/SCORING_TABLES.md`](docs/SCORING_TABLES.md). Tasks without a comparable field-level mapping currently keep an explicit legacy fallback endpoint until a task-specific adapter is added; this means `Baseline answer` can be blank in the table even though a baseline run exists. The current release scores numerical modeling outputs; future versions can add rubric-based scoring for modeling quality, assumptions, validation, and paper writing.
 
 ## Tasks
 

@@ -15,7 +15,7 @@
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.si_recommended_thickness_um` |  | 10.5145 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.sic_recommended_thickness_um` |  | 8.9815 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.si_recommended_thickness_um` |  | 10.5145 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.sic_recommended_thickness_um` |  | 8.9815 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

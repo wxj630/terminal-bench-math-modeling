@@ -15,7 +15,7 @@
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction_metric_values`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `target_comparison.eerie_group.actual` | 2 | 2 | `exact_value` | no: exact value | 0 | `difficulty_model.eerie_classifier_class` |
-| 2 | `target_comparison.lightgbm_like_accuracy.actual` | 0.422222 | 0.7 | `higher_is_better` | yes | 1 | `difficulty_model.holdout_accuracy` |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `target_comparison.eerie_group.actual` | 2 | 2 | `exact_value` | `constant_endpoint` | `exact_value` | no: exact value | 0 | `difficulty_model.eerie_classifier_class` |
+| 2 | `target_comparison.lightgbm_like_accuracy.actual` | 0.422222 | 0.7 | `higher_is_better` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `difficulty_model.holdout_accuracy` |

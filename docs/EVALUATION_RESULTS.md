@@ -53,13 +53,13 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `reproduced.design_summary[2].annual_optical_efficiency` |  | 0.496428083 | `closeness_to_outstanding` |  | 0 |  | yes |  |
-| 2 | `reproduced.design_summary[2].mirror_area_m2` |  | 119196 | `closeness_to_outstanding` |  | 0 |  | yes |  |
-| 3 | `reproduced.design_summary[2].mirror_count` |  | 3311 | `closeness_to_outstanding` |  | 0 |  | yes |  |
-| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` |  | 0.506192417 | `closeness_to_outstanding` |  | 0 |  | yes |  |
-| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` |  | 60.336111 | `closeness_to_outstanding` |  | 0 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `reproduced.design_summary[2].annual_optical_efficiency` |  | 0.496428083 | `higher_is_better` |  |  | 0 |  | yes |  |
+| 2 | `reproduced.design_summary[2].mirror_area_m2` |  | 119196 | `lower_is_better` |  |  | 0 |  | yes |  |
+| 3 | `reproduced.design_summary[2].mirror_count` |  | 3311 | `lower_is_better` |  |  | 0 |  | yes |  |
+| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` |  | 0.506192417 | `higher_is_better` |  |  | 0 |  | yes |  |
+| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` |  | 60.336111 | `target_value` |  |  | 0 |  | yes |  |
 ## CUMCM 2023 B: `cumcm-2023-b-multibeam-lines`
 
 - Scoring status: final-question legacy fallback
@@ -75,12 +75,12 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: N/A
 - DeepSeek/Terminus-2 BO-Eval: N/A
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` |  | 30 | `closeness_to_outstanding` |  |  |  | yes |  |
-| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` |  | 10.48 | `closeness_to_outstanding` |  |  |  | yes |  |
-| 3 | `target_comparison.problem4_missed_area_pct.actual` |  | 3.48 | `closeness_to_outstanding` |  |  |  | yes |  |
-| 4 | `target_comparison.problem4_total_length_nm.actual` |  | 622 | `closeness_to_outstanding` |  |  |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` |  | 30 | `lower_is_better` |  |  |  |  | yes |  |
+| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` |  | 10.48 | `target_value` |  |  |  |  | yes |  |
+| 3 | `target_comparison.problem4_missed_area_pct.actual` |  | 3.48 | `lower_is_better` |  |  |  |  | yes |  |
+| 4 | `target_comparison.problem4_total_length_nm.actual` |  | 622 | `lower_is_better` |  |  |  |  | yes |  |
 ## CUMCM 2023 C: `cumcm-2023-c-vegetable-pricing`
 
 - Scoring status: final-question legacy fallback
@@ -96,10 +96,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0.262879428093
 - DeepSeek/Terminus-2 BO-Eval: 0.262879428093
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `target_comparison.future_week_max_profit_yuan.actual` |  | 5105.6 | `closeness_to_outstanding` | 14616.69 | 0.060518214474 |  | yes |  |
-| 2 | `target_comparison.problem3_selected_item_count.actual` |  | 29 | `closeness_to_outstanding` | 33 | 0.465240641711 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `target_comparison.future_week_max_profit_yuan.actual` |  | 5105.6 | `higher_is_better` |  | 14616.69 | 0.060518214474 |  | yes |  |
+| 2 | `target_comparison.problem3_selected_item_count.actual` |  | 29 | `target_value` |  | 33 | 0.465240641711 |  | yes |  |
 ## CUMCM 2024 A: `cumcm-2024-a-dragon-dance`
 
 - Scoring status: final-question legacy fallback
@@ -115,10 +115,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0.107142857143
 - DeepSeek/Terminus-2 BO-Eval: 0.107142857143
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.q5.max_head_speed_mps` |  | 2.00002 | `closeness_to_outstanding` | 0 | 0.107142857143 |  | yes |  |
-| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` |  | 0.99999 | `closeness_to_outstanding` | 0 | 0.107142857143 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.q5.max_head_speed_mps` |  | 2.00002 | `higher_is_better` |  | 0 | 0.107142857143 |  | yes |  |
+| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` |  | 0.99999 | `lower_is_better` |  | 0 | 0.107142857143 |  | yes |  |
 ## CUMCM 2024 B: `cumcm-2024-b-production-decision`
 
 - Scoring status: final-question legacy fallback
@@ -134,14 +134,14 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0.691799203783
 - DeepSeek/Terminus-2 BO-Eval: 0.691799203783
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.q4.posterior_rows[0].q2_best_profit_case1` |  | 25.9691 | `closeness_to_outstanding` | 27.49 | 0.672021343951 |  | yes |  |
-| 2 | `experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior` |  | 86.8529 | `closeness_to_outstanding` | 96.721 | 0.513657855164 |  | yes |  |
-| 3 | `experiment_result.q4.posterior_rows[1].q2_best_profit_case1` |  | 25.8694 | `closeness_to_outstanding` | 26.9595 | 0.740107590356 |  | yes |  |
-| 4 | `experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior` |  | 86.5588 | `closeness_to_outstanding` | 91.6033 | 0.673104902707 |  | yes |  |
-| 5 | `experiment_result.q4.posterior_rows[2].q2_best_profit_case1` |  | 25.7715 | `closeness_to_outstanding` | 26.4072 | 0.829492420097 |  | yes |  |
-| 6 | `experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior` |  | 86.2647 | `closeness_to_outstanding` | 90.2424 | 0.722411110423 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.q4.posterior_rows[0].q2_best_profit_case1` |  | 25.9691 | `higher_is_better` |  | 27.49 | 0.672021343951 |  | yes |  |
+| 2 | `experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior` |  | 86.8529 | `higher_is_better` |  | 96.721 | 0.513657855164 |  | yes |  |
+| 3 | `experiment_result.q4.posterior_rows[1].q2_best_profit_case1` |  | 25.8694 | `higher_is_better` |  | 26.9595 | 0.740107590356 |  | yes |  |
+| 4 | `experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior` |  | 86.5588 | `higher_is_better` |  | 91.6033 | 0.673104902707 |  | yes |  |
+| 5 | `experiment_result.q4.posterior_rows[2].q2_best_profit_case1` |  | 25.7715 | `higher_is_better` |  | 26.4072 | 0.829492420097 |  | yes |  |
+| 6 | `experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior` |  | 86.2647 | `higher_is_better` |  | 90.2424 | 0.722411110423 |  | yes |  |
 ## CUMCM 2024 C: `cumcm-2024-c-crop-planting`
 
 - Scoring status: final-question legacy fallback
@@ -157,10 +157,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0.31433102394
 - DeepSeek/Terminus-2 BO-Eval: 0.31433102394
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.q2_q3.best_correlated_cvar10_profit_yuan` |  | 118550698.19 | `closeness_to_outstanding` | 69059695.53 | 0.223269527485 |  | yes |  |
-| 2 | `experiment_result.q2_q3.spearman_price_cost` |  | 0.2551 | `closeness_to_outstanding` | 0.3 | 0.405392520394 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.q2_q3.best_correlated_cvar10_profit_yuan` |  | 118550698.19 | `higher_is_better` |  | 69059695.53 | 0.223269527485 |  | yes |  |
+| 2 | `experiment_result.q2_q3.spearman_price_cost` |  | 0.2551 | `target_value` |  | 0.3 | 0.405392520394 |  | yes |  |
 ## CUMCM 2025 A: `cumcm-2025-a-smoke-screen`
 
 - Scoring status: final-question legacy fallback
@@ -176,12 +176,12 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: N/A
 - DeepSeek/Terminus-2 BO-Eval: N/A
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.q5_union_duration_s.M1` |  | 10.3 | `closeness_to_outstanding` |  |  |  | yes |  |
-| 2 | `experiment_result.q5_union_duration_s.M2` |  | 6.2 | `closeness_to_outstanding` |  |  |  | yes |  |
-| 3 | `experiment_result.q5_union_duration_s.M3` |  | 3.4 | `closeness_to_outstanding` |  |  |  | yes |  |
-| 4 | `experiment_result.q5_union_duration_s.total` |  | 19.9 | `closeness_to_outstanding` |  |  |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.q5_union_duration_s.M1` |  | 10.3 | `higher_is_better` |  |  |  |  | yes |  |
+| 2 | `experiment_result.q5_union_duration_s.M2` |  | 6.2 | `higher_is_better` |  |  |  |  | yes |  |
+| 3 | `experiment_result.q5_union_duration_s.M3` |  | 3.4 | `higher_is_better` |  |  |  |  | yes |  |
+| 4 | `experiment_result.q5_union_duration_s.total` |  | 19.9 | `higher_is_better` |  |  |  |  | yes |  |
 ## CUMCM 2025 B: `cumcm-2025-b-sic-thickness`
 
 - Scoring status: final-question legacy fallback
@@ -197,10 +197,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0.143178654302
 - DeepSeek/Terminus-2 BO-Eval: 0.143178654302
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.si_recommended_thickness_um` |  | 10.5145 | `closeness_to_outstanding` | 4.82505875455 | 0.181514472929 |  | yes |  |
-| 2 | `experiment_result.sic_recommended_thickness_um` |  | 8.9815 | `closeness_to_outstanding` | 18.1836785023 | 0.104842835674 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.si_recommended_thickness_um` |  | 10.5145 | `target_value` |  | 4.82505875455 | 0.181514472929 |  | yes |  |
+| 2 | `experiment_result.sic_recommended_thickness_um` |  | 8.9815 | `target_value` |  | 18.1836785023 | 0.104842835674 |  | yes |  |
 ## CUMCM 2025 C: `cumcm-2025-c-nipt`
 
 - Scoring status: final-question legacy fallback
@@ -216,10 +216,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0.471826516941
 - DeepSeek/Terminus-2 BO-Eval: 0.471826516941
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.female_loo_accuracy` |  | 0.8659 | `closeness_to_outstanding` | 0.9174 | 0.668614228354 |  | yes |  |
-| 2 | `female_abnormality.leave_one_out_f1` |  | 0.3721 | `closeness_to_outstanding` | 0.489796 | 0.275038805529 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.female_loo_accuracy` |  | 0.8659 | `higher_is_better` |  | 0.9174 | 0.668614228354 |  | yes |  |
+| 2 | `female_abnormality.leave_one_out_f1` |  | 0.3721 | `higher_is_better` |  | 0.489796 | 0.275038805529 |  | yes |  |
 ## MCM 2023 A: `mcm-2023-a-plant-community`
 
 - Scoring status: final-question legacy fallback
@@ -235,11 +235,11 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: -0.248454921739
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `target_comparison.beta_decline_pct.actual` |  | 32 | `closeness_to_outstanding` | 7.04 | 0.133333333333 |  | yes |  |
-| 2 | `target_comparison.five_species_pielou_evenness.actual` |  | 0.8826 | `closeness_to_outstanding` | 0.9673 | 0.555641827377 |  | yes |  |
-| 3 | `target_comparison.optimal_species_count.actual` |  | 2 | `closeness_to_outstanding` | 5 | 0.0740740740741 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `target_comparison.beta_decline_pct.actual` |  | 32 | `lower_is_better` |  | 7.04 | 0.133333333333 |  | yes |  |
+| 2 | `target_comparison.five_species_pielou_evenness.actual` |  | 0.8826 | `higher_is_better` |  | 0.9673 | 0.555641827377 |  | yes |  |
+| 3 | `target_comparison.optimal_species_count.actual` |  | 2 | `target_value` |  | 5 | 0.0740740740741 |  | yes |  |
 ## MCM 2023 B: `mcm-2023-b-maasai-mara`
 
 - Scoring status: final-question legacy fallback
@@ -255,13 +255,13 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: -0.572294585853
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `target_comparison.scenario2_agriculture_cells.actual` |  | 12 | `closeness_to_outstanding` | 100 | 0.0161001788909 |  | yes |  |
-| 2 | `target_comparison.scenario2_benefit_million.actual` |  | 154948.974 | `closeness_to_outstanding` | 104.24 | 0.107207252097 |  | yes |  |
-| 3 | `target_comparison.scenario2_hunting_cells.actual` |  | 2 | `closeness_to_outstanding` | 40 | 0.00627615062762 |  | yes |  |
-| 4 | `target_comparison.scenario2_tourism_cells.actual` |  | 9 | `closeness_to_outstanding` | 100 | 0.011728931364 |  | yes |  |
-| 5 | `target_comparison.scenario2_wildlife_cells.actual` |  | 13 | `closeness_to_outstanding` | 160 | 0.0105008077544 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `target_comparison.scenario2_agriculture_cells.actual` |  | 12 | `target_value` |  | 100 | 0.0161001788909 |  | yes |  |
+| 2 | `target_comparison.scenario2_benefit_million.actual` |  | 154948.974 | `higher_is_better` |  | 104.24 | 0.107207252097 |  | yes |  |
+| 3 | `target_comparison.scenario2_hunting_cells.actual` |  | 2 | `target_value` |  | 40 | 0.00627615062762 |  | yes |  |
+| 4 | `target_comparison.scenario2_tourism_cells.actual` |  | 9 | `target_value` |  | 100 | 0.011728931364 |  | yes |  |
+| 5 | `target_comparison.scenario2_wildlife_cells.actual` |  | 13 | `target_value` |  | 160 | 0.0105008077544 |  | yes |  |
 ## MCM 2023 C: `mcm-2023-c-wordle`
 
 - Scoring status: final-question endpoint target-minmax
@@ -277,10 +277,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `target_comparison.eerie_group.actual` | 2 | 2 | `exact_value` | 3 | 0 |  | no | difficulty_model.eerie_classifier_class |
-| 2 | `target_comparison.lightgbm_like_accuracy.actual` | 0.422222 | 0.7 | `higher_is_better` | 0.3211 | 0 | -0.101122 | yes | difficulty_model.holdout_accuracy |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `target_comparison.eerie_group.actual` | 2 | 2 | `exact_value` | `exact_value` | 3 | 0 |  | no | difficulty_model.eerie_classifier_class |
+| 2 | `target_comparison.lightgbm_like_accuracy.actual` | 0.422222 | 0.7 | `higher_is_better` | `higher_is_better` | 0.3211 | 0 | -0.101122 | yes | difficulty_model.holdout_accuracy |
 ## MCM 2024 A: `mcm-2024-a-lamprey`
 
 - Scoring status: final-question legacy fallback
@@ -296,11 +296,11 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: -0.194531681993
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` |  | 8.562 | `closeness_to_outstanding` | 0.3124 | 0.110750842941 |  | yes |  |
-| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` |  | 1080.356 | `closeness_to_outstanding` | 0.5981 | 0.107195843839 |  | yes |  |
-| 3 | `experiment_result.parasite_coexistence_case.resource_level` |  | 0.55 | `closeness_to_outstanding` | 0.5 | 0.568965517241 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` |  | 8.562 | `target_value` |  | 0.3124 | 0.110750842941 |  | yes |  |
+| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` |  | 1080.356 | `higher_is_better` |  | 0.5981 | 0.107195843839 |  | yes |  |
+| 3 | `experiment_result.parasite_coexistence_case.resource_level` |  | 0.55 | `target_value` |  | 0.5 | 0.568965517241 |  | yes |  |
 ## MCM 2024 B: `mcm-2024-b-submersible-search`
 
 - Scoring status: final-question legacy fallback
@@ -316,10 +316,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: -0.402596368978
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.caribbean_adaptation.current_multiplier` |  | 1.35 | `closeness_to_outstanding` | 2 | 0.199507389163 |  | yes |  |
-| 2 | `experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier` |  | 1.2 | `closeness_to_outstanding` | 2 | 0.152542372881 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.caribbean_adaptation.current_multiplier` |  | 1.35 | `target_value` |  | 2 | 0.199507389163 |  | yes |  |
+| 2 | `experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier` |  | 1.2 | `target_value` |  | 2 | 0.152542372881 |  | yes |  |
 ## MCM 2024 C: `mcm-2024-c-tennis-momentum`
 
 - Scoring status: final-question legacy fallback
@@ -335,12 +335,12 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: -0.561238131236
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` |  | 0.006 | `closeness_to_outstanding` | 0.9632 | 0.000751628528478 |  | yes |  |
-| 2 | `experiment_result.top_swing_features[0].warning_correlation` |  | 0.0302 | `closeness_to_outstanding` | 0.1074 | 0.0448381668811 |  | yes |  |
-| 3 | `experiment_result.top_swing_features[1].warning_correlation` |  | -0.0223 | `closeness_to_outstanding` | 0.0809 | 0.0252748498243 |  | yes |  |
-| 4 | `experiment_result.top_swing_features[2].warning_correlation` |  | 0.0154 | `closeness_to_outstanding` | 0.051 | 0.0493484298227 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` |  | 0.006 | `target_value` |  | 0.9632 | 0.000751628528478 |  | yes |  |
+| 2 | `experiment_result.top_swing_features[0].warning_correlation` |  | 0.0302 | `target_value` |  | 0.1074 | 0.0448381668811 |  | yes |  |
+| 3 | `experiment_result.top_swing_features[1].warning_correlation` |  | -0.0223 | `target_value` |  | 0.0809 | 0.0252748498243 |  | yes |  |
+| 4 | `experiment_result.top_swing_features[2].warning_correlation` |  | 0.0154 | `target_value` |  | 0.051 | 0.0493484298227 |  | yes |  |
 ## MCM 2025 A: `mcm-2025-a-stair-wear`
 
 - Scoring status: final-question endpoint target-minmax
@@ -356,11 +356,11 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `daily_use_pattern.peak_period_users` | 27.3 | 27.6 | `higher_is_better` | 23.6 | 0 | -3.7 | yes | daily_use_pattern.peak_period_users |
-| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 4.5 | 4.6 | `higher_is_better` | 7.1 | 0 | 2.6 | yes | daily_use_pattern.regular_hour_users_if_spread_over_10_hours |
-| 3 | `experiment_result.estimated_daily_users` | 72.67 | 73.52 | `higher_is_better` | 117.9 | 0 | 45.23 | yes | inverse_wear_model.usage_frequency.estimated_daily_users |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `daily_use_pattern.peak_period_users` | 27.3 | 27.6 | `target_value` | `higher_is_better` | 23.6 | 0 |  | yes | daily_use_pattern.peak_period_users |
+| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 4.5 | 4.6 | `target_value` | `higher_is_better` | 7.1 | 0 |  | yes | daily_use_pattern.regular_hour_users_if_spread_over_10_hours |
+| 3 | `experiment_result.estimated_daily_users` | 72.67 | 73.52 | `target_value` | `higher_is_better` | 117.9 | 0 |  | yes | inverse_wear_model.usage_frequency.estimated_daily_users |
 ## MCM 2025 B: `mcm-2025-b-juneau-tourism`
 
 - Scoring status: final-question endpoint target-minmax
@@ -376,14 +376,14 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: 0
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `experiment_result.annual_visitors` | 1408000 | 1491526 | `higher_is_better` | 1111429 | 0 | -296571 | yes | sustainability_model.optimal_policy.annual_visitors |
-| 2 | `experiment_result.optimal_daily_cap` | 10000 | 11000 | `higher_is_better` | 4000 | 0 | -6000 | yes | sustainability_model.optimal_policy.daily_cap |
-| 3 | `experiment_result.optimal_visitor_fee_usd` | 50 | 55 | `higher_is_better` | 15 | 0 | -35 | yes | sustainability_model.optimal_policy.visitor_fee_usd |
-| 4 | `experiment_result.resident_acceptance_index` | 0.78 | 1 | `higher_is_better` | 0.764 | 0 | -0.016 | yes | sustainability_model.optimal_policy.resident_acceptance_index |
-| 5 | `experiment_result.sustainability_score` | 0.908447 | 1.007 | `higher_is_better` | 0.5827 | 0 | -0.325747 | yes | sustainability_model.optimal_policy.sustainability_score |
-| 6 | `experiment_result.total_revenue_usd` | 400400000 | 431610327.83 | `higher_is_better` | 277162606 | 0 | -123237394 | yes | sustainability_model.optimal_policy.total_revenue_usd |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `experiment_result.annual_visitors` | 1408000 | 1491526 | `higher_is_better` | `higher_is_better` | 1111429 | 0 | -296571 | yes | sustainability_model.optimal_policy.annual_visitors |
+| 2 | `experiment_result.optimal_daily_cap` | 10000 | 11000 | `target_value` | `higher_is_better` | 4000 | 0 |  | yes | sustainability_model.optimal_policy.daily_cap |
+| 3 | `experiment_result.optimal_visitor_fee_usd` | 50 | 55 | `target_value` | `higher_is_better` | 15 | 0 |  | yes | sustainability_model.optimal_policy.visitor_fee_usd |
+| 4 | `experiment_result.resident_acceptance_index` | 0.78 | 1 | `higher_is_better` | `higher_is_better` | 0.764 | 0 | -0.016 | yes | sustainability_model.optimal_policy.resident_acceptance_index |
+| 5 | `experiment_result.sustainability_score` | 0.908447 | 1.007 | `higher_is_better` | `higher_is_better` | 0.5827 | 0 | -0.325747 | yes | sustainability_model.optimal_policy.sustainability_score |
+| 6 | `experiment_result.total_revenue_usd` | 400400000 | 431610327.83 | `higher_is_better` | `higher_is_better` | 277162606 | 0 | -123237394 | yes | sustainability_model.optimal_policy.total_revenue_usd |
 ## MCM 2025 C: `mcm-2025-c-olympic-medals`
 
 - Scoring status: final-question legacy fallback
@@ -399,10 +399,10 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 B-Eval: -0.491474074565
 - DeepSeek/Terminus-2 BO-Eval: 0
 
-| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
-|---:|---|---:|---:|---|---:|---:|---:|---|---|
-| 1 | `great_coach_model.global_top_jump_75pct` |  | 6 | `closeness_to_outstanding` | 17.7 | 0.0579710144928 |  | yes |  |
-| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` |  | 1.666667 | `closeness_to_outstanding` | 0.4 | 0.136363628926 |  | yes |  |
-| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` |  | 2 | `closeness_to_outstanding` | 3.5 | 0.137931034483 |  | yes |  |
-| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` |  | 3 | `closeness_to_outstanding` | 0.6 | 0.130434782609 |  | yes |  |
-| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` |  | 1.777778 | `closeness_to_outstanding` |  | 0 |  | yes |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |
+|---:|---|---:|---:|---|---|---:|---:|---:|---|---|
+| 1 | `great_coach_model.global_top_jump_75pct` |  | 6 | `higher_is_better` |  | 17.7 | 0.0579710144928 |  | yes |  |
+| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` |  | 1.666667 | `higher_is_better` |  | 0.4 | 0.136363628926 |  | yes |  |
+| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` |  | 2 | `higher_is_better` |  | 3.5 | 0.137931034483 |  | yes |  |
+| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` |  | 3 | `higher_is_better` |  | 0.6 | 0.130434782609 |  | yes |  |
+| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` |  | 1.777778 | `higher_is_better` |  |  | 0 |  | yes |  |

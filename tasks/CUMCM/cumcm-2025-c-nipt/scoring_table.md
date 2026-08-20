@@ -15,7 +15,7 @@
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.female_loo_accuracy` |  | 0.8659 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `female_abnormality.leave_one_out_f1` |  | 0.3721 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.female_loo_accuracy` |  | 0.8659 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `female_abnormality.leave_one_out_f1` |  | 0.3721 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

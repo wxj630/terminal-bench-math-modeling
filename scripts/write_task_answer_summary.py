@@ -232,12 +232,12 @@ def _direction_label(direction: Any, scored: bool) -> str:
     mapping = {
         "higher_is_better": "越高越好",
         "lower_is_better": "越低越好",
-        "closeness_to_outstanding": "越接近 verifier/O奖值越好",
-        "exact_value": "精确值；不计分",
+        "target_value": "目标值/方案值",
+        "exact_value": "精确值/类别值",
         "unscored_missing_baseline": "缺 baseline；不计分",
         "missing_baseline": "缺 baseline；不计分",
     }
-    text = str(direction or "closeness_to_outstanding")
+    text = str(direction or "target_value")
     label = mapping.get(text, text)
     if not scored and "不计分" not in label:
         label += "；不计分"
@@ -308,7 +308,10 @@ def _write_task_section(case: Any, score: dict[str, Any]) -> str:
         path = str(metric.get("path", ""))
         detail = detail_by_path.get(path, {})
         scored = _scored(metric, detail)
-        direction = detail.get("direction", metric.get("direction", "closeness_to_outstanding"))
+        direction = detail.get(
+            "semantic_direction",
+            detail.get("direction", metric.get("semantic_direction", metric.get("direction", "target_value"))),
+        )
         rows.append(
             "| "
             + " | ".join(
@@ -394,7 +397,7 @@ def main() -> None:
             "- `最后答案数值项` 不是全题所有数字，而是表达 final answer 所需的少量核心数字；有些最终答案天然是一个向量或几种情景结果，所以会有 2-6 个数值项。",
             "- `Verifier/O answer` 是 verifier 使用的数值答案，来自 O 奖论文复现结果；它不是数学建模问题唯一可能的正确答案。",
             "- `Baseline answer = N/A` 不表示没有 baseline；它表示当前 baseline 结果没有和该 final answer 同语义的逐项字段，评分仍会用该题的 baseline panel score，不强行把无关数字凑成端点。",
-            "- 方向标签来自 `score_config.json`：有真实 baseline-to-outstanding 端点时标为 `越高越好` / `越低越好`；legacy fallback 指标没有逐指标 baseline 方向，因此标为 `越接近 verifier/O奖值越好`。",
+            "- 方向标签来自 `score_config.json` 的语义方向：收益、准确率、效率等是 `越高越好`，成本、误差、漏测等是 `越低越好`；厚度、倍率、类别、政策配置这类不是单调目标的字段标为 `目标值/方案值` 或 `精确值/类别值`。",
             "- `v4-flash answer` 来自当前 `terminus2-deepseek-v4-flash-current-*` jobs，并用当前 `score_config.json` 对保存下来的 artifact 重新计分；`N/A` 表示没有找到该路径下的答案。",
             "- 当前默认 benchmark reward 是 `B-Eval`；本文档会用当前 `score_config.json` 对已有 artifact 重新计分，并同时列出 `BO-Eval`。",
             "",

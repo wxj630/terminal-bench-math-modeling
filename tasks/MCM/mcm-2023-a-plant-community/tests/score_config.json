@@ -29,6 +29,12 @@
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
+      "direction": "lower_is_better",
+      "semantic_direction": "lower_is_better",
+      "direction_basis": "Biomass decline under stress is a loss.",
+      "semantic_direction_basis": "Biomass decline under stress is a loss.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Final management question"
     },
@@ -38,6 +44,12 @@
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
       "weight": 1.0,
+      "direction": "higher_is_better",
+      "semantic_direction": "higher_is_better",
+      "direction_basis": "Higher evenness means a more balanced plant community.",
+      "semantic_direction_basis": "Higher evenness means a more balanced plant community.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Final management question"
     },
@@ -47,6 +59,12 @@
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
+      "direction": "target_value",
+      "semantic_direction": "target_value",
+      "direction_basis": "The species count is a recommended threshold/policy value, not a monotone endpoint.",
+      "semantic_direction_basis": "The species count is a recommended threshold/policy value, not a monotone endpoint.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Final management question"
     }

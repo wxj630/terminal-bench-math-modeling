@@ -15,9 +15,9 @@
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.5912914`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` |  | 0.006 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.top_swing_features[0].warning_correlation` |  | 0.0302 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `experiment_result.top_swing_features[1].warning_correlation` |  | -0.0223 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `experiment_result.top_swing_features[2].warning_correlation` |  | 0.0154 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` |  | 0.006 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.top_swing_features[0].warning_correlation` |  | 0.0302 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `experiment_result.top_swing_features[1].warning_correlation` |  | -0.0223 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `experiment_result.top_swing_features[2].warning_correlation` |  | 0.0154 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

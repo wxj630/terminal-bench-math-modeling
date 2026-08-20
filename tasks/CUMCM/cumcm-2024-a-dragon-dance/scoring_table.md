@@ -15,7 +15,7 @@
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.q5.max_head_speed_mps` |  | 2.00002 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` |  | 0.99999 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.q5.max_head_speed_mps` |  | 2.00002 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` |  | 0.99999 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

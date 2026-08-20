@@ -15,10 +15,10 @@
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `reproduced.design_summary[2].annual_optical_efficiency` |  | 0.496428083 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `reproduced.design_summary[2].mirror_area_m2` |  | 119196 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `reproduced.design_summary[2].mirror_count` |  | 3311 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` |  | 0.506192417 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` |  | 60.336111 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `reproduced.design_summary[2].annual_optical_efficiency` |  | 0.496428083 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `reproduced.design_summary[2].mirror_area_m2` |  | 119196 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `reproduced.design_summary[2].mirror_count` |  | 3311 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` |  | 0.506192417 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` |  | 60.336111 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

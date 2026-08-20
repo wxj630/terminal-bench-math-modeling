@@ -199,7 +199,7 @@ def _metric_b_eval_gain(metric: dict[str, Any], details: dict[str, Any]) -> Any:
     baseline = _as_float_or_none(_metric_value(metric, details, "baseline_value"))
     if actual is None or baseline is None:
         return ""
-    direction = _metric_value(metric, details, "direction")
+    direction = _metric_value(metric, details, "semantic_direction") or _metric_value(metric, details, "direction")
     if direction == "higher_is_better":
         return actual - baseline
     if direction == "lower_is_better":
@@ -225,15 +225,20 @@ def _task_metric_table(score: dict[str, Any], details: dict[str, Any] | None) ->
         if isinstance(item, dict) and item.get("path") is not None
     }
     rows = [
-        "| # | Metric path | Baseline value | Outstanding value | Direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |",
-        "|---:|---|---:|---:|---|---:|---:|---:|---|---|",
+        "| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization direction | DeepSeek actual | BO metric score | B-Eval gain | Scored | Baseline source |",
+        "|---:|---|---:|---:|---|---|---:|---:|---:|---|---|",
     ]
     for index, metric in enumerate(score.get("metrics", []), 1):
         if not isinstance(metric, dict):
             continue
         path = str(metric.get("path", ""))
         detail = detail_by_path.get(path, {})
-        direction = _metric_value(metric, detail, "direction") or "closeness_to_outstanding"
+        direction = (
+            _metric_value(metric, detail, "semantic_direction")
+            or _metric_value(metric, detail, "direction")
+            or "target_value"
+        )
+        normalization_direction = _metric_value(metric, detail, "normalization_direction")
         source = metric.get("baseline_source_path", "")
         rows.append(
             "| "
@@ -244,6 +249,7 @@ def _task_metric_table(score: dict[str, Any], details: dict[str, Any] | None) ->
                     _markdown_cell(_metric_value(metric, detail, "baseline_value")),
                     _markdown_cell(_metric_value(metric, detail, "outstanding_value")),
                     f"`{_markdown_cell(direction)}`",
+                    f"`{_markdown_cell(normalization_direction)}`" if normalization_direction else "",
                     _markdown_cell(_metric_value(metric, detail, "actual")),
                     _markdown_cell(detail.get("reward", "")),
                     _markdown_cell(_metric_b_eval_gain(metric, detail)),

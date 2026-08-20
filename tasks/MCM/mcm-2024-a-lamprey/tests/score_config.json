@@ -29,6 +29,12 @@
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
+      "direction": "target_value",
+      "semantic_direction": "target_value",
+      "direction_basis": "The parasite index is a simulated ecosystem-response indicator, not a one-sided objective.",
+      "semantic_direction_basis": "The parasite index is a simulated ecosystem-response indicator, not a one-sided objective.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Final ecosystem-benefit question"
     },
@@ -38,6 +44,12 @@
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
+      "direction": "higher_is_better",
+      "semantic_direction": "higher_is_better",
+      "direction_basis": "A larger host-fish index indicates a healthier supported host population in the coexistence scenario.",
+      "semantic_direction_basis": "A larger host-fish index indicates a healthier supported host population in the coexistence scenario.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Final ecosystem-benefit question"
     },
@@ -47,6 +59,12 @@
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
       "weight": 1.0,
+      "direction": "target_value",
+      "semantic_direction": "target_value",
+      "direction_basis": "The resource level is a simulated ecosystem state in a coexistence scenario.",
+      "semantic_direction_basis": "The resource level is a simulated ecosystem state in a coexistence scenario.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Final ecosystem-benefit question"
     }

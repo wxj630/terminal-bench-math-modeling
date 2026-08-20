@@ -15,8 +15,8 @@
 - Baseline endpoint: `question_result_minmax_endpoint`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction_metric_values`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `daily_use_pattern.peak_period_users` | 27.3 | 27.6 | `higher_is_better` | yes | 1 | `daily_use_pattern.peak_period_users` |
-| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 4.5 | 4.6 | `higher_is_better` | yes | 1 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` |
-| 3 | `experiment_result.estimated_daily_users` | 72.67 | 73.52 | `higher_is_better` | yes | 1 | `inverse_wear_model.usage_frequency.estimated_daily_users` |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `daily_use_pattern.peak_period_users` | 27.3 | 27.6 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `daily_use_pattern.peak_period_users` |
+| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 4.5 | 4.6 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` |
+| 3 | `experiment_result.estimated_daily_users` | 72.67 | 73.52 | `target_value` | `baseline_to_outstanding_target_minmax` | `higher_is_better` | yes | 1 | `inverse_wear_model.usage_frequency.estimated_daily_users` |

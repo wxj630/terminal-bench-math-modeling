@@ -63,7 +63,7 @@ def _metric_endpoint_score(actual: float, metric: dict[str, Any]) -> float:
         return _metric_reward(actual, metric)
     baseline = _as_float(metric["baseline_value"])
     outstanding = _as_float(metric["outstanding_value"])
-    direction = metric.get("direction")
+    direction = metric.get("normalization_direction", metric.get("direction"))
     if direction == "higher_is_better":
         if outstanding <= baseline:
             return 0.0
@@ -82,7 +82,7 @@ def _b_eval_metric_gain(actual: float, metric: dict[str, Any]) -> dict[str, floa
         baseline = _as_float(metric.get("baseline_value"))
     except (TypeError, ValueError):
         return None
-    direction = metric.get("direction")
+    direction = metric.get("semantic_direction", metric.get("direction"))
     if direction == "higher_is_better":
         signed_gain = actual - baseline
     elif direction == "lower_is_better":
@@ -121,9 +121,13 @@ def score_artifact(
             "path": path,
             "outstanding_value": metric.get("outstanding_value", metric["oracle_value"]),
             "baseline_value": metric.get("baseline_value"),
-            "direction": metric.get("direction", "closeness_to_outstanding"),
-            "direction_basis": metric.get("direction_basis"),
-            "normalization_mode": metric.get("normalization_mode", "closeness_to_outstanding"),
+            "direction": metric.get("direction", metric.get("semantic_direction")),
+            "semantic_direction": metric.get("semantic_direction", metric.get("direction")),
+            "direction_basis": metric.get("direction_basis", metric.get("semantic_direction_basis")),
+            "semantic_direction_basis": metric.get("semantic_direction_basis", metric.get("direction_basis")),
+            "normalization_direction": metric.get("normalization_direction"),
+            "normalization_basis": metric.get("normalization_basis"),
+            "normalization_mode": metric.get("normalization_mode", "legacy_target_distance_to_outstanding"),
             "configured_weight": configured_weight,
             "score_weight": weight,
             "found": found,

@@ -15,10 +15,10 @@
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.584014166667`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `great_coach_model.global_top_jump_75pct` |  | 6 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` |  | 1.666667 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` |  | 2 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` |  | 3 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` |  | 1.777778 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `great_coach_model.global_top_jump_75pct` |  | 6 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` |  | 1.666667 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` |  | 2 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` |  | 3 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` |  | 1.777778 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

@@ -7,7 +7,7 @@
 - `最后答案数值项` 不是全题所有数字，而是表达 final answer 所需的少量核心数字；有些最终答案天然是一个向量或几种情景结果，所以会有 2-6 个数值项。
 - `Verifier/O answer` 是 verifier 使用的数值答案，来自 O 奖论文复现结果；它不是数学建模问题唯一可能的正确答案。
 - `Baseline answer = N/A` 不表示没有 baseline；它表示当前 baseline 结果没有和该 final answer 同语义的逐项字段，评分仍会用该题的 baseline panel score，不强行把无关数字凑成端点。
-- 方向标签来自 `score_config.json`：有真实 baseline-to-outstanding 端点时标为 `越高越好` / `越低越好`；legacy fallback 指标没有逐指标 baseline 方向，因此标为 `越接近 verifier/O奖值越好`。
+- 方向标签来自 `score_config.json` 的语义方向：收益、准确率、效率等是 `越高越好`，成本、误差、漏测等是 `越低越好`；厚度、倍率、类别、政策配置这类不是单调目标的字段标为 `目标值/方案值` 或 `精确值/类别值`。
 - `v4-flash answer` 来自当前 `terminus2-deepseek-v4-flash-current-*` jobs，并用当前 `score_config.json` 对保存下来的 artifact 重新计分；`N/A` 表示没有找到该路径下的答案。
 - 当前默认 benchmark reward 是 `B-Eval`；本文档会用当前 `score_config.json` 对已有 artifact 重新计分，并同时列出 `BO-Eval`。
 
@@ -61,11 +61,11 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `reproduced.design_summary[2].annual_optical_efficiency` | 越接近 verifier/O奖值越好 | 0.496428083 | N/A | N/A | 0 | 是 |
-| 2 | `reproduced.design_summary[2].mirror_area_m2` | 越接近 verifier/O奖值越好 | 119196 | N/A | N/A | 0 | 是 |
-| 3 | `reproduced.design_summary[2].mirror_count` | 越接近 verifier/O奖值越好 | 3311 | N/A | N/A | 0 | 是 |
-| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` | 越接近 verifier/O奖值越好 | 0.506192417 | N/A | N/A | 0 | 是 |
-| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` | 越接近 verifier/O奖值越好 | 60.336111 | N/A | N/A | 0 | 是 |
+| 1 | `reproduced.design_summary[2].annual_optical_efficiency` | 越高越好 | 0.496428083 | N/A | N/A | 0 | 是 |
+| 2 | `reproduced.design_summary[2].mirror_area_m2` | 越低越好 | 119196 | N/A | N/A | 0 | 是 |
+| 3 | `reproduced.design_summary[2].mirror_count` | 越低越好 | 3311 | N/A | N/A | 0 | 是 |
+| 4 | `reproduced.design_summary[2].unit_area_power_kw_m2` | 越高越好 | 0.506192417 | N/A | N/A | 0 | 是 |
+| 5 | `target_comparison.q3_annual_thermal_power_mw.actual` | 目标值/方案值 | 60.336111 | N/A | N/A | 0 | 是 |
 
 <a id="cumcm-2023-b"></a>
 
@@ -93,10 +93,10 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` | 越接近 verifier/O奖值越好 | 30 | N/A | N/A | N/A | 是 |
-| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` | 越接近 verifier/O奖值越好 | 10.48 | N/A | N/A | N/A | 是 |
-| 3 | `target_comparison.problem4_missed_area_pct.actual` | 越接近 verifier/O奖值越好 | 3.48 | N/A | N/A | N/A | 是 |
-| 4 | `target_comparison.problem4_total_length_nm.actual` | 越接近 verifier/O奖值越好 | 622 | N/A | N/A | N/A | 是 |
+| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` | 越低越好 | 30 | N/A | N/A | N/A | 是 |
+| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` | 目标值/方案值 | 10.48 | N/A | N/A | N/A | 是 |
+| 3 | `target_comparison.problem4_missed_area_pct.actual` | 越低越好 | 3.48 | N/A | N/A | N/A | 是 |
+| 4 | `target_comparison.problem4_total_length_nm.actual` | 越低越好 | 622 | N/A | N/A | N/A | 是 |
 
 <a id="cumcm-2023-c"></a>
 
@@ -125,8 +125,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `target_comparison.future_week_max_profit_yuan.actual` | 越接近 verifier/O奖值越好 | 5105.6 | N/A | 14616.69 | 0.060518214474 | 是 |
-| 2 | `target_comparison.problem3_selected_item_count.actual` | 越接近 verifier/O奖值越好 | 29 | N/A | 33 | 0.465240641711 | 是 |
+| 1 | `target_comparison.future_week_max_profit_yuan.actual` | 越高越好 | 5105.6 | N/A | 14616.69 | 0.060518214474 | 是 |
+| 2 | `target_comparison.problem3_selected_item_count.actual` | 目标值/方案值 | 29 | N/A | 33 | 0.465240641711 | 是 |
 
 <a id="cumcm-2024-a"></a>
 
@@ -155,8 +155,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.q5.max_head_speed_mps` | 越接近 verifier/O奖值越好 | 2.00002 | N/A | 0 | 0.107142857143 | 是 |
-| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` | 越接近 verifier/O奖值越好 | 0.99999 | N/A | 0 | 0.107142857143 | 是 |
+| 1 | `experiment_result.q5.max_head_speed_mps` | 越高越好 | 2.00002 | N/A | 0 | 0.107142857143 | 是 |
+| 2 | `experiment_result.q5.max_speed_ratio_when_head_1mps` | 越低越好 | 0.99999 | N/A | 0 | 0.107142857143 | 是 |
 
 <a id="cumcm-2024-b"></a>
 
@@ -184,12 +184,12 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.q4.posterior_rows[0].q2_best_profit_case1` | 越接近 verifier/O奖值越好 | 25.9691 | N/A | 27.49 | 0.672021343951 | 是 |
-| 2 | `experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior` | 越接近 verifier/O奖值越好 | 86.8529 | N/A | 96.721 | 0.513657855164 | 是 |
-| 3 | `experiment_result.q4.posterior_rows[1].q2_best_profit_case1` | 越接近 verifier/O奖值越好 | 25.8694 | N/A | 26.9595 | 0.740107590356 | 是 |
-| 4 | `experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior` | 越接近 verifier/O奖值越好 | 86.5588 | N/A | 91.6033 | 0.673104902707 | 是 |
-| 5 | `experiment_result.q4.posterior_rows[2].q2_best_profit_case1` | 越接近 verifier/O奖值越好 | 25.7715 | N/A | 26.4072 | 0.829492420097 | 是 |
-| 6 | `experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior` | 越接近 verifier/O奖值越好 | 86.2647 | N/A | 90.2424 | 0.722411110423 | 是 |
+| 1 | `experiment_result.q4.posterior_rows[0].q2_best_profit_case1` | 越高越好 | 25.9691 | N/A | 27.49 | 0.672021343951 | 是 |
+| 2 | `experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior` | 越高越好 | 86.8529 | N/A | 96.721 | 0.513657855164 | 是 |
+| 3 | `experiment_result.q4.posterior_rows[1].q2_best_profit_case1` | 越高越好 | 25.8694 | N/A | 26.9595 | 0.740107590356 | 是 |
+| 4 | `experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior` | 越高越好 | 86.5588 | N/A | 91.6033 | 0.673104902707 | 是 |
+| 5 | `experiment_result.q4.posterior_rows[2].q2_best_profit_case1` | 越高越好 | 25.7715 | N/A | 26.4072 | 0.829492420097 | 是 |
+| 6 | `experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior` | 越高越好 | 86.2647 | N/A | 90.2424 | 0.722411110423 | 是 |
 
 <a id="cumcm-2024-c"></a>
 
@@ -216,8 +216,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.q2_q3.best_correlated_cvar10_profit_yuan` | 越接近 verifier/O奖值越好 | 118550698.19 | N/A | 69059695.53 | 0.223269527485 | 是 |
-| 2 | `experiment_result.q2_q3.spearman_price_cost` | 越接近 verifier/O奖值越好 | 0.2551 | N/A | 0.3 | 0.405392520394 | 是 |
+| 1 | `experiment_result.q2_q3.best_correlated_cvar10_profit_yuan` | 越高越好 | 118550698.19 | N/A | 69059695.53 | 0.223269527485 | 是 |
+| 2 | `experiment_result.q2_q3.spearman_price_cost` | 目标值/方案值 | 0.2551 | N/A | 0.3 | 0.405392520394 | 是 |
 
 <a id="cumcm-2025-a"></a>
 
@@ -246,10 +246,10 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.q5_union_duration_s.M1` | 越接近 verifier/O奖值越好 | 10.3 | N/A | N/A | N/A | 是 |
-| 2 | `experiment_result.q5_union_duration_s.M2` | 越接近 verifier/O奖值越好 | 6.2 | N/A | N/A | N/A | 是 |
-| 3 | `experiment_result.q5_union_duration_s.M3` | 越接近 verifier/O奖值越好 | 3.4 | N/A | N/A | N/A | 是 |
-| 4 | `experiment_result.q5_union_duration_s.total` | 越接近 verifier/O奖值越好 | 19.9 | N/A | N/A | N/A | 是 |
+| 1 | `experiment_result.q5_union_duration_s.M1` | 越高越好 | 10.3 | N/A | N/A | N/A | 是 |
+| 2 | `experiment_result.q5_union_duration_s.M2` | 越高越好 | 6.2 | N/A | N/A | N/A | 是 |
+| 3 | `experiment_result.q5_union_duration_s.M3` | 越高越好 | 3.4 | N/A | N/A | N/A | 是 |
+| 4 | `experiment_result.q5_union_duration_s.total` | 越高越好 | 19.9 | N/A | N/A | N/A | 是 |
 
 <a id="cumcm-2025-b"></a>
 
@@ -276,8 +276,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.si_recommended_thickness_um` | 越接近 verifier/O奖值越好 | 10.5145 | N/A | 4.82505875455 | 0.181514472929 | 是 |
-| 2 | `experiment_result.sic_recommended_thickness_um` | 越接近 verifier/O奖值越好 | 8.9815 | N/A | 18.1836785023 | 0.104842835674 | 是 |
+| 1 | `experiment_result.si_recommended_thickness_um` | 目标值/方案值 | 10.5145 | N/A | 4.82505875455 | 0.181514472929 | 是 |
+| 2 | `experiment_result.sic_recommended_thickness_um` | 目标值/方案值 | 8.9815 | N/A | 18.1836785023 | 0.104842835674 | 是 |
 
 <a id="cumcm-2025-c"></a>
 
@@ -305,8 +305,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.female_loo_accuracy` | 越接近 verifier/O奖值越好 | 0.8659 | N/A | 0.9174 | 0.668614228354 | 是 |
-| 2 | `female_abnormality.leave_one_out_f1` | 越接近 verifier/O奖值越好 | 0.3721 | N/A | 0.489796 | 0.275038805529 | 是 |
+| 1 | `experiment_result.female_loo_accuracy` | 越高越好 | 0.8659 | N/A | 0.9174 | 0.668614228354 | 是 |
+| 2 | `female_abnormality.leave_one_out_f1` | 越高越好 | 0.3721 | N/A | 0.489796 | 0.275038805529 | 是 |
 
 <a id="mcm-2023-a"></a>
 
@@ -339,9 +339,9 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `target_comparison.beta_decline_pct.actual` | 越接近 verifier/O奖值越好 | 32 | N/A | 7.04 | 0.133333333333 | 是 |
-| 2 | `target_comparison.five_species_pielou_evenness.actual` | 越接近 verifier/O奖值越好 | 0.8826 | N/A | 0.9673 | 0.555641827377 | 是 |
-| 3 | `target_comparison.optimal_species_count.actual` | 越接近 verifier/O奖值越好 | 2 | N/A | 5 | 0.0740740740741 | 是 |
+| 1 | `target_comparison.beta_decline_pct.actual` | 越低越好 | 32 | N/A | 7.04 | 0.133333333333 | 是 |
+| 2 | `target_comparison.five_species_pielou_evenness.actual` | 越高越好 | 0.8826 | N/A | 0.9673 | 0.555641827377 | 是 |
+| 3 | `target_comparison.optimal_species_count.actual` | 目标值/方案值 | 2 | N/A | 5 | 0.0740740740741 | 是 |
 
 <a id="mcm-2023-b"></a>
 
@@ -368,11 +368,11 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `target_comparison.scenario2_agriculture_cells.actual` | 越接近 verifier/O奖值越好 | 12 | N/A | 100 | 0.0161001788909 | 是 |
-| 2 | `target_comparison.scenario2_benefit_million.actual` | 越接近 verifier/O奖值越好 | 154948.974 | N/A | 104.24 | 0.107207252097 | 是 |
-| 3 | `target_comparison.scenario2_hunting_cells.actual` | 越接近 verifier/O奖值越好 | 2 | N/A | 40 | 0.00627615062762 | 是 |
-| 4 | `target_comparison.scenario2_tourism_cells.actual` | 越接近 verifier/O奖值越好 | 9 | N/A | 100 | 0.011728931364 | 是 |
-| 5 | `target_comparison.scenario2_wildlife_cells.actual` | 越接近 verifier/O奖值越好 | 13 | N/A | 160 | 0.0105008077544 | 是 |
+| 1 | `target_comparison.scenario2_agriculture_cells.actual` | 目标值/方案值 | 12 | N/A | 100 | 0.0161001788909 | 是 |
+| 2 | `target_comparison.scenario2_benefit_million.actual` | 越高越好 | 154948.974 | N/A | 104.24 | 0.107207252097 | 是 |
+| 3 | `target_comparison.scenario2_hunting_cells.actual` | 目标值/方案值 | 2 | N/A | 40 | 0.00627615062762 | 是 |
+| 4 | `target_comparison.scenario2_tourism_cells.actual` | 目标值/方案值 | 9 | N/A | 100 | 0.011728931364 | 是 |
+| 5 | `target_comparison.scenario2_wildlife_cells.actual` | 目标值/方案值 | 13 | N/A | 160 | 0.0105008077544 | 是 |
 
 <a id="mcm-2023-c"></a>
 
@@ -400,7 +400,7 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `target_comparison.eerie_group.actual` | 精确值；不计分 | 2 | 2 | 3 | 0 | 否 |
+| 1 | `target_comparison.eerie_group.actual` | 精确值/类别值；不计分 | 2 | 2 | 3 | 0 | 否 |
 | 2 | `target_comparison.lightgbm_like_accuracy.actual` | 越高越好 | 0.7 | 0.422222 | 0.3211 | 0 | 是 |
 
 <a id="mcm-2024-a"></a>
@@ -429,9 +429,9 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` | 越接近 verifier/O奖值越好 | 8.562 | N/A | 0.3124 | 0.110750842941 | 是 |
-| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` | 越接近 verifier/O奖值越好 | 1080.356 | N/A | 0.5981 | 0.107195843839 | 是 |
-| 3 | `experiment_result.parasite_coexistence_case.resource_level` | 越接近 verifier/O奖值越好 | 0.55 | N/A | 0.5 | 0.568965517241 | 是 |
+| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` | 目标值/方案值 | 8.562 | N/A | 0.3124 | 0.110750842941 | 是 |
+| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` | 越高越好 | 1080.356 | N/A | 0.5981 | 0.107195843839 | 是 |
+| 3 | `experiment_result.parasite_coexistence_case.resource_level` | 目标值/方案值 | 0.55 | N/A | 0.5 | 0.568965517241 | 是 |
 
 <a id="mcm-2024-b"></a>
 
@@ -459,8 +459,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.caribbean_adaptation.current_multiplier` | 越接近 verifier/O奖值越好 | 1.35 | N/A | 2 | 0.199507389163 | 是 |
-| 2 | `experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier` | 越接近 verifier/O奖值越好 | 1.2 | N/A | 2 | 0.152542372881 | 是 |
+| 1 | `experiment_result.caribbean_adaptation.current_multiplier` | 目标值/方案值 | 1.35 | N/A | 2 | 0.199507389163 | 是 |
+| 2 | `experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier` | 目标值/方案值 | 1.2 | N/A | 2 | 0.152542372881 | 是 |
 
 <a id="mcm-2024-c"></a>
 
@@ -485,10 +485,10 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` | 越接近 verifier/O奖值越好 | 0.006 | N/A | 0.9632 | 0.000751628528478 | 是 |
-| 2 | `experiment_result.top_swing_features[0].warning_correlation` | 越接近 verifier/O奖值越好 | 0.0302 | N/A | 0.1074 | 0.0448381668811 | 是 |
-| 3 | `experiment_result.top_swing_features[1].warning_correlation` | 越接近 verifier/O奖值越好 | -0.0223 | N/A | 0.0809 | 0.0252748498243 | 是 |
-| 4 | `experiment_result.top_swing_features[2].warning_correlation` | 越接近 verifier/O奖值越好 | 0.0154 | N/A | 0.051 | 0.0493484298227 | 是 |
+| 1 | `experiment_result.dual_temporal_bayes.final_match_warning_rate` | 目标值/方案值 | 0.006 | N/A | 0.9632 | 0.000751628528478 | 是 |
+| 2 | `experiment_result.top_swing_features[0].warning_correlation` | 目标值/方案值 | 0.0302 | N/A | 0.1074 | 0.0448381668811 | 是 |
+| 3 | `experiment_result.top_swing_features[1].warning_correlation` | 目标值/方案值 | -0.0223 | N/A | 0.0809 | 0.0252748498243 | 是 |
+| 4 | `experiment_result.top_swing_features[2].warning_correlation` | 目标值/方案值 | 0.0154 | N/A | 0.051 | 0.0493484298227 | 是 |
 
 <a id="mcm-2025-a"></a>
 
@@ -520,9 +520,9 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `daily_use_pattern.peak_period_users` | 越高越好 | 27.6 | 27.3 | 23.6 | 0 | 是 |
-| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 越高越好 | 4.6 | 4.5 | 7.1 | 0 | 是 |
-| 3 | `experiment_result.estimated_daily_users` | 越高越好 | 73.52 | 72.67 | 117.9 | 0 | 是 |
+| 1 | `daily_use_pattern.peak_period_users` | 目标值/方案值 | 27.6 | 27.3 | 23.6 | 0 | 是 |
+| 2 | `daily_use_pattern.regular_hour_users_if_spread_over_10_hours` | 目标值/方案值 | 4.6 | 4.5 | 7.1 | 0 | 是 |
+| 3 | `experiment_result.estimated_daily_users` | 目标值/方案值 | 73.52 | 72.67 | 117.9 | 0 | 是 |
 
 <a id="mcm-2025-b"></a>
 
@@ -550,8 +550,8 @@ Verifier/O 答案与 v4-flash 答案:
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
 | 1 | `experiment_result.annual_visitors` | 越高越好 | 1491526 | 1408000 | 1111429 | 0 | 是 |
-| 2 | `experiment_result.optimal_daily_cap` | 越高越好 | 11000 | 10000 | 4000 | 0 | 是 |
-| 3 | `experiment_result.optimal_visitor_fee_usd` | 越高越好 | 55 | 50 | 15 | 0 | 是 |
+| 2 | `experiment_result.optimal_daily_cap` | 目标值/方案值 | 11000 | 10000 | 4000 | 0 | 是 |
+| 3 | `experiment_result.optimal_visitor_fee_usd` | 目标值/方案值 | 55 | 50 | 15 | 0 | 是 |
 | 4 | `experiment_result.resident_acceptance_index` | 越高越好 | 1 | 0.78 | 0.764 | 0 | 是 |
 | 5 | `experiment_result.sustainability_score` | 越高越好 | 1.007 | 0.908447 | 0.5827 | 0 | 是 |
 | 6 | `experiment_result.total_revenue_usd` | 越高越好 | 431610327.83 | 400400000 | 277162606 | 0 | 是 |
@@ -579,8 +579,8 @@ Verifier/O 答案与 v4-flash 答案:
 
 | # | Metric path | 方向 | Verifier/O answer | Baseline answer | v4-flash answer | Metric score | 是否计分 |
 |---:|---|---|---:|---:|---:|---:|---|
-| 1 | `great_coach_model.global_top_jump_75pct` | 越接近 verifier/O奖值越好 | 6 | N/A | 17.7 | 0.0579710144928 | 是 |
-| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` | 越接近 verifier/O奖值越好 | 1.666667 | N/A | 0.4 | 0.136363628926 | 是 |
-| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` | 越接近 verifier/O奖值越好 | 2 | N/A | 3.5 | 0.137931034483 | 是 |
-| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` | 越接近 verifier/O奖值越好 | 3 | N/A | 0.6 | 0.130434782609 | 是 |
-| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` | 越接近 verifier/O奖值越好 | 1.777778 | N/A | N/A | 0 | 是 |
+| 1 | `great_coach_model.global_top_jump_75pct` | 越高越好 | 6 | N/A | 17.7 | 0.0579710144928 | 是 |
+| 2 | `great_coach_model.recommendations[0].estimated_medal_count_gain` | 越高越好 | 1.666667 | N/A | 0.4 | 0.136363628926 | 是 |
+| 3 | `great_coach_model.recommendations[1].estimated_medal_count_gain` | 越高越好 | 2 | N/A | 3.5 | 0.137931034483 | 是 |
+| 4 | `great_coach_model.recommendations[2].estimated_medal_count_gain` | 越高越好 | 3 | N/A | 0.6 | 0.130434782609 | 是 |
+| 5 | `great_coach_model.recommendations[3].estimated_medal_count_gain` | 越高越好 | 1.777778 | N/A | N/A | 0 | 是 |

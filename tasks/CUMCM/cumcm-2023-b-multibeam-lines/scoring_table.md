@@ -15,9 +15,9 @@
 - Baseline endpoint: `legacy_matched_metric_panel_from_generic_baselines_no_question_metric_match`, score `0`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` |  | 30 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` |  | 10.48 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `target_comparison.problem4_missed_area_pct.actual` |  | 3.48 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `target_comparison.problem4_total_length_nm.actual` |  | 622 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles` |  | 30 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `reproduced.problem4_summary.sa_avg_overlap_pct` |  | 10.48 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `target_comparison.problem4_missed_area_pct.actual` |  | 3.48 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `target_comparison.problem4_total_length_nm.actual` |  | 622 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

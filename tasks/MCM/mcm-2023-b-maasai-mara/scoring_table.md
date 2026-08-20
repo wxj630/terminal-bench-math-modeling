@@ -15,10 +15,10 @@
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.60265725`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `target_comparison.scenario2_agriculture_cells.actual` |  | 12 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `target_comparison.scenario2_benefit_million.actual` |  | 154948.974 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `target_comparison.scenario2_hunting_cells.actual` |  | 2 | `closeness_to_outstanding` | yes | 1 |  |
-| 4 | `target_comparison.scenario2_tourism_cells.actual` |  | 9 | `closeness_to_outstanding` | yes | 1 |  |
-| 5 | `target_comparison.scenario2_wildlife_cells.actual` |  | 13 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `target_comparison.scenario2_agriculture_cells.actual` |  | 12 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `target_comparison.scenario2_benefit_million.actual` |  | 154948.974 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `target_comparison.scenario2_hunting_cells.actual` |  | 2 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 4 | `target_comparison.scenario2_tourism_cells.actual` |  | 9 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 5 | `target_comparison.scenario2_wildlife_cells.actual` |  | 13 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

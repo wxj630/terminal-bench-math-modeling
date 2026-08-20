@@ -15,8 +15,8 @@
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.45683575`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
-| # | Metric path | Baseline value | Outstanding value | Direction | Scored | Weight | Baseline source |
-|---:|---|---:|---:|---|---|---:|---|
-| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` |  | 8.562 | `closeness_to_outstanding` | yes | 1 |  |
-| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` |  | 1080.356 | `closeness_to_outstanding` | yes | 1 |  |
-| 3 | `experiment_result.parasite_coexistence_case.resource_level` |  | 0.55 | `closeness_to_outstanding` | yes | 1 |  |
+| # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
+|---:|---|---:|---:|---|---|---|---|---:|---|
+| 1 | `experiment_result.parasite_coexistence_case.final_parasite_index` |  | 8.562 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 2 | `experiment_result.parasite_coexistence_case.host_fish_index` |  | 1080.356 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 3 | `experiment_result.parasite_coexistence_case.resource_level` |  | 0.55 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

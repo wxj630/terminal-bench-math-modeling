@@ -29,6 +29,12 @@
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
+      "direction": "higher_is_better",
+      "semantic_direction": "higher_is_better",
+      "direction_basis": "The final question asks for the largest feasible head speed under handle-speed limits.",
+      "semantic_direction_basis": "The final question asks for the largest feasible head speed under handle-speed limits.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Q5"
     },
@@ -38,6 +44,12 @@
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
       "weight": 1.0,
+      "direction": "lower_is_better",
+      "semantic_direction": "lower_is_better",
+      "direction_basis": "This is a speed-amplification/safety ratio; smaller leaves more margin under the 2 m/s cap.",
+      "semantic_direction_basis": "This is a speed-amplification/safety ratio; smaller leaves more margin under the 2 m/s cap.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
       "final_question_label": "Q5"
     }

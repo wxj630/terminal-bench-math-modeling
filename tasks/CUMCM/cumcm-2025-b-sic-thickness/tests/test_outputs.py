@@ -125,15 +125,24 @@ def test_scoring_metric_panel_is_configured():
     assert final_question.get("final_answer_summary"), "final_question must summarize the oracle final answer"
     assert final_question.get("baseline_model_summary"), "final_question must summarize the baseline model"
     endpoint_modes = 0
+    semantic_directions = {"higher_is_better", "lower_is_better", "target_value", "exact_value"}
     for metric in metrics:
         assert isinstance(metric.get("path"), str) and metric["path"], "each scoring metric needs a path"
         _as_float(metric.get("oracle_value"), metric["path"])
+        assert metric.get("direction") in semantic_directions, (
+            "each metric direction must describe whether the modeled quantity is higher-is-better, "
+            "lower-is-better, target-like, or an exact discrete value"
+        )
+        if metric.get("semantic_direction") is not None:
+            assert metric.get("semantic_direction") == metric.get("direction"), (
+                "semantic_direction must match the public direction field"
+            )
         if metric.get("normalization_mode") == "baseline_to_outstanding_target_minmax":
             endpoint_modes += 1
             _as_float(metric.get("baseline_value"), metric["path"] + ".baseline_value")
             _as_float(metric.get("outstanding_value"), metric["path"] + ".outstanding_value")
-            assert metric.get("direction") in ("higher_is_better", "lower_is_better"), (
-                "min-max metrics must declare whether higher or lower values move toward the outstanding endpoint"
+            assert metric.get("normalization_direction") in ("higher_is_better", "lower_is_better"), (
+                "min-max metrics must declare whether the outstanding endpoint is above or below the baseline endpoint"
             )
     baseline = SCORE_CONFIG.get("baseline_endpoint", {})
     outstanding = SCORE_CONFIG.get("outstanding_endpoint", {})
