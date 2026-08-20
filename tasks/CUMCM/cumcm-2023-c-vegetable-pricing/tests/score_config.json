@@ -1,5 +1,15 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 38,
+  "final_question": {
+    "label": "Q4 numeric proxy",
+    "plain_question": "最后一问本身是让商超说明还应采集哪些数据、这些数据怎样帮助补货和定价；它主要是文字建议。",
+    "final_answer_summary": "当前数值 verifier 只看支撑这些建议的最后可量化补货定价结果：未来一周最大利润 5105.6 元，并选择 29 个单品进入补货定价方案。",
+    "baseline_model_summary": "baseline 用规划优化和资源配置模型，把可售空间、补货量和价格决策转成利润最大化问题。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "Q4 is qualitative, so this benchmark records the last quantifiable pricing/replenishment answer that Q4 asks to improve with more data."
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,274 +19,28 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 38,
-  "effective_metric_count": 38,
+  "metric_count": 2,
+  "effective_metric_count": 2,
+  "final_answer_numeric_field_count": 2,
+  "scored_final_answer_numeric_field_count": 2,
   "metrics": [
-    {
-      "path": "reproduced.category_count",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[0].avg_daily_sales_kg_actual",
-      "oracle_value": 2.5291655663427686,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[0].max_daily_sales_kg_actual",
-      "oracle_value": 8.89412,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[0].total_sales_kg_actual",
-      "oracle_value": 258.42646285714284,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[1].avg_daily_sales_kg_actual",
-      "oracle_value": 9.105241357968556,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[1].max_daily_sales_kg_actual",
-      "oracle_value": 56.03928260869565,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[1].total_sales_kg_actual",
-      "oracle_value": 3149.2229347826087,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[2].avg_daily_sales_kg_actual",
-      "oracle_value": 20.808494682953505,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[2].max_daily_sales_kg_actual",
-      "oracle_value": 144.0716842105263,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[2].total_sales_kg_actual",
-      "oracle_value": 7849.984947368422,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[3].avg_daily_sales_kg_actual",
-      "oracle_value": 32.725767015160415,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[3].max_daily_sales_kg_actual",
-      "oracle_value": 205.93966666666665,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.cluster_center_comparison[3].total_sales_kg_actual",
-      "oracle_value": 22006.2065,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.correlation_comparison[0].actual_sales_markup_corr",
-      "oracle_value": -0.1579,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.correlation_comparison[1].actual_sales_markup_corr",
-      "oracle_value": -0.0287,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.correlation_comparison[2].actual_sales_markup_corr",
-      "oracle_value": 0.1977,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.correlation_comparison[3].actual_sales_markup_corr",
-      "oracle_value": 0.0418,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.correlation_comparison[4].actual_sales_markup_corr",
-      "oracle_value": 0.0259,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.correlation_comparison[5].actual_sales_markup_corr",
-      "oracle_value": -0.2332,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.future_week_profit_yuan",
-      "oracle_value": 5105.6,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.item_count",
-      "oracle_value": 246.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.july1_profit_yuan",
-      "oracle_value": 1282.2631,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[0].actual_intercept",
-      "oracle_value": 11.2959,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[0].actual_slope",
-      "oracle_value": -0.041909,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[1].actual_intercept",
-      "oracle_value": 6.3512,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[1].actual_slope",
-      "oracle_value": -0.004092,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[2].actual_intercept",
-      "oracle_value": 10.6597,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[2].actual_slope",
-      "oracle_value": -0.032044,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[3].actual_intercept",
-      "oracle_value": 9.5925,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[3].actual_slope",
-      "oracle_value": -0.036359,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[4].actual_intercept",
-      "oracle_value": 9.6747,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[4].actual_slope",
-      "oracle_value": -0.012185,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[5].actual_intercept",
-      "oracle_value": 9.4799,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.regression_comparison[5].actual_slope",
-      "oracle_value": -0.012872,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.selected_item_count",
-      "oracle_value": 29.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
     {
       "path": "target_comparison.future_week_max_profit_yuan.actual",
       "oracle_value": 5105.6,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.problem3_july1_profit_yuan.actual",
-      "oracle_value": 1282.2631,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4 numeric proxy"
     },
     {
       "path": "target_comparison.problem3_selected_item_count.actual",
       "oracle_value": 29.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4 numeric proxy"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -320,7 +84,7 @@
       "cumcm/question_results/2023/C/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 38
+    "question_unmatched_metric_count": 2
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

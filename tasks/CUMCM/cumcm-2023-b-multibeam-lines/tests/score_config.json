@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 21,
+  "final_question": {
+    "label": "Q4",
+    "plain_question": "给定真实海深数据，设计测线方案，尽量减少测线总长度，同时控制漏测面积和重叠过大的测线长度。",
+    "final_answer_summary": "O 奖复现的核心方案总测线长度 622.0 海里，漏测面积 3.48%，重叠超过 20% 的测线长度 30.0 海里，平均重叠率约 10.48%。",
+    "baseline_model_summary": "baseline 先用数据拟合近似海底地形，再用规则化/贪心测线布置估计覆盖质量。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,155 +18,46 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 21,
-  "effective_metric_count": 21,
+  "metric_count": 4,
+  "effective_metric_count": 4,
+  "final_answer_numeric_field_count": 4,
+  "scored_final_answer_numeric_field_count": 4,
   "metrics": [
-    {
-      "path": "reproduced.problem3_last_position_m",
-      "oracle_value": 7226.14,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.problem3_line_count",
-      "oracle_value": 34.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.problem3_total_length_m",
-      "oracle_value": 125936.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.problem4_summary.avg_position_error_m",
-      "oracle_value": 9.27,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.problem4_summary.greedy_avg_overlap_pct",
-      "oracle_value": 10.35,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.problem4_summary.missed_area_pct",
-      "oracle_value": 3.48,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
     {
       "path": "reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles",
       "oracle_value": 30.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
       "path": "reproduced.problem4_summary.sa_avg_overlap_pct",
       "oracle_value": 10.48,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.problem4_summary.total_length_nautical_miles",
-      "oracle_value": 622.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.max_depth_m",
-      "oracle_value": 197.2,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.mean_depth_m",
-      "oracle_value": 62.539,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.min_depth_m",
-      "oracle_value": 20.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.x_count",
-      "oracle_value": 201.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.x_range_nm",
-      "oracle_value": 4.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.y_count",
-      "oracle_value": 251.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.seabed_grid_summary.y_range_nm",
-      "oracle_value": 5.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.problem3_last_position_m.actual",
-      "oracle_value": 7226.14,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.problem3_line_count.actual",
-      "oracle_value": 34.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.problem3_total_length_m.actual",
-      "oracle_value": 125936.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
       "path": "target_comparison.problem4_missed_area_pct.actual",
       "oracle_value": 3.48,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
       "path": "target_comparison.problem4_total_length_nm.actual",
       "oracle_value": 622.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -201,7 +101,7 @@
       "cumcm/question_results/2023/B/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 21
+    "question_unmatched_metric_count": 4
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

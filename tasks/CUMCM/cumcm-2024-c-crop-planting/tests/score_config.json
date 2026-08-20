@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 20,
+  "final_question": {
+    "label": "Q3",
+    "plain_question": "在问题 2 的基础上加入作物之间的替代、互补和价格/成本/销量相关性，求 2024-2030 年的稳健种植策略。",
+    "final_answer_summary": "O 奖复现的相关性稳健方案给出 best correlated CVaR10 利润 118550698.19 元，价格和成本的 Spearman 相关系数约 0.2551。",
+    "baseline_model_summary": "baseline 用规划优化和资源配置模型，在随机场景下比较候选种植方案的收益和风险。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,148 +18,28 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 20,
-  "effective_metric_count": 20,
+  "metric_count": 2,
+  "effective_metric_count": 2,
+  "final_answer_numeric_field_count": 2,
+  "scored_final_answer_numeric_field_count": 2,
   "metrics": [
-    {
-      "path": "experiment_result.q1.discount_gain_pct",
-      "oracle_value": 8.1067954e+18,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q1.discount_profit_yuan",
-      "oracle_value": 75678478.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q1.waste_profit_yuan",
-      "oracle_value": -5389476.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
     {
       "path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
       "oracle_value": 118550698.19,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[0].correlated_cvar10_profit_yuan",
-      "oracle_value": 118550698.19,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[0].cvar10_profit_yuan",
-      "oracle_value": 118937552.19,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[0].deterministic_profit_yuan",
-      "oracle_value": -5389476.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[0].mean_profit_yuan",
-      "oracle_value": 119827636.74,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[0].q10_profit_yuan",
-      "oracle_value": 119159280.66,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[1].correlated_cvar10_profit_yuan",
-      "oracle_value": 118550698.19,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[1].cvar10_profit_yuan",
-      "oracle_value": 118937552.19,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[1].deterministic_profit_yuan",
-      "oracle_value": 75678478.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[1].mean_profit_yuan",
-      "oracle_value": 119827636.74,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[1].q10_profit_yuan",
-      "oracle_value": 119159280.66,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[2].correlated_cvar10_profit_yuan",
-      "oracle_value": 118550698.19,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[2].cvar10_profit_yuan",
-      "oracle_value": 118937552.19,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[2].deterministic_profit_yuan",
-      "oracle_value": 75678478.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[2].mean_profit_yuan",
-      "oracle_value": 119827636.74,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2_q3.risk_summary[2].q10_profit_yuan",
-      "oracle_value": 119159280.66,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     },
     {
       "path": "experiment_result.q2_q3.spearman_price_cost",
       "oracle_value": 0.2551,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -188,7 +77,7 @@
       "cumcm/question_results/2024/C/q03/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 20
+    "question_unmatched_metric_count": 2
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

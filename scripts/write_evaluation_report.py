@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 from typing import Any
 
+from local_scoring import score_job_artifact
+
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 JOBS_ROOT = REPO_ROOT / "jobs"
@@ -53,13 +55,21 @@ def _as_float_or_none(value: Any) -> float | None:
         return None
 
 
-def _job_reward(job_name: str) -> float | None:
-    info = _job_info(job_name)
+def _job_reward(
+    job_name: str,
+    score_config: dict[str, Any] | None = None,
+    output_name: str | None = None,
+) -> float | None:
+    info = _job_info(job_name, score_config, output_name)
     reward = info.get("reward")
     return float(reward) if isinstance(reward, (int, float)) else None
 
 
-def _job_info(job_name: str) -> dict[str, Any]:
+def _job_info(
+    job_name: str,
+    score_config: dict[str, Any] | None = None,
+    output_name: str | None = None,
+) -> dict[str, Any]:
     result_path = JOBS_ROOT / job_name / "result.json"
     if not result_path.exists():
         return {"job_name": job_name, "found": False}
@@ -88,16 +98,25 @@ def _job_info(job_name: str) -> dict[str, Any]:
             if isinstance(mean, (int, float)):
                 info["reward"] = float(mean)
         break
-    details = _score_details(job_name)
+    details = _score_details(job_name, score_config, output_name)
     if details is not None:
         info["score_details_found"] = True
         info["details_reward"] = details.get("reward")
+        info["reward"] = details.get("reward")
     else:
         info["score_details_found"] = False
     return info
 
 
-def _score_details(job_name: str) -> dict[str, Any] | None:
+def _score_details(
+    job_name: str,
+    score_config: dict[str, Any] | None = None,
+    output_name: str | None = None,
+) -> dict[str, Any] | None:
+    if score_config is not None and output_name is not None:
+        rescored = score_job_artifact(JOBS_ROOT, job_name, output_name, score_config)
+        if rescored is not None:
+            return rescored
     job_dir = JOBS_ROOT / job_name
     if not job_dir.exists():
         return None
@@ -116,9 +135,12 @@ def _score_config(case: Any) -> dict[str, Any]:
 
 
 def _status(score: dict[str, Any]) -> str:
-    if score.get("scoring_version") == "tb-mathmodeling-v4-endpoint-target-minmax":
-        return "v4 endpoint target-minmax"
-    return "legacy fallback"
+    if score.get("scoring_version") in {
+        "tb-mathmodeling-v4-endpoint-target-minmax",
+        "tb-mathmodeling-v5-final-question-endpoint-target-minmax",
+    }:
+        return "final-question endpoint target-minmax"
+    return "final-question legacy fallback"
 
 
 def _eval_values(details: dict[str, Any] | None) -> dict[str, Any]:
@@ -144,6 +166,7 @@ def _eval_values(details: dict[str, Any] | None) -> dict[str, Any]:
         "eval_method": details.get("eval_method", "BO-Eval (legacy job)"),
         "b_eval_reward": b_reward,
         "bo_eval_reward": bo_reward,
+        "selected_reward": selected,
     }
 
 
@@ -245,15 +268,18 @@ def main() -> None:
     for case in builder.CASES:
         score = _score_config(case)
         baseline = score.get("baseline_endpoint", {})
-        if score.get("scoring_version") == "tb-mathmodeling-v4-endpoint-target-minmax":
+        if score.get("scoring_version") in {
+            "tb-mathmodeling-v4-endpoint-target-minmax",
+            "tb-mathmodeling-v5-final-question-endpoint-target-minmax",
+        }:
             endpoint_count += 1
         oracle_job = f"oracle-current-{case.slug}"
         model_job = f"terminus2-deepseek-v4-flash-current-{case.slug}"
-        oracle_info = _job_info(oracle_job)
-        model_info = _job_info(model_job)
-        oracle_reward = _job_reward(oracle_job)
-        model_reward = _job_reward(model_job)
-        model_details = _score_details(model_job)
+        oracle_info = _job_info(oracle_job, score, case.output_name)
+        model_info = _job_info(model_job, score, case.output_name)
+        oracle_reward = _job_reward(oracle_job, score, case.output_name)
+        model_reward = _job_reward(model_job, score, case.output_name)
+        model_details = _score_details(model_job, score, case.output_name)
         model_evals = _eval_values(model_details)
         model_b_eval_reward = model_evals.get("b_eval_reward")
         model_bo_eval_reward = model_evals.get("bo_eval_reward")
@@ -275,8 +301,8 @@ def main() -> None:
                     f"`{case.slug}`",
                     _status(score),
                     score.get("default_eval_method", "B-Eval"),
-                    str(score.get("metric_count")),
-                    str(score.get("effective_metric_count")),
+                    str(score.get("final_answer_numeric_field_count", score.get("metric_count"))),
+                    str(score.get("scored_final_answer_numeric_field_count", score.get("effective_metric_count"))),
                     str(baseline.get("constant_endpoint_metric_count", "")),
                     str(baseline.get("missing_baseline_metric_count", "")),
                     f"`{baseline.get('kind')}`",
@@ -296,8 +322,12 @@ def main() -> None:
                     f"## {case.contest.upper()} {case.year} {case.code}: `{case.slug}`",
                     "",
                     f"- Scoring status: {_status(score)}",
+                    f"- Scoring scope: `{score.get('question_scope', 'numeric_panel')}`",
+                    f"- Final question: {_markdown_value(score.get('final_question', {}).get('plain_question'))}",
+                    f"- Final answer: {_markdown_value(score.get('final_question', {}).get('final_answer_summary'))}",
+                    f"- Baseline model: {_markdown_value(score.get('final_question', {}).get('baseline_model_summary'))}",
                     f"- Default eval method: `{score.get('default_eval_method', 'B-Eval')}`",
-                    f"- Metrics: {score.get('metric_count')} total, {score.get('effective_metric_count')} effective",
+                    f"- Final-answer numeric fields: {score.get('final_answer_numeric_field_count', score.get('metric_count'))} total, {score.get('scored_final_answer_numeric_field_count', score.get('effective_metric_count'))} scored",
                     f"- Baseline endpoint: `{baseline.get('kind')}`",
                     f"- Oracle reward: {_markdown_cell(oracle_reward)} ({_job_status(oracle_info)})",
                     f"- DeepSeek/Terminus-2 job reward: {_markdown_cell(model_reward)} ({_job_status(model_info)})",
@@ -319,7 +349,7 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 
 - Total tasks: {len(builder.CASES)}
 - Default eval method for regenerated tasks: `B-Eval`
-- v4 endpoint target-minmax tasks: {endpoint_count}
+- final-question endpoint target-minmax tasks: {endpoint_count}
 - legacy fallback tasks: {len(builder.CASES) - endpoint_count}
 - Oracle jobs found: {len(oracle_rewards)}
 - Oracle mean reward: {_markdown_cell(oracle_mean)}
@@ -328,9 +358,9 @@ This report is generated from local Harbor jobs and task `score_config.json` fil
 - DeepSeek/Terminus-2 mean B-Eval: {_markdown_cell(model_b_eval_mean)}
 - DeepSeek/Terminus-2 mean BO-Eval: {_markdown_cell(model_bo_eval_mean)}
 
-`B-Eval` is the default baseline-only score: `raw_panel_score - baseline_panel_score`, so negative means worse than the baseline. `BO-Eval` is the optional baseline-to-outstanding normalized score. `v4 endpoint target-minmax` means the task has real per-metric `baseline_value` and `outstanding_value` endpoints. `legacy fallback` means no semantically comparable per-metric question-result endpoint has been mapped yet, so the task still uses the older baseline-panel normalization.
+`B-Eval` is the default baseline-only score: `raw_panel_score - baseline_panel_score`, so negative means worse than the baseline. `BO-Eval` is the optional baseline-to-outstanding normalized score. The current scoring scope is the numeric core of the final contest question. The numeric fields in the table are not all numbers in the report; they are just the small set needed to represent the final answer. `final-question endpoint target-minmax` means the task has real per-metric `baseline_value` and `outstanding_value` endpoints. `final-question legacy fallback` means no semantically comparable per-metric question-result endpoint has been mapped yet, so the task still uses the older baseline-panel normalization.
 
-| Contest | Year | Problem | Task | Scoring status | Default eval | Metrics | Effective | Exact-value | Missing baseline | Baseline kind | Oracle reward | Oracle status | DeepSeek job reward | DeepSeek B-Eval | DeepSeek BO-Eval | DeepSeek status |
+| Contest | Year | Problem | Task | Scoring status | Default eval | Final fields | Scored fields | Exact-value | Missing baseline | Baseline kind | Oracle reward | Oracle status | DeepSeek job reward | DeepSeek B-Eval | DeepSeek BO-Eval | DeepSeek status |
 |---|---:|---|---|---|---|---:|---:|---:|---:|---|---:|---|---:|---:|---:|---|
 {chr(10).join(rows)}
 

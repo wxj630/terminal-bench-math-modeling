@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 96,
+  "final_question": {
+    "label": "Final NOC insight question",
+    "plain_question": "说明模型还能发现哪些原创奖牌规律，以及这些规律怎样指导国家奥委会分配项目和教练资源。",
+    "final_answer_summary": "O 奖复现的教练效应建议中，四个候选投资的预计奖牌增益为 1.666667、2.0、3.0、1.777778，全局强教练效应 75 分位跳升为 6.0。",
+    "baseline_model_summary": "baseline 用奥运奖牌预测、项目重要性分析和滚动三届历史成绩跳升来筛选可能的强教练效应。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,680 +18,55 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 96,
-  "effective_metric_count": 96,
+  "metric_count": 5,
+  "effective_metric_count": 5,
+  "final_answer_numeric_field_count": 5,
+  "scored_final_answer_numeric_field_count": 5,
   "metrics": [
     {
       "path": "great_coach_model.global_top_jump_75pct",
       "oracle_value": 6.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[0].Year",
-      "oracle_value": 2008.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[0].estimated_jump_score",
-      "oracle_value": 5.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[0].medal_score",
-      "oracle_value": 5.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[0].prev3_score",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[1].Year",
-      "oracle_value": 2016.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[1].estimated_jump_score",
-      "oracle_value": 1.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[1].medal_score",
-      "oracle_value": 3.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.lang_ping_validation[1].prev3_score",
-      "oracle_value": 1.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[0].benchmark_jump_score",
-      "oracle_value": 5.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final NOC insight question"
     },
     {
       "path": "great_coach_model.recommendations[0].estimated_medal_count_gain",
       "oracle_value": 1.666667,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[0].latest_medal_score",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[0].latest_year",
-      "oracle_value": 2024.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[0].recent_baseline_score",
-      "oracle_value": 1.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[1].benchmark_jump_score",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final NOC insight question"
     },
     {
       "path": "great_coach_model.recommendations[1].estimated_medal_count_gain",
       "oracle_value": 2.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[1].latest_medal_score",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[1].latest_year",
-      "oracle_value": 2024.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[1].recent_baseline_score",
-      "oracle_value": 0.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[2].benchmark_jump_score",
-      "oracle_value": 9.416667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final NOC insight question"
     },
     {
       "path": "great_coach_model.recommendations[2].estimated_medal_count_gain",
       "oracle_value": 3.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[2].latest_medal_score",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[2].latest_year",
-      "oracle_value": 2024.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[2].recent_baseline_score",
-      "oracle_value": 2.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[3].benchmark_jump_score",
-      "oracle_value": 5.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final NOC insight question"
     },
     {
       "path": "great_coach_model.recommendations[3].estimated_medal_count_gain",
       "oracle_value": 1.777778,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[3].latest_medal_score",
-      "oracle_value": 12.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[3].latest_year",
-      "oracle_value": 2024.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.recommendations[3].recent_baseline_score",
-      "oracle_value": 2.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[0].Year",
-      "oracle_value": 2008.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[0].coach_like_jump",
-      "oracle_value": 28.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[0].medal_score",
-      "oracle_value": 34.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[0].prev3_score",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[10].Year",
-      "oracle_value": 2008.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[10].coach_like_jump",
-      "oracle_value": 17.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[10].medal_score",
-      "oracle_value": 31.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[10].prev3_score",
-      "oracle_value": 13.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[11].Year",
-      "oracle_value": 2020.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[11].coach_like_jump",
-      "oracle_value": 17.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[11].medal_score",
-      "oracle_value": 17.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[11].prev3_score",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[1].Year",
-      "oracle_value": 2000.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[1].coach_like_jump",
-      "oracle_value": 23.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[1].medal_score",
-      "oracle_value": 37.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[1].prev3_score",
-      "oracle_value": 13.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[2].Year",
-      "oracle_value": 2004.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[2].coach_like_jump",
-      "oracle_value": 23.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[2].medal_score",
-      "oracle_value": 38.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[2].prev3_score",
-      "oracle_value": 15.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[3].Year",
-      "oracle_value": 2008.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[3].coach_like_jump",
-      "oracle_value": 22.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[3].medal_score",
-      "oracle_value": 33.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[3].prev3_score",
-      "oracle_value": 10.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[4].Year",
-      "oracle_value": 2000.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[4].coach_like_jump",
-      "oracle_value": 22.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[4].medal_score",
-      "oracle_value": 30.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[4].prev3_score",
-      "oracle_value": 8.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[5].Year",
-      "oracle_value": 1996.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[5].coach_like_jump",
-      "oracle_value": 22.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[5].medal_score",
-      "oracle_value": 22.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[5].prev3_score",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[6].Year",
-      "oracle_value": 1996.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[6].coach_like_jump",
-      "oracle_value": 20.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[6].medal_score",
-      "oracle_value": 22.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[6].prev3_score",
-      "oracle_value": 1.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[7].Year",
-      "oracle_value": 1996.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[7].coach_like_jump",
-      "oracle_value": 18.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[7].medal_score",
-      "oracle_value": 18.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[7].prev3_score",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[8].Year",
-      "oracle_value": 2020.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[8].coach_like_jump",
-      "oracle_value": 18.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[8].medal_score",
-      "oracle_value": 18.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[8].prev3_score",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[9].Year",
-      "oracle_value": 2000.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[9].coach_like_jump",
-      "oracle_value": 17.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[9].medal_score",
-      "oracle_value": 19.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "great_coach_model.top_historical_jump_candidates[9].prev3_score",
-      "oracle_value": 1.333333,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Gold.event_count_coefficient",
-      "oracle_value": 0.000147,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Gold.host_bonus_coefficient",
-      "oracle_value": 14.341156,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Gold.prev3_coefficient",
-      "oracle_value": 0.950866,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Gold.r2",
-      "oracle_value": 0.752918,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Total.event_count_coefficient",
-      "oracle_value": -0.000215,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Total.host_bonus_coefficient",
-      "oracle_value": 36.422317,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Total.prev3_coefficient",
-      "oracle_value": 0.952921,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "host_effect_model.Total.r2",
-      "oracle_value": 0.765819,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.holdout_year",
-      "oracle_value": 2024.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.mean_accuracy_2024",
-      "oracle_value": 0.850591,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.mean_brier_2024",
-      "oracle_value": 0.142806,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.mean_f1_2024",
-      "oracle_value": 0.287348,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.sport_models",
-      "oracle_value": 50.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.status_counts.GoldBinary:fallback_mean",
-      "oracle_value": 7.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.status_counts.GoldBinary:random_forest",
-      "oracle_value": 43.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.status_counts.MedalBinary:fallback_mean",
-      "oracle_value": 7.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "model_evaluation.status_counts.MedalBinary:random_forest",
-      "oracle_value": 43.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "monte_carlo.simulations",
-      "oracle_value": 500.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "monte_carlo.weight_power",
-      "oracle_value": 4.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final NOC insight question"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -738,7 +122,7 @@
       "mcm/question_results/2025/C/q06/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 96
+    "question_unmatched_metric_count": 5
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

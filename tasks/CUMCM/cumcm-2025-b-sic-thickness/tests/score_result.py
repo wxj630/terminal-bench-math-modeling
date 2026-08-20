@@ -244,8 +244,12 @@ def score_result(eval_method: str | None = None) -> dict[str, Any]:
         "outstanding_panel_score": outstanding_score,
         "endpoint_minmax": endpoint_minmax,
         "scoring_version": SCORE_CONFIG.get("scoring_version"),
+        "question_scope": SCORE_CONFIG.get("question_scope"),
+        "final_question": SCORE_CONFIG.get("final_question"),
         "metric_count": len(details),
         "effective_metric_count": sum(1 for item in details if float(item.get("score_weight", 0.0)) > 0.0),
+        "final_answer_numeric_field_count": len(details),
+        "scored_final_answer_numeric_field_count": sum(1 for item in details if float(item.get("score_weight", 0.0)) > 0.0),
         "scoreable_count": sum(
             1
             for item in details

@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 69,
+  "final_question": {
+    "label": "Q4",
+    "plain_question": "把零配件和成品次品率看成抽样估出来的不确定量，然后重新求问题 2 和问题 3 的最优检测、装配、拆解决策。",
+    "final_answer_summary": "O 奖复现用 3 组后验缺陷率情景重算利润：Q2 case1 利润约 25.9691、25.8694、25.7715；Q3 最优策略后验利润约 86.8529、86.5588、86.2647。",
+    "baseline_model_summary": "baseline 用二项抽样/贝叶斯后验估计次品率，再用期望利润枚举和多阶段决策搜索求最优策略。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,491 +18,64 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 69,
-  "effective_metric_count": 69,
+  "metric_count": 6,
+  "effective_metric_count": 6,
+  "final_answer_numeric_field_count": 6,
+  "scored_final_answer_numeric_field_count": 6,
   "metrics": [
     {
-      "path": "experiment_result.q1_sampling[0].c",
-      "oracle_value": 36.0,
+      "path": "experiment_result.q4.posterior_rows[0].q2_best_profit_case1",
+      "oracle_value": 25.9691,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
-      "path": "experiment_result.q1_sampling[0].false_alarm",
-      "oracle_value": 0.046596,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q1_sampling[0].n",
-      "oracle_value": 270.0,
+      "path": "experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior",
+      "oracle_value": 86.8529,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
-      "path": "experiment_result.q1_sampling[0].power",
-      "oracle_value": 0.801472,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q1_sampling[1].accept_bad",
-      "oracle_value": 0.195466,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q1_sampling[1].accept_good",
-      "oracle_value": 0.903863,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q1_sampling[1].c",
-      "oracle_value": 25.0,
+      "path": "experiment_result.q4.posterior_rows[1].q2_best_profit_case1",
+      "oracle_value": 25.8694,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
-      "path": "experiment_result.q1_sampling[1].n",
-      "oracle_value": 199.0,
+      "path": "experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior",
+      "oracle_value": 86.5588,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
-      "path": "experiment_result.q2.best_decisions[0].case",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[0].dismantle_bad_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[0].expected_profit",
-      "oracle_value": 26.374,
+      "path": "experiment_result.q4.posterior_rows[2].q2_best_profit_case1",
+      "oracle_value": 25.7715,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
-      "path": "experiment_result.q2.best_decisions[0].good_probability",
-      "oracle_value": 0.729,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[0].inspect_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[0].inspect_part1",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[0].inspect_part2",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].case",
-      "oracle_value": 2.0,
+      "path": "experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior",
+      "oracle_value": 86.2647,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].dismantle_bad_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].expected_profit",
-      "oracle_value": 25.072,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].good_probability",
-      "oracle_value": 0.512,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].inspect_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].inspect_part1",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[1].inspect_part2",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].case",
-      "oracle_value": 3.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].dismantle_bad_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].expected_profit",
-      "oracle_value": 19.87,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].good_probability",
-      "oracle_value": 0.729,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].inspect_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].inspect_part1",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[2].inspect_part2",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].case",
-      "oracle_value": 4.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].dismantle_bad_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].expected_profit",
-      "oracle_value": 14.95,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].good_probability",
-      "oracle_value": 0.64,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].inspect_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].inspect_part1",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[3].inspect_part2",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].case",
-      "oracle_value": 5.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].dismantle_bad_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].expected_profit",
-      "oracle_value": 24.48,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].good_probability",
-      "oracle_value": 0.648,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].inspect_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].inspect_part1",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[4].inspect_part2",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].case",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].dismantle_bad_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].expected_profit",
-      "oracle_value": 26.5738,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].good_probability",
-      "oracle_value": 0.85737,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].inspect_final",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].inspect_part1",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_decisions[5].inspect_part2",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.best_profit_mean",
-      "oracle_value": 22.8866,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.best_expected_profit",
-      "oracle_value": 88.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[0]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[10]",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[11]",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[12]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[13]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[14]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[15]",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[1]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[2]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[3]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[4]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[5]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[6]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[7]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[8]",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.decision_bits[9]",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.generations",
-      "oracle_value": 70.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -537,7 +119,7 @@
       "cumcm/question_results/2024/B/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 69
+    "question_unmatched_metric_count": 6
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

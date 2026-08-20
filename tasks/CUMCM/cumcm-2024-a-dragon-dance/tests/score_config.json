@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 9,
+  "final_question": {
+    "label": "Q5",
+    "plain_question": "沿着前面求出的调头路径行进时，求龙头最大能跑多快，才能保证所有把手速度都不超过 2 m/s。",
+    "final_answer_summary": "O 奖复现给出的最大龙头速度约 2.00002 m/s；当龙头速度为 1 m/s 时，全队最大速度比例约 0.99999。",
+    "baseline_model_summary": "baseline 用几何解析和运动学参数方程，沿路径传播各把手位置，再由速度约束反推龙头速度上限。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,71 +18,28 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 9,
-  "effective_metric_count": 9,
+  "metric_count": 2,
+  "effective_metric_count": 2,
+  "final_answer_numeric_field_count": 2,
+  "scored_final_answer_numeric_field_count": 2,
   "metrics": [
-    {
-      "path": "experiment_result.q1.handles",
-      "oracle_value": 224.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.terminal_min_margin_m",
-      "oracle_value": 0.249958,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q2.terminal_time_s",
-      "oracle_value": 464.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q3.minimum_pitch_m",
-      "oracle_value": 0.4,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q4.base_ratio_2_to_1_length_m",
-      "oracle_value": 14.1372,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q4.shortest_candidate_length_m",
-      "oracle_value": 14.1372,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.q4.shortest_candidate_ratio",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
     {
       "path": "experiment_result.q5.max_head_speed_mps",
       "oracle_value": 2.00002,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q5"
     },
     {
       "path": "experiment_result.q5.max_speed_ratio_when_head_1mps",
       "oracle_value": 0.99999,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q5"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -123,7 +89,7 @@
       "cumcm/question_results/2024/A/q05/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 9
+    "question_unmatched_metric_count": 2
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

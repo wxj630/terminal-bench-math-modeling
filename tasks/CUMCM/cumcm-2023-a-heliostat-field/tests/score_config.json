@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 29,
+  "final_question": {
+    "label": "Q3",
+    "plain_question": "在定日镜尺寸和安装高度都可以变化时，重新设计镜场，在满足约 60 MW 年平均输出功率的同时，让单位镜面面积输出尽量大。",
+    "final_answer_summary": "O 奖复现给出的核心设计是年平均热功率 60.336111 MW，单位面积功率 0.506192417 kW/m2，年平均光学效率 0.496428083，镜面总面积 119196 m2，定日镜 3311 面。",
+    "baseline_model_summary": "baseline 用几何解析和太阳运动参数方程做一个简化镜场拟合，再从几何约束中估计设计参数。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,211 +18,55 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 29,
-  "effective_metric_count": 29,
+  "metric_count": 5,
+  "effective_metric_count": 5,
+  "final_answer_numeric_field_count": 5,
+  "scored_final_answer_numeric_field_count": 5,
   "metrics": [
-    {
-      "path": "reproduced.design_summary[0].annual_optical_efficiency",
-      "oracle_value": 0.536230167,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[0].annual_thermal_power_mw",
-      "oracle_value": 32.76117051,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[0].mirror_count",
-      "oracle_value": 1745.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[0].tower_xy[0]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[0].tower_xy[1]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[0].unit_area_power_kw_m2",
-      "oracle_value": 0.521508604,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].annual_optical_efficiency",
-      "oracle_value": 0.591643667,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].annual_thermal_power_mw",
-      "oracle_value": 68.24427914,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].installation_height_m",
-      "oracle_value": 4.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].mirror_area_m2",
-      "oracle_value": 119196.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].mirror_count",
-      "oracle_value": 3311.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].mirror_height_m",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].mirror_width_m",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].tower_xy[0]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].tower_xy[1]",
-      "oracle_value": -250.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[1].unit_area_power_kw_m2",
-      "oracle_value": 0.572538333,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
     {
       "path": "reproduced.design_summary[2].annual_optical_efficiency",
       "oracle_value": 0.496428083,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[2].annual_thermal_power_mw",
-      "oracle_value": 60.336111,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     },
     {
       "path": "reproduced.design_summary[2].mirror_area_m2",
       "oracle_value": 119196.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     },
     {
       "path": "reproduced.design_summary[2].mirror_count",
       "oracle_value": 3311.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[2].tower_xy[0]",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.design_summary[2].tower_xy[1]",
-      "oracle_value": -250.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     },
     {
       "path": "reproduced.design_summary[2].unit_area_power_kw_m2",
       "oracle_value": 0.506192417,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.official_coordinate_count",
-      "oracle_value": 1745.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.q1_monthly_efficiency_mean",
-      "oracle_value": 0.536230167,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.q1_annual_optical_efficiency.actual",
-      "oracle_value": 0.536230167,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.q2_annual_thermal_power_mw.actual",
-      "oracle_value": 68.244279,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.q2_mirror_count.actual",
-      "oracle_value": 3311.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     },
     {
       "path": "target_comparison.q3_annual_thermal_power_mw.actual",
       "oracle_value": 60.336111,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q3"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -251,7 +104,7 @@
       "cumcm/question_results/2023/A/q03/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 29
+    "question_unmatched_metric_count": 5
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

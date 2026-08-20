@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 8,
+  "final_question": {
+    "label": "Q4",
+    "plain_question": "对女胎样本，用染色体 Z 值、GC 含量、读段数、BMI 等指标判断胎儿是否异常。",
+    "final_answer_summary": "O 奖复现的女胎异常判定模型 leave-one-out accuracy 为 0.8659，F1 为 0.3721。",
+    "baseline_model_summary": "baseline 用综合评价和权重决策，把多项检测指标合成风险分数，再给出异常判定。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,64 +18,28 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 8,
-  "effective_metric_count": 8,
+  "metric_count": 2,
+  "effective_metric_count": 2,
+  "final_answer_numeric_field_count": 2,
+  "scored_final_answer_numeric_field_count": 2,
   "metrics": [
-    {
-      "path": "experiment_result.earliest_recommended_week",
-      "oracle_value": 12.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
     {
       "path": "experiment_result.female_loo_accuracy",
       "oracle_value": 0.8659,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     },
     {
-      "path": "experiment_result.latest_recommended_week",
-      "oracle_value": 20.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "experiment_result.male_pseudo_r2",
-      "oracle_value": 0.90064,
+      "path": "female_abnormality.leave_one_out_f1",
+      "oracle_value": 0.3721,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "male_lmm.mother_count",
-      "oracle_value": 267.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "male_lmm.pseudo_r2",
-      "oracle_value": 0.90064,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "male_lmm.residual_sigma_logit",
-      "oracle_value": 0.47707,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "male_lmm.rmse_fetal_fraction",
-      "oracle_value": 0.01056,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Q4"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -110,7 +83,7 @@
       "cumcm/question_results/2025/C/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 8
+    "question_unmatched_metric_count": 2
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

@@ -1,5 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v2-legacy-baseline-panel",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
+  "question_scope": "final_question_only",
+  "candidate_metric_count_before_final_filter": 41,
+  "final_question": {
+    "label": "Final management question",
+    "plain_question": "综合物种数、干旱、污染和栖息地压力，说明怎样保证植物群落长期可生存。",
+    "final_answer_summary": "O 奖复现的核心量化结论包括最优/阈值物种数 2，beta 压力下生物量下降 32.0%，五物种均匀度 0.8826。",
+    "baseline_model_summary": "baseline 把物种数阈值、功能性状、干旱敏感性和污染/栖息地压力合成为管理前沿。",
+    "metric_selection": "final_question_only_numeric_core"
+  },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
     "B-Eval",
@@ -9,295 +18,37 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 41,
-  "effective_metric_count": 41,
+  "metric_count": 3,
+  "effective_metric_count": 3,
+  "final_answer_numeric_field_count": 3,
+  "scored_final_answer_numeric_field_count": 3,
   "metrics": [
-    {
-      "path": "reproduced.beta_decline_pct",
-      "oracle_value": 32.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.coefficient_of_variation_1_to_5[0]",
-      "oracle_value": 0.1864,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.coefficient_of_variation_1_to_5[1]",
-      "oracle_value": 0.0653,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[0].diversity_buffer_gain_pct",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[0].drought_frequency_per_50y",
-      "oracle_value": 0.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[0].five_species_biomass_index",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[0].monoculture_biomass_index",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[1].diversity_buffer_gain_pct",
-      "oracle_value": 7.92,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[1].drought_frequency_per_50y",
-      "oracle_value": 3.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[1].five_species_biomass_index",
-      "oracle_value": 0.8992,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[1].monoculture_biomass_index",
-      "oracle_value": 0.82,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[2].diversity_buffer_gain_pct",
-      "oracle_value": 14.96,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[2].drought_frequency_per_50y",
-      "oracle_value": 6.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[2].five_species_biomass_index",
-      "oracle_value": 0.8096,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.drought_buffer[2].monoculture_biomass_index",
-      "oracle_value": 0.66,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.five_species_pielou_evenness",
-      "oracle_value": 0.8826,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.optimal_species_count",
-      "oracle_value": 2.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[0].coefficient_of_variation",
-      "oracle_value": 0.1864,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[0].mean_total_biomass_last20y",
-      "oracle_value": 371.5034,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[0].pielou_evenness",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[0].species_count",
-      "oracle_value": 1.0,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[1].coefficient_of_variation",
-      "oracle_value": 0.1419,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[1].mean_total_biomass_last20y",
-      "oracle_value": 500.0073,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[1].pielou_evenness",
-      "oracle_value": 0.958,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[1].species_count",
-      "oracle_value": 2.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[2].coefficient_of_variation",
-      "oracle_value": 0.1037,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[2].mean_total_biomass_last20y",
-      "oracle_value": 452.1233,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[2].pielou_evenness",
-      "oracle_value": 0.9285,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[2].species_count",
-      "oracle_value": 3.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[3].coefficient_of_variation",
-      "oracle_value": 0.0788,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[3].mean_total_biomass_last20y",
-      "oracle_value": 394.0814,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[3].pielou_evenness",
-      "oracle_value": 0.9066,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[3].species_count",
-      "oracle_value": 4.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[4].coefficient_of_variation",
-      "oracle_value": 0.0653,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[4].mean_total_biomass_last20y",
-      "oracle_value": 335.2487,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[4].pielou_evenness",
-      "oracle_value": 0.8826,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
-    },
-    {
-      "path": "reproduced.species_count_summary[4].species_count",
-      "oracle_value": 5.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0
-    },
     {
       "path": "target_comparison.beta_decline_pct.actual",
       "oracle_value": 32.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
-    },
-    {
-      "path": "target_comparison.cov_decrease_1_to_5.actual",
-      "oracle_value": 0.1211,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final management question"
     },
     {
       "path": "target_comparison.five_species_pielou_evenness.actual",
       "oracle_value": 0.8826,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final management question"
     },
     {
       "path": "target_comparison.optimal_species_count.actual",
       "oracle_value": 2.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
-      "weight": 1.0
+      "weight": 1.0,
+      "question_scope": "final_question_only",
+      "final_question_label": "Final management question"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -353,7 +104,7 @@
       "mcm/question_results/2023/A/q06/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 41
+    "question_unmatched_metric_count": 3
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",
