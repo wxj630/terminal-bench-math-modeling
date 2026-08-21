@@ -30,6 +30,8 @@ The verifier supports both methods as a scoring hyperparameter. By default it wr
 
 The preferred baseline endpoint is computed from the archived per-question `question_results` outputs after mapping comparable numeric answers onto the same final-question scoring panel used for submissions and the outstanding reproduction. The verifier records the plain-language final question, the oracle final answer, the baseline model summary, each baseline source path, outstanding value, semantic direction, normalization direction, and effective weight in `score_config.json`. Each task directory includes a generated `scoring_table.md`, and the full set is collected in [`docs/SCORING_TABLES.md`](docs/SCORING_TABLES.md). Tasks without a comparable field-level mapping currently keep an explicit legacy fallback endpoint until a task-specific adapter is added; this means `Baseline answer` can be blank in the table even though a baseline run exists. The current release scores numerical modeling outputs; future versions can add rubric-based scoring for modeling quality, assumptions, validation, and paper writing.
 
+For geometry-heavy tasks, [`docs/GEOMETRY_VISUAL_GUIDE.md`](docs/GEOMETRY_VISUAL_GUIDE.md) provides schematic figures that connect the contest geometry to the final numeric answer used by the verifier.
+
 ## Tasks
 
 | Contest | Year | Problem | Slug | Description |

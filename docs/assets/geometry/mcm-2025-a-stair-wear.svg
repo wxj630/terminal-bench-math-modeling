@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-label="MCM 2025 A 楼梯磨损反演">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#244c7c"/>
+</marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#b45b18"/>
+</marker>
+<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dff3ff"/><stop offset="100%" stop-color="#9cc7d9"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4efe5"/><stop offset="100%" stop-color="#d7c3a0"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity=".12"/></filter>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC','Microsoft YaHei',Arial,sans-serif;fill:#1f2933}
+.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#59636e}.label{font-size:15px;font-weight:650}.small{font-size:13px;fill:#3d4852}.value{font-size:14px;font-weight:700;fill:#0f5e57}.muted{font-size:12px;fill:#66788a}.axis{stroke:#415466;stroke-width:2}.thin{stroke:#5f6f80;stroke-width:1.5}.dash{stroke-dasharray:7 6}.blue{stroke:#244c7c}.warm{stroke:#b45b18}.green{stroke:#087f5b}.red{stroke:#b42318}.fill-blue{fill:#e5f1ff}.fill-warm{fill:#fff0df}.fill-green{fill:#e4f7ef}.fill-red{fill:#fff1f0}.panel{fill:#fbfcfd;stroke:#d8dee6;stroke-width:1}.note{fill:#fffdf7;stroke:#e4cf8c;stroke-width:1}
+</style>
+<rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+<text x="36" y="42" class="title" text-anchor="start">MCM 2025 A 楼梯磨损反演</text>
+<text x="36" y="66" class="subtitle" text-anchor="start">题面是从台阶几何磨损反推历史人流；答案是典型日使用人数和节奏。</text>
+<rect x="36" y="92" width="580" height="400" class="panel"/>
+<path d="M92 422 L198 422 L198 352 L304 352 L304 282 L410 282 L410 212 L540 212" fill="none" stroke="#6f7882" stroke-width="18" stroke-linejoin="round"/>
+<path d="M102 417 C145 393 171 393 190 417" fill="none" stroke="#b42318" stroke-width="5"/>
+<path d="M208 347 C250 322 280 324 298 347" fill="none" stroke="#b42318" stroke-width="5"/>
+<path d="M314 277 C357 252 388 254 404 277" fill="none" stroke="#b42318" stroke-width="5"/>
+<path d="M125 170 C150 155 170 155 195 170" fill="none" stroke="#b42318" stroke-width="6"/>
+<line x1="125" y1="170" x2="125" y2="238" class="thin red dash"/>
+<line x1="195" y1="170" x2="195" y2="238" class="thin red dash"/>
+<path d="M125 238 C150 218 170 218 195 238" fill="#fff1f0" stroke="#b42318"/>
+<line x1="210" y1="205" x2="284" y2="205" class="axis blue" marker-end="url(#arrow)"/>
+<text x="132" y="154" class="label" text-anchor="start">磨损截面</text>
+<text x="302" y="208" class="small" text-anchor="start">深度/面积 + 材料 + 年龄</text>
+<rect x="345" y="153" width="190" height="92" fill="#e4f7ef" stroke="#087f5b"/>
+<text x="365" y="184" class="label" text-anchor="start">反演通行次数</text>
+<text x="365" y="216" class="small" text-anchor="start">再换算成日均人流</text>
+<text x="316" y="466" class="small" text-anchor="middle">几何量不是终点；它被换成“多少人、怎样经过”</text>
+<rect x="654" y="92" width="374" height="400" class="note"/>
+<text x="676" y="128" class="label" text-anchor="start">最后答案在量什么</text>
+<text x="676" y="160" class="small" text-anchor="start">从磨损形状反推累计使用量，再估计一个典型日约</text>
+<text x="676" y="178" class="small" text-anchor="start">有多少人经过，以及是集中高峰还是全天稀疏。</text>
+<text x="676" y="264" class="label" text-anchor="start">O 奖复现答案</text>
+<text x="676" y="298" class="value" text-anchor="start">日均使用人数 73.52</text>
+<text x="676" y="330" class="value" text-anchor="start">短时峰值约 27.6 人</text>
+<text x="676" y="362" class="value" text-anchor="start">若分散 10 小时：约 4.6 人/小时</text>
+<text x="676" y="406" class="small" text-anchor="start">方向：历史推断目标值。</text>
+</svg>

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-label="MCM 2024 B 潜水器搜索">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#244c7c"/>
+</marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#b45b18"/>
+</marker>
+<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dff3ff"/><stop offset="100%" stop-color="#9cc7d9"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4efe5"/><stop offset="100%" stop-color="#d7c3a0"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity=".12"/></filter>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC','Microsoft YaHei',Arial,sans-serif;fill:#1f2933}
+.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#59636e}.label{font-size:15px;font-weight:650}.small{font-size:13px;fill:#3d4852}.value{font-size:14px;font-weight:700;fill:#0f5e57}.muted{font-size:12px;fill:#66788a}.axis{stroke:#415466;stroke-width:2}.thin{stroke:#5f6f80;stroke-width:1.5}.dash{stroke-dasharray:7 6}.blue{stroke:#244c7c}.warm{stroke:#b45b18}.green{stroke:#087f5b}.red{stroke:#b42318}.fill-blue{fill:#e5f1ff}.fill-warm{fill:#fff0df}.fill-green{fill:#e4f7ef}.fill-red{fill:#fff1f0}.panel{fill:#fbfcfd;stroke:#d8dee6;stroke-width:1}.note{fill:#fffdf7;stroke:#e4cf8c;stroke-width:1}
+</style>
+<rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+<text x="36" y="42" class="title" text-anchor="start">MCM 2024 B 潜水器搜索</text>
+<text x="36" y="66" class="subtitle" text-anchor="start">题面是带漂移的不确定位置搜索；答案是加勒比海迁移时的区域放大系数。</text>
+<rect x="36" y="92" width="580" height="400" fill="url(#water)" stroke="#7aa8bd"/>
+<path d="M65 430 C130 360 190 404 246 342 C322 258 420 320 573 226" fill="none" stroke="#9f8155" stroke-width="22" opacity=".38"/>
+<circle cx="235" cy="270" r="5" fill="#b42318"/>
+<text x="250" y="265" class="label" text-anchor="start">最后已知位置</text>
+<ellipse cx="330" cy="290" rx="145" ry="76" transform="rotate(18 330 290)" fill="#fff0df" stroke="#b45b18" opacity=".85"/>
+<ellipse cx="360" cy="305" rx="196" ry="103" transform="rotate(18 360 305)" fill="none" stroke="#b42318" stroke-width="3" stroke-dasharray="8 6"/>
+<path d="M236 270 C290 272 324 285 360 305" fill="none" class="axis blue" marker-end="url(#arrow)"/>
+<text x="374" y="314" class="small" text-anchor="start">洋流漂移</text>
+<path d="M230 222 L520 315 M220 257 L510 350 M214 292 L500 385 M210 327 L475 405" stroke="#244c7c" stroke-width="3" stroke-linecap="round"/>
+<text x="356" y="438" class="small" text-anchor="middle">搜索线覆盖高后验区域；地形复杂处要扩大不确定性</text>
+<rect x="654" y="92" width="374" height="400" class="note"/>
+<text x="676" y="128" class="label" text-anchor="start">最后答案在量什么</text>
+<text x="676" y="160" class="small" text-anchor="start">把已建搜索模型迁移到加勒比海：洋流更强会拉长</text>
+<text x="676" y="178" class="small" text-anchor="start">漂移椭圆，海底地形更复杂会扩大位置不确定性。</text>
+<text x="676" y="264" class="label" text-anchor="start">O 奖复现答案</text>
+<text x="676" y="298" class="value" text-anchor="start">洋流不确定性乘数 1.35</text>
+<text x="676" y="330" class="value" text-anchor="start">地形不确定性乘数 1.20</text>
+<text x="676" y="374" class="small" text-anchor="start">方向：推荐调整系数，属于目标值。</text>
+</svg>

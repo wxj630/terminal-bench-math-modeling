@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-label="CUMCM 2023 B 多波束测线">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#244c7c"/>
+</marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#b45b18"/>
+</marker>
+<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dff3ff"/><stop offset="100%" stop-color="#9cc7d9"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4efe5"/><stop offset="100%" stop-color="#d7c3a0"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity=".12"/></filter>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC','Microsoft YaHei',Arial,sans-serif;fill:#1f2933}
+.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#59636e}.label{font-size:15px;font-weight:650}.small{font-size:13px;fill:#3d4852}.value{font-size:14px;font-weight:700;fill:#0f5e57}.muted{font-size:12px;fill:#66788a}.axis{stroke:#415466;stroke-width:2}.thin{stroke:#5f6f80;stroke-width:1.5}.dash{stroke-dasharray:7 6}.blue{stroke:#244c7c}.warm{stroke:#b45b18}.green{stroke:#087f5b}.red{stroke:#b42318}.fill-blue{fill:#e5f1ff}.fill-warm{fill:#fff0df}.fill-green{fill:#e4f7ef}.fill-red{fill:#fff1f0}.panel{fill:#fbfcfd;stroke:#d8dee6;stroke-width:1}.note{fill:#fffdf7;stroke:#e4cf8c;stroke-width:1}
+</style>
+<rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+<text x="36" y="42" class="title" text-anchor="start">CUMCM 2023 B 多波束测线</text>
+<text x="36" y="66" class="subtitle" text-anchor="start">题面是海底地形上的条带覆盖；答案在平衡航行长度、漏测和重叠。</text>
+<rect x="36" y="92" width="580" height="400" fill="url(#water)" stroke="#7aa8bd"/>
+<polygon points="70,400 570,320 570,455 70,455" fill="#c2a378" stroke="#896b42"/>
+<text x="90" y="432" class="small" text-anchor="start">倾斜海底</text>
+<line x1="115" y1="125" x2="115" y2="400" class="axis blue" marker-end="url(#arrow)"/>
+<line x1="210" y1="125" x2="210" y2="385" class="axis blue" marker-end="url(#arrow)"/>
+<line x1="305" y1="125" x2="305" y2="370" class="axis blue" marker-end="url(#arrow)"/>
+<line x1="400" y1="125" x2="400" y2="354" class="axis blue" marker-end="url(#arrow)"/>
+<line x1="495" y1="125" x2="495" y2="339" class="axis blue" marker-end="url(#arrow)"/>
+<polygon points="115,400 56,449 174,430" fill="#d7ebff" stroke="#244c7c" opacity=".8"/>
+<polygon points="210,385 148,437 272,417" fill="#d7ebff" stroke="#244c7c" opacity=".8"/>
+<polygon points="305,370 238,424 372,402" fill="#d7ebff" stroke="#244c7c" opacity=".8"/>
+<polygon points="400,354 330,411 470,389" fill="#d7ebff" stroke="#244c7c" opacity=".8"/>
+<polygon points="495,339 424,397 566,374" fill="#d7ebff" stroke="#244c7c" opacity=".8"/>
+<path d="M156 438 L174 430 L148 437 Z" fill="#f7d794" stroke="#b45b18"/>
+<path d="M250 422 L272 417 L238 424 Z" fill="#f7d794" stroke="#b45b18"/>
+<path d="M348 406 L372 402 L330 411 Z" fill="#f7d794" stroke="#b45b18"/>
+<text x="84" y="116" class="small" text-anchor="start">测线</text>
+<text x="253" y="475" class="small" text-anchor="middle">相邻条带要覆盖全海域，但过多重叠也浪费</text>
+<rect x="654" y="92" width="374" height="400" class="note"/>
+<text x="676" y="128" class="label" text-anchor="start">最后答案在量什么</text>
+<text x="676" y="160" class="small" text-anchor="start">真实海深数据给出以后，要规划测线。总航行长度</text>
+<text x="676" y="178" class="small" text-anchor="start">和漏测面积越小越好；平均重叠率要受控，重叠超</text>
+<text x="676" y="196" class="small" text-anchor="start">过 20% 的长度越少越好。</text>
+<text x="676" y="264" class="label" text-anchor="start">O 奖复现方案</text>
+<text x="676" y="298" class="value" text-anchor="start">总测线长度 622.0 海里</text>
+<text x="676" y="330" class="value" text-anchor="start">漏测面积 3.48%</text>
+<text x="676" y="362" class="value" text-anchor="start">重叠&gt;20% 长度 30.0 海里</text>
+<text x="676" y="394" class="value" text-anchor="start">平均重叠率 10.48%</text>
+</svg>

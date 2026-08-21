@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-label="CUMCM 2025 B 外延层厚度">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#244c7c"/>
+</marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#b45b18"/>
+</marker>
+<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dff3ff"/><stop offset="100%" stop-color="#9cc7d9"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4efe5"/><stop offset="100%" stop-color="#d7c3a0"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity=".12"/></filter>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC','Microsoft YaHei',Arial,sans-serif;fill:#1f2933}
+.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#59636e}.label{font-size:15px;font-weight:650}.small{font-size:13px;fill:#3d4852}.value{font-size:14px;font-weight:700;fill:#0f5e57}.muted{font-size:12px;fill:#66788a}.axis{stroke:#415466;stroke-width:2}.thin{stroke:#5f6f80;stroke-width:1.5}.dash{stroke-dasharray:7 6}.blue{stroke:#244c7c}.warm{stroke:#b45b18}.green{stroke:#087f5b}.red{stroke:#b42318}.fill-blue{fill:#e5f1ff}.fill-warm{fill:#fff0df}.fill-green{fill:#e4f7ef}.fill-red{fill:#fff1f0}.panel{fill:#fbfcfd;stroke:#d8dee6;stroke-width:1}.note{fill:#fffdf7;stroke:#e4cf8c;stroke-width:1}
+</style>
+<rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+<text x="36" y="42" class="title" text-anchor="start">CUMCM 2025 B 外延层厚度</text>
+<text x="36" y="66" class="subtitle" text-anchor="start">题面是薄膜多光束干涉；答案是从光谱条纹反推出物理厚度。</text>
+<rect x="36" y="92" width="580" height="400" class="panel"/>
+<rect x="110" y="235" width="410" height="78" fill="#dff4ff" stroke="#244c7c" stroke-width="2"/>
+<rect x="110" y="313" width="410" height="92" fill="#efe2cb" stroke="#896b42" stroke-width="2"/>
+<text x="128" y="260" class="label" text-anchor="start">外延层 n1</text>
+<text x="128" y="342" class="label" text-anchor="start">衬底 n2</text>
+<line x1="164" y1="128" x2="260" y2="235" class="axis warm" marker-end="url(#arrow-warm)"/>
+<line x1="260" y1="235" x2="365" y2="128" class="thin blue" marker-end="url(#arrow)"/>
+<line x1="260" y1="235" x2="340" y2="313" class="axis warm" marker-end="url(#arrow-warm)"/>
+<line x1="340" y1="313" x2="420" y2="235" class="thin green" marker-end="url(#arrow)"/>
+<line x1="420" y1="235" x2="520" y2="128" class="thin blue dash" marker-end="url(#arrow)"/>
+<line x1="338" y1="235" x2="338" y2="313" stroke="#b42318" stroke-width="2" marker-end="url(#arrow-warm)" marker-start="url(#arrow-warm)"/>
+<text x="350" y="278" class="value" text-anchor="start">厚度 d</text>
+<text x="163" y="118" class="small" text-anchor="start">入射光</text>
+<text x="407" y="118" class="small" text-anchor="start">多束反射叠加</text>
+<path d="M86 455 C125 430 164 482 203 455 S281 430 320 455 S398 482 437 455 S515 430 554 455" fill="none" stroke="#087f5b" stroke-width="3"/>
+<text x="320" y="482" class="small" text-anchor="middle">光谱条纹周期 -&gt; 反推厚度</text>
+<rect x="654" y="92" width="374" height="400" class="note"/>
+<text x="676" y="128" class="label" text-anchor="start">最后答案在量什么</text>
+<text x="676" y="160" class="small" text-anchor="start">反射率随波数振荡。条纹周期和多光束修正共同决</text>
+<text x="676" y="178" class="small" text-anchor="start">定外延层厚度；这里的厚度是目标值，不是越大越</text>
+<text x="676" y="196" class="small" text-anchor="start">好。</text>
+<text x="676" y="264" class="label" text-anchor="start">O 奖复现答案</text>
+<text x="676" y="298" class="value" text-anchor="start">SiC 厚度 8.9815 um</text>
+<text x="676" y="330" class="value" text-anchor="start">Si 厚度 10.5145 um</text>
+<text x="676" y="374" class="small" text-anchor="start">方向：目标物理量，越接近推断值越好。</text>
+</svg>

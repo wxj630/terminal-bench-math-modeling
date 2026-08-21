@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-label="CUMCM 2025 A 烟幕遮蔽">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#244c7c"/>
+</marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#b45b18"/>
+</marker>
+<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dff3ff"/><stop offset="100%" stop-color="#9cc7d9"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4efe5"/><stop offset="100%" stop-color="#d7c3a0"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity=".12"/></filter>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC','Microsoft YaHei',Arial,sans-serif;fill:#1f2933}
+.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#59636e}.label{font-size:15px;font-weight:650}.small{font-size:13px;fill:#3d4852}.value{font-size:14px;font-weight:700;fill:#0f5e57}.muted{font-size:12px;fill:#66788a}.axis{stroke:#415466;stroke-width:2}.thin{stroke:#5f6f80;stroke-width:1.5}.dash{stroke-dasharray:7 6}.blue{stroke:#244c7c}.warm{stroke:#b45b18}.green{stroke:#087f5b}.red{stroke:#b42318}.fill-blue{fill:#e5f1ff}.fill-warm{fill:#fff0df}.fill-green{fill:#e4f7ef}.fill-red{fill:#fff1f0}.panel{fill:#fbfcfd;stroke:#d8dee6;stroke-width:1}.note{fill:#fffdf7;stroke:#e4cf8c;stroke-width:1}
+</style>
+<rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+<text x="36" y="42" class="title" text-anchor="start">CUMCM 2025 A 烟幕遮蔽</text>
+<text x="36" y="66" class="subtitle" text-anchor="start">题面是三维轨迹和视线遮挡；答案是三枚导弹被烟幕有效遮蔽的联合时长。</text>
+<rect x="36" y="92" width="580" height="400" class="panel"/>
+<polygon points="55,420 585,420 545,480 95,480" fill="#eef2f6" stroke="#c9d2dc"/>
+<rect x="465" y="334" width="44" height="86" fill="#b9c2cc" stroke="#55616f"/>
+<rect x="452" y="300" width="70" height="36" fill="#d8dee6" stroke="#55616f"/>
+<text x="486" y="292" class="label" text-anchor="middle">真目标</text>
+<path d="M70 160 C180 180 230 210 325 252" fill="none" class="axis red" marker-end="url(#arrow-warm)"/>
+<path d="M80 235 C190 230 285 270 430 352" fill="none" class="axis red" marker-end="url(#arrow-warm)"/>
+<path d="M105 102 C230 128 365 190 502 322" fill="none" class="axis red" marker-end="url(#arrow-warm)"/>
+<text x="84" y="142" class="small" text-anchor="start">M1</text>
+<text x="92" y="224" class="small" text-anchor="start">M2</text>
+<text x="118" y="96" class="small" text-anchor="start">M3</text>
+<path d="M120 390 C220 330 315 286 430 260" fill="none" class="axis blue" marker-end="url(#arrow)"/>
+<path d="M160 445 C265 372 350 318 512 248" fill="none" class="thin blue" marker-end="url(#arrow)"/>
+<circle cx="300" cy="287" r="34" fill="#d9f3e7" stroke="#087f5b" opacity=".88"/>
+<circle cx="375" cy="316" r="45" fill="#d9f3e7" stroke="#087f5b" opacity=".78"/>
+<circle cx="440" cy="275" r="38" fill="#d9f3e7" stroke="#087f5b" opacity=".82"/>
+<text x="258" y="256" class="small" text-anchor="start">烟幕云团</text>
+<text x="260" y="456" class="small" text-anchor="middle">遮蔽成立：导弹到真目标的视线穿过有效烟幕</text>
+<rect x="654" y="92" width="374" height="400" class="note"/>
+<text x="676" y="128" class="label" text-anchor="start">最后答案在量什么</text>
+<text x="676" y="160" class="small" text-anchor="start">5 架无人机、每架最多 3 枚弹，选择航向、速度、</text>
+<text x="676" y="178" class="small" text-anchor="start">投放和起爆时刻，让三枚导弹的有效遮蔽总时间最</text>
+<text x="676" y="196" class="small" text-anchor="start">大。</text>
+<text x="676" y="264" class="label" text-anchor="start">O 奖复现答案</text>
+<text x="676" y="298" class="value" text-anchor="start">M1 遮蔽 10.3 s</text>
+<text x="676" y="330" class="value" text-anchor="start">M2 遮蔽 6.2 s</text>
+<text x="676" y="362" class="value" text-anchor="start">M3 遮蔽 3.4 s</text>
+<text x="676" y="394" class="value" text-anchor="start">总计 19.9 s</text>
+</svg>

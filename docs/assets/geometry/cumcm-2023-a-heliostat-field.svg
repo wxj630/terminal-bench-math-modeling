@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="560" viewBox="0 0 1080 560" role="img" aria-label="CUMCM 2023 A 定日镜场">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#244c7c"/>
+</marker>
+<marker id="arrow-warm" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#b45b18"/>
+</marker>
+<linearGradient id="water" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#dff3ff"/><stop offset="100%" stop-color="#9cc7d9"/></linearGradient>
+<linearGradient id="ground" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#f4efe5"/><stop offset="100%" stop-color="#d7c3a0"/></linearGradient>
+<filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#000" flood-opacity=".12"/></filter>
+</defs>
+<style>
+text{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans CJK SC','Microsoft YaHei',Arial,sans-serif;fill:#1f2933}
+.title{font-size:25px;font-weight:700}.subtitle{font-size:14px;fill:#59636e}.label{font-size:15px;font-weight:650}.small{font-size:13px;fill:#3d4852}.value{font-size:14px;font-weight:700;fill:#0f5e57}.muted{font-size:12px;fill:#66788a}.axis{stroke:#415466;stroke-width:2}.thin{stroke:#5f6f80;stroke-width:1.5}.dash{stroke-dasharray:7 6}.blue{stroke:#244c7c}.warm{stroke:#b45b18}.green{stroke:#087f5b}.red{stroke:#b42318}.fill-blue{fill:#e5f1ff}.fill-warm{fill:#fff0df}.fill-green{fill:#e4f7ef}.fill-red{fill:#fff1f0}.panel{fill:#fbfcfd;stroke:#d8dee6;stroke-width:1}.note{fill:#fffdf7;stroke:#e4cf8c;stroke-width:1}
+</style>
+<rect x="0" y="0" width="1080" height="560" fill="#ffffff"/>
+<text x="36" y="42" class="title" text-anchor="start">CUMCM 2023 A 定日镜场</text>
+<text x="36" y="66" class="subtitle" text-anchor="start">题面是太阳光反射几何；答案是在 60 MW 附近做高效率镜场设计。</text>
+<rect x="36" y="92" width="580" height="400" class="panel"/>
+<ellipse cx="320" cy="355" rx="230" ry="88" fill="#f5f9ee" stroke="#98a873" stroke-width="2"/>
+<ellipse cx="320" cy="355" rx="150" ry="55" fill="none" stroke="#c9d8ad" stroke-width="2" stroke-dasharray="5 5"/>
+<rect x="306" y="145" width="28" height="210" fill="#8b95a1" stroke="#46505a"/>
+<rect x="286" y="132" width="68" height="18" fill="#ffcf66" stroke="#8a5a00"/>
+<text x="320" y="125" class="label" text-anchor="middle">吸收塔/接收器</text>
+<line x1="92" y1="116" x2="226" y2="240" class="axis warm" marker-end="url(#arrow-warm)"/>
+<line x1="70" y1="148" x2="190" y2="253" class="thin warm" marker-end="url(#arrow-warm)"/>
+<line x1="226" y1="240" x2="302" y2="145" class="axis blue" marker-end="url(#arrow)"/>
+<line x1="190" y1="253" x2="306" y2="148" class="thin blue" marker-end="url(#arrow)"/>
+<text x="92" y="104" class="small" text-anchor="start">太阳入射光</text>
+<text x="383" y="162" class="small" text-anchor="start">反射到塔顶</text>
+<g transform="translate(190 250) rotate(-12)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<g transform="translate(250 305) rotate(8)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<g transform="translate(320 250) rotate(16)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<g transform="translate(395 310) rotate(-6)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<g transform="translate(170 355) rotate(14)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<g transform="translate(300 390) rotate(-14)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<g transform="translate(430 380) rotate(10)"><rect x="-24" y="-6" width="48" height="12" fill="#b6d7ff" stroke="#244c7c" stroke-width="1.5"/><line x1="0" y1="6" x2="0" y2="30" class="thin blue"/></g>
+<text x="320" y="472" class="small" text-anchor="middle">圆形镜场：镜子位置、面积、高度共同影响阴影/遮挡/余弦效率</text>
+<rect x="654" y="92" width="374" height="400" class="note"/>
+<text x="676" y="128" class="label" text-anchor="start">最后答案在量什么</text>
+<text x="676" y="160" class="small" text-anchor="start">约束：年平均热功率要接近 60 MW；目标：单位</text>
+<text x="676" y="178" class="small" text-anchor="start">镜面面积输出越高越好，同时镜面面积和镜子数量</text>
+<text x="676" y="196" class="small" text-anchor="start">越少越好。</text>
+<text x="676" y="248" class="label" text-anchor="start">O 奖复现答案</text>
+<text x="676" y="282" class="value" text-anchor="start">年平均热功率 60.336111 MW</text>
+<text x="676" y="314" class="value" text-anchor="start">单位面积功率 0.506192417 kW/m2</text>
+<text x="676" y="346" class="value" text-anchor="start">年平均光学效率 0.496428083</text>
+<text x="676" y="378" class="value" text-anchor="start">镜面总面积 119196 m2</text>
+<text x="676" y="410" class="value" text-anchor="start">定日镜 3311 面</text>
+</svg>
