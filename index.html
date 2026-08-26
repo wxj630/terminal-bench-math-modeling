@@ -1,0 +1,912 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TB-MathModel Leaderboard</title>
+  <meta name="description" content="TB-MathModel: an agentic and verifiable benchmark for mathematical modeling, with leaderboard and visual analysis.">
+  <meta property="og:title" content="TB-MathModel Leaderboard">
+  <meta property="og:description" content="Agentic and verifiable benchmark for mathematical modeling.">
+  <meta property="og:image" content="assets/figures/tb-mathmodel-cover.png">
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #17201c;
+      --muted: #5f6f68;
+      --line: #dce6e1;
+      --paper: #fbfcfa;
+      --panel: #ffffff;
+      --soft: #eef6f2;
+      --teal: #0f8f7c;
+      --green: #2f7d4f;
+      --amber: #c1791e;
+      --red: #a8463a;
+      --navy: #25324a;
+      --shadow: 0 20px 45px rgba(23, 32, 28, 0.11);
+      --radius: 8px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--paper);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.58;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(251, 252, 250, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border: 2px solid var(--teal);
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      color: var(--teal);
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px;
+      font-size: 14px;
+    }
+
+    .hero {
+      border-bottom: 1px solid var(--line);
+      background: #f5f8f6;
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      min-height: 78vh;
+      margin: 0 auto;
+      padding: 58px 22px 36px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+      gap: 34px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 6px 10px;
+      border: 1px solid #b8d9cf;
+      border-radius: 999px;
+      color: #0c695e;
+      background: #e8f5f1;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(42px, 7vw, 84px);
+      line-height: 0.94;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 700px;
+      margin: 22px 0 0;
+      color: #394a43;
+      font-size: clamp(17px, 2vw, 22px);
+    }
+
+    .hero-note {
+      max-width: 760px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 10px 14px;
+      border-radius: 7px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      color: var(--ink);
+      font-weight: 750;
+      box-shadow: 0 8px 18px rgba(23, 32, 28, 0.06);
+    }
+
+    .button.primary {
+      background: var(--teal);
+      color: #fff;
+      border-color: var(--teal);
+    }
+
+    .hero-media {
+      margin: 0;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--line);
+      background: #dce6e1;
+    }
+
+    .hero-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    section {
+      padding: 58px 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .kpi {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      min-height: 142px;
+    }
+
+    .kpi strong {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 30px;
+      line-height: 1;
+      color: var(--teal);
+    }
+
+    .kpi span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .metric {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+    }
+
+    .metric .tag {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .table-shell {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: 0 12px 28px rgba(23, 32, 28, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 900px;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      padding: 13px 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: right;
+      vertical-align: middle;
+    }
+
+    th:first-child,
+    td:first-child {
+      text-align: left;
+      width: 34%;
+    }
+
+    th {
+      position: sticky;
+      top: 53px;
+      background: #f7faf8;
+      z-index: 3;
+      color: #314239;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    td small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .rank {
+      display: inline-grid;
+      place-items: center;
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      border-radius: 6px;
+      background: var(--soft);
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status.done {
+      background: #e7f5ee;
+      color: var(--green);
+    }
+
+    .status.partial {
+      background: #fff5df;
+      color: var(--amber);
+    }
+
+    .status.fail {
+      background: #fdecea;
+      color: var(--red);
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    .viz {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      overflow: hidden;
+      box-shadow: 0 12px 26px rgba(23, 32, 28, 0.05);
+    }
+
+    .viz img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .viz figcaption {
+      padding: 14px 16px 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .viz b {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .tasks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 18px;
+      padding: 0;
+      list-style: none;
+      counter-reset: task;
+    }
+
+    .tasks li {
+      counter-increment: task;
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tasks li::before {
+      content: counter(task);
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: #e9f3ef;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tasks b {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+    }
+
+    .tasks span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .report-links {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .report-link {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      min-height: 130px;
+    }
+
+    .report-link b {
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .report-link span {
+      display: block;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 28px 22px;
+      color: var(--muted);
+      background: #f2f6f4;
+      font-size: 14px;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding-top: 38px;
+      }
+
+      .kpis,
+      .metric-grid,
+      .report-links {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .gallery,
+      .tasks {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .kpis,
+      .metric-grid,
+      .report-links {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 42px 18px;
+      }
+
+      .hero-inner {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      th {
+        top: 96px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="#top" aria-label="TB-MathModel home">
+        <span class="brand-mark">TB</span>
+        <span>TB-MathModel</span>
+      </a>
+      <div class="nav-links">
+        <a href="#leaderboard">Leaderboard</a>
+        <a href="#metrics">Metrics</a>
+        <a href="#visuals">Visuals</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#reports">Reports</a>
+        <a href="https://github.com/wxj630/terminal-bench-math-modeling">GitHub</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <p class="eyebrow">Agentic and Verifiable Benchmark for Mathematical Modeling</p>
+          <h1>TB-MathModel</h1>
+          <p class="subtitle">一个面向数学建模长程任务的 Terminal-Bench 风格评测：统一终端环境、完整 agent workflow、可执行结果文件和可复核评价指标。</p>
+          <p class="hero-note">它把“会不会写一篇看起来合理的建模报告”推进到“能不能在标准环境里完成建模、编程、求解、验证和提交结构化结果”。这种形式适合评测真实问题求解能力，也可以进一步作为强化学习环境使用。</p>
+          <div class="actions">
+            <a class="button primary" href="#leaderboard">查看排行榜</a>
+            <a class="button" href="#visuals">查看可视化</a>
+            <a class="button" href="reports/full-report.md">完整报告</a>
+            <a class="button" href="https://github.com/wxj630/terminal-bench-math-modeling">GitHub 仓库</a>
+          </div>
+        </div>
+        <figure class="hero-media">
+          <img src="assets/figures/tb-mathmodel-cover.png" alt="TB-MathModel cover image">
+        </figure>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Benchmark Snapshot</h2>
+            <p class="lead">18 道 2023-2025 年 CUMCM 与 MCM 题目，每道题都要求 agent 在终端环境中产出结构化结果，并接受自动化 verifier 复核。</p>
+          </div>
+        </div>
+        <div class="kpis">
+          <div class="kpi">
+            <strong>18</strong>
+            <span>总任务数，覆盖 CUMCM 9 题与 MCM 9 题。</span>
+          </div>
+          <div class="kpi">
+            <strong>3 年</strong>
+            <span>2023、2024、2025 三个年度，避免单年偶然性。</span>
+          </div>
+          <div class="kpi">
+            <strong>8 组</strong>
+            <span>已纳入 leaderboard 的模型或模型配置，含失败 run 标记。</span>
+          </div>
+          <div class="kpi">
+            <strong>JSON</strong>
+            <span>统一读取 <code>/root/results/*_result.json</code>，让评测可复核。</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="leaderboard">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Leaderboard</h2>
+            <p class="lead">默认按 Robust BO-Eval 排序，同时展示 O-Eval、BO-only 与成本。点击列名可排序。</p>
+          </div>
+        </div>
+        <div class="table-shell">
+          <table id="leaderboard-table">
+            <thead>
+              <tr>
+                <th data-type="text">Model</th>
+                <th data-type="number">Artifacts</th>
+                <th data-type="number">O-Eval</th>
+                <th data-type="number">Robust BO-Eval</th>
+                <th data-type="number">BO-only</th>
+                <th data-type="number">Cost RMB</th>
+                <th data-type="text">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="rank">1</span><b>GPT-5.6 SOL high</b><small>Strong oracle-normalized result, stable robust score.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="84.16">84.16%</td>
+                <td data-sort="11.68"><b>11.68%</b></td>
+                <td data-sort="99.37">99.37%</td>
+                <td data-sort="59.98">¥59.98</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">2</span><b>Kimi K3</b><small>Highest O-Eval, higher total cost.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="86.88"><b>86.88%</b></td>
+                <td data-sort="11.09">11.09%</td>
+                <td data-sort="89.20">89.20%</td>
+                <td data-sort="179.76">¥179.76</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">3</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, surprisingly competitive robust score.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="75.45">75.45%</td>
+                <td data-sort="11.09">11.09%</td>
+                <td data-sort="142.41"><b>142.41%</b></td>
+                <td data-sort="88.26">¥88.26</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">4</span><b>v4 pro</b><small>Moderate cost, competitive BO-only value.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="61.87">61.87%</td>
+                <td data-sort="8.98">8.98%</td>
+                <td data-sort="121.72">121.72%</td>
+                <td data-sort="37.42">¥37.42</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">5</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="59.82">59.82%</td>
+                <td data-sort="7.82">7.82%</td>
+                <td data-sort="127.83">127.83%</td>
+                <td data-sort="258.05">¥258.05</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">6</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage, primary plus retry.</small></td>
+                <td data-sort="15">15 / 18</td>
+                <td data-sort="57.86">57.86%</td>
+                <td data-sort="2.52">2.52%</td>
+                <td data-sort="26.15">26.15%</td>
+                <td data-sort="42.60">¥42.60</td>
+                <td><span class="status partial">partial</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">7</span><b>v4 flash baseline</b><small>Low cost baseline, O-Eval is strong but BO margin is zeroed.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="71.98">71.98%</td>
+                <td data-sort="0.00">0.00%</td>
+                <td data-sort="0.00">0.00%</td>
+                <td data-sort="3.88">¥3.88</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">8</span><b>OpenRouter ox-alpha</b><small>Stealth endpoint failed, retained for transparency.</small></td>
+                <td data-sort="0">0 / 18</td>
+                <td data-sort="0.00">0.00%</td>
+                <td data-sort="-24.03">-24.03%</td>
+                <td data-sort="0.00">0.00%</td>
+                <td data-sort="-1">N/A</td>
+                <td><span class="status fail">failed</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note">成本按报告中的人民币估算值展示。OpenRouter ox-alpha 没有有效 artifacts，因此不纳入成本比较。</p>
+      </div>
+    </section>
+
+    <section id="metrics">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Evaluation Metrics</h2>
+            <p class="lead">数学建模没有唯一标准答案，所以 TB-MathModel 同时看 oracle-normalized 效果、相对 baseline 的提升，以及对离群点更稳健的 Robust BO-Eval。</p>
+          </div>
+        </div>
+        <div class="metric-grid">
+          <article class="metric">
+            <span class="tag">O-Eval</span>
+            <h3>相对 O 奖方案的完成度</h3>
+            <p>把 agent 的可行解同高质量 oracle solution 对齐。大白话说，80% 就是接近 O 奖参照解的 80% 效果，但不是说报告写作水平等于人类 O 奖。</p>
+          </article>
+          <article class="metric">
+            <span class="tag">BO-Eval</span>
+            <h3>看它是否超过基础可行解</h3>
+            <p>把 baseline 到 oracle 之间的差距当作进步空间，衡量模型是否真的做出了比基础方案更强的优化。</p>
+          </article>
+          <article class="metric">
+            <span class="tag">Robust BO-Eval</span>
+            <h3>主汇报指标，压制离群点</h3>
+            <p>在 BO-Eval 上加入稳健处理，避免极小分母或个别坏题把平均值拉飞。它更适合论文主表，O-Eval 作为直观补充。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="visuals">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>AA Style Visuals</h2>
+            <p class="lead">以下图表来自 2023-2025 全部 18 题汇总，包含效果、成本、token、年度拆分和赛制拆分。</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
+            <figcaption><b>Robust BO-Eval leaderboard</b>稳健版 BO-Eval，作为主汇报指标，减少异常题目的放大效应。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
+            <figcaption><b>Robust BO-Eval vs cost</b>主指标下的性价比视图，成本高低和效果提升可以直接比较。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-bar.png" loading="lazy" alt="O-Eval leaderboard bar chart">
+            <figcaption><b>O-Eval leaderboard</b>相对 oracle solution 的直观完成度，适合解释“离 O 奖参照解有多近”。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-cost-scatter.png" loading="lazy" alt="O-Eval versus cost scatter chart">
+            <figcaption><b>O-Eval vs cost</b>分数-cost 图，展示 oracle-normalized 效果与人民币成本之间的关系。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-effect-bar.png" loading="lazy" alt="Effect leaderboard bar chart">
+            <figcaption><b>Raw effect leaderboard</b>原始效果均值，用于检查 O-Eval 和 Robust BO-Eval 背后的绝对表现。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-effect-cost-scatter.png" loading="lazy" alt="Raw effect versus cost scatter chart">
+            <figcaption><b>Raw effect vs cost</b>原始分数和成本的关系，辅助识别便宜但强、昂贵但弱的模型。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-token-usage.png" loading="lazy" alt="Token usage chart">
+            <figcaption><b>Token usage</b>输入、缓存命中输入与输出 token 的用量拆分，用来解释成本差异。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-cost.png" loading="lazy" alt="Cost chart">
+            <figcaption><b>Cost by model</b>各模型人民币成本估算，结合 token 图可以定位“为什么贵”。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-boeval-year-split.png" loading="lazy" alt="BO-Eval by year split chart">
+            <figcaption><b>Year split</b>按 2023、2024、2025 拆分，检查模型是否只擅长某一年题型。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-boeval-suite-split.png" loading="lazy" alt="BO-Eval by suite split chart">
+            <figcaption><b>Suite split</b>按 CUMCM 与 MCM 拆分，观察中文赛题和英文赛题上的差异。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="tasks">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>18 Tasks</h2>
+            <p class="lead">每道题都覆盖一个真实应用场景，要求模型完成假设、建模、求解、代码和可验证结果输出。</p>
+          </div>
+        </div>
+        <ol class="tasks">
+          <li><div><b>CUMCM 2023 A</b><span>定日镜场布局与年平均输出热功率优化。</span></div></li>
+          <li><div><b>CUMCM 2023 B</b><span>多波束测线布设与海底测量覆盖优化。</span></div></li>
+          <li><div><b>CUMCM 2023 C</b><span>蔬菜品类补货、定价与损耗决策建模。</span></div></li>
+          <li><div><b>CUMCM 2024 A</b><span>板凳龙运动学路径与队形安全分析。</span></div></li>
+          <li><div><b>CUMCM 2024 B</b><span>生产过程抽样检验与决策优化。</span></div></li>
+          <li><div><b>CUMCM 2024 C</b><span>农作物种植策略与收益风险优化。</span></div></li>
+          <li><div><b>CUMCM 2025 A</b><span>无人机烟幕干扰投放策略优化。</span></div></li>
+          <li><div><b>CUMCM 2025 B</b><span>SiC 外延层厚度反演与光谱数据建模。</span></div></li>
+          <li><div><b>CUMCM 2025 C</b><span>NIPT 检测时点与胎儿异常风险建模。</span></div></li>
+          <li><div><b>MCM 2023 A</b><span>干旱地区植物群落生态动力学建模。</span></div></li>
+          <li><div><b>MCM 2023 B</b><span>马赛马拉生态旅游与保护策略优化。</span></div></li>
+          <li><div><b>MCM 2023 C</b><span>Wordle 结果预测与词频数据建模。</span></div></li>
+          <li><div><b>MCM 2024 A</b><span>七鳃鳗性别比例与生态系统影响建模。</span></div></li>
+          <li><div><b>MCM 2024 B</b><span>潜水器定位、搜救路径与不确定性决策。</span></div></li>
+          <li><div><b>MCM 2024 C</b><span>网球比赛动量识别与胜负影响分析。</span></div></li>
+          <li><div><b>MCM 2025 A</b><span>楼梯磨损反推历史人流与使用模式。</span></div></li>
+          <li><div><b>MCM 2025 B</b><span>朱诺可持续旅游管理与多目标决策。</span></div></li>
+          <li><div><b>MCM 2025 C</b><span>奥运奖牌预测与国家表现影响因素建模。</span></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="reports">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Reports</h2>
+            <p class="lead">原始分析文档也随站点发布，方便复核指标、图表和知乎文章草稿。</p>
+          </div>
+        </div>
+        <div class="report-links">
+          <a class="report-link" href="reports/full-report.md">
+            <b>完整结果报告</b>
+            <span>包含所有模型、指标、成本和分析表。</span>
+          </a>
+          <a class="report-link" href="reports/plain-language.md">
+            <b>大白话讲解</b>
+            <span>解释 B-Eval、O-Eval、BO-Eval 和建模分类。</span>
+          </a>
+          <a class="report-link" href="reports/zhihu-article.md">
+            <b>知乎文章草稿</b>
+            <span>TB-MathModel（一）文章版本。</span>
+          </a>
+          <a class="report-link" href="reports/local-dashboard.html">
+            <b>旧版交互 Dashboard</b>
+            <span>保留原 HTML，用于对照和回看。</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>TB-MathModel, generated from 2023-2025 benchmark artifacts.</span>
+      <span>Last updated: 2026-08-27</span>
+    </div>
+  </footer>
+
+  <script>
+    const table = document.querySelector("#leaderboard-table");
+    const headers = table.querySelectorAll("th");
+
+    headers.forEach((header, columnIndex) => {
+      header.addEventListener("click", () => {
+        const type = header.dataset.type || "text";
+        const current = header.dataset.order === "asc" ? "desc" : "asc";
+        headers.forEach((h) => delete h.dataset.order);
+        header.dataset.order = current;
+
+        const rows = Array.from(table.tBodies[0].rows);
+        rows.sort((a, b) => {
+          const av = sortableValue(a.cells[columnIndex], type);
+          const bv = sortableValue(b.cells[columnIndex], type);
+          if (type === "number") {
+            return current === "asc" ? av - bv : bv - av;
+          }
+          return current === "asc"
+            ? String(av).localeCompare(String(bv), "zh-Hans-CN")
+            : String(bv).localeCompare(String(av), "zh-Hans-CN");
+        });
+        rows.forEach((row) => table.tBodies[0].appendChild(row));
+      });
+    });
+
+    function sortableValue(cell, type) {
+      const raw = cell.dataset.sort ?? cell.textContent.trim();
+      if (type === "number") {
+        const parsed = Number(raw);
+        return Number.isFinite(parsed) ? parsed : -Infinity;
+      }
+      return raw;
+    }
+  </script>
+</body>
+</html>
