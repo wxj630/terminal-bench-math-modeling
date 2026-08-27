@@ -1,0 +1,85 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Agent x MathModel</title>
+  <desc id="desc">A tech-style logo for the TB-MathModel benchmark with a terminal, math, and verification motif.</desc>
+  <defs>
+    <linearGradient id="bg" x1="120" y1="80" x2="1500" y2="840" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0C1211"/>
+      <stop offset="0.52" stop-color="#111B1B"/>
+      <stop offset="1" stop-color="#15242A"/>
+    </linearGradient>
+    <linearGradient id="stroke" x1="470" y1="250" x2="1110" y2="650" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#38D6BE"/>
+      <stop offset="0.5" stop-color="#76D8FF"/>
+      <stop offset="1" stop-color="#F0B356"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="610" y1="235" x2="995" y2="665" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#162423" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#101817" stop-opacity="0.96"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(800 480) rotate(90) scale(380 520)">
+      <stop stop-color="#31D0B7" stop-opacity="0.24"/>
+      <stop offset="0.58" stop-color="#31D0B7" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#31D0B7" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="grid" width="64" height="64" patternUnits="userSpaceOnUse">
+      <path d="M 64 0 H 0 V 64" stroke="#B4DAD2" stroke-opacity="0.08" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect width="1600" height="900" fill="url(#grid)" opacity="0.65"/>
+  <ellipse cx="800" cy="480" rx="540" ry="320" fill="url(#glow)"/>
+
+  <g opacity="0.75">
+    <path d="M165 690 C 320 610, 392 580, 515 520" stroke="#6EEAD0" stroke-opacity="0.18" stroke-width="2"/>
+    <path d="M1185 250 C 1080 330, 1004 360, 905 402" stroke="#76D8FF" stroke-opacity="0.18" stroke-width="2"/>
+    <path d="M1140 665 C 1048 610, 970 573, 900 530" stroke="#F0B356" stroke-opacity="0.15" stroke-width="2"/>
+    <path d="M260 245 C 360 300, 420 335, 507 392" stroke="#76D8FF" stroke-opacity="0.14" stroke-width="2"/>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="420" y="215" width="760" height="470" rx="34" fill="url(#panel)" stroke="url(#stroke)" stroke-opacity="0.85" stroke-width="1.4"/>
+    <rect x="443" y="238" width="714" height="424" rx="28" fill="#0E1716" fill-opacity="0.66" stroke="#87F0DE" stroke-opacity="0.08" stroke-width="1"/>
+  </g>
+
+  <g transform="translate(515 324)">
+    <circle cx="140" cy="140" r="120" fill="#0D1717" stroke="url(#stroke)" stroke-width="4"/>
+    <circle cx="140" cy="140" r="83" fill="none" stroke="#8BE5D3" stroke-opacity="0.44" stroke-width="1.5" stroke-dasharray="7 9"/>
+    <path d="M92 137 L 140 90 L 188 137 L 154 137 L 154 187 L 126 187 L 126 137 Z" fill="#EAFBF7" fill-opacity="0.94"/>
+    <path d="M101 203 C 112 192, 124 179, 140 176 C 157 172, 171 181, 185 194" stroke="#31D0B7" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="92" cy="137" r="10" fill="#31D0B7"/>
+    <circle cx="188" cy="137" r="10" fill="#76D8FF"/>
+    <circle cx="140" cy="90" r="10" fill="#F0B356"/>
+    <circle cx="140" cy="203" r="10" fill="#A9F1E5"/>
+  </g>
+
+  <g transform="translate(860 304)">
+    <text x="0" y="0" fill="#E9F5F0" font-family="Inter, 'Segoe UI', sans-serif" font-size="21" font-weight="700" letter-spacing="0.22em">AGENT X</text>
+    <text x="0" y="80" fill="#F5FBF9" font-family="Inter, 'Segoe UI', sans-serif" font-size="88" font-weight="800" letter-spacing="-0.02em">MathModel</text>
+    <text x="3" y="128" fill="#B7CCC7" font-family="Inter, 'Segoe UI', sans-serif" font-size="24" font-weight="500">Agentic &amp; Verifiable Benchmark</text>
+    <g transform="translate(0 164)">
+      <rect x="0" y="0" width="360" height="1.5" fill="#8BE5D3" fill-opacity="0.22"/>
+      <text x="0" y="32" fill="#93C9C0" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="18" font-weight="500">&gt; solve(model)  |  verify(result)  |  ship()</text>
+    </g>
+  </g>
+
+  <g transform="translate(895 552)" opacity="0.92">
+    <path d="M0 60 C 48 18, 104 12, 160 40" stroke="#31D0B7" stroke-width="3" stroke-linecap="round"/>
+    <path d="M160 40 C 210 66, 258 70, 314 34" stroke="#76D8FF" stroke-width="3" stroke-linecap="round"/>
+    <path d="M0 60 C 55 92, 114 98, 166 74" stroke="#F0B356" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="0" cy="60" r="7" fill="#31D0B7"/>
+    <circle cx="160" cy="40" r="7" fill="#76D8FF"/>
+    <circle cx="314" cy="34" r="7" fill="#F0B356"/>
+    <circle cx="166" cy="74" r="7" fill="#EAFBF7"/>
+  </g>
+
+  <g opacity="0.35">
+    <path d="M220 160 H 540" stroke="#86F4DE" stroke-width="1"/>
+    <path d="M1060 160 H 1380" stroke="#86F4DE" stroke-width="1"/>
+    <path d="M220 740 H 540" stroke="#86F4DE" stroke-width="1"/>
+    <path d="M1060 740 H 1380" stroke="#86F4DE" stroke-width="1"/>
+  </g>
+</svg>
