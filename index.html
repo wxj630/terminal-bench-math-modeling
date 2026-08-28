@@ -82,14 +82,12 @@
     }
 
     .brand-mark {
-      width: 28px;
-      height: 28px;
-      border: 2px solid var(--teal);
-      border-radius: 6px;
-      display: grid;
-      place-items: center;
+      display: inline-flex;
+      align-items: center;
       color: var(--teal);
-      font-size: 13px;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0;
       line-height: 1;
     }
 
@@ -559,15 +557,13 @@
   <header class="topbar">
     <nav class="nav" aria-label="Primary">
       <a class="brand" href="#top" aria-label="TB-MathModel home">
-        <span class="brand-mark">TB</span>
-        <span>TB-MathModel</span>
+        <span class="brand-mark">TB-MathModel</span>
       </a>
       <div class="nav-links">
         <a href="#leaderboard">Leaderboard</a>
         <a href="#metrics">Metrics</a>
         <a href="#visuals">Visuals</a>
         <a href="#tasks">Tasks</a>
-        <a href="#reports">Reports</a>
         <a href="https://github.com/wxj630/terminal-bench-math-modeling">GitHub</a>
       </div>
     </nav>
@@ -836,34 +832,6 @@
       </div>
     </section>
 
-    <section id="reports">
-      <div class="wrap">
-        <div class="section-head">
-          <div>
-            <h2>Reports</h2>
-            <p class="lead">原始分析文档也随站点发布，方便复核指标、图表和知乎文章草稿。</p>
-          </div>
-        </div>
-        <div class="report-links">
-          <a class="report-link" href="reports/full-report.md">
-            <b>完整结果报告</b>
-            <span>包含所有模型、指标、成本和分析表。</span>
-          </a>
-          <a class="report-link" href="reports/plain-language.md">
-            <b>大白话讲解</b>
-            <span>解释 B-Eval、O-Eval、BO-Eval 和建模分类。</span>
-          </a>
-          <a class="report-link" href="reports/zhihu-article.md">
-            <b>知乎文章草稿</b>
-            <span>TB-MathModel（一）文章版本。</span>
-          </a>
-          <a class="report-link" href="reports/local-dashboard.html">
-            <b>旧版交互 Dashboard</b>
-            <span>保留原 HTML，用于对照和回看。</span>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>

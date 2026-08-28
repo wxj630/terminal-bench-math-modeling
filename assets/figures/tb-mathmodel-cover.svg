@@ -57,8 +57,8 @@
   </g>
 
   <g transform="translate(860 304)">
-    <text x="0" y="0" fill="#E9F5F0" font-family="Inter, 'Segoe UI', sans-serif" font-size="21" font-weight="700" letter-spacing="0.22em">AGENT X</text>
-    <text x="0" y="80" fill="#F5FBF9" font-family="Inter, 'Segoe UI', sans-serif" font-size="88" font-weight="800" letter-spacing="-0.02em">MathModel</text>
+    <text x="0" y="0" fill="#E9F5F0" font-family="Inter, 'Segoe UI', sans-serif" font-size="21" font-weight="700" letter-spacing="0.22em">TB-MATHMODEL</text>
+    <text x="0" y="80" fill="#F5FBF9" font-family="Inter, 'Segoe UI', sans-serif" font-size="88" font-weight="800" letter-spacing="-0.03em">TB-MathModel</text>
     <text x="3" y="128" fill="#B7CCC7" font-family="Inter, 'Segoe UI', sans-serif" font-size="24" font-weight="500">Agentic &amp; Verifiable Benchmark</text>
     <g transform="translate(0 164)">
       <rect x="0" y="0" width="360" height="1.5" fill="#8BE5D3" fill-opacity="0.22"/>
