@@ -626,7 +626,7 @@
         <div class="section-head">
           <div>
             <h2>Leaderboard</h2>
-            <p class="lead">默认按 Robust BO-Eval 排序，同时展示 O-Eval、BO-only 与成本。点击列名可排序。</p>
+            <p class="lead">默认按 O-Eval 排序，同时展示 O-Eval、Robust BO-Eval 与成本。点击列名可排序。</p>
           </div>
         </div>
         <div class="table-shell">
@@ -644,13 +644,13 @@
             </thead>
             <tbody>
               <tr>
-                <td><span class="rank">1</span><b>GLM-5.3-Flash (ox-alpha)</b><small>OpenRouter live; one task is still in running state.</small></td>
-                <td data-sort="17">17 / 18</td>
-                <td data-sort="65.59">65.59%</td>
-                <td data-sort="14.48"><b>14.48%</b></td>
-                <td data-sort="75.03">75.03%</td>
-                <td data-sort="18.16">¥18.16</td>
-                <td><span class="status partial">partial</span></td>
+                <td><span class="rank">1</span><b>Kimi K3</b><small>Highest O-Eval, higher total cost.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="86.88"><b>86.88%</b></td>
+                <td data-sort="11.09">11.09%</td>
+                <td data-sort="89.20">89.20%</td>
+                <td data-sort="179.76">¥179.76</td>
+                <td><span class="status done">complete</span></td>
               </tr>
               <tr>
                 <td><span class="rank">2</span><b>GPT-5.6 SOL high</b><small>Strong oracle-normalized result, stable robust score.</small></td>
@@ -662,31 +662,31 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">3</span><b>Kimi K3</b><small>Highest O-Eval, higher total cost.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="86.88"><b>86.88%</b></td>
-                <td data-sort="11.09">11.09%</td>
-                <td data-sort="89.20">89.20%</td>
-                <td data-sort="179.76">¥179.76</td>
-                <td><span class="status done">complete</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">4</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, surprisingly competitive robust score.</small></td>
+                <td><span class="rank">3</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, surprisingly competitive robust score.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="75.45">75.45%</td>
                 <td data-sort="11.09">11.09%</td>
                 <td data-sort="142.41"><b>142.41%</b></td>
-                <td data-sort="88.26">¥88.26</td>
+                <td data-sort="189.88">¥189.88</td>
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">5</span><b>v4 pro</b><small>Moderate cost, competitive BO-only value.</small></td>
+                <td><span class="rank">4</span><b>v4 flash baseline</b><small>Low cost baseline, O-Eval is strong but BO margin is zeroed.</small></td>
                 <td data-sort="18">18 / 18</td>
-                <td data-sort="61.87">61.87%</td>
-                <td data-sort="8.98">8.98%</td>
-                <td data-sort="121.72">121.72%</td>
-                <td data-sort="37.42">¥37.42</td>
+                <td data-sort="71.98">71.98%</td>
+                <td data-sort="0.00">0.00%</td>
+                <td data-sort="0.00">0.00%</td>
+                <td data-sort="2.91">¥2.91</td>
                 <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">5</span><b>GLM-5.3-Flash (ox-alpha)</b><small>OpenRouter live; one task is still in running state.</small></td>
+                <td data-sort="17">17 / 18</td>
+                <td data-sort="65.59">65.59%</td>
+                <td data-sort="14.48"><b>14.48%</b></td>
+                <td data-sort="75.03">75.03%</td>
+                <td data-sort="18.16">¥18.16</td>
+                <td><span class="status partial">partial</span></td>
               </tr>
               <tr>
                 <td><span class="rank">6</span><b>Qwen3.8 Flash (Bailian)</b><small>Bailian flash run with high token footprint.</small></td>
@@ -698,7 +698,16 @@
                 <td><span class="status partial">partial</span></td>
               </tr>
               <tr>
-                <td><span class="rank">7</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
+                <td><span class="rank">7</span><b>v4 pro</b><small>Moderate cost, competitive BO-only value.</small></td>
+                <td data-sort="18">18 / 18</td>
+                <td data-sort="61.87">61.87%</td>
+                <td data-sort="8.98">8.98%</td>
+                <td data-sort="121.72">121.72%</td>
+                <td data-sort="30.15">¥30.15</td>
+                <td><span class="status done">complete</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">8</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="59.82">59.82%</td>
                 <td data-sort="7.82">7.82%</td>
@@ -707,27 +716,18 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">8</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage, primary plus retry.</small></td>
+                <td><span class="rank">9</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage, primary plus retry.</small></td>
                 <td data-sort="15">15 / 18</td>
                 <td data-sort="57.86">57.86%</td>
                 <td data-sort="2.52">2.52%</td>
                 <td data-sort="26.15">26.15%</td>
-                <td data-sort="42.60">¥42.60</td>
+                <td data-sort="82.93">¥82.93</td>
                 <td><span class="status partial">partial</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">9</span><b>v4 flash baseline</b><small>Low cost baseline, O-Eval is strong but BO margin is zeroed.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="71.98">71.98%</td>
-                <td data-sort="0.00">0.00%</td>
-                <td data-sort="0.00">0.00%</td>
-                <td data-sort="3.88">¥3.88</td>
-                <td><span class="status done">complete</span></td>
               </tr>
             </tbody>
           </table>
         </div>
-        <p class="note">成本按报告中的人民币估算值展示。GLM-5.3-Flash (ox-alpha) 现在已纳入比较，Qwen3.8 Flash (Bailian) 也补进榜单。</p>
+        <p class="note">成本按报告中的人民币估算值展示。Leaderboard 默认按 O-Eval 排序，Robust BO-Eval 仅作辅助视角。</p>
       </div>
     </section>
 
@@ -736,14 +736,14 @@
         <div class="section-head">
           <div>
             <h2>Evaluation Metrics</h2>
-            <p class="lead">数学建模没有唯一标准答案，所以 TB-MathModel 同时看 oracle-normalized 效果、相对 baseline 的提升，以及对离群点更稳健的 Robust BO-Eval。</p>
+            <p class="lead">数学建模没有唯一标准答案，所以 TB-MathModel 把 O-Eval 作为主指标，把 Robust BO-Eval 作为稳健辅助，再看 BO-Eval 的中间增益。</p>
           </div>
         </div>
         <div class="metric-grid">
           <article class="metric">
             <span class="tag">O-Eval</span>
-            <h3>相对 O 奖方案的完成度</h3>
-            <p>把 agent 的可行解同高质量 oracle solution 对齐。大白话说，80% 就是接近 O 奖参照解的 80% 效果，但不是说报告写作水平等于人类 O 奖。</p>
+            <h3>主汇报指标</h3>
+            <p>直接看 agent 的可行解离 O 奖参照解有多近。100% 就是平均达到 O 奖复现答案的 raw 水平。</p>
           </article>
           <article class="metric">
             <span class="tag">BO-Eval</span>
@@ -752,8 +752,8 @@
           </article>
           <article class="metric">
             <span class="tag">Robust BO-Eval</span>
-            <h3>主汇报指标，压制离群点</h3>
-            <p>在 BO-Eval 上加入稳健处理，避免极小分母或个别坏题把平均值拉飞。它更适合论文主表，O-Eval 作为直观补充。</p>
+            <h3>稳健辅助，压制离群点</h3>
+            <p>在 BO-Eval 上加入稳健处理，避免极小分母或个别坏题把平均值拉飞。它更适合解释性分析，O-Eval 才是主表。</p>
           </article>
         </div>
       </div>
@@ -764,18 +764,10 @@
         <div class="section-head">
           <div>
             <h2>AA Style Visuals</h2>
-            <p class="lead">以下图表来自 2023-2025 全部 18 题汇总，包含效果、成本、token、年度拆分和赛制拆分。</p>
+            <p class="lead">以下图表优先展示 O-Eval 相关结果，再给出 Robust BO-Eval、token、成本和年/赛制拆分。</p>
           </div>
         </div>
         <div class="gallery">
-          <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
-            <figcaption><b>Robust BO-Eval leaderboard</b>稳健版 BO-Eval，作为主汇报指标，减少异常题目的放大效应。</figcaption>
-          </figure>
-          <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
-            <figcaption><b>Robust BO-Eval vs cost</b>主指标下的性价比视图，成本高低和效果提升可以直接比较。</figcaption>
-          </figure>
           <figure class="viz">
             <img src="assets/figures/aa-style-2023-2025-o-eval-bar.png" loading="lazy" alt="O-Eval leaderboard bar chart">
             <figcaption><b>O-Eval leaderboard</b>相对 oracle solution 的直观完成度，适合解释“离 O 奖参照解有多近”。</figcaption>
@@ -783,6 +775,14 @@
           <figure class="viz">
             <img src="assets/figures/aa-style-2023-2025-o-eval-cost-scatter.png" loading="lazy" alt="O-Eval versus cost scatter chart">
             <figcaption><b>O-Eval vs cost</b>分数-cost 图，展示 oracle-normalized 效果与人民币成本之间的关系。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
+            <figcaption><b>Robust BO-Eval leaderboard</b>稳健版 BO-Eval，用来辅助看离群点和坏题，不再放在首位。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
+            <figcaption><b>Robust BO-Eval vs cost</b>稳健辅助视图，用来对照 O-Eval 的性价比结论。</figcaption>
           </figure>
           <figure class="viz">
             <img src="assets/figures/aa-style-2023-2025-effect-bar.png" loading="lazy" alt="Effect leaderboard bar chart">
@@ -848,7 +848,7 @@
   <footer>
     <div class="wrap">
       <span>TB-MathModel, generated from 2023-2025 benchmark artifacts.</span>
-      <span>Last updated: 2026-08-27</span>
+      <span>Last updated: 2026-08-29</span>
     </div>
   </footer>
 
