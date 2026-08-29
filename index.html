@@ -610,7 +610,7 @@
             <span>2023、2024、2025 三个年度，避免单年偶然性。</span>
           </div>
           <div class="kpi">
-            <strong>8 组</strong>
+            <strong>9 组</strong>
             <span>已纳入 leaderboard 的模型或模型配置，含失败 run 标记。</span>
           </div>
           <div class="kpi">
@@ -644,7 +644,16 @@
             </thead>
             <tbody>
               <tr>
-                <td><span class="rank">1</span><b>GPT-5.6 SOL high</b><small>Strong oracle-normalized result, stable robust score.</small></td>
+                <td><span class="rank">1</span><b>GLM-5.3-Flash (ox-alpha)</b><small>OpenRouter live; one task is still in running state.</small></td>
+                <td data-sort="17">17 / 18</td>
+                <td data-sort="65.59">65.59%</td>
+                <td data-sort="14.48"><b>14.48%</b></td>
+                <td data-sort="75.03">75.03%</td>
+                <td data-sort="18.16">¥18.16</td>
+                <td><span class="status partial">partial</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">2</span><b>GPT-5.6 SOL high</b><small>Strong oracle-normalized result, stable robust score.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="84.16">84.16%</td>
                 <td data-sort="11.68"><b>11.68%</b></td>
@@ -653,7 +662,7 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">2</span><b>Kimi K3</b><small>Highest O-Eval, higher total cost.</small></td>
+                <td><span class="rank">3</span><b>Kimi K3</b><small>Highest O-Eval, higher total cost.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="86.88"><b>86.88%</b></td>
                 <td data-sort="11.09">11.09%</td>
@@ -662,7 +671,7 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">3</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, surprisingly competitive robust score.</small></td>
+                <td><span class="rank">4</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, surprisingly competitive robust score.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="75.45">75.45%</td>
                 <td data-sort="11.09">11.09%</td>
@@ -671,7 +680,7 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">4</span><b>v4 pro</b><small>Moderate cost, competitive BO-only value.</small></td>
+                <td><span class="rank">5</span><b>v4 pro</b><small>Moderate cost, competitive BO-only value.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="61.87">61.87%</td>
                 <td data-sort="8.98">8.98%</td>
@@ -680,7 +689,16 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">5</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
+                <td><span class="rank">6</span><b>Qwen3.8 Flash (Bailian)</b><small>Bailian flash run with high token footprint.</small></td>
+                <td data-sort="12">12 / 18</td>
+                <td data-sort="61.94">61.94%</td>
+                <td data-sort="8.01">8.01%</td>
+                <td data-sort="99.26">99.26%</td>
+                <td data-sort="41.21">¥41.21</td>
+                <td><span class="status partial">partial</span></td>
+              </tr>
+              <tr>
+                <td><span class="rank">7</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="59.82">59.82%</td>
                 <td data-sort="7.82">7.82%</td>
@@ -689,7 +707,7 @@
                 <td><span class="status done">complete</span></td>
               </tr>
               <tr>
-                <td><span class="rank">6</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage, primary plus retry.</small></td>
+                <td><span class="rank">8</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage, primary plus retry.</small></td>
                 <td data-sort="15">15 / 18</td>
                 <td data-sort="57.86">57.86%</td>
                 <td data-sort="2.52">2.52%</td>
@@ -698,7 +716,7 @@
                 <td><span class="status partial">partial</span></td>
               </tr>
               <tr>
-                <td><span class="rank">7</span><b>v4 flash baseline</b><small>Low cost baseline, O-Eval is strong but BO margin is zeroed.</small></td>
+                <td><span class="rank">9</span><b>v4 flash baseline</b><small>Low cost baseline, O-Eval is strong but BO margin is zeroed.</small></td>
                 <td data-sort="18">18 / 18</td>
                 <td data-sort="71.98">71.98%</td>
                 <td data-sort="0.00">0.00%</td>
@@ -706,19 +724,10 @@
                 <td data-sort="3.88">¥3.88</td>
                 <td><span class="status done">complete</span></td>
               </tr>
-              <tr>
-                <td><span class="rank">8</span><b>OpenRouter ox-alpha</b><small>Stealth endpoint failed, retained for transparency.</small></td>
-                <td data-sort="0">0 / 18</td>
-                <td data-sort="0.00">0.00%</td>
-                <td data-sort="-24.03">-24.03%</td>
-                <td data-sort="0.00">0.00%</td>
-                <td data-sort="-1">N/A</td>
-                <td><span class="status fail">failed</span></td>
-              </tr>
             </tbody>
           </table>
         </div>
-        <p class="note">成本按报告中的人民币估算值展示。OpenRouter ox-alpha 没有有效 artifacts，因此不纳入成本比较。</p>
+        <p class="note">成本按报告中的人民币估算值展示。GLM-5.3-Flash (ox-alpha) 现在已纳入比较，Qwen3.8 Flash (Bailian) 也补进榜单。</p>
       </div>
     </section>
 
