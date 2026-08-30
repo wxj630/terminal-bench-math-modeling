@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1060" viewBox="0 0 1800 1060" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 23px; fill: #4e4e4e; font-weight: 760; }
+      .tab-active { fill: #111111; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #151515; font-weight: 680; }
+      .x-label { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #151515; font-weight: 650; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #ffffff; font-weight: 800; }
+      .top-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #939393; font-weight: 750; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #949494; font-weight: 650; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #4a4a4a; font-weight: 700; }
+      .brand { font-family: Georgia, Times, serif; font-size: 26px; fill: #555555; }
+    </style>
+    <rect x="24.00" y="24.00" width="1752.00" height="1012.00" fill="#ffffff" stroke="#dddddd" rx="16.00" />
+<text x="84.00" y="84.00" text-anchor="start" class="tab">Effect</text>
+<text x="264.00" y="84.00" text-anchor="start" class="tab">Token Usage</text>
+<rect x="508.00" y="48.00" width="110.00" height="58.00" fill="#efefef" rx="8.00" />
+<text x="526.00" y="84.00" text-anchor="start" class="tab tab-active">Cost</text>
+<text x="688.00" y="84.00" text-anchor="start" class="tab">Effect vs. Cost</text>
+<line x1="24.00" y1="114.00" x2="1776.00" y2="114.00" stroke="#dddddd" stroke-width="1.20" />
+<text x="66.00" y="170.00" text-anchor="start" class="title">Estimated Cost</text>
+<text x="66.00" y="210.00" text-anchor="start" class="subtitle">RMB estimate from billable cache-miss input plus output tokens. Lower is better.</text>
+<circle cx="76.00" cy="278.00" r="8.00" fill="#d9dde4" />
+<text x="94.00" y="285.00" text-anchor="start" class="legend">Input cost</text>
+<circle cx="242.00" cy="278.00" r="8.00" fill="#2f80ed" />
+<text x="260.00" y="285.00" text-anchor="start" class="legend">Output cost</text>
+<rect x="1282.00" y="302.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 306.50)" />
+<rect x="1295.00" y="302.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1299.50 306.50)" />
+<rect x="1282.00" y="316.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 320.50)" />
+<text x="1316.00" y="326.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
+<line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="786.00" text-anchor="end" class="axis">0</text>
+<line x1="132.00" y1="694.00" x2="1702.00" y2="694.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="700.00" text-anchor="end" class="axis">25</text>
+<line x1="132.00" y1="608.00" x2="1702.00" y2="608.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="614.00" text-anchor="end" class="axis">50</text>
+<line x1="132.00" y1="522.00" x2="1702.00" y2="522.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="528.00" text-anchor="end" class="axis">75</text>
+<line x1="132.00" y1="436.00" x2="1702.00" y2="436.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="442.00" text-anchor="end" class="axis">100</text>
+<line x1="132.00" y1="350.00" x2="1702.00" y2="350.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="356.00" text-anchor="end" class="axis">125</text>
+<line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
+<text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Estimated cost (RMB)</text>
+<rect x="132.00" y="773.75" width="233.33" height="6.25" fill="#d9dde4" />
+<rect x="132.00" y="763.36" width="233.33" height="10.39" fill="#2f80ed" />
+<text x="248.67" y="749.35" text-anchor="middle" class="top-label">RMB 4.84</text>
+<g transform="translate(248.67,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="399.33" y="755.28" width="233.33" height="24.72" fill="#d9dde4" />
+<rect x="399.33" y="641.60" width="233.33" height="113.68" fill="#2945d9" />
+<text x="516.00" y="705.44" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">33.0</text>
+<text x="516.00" y="627.61" text-anchor="middle" class="top-label">RMB 40.23</text>
+<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
+<rect x="666.67" y="681.59" width="233.33" height="98.41" fill="#d9dde4" />
+<text x="783.33" y="737.80" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">28.6</text>
+<rect x="666.67" y="631.47" width="233.33" height="50.13" fill="#34a853" />
+<text x="783.33" y="663.53" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">14.6</text>
+<text x="783.33" y="617.46" text-anchor="middle" class="top-label">RMB 43.18</text>
+<g transform="translate(783.33,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="934.00" y="729.24" width="233.33" height="50.76" fill="#d9dde4" />
+<text x="1050.67" y="761.62" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">14.8</text>
+<rect x="934.00" y="519.29" width="233.33" height="209.96" fill="#1f83ff" />
+<text x="1050.67" y="631.27" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">61.0</text>
+<text x="1050.67" y="505.28" text-anchor="middle" class="top-label">RMB 75.79</text>
+<g transform="translate(1050.67,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="1201.33" y="682.16" width="233.33" height="97.84" fill="#d9dde4" />
+<text x="1318.00" y="738.08" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">28.4</text>
+<rect x="1201.33" y="447.99" width="233.33" height="234.17" fill="#202020" />
+<text x="1318.00" y="572.08" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">68.1</text>
+<text x="1318.00" y="434.01" text-anchor="middle" class="top-label">RMB 96.51</text>
+<g transform="translate(1318.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="1468.67" y="695.94" width="233.33" height="84.06" fill="#d9dde4" />
+<text x="1585.33" y="744.97" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">24.4</text>
+<rect x="1468.67" y="407.28" width="233.33" height="288.66" fill="#6f6f6f" />
+<text x="1585.33" y="558.61" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">83.9</text>
+<text x="1585.33" y="393.28" text-anchor="middle" class="top-label">RMB 108.35</text>
+<g transform="translate(1585.33,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
+<text x="917.00" y="994.00" text-anchor="middle" class="small-note">Prices are RMB per 1M tokens from the user-provided table; rows without an API price estimate are omitted.</text></svg>
