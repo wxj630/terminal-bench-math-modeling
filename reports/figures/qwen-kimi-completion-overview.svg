@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="940" viewBox="0 0 1600 940" role="img">
+<rect width="1600" height="940" fill="#ffffff" />
+<text x="70.0" y="90.0" font-family="Arial, Helvetica, sans-serif" font-size="44" font-weight="700" fill="#171717" text-anchor="start">Qwen Thinking + Kimi K3 Completion</text>
+<text x="72.0" y="130.0" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="500" fill="#666666" text-anchor="start">Artifacts are counted from saved *_result.json files. Result stats are read directly from each job result.json.</text>
+<rect x="72.0" y="170.0" width="300.0" height="54.0" fill="#f3f4f6" rx="10.0" />
+<text x="92.0" y="204.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">Qwen total: 18/18</text>
+<rect x="400.0" y="170.0" width="280.0" height="54.0" fill="#f3f4f6" rx="10.0" />
+<text x="420.0" y="204.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">Kimi 2023: 6/6</text>
+<rect x="708.0" y="170.0" width="310.0" height="54.0" fill="#fff7ed" rx="10.0" />
+<text x="728.0" y="204.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#9a3412" text-anchor="start">Qwen historical error: 1</text>
+<rect x="1086.0" y="170.0" width="390.0" height="54.0" fill="#ecfdf5" rx="10.0" />
+<text x="1106.0" y="204.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="700" fill="#047857" text-anchor="start">Kimi CUMCM errors: 0</text>
+<text x="120.0" y="246.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">Qwen total 2023/2024/2025</text>
+<text x="1138.0" y="296.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">18/18 artifacts</text>
+<rect x="120.0" y="260.0" width="980.0" height="54.0" fill="#e5e7eb" rx="12.0" />
+<rect x="120.0" y="260.0" width="980.0" height="54.0" fill="#4f46e5" rx="12.0" />
+<text x="142.0" y="296.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">100%</text>
+<text x="120.0" y="344.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" fill="#666666" text-anchor="start">completed 18, running 0, pending 0, errors 1</text>
+<text x="120.0" y="384.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">Qwen 2024/2025</text>
+<text x="1138.0" y="434.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">12/12 artifacts</text>
+<rect x="120.0" y="398.0" width="980.0" height="54.0" fill="#e5e7eb" rx="12.0" />
+<rect x="120.0" y="398.0" width="980.0" height="54.0" fill="#6366f1" rx="12.0" />
+<text x="142.0" y="434.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">100%</text>
+<text x="120.0" y="482.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" fill="#666666" text-anchor="start">completed 12, running 0, pending 0, errors 1</text>
+<text x="120.0" y="522.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">Qwen 2023 补跑</text>
+<text x="1138.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">6/6 artifacts</text>
+<rect x="120.0" y="536.0" width="980.0" height="54.0" fill="#e5e7eb" rx="12.0" />
+<rect x="120.0" y="536.0" width="980.0" height="54.0" fill="#22a06b" rx="12.0" />
+<text x="142.0" y="572.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">100%</text>
+<text x="120.0" y="620.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" fill="#666666" text-anchor="start">completed 6, running 0, pending 0, errors 0</text>
+<text x="120.0" y="660.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">Kimi K3 2023 补跑</text>
+<text x="1138.0" y="710.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#171717" text-anchor="start">6/6 artifacts</text>
+<rect x="120.0" y="674.0" width="980.0" height="54.0" fill="#e5e7eb" rx="12.0" />
+<rect x="120.0" y="674.0" width="980.0" height="54.0" fill="#0ea5e9" rx="12.0" />
+<text x="142.0" y="710.0" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="start">100%</text>
+<text x="120.0" y="758.0" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="500" fill="#666666" text-anchor="start">completed 6, running 0, pending 0, errors 0</text>
+<line x1="70.0" y1="836.0" x2="1530.0" y2="836.0" stroke="#e5e7eb" stroke-width="1.0" />
+<text x="70.0" y="876.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="500" fill="#666666" text-anchor="start">Note: Qwen 2024/2025 CUMCM result.json still records one AgentTimeoutError, but its dragon-dance artifact exists.</text>
+</svg>
