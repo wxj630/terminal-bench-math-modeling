@@ -57,7 +57,7 @@ Robust ratio tasks with gap >= 0.10: 11. Saturated or near-zero-gap tasks using 
 
 ## Figures
 
-- Clickable dashboard: `terminus2-bo-eval-aa-dashboard-2023-2025.html`
+- Leaderboard homepage: `../index.html`
 - Qwen feasibility audit: `terminus2-qwen27b-feasibility-audit-2023-2025.md`
 - O-Eval effect: `figures/aa-style-2023-2025-o-eval-bar.png`
 - O-Eval score-cost: `figures/aa-style-2023-2025-o-eval-cost-scatter.png`
