@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 23px; fill: #4e4e4e; font-weight: 760; }
+      .tab-active { fill: #111111; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #151515; font-weight: 680; }
+      .x-label { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #151515; font-weight: 650; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #ffffff; font-weight: 800; }
+      .top-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #939393; font-weight: 750; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #949494; font-weight: 650; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #4a4a4a; font-weight: 700; }
+      .brand { font-family: Georgia, Times, serif; font-size: 26px; fill: #555555; }
+    </style>
+    <rect x="24.00" y="24.00" width="1752.00" height="1052.00" fill="#ffffff" stroke="#dddddd" rx="16.00" />
+<text x="84.00" y="84.00" text-anchor="start" class="tab">Robust</text>
+<text x="276.00" y="84.00" text-anchor="start" class="tab">O-Eval</text>
+<text x="468.00" y="84.00" text-anchor="start" class="tab">Token Usage</text>
+<text x="730.00" y="84.00" text-anchor="start" class="tab">Cost</text>
+<text x="892.00" y="84.00" text-anchor="start" class="tab">Robust vs. Cost</text>
+<rect x="1156.00" y="48.00" width="170.00" height="58.00" fill="#efefef" rx="8.00" />
+<text x="1174.00" y="84.00" text-anchor="start" class="tab tab-active">O vs. Cost</text>
+<line x1="24.00" y1="114.00" x2="1776.00" y2="114.00" stroke="#dddddd" stroke-width="1.20" />
+<text x="66.00" y="170.00" text-anchor="start" class="title">O-Eval vs. Cost</text>
+<text x="66.00" y="210.00" text-anchor="start" class="subtitle">Primary absolute O-normalized score against estimated RMB cost. Green marks the high-value zone.</text>
+<rect x="66.00" y="252.00" width="24.00" height="18.00" fill="#dff7e4" stroke="#98d9a5" rx="3.00" />
+<text x="102.00" y="270.00" text-anchor="start" class="legend">Value zone: &lt;=RMB 80, &gt;=80% O-Eval</text>
+<line x1="584.00" y1="262.00" x2="644.00" y2="262.00" stroke="#222222" stroke-width="3.00" stroke-dasharray="1 10" />
+<text x="660.00" y="270.00" text-anchor="start" class="legend">Pareto line</text>
+<rect x="1254.00" y="286.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1258.50 290.50)" />
+<rect x="1267.00" y="286.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1271.50 290.50)" />
+<rect x="1254.00" y="300.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1258.50 304.50)" />
+<text x="1288.00" y="310.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
+<rect x="154.00" y="330.00" width="1039.81" height="112.00" fill="#dff7e4" />
+<line x1="1193.81" y1="330.00" x2="1193.81" y2="890.00" stroke="#9ca3af" stroke-width="1.20" stroke-dasharray="6 7" opacity="0.550" />
+<rect x="154.00" y="442.00" width="1520.00" height="448.00" fill="#fafafa" />
+<line x1="154.00" y1="890.00" x2="1674.00" y2="890.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="896.00" text-anchor="end" class="axis">0%</text>
+<line x1="154.00" y1="778.00" x2="1674.00" y2="778.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="784.00" text-anchor="end" class="axis">20%</text>
+<line x1="154.00" y1="666.00" x2="1674.00" y2="666.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="672.00" text-anchor="end" class="axis">40%</text>
+<line x1="154.00" y1="554.00" x2="1674.00" y2="554.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="560.00" text-anchor="end" class="axis">60%</text>
+<line x1="154.00" y1="442.00" x2="1674.00" y2="442.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="448.00" text-anchor="end" class="axis">80%</text>
+<line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="336.00" text-anchor="end" class="axis">100%</text>
+<line x1="238.91" y1="890.00" x2="238.91" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="238.91" y="926.00" text-anchor="middle" class="axis">5</text>
+<line x1="477.63" y1="890.00" x2="477.63" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="477.63" y="926.00" text-anchor="middle" class="axis">10</text>
+<line x1="716.36" y1="890.00" x2="716.36" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="716.36" y="926.00" text-anchor="middle" class="axis">20</text>
+<line x1="1031.93" y1="890.00" x2="1031.93" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1031.93" y="926.00" text-anchor="middle" class="axis">50</text>
+<line x1="1193.81" y1="890.00" x2="1193.81" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1193.81" y="926.00" text-anchor="middle" class="axis">80</text>
+<line x1="1270.66" y1="890.00" x2="1270.66" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1270.66" y="926.00" text-anchor="middle" class="axis">100</text>
+<line x1="1410.30" y1="890.00" x2="1410.30" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1410.30" y="926.00" text-anchor="middle" class="axis">150</text>
+<line x1="1509.38" y1="890.00" x2="1509.38" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1509.38" y="926.00" text-anchor="middle" class="axis">200</text>
+<line x1="154.00" y1="890.00" x2="1674.00" y2="890.00" stroke="#9e9e9e" stroke-width="1.20" />
+<line x1="154.00" y1="330.00" x2="154.00" y2="890.00" stroke="#9e9e9e" stroke-width="1.20" />
+<text x="914.00" y="972.00" text-anchor="middle" class="axis-title">Estimated cost (RMB, log scale)</text>
+<text x="50.00" y="610.00" text-anchor="middle" class="axis-title" transform="rotate(-90 50.00 610.00)">O-Eval (%)</text>
+<line x1="154.00" y1="442.00" x2="1674.00" y2="442.00" stroke="#808080" stroke-width="1.20" stroke-dasharray="6 7" opacity="0.550" />
+<line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
+<text x="1664.00" y="320.00" text-anchor="end" class="small-note">O-award = 100%</text>
+<text x="1664.00" y="432.00" text-anchor="end" class="small-note">80% O-Eval</text>
+<path d="M 253.08 486.91 L 1094.61 418.70 L 1472.63 403.47" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<circle cx="253.08" cy="486.91" r="11.00" fill="#2f80ed" stroke="#ffffff" stroke-width="3.00" />
+<text x="267.08" y="520.91" text-anchor="start" class="point-label">DeepSeek V4 Flash</text>
+<text x="267.08" y="544.91" text-anchor="start" class="small-note">72.0% / RMB 5.21</text>
+<circle cx="740.14" cy="543.53" r="11.00" fill="#2945d9" stroke="#ffffff" stroke-width="3.00" />
+<text x="570.14" y="509.53" text-anchor="start" class="point-label">DeepSeek V4 Pro</text>
+<text x="570.14" y="533.53" text-anchor="start" class="small-note">61.9% / RMB 21.43</text>
+<circle cx="1597.15" cy="555.01" r="11.00" fill="#6f6f6f" stroke="#ffffff" stroke-width="3.00" />
+<text x="1491.15" y="591.01" text-anchor="start" class="point-label">GLM-5.3</text>
+<text x="1491.15" y="615.01" text-anchor="start" class="small-note">59.8% / RMB 258.05</text>
+<circle cx="1094.61" cy="418.70" r="11.00" fill="#202020" stroke="#ffffff" stroke-width="3.00" />
+<text x="1112.61" y="390.70" text-anchor="start" class="point-label">GPT-5.6 Sol</text>
+<text x="1112.61" y="414.70" text-anchor="start" class="small-note">84.2% / RMB 59.98</text>
+<circle cx="1472.63" cy="403.47" r="11.00" fill="#1f83ff" stroke="#ffffff" stroke-width="3.00" />
+<text x="1490.63" y="375.47" text-anchor="start" class="point-label">Kimi K3</text>
+<text x="1490.63" y="399.47" text-anchor="start" class="small-note">86.9% / RMB 179.76</text>
+<circle cx="1206.19" cy="565.98" r="11.00" fill="#34a853" stroke="#ffffff" stroke-width="3.00" />
+<text x="1224.19" y="623.98" text-anchor="start" class="point-label">Gemini 3.7 Flash (15/18)</text>
+<text x="1224.19" y="647.98" text-anchor="start" class="small-note">57.9% / RMB 82.93</text>
+<circle cx="1491.50" cy="467.48" r="11.00" fill="#7c3aed" stroke="#ffffff" stroke-width="3.00" />
+<text x="1337.50" y="449.48" text-anchor="start" class="point-label">Qwen3.8 27B</text>
+<text x="1337.50" y="473.48" text-anchor="start" class="small-note">75.5% / RMB 189.88</text>
+<circle cx="709.75" cy="522.70" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
+<text x="721.75" y="510.70" text-anchor="start" class="point-label">GLM-5.3-Flash (ox-alpha)</text>
+<text x="721.75" y="534.70" text-anchor="start" class="small-note">65.6% / RMB 19.62</text>
+<circle cx="1090.92" cy="573.66" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
+<text x="1102.92" y="561.66" text-anchor="start" class="point-label">Qwen3.8 Flash (Bailian)</text>
+<text x="1102.92" y="585.66" text-anchor="start" class="small-note">56.5% / RMB 59.34</text>
+<text x="914.00" y="1028.00" text-anchor="middle" class="small-note">This view answers: how close is each model to the O-award reproduction per RMB spent?</text></svg>
