@@ -59,23 +59,24 @@
 <rect x="310.22" y="751.87" width="144.22" height="8.89" fill="#777777" />
 <text x="382.33" y="737.88" text-anchor="middle" class="top-label">RMB 19.62</text>
 <g transform="translate(382.33,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
-<rect x="488.44" y="774.17" width="144.22" height="5.83" fill="#d9dde4" />
-<rect x="488.44" y="766.11" width="144.22" height="8.06" fill="#cfcfcf" />
-<rect x="488.44" y="749.28" width="144.22" height="16.83" fill="#2945d9" />
-<text x="560.56" y="735.28" text-anchor="middle" class="top-label">RMB 21.43</text>
-<g transform="translate(560.56,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
-<rect x="666.67" y="771.23" width="144.22" height="8.77" fill="#d9dde4" />
-<rect x="666.67" y="725.87" width="144.22" height="45.36" fill="#cfcfcf" />
-<text x="738.78" y="755.55" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">31.6</text>
-<rect x="666.67" y="694.94" width="144.22" height="30.93" fill="#777777" />
-<text x="738.78" y="680.95" text-anchor="middle" class="top-label">RMB 59.34</text>
-<g transform="translate(738.78,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
-<rect x="844.89" y="756.67" width="144.22" height="23.33" fill="#d9dde4" />
-<rect x="844.89" y="742.06" width="144.22" height="14.61" fill="#cfcfcf" />
-<rect x="844.89" y="694.02" width="144.22" height="48.04" fill="#202020" />
-<text x="917.00" y="725.04" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">33.5</text>
-<text x="917.00" y="680.03" text-anchor="middle" class="top-label">RMB 59.98</text>
-<g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="488.44" y="771.23" width="144.22" height="8.77" fill="#d9dde4" />
+<rect x="488.44" y="725.87" width="144.22" height="45.36" fill="#cfcfcf" />
+<text x="560.56" y="755.55" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">31.6</text>
+<rect x="488.44" y="694.94" width="144.22" height="30.93" fill="#777777" />
+<text x="560.56" y="680.95" text-anchor="middle" class="top-label">RMB 59.34</text>
+<g transform="translate(560.56,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
+<rect x="666.67" y="756.67" width="144.22" height="23.33" fill="#d9dde4" />
+<rect x="666.67" y="742.06" width="144.22" height="14.61" fill="#cfcfcf" />
+<rect x="666.67" y="694.02" width="144.22" height="48.04" fill="#202020" />
+<text x="738.78" y="725.04" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">33.5</text>
+<text x="738.78" y="680.03" text-anchor="middle" class="top-label">RMB 59.98</text>
+<g transform="translate(738.78,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="844.89" y="761.27" width="144.22" height="18.73" fill="#d9dde4" />
+<rect x="844.89" y="735.07" width="144.22" height="26.20" fill="#cfcfcf" />
+<rect x="844.89" y="681.05" width="144.22" height="54.02" fill="#2945d9" />
+<text x="917.00" y="715.06" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">37.7</text>
+<text x="917.00" y="667.04" text-anchor="middle" class="top-label">RMB 69.04</text>
+<g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
 <rect x="1023.11" y="731.95" width="144.22" height="48.05" fill="#d9dde4" />
 <text x="1095.22" y="762.98" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">33.5</text>
 <rect x="1023.11" y="686.69" width="144.22" height="45.26" fill="#cfcfcf" />
