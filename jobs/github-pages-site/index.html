@@ -33,6 +33,7 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 78px;
       background: var(--paper);
     }
 
@@ -193,12 +194,13 @@
     }
 
     main {
-      overflow: hidden;
+      overflow-x: clip;
     }
 
     section {
       padding: 58px 22px;
       border-bottom: 1px solid var(--line);
+      scroll-margin-top: 78px;
     }
 
     .wrap {
@@ -288,10 +290,12 @@
 
     .table-shell {
       overflow-x: auto;
+      overflow-y: visible;
       border: 1px solid var(--line);
       border-radius: var(--radius);
       background: var(--panel);
       box-shadow: 0 12px 28px rgba(23, 32, 28, 0.05);
+      -webkit-overflow-scrolling: touch;
     }
 
     table {
@@ -316,10 +320,7 @@
     }
 
     th {
-      position: sticky;
-      top: 53px;
       background: #f7faf8;
-      z-index: 3;
       color: #314239;
       font-size: 12px;
       text-transform: uppercase;
@@ -547,9 +548,6 @@
         padding-right: 18px;
       }
 
-      th {
-        top: 96px;
-      }
     }
   </style>
 </head>
@@ -836,6 +834,37 @@
   </footer>
 
   <script>
+    const topbar = document.querySelector(".topbar");
+
+    function scrollToHash(hash, behavior = "smooth") {
+      if (!hash || hash === "#") return;
+      const target = document.querySelector(hash);
+      if (!target) return;
+      const topbarHeight = topbar ? topbar.getBoundingClientRect().height : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - topbarHeight - 18;
+      window.scrollTo({ top: Math.max(0, top), behavior });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener("click", (event) => {
+        const hash = link.getAttribute("href");
+        if (!hash || hash === "#") return;
+        event.preventDefault();
+        history.pushState(null, "", hash);
+        scrollToHash(hash);
+      });
+    });
+
+    window.addEventListener("load", () => {
+      if (window.location.hash) {
+        requestAnimationFrame(() => scrollToHash(window.location.hash, "auto"));
+      }
+    });
+
+    window.addEventListener("hashchange", () => {
+      scrollToHash(window.location.hash);
+    });
+
     const table = document.querySelector("#leaderboard-table");
     const headers = table.querySelectorAll("th");
 
