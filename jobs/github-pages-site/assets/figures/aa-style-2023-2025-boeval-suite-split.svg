@@ -9,7 +9,7 @@
     </style>
     <rect width="1800" height="1120" fill="#ffffff"/><rect x="24.0" y="24.0" width="1752.0" height="1072.0" fill="#ffffff" rx="16.0" stroke="#dedede" />
 <text x="72.0" y="126.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="500" fill="#151515">Robust BO-Eval by Suite</text>
-<text x="72.0" y="168.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="650" fill="#777777">CUMCM and MCM expose different failure modes; missing or final-error trials are pinned to -100%, while completed tiny-gap tasks still use clipped B-Eval.</text>
+<text x="72.0" y="168.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="650" fill="#777777">Diagnostic CUMCM/MCM split for baseline-relative gains; missing or final-error trials are assigned -100%.</text>
 <line x1="132.0" y1="800.0" x2="1672.0" y2="800.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="806.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-40%</text>
 <line x1="132.0" y1="716.7" x2="1672.0" y2="716.7" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
