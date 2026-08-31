@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1040" viewBox="0 0 1800 1040" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 23px; fill: #4e4e4e; font-weight: 760; }
+      .tab-active { fill: #111111; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #151515; font-weight: 680; }
+      .x-label { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #151515; font-weight: 650; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #ffffff; font-weight: 800; }
+      .top-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #939393; font-weight: 750; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #949494; font-weight: 650; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #4a4a4a; font-weight: 700; }
+      .brand { font-family: Georgia, Times, serif; font-size: 26px; fill: #555555; }
+    </style>
+    <rect x="24.00" y="24.00" width="1752.00" height="992.00" fill="#ffffff" stroke="#dddddd" rx="16.00" />
+<rect x="24.00" y="24.00" width="1752.00" height="88.00" fill="#ffffff" rx="16.00" />
+<rect x="66.00" y="48.00" width="140.00" height="58.00" fill="#efefef" rx="8.00" />
+<text x="84.00" y="84.00" text-anchor="start" class="tab tab-active">Robust</text>
+<text x="276.00" y="84.00" text-anchor="start" class="tab">O-Eval</text>
+<text x="468.00" y="84.00" text-anchor="start" class="tab">Token Usage</text>
+<text x="730.00" y="84.00" text-anchor="start" class="tab">Cost</text>
+<text x="892.00" y="84.00" text-anchor="start" class="tab">Robust vs. Cost</text>
+<text x="1174.00" y="84.00" text-anchor="start" class="tab">O vs. Cost</text>
+<line x1="24.00" y1="114.00" x2="1776.00" y2="114.00" stroke="#dddddd" stroke-width="1.20" />
+<text x="66.00" y="170.00" text-anchor="start" class="title">Robust BO-Eval</text>
+<text x="66.00" y="210.00" text-anchor="start" class="subtitle">Clipped ratio for clean gaps; clipped B-Eval for saturated or tiny-gap tasks. Bad tasks can go negative.</text>
+<circle cx="76.00" cy="270.00" r="8.00" fill="#555555" />
+<text x="94.00" y="277.00" text-anchor="start" class="legend">Robust score</text>
+<circle cx="212.00" cy="270.00" r="8.00" fill="#b0b0b0" />
+<text x="230.00" y="277.00" text-anchor="start" class="legend">Raw score label</text>
+<rect x="1282.00" y="284.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 288.50)" />
+<rect x="1295.00" y="284.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1299.50 288.50)" />
+<rect x="1282.00" y="298.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 302.50)" />
+<text x="1316.00" y="308.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
+<line x1="132.00" y1="772.00" x2="1702.00" y2="772.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="778.00" text-anchor="end" class="axis">-10%</text>
+<line x1="132.00" y1="684.00" x2="1702.00" y2="684.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="690.00" text-anchor="end" class="axis">-5%</text>
+<line x1="132.00" y1="596.00" x2="1702.00" y2="596.00" stroke="#9e9e9e" stroke-width="1.50" />
+<text x="114.00" y="602.00" text-anchor="end" class="axis">0%</text>
+<line x1="132.00" y1="508.00" x2="1702.00" y2="508.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="514.00" text-anchor="end" class="axis">5%</text>
+<line x1="132.00" y1="420.00" x2="1702.00" y2="420.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="426.00" text-anchor="end" class="axis">10%</text>
+<line x1="132.00" y1="332.00" x2="1702.00" y2="332.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="338.00" text-anchor="end" class="axis">15%</text>
+<text x="44.00" y="552.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 552.00)">Robust BO-Eval (%)</text>
+<rect x="132.00" y="390.43" width="144.22" height="205.57" fill="#202020" rx="8.00" />
+<text x="204.11" y="505.55" text-anchor="middle" class="bar-label" fill="#ffffff">11.7%</text>
+<text x="204.11" y="376.43" text-anchor="middle" class="top-label">raw 0.842</text>
+<g transform="translate(204.11,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="310.22" y="400.82" width="144.22" height="195.18" fill="#1f83ff" rx="8.00" />
+<text x="382.33" y="510.12" text-anchor="middle" class="bar-label" fill="#ffffff">11.1%</text>
+<text x="382.33" y="386.82" text-anchor="middle" class="top-label">raw 0.869</text>
+<g transform="translate(382.33,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="488.44" y="400.82" width="144.22" height="195.18" fill="#7c3aed" rx="8.00" />
+<text x="560.56" y="510.12" text-anchor="middle" class="bar-label" fill="#ffffff">11.1%</text>
+<text x="560.56" y="386.82" text-anchor="middle" class="top-label">raw 0.754</text>
+<g transform="translate(560.56,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
+<rect x="666.67" y="429.15" width="144.22" height="166.85" fill="#777777" rx="8.00" />
+<text x="738.78" y="522.59" text-anchor="middle" class="bar-label" fill="#ffffff">9.5%</text>
+<text x="738.78" y="415.15" text-anchor="middle" class="top-label">raw 0.656</text>
+<g transform="translate(738.78,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
+<rect x="844.89" y="437.95" width="144.22" height="158.05" fill="#2945d9" rx="8.00" />
+<text x="917.00" y="526.46" text-anchor="middle" class="bar-label" fill="#ffffff">9.0%</text>
+<text x="917.00" y="423.95" text-anchor="middle" class="top-label">raw 0.619</text>
+<g transform="translate(917.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
+<rect x="1023.11" y="458.37" width="144.22" height="137.63" fill="#6f6f6f" rx="8.00" />
+<text x="1095.22" y="535.44" text-anchor="middle" class="bar-label" fill="#ffffff">7.8%</text>
+<text x="1095.22" y="444.37" text-anchor="middle" class="top-label">raw 0.598</text>
+<g transform="translate(1095.22,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
+<rect x="1201.33" y="596.00" width="144.22" height="0.00" fill="#2f80ed" rx="8.00" />
+<text x="1273.44" y="582.00" text-anchor="middle" class="top-label">raw 0.72</text>
+<g transform="translate(1273.44,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="1379.56" y="596.00" width="144.22" height="96.80" fill="#777777" rx="8.00" />
+<text x="1451.67" y="718.80" text-anchor="middle" class="bar-label" fill="#777777">-5.5%</text>
+<text x="1451.67" y="582.00" text-anchor="middle" class="top-label">raw 0.565</text>
+<g transform="translate(1451.67,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
+<rect x="1557.78" y="596.00" width="144.22" height="141.50" fill="#34a853" rx="8.00" />
+<text x="1629.89" y="763.50" text-anchor="middle" class="bar-label" fill="#34a853">-8.0%</text>
+<text x="1629.89" y="582.00" text-anchor="middle" class="top-label">raw 0.579</text>
+<g transform="translate(1629.89,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by Robust BO-Eval over all 18 tasks. Tiny-gap tasks fall back to clipped B-Eval, so the leaderboard is not driven by ratio outliers.</text></svg>
