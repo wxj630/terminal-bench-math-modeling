@@ -1,6 +1,6 @@
 # O-Eval and Robust BO-Eval: 2023-2025
 
-Generated: 2026-08-30
+Generated: 2026-08-31
 
 Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.
 
@@ -15,7 +15,7 @@ Robust ratio tasks with gap >= 0.10: 11. Saturated or near-zero-gap tasks using 
 | Model | Artifacts | Mean direction-aware raw | Mean O-Eval on all 18 (%) | Mean B-Eval vs flash (pp) | Mean Robust BO-Eval on all 18 (%) | Tokens input/cache/output | Billable input/output | Est. cost USD | Est. cost RMB | Canonical valid/running/error/pending | Excluded retries |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|---:|
 | v4 flash baseline | 18 | 0.719811 | 71.98% | +0.00 pp | 0.00% | 28,690,539 / 27,294,080 / 1,368,452 | 1,396,459 / 1,368,452 | $0.773796 | ¥5.21 | 11/0/7/0 | 0 |
-| v4 pro | 18 | 0.618719 | 61.87% | -10.11 pp | 8.98% | 21,309,105 / 20,096,768 / 1,748,356 | 1,212,337 / 1,748,356 | $3.181267 | ¥21.43 | 18/0/0/0 | 0 |
+| v4 pro | 18 | 0.618719 | 61.87% | -10.11 pp | 8.98% | 21,309,105 / 20,096,768 / 1,748,356 | 1,212,337 / 1,748,356 | $10.247542 | ¥69.04 | 18/0/0/0 | 0 |
 | GLM-5.3 | 18 | 0.598189 | 59.82% | -12.16 pp | 7.82% | 92,056,972 / 89,637,696 / 2,638,779 | 2,419,276 / 2,638,779 | $38.303415 | ¥258.05 | 18/0/0/0 | 0 |
 | GPT-5.6 SOL high | 18 | 0.841554 | 84.16% | +12.17 pp | 11.68% | 8,774,606 / 7,566,848 / 497,473 | 1,207,758 / 497,473 | $8.903616 | ¥59.98 | 18/0/0/0 | 0 |
 | Kimi K3 | 18 | 0.868798 | 86.88% | +14.90 pp | 11.09% | 30,146,116 / 28,928,953 / 956,805 | 1,217,163 / 956,805 | $26.682250 | ¥179.76 | 17/0/1/0 | 0 |
@@ -46,7 +46,7 @@ Robust ratio tasks with gap >= 0.10: 11. Saturated or near-zero-gap tasks using 
 | Model | OpenRouter model | Price source | Input | Cached read | Cache write/create | Output |
 |---|---|---|---:|---:|---:|---:|
 | v4 flash baseline | `deepseek/deepseek-v4-flash-0731` | OpenRouter live | ¥0.4379/M | ¥0.1078/M | N/A | ¥1.2127/M |
-| v4 pro | `deepseek/deepseek-v4-pro` | OpenRouter live | ¥3.3573/M | ¥0.2798/M | N/A | ¥6.7146/M |
+| v4 pro | `deepseek/deepseek-v4-pro` | OpenRouter live | ¥10.7792/M | ¥0.9095/M | N/A | ¥21.5584/M |
 | GLM-5.3 | `z-ai/glm-5.3` | OpenRouter live | ¥9.4318/M | ¥1.7516/M | N/A | ¥29.6429/M |
 | GPT-5.6 SOL high | `openai/gpt-5.6-sol` | OpenRouter live | ¥13.4740/M | ¥1.3474/M | ¥16.8425/M | ¥67.3701/M |
 | Kimi K3 | `moonshotai/kimi-k3` | OpenRouter live | ¥20.2110/M | ¥2.0211/M | N/A | ¥101.0552/M |
@@ -65,8 +65,10 @@ Robust ratio tasks with gap >= 0.10: 11. Saturated or near-zero-gap tasks using 
 - Robust BO-Eval score-cost: `figures/aa-style-2023-2025-boeval-score-cost.png`
 - Token usage: `figures/aa-style-2023-2025-token-usage.png`
 - Cost: `figures/aa-style-2023-2025-cost.png`
-- Diagnostic year split: `figures/aa-style-2023-2025-boeval-year-split.png`
-- Diagnostic suite split: `figures/aa-style-2023-2025-boeval-suite-split.png`
+- O-Eval year split: `figures/aa-style-2023-2025-o-eval-year-split.png`
+- O-Eval suite split: `figures/aa-style-2023-2025-o-eval-suite-split.png`
+- Diagnostic Robust BO-Eval year split: `figures/aa-style-2023-2025-boeval-year-split.png`
+- Diagnostic Robust BO-Eval suite split: `figures/aa-style-2023-2025-boeval-suite-split.png`
 
 ## Year Mean O-Eval
 
