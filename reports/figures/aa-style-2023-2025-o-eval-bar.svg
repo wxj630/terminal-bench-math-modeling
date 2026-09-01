@@ -50,40 +50,44 @@
 <line x1="132.00" y1="332.00" x2="1702.00" y2="332.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
 <text x="1690.00" y="322.00" text-anchor="end" class="small-note">O-award = 100%</text>
 <text x="44.00" y="552.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 552.00)">O-Eval (%)</text>
-<rect x="132.00" y="389.73" width="144.22" height="382.27" fill="#1f83ff" rx="8.00" />
-<text x="204.11" y="603.80" text-anchor="middle" class="bar-label">86.9%</text>
-<text x="204.11" y="375.73" text-anchor="middle" class="top-label">raw 0.869</text>
-<g transform="translate(204.11,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
-<rect x="310.22" y="401.70" width="144.22" height="370.30" fill="#202020" rx="8.00" />
-<text x="382.33" y="609.07" text-anchor="middle" class="bar-label">84.2%</text>
-<text x="382.33" y="387.70" text-anchor="middle" class="top-label">raw 0.842</text>
-<g transform="translate(382.33,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
-<rect x="488.44" y="440.02" width="144.22" height="331.98" fill="#7c3aed" rx="8.00" />
-<text x="560.56" y="625.93" text-anchor="middle" class="bar-label">75.5%</text>
-<text x="560.56" y="426.02" text-anchor="middle" class="top-label">raw 0.754</text>
-<g transform="translate(560.56,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
-<rect x="666.67" y="455.29" width="144.22" height="316.71" fill="#2f80ed" rx="8.00" />
-<text x="738.78" y="632.65" text-anchor="middle" class="bar-label">72.0%</text>
-<text x="738.78" y="441.29" text-anchor="middle" class="top-label">raw 0.72</text>
-<g transform="translate(738.78,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="844.89" y="483.40" width="144.22" height="288.60" fill="#777777" rx="8.00" />
-<text x="917.00" y="645.02" text-anchor="middle" class="bar-label">65.6%</text>
-<text x="917.00" y="469.40" text-anchor="middle" class="top-label">raw 0.656</text>
-<g transform="translate(917.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
-<rect x="1023.11" y="499.77" width="144.22" height="272.23" fill="#2945d9" rx="8.00" />
-<text x="1095.22" y="652.22" text-anchor="middle" class="bar-label">61.9%</text>
-<text x="1095.22" y="485.77" text-anchor="middle" class="top-label">raw 0.619</text>
-<g transform="translate(1095.22,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
-<rect x="1201.33" y="508.79" width="144.22" height="263.21" fill="#6f6f6f" rx="8.00" />
-<text x="1273.44" y="656.19" text-anchor="middle" class="bar-label">59.8%</text>
-<text x="1273.44" y="494.79" text-anchor="middle" class="top-label">raw 0.598</text>
-<g transform="translate(1273.44,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
-<rect x="1379.56" y="517.42" width="144.22" height="254.58" fill="#34a853" rx="8.00" />
-<text x="1451.67" y="659.98" text-anchor="middle" class="bar-label">57.9%</text>
-<text x="1451.67" y="503.42" text-anchor="middle" class="top-label">raw 0.579</text>
-<g transform="translate(1451.67,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="1557.78" y="523.44" width="144.22" height="248.56" fill="#777777" rx="8.00" />
-<text x="1629.89" y="662.64" text-anchor="middle" class="bar-label">56.5%</text>
-<text x="1629.89" y="509.44" text-anchor="middle" class="top-label">raw 0.565</text>
-<g transform="translate(1629.89,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
+<rect x="132.00" y="389.73" width="126.40" height="382.27" fill="#1f83ff" rx="8.00" />
+<text x="195.20" y="603.80" text-anchor="middle" class="bar-label">86.9%</text>
+<text x="195.20" y="375.73" text-anchor="middle" class="top-label">raw 0.869</text>
+<g transform="translate(195.20,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="292.40" y="391.31" width="126.40" height="380.69" fill="#dc2626" rx="8.00" />
+<text x="355.60" y="604.50" text-anchor="middle" class="bar-label">86.5%</text>
+<text x="355.60" y="377.31" text-anchor="middle" class="top-label">raw 0.865</text>
+<g transform="translate(355.60,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Hy4</tspan><tspan x="0" dy="17">Preview</tspan></text></g>
+<rect x="452.80" y="401.70" width="126.40" height="370.30" fill="#202020" rx="8.00" />
+<text x="516.00" y="609.07" text-anchor="middle" class="bar-label">84.2%</text>
+<text x="516.00" y="387.70" text-anchor="middle" class="top-label">raw 0.842</text>
+<g transform="translate(516.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="613.20" y="440.02" width="126.40" height="331.98" fill="#7c3aed" rx="8.00" />
+<text x="676.40" y="625.93" text-anchor="middle" class="bar-label">75.5%</text>
+<text x="676.40" y="426.02" text-anchor="middle" class="top-label">raw 0.754</text>
+<g transform="translate(676.40,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
+<rect x="773.60" y="455.29" width="126.40" height="316.71" fill="#2f80ed" rx="8.00" />
+<text x="836.80" y="632.65" text-anchor="middle" class="bar-label">72.0%</text>
+<text x="836.80" y="441.29" text-anchor="middle" class="top-label">raw 0.72</text>
+<g transform="translate(836.80,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="934.00" y="483.40" width="126.40" height="288.60" fill="#777777" rx="8.00" />
+<text x="997.20" y="645.02" text-anchor="middle" class="bar-label">65.6%</text>
+<text x="997.20" y="469.40" text-anchor="middle" class="top-label">raw 0.656</text>
+<g transform="translate(997.20,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
+<rect x="1094.40" y="499.77" width="126.40" height="272.23" fill="#2945d9" rx="8.00" />
+<text x="1157.60" y="652.22" text-anchor="middle" class="bar-label">61.9%</text>
+<text x="1157.60" y="485.77" text-anchor="middle" class="top-label">raw 0.619</text>
+<g transform="translate(1157.60,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
+<rect x="1254.80" y="508.79" width="126.40" height="263.21" fill="#6f6f6f" rx="8.00" />
+<text x="1318.00" y="656.19" text-anchor="middle" class="bar-label">59.8%</text>
+<text x="1318.00" y="494.79" text-anchor="middle" class="top-label">raw 0.598</text>
+<g transform="translate(1318.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
+<rect x="1415.20" y="517.42" width="126.40" height="254.58" fill="#34a853" rx="8.00" />
+<text x="1478.40" y="659.98" text-anchor="middle" class="bar-label">57.9%</text>
+<text x="1478.40" y="503.42" text-anchor="middle" class="top-label">raw 0.579</text>
+<g transform="translate(1478.40,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="1575.60" y="523.44" width="126.40" height="248.56" fill="#777777" rx="8.00" />
+<text x="1638.80" y="662.64" text-anchor="middle" class="bar-label">56.5%</text>
+<text x="1638.80" y="509.44" text-anchor="middle" class="top-label">raw 0.565</text>
+<g transform="translate(1638.80,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
 <text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by O-Eval over all 18 tasks. This is the primary absolute score for the report.</text></svg>

@@ -72,7 +72,7 @@
 <line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
 <text x="1664.00" y="320.00" text-anchor="end" class="small-note">O-award = 100%</text>
 <text x="1664.00" y="432.00" text-anchor="end" class="small-note">80% O-Eval</text>
-<path d="M 253.08 486.91 L 1094.61 418.70 L 1472.63 403.47" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<path d="M 253.08 486.91 L 1094.61 418.70 L 1263.52 405.49 L 1472.63 403.47" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
 <circle cx="253.08" cy="486.91" r="11.00" fill="#2f80ed" stroke="#ffffff" stroke-width="3.00" />
 <text x="273.08" y="462.91" text-anchor="start" class="point-label">DeepSeek V4 Flash</text>
 <text x="273.08" y="486.91" text-anchor="start" class="small-note">72.0% / RMB 5.21</text>
@@ -80,24 +80,27 @@
 <text x="1163.06" y="611.53" text-anchor="start" class="point-label">DeepSeek V4 Pro</text>
 <text x="1163.06" y="635.53" text-anchor="start" class="small-note">61.9% / RMB 69.04</text>
 <circle cx="1597.15" cy="555.01" r="11.00" fill="#6f6f6f" stroke="#ffffff" stroke-width="3.00" />
-<text x="1577.15" y="531.01" text-anchor="end" class="point-label">GLM-5.3</text>
-<text x="1577.15" y="555.01" text-anchor="end" class="small-note">59.8% / RMB 258.05</text>
+<text x="1577.15" y="593.01" text-anchor="end" class="point-label">GLM-5.3</text>
+<text x="1577.15" y="617.01" text-anchor="end" class="small-note">59.8% / RMB 258.05</text>
 <circle cx="1094.61" cy="418.70" r="11.00" fill="#202020" stroke="#ffffff" stroke-width="3.00" />
 <text x="1074.61" y="394.70" text-anchor="end" class="point-label">GPT-5.6 Sol</text>
 <text x="1074.61" y="418.70" text-anchor="end" class="small-note">84.2% / RMB 59.98</text>
 <circle cx="1472.63" cy="403.47" r="11.00" fill="#1f83ff" stroke="#ffffff" stroke-width="3.00" />
-<text x="1452.63" y="379.47" text-anchor="end" class="point-label">Kimi K3</text>
-<text x="1452.63" y="403.47" text-anchor="end" class="small-note">86.9% / RMB 179.76</text>
+<text x="1452.63" y="471.47" text-anchor="end" class="point-label">Kimi K3</text>
+<text x="1452.63" y="495.47" text-anchor="end" class="small-note">86.9% / RMB 179.76</text>
 <circle cx="1206.19" cy="565.98" r="11.00" fill="#34a853" stroke="#ffffff" stroke-width="3.00" />
 <text x="1206.19" y="667.98" text-anchor="middle" class="point-label">Gemini 3.7 Flash (15/18)</text>
 <text x="1206.19" y="691.98" text-anchor="middle" class="small-note">57.9% / RMB 82.93</text>
 <circle cx="1491.50" cy="467.48" r="11.00" fill="#7c3aed" stroke="#ffffff" stroke-width="3.00" />
-<text x="1471.50" y="443.48" text-anchor="end" class="point-label">Qwen3.8 27B</text>
-<text x="1471.50" y="467.48" text-anchor="end" class="small-note">75.5% / RMB 189.88</text>
+<text x="1471.50" y="535.48" text-anchor="end" class="point-label">Qwen3.8 27B</text>
+<text x="1471.50" y="559.48" text-anchor="end" class="small-note">75.5% / RMB 189.88</text>
 <circle cx="709.75" cy="522.70" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
 <text x="729.75" y="498.70" text-anchor="start" class="point-label">GLM-5.3-Flash (ox-alpha)</text>
 <text x="729.75" y="522.70" text-anchor="start" class="small-note">65.6% / RMB 19.62</text>
 <circle cx="1090.92" cy="573.66" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
 <text x="1070.92" y="611.66" text-anchor="end" class="point-label">Qwen3.8 Flash (Bailian)</text>
 <text x="1070.92" y="635.66" text-anchor="end" class="small-note">56.5% / RMB 59.34</text>
+<circle cx="1263.52" cy="405.49" r="11.00" fill="#dc2626" stroke="#ffffff" stroke-width="3.00" />
+<text x="1243.52" y="473.49" text-anchor="end" class="point-label">Hy4 Preview</text>
+<text x="1243.52" y="497.49" text-anchor="end" class="small-note">86.5% / RMB 97.95</text>
 <text x="914.00" y="1028.00" text-anchor="middle" class="small-note">This view answers: how close is each model to the O-award reproduction per RMB spent?</text></svg>
