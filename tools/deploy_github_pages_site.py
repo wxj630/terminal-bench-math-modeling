@@ -47,6 +47,18 @@ def image_sources(index_html: str) -> list[str]:
     return sources
 
 
+def local_href_sources(index_html: str) -> list[str]:
+    sources: list[str] = []
+    for href in re.findall(r'<a[^>]+href="([^"]+)"', index_html):
+        parsed = urlsplit(href)
+        if parsed.scheme or parsed.netloc or parsed.path in {"", "."}:
+            continue
+        if parsed.path.startswith("#"):
+            continue
+        sources.append(parsed.path)
+    return sources
+
+
 def markdown_figure_sources(markdown: str) -> list[str]:
     sources: list[str] = []
     for rel in re.findall(r"`(figures/aa-style-2023-2025-[^`]+\.(?:png|svg))`", markdown):
@@ -93,9 +105,21 @@ def copy_site() -> tuple[list[str], bool]:
 
     index_html = (SITE_DIR / "index.html").read_text(encoding="utf-8")
     sources = image_sources(index_html)
+    linked_sources = local_href_sources(index_html)
     report_path = SITE_DIR / "reports" / "full-report.md"
     report_sources = markdown_figure_sources(report_path.read_text(encoding="utf-8")) if report_path.exists() else []
-    required = ["index.html", "reports/full-report.md", *with_existing_companions([*sources, *report_sources])]
+    report_files = [
+        str(path.relative_to(SITE_DIR))
+        for path in (SITE_DIR / "reports").glob("*")
+        if path.is_file() and path.suffix.lower() in {".html", ".md", ".json"}
+    ]
+    required = [
+        "index.html",
+        "reports/full-report.md",
+        *linked_sources,
+        *report_files,
+        *with_existing_companions([*sources, *report_sources]),
+    ]
     copied: list[str] = []
     for rel in required:
         src = SITE_DIR / rel

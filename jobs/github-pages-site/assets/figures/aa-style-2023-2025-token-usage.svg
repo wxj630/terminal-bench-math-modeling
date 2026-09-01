@@ -51,54 +51,60 @@
 <text x="114.00" y="356.00" text-anchor="end" class="axis">340M</text>
 <line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
 <text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Tokens (million)</text>
-<rect x="132.00" y="778.47" width="144.22" height="1.53" fill="#4c4c4c" />
-<rect x="132.00" y="768.90" width="144.22" height="9.57" fill="#cfcfcf" />
-<rect x="132.00" y="768.27" width="144.22" height="0.63" fill="#202020" />
-<text x="204.11" y="754.27" text-anchor="middle" class="top-label">9.3M</text>
-<g transform="translate(204.11,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
-<rect x="310.22" y="778.47" width="144.22" height="1.53" fill="#4c4c4c" />
-<rect x="310.22" y="753.05" width="144.22" height="25.42" fill="#cfcfcf" />
-<rect x="310.22" y="750.84" width="144.22" height="2.21" fill="#2945d9" />
-<text x="382.33" y="736.84" text-anchor="middle" class="top-label">23M</text>
-<g transform="translate(382.33,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
-<rect x="488.44" y="778.23" width="144.22" height="1.77" fill="#4c4c4c" />
-<rect x="488.44" y="743.71" width="144.22" height="34.52" fill="#cfcfcf" />
-<rect x="488.44" y="741.98" width="144.22" height="1.73" fill="#2f80ed" />
-<text x="560.56" y="727.98" text-anchor="middle" class="top-label">30M</text>
-<g transform="translate(560.56,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="666.67" y="778.46" width="144.22" height="1.54" fill="#4c4c4c" />
-<rect x="666.67" y="741.87" width="144.22" height="36.59" fill="#cfcfcf" />
-<rect x="666.67" y="740.66" width="144.22" height="1.21" fill="#1f83ff" />
-<text x="738.78" y="726.66" text-anchor="middle" class="top-label">31M</text>
-<g transform="translate(738.78,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
-<rect x="844.89" y="720.25" width="144.22" height="59.75" fill="#4c4c4c" />
-<text x="917.00" y="757.12" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">47M</text>
-<rect x="844.89" y="720.25" width="144.22" height="0.00" fill="#cfcfcf" />
-<rect x="844.89" y="716.23" width="144.22" height="4.02" fill="#7c3aed" />
-<text x="917.00" y="702.23" text-anchor="middle" class="top-label">50M</text>
-<g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
-<rect x="1023.11" y="771.61" width="144.22" height="8.39" fill="#4c4c4c" />
-<rect x="1023.11" y="692.57" width="144.22" height="79.04" fill="#cfcfcf" />
-<text x="1095.22" y="739.09" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">62M</text>
-<rect x="1023.11" y="691.68" width="144.22" height="0.89" fill="#34a853" />
-<text x="1095.22" y="677.68" text-anchor="middle" class="top-label">70M</text>
-<g transform="translate(1095.22,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="1201.33" y="776.94" width="144.22" height="3.06" fill="#4c4c4c" />
-<rect x="1201.33" y="663.58" width="144.22" height="113.37" fill="#cfcfcf" />
-<text x="1273.44" y="727.26" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">90M</text>
-<rect x="1201.33" y="660.24" width="144.22" height="3.34" fill="#6f6f6f" />
-<text x="1273.44" y="646.24" text-anchor="middle" class="top-label">95M</text>
-<g transform="translate(1273.44,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
-<rect x="1379.56" y="772.08" width="144.22" height="7.92" fill="#4c4c4c" />
-<rect x="1379.56" y="643.76" width="144.22" height="128.33" fill="#cfcfcf" />
-<text x="1451.67" y="714.92" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">101M</text>
-<rect x="1379.56" y="639.10" width="144.22" height="4.66" fill="#777777" />
-<text x="1451.67" y="625.10" text-anchor="middle" class="top-label">111M</text>
-<g transform="translate(1451.67,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
-<rect x="1557.78" y="772.34" width="144.22" height="7.66" fill="#4c4c4c" />
-<rect x="1557.78" y="401.07" width="144.22" height="371.27" fill="#cfcfcf" />
-<text x="1629.89" y="593.71" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">294M</text>
-<rect x="1557.78" y="392.45" width="144.22" height="8.62" fill="#777777" />
-<text x="1629.89" y="378.45" text-anchor="middle" class="top-label">306M</text>
-<g transform="translate(1629.89,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
+<rect x="132.00" y="778.47" width="126.40" height="1.53" fill="#4c4c4c" />
+<rect x="132.00" y="768.90" width="126.40" height="9.57" fill="#cfcfcf" />
+<rect x="132.00" y="768.27" width="126.40" height="0.63" fill="#202020" />
+<text x="195.20" y="754.27" text-anchor="middle" class="top-label">9.3M</text>
+<g transform="translate(195.20,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="292.40" y="778.47" width="126.40" height="1.53" fill="#4c4c4c" />
+<rect x="292.40" y="753.05" width="126.40" height="25.42" fill="#cfcfcf" />
+<rect x="292.40" y="750.84" width="126.40" height="2.21" fill="#2945d9" />
+<text x="355.60" y="736.84" text-anchor="middle" class="top-label">23M</text>
+<g transform="translate(355.60,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
+<rect x="452.80" y="778.23" width="126.40" height="1.77" fill="#4c4c4c" />
+<rect x="452.80" y="743.71" width="126.40" height="34.52" fill="#cfcfcf" />
+<rect x="452.80" y="741.98" width="126.40" height="1.73" fill="#2f80ed" />
+<text x="516.00" y="727.98" text-anchor="middle" class="top-label">30M</text>
+<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="613.20" y="778.46" width="126.40" height="1.54" fill="#4c4c4c" />
+<rect x="613.20" y="741.87" width="126.40" height="36.59" fill="#cfcfcf" />
+<rect x="613.20" y="740.66" width="126.40" height="1.21" fill="#1f83ff" />
+<text x="676.40" y="726.66" text-anchor="middle" class="top-label">31M</text>
+<g transform="translate(676.40,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="773.60" y="720.25" width="126.40" height="59.75" fill="#4c4c4c" />
+<text x="836.80" y="757.12" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">47M</text>
+<rect x="773.60" y="720.25" width="126.40" height="0.00" fill="#cfcfcf" />
+<rect x="773.60" y="716.23" width="126.40" height="4.02" fill="#7c3aed" />
+<text x="836.80" y="702.23" text-anchor="middle" class="top-label">50M</text>
+<g transform="translate(836.80,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
+<rect x="934.00" y="771.61" width="126.40" height="8.39" fill="#4c4c4c" />
+<rect x="934.00" y="692.57" width="126.40" height="79.04" fill="#cfcfcf" />
+<text x="997.20" y="739.09" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">62M</text>
+<rect x="934.00" y="691.68" width="126.40" height="0.89" fill="#34a853" />
+<text x="997.20" y="677.68" text-anchor="middle" class="top-label">70M</text>
+<g transform="translate(997.20,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="1094.40" y="776.94" width="126.40" height="3.06" fill="#4c4c4c" />
+<rect x="1094.40" y="663.58" width="126.40" height="113.37" fill="#cfcfcf" />
+<text x="1157.60" y="727.26" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">90M</text>
+<rect x="1094.40" y="660.24" width="126.40" height="3.34" fill="#6f6f6f" />
+<text x="1157.60" y="646.24" text-anchor="middle" class="top-label">95M</text>
+<g transform="translate(1157.60,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
+<rect x="1254.80" y="772.08" width="126.40" height="7.92" fill="#4c4c4c" />
+<rect x="1254.80" y="643.76" width="126.40" height="128.33" fill="#cfcfcf" />
+<text x="1318.00" y="714.92" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">101M</text>
+<rect x="1254.80" y="639.10" width="126.40" height="4.66" fill="#777777" />
+<text x="1318.00" y="625.10" text-anchor="middle" class="top-label">111M</text>
+<g transform="translate(1318.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
+<rect x="1415.20" y="774.02" width="126.40" height="5.98" fill="#4c4c4c" />
+<rect x="1415.20" y="610.87" width="126.40" height="163.15" fill="#cfcfcf" />
+<text x="1478.40" y="699.44" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">129M</text>
+<rect x="1415.20" y="608.25" width="126.40" height="2.62" fill="#dc2626" />
+<text x="1478.40" y="594.25" text-anchor="middle" class="top-label">136M</text>
+<g transform="translate(1478.40,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Hy4</tspan><tspan x="0" dy="17">Preview</tspan></text></g>
+<rect x="1575.60" y="772.34" width="126.40" height="7.66" fill="#4c4c4c" />
+<rect x="1575.60" y="401.07" width="126.40" height="371.27" fill="#cfcfcf" />
+<text x="1638.80" y="593.71" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">294M</text>
+<rect x="1575.60" y="392.45" width="126.40" height="8.62" fill="#777777" />
+<text x="1638.80" y="378.45" text-anchor="middle" class="top-label">306M</text>
+<g transform="translate(1638.80,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
 <text x="917.00" y="994.00" text-anchor="middle" class="small-note">Cache-hit input is displayed separately and charged when the report price table provides a cached-read price.</text></svg>

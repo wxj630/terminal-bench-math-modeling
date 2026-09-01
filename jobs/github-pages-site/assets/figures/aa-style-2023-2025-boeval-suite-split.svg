@@ -12,52 +12,56 @@
 <text x="72.0" y="168.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="650" fill="#777777">Diagnostic CUMCM/MCM split for baseline-relative gains; missing or final-error trials are assigned -100%.</text>
 <line x1="132.0" y1="800.0" x2="1672.0" y2="800.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="806.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-40%</text>
-<line x1="132.0" y1="716.7" x2="1672.0" y2="716.7" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
-<text x="114.0" y="722.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-30%</text>
-<line x1="132.0" y1="633.3" x2="1672.0" y2="633.3" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
-<text x="114.0" y="639.3" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-20%</text>
-<line x1="132.0" y1="550.0" x2="1672.0" y2="550.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
-<text x="114.0" y="556.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-10%</text>
-<line x1="132.0" y1="466.7" x2="1672.0" y2="466.7" stroke="#aaaaaa" stroke-width="1.4" />
-<text x="114.0" y="472.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">0%</text>
-<line x1="132.0" y1="383.3" x2="1672.0" y2="383.3" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
-<text x="114.0" y="389.3" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">10%</text>
+<line x1="132.0" y1="728.6" x2="1672.0" y2="728.6" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="734.6" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-30%</text>
+<line x1="132.0" y1="657.1" x2="1672.0" y2="657.1" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="663.1" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-20%</text>
+<line x1="132.0" y1="585.7" x2="1672.0" y2="585.7" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="591.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">-10%</text>
+<line x1="132.0" y1="514.3" x2="1672.0" y2="514.3" stroke="#aaaaaa" stroke-width="1.4" />
+<text x="114.0" y="520.3" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">0%</text>
+<line x1="132.0" y1="442.9" x2="1672.0" y2="442.9" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="448.9" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">10%</text>
+<line x1="132.0" y1="371.4" x2="1672.0" y2="371.4" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="377.4" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">20%</text>
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
-<text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">20%</text>
+<text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">30%</text>
 <text x="493.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">CUMCM</text>
-<rect x="132.0" y="371.7" width="79.8" height="95.0" fill="#2945d9" rx="5.0" />
-<text x="171.9" y="426.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">11</text>
-<rect x="223.8" y="430.0" width="79.8" height="36.7" fill="#6f6f6f" rx="5.0" />
-<text x="263.6" y="455.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">4</text>
-<rect x="315.5" y="339.6" width="79.8" height="127.0" fill="#202020" rx="5.0" />
-<text x="355.4" y="410.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">15</text>
-<rect x="407.2" y="407.3" width="79.8" height="59.4" fill="#1f83ff" rx="5.0" />
-<text x="447.1" y="444.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">7</text>
-<rect x="499.0" y="382.3" width="79.8" height="84.4" fill="#34a853" rx="5.0" />
-<text x="538.9" y="431.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">10</text>
-<rect x="590.8" y="388.3" width="79.8" height="78.3" fill="#7c3aed" rx="5.0" />
-<text x="630.6" y="434.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">9</text>
-<rect x="682.5" y="431.8" width="79.8" height="34.9" fill="#f59e0b" rx="5.0" />
-<text x="722.4" y="456.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">4</text>
-<rect x="774.2" y="466.7" width="79.8" height="149.9" fill="#0f766e" rx="5.0" />
-<text x="814.1" y="548.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">-18</text>
+<rect x="132.0" y="432.9" width="69.6" height="81.4" fill="#2945d9" rx="5.0" />
+<text x="166.8" y="480.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">11</text>
+<rect x="213.6" y="482.9" width="69.6" height="31.4" fill="#6f6f6f" rx="5.0" />
+<rect x="295.1" y="405.4" width="69.6" height="108.9" fill="#202020" rx="5.0" />
+<text x="329.9" y="466.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">15</text>
+<rect x="376.7" y="463.4" width="69.6" height="50.9" fill="#1f83ff" rx="5.0" />
+<text x="411.4" y="495.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">7</text>
+<rect x="458.2" y="442.0" width="69.6" height="72.3" fill="#34a853" rx="5.0" />
+<text x="493.0" y="485.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">10</text>
+<rect x="539.8" y="447.1" width="69.6" height="67.2" fill="#7c3aed" rx="5.0" />
+<text x="574.6" y="487.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">9</text>
+<rect x="621.3" y="484.4" width="69.6" height="29.9" fill="#f59e0b" rx="5.0" />
+<rect x="702.9" y="514.3" width="69.6" height="128.5" fill="#0f766e" rx="5.0" />
+<text x="737.7" y="585.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">-18</text>
+<rect x="784.4" y="438.3" width="69.6" height="76.0" fill="#dc2626" rx="5.0" />
+<text x="819.2" y="483.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">11</text>
 <text x="1311.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">MCM</text>
-<rect x="950.0" y="412.0" width="79.8" height="54.7" fill="#2945d9" rx="5.0" />
-<text x="989.9" y="446.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">7</text>
-<rect x="1041.8" y="373.0" width="79.8" height="93.6" fill="#6f6f6f" rx="5.0" />
-<text x="1081.6" y="426.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">11</text>
-<rect x="1133.5" y="399.1" width="79.8" height="67.6" fill="#202020" rx="5.0" />
-<text x="1173.4" y="439.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">8</text>
-<rect x="1225.2" y="341.2" width="79.8" height="125.4" fill="#1f83ff" rx="5.0" />
-<text x="1265.1" y="411.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">15</text>
-<rect x="1317.0" y="466.7" width="79.8" height="218.3" fill="#34a853" rx="5.0" />
-<text x="1356.9" y="582.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">-26</text>
-<rect x="1408.8" y="360.2" width="79.8" height="106.4" fill="#7c3aed" rx="5.0" />
-<text x="1448.6" y="420.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">13</text>
-<rect x="1500.5" y="343.6" width="79.8" height="123.1" fill="#f59e0b" rx="5.0" />
-<text x="1540.4" y="412.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">15</text>
-<rect x="1592.2" y="408.3" width="79.8" height="58.3" fill="#0f766e" rx="5.0" />
-<text x="1632.1" y="444.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">7</text>
+<rect x="950.0" y="467.4" width="69.6" height="46.9" fill="#2945d9" rx="5.0" />
+<text x="984.8" y="497.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">7</text>
+<rect x="1031.6" y="434.0" width="69.6" height="80.2" fill="#6f6f6f" rx="5.0" />
+<text x="1066.3" y="481.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">11</text>
+<rect x="1113.1" y="456.3" width="69.6" height="57.9" fill="#202020" rx="5.0" />
+<text x="1147.9" y="492.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">8</text>
+<rect x="1194.7" y="406.8" width="69.6" height="107.5" fill="#1f83ff" rx="5.0" />
+<text x="1229.4" y="467.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">15</text>
+<rect x="1276.2" y="514.3" width="69.6" height="187.1" fill="#34a853" rx="5.0" />
+<text x="1311.0" y="614.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">-26</text>
+<rect x="1357.8" y="423.1" width="69.6" height="91.2" fill="#7c3aed" rx="5.0" />
+<text x="1392.6" y="475.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">13</text>
+<rect x="1439.3" y="408.8" width="69.6" height="105.5" fill="#f59e0b" rx="5.0" />
+<text x="1474.1" y="468.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">15</text>
+<rect x="1520.9" y="464.3" width="69.6" height="50.0" fill="#0f766e" rx="5.0" />
+<text x="1555.7" y="496.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">7</text>
+<rect x="1602.4" y="374.8" width="69.6" height="139.5" fill="#dc2626" rx="5.0" />
+<text x="1637.2" y="451.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">20</text>
 <rect x="132.0" y="940.0" width="22.0" height="16.0" fill="#2945d9" rx="3.0" />
 <text x="164.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">DeepSeek V4 Pro</text>
 <rect x="492.0" y="940.0" width="22.0" height="16.0" fill="#6f6f6f" rx="3.0" />
@@ -73,4 +77,6 @@
 <rect x="852.0" y="982.0" width="22.0" height="16.0" fill="#f59e0b" rx="3.0" />
 <text x="884.0" y="998.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">GLM-5.3-Flash</text>
 <rect x="1212.0" y="982.0" width="22.0" height="16.0" fill="#0f766e" rx="3.0" />
-<text x="1244.0" y="998.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">Qwen3.8 Flash</text></svg>
+<text x="1244.0" y="998.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">Qwen3.8 Flash</text>
+<rect x="132.0" y="1024.0" width="22.0" height="16.0" fill="#dc2626" rx="3.0" />
+<text x="164.0" y="1040.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">Hy4 Preview</text></svg>

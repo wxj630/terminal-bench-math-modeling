@@ -1,0 +1,162 @@
+{
+  "models": {
+    "flash": {
+      "model_id": "deepseek/deepseek-v4-flash-0731",
+      "name": "DeepSeek: DeepSeek V4 Flash 0731",
+      "price_rmb_per_mtok": {
+        "input_cached": 0.10779219200000001,
+        "input_uncached": 0.43790578,
+        "output": 1.21266216
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.00000018",
+        "input_cache_read": "0.000000016",
+        "prompt": "0.000000065"
+      }
+    },
+    "gemini37flash": {
+      "model_id": "google/gemini-3.7-flash",
+      "name": "Google: Gemini 3.7 Flash",
+      "price_rmb_per_mtok": {
+        "explicit_cache_create": 0.2807088333333336,
+        "input_cached": 0.5052759,
+        "input_uncached": 5.052759,
+        "output": 25.263795000000002
+      },
+      "raw_pricing_usd_per_token": {
+        "audio": "0.00000075",
+        "completion": "0.00000375",
+        "image": "0.00000075",
+        "input_audio_cache": "0.000000075",
+        "input_cache_read": "0.000000075",
+        "input_cache_write": "0.0000000416666666666667",
+        "internal_reasoning": "0.00000375",
+        "prompt": "0.00000075",
+        "web_search": "0.014"
+      }
+    },
+    "glm": {
+      "model_id": "z-ai/glm-5.3",
+      "name": "Z.ai: GLM 5.3",
+      "price_rmb_per_mtok": {
+        "input_cached": 1.75162312,
+        "input_uncached": 9.4318168,
+        "output": 29.642852800000004
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.0000044",
+        "input_cache_read": "0.00000026",
+        "prompt": "0.0000014"
+      }
+    },
+    "gpt": {
+      "model_id": "openai/gpt-5.6-sol",
+      "name": "OpenAI: GPT-5.6 Sol",
+      "price_rmb_per_mtok": {
+        "explicit_cache_create": 16.84253,
+        "input_cached": 1.3474023999999998,
+        "input_uncached": 13.474024,
+        "output": 67.37012
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.00001",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.0000025",
+        "overrides": [
+          {
+            "completion": "0.000015",
+            "input_cache_read": "0.0000004",
+            "input_cache_write": "0.000005",
+            "min_prompt_tokens": 272000,
+            "prompt": "0.000004"
+          }
+        ],
+        "prompt": "0.000002",
+        "web_search": "0.01"
+      }
+    },
+    "hy4": {
+      "model_id": "tencent/hy4-preview",
+      "name": "Tencent: Hy4 preview",
+      "price_rmb_per_mtok": {
+        "input_cached": 0.282954504,
+        "input_uncached": 5.618668007999999,
+        "output": 16.849267012
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.000002501",
+        "input_cache_read": "0.000000042",
+        "prompt": "0.000000834"
+      }
+    },
+    "kimi": {
+      "model_id": "moonshotai/kimi-k3",
+      "name": "MoonshotAI: Kimi K3",
+      "price_rmb_per_mtok": {
+        "input_cached": 2.0211036,
+        "input_uncached": 20.211036,
+        "output": 101.05518000000001
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.000015",
+        "input_cache_read": "0.0000003",
+        "prompt": "0.000003"
+      }
+    },
+    "oxalpha": {
+      "model_id": "z-ai/glm-5.3-flash",
+      "name": "GLM-5.3-Flash (ox-alpha)",
+      "note": "User-supplied fixed snapshot",
+      "price_rmb_per_mtok": {
+        "input_cached": 0.10105518,
+        "input_uncached": 0.5052759,
+        "output": 1.684253
+      },
+      "raw_pricing_usd_per_token": null
+    },
+    "pro": {
+      "model_id": "deepseek/deepseek-v4-pro",
+      "name": "DeepSeek: DeepSeek V4 Pro 0423",
+      "price_rmb_per_mtok": {
+        "input_cached": 0.9094966200000001,
+        "input_uncached": 10.779219199999998,
+        "output": 21.558438399999996
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.0000032",
+        "input_cache_read": "0.000000135",
+        "prompt": "0.0000016"
+      }
+    },
+    "qwen": {
+      "model_id": "qwen/qwen3.8-27b",
+      "name": "Qwen: Qwen3.8 27B",
+      "price_rmb_per_mtok": {
+        "explicit_cache_create": 3.579037625,
+        "input_cached": 0.57264602,
+        "input_uncached": 2.8632301,
+        "output": 17.179380600000002
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.00000255",
+        "input_cache_read": "0.000000085",
+        "input_cache_write": "0.00000053125",
+        "prompt": "0.000000425"
+      }
+    },
+    "qwenflash": {
+      "model_id": "qwen/qwen3.8-flash",
+      "name": "Qwen3.8 Flash (Bailian)",
+      "note": "User-supplied fixed snapshot",
+      "price_rmb_per_mtok": {
+        "explicit_cache_create": 1.3474023999999998,
+        "input_cached": 0.10779219200000001,
+        "input_uncached": 1.0105518,
+        "output": 3.1663956399999997
+      },
+      "raw_pricing_usd_per_token": null
+    }
+  },
+  "source": "https://openrouter.ai/api/v1/models",
+  "usd_to_rmb": 6.737012
+}
