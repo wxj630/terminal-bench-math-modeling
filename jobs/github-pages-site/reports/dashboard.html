@@ -106,6 +106,8 @@
         <div class="meta"><a href="terminus2-direction-aware-flash-baseline-bbo-2023-2025.md">正式报告</a> · <a href="terminus2-bo-eval-plain-language-article-2023-2025.md">大白话</a> · <a href="terminus2-qwen27b-feasibility-audit-2023-2025.md">Qwen可行性</a></div>
       </div>
       <nav aria-label="Views"><button type="button" class="tab active" data-target="overview" aria-controls="overview" aria-selected="true">总览</button>
+<button type="button" class="tab" data-target="hard-gated-o-effect" aria-controls="hard-gated-o-effect" aria-selected="false">HardGate O效果</button>
+<button type="button" class="tab" data-target="hard-gated-o-score-cost" aria-controls="hard-gated-o-score-cost" aria-selected="false">HardGate O分数-cost</button>
 <button type="button" class="tab" data-target="o-effect" aria-controls="o-effect" aria-selected="false">O效果</button>
 <button type="button" class="tab" data-target="o-score-cost" aria-controls="o-score-cost" aria-selected="false">O分数-cost</button>
 <button type="button" class="tab" data-target="effect" aria-controls="effect" aria-selected="false">Robust效果</button>
@@ -121,6 +123,7 @@
   </header>
   <main class="shell">
     <section id="overview" class="panel active"><div class="metrics"><article class="metric"><span>最佳 O-Eval</span><strong>86.88%</strong><small>Kimi K3 · 主榜</small></article>
+<article class="metric"><span>最佳 HardGate O</span><strong>86.43%</strong><small>Tencent Hy4 Preview · 谨慎榜</small></article>
 <article class="metric"><span>最佳 Robust</span><strong>12.19%</strong><small>Kimi K3 · 辅助口径，冲突时让位 O-Eval</small></article>
 <article class="metric"><span>Qwen O-Eval</span><strong>75.45%</strong><small>¥189.88 · OpenRouter价/原始cache计数</small></article>
 <article class="metric"><span>Kimi O-Eval</span><strong>86.88%</strong><small>¥179.76</small></article>
@@ -129,8 +132,9 @@
 <p>最终主指标现在是 O-Eval：<code>模型 direction-aware raw / O raw</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；80% 就是平均有 O 奖锚点的八成左右。</p>
 <p>这也是为什么 O-Eval 和 Robust BO-Eval 会出现排序不一致：O-Eval 看的是离 O 有多近，Robust 看的是比 flash 多追回了多少。一个是绝对分，一个是相对进步分，所以它们是互补的，不是二选一。</p>
 <p>18 题总排名按 O-Eval 算是：Kimi K3 (86.88%) &gt; Hy4 Preview (86.52%) &gt; GPT-5.6 Sol (84.16%) &gt; Qwen3.8 27B (75.45%) &gt; ox-alpha (65.59%) &gt; v4 pro (61.87%) &gt; GLM-5.3 (59.82%) &gt; Gemini 3.7 Flash (57.86%) &gt; Qwen3.8 Flash (Bailian) (56.49%)。</p>
+<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (86.43%) &gt; GPT-5.6 Sol (83.77%) &gt; Qwen3.8 27B (75.06%) &gt; Kimi K3 (60.76%) &gt; v4 pro (60.56%) &gt; GLM-5.3 (59.12%) &gt; Gemini 3.7 Flash (56.59%) &gt; Qwen3.8 Flash (Bailian) (55.89%) &gt; ox-alpha (51.41%)。</p>
 <p>Robust BO-Eval 仍然保留做辅助解释：正常题用 <code>(模型 raw - flash raw) / (O raw - flash raw)</code>，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 <code>模型 raw - flash raw</code> 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。</p>
-<p>如果两个排名冲突，论文主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
+<p>如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
 <p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -138,7 +142,9 @@
 <th>artifacts</th>
 <th>平均 raw</th>
 <th>O-Eval 主分</th>
+<th>Hard-gated O-Eval</th>
 <th>Robust BO-Eval 辅助</th>
+<th>Hard-gated Robust</th>
 <th>tokens input/cache/output</th>
 <th>估算成本</th>
 </tr></thead><tbody>
@@ -147,6 +153,8 @@
 <td>17/18</td>
 <td>0.756518</td>
 <td>75.65%</td>
+<td>75.26%</td>
+<td>0.00%</td>
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
 <td>¥6.27</td>
@@ -156,7 +164,9 @@
 <td>18/18</td>
 <td>0.868798</td>
 <td>86.88%</td>
+<td>60.76%</td>
 <td>12.19%</td>
+<td>-11.64%</td>
 <td>30,146,116 / 28,928,953 / 956,805</td>
 <td>¥179.76</td>
 </tr>
@@ -165,7 +175,9 @@
 <td>18/18</td>
 <td>0.865183</td>
 <td>86.52%</td>
+<td>86.43%</td>
 <td>11.70%</td>
+<td>6.47%</td>
 <td>133,731,323 / 128,999,040 / 2,068,825</td>
 <td>¥97.95</td>
 </tr>
@@ -174,7 +186,9 @@
 <td>18/18</td>
 <td>0.841554</td>
 <td>84.16%</td>
+<td>83.77%</td>
 <td>8.08%</td>
+<td>2.53%</td>
 <td>8,774,606 / 7,566,848 / 497,473</td>
 <td>¥59.98</td>
 </tr>
@@ -183,7 +197,9 @@
 <td>18/18</td>
 <td>0.754457</td>
 <td>75.45%</td>
+<td>75.06%</td>
 <td>9.94%</td>
+<td>4.38%</td>
 <td>47,245,909 / 0 / 3,178,409</td>
 <td>¥189.88</td>
 </tr>
@@ -192,7 +208,9 @@
 <td>18/18</td>
 <td>0.655886</td>
 <td>65.59%</td>
+<td>51.41%</td>
 <td>-1.46%</td>
+<td>-7.19%</td>
 <td>107,726,029 / 101,466,688 / 3,683,366</td>
 <td>¥19.62</td>
 </tr>
@@ -201,7 +219,9 @@
 <td>18/18</td>
 <td>0.618719</td>
 <td>61.87%</td>
+<td>60.56%</td>
 <td>2.28%</td>
+<td>-4.26%</td>
 <td>21,309,105 / 20,096,768 / 1,748,356</td>
 <td>¥44.83</td>
 </tr>
@@ -210,7 +230,9 @@
 <td>18/18</td>
 <td>0.598189</td>
 <td>59.82%</td>
+<td>59.12%</td>
 <td>5.45%</td>
+<td>-0.43%</td>
 <td>92,056,972 / 89,637,696 / 2,638,779</td>
 <td>¥258.05</td>
 </tr>
@@ -219,7 +241,9 @@
 <td>15/18</td>
 <td>0.57861</td>
 <td>57.86%</td>
+<td>56.59%</td>
 <td>-14.37%</td>
+<td>-20.87%</td>
 <td>69,131,259 / 62,497,004 / 705,776</td>
 <td>¥82.93</td>
 </tr>
@@ -228,15 +252,231 @@
 <td>18/18</td>
 <td>0.564887</td>
 <td>56.49%</td>
+<td>55.89%</td>
 <td>-7.33%</td>
+<td>-13.12%</td>
 <td>299,616,972 / 293,563,264 / 6,814,374</td>
 <td>¥59.34</td>
+</tr>
+</tbody></table></div>
+<h2>温和版 hard-gated 怎么算</h2>
+<p>hard-gated 不是把所有可疑题都删掉。它只惩罚三类很硬的失败：第一，score_config 已经标出 <code>invalid_reason</code> 的硬无效字段；第二，独立重放后确定几何/物理结果为零的高分；第三，明显量纲越界或结构缺失但被开放式“越高越好”指标错误奖励的高分。</p>
+<p>被 hard gate 的格子，O-Eval 按 raw 0 进入 18 题平均；Robust BO-Eval 按 -100% 进入 18 题平均。只是 needs-review、proxy-score、还缺更强 replay verifier 的格子，先保留原分，但报告里会标注不能拿来 claim “强于 O”。</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>模型</th>
+<th>Hard-gated O-Eval</th>
+<th>Hard-gated Robust</th>
+<th>原始 O-Eval</th>
+<th>gate 数</th>
+<th>成本</th>
+</tr></thead><tbody>
+<tr>
+<td>Hy4 Preview</td>
+<td>86.43%</td>
+<td>6.47%</td>
+<td>86.52%</td>
+<td>1</td>
+<td>¥97.95</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>83.77%</td>
+<td>2.53%</td>
+<td>84.16%</td>
+<td>1</td>
+<td>¥59.98</td>
+</tr>
+<tr>
+<td>v4 flash</td>
+<td>75.26%</td>
+<td>0.00%</td>
+<td>75.65%</td>
+<td>1</td>
+<td>¥6.27</td>
+</tr>
+<tr>
+<td>Qwen3.8 27B</td>
+<td>75.06%</td>
+<td>4.38%</td>
+<td>75.45%</td>
+<td>1</td>
+<td>¥189.88</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>60.76%</td>
+<td>-11.64%</td>
+<td>86.88%</td>
+<td>3</td>
+<td>¥179.76</td>
+</tr>
+<tr>
+<td>v4 pro</td>
+<td>60.56%</td>
+<td>-4.26%</td>
+<td>61.87%</td>
+<td>1</td>
+<td>¥44.83</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td>59.12%</td>
+<td>-0.43%</td>
+<td>59.82%</td>
+<td>1</td>
+<td>¥258.05</td>
+</tr>
+<tr>
+<td>Gemini 3.7 Flash</td>
+<td>56.59%</td>
+<td>-20.87%</td>
+<td>57.86%</td>
+<td>1</td>
+<td>¥82.93</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td>55.89%</td>
+<td>-13.12%</td>
+<td>56.49%</td>
+<td>1</td>
+<td>¥59.34</td>
+</tr>
+<tr>
+<td>ox-alpha</td>
+<td>51.41%</td>
+<td>-7.19%</td>
+<td>65.59%</td>
+<td>1</td>
+<td>¥19.62</td>
+</tr>
+</tbody></table></div>
+<p>这版最大的变化是：Kimi K3 的朱诺旅游和奥运教练效应高分被扣掉，ox-alpha 的烟幕高分被扣掉；七鳃鳗里凡是把原始种群量写成 0-1 归一化指数的格子，也按整题不可行处理。</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>模型</th>
+<th>赛题</th>
+<th>原 O-Eval</th>
+<th>gated O-Eval</th>
+<th>原 Robust</th>
+<th>gated Robust</th>
+<th>原因</th>
+</tr></thead><tbody>
+<tr>
+<td>ox-alpha</td>
+<td><code>cumcm-2025-a-smoke-screen</code></td>
+<td>255.27%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>-100.00%</td>
+<td>independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry</td>
+</tr>
+<tr>
+<td>v4 flash</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>24.67%</td>
+<td>0.00%</td>
+<td>18.99%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Hy4 Preview</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>1.56%</td>
+<td>0.00%</td>
+<td>-5.87%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Qwen3.8 27B</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>v4 pro</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>23.53%</td>
+<td>0.00%</td>
+<td>17.76%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>12.50%</td>
+<td>0.00%</td>
+<td>5.90%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Gemini 3.7 Flash</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>22.90%</td>
+<td>0.00%</td>
+<td>17.08%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>10.81%</td>
+<td>0.00%</td>
+<td>4.08%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2025-b-juneau-tourism</code></td>
+<td>146.01%</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>-100.00%</td>
+<td>unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2025-c-olympic-medals</code></td>
+<td>299.55%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>-100.00%</td>
+<td>invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0</td>
 </tr>
 </tbody></table></div></section><section class="prose mini"><h1>O-Eval and Robust BO-Eval: 2023-2025</h1>
 <p>Generated: 2026-09-02</p>
 <p>Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.</p>
 <p>Primary O-Eval rule: <code>model direction-aware raw / O raw</code>, averaged over all 18 tasks. Since the O-award reproduction is normalized near raw=1 on these tasks, O-Eval is the easiest-to-read absolute oracle-normalized score.</p>
 <p>Secondary Robust BO-Eval rule: let <code>gain = model raw - flash raw</code> and <code>gap = O raw - flash raw</code>. If <code>gap &gt;= 0.10</code>, score <code>clip(gain / gap, -100%, +100%)</code>; otherwise score <code>clip(gain, -10pp, +10pp)</code>. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned <code>-100%</code> so a completely unfinished task gets the worst possible score.</p>
+<p>Tempered hard-gated rule: only clearly non-feasible cells are whole-task penalized. Automatic scorer hard-invalid metrics and manually replay-proven invalid high-score cells receive gated raw <code>0</code> for O-Eval and <code>-100%</code> for Robust BO-Eval. Needs-review/proxy cells remain scored but are not used as stronger-than-O claims without a better replay verifier.</p>
 <p>Robust ratio tasks with gap &gt;= 0.10: 12. Saturated or near-zero-gap tasks using clipped B-Eval: 6.</p>
 <h2>Overall Mean</h2>
 <div class="table-wrap"><table>
@@ -395,11 +635,101 @@
 <td>0</td>
 </tr>
 </tbody></table></div>
-<h2>Primary Readout</h2></section></div></section><section id="o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-bar.png" alt="O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-bar.png">aa-style-2023-2025-o-eval-bar.png</a></figcaption></figure></section><section id="o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-cost-scatter.png" alt="O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-cost-scatter.png">aa-style-2023-2025-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-effect-bar.png" alt="Robust效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-effect-bar.png">aa-style-2023-2025-boeval-effect-bar.png</a></figcaption></figure></section><section id="score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-score-cost.png" alt="Robust分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-score-cost.png">aa-style-2023-2025-boeval-score-cost.png</a></figcaption></figure></section><section id="tokens" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-token-usage.png" alt="Token" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-token-usage.png">aa-style-2023-2025-token-usage.png</a></figcaption></figure></section><section id="cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-cost.png" alt="成本" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-cost.png">aa-style-2023-2025-cost.png</a></figcaption></figure></section><section id="year" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-year-split.png" alt="O年份" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-year-split.png">aa-style-2023-2025-o-eval-year-split.png</a></figcaption></figure></section><section id="suite" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-suite-split.png" alt="O赛制" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-suite-split.png">aa-style-2023-2025-o-eval-suite-split.png</a></figcaption></figure></section><section id="qwen-audit" class="panel prose"><h1>Qwen3.8-27B-FP8 Thinking Feasibility Audit: 2023-2025</h1>
+<h2>Tempered Hard-Gated Leaderboard</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Rank</th>
+<th>Model</th>
+<th>Hard-gated O-Eval</th>
+<th>Hard-gated Robust BO-Eval</th>
+<th>Original O-Eval</th>
+<th>Original Robust BO-Eval</th>
+<th>Hard-gated raw mean</th>
+<th>Hard gates</th>
+<th>Est. cost RMB</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Tencent Hy4 Preview</td>
+<td>86.43%</td>
+<td>6.47%</td>
+<td>86.52%</td>
+<td>11.70%</td>
+<td>0.864318</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥97.95</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GPT-5.6 SOL high</td>
+<td>83.77%</td>
+<td>2.53%</td>
+<td>84.16%</td>
+<td>8.08%</td>
+<td>0.837656</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥59.98</td>
+</tr>
+<tr>
+<td>3</td>
+<td>v4 flash baseline</td>
+<td>75.26%</td>
+<td>0.00%</td>
+<td>75.65%</td>
+<td>0.00%</td>
+<td>0.752619</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥6.27</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Qwen3.8-27B-FP8 thinking</td>
+<td>75.06%</td>
+<td>4.38%</td>
+<td>75.45%</td>
+<td>9.94%</td>
+<td>0.750559</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥189.88</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kimi K3</td>
+<td>60.76%</td>
+<td>-11.64%</td>
+<td>86.88%</td>
+<td>12.19%</td>
+<td>0.607556</td>
+<td>3: <code>mcm-2024-a-lamprey</code>, <code>mcm-2025-b-juneau-tourism</code>, <code>mcm-2025-c-olympic-medals</code></td>
+<td>¥179.76</td>
+</tr>
+<tr>
+<td>6</td>
+<td>v4 pro</td>
+<td>60.56%</td>
+<td>-4.26%</td>
+<td>61.87%</td>
+<td>2.28%</td>
+<td>0.605647</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥44.83</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GLM-5.3</td>
+<td>59.12%</td>
+<td>-0.43%</td>
+<td>59.82%</td>
+<td>5.45%</td>
+<td>0.591244</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥258.05</td>
+</tr>
+</tbody></table></div></section></div></section><section id="hard-gated-o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png" alt="HardGate O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png">aa-style-2023-2025-hard-gated-o-eval-bar.png</a></figcaption></figure></section><section id="hard-gated-o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png" alt="HardGate O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png">aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-bar.png" alt="O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-bar.png">aa-style-2023-2025-o-eval-bar.png</a></figcaption></figure></section><section id="o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-cost-scatter.png" alt="O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-cost-scatter.png">aa-style-2023-2025-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-effect-bar.png" alt="Robust效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-effect-bar.png">aa-style-2023-2025-boeval-effect-bar.png</a></figcaption></figure></section><section id="score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-score-cost.png" alt="Robust分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-score-cost.png">aa-style-2023-2025-boeval-score-cost.png</a></figcaption></figure></section><section id="tokens" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-token-usage.png" alt="Token" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-token-usage.png">aa-style-2023-2025-token-usage.png</a></figcaption></figure></section><section id="cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-cost.png" alt="成本" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-cost.png">aa-style-2023-2025-cost.png</a></figcaption></figure></section><section id="year" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-year-split.png" alt="O年份" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-year-split.png">aa-style-2023-2025-o-eval-year-split.png</a></figcaption></figure></section><section id="suite" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-suite-split.png" alt="O赛制" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-suite-split.png">aa-style-2023-2025-o-eval-suite-split.png</a></figcaption></figure></section><section id="qwen-audit" class="panel prose"><h1>Qwen3.8-27B-FP8 Thinking Feasibility Audit: 2023-2025</h1>
 <p>Generated: 2026-09-02</p>
 <p>Scope: Qwen3.8-27B-FP8 thinking artifacts for all 18 terminal-bench-math-modeling tasks. This audit checks saved JSON artifacts against the current task score_config hard validity gates and review-warning heuristics. It does not independently rerun every mathematical model from raw data.</p>
 <h2>Verdict</h2>
-<ul><li>Artifacts: 18/18 present and parseable.</li><li>Scored fields: 60/60 present and numeric.</li><li>Hard-invalid tasks: 1 task, with 2 invalid metrics.</li><li>Needs-review tasks: 1 task, with 2 scale-warning metrics.</li><li>Score-config-clean tasks: 16 tasks.</li><li>Bottom line: Qwen&#x27;s Robust BO-Eval is 9.94% after denominator and outlier clipping. It is not safe to call all 18 answers feasible: MCM 2024 A is hard-invalid under the current scorer, and MCM 2023 B has a strong grid-scale mismatch warning.</li></ul>
+<ul><li>Artifacts: 18/18 present and parseable.</li><li>Scored fields: 60/60 present and numeric.</li><li>Hard-invalid tasks: 1 task, with 2 invalid metrics.</li><li>Needs-review tasks: 1 task, with 2 scale-warning metrics.</li><li>Score-config-clean tasks: 16 tasks.</li><li>Bottom line: Qwen&#x27;s original O-Eval is 75.45% and original Robust BO-Eval is 9.94%. Under the tempered hard-gated public view, Qwen becomes 75.06% hard-gated O-Eval and 4.38% hard-gated Robust BO-Eval.</li><li>It is not safe to call all 18 answers feasible: MCM 2024 A is hard-invalid under the current scorer, and MCM 2023 B has a strong grid-scale mismatch warning.</li></ul>
 <h2>Strict Rejudge</h2>
 <p>If hard-invalid tasks are treated as whole-task zero instead of letting still-valid fields contribute, the overall mean barely moves because the worst task was already clipped to 0. Robust BO-Eval still moves because invalid tasks remain negative or capped instead of disappearing.</p>
 <div class="table-wrap"><table>
@@ -418,6 +748,13 @@
 <td>none</td>
 </tr>
 <tr>
+<td>Tempered hard-gated leaderboard</td>
+<td>0.750559</td>
+<td>N/A</td>
+<td>4.38%</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+</tr>
+<tr>
 <td>Hard-invalid tasks as whole-task zero</td>
 <td>0.750559</td>
 <td>-0.60 pp</td>
@@ -432,7 +769,7 @@
 <td><code>mcm-2023-b-maasai-mara</code>, <code>mcm-2024-a-lamprey</code></td>
 </tr>
 </tbody></table></div>
-<p>Interpretation: the old ratio-style comparator can hide bad tasks because it clips negative recovery to 0 or drops denominator-failed tasks. The final leaderboard now uses Robust BO-Eval, so invalid/review tasks reduce Qwen&#x27;s average while tiny-denominator wins are capped.</p>
+<p>Interpretation: the old ratio-style comparator can hide bad tasks because it clips negative recovery to 0 or drops denominator-failed tasks. The public report now keeps O-Eval as the main score and adds a tempered hard-gated view, so clearly invalid tasks reduce Qwen&#x27;s average while tiny-denominator wins are capped.</p>
 <h2>Why High-Score Tasks Look High</h2>
 <ul><li>CUMCM 2023 A heliostat: no hard warnings. The artifact claims a 60.08 MW Q3 design with fewer mirrors and smaller area than the O reference, so direction-aware scoring rewards it above O on efficiency/area/count while keeping thermal power close to the 60 MW target.</li><li>CUMCM 2025 A smoke screen: no score-config warning. A basic operational schedule check for Q5 passed. The big BO-Eval comes from reported M2/M3/total shielding durations far above the O reference.</li><li>These checks still rely on the artifact&#x27;s reported final numbers. A stronger audit would rerun each artifact&#x27;s generation code or reconstruct each physics/optimization model from raw files.</li></ul>
 <h2>Smoke-Screen Basic Schedule Check</h2>
@@ -722,6 +1059,7 @@
 <p>Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.</p>
 <p>Primary O-Eval rule: <code>model direction-aware raw / O raw</code>, averaged over all 18 tasks. Since the O-award reproduction is normalized near raw=1 on these tasks, O-Eval is the easiest-to-read absolute oracle-normalized score.</p>
 <p>Secondary Robust BO-Eval rule: let <code>gain = model raw - flash raw</code> and <code>gap = O raw - flash raw</code>. If <code>gap &gt;= 0.10</code>, score <code>clip(gain / gap, -100%, +100%)</code>; otherwise score <code>clip(gain, -10pp, +10pp)</code>. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned <code>-100%</code> so a completely unfinished task gets the worst possible score.</p>
+<p>Tempered hard-gated rule: only clearly non-feasible cells are whole-task penalized. Automatic scorer hard-invalid metrics and manually replay-proven invalid high-score cells receive gated raw <code>0</code> for O-Eval and <code>-100%</code> for Robust BO-Eval. Needs-review/proxy cells remain scored but are not used as stronger-than-O claims without a better replay verifier.</p>
 <p>Robust ratio tasks with gap &gt;= 0.10: 12. Saturated or near-zero-gap tasks using clipped B-Eval: 6.</p>
 <h2>Overall Mean</h2>
 <div class="table-wrap"><table>
@@ -880,8 +1218,278 @@
 <td>0</td>
 </tr>
 </tbody></table></div>
+<h2>Tempered Hard-Gated Leaderboard</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Rank</th>
+<th>Model</th>
+<th>Hard-gated O-Eval</th>
+<th>Hard-gated Robust BO-Eval</th>
+<th>Original O-Eval</th>
+<th>Original Robust BO-Eval</th>
+<th>Hard-gated raw mean</th>
+<th>Hard gates</th>
+<th>Est. cost RMB</th>
+</tr></thead><tbody>
+<tr>
+<td>1</td>
+<td>Tencent Hy4 Preview</td>
+<td>86.43%</td>
+<td>6.47%</td>
+<td>86.52%</td>
+<td>11.70%</td>
+<td>0.864318</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥97.95</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GPT-5.6 SOL high</td>
+<td>83.77%</td>
+<td>2.53%</td>
+<td>84.16%</td>
+<td>8.08%</td>
+<td>0.837656</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥59.98</td>
+</tr>
+<tr>
+<td>3</td>
+<td>v4 flash baseline</td>
+<td>75.26%</td>
+<td>0.00%</td>
+<td>75.65%</td>
+<td>0.00%</td>
+<td>0.752619</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥6.27</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Qwen3.8-27B-FP8 thinking</td>
+<td>75.06%</td>
+<td>4.38%</td>
+<td>75.45%</td>
+<td>9.94%</td>
+<td>0.750559</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥189.88</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Kimi K3</td>
+<td>60.76%</td>
+<td>-11.64%</td>
+<td>86.88%</td>
+<td>12.19%</td>
+<td>0.607556</td>
+<td>3: <code>mcm-2024-a-lamprey</code>, <code>mcm-2025-b-juneau-tourism</code>, <code>mcm-2025-c-olympic-medals</code></td>
+<td>¥179.76</td>
+</tr>
+<tr>
+<td>6</td>
+<td>v4 pro</td>
+<td>60.56%</td>
+<td>-4.26%</td>
+<td>61.87%</td>
+<td>2.28%</td>
+<td>0.605647</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥44.83</td>
+</tr>
+<tr>
+<td>7</td>
+<td>GLM-5.3</td>
+<td>59.12%</td>
+<td>-0.43%</td>
+<td>59.82%</td>
+<td>5.45%</td>
+<td>0.591244</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥258.05</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Gemini 3.7 Flash high primary+retry</td>
+<td>56.59%</td>
+<td>-20.87%</td>
+<td>57.86%</td>
+<td>-14.37%</td>
+<td>0.565890</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥82.93</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td>55.89%</td>
+<td>-13.12%</td>
+<td>56.49%</td>
+<td>-7.33%</td>
+<td>0.558881</td>
+<td>1: <code>mcm-2024-a-lamprey</code></td>
+<td>¥59.34</td>
+</tr>
+<tr>
+<td>10</td>
+<td>GLM-5.3-Flash (ox-alpha)</td>
+<td>51.41%</td>
+<td>-7.19%</td>
+<td>65.59%</td>
+<td>-1.46%</td>
+<td>0.514071</td>
+<td>1: <code>cumcm-2025-a-smoke-screen</code></td>
+<td>¥19.62</td>
+</tr>
+</tbody></table></div>
+<h2>Hard Gate Decisions</h2>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>Model</th>
+<th>Task</th>
+<th>Raw before gate</th>
+<th>Gated raw</th>
+<th>O-Eval before</th>
+<th>Hard-gated O-Eval</th>
+<th>Robust before</th>
+<th>Hard-gated Robust</th>
+<th>Reason</th>
+</tr></thead><tbody>
+<tr>
+<td>GLM-5.3-Flash (ox-alpha)</td>
+<td><code>cumcm-2025-a-smoke-screen</code></td>
+<td>2.552664</td>
+<td>0.000000</td>
+<td>255.27%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>-100.00%</td>
+<td>independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry</td>
+</tr>
+<tr>
+<td>v4 flash baseline</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.070175</td>
+<td>0.000000</td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>v4 pro</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.235294</td>
+<td>0.000000</td>
+<td>23.53%</td>
+<td>0.00%</td>
+<td>17.76%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.125000</td>
+<td>0.000000</td>
+<td>12.50%</td>
+<td>0.00%</td>
+<td>5.90%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>GPT-5.6 SOL high</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.070175</td>
+<td>0.000000</td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.246711</td>
+<td>0.000000</td>
+<td>24.67%</td>
+<td>0.00%</td>
+<td>18.99%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Gemini 3.7 Flash high primary+retry</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.228957</td>
+<td>0.000000</td>
+<td>22.90%</td>
+<td>0.00%</td>
+<td>17.08%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Qwen3.8-27B-FP8 thinking</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.070175</td>
+<td>0.000000</td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.108108</td>
+<td>0.000000</td>
+<td>10.81%</td>
+<td>0.00%</td>
+<td>4.08%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Tencent Hy4 Preview</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>0.015564</td>
+<td>0.000000</td>
+<td>1.56%</td>
+<td>0.00%</td>
+<td>-5.87%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2025-b-juneau-tourism</code></td>
+<td>1.460140</td>
+<td>0.000000</td>
+<td>146.01%</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>-100.00%</td>
+<td>unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2025-c-olympic-medals</code></td>
+<td>2.995504</td>
+<td>0.000000</td>
+<td>299.55%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>-100.00%</td>
+<td>invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0</td>
+</tr>
+</tbody></table></div>
 <h2>Primary Readout</h2>
-<ul><li>18-task primary O-Eval ranking: Kimi K3 (86.88%) &gt; Tencent Hy4 Preview (86.52%) &gt; GPT-5.6 SOL high (84.16%) &gt; Qwen3.8-27B-FP8 thinking (75.45%) &gt; GLM-5.3-Flash (ox-alpha) (65.59%) &gt; v4 pro (61.87%) &gt; GLM-5.3 (59.82%) &gt; Gemini 3.7 Flash high primary+retry (57.86%) &gt; Qwen3.8 Flash (Bailian) (56.49%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
+<ul><li>18-task primary O-Eval ranking: Kimi K3 (86.88%) &gt; Tencent Hy4 Preview (86.52%) &gt; GPT-5.6 SOL high (84.16%) &gt; Qwen3.8-27B-FP8 thinking (75.45%) &gt; GLM-5.3-Flash (ox-alpha) (65.59%) &gt; v4 pro (61.87%) &gt; GLM-5.3 (59.82%) &gt; Gemini 3.7 Flash high primary+retry (57.86%) &gt; Qwen3.8 Flash (Bailian) (56.49%).</li><li>Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (86.43%) &gt; GPT-5.6 SOL high (83.77%) &gt; Qwen3.8-27B-FP8 thinking (75.06%) &gt; Kimi K3 (60.76%) &gt; v4 pro (60.56%) &gt; GLM-5.3 (59.12%) &gt; Gemini 3.7 Flash high primary+retry (56.59%) &gt; Qwen3.8 Flash (Bailian) (55.89%) &gt; GLM-5.3-Flash (ox-alpha) (51.41%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%).</li><li>Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (6.47%) &gt; Qwen3.8-27B-FP8 thinking (4.38%) &gt; GPT-5.6 SOL high (2.53%) &gt; GLM-5.3 (-0.43%) &gt; v4 pro (-4.26%) &gt; GLM-5.3-Flash (ox-alpha) (-7.19%) &gt; Kimi K3 (-11.64%) &gt; Qwen3.8 Flash (Bailian) (-13.12%) &gt; Gemini 3.7 Flash high primary+retry (-20.87%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
 <h2>Price Table</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -985,7 +1593,7 @@
 </tr>
 </tbody></table></div>
 <h2>Figures</h2>
-<ul><li>Clickable dashboard: <code>terminus2-bo-eval-aa-dashboard-2023-2025.html</code></li><li>Qwen feasibility audit: <code>terminus2-qwen27b-feasibility-audit-2023-2025.md</code></li><li>O-Eval effect: <code>figures/aa-style-2023-2025-o-eval-bar.png</code></li><li>O-Eval score-cost: <code>figures/aa-style-2023-2025-o-eval-cost-scatter.png</code></li><li>Robust BO-Eval effect: <code>figures/aa-style-2023-2025-boeval-effect-bar.png</code></li><li>Robust BO-Eval score-cost: <code>figures/aa-style-2023-2025-boeval-score-cost.png</code></li><li>Token usage: <code>figures/aa-style-2023-2025-token-usage.png</code></li><li>Cost: <code>figures/aa-style-2023-2025-cost.png</code></li><li>O-Eval year split: <code>figures/aa-style-2023-2025-o-eval-year-split.png</code></li><li>O-Eval suite split: <code>figures/aa-style-2023-2025-o-eval-suite-split.png</code></li><li>Diagnostic Robust BO-Eval year split: <code>figures/aa-style-2023-2025-boeval-year-split.png</code></li><li>Diagnostic Robust BO-Eval suite split: <code>figures/aa-style-2023-2025-boeval-suite-split.png</code></li></ul>
+<ul><li>Clickable dashboard: <code>terminus2-bo-eval-aa-dashboard-2023-2025.html</code></li><li>Qwen feasibility audit: <code>terminus2-qwen27b-feasibility-audit-2023-2025.md</code></li><li>Hard-gated O-Eval effect: <code>figures/aa-style-2023-2025-hard-gated-o-eval-bar.png</code></li><li>Hard-gated O-Eval score-cost: <code>figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png</code></li><li>O-Eval effect: <code>figures/aa-style-2023-2025-o-eval-bar.png</code></li><li>O-Eval score-cost: <code>figures/aa-style-2023-2025-o-eval-cost-scatter.png</code></li><li>Robust BO-Eval effect: <code>figures/aa-style-2023-2025-boeval-effect-bar.png</code></li><li>Robust BO-Eval score-cost: <code>figures/aa-style-2023-2025-boeval-score-cost.png</code></li><li>Token usage: <code>figures/aa-style-2023-2025-token-usage.png</code></li><li>Cost: <code>figures/aa-style-2023-2025-cost.png</code></li><li>O-Eval year split: <code>figures/aa-style-2023-2025-o-eval-year-split.png</code></li><li>O-Eval suite split: <code>figures/aa-style-2023-2025-o-eval-suite-split.png</code></li><li>Diagnostic Robust BO-Eval year split: <code>figures/aa-style-2023-2025-boeval-year-split.png</code></li><li>Diagnostic Robust BO-Eval suite split: <code>figures/aa-style-2023-2025-boeval-suite-split.png</code></li></ul>
 <h2>Year Mean O-Eval</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -1655,8 +2263,9 @@
 <p>最终主指标现在是 O-Eval：<code>模型 direction-aware raw / O raw</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；80% 就是平均有 O 奖锚点的八成左右。</p>
 <p>这也是为什么 O-Eval 和 Robust BO-Eval 会出现排序不一致：O-Eval 看的是离 O 有多近，Robust 看的是比 flash 多追回了多少。一个是绝对分，一个是相对进步分，所以它们是互补的，不是二选一。</p>
 <p>18 题总排名按 O-Eval 算是：Kimi K3 (86.88%) &gt; Hy4 Preview (86.52%) &gt; GPT-5.6 Sol (84.16%) &gt; Qwen3.8 27B (75.45%) &gt; ox-alpha (65.59%) &gt; v4 pro (61.87%) &gt; GLM-5.3 (59.82%) &gt; Gemini 3.7 Flash (57.86%) &gt; Qwen3.8 Flash (Bailian) (56.49%)。</p>
+<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (86.43%) &gt; GPT-5.6 Sol (83.77%) &gt; Qwen3.8 27B (75.06%) &gt; Kimi K3 (60.76%) &gt; v4 pro (60.56%) &gt; GLM-5.3 (59.12%) &gt; Gemini 3.7 Flash (56.59%) &gt; Qwen3.8 Flash (Bailian) (55.89%) &gt; ox-alpha (51.41%)。</p>
 <p>Robust BO-Eval 仍然保留做辅助解释：正常题用 <code>(模型 raw - flash raw) / (O raw - flash raw)</code>，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 <code>模型 raw - flash raw</code> 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。</p>
-<p>如果两个排名冲突，论文主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
+<p>如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
 <p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -1664,7 +2273,9 @@
 <th>artifacts</th>
 <th>平均 raw</th>
 <th>O-Eval 主分</th>
+<th>Hard-gated O-Eval</th>
 <th>Robust BO-Eval 辅助</th>
+<th>Hard-gated Robust</th>
 <th>tokens input/cache/output</th>
 <th>估算成本</th>
 </tr></thead><tbody>
@@ -1673,6 +2284,8 @@
 <td>17/18</td>
 <td>0.756518</td>
 <td>75.65%</td>
+<td>75.26%</td>
+<td>0.00%</td>
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
 <td>¥6.27</td>
@@ -1682,7 +2295,9 @@
 <td>18/18</td>
 <td>0.868798</td>
 <td>86.88%</td>
+<td>60.76%</td>
 <td>12.19%</td>
+<td>-11.64%</td>
 <td>30,146,116 / 28,928,953 / 956,805</td>
 <td>¥179.76</td>
 </tr>
@@ -1691,7 +2306,9 @@
 <td>18/18</td>
 <td>0.865183</td>
 <td>86.52%</td>
+<td>86.43%</td>
 <td>11.70%</td>
+<td>6.47%</td>
 <td>133,731,323 / 128,999,040 / 2,068,825</td>
 <td>¥97.95</td>
 </tr>
@@ -1700,7 +2317,9 @@
 <td>18/18</td>
 <td>0.841554</td>
 <td>84.16%</td>
+<td>83.77%</td>
 <td>8.08%</td>
+<td>2.53%</td>
 <td>8,774,606 / 7,566,848 / 497,473</td>
 <td>¥59.98</td>
 </tr>
@@ -1709,7 +2328,9 @@
 <td>18/18</td>
 <td>0.754457</td>
 <td>75.45%</td>
+<td>75.06%</td>
 <td>9.94%</td>
+<td>4.38%</td>
 <td>47,245,909 / 0 / 3,178,409</td>
 <td>¥189.88</td>
 </tr>
@@ -1718,7 +2339,9 @@
 <td>18/18</td>
 <td>0.655886</td>
 <td>65.59%</td>
+<td>51.41%</td>
 <td>-1.46%</td>
+<td>-7.19%</td>
 <td>107,726,029 / 101,466,688 / 3,683,366</td>
 <td>¥19.62</td>
 </tr>
@@ -1727,7 +2350,9 @@
 <td>18/18</td>
 <td>0.618719</td>
 <td>61.87%</td>
+<td>60.56%</td>
 <td>2.28%</td>
+<td>-4.26%</td>
 <td>21,309,105 / 20,096,768 / 1,748,356</td>
 <td>¥44.83</td>
 </tr>
@@ -1736,7 +2361,9 @@
 <td>18/18</td>
 <td>0.598189</td>
 <td>59.82%</td>
+<td>59.12%</td>
 <td>5.45%</td>
+<td>-0.43%</td>
 <td>92,056,972 / 89,637,696 / 2,638,779</td>
 <td>¥258.05</td>
 </tr>
@@ -1745,7 +2372,9 @@
 <td>15/18</td>
 <td>0.57861</td>
 <td>57.86%</td>
+<td>56.59%</td>
 <td>-14.37%</td>
+<td>-20.87%</td>
 <td>69,131,259 / 62,497,004 / 705,776</td>
 <td>¥82.93</td>
 </tr>
@@ -1754,13 +2383,231 @@
 <td>18/18</td>
 <td>0.564887</td>
 <td>56.49%</td>
+<td>55.89%</td>
 <td>-7.33%</td>
+<td>-13.12%</td>
 <td>299,616,972 / 293,563,264 / 6,814,374</td>
 <td>¥59.34</td>
 </tr>
 </tbody></table></div>
+<h2>温和版 hard-gated 怎么算</h2>
+<p>hard-gated 不是把所有可疑题都删掉。它只惩罚三类很硬的失败：第一，score_config 已经标出 <code>invalid_reason</code> 的硬无效字段；第二，独立重放后确定几何/物理结果为零的高分；第三，明显量纲越界或结构缺失但被开放式“越高越好”指标错误奖励的高分。</p>
+<p>被 hard gate 的格子，O-Eval 按 raw 0 进入 18 题平均；Robust BO-Eval 按 -100% 进入 18 题平均。只是 needs-review、proxy-score、还缺更强 replay verifier 的格子，先保留原分，但报告里会标注不能拿来 claim “强于 O”。</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>模型</th>
+<th>Hard-gated O-Eval</th>
+<th>Hard-gated Robust</th>
+<th>原始 O-Eval</th>
+<th>gate 数</th>
+<th>成本</th>
+</tr></thead><tbody>
+<tr>
+<td>Hy4 Preview</td>
+<td>86.43%</td>
+<td>6.47%</td>
+<td>86.52%</td>
+<td>1</td>
+<td>¥97.95</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td>83.77%</td>
+<td>2.53%</td>
+<td>84.16%</td>
+<td>1</td>
+<td>¥59.98</td>
+</tr>
+<tr>
+<td>v4 flash</td>
+<td>75.26%</td>
+<td>0.00%</td>
+<td>75.65%</td>
+<td>1</td>
+<td>¥6.27</td>
+</tr>
+<tr>
+<td>Qwen3.8 27B</td>
+<td>75.06%</td>
+<td>4.38%</td>
+<td>75.45%</td>
+<td>1</td>
+<td>¥189.88</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td>60.76%</td>
+<td>-11.64%</td>
+<td>86.88%</td>
+<td>3</td>
+<td>¥179.76</td>
+</tr>
+<tr>
+<td>v4 pro</td>
+<td>60.56%</td>
+<td>-4.26%</td>
+<td>61.87%</td>
+<td>1</td>
+<td>¥44.83</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td>59.12%</td>
+<td>-0.43%</td>
+<td>59.82%</td>
+<td>1</td>
+<td>¥258.05</td>
+</tr>
+<tr>
+<td>Gemini 3.7 Flash</td>
+<td>56.59%</td>
+<td>-20.87%</td>
+<td>57.86%</td>
+<td>1</td>
+<td>¥82.93</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td>55.89%</td>
+<td>-13.12%</td>
+<td>56.49%</td>
+<td>1</td>
+<td>¥59.34</td>
+</tr>
+<tr>
+<td>ox-alpha</td>
+<td>51.41%</td>
+<td>-7.19%</td>
+<td>65.59%</td>
+<td>1</td>
+<td>¥19.62</td>
+</tr>
+</tbody></table></div>
+<p>这版最大的变化是：Kimi K3 的朱诺旅游和奥运教练效应高分被扣掉，ox-alpha 的烟幕高分被扣掉；七鳃鳗里凡是把原始种群量写成 0-1 归一化指数的格子，也按整题不可行处理。</p>
+<div class="table-wrap"><table>
+<thead><tr>
+<th>模型</th>
+<th>赛题</th>
+<th>原 O-Eval</th>
+<th>gated O-Eval</th>
+<th>原 Robust</th>
+<th>gated Robust</th>
+<th>原因</th>
+</tr></thead><tbody>
+<tr>
+<td>ox-alpha</td>
+<td><code>cumcm-2025-a-smoke-screen</code></td>
+<td>255.27%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>-100.00%</td>
+<td>independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry</td>
+</tr>
+<tr>
+<td>v4 flash</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>24.67%</td>
+<td>0.00%</td>
+<td>18.99%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Hy4 Preview</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>1.56%</td>
+<td>0.00%</td>
+<td>-5.87%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Qwen3.8 27B</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>7.02%</td>
+<td>0.00%</td>
+<td>0.00%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>v4 pro</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>23.53%</td>
+<td>0.00%</td>
+<td>17.76%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>12.50%</td>
+<td>0.00%</td>
+<td>5.90%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Gemini 3.7 Flash</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>22.90%</td>
+<td>0.00%</td>
+<td>17.08%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td><code>mcm-2024-a-lamprey</code></td>
+<td>10.81%</td>
+<td>0.00%</td>
+<td>4.08%</td>
+<td>-100.00%</td>
+<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2025-b-juneau-tourism</code></td>
+<td>146.01%</td>
+<td>0.00%</td>
+<td>100.00%</td>
+<td>-100.00%</td>
+<td>unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>mcm-2025-c-olympic-medals</code></td>
+<td>299.55%</td>
+<td>0.00%</td>
+<td>10.00%</td>
+<td>-100.00%</td>
+<td>invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0</td>
+</tr>
+</tbody></table></div>
 <h2>图怎么读</h2>
-<p>第一张图看 O-Eval 主效果；第二张是 O-Eval 分数-cost 图：横轴是估算人民币成本，纵轴是 O-Eval，越靠左上越接近 O 奖、也越省钱。</p>
+<p>第一组图看温和版 hard-gated O-Eval：它回答“把明显不可行解扣掉以后，谁还稳”。Hy4 Preview 在这张榜上排第一，Kimi K3 因朱诺旅游和奥运教练效应两个高杠杆坏题明显下滑；ox-alpha 因烟幕几何重放为零，也从原 O-Eval 里掉下来。</p>
+<figure class="inline-figure"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png" alt="Hard-gated O-Eval 主效果柱状图" loading="lazy"></figure>
+<figure class="inline-figure"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png" alt="Hard-gated O-Eval vs Cost" loading="lazy"></figure>
+<p>第二组图看原始 O-Eval 主效果；它仍然有意义，因为它展示 verifier 当前定义下的可评分数值表现，但需要和 hard-gated 榜一起读。</p>
 <figure class="inline-figure"><img src="figures/aa-style-2023-2025-o-eval-bar.png" alt="O-Eval 主效果柱状图" loading="lazy"></figure>
 <figure class="inline-figure"><img src="figures/aa-style-2023-2025-o-eval-cost-scatter.png" alt="O-Eval vs Cost" loading="lazy"></figure>
 <p>Robust 图保留下来，用来看“相对 v4 flash baseline 的增益”是不是稳定；token 和成本图用来解释为什么同样分数会有不同价格。没有可评分 artifact 的 trial 现在按 -100% 记分，不会再被当成普通小分母题。</p>
@@ -5891,6 +6738,7 @@
 <h2>为什么排名会长这样</h2>
 <p>O-Eval 第一的是 Kimi K3，主分是 86.88%。这说明它在 18 题平均 raw 上最接近 O 奖复现锚点，不是靠某一道小分母题爆表冲上去。</p>
 <p>Robust 辅助第一的是 Kimi K3，辅助分是 12.19%。这个口径说明它在 flash 弱项上追回 gap 的能力强，但它不再是唯一主表，因为它仍然依赖 flash 和 O 之间那段尺子的形状。</p>
+<p>温和版 hard-gated 第一的是 Hy4 Preview，主分是 86.43%。这张榜不是新的数学分数，而是给公开解读加了一道保守阀门：明显不可行的高分不再继续抬平均数。</p>
 <p>GLM-5.3 和 v4 pro 的位置很接近，说明它们在 flash 弱项上整体有稳定增益；GPT-5.6 Sol high、Kimi K3、Qwen3.8 27B 都有强题，但 O-Eval 会把强题、弱题、缺失题放到同一张绝对成绩单里平均。</p>
 <p>Gemini 3.7 Flash 只有 15/18 个 artifact，所以缺失题按 raw 0 进入统计；这会直接压低它的 O-Eval 主分。</p>
 <p>所以这套结果要分三眼看：O-Eval 是最终主排名，Robust BO-Eval 是相对 flash 的辅助口径，score-cost 图再加一眼：同样的分，到底花了多少钱。</p></section>

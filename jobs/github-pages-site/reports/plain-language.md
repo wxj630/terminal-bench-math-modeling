@@ -14,28 +14,72 @@
 
 18 题总排名按 O-Eval 算是：Kimi K3 (86.88%) > Hy4 Preview (86.52%) > GPT-5.6 Sol (84.16%) > Qwen3.8 27B (75.45%) > ox-alpha (65.59%) > v4 pro (61.87%) > GLM-5.3 (59.82%) > Gemini 3.7 Flash (57.86%) > Qwen3.8 Flash (Bailian) (56.49%)。
 
+另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (86.43%) > GPT-5.6 Sol (83.77%) > Qwen3.8 27B (75.06%) > Kimi K3 (60.76%) > v4 pro (60.56%) > GLM-5.3 (59.12%) > Gemini 3.7 Flash (56.59%) > Qwen3.8 Flash (Bailian) (55.89%) > ox-alpha (51.41%)。
+
 Robust BO-Eval 仍然保留做辅助解释：正常题用 `(模型 raw - flash raw) / (O raw - flash raw)`，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 `模型 raw - flash raw` 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。
 
-如果两个排名冲突，论文主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。
+如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。
 
 按 Robust 辅助口径排序是：Kimi K3 (12.19%) > Hy4 Preview (11.70%) > Qwen3.8 27B (9.94%) > GPT-5.6 Sol (8.08%) > GLM-5.3 (5.45%) > v4 pro (2.28%) > ox-alpha (-1.46%) > Qwen3.8 Flash (Bailian) (-7.33%) > Gemini 3.7 Flash (-14.37%)。
 
-| 模型 | artifacts | 平均 raw | O-Eval 主分 | Robust BO-Eval 辅助 | tokens input/cache/output | 估算成本 |
-|---|---:|---:|---:|---:|---:|---:|
-| v4 flash | 17/18 | 0.756518 | 75.65% | 0.00% | 33,032,997 / 31,802,112 / 1,896,174 | ¥6.27 |
-| Kimi K3 | 18/18 | 0.868798 | 86.88% | 12.19% | 30,146,116 / 28,928,953 / 956,805 | ¥179.76 |
-| Hy4 Preview | 18/18 | 0.865183 | 86.52% | 11.70% | 133,731,323 / 128,999,040 / 2,068,825 | ¥97.95 |
-| GPT-5.6 Sol | 18/18 | 0.841554 | 84.16% | 8.08% | 8,774,606 / 7,566,848 / 497,473 | ¥59.98 |
-| Qwen3.8 27B | 18/18 | 0.754457 | 75.45% | 9.94% | 47,245,909 / 0 / 3,178,409 | ¥189.88 |
-| ox-alpha | 18/18 | 0.655886 | 65.59% | -1.46% | 107,726,029 / 101,466,688 / 3,683,366 | ¥19.62 |
-| v4 pro | 18/18 | 0.618719 | 61.87% | 2.28% | 21,309,105 / 20,096,768 / 1,748,356 | ¥44.83 |
-| GLM-5.3 | 18/18 | 0.598189 | 59.82% | 5.45% | 92,056,972 / 89,637,696 / 2,638,779 | ¥258.05 |
-| Gemini 3.7 Flash | 15/18 | 0.57861 | 57.86% | -14.37% | 69,131,259 / 62,497,004 / 705,776 | ¥82.93 |
-| Qwen3.8 Flash (Bailian) | 18/18 | 0.564887 | 56.49% | -7.33% | 299,616,972 / 293,563,264 / 6,814,374 | ¥59.34 |
+| 模型 | artifacts | 平均 raw | O-Eval 主分 | Hard-gated O-Eval | Robust BO-Eval 辅助 | Hard-gated Robust | tokens input/cache/output | 估算成本 |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| v4 flash | 17/18 | 0.756518 | 75.65% | 75.26% | 0.00% | 0.00% | 33,032,997 / 31,802,112 / 1,896,174 | ¥6.27 |
+| Kimi K3 | 18/18 | 0.868798 | 86.88% | 60.76% | 12.19% | -11.64% | 30,146,116 / 28,928,953 / 956,805 | ¥179.76 |
+| Hy4 Preview | 18/18 | 0.865183 | 86.52% | 86.43% | 11.70% | 6.47% | 133,731,323 / 128,999,040 / 2,068,825 | ¥97.95 |
+| GPT-5.6 Sol | 18/18 | 0.841554 | 84.16% | 83.77% | 8.08% | 2.53% | 8,774,606 / 7,566,848 / 497,473 | ¥59.98 |
+| Qwen3.8 27B | 18/18 | 0.754457 | 75.45% | 75.06% | 9.94% | 4.38% | 47,245,909 / 0 / 3,178,409 | ¥189.88 |
+| ox-alpha | 18/18 | 0.655886 | 65.59% | 51.41% | -1.46% | -7.19% | 107,726,029 / 101,466,688 / 3,683,366 | ¥19.62 |
+| v4 pro | 18/18 | 0.618719 | 61.87% | 60.56% | 2.28% | -4.26% | 21,309,105 / 20,096,768 / 1,748,356 | ¥44.83 |
+| GLM-5.3 | 18/18 | 0.598189 | 59.82% | 59.12% | 5.45% | -0.43% | 92,056,972 / 89,637,696 / 2,638,779 | ¥258.05 |
+| Gemini 3.7 Flash | 15/18 | 0.57861 | 57.86% | 56.59% | -14.37% | -20.87% | 69,131,259 / 62,497,004 / 705,776 | ¥82.93 |
+| Qwen3.8 Flash (Bailian) | 18/18 | 0.564887 | 56.49% | 55.89% | -7.33% | -13.12% | 299,616,972 / 293,563,264 / 6,814,374 | ¥59.34 |
+
+## 温和版 hard-gated 怎么算
+
+hard-gated 不是把所有可疑题都删掉。它只惩罚三类很硬的失败：第一，score_config 已经标出 `invalid_reason` 的硬无效字段；第二，独立重放后确定几何/物理结果为零的高分；第三，明显量纲越界或结构缺失但被开放式“越高越好”指标错误奖励的高分。
+
+被 hard gate 的格子，O-Eval 按 raw 0 进入 18 题平均；Robust BO-Eval 按 -100% 进入 18 题平均。只是 needs-review、proxy-score、还缺更强 replay verifier 的格子，先保留原分，但报告里会标注不能拿来 claim “强于 O”。
+
+| 模型 | Hard-gated O-Eval | Hard-gated Robust | 原始 O-Eval | gate 数 | 成本 |
+|---|---:|---:|---:|---:|---:|
+| Hy4 Preview | 86.43% | 6.47% | 86.52% | 1 | ¥97.95 |
+| GPT-5.6 Sol | 83.77% | 2.53% | 84.16% | 1 | ¥59.98 |
+| v4 flash | 75.26% | 0.00% | 75.65% | 1 | ¥6.27 |
+| Qwen3.8 27B | 75.06% | 4.38% | 75.45% | 1 | ¥189.88 |
+| Kimi K3 | 60.76% | -11.64% | 86.88% | 3 | ¥179.76 |
+| v4 pro | 60.56% | -4.26% | 61.87% | 1 | ¥44.83 |
+| GLM-5.3 | 59.12% | -0.43% | 59.82% | 1 | ¥258.05 |
+| Gemini 3.7 Flash | 56.59% | -20.87% | 57.86% | 1 | ¥82.93 |
+| Qwen3.8 Flash (Bailian) | 55.89% | -13.12% | 56.49% | 1 | ¥59.34 |
+| ox-alpha | 51.41% | -7.19% | 65.59% | 1 | ¥19.62 |
+
+这版最大的变化是：Kimi K3 的朱诺旅游和奥运教练效应高分被扣掉，ox-alpha 的烟幕高分被扣掉；七鳃鳗里凡是把原始种群量写成 0-1 归一化指数的格子，也按整题不可行处理。
+
+| 模型 | 赛题 | 原 O-Eval | gated O-Eval | 原 Robust | gated Robust | 原因 |
+|---|---|---:|---:|---:|---:|---|
+| ox-alpha | `cumcm-2025-a-smoke-screen` | 255.27% | 0.00% | 10.00% | -100.00% | independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry |
+| v4 flash | `mcm-2024-a-lamprey` | 7.02% | 0.00% | 0.00% | 0.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Kimi K3 | `mcm-2024-a-lamprey` | 24.67% | 0.00% | 18.99% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index |
+| Hy4 Preview | `mcm-2024-a-lamprey` | 1.56% | 0.00% | -5.87% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| GPT-5.6 Sol | `mcm-2024-a-lamprey` | 7.02% | 0.00% | 0.00% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Qwen3.8 27B | `mcm-2024-a-lamprey` | 7.02% | 0.00% | 0.00% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| v4 pro | `mcm-2024-a-lamprey` | 23.53% | 0.00% | 17.76% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| GLM-5.3 | `mcm-2024-a-lamprey` | 12.50% | 0.00% | 5.90% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Gemini 3.7 Flash | `mcm-2024-a-lamprey` | 22.90% | 0.00% | 17.08% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index |
+| Qwen3.8 Flash (Bailian) | `mcm-2024-a-lamprey` | 10.81% | 0.00% | 4.08% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Kimi K3 | `mcm-2025-b-juneau-tourism` | 146.01% | 0.00% | 100.00% | -100.00% | unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score |
+| Kimi K3 | `mcm-2025-c-olympic-medals` | 299.55% | 0.00% | 10.00% | -100.00% | invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0 |
 
 ## 图怎么读
 
-第一张图看 O-Eval 主效果；第二张是 O-Eval 分数-cost 图：横轴是估算人民币成本，纵轴是 O-Eval，越靠左上越接近 O 奖、也越省钱。
+第一组图看温和版 hard-gated O-Eval：它回答“把明显不可行解扣掉以后，谁还稳”。Hy4 Preview 在这张榜上排第一，Kimi K3 因朱诺旅游和奥运教练效应两个高杠杆坏题明显下滑；ox-alpha 因烟幕几何重放为零，也从原 O-Eval 里掉下来。
+
+![Hard-gated O-Eval 主效果柱状图](figures/aa-style-2023-2025-hard-gated-o-eval-bar.png)
+
+![Hard-gated O-Eval vs Cost](figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png)
+
+第二组图看原始 O-Eval 主效果；它仍然有意义，因为它展示 verifier 当前定义下的可评分数值表现，但需要和 hard-gated 榜一起读。
 
 ![O-Eval 主效果柱状图](figures/aa-style-2023-2025-o-eval-bar.png)
 
@@ -1018,6 +1062,8 @@ Hy4 Preview 已完成 18/18 个有效任务，O-Eval 是 86.52%、Robust 辅助�
 O-Eval 第一的是 Kimi K3，主分是 86.88%。这说明它在 18 题平均 raw 上最接近 O 奖复现锚点，不是靠某一道小分母题爆表冲上去。
 
 Robust 辅助第一的是 Kimi K3，辅助分是 12.19%。这个口径说明它在 flash 弱项上追回 gap 的能力强，但它不再是唯一主表，因为它仍然依赖 flash 和 O 之间那段尺子的形状。
+
+温和版 hard-gated 第一的是 Hy4 Preview，主分是 86.43%。这张榜不是新的数学分数，而是给公开解读加了一道保守阀门：明显不可行的高分不再继续抬平均数。
 
 GLM-5.3 和 v4 pro 的位置很接近，说明它们在 flash 弱项上整体有稳定增益；GPT-5.6 Sol high、Kimi K3、Qwen3.8 27B 都有强题，但 O-Eval 会把强题、弱题、缺失题放到同一张绝对成绩单里平均。
 
