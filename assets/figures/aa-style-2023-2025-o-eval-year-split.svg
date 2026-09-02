@@ -9,7 +9,7 @@
     </style>
     <rect width="1800" height="1120" fill="#ffffff"/><rect x="24.0" y="24.0" width="1752.0" height="1072.0" fill="#ffffff" rx="16.0" stroke="#dedede" />
 <text x="72.0" y="126.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="500" fill="#151515">O-Eval by Year</text>
-<text x="72.0" y="168.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="650" fill="#777777">Primary O-normalized score split by contest year; missing or final-error tasks enter the mean as raw 0.</text>
+<text x="72.0" y="168.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="650" fill="#777777">Primary O-normalized score split by contest year; missing or non-scoreable artifacts enter the mean as raw 0.</text>
 <line x1="132.0" y1="800.0" x2="1672.0" y2="800.0" stroke="#aaaaaa" stroke-width="1.4" />
 <text x="114.0" y="806.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">0%</text>
 <line x1="132.0" y1="744.4" x2="1672.0" y2="744.4" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
@@ -31,8 +31,8 @@
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">180%</text>
 <text x="356.7" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">2023</text>
-<rect x="132.0" y="521.4" width="34.1" height="278.6" fill="#2f80ed" rx="5.0" />
-<text x="149.1" y="667.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">100</text>
+<rect x="132.0" y="488.0" width="34.1" height="312.0" fill="#2f80ed" rx="5.0" />
+<text x="149.1" y="651.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">112</text>
 <rect x="178.1" y="581.5" width="34.1" height="218.5" fill="#2945d9" rx="5.0" />
 <text x="195.2" y="697.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">79</text>
 <rect x="224.3" y="550.6" width="34.1" height="249.4" fill="#6f6f6f" rx="5.0" />
@@ -52,8 +52,8 @@
 <rect x="547.2" y="472.2" width="34.1" height="327.8" fill="#dc2626" rx="5.0" />
 <text x="564.3" y="643.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">118</text>
 <text x="902.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">2024</text>
-<rect x="677.3" y="671.6" width="34.1" height="128.4" fill="#2f80ed" rx="5.0" />
-<text x="694.4" y="742.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">46</text>
+<rect x="677.3" y="720.5" width="34.1" height="79.5" fill="#2f80ed" rx="5.0" />
+<text x="694.4" y="767.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">29</text>
 <rect x="723.5" y="706.7" width="34.1" height="93.3" fill="#2945d9" rx="5.0" />
 <text x="740.5" y="760.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">34</text>
 <rect x="769.6" y="710.1" width="34.1" height="89.9" fill="#6f6f6f" rx="5.0" />
@@ -73,8 +73,8 @@
 <rect x="1092.5" y="710.7" width="34.1" height="89.3" fill="#dc2626" rx="5.0" />
 <text x="1109.6" y="762.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">32</text>
 <text x="1447.3" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">2025</text>
-<rect x="1222.7" y="607.2" width="34.1" height="192.8" fill="#2f80ed" rx="5.0" />
-<text x="1239.7" y="710.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">69</text>
+<rect x="1222.7" y="561.1" width="34.1" height="238.9" fill="#2f80ed" rx="5.0" />
+<text x="1239.7" y="687.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">86</text>
 <rect x="1268.8" y="596.1" width="34.1" height="203.9" fill="#2945d9" rx="5.0" />
 <text x="1285.9" y="705.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">73</text>
 <rect x="1314.9" y="640.8" width="34.1" height="159.2" fill="#6f6f6f" rx="5.0" />

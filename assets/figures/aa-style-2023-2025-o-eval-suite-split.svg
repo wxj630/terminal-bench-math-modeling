@@ -29,8 +29,8 @@
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">160%</text>
 <text x="493.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">CUMCM</text>
-<rect x="132.0" y="498.2" width="61.4" height="301.8" fill="#2f80ed" rx="5.0" />
-<text x="162.7" y="656.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">97</text>
+<rect x="132.0" y="484.8" width="61.4" height="315.2" fill="#2f80ed" rx="5.0" />
+<text x="162.7" y="649.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">101</text>
 <rect x="205.4" y="540.8" width="61.4" height="259.2" fill="#2945d9" rx="5.0" />
 <text x="236.1" y="677.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">83</text>
 <rect x="278.8" y="583.8" width="61.4" height="216.2" fill="#6f6f6f" rx="5.0" />
@@ -50,8 +50,8 @@
 <rect x="792.6" y="412.4" width="61.4" height="387.6" fill="#dc2626" rx="5.0" />
 <text x="823.3" y="613.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">124</text>
 <text x="1311.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">MCM</text>
-<rect x="950.0" y="652.0" width="61.4" height="148.0" fill="#2f80ed" rx="5.0" />
-<text x="980.7" y="733.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">47</text>
+<rect x="950.0" y="642.3" width="61.4" height="157.7" fill="#2f80ed" rx="5.0" />
+<text x="980.7" y="728.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">50</text>
 <rect x="1023.4" y="672.5" width="61.4" height="127.5" fill="#2945d9" rx="5.0" />
 <text x="1054.1" y="743.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">41</text>
 <rect x="1096.8" y="642.4" width="61.4" height="157.6" fill="#6f6f6f" rx="5.0" />

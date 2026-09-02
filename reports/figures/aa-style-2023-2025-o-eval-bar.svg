@@ -62,14 +62,14 @@
 <text x="516.00" y="609.07" text-anchor="middle" class="bar-label">84.2%</text>
 <text x="516.00" y="387.70" text-anchor="middle" class="top-label">raw 0.842</text>
 <g transform="translate(516.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
-<rect x="613.20" y="440.02" width="126.40" height="331.98" fill="#7c3aed" rx="8.00" />
-<text x="676.40" y="625.93" text-anchor="middle" class="bar-label">75.5%</text>
-<text x="676.40" y="426.02" text-anchor="middle" class="top-label">raw 0.754</text>
-<g transform="translate(676.40,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
-<rect x="773.60" y="455.29" width="126.40" height="316.71" fill="#2f80ed" rx="8.00" />
-<text x="836.80" y="632.65" text-anchor="middle" class="bar-label">72.0%</text>
-<text x="836.80" y="441.29" text-anchor="middle" class="top-label">raw 0.72</text>
-<g transform="translate(836.80,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="613.20" y="439.14" width="126.40" height="332.86" fill="#2f80ed" rx="8.00" />
+<text x="676.40" y="625.54" text-anchor="middle" class="bar-label">75.7%</text>
+<text x="676.40" y="425.14" text-anchor="middle" class="top-label">raw 0.757</text>
+<g transform="translate(676.40,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="773.60" y="440.02" width="126.40" height="331.98" fill="#7c3aed" rx="8.00" />
+<text x="836.80" y="625.93" text-anchor="middle" class="bar-label">75.5%</text>
+<text x="836.80" y="426.02" text-anchor="middle" class="top-label">raw 0.754</text>
+<g transform="translate(836.80,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
 <rect x="934.00" y="483.40" width="126.40" height="288.60" fill="#777777" rx="8.00" />
 <text x="997.20" y="645.02" text-anchor="middle" class="bar-label">65.6%</text>
 <text x="997.20" y="469.40" text-anchor="middle" class="top-label">raw 0.656</text>

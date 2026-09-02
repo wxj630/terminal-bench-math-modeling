@@ -61,16 +61,16 @@
 <rect x="292.40" y="750.84" width="126.40" height="2.21" fill="#2945d9" />
 <text x="355.60" y="736.84" text-anchor="middle" class="top-label">23M</text>
 <g transform="translate(355.60,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
-<rect x="452.80" y="778.23" width="126.40" height="1.77" fill="#4c4c4c" />
-<rect x="452.80" y="743.71" width="126.40" height="34.52" fill="#cfcfcf" />
-<rect x="452.80" y="741.98" width="126.40" height="1.73" fill="#2f80ed" />
-<text x="516.00" y="727.98" text-anchor="middle" class="top-label">30M</text>
-<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="613.20" y="778.46" width="126.40" height="1.54" fill="#4c4c4c" />
-<rect x="613.20" y="741.87" width="126.40" height="36.59" fill="#cfcfcf" />
-<rect x="613.20" y="740.66" width="126.40" height="1.21" fill="#1f83ff" />
-<text x="676.40" y="726.66" text-anchor="middle" class="top-label">31M</text>
-<g transform="translate(676.40,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="452.80" y="778.46" width="126.40" height="1.54" fill="#4c4c4c" />
+<rect x="452.80" y="741.87" width="126.40" height="36.59" fill="#cfcfcf" />
+<rect x="452.80" y="740.66" width="126.40" height="1.21" fill="#1f83ff" />
+<text x="516.00" y="726.66" text-anchor="middle" class="top-label">31M</text>
+<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="613.20" y="778.44" width="126.40" height="1.56" fill="#4c4c4c" />
+<rect x="613.20" y="738.22" width="126.40" height="40.22" fill="#cfcfcf" />
+<rect x="613.20" y="735.82" width="126.40" height="2.40" fill="#2f80ed" />
+<text x="676.40" y="721.82" text-anchor="middle" class="top-label">35M</text>
+<g transform="translate(676.40,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
 <rect x="773.60" y="720.25" width="126.40" height="59.75" fill="#4c4c4c" />
 <text x="836.80" y="757.12" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">47M</text>
 <rect x="773.60" y="720.25" width="126.40" height="0.00" fill="#cfcfcf" />
