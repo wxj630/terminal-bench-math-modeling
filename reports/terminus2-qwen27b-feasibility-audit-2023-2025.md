@@ -11,7 +11,8 @@ Scope: Qwen3.8-27B-FP8 thinking artifacts for all 18 terminal-bench-math-modelin
 - Hard-invalid tasks: 1 task, with 2 invalid metrics.
 - Needs-review tasks: 1 task, with 2 scale-warning metrics.
 - Score-config-clean tasks: 16 tasks.
-- Bottom line: Qwen's Robust BO-Eval is 9.94% after denominator and outlier clipping. It is not safe to call all 18 answers feasible: MCM 2024 A is hard-invalid under the current scorer, and MCM 2023 B has a strong grid-scale mismatch warning.
+- Bottom line: Qwen's original O-Eval is 75.45% and original Robust BO-Eval is 9.94%. Under the tempered hard-gated public view, Qwen becomes 75.06% hard-gated O-Eval and 4.38% hard-gated Robust BO-Eval.
+- It is not safe to call all 18 answers feasible: MCM 2024 A is hard-invalid under the current scorer, and MCM 2023 B has a strong grid-scale mismatch warning.
 
 ## Strict Rejudge
 
@@ -20,10 +21,11 @@ If hard-invalid tasks are treated as whole-task zero instead of letting still-va
 | Policy | Raw mean | B-Eval vs flash mean | Robust BO-Eval main metric | Changed tasks |
 |---|---:|---:|---:|---|
 | Original scorer | 0.754457 | -0.21 pp | 9.94% | none |
+| Tempered hard-gated leaderboard | 0.750559 | N/A | 4.38% | `mcm-2024-a-lamprey` |
 | Hard-invalid tasks as whole-task zero | 0.750559 | -0.60 pp | 9.52% | `mcm-2024-a-lamprey` |
 | Hard-invalid + needs-review tasks as whole-task zero | 0.749223 | -0.73 pp | 9.37% | `mcm-2023-b-maasai-mara`, `mcm-2024-a-lamprey` |
 
-Interpretation: the old ratio-style comparator can hide bad tasks because it clips negative recovery to 0 or drops denominator-failed tasks. The final leaderboard now uses Robust BO-Eval, so invalid/review tasks reduce Qwen's average while tiny-denominator wins are capped.
+Interpretation: the old ratio-style comparator can hide bad tasks because it clips negative recovery to 0 or drops denominator-failed tasks. The public report now keeps O-Eval as the main score and adds a tempered hard-gated view, so clearly invalid tasks reduce Qwen's average while tiny-denominator wins are capped.
 
 ## Why High-Score Tasks Look High
 

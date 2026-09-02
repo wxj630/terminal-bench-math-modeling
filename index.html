@@ -7,7 +7,7 @@
   <meta name="description" content="TB-MathModel: an agentic and verifiable benchmark for mathematical modeling, with leaderboard and visual analysis.">
   <meta property="og:title" content="TB-MathModel Leaderboard">
   <meta property="og:description" content="Agentic and verifiable benchmark for mathematical modeling.">
-  <meta property="og:image" content="assets/figures/tb-mathmodel-cover.svg?v=20260902v4rerun">
+  <meta property="og:image" content="assets/figures/tb-mathmodel-cover.svg?v=20260902hardgate">
   <style>
     :root {
       color-scheme: light;
@@ -296,6 +296,24 @@
       background: var(--panel);
       box-shadow: 0 12px 28px rgba(23, 32, 28, 0.05);
       -webkit-overflow-scrolling: touch;
+    }
+
+    .leaderboard-stack {
+      display: grid;
+      gap: 24px;
+    }
+
+    .table-title {
+      margin: 0 0 8px;
+      font-size: 20px;
+      line-height: 1.25;
+    }
+
+    .table-caption {
+      max-width: 900px;
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     table {
@@ -587,7 +605,7 @@
           <p class="hero-note">关注知乎专栏，继续看最新进展、详细解读和后续拆题。</p>
         </div>
         <figure class="hero-media">
-          <img src="assets/figures/tb-mathmodel-cover.svg?v=20260902v4rerun" alt="TB-MathModel cover image">
+          <img src="assets/figures/tb-mathmodel-cover.svg?v=20260902hardgate" alt="TB-MathModel cover image">
         </figure>
       </div>
     </section>
@@ -626,106 +644,266 @@
         <div class="section-head">
           <div>
             <h2>Leaderboard</h2>
-            <p class="lead">默认按 O-Eval 排序，同时展示 O-Eval、Robust BO-Eval 与成本。点击列名可排序。</p>
+            <p class="lead">默认按温和版 hard-gated O-Eval 排序：明显不是可行解的单元格直接整题处罚，普通 needs-review/proxy 结果先保留分数但不拿来宣称强于 O 奖。</p>
           </div>
         </div>
-        <div class="table-shell">
-          <table id="leaderboard-table">
-            <thead>
-              <tr>
-                <th data-type="text">Model</th>
-                <th data-type="number">Artifacts</th>
-                <th data-type="number">O-Eval</th>
-                <th data-type="number">Robust BO-Eval</th>
-                <th data-type="number">Cost RMB</th>
-                <th data-type="text">Status</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><span class="rank">1</span><b>Kimi K3</b><small>Highest O-Eval; Robust score recomputed against the 4h v4 flash rerun.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="86.88"><b>86.88%</b></td>
-                <td data-sort="12.19"><b>12.19%</b></td>
-                <td data-sort="179.76">¥179.76</td>
-                <td><span class="status partial">17 valid + 1 error</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">2</span><b>Tencent Hy4 Preview</b><small>Near-top O-Eval; second-best Robust score after the baseline refresh.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="86.52">86.52%</td>
-                <td data-sort="11.70">11.70%</td>
-                <td data-sort="97.95">¥97.95</td>
-                <td><span class="status done">complete</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">3</span><b>GPT-5.6 SOL high</b><small>Strong oracle-normalized result, stable robust score.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="84.16">84.16%</td>
-                <td data-sort="8.08">8.08%</td>
-                <td data-sort="59.98">¥59.98</td>
-                <td><span class="status done">complete</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">4</span><b>v4 flash baseline</b><small>4h rerun reference; used as the Robust BO comparison anchor.</small></td>
-                <td data-sort="17">17 / 18</td>
-                <td data-sort="75.65">75.65%</td>
-                <td data-sort="0.00">0.00%</td>
-                <td data-sort="6.27">¥6.27</td>
-                <td><span class="status done">18 finished</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">5</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, competitive O-Eval; Robust shifts after the stronger baseline.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="75.45">75.45%</td>
-                <td data-sort="9.94">9.94%</td>
-                <td data-sort="189.88">¥189.88</td>
-                <td><span class="status partial">17 valid + 1 error</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">6</span><b>GLM-5.3-Flash (ox-alpha)</b><small>17 valid + 1 final timeout; failures are penalized in both metrics.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="65.59">65.59%</td>
-                <td data-sort="-1.46">-1.46%</td>
-                <td data-sort="19.62">¥19.62</td>
-                <td><span class="status partial">partial</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">7</span><b>v4 pro</b><small>Useful as a stronger non-flash comparison point.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="61.87">61.87%</td>
-                <td data-sort="2.28">2.28%</td>
-                <td data-sort="44.83">¥44.83</td>
-                <td><span class="status done">complete</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">8</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="59.82">59.82%</td>
-                <td data-sort="5.45">5.45%</td>
-                <td data-sort="258.05">¥258.05</td>
-                <td><span class="status done">complete</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">9</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage; missing tasks receive the failure penalty.</small></td>
-                <td data-sort="15">15 / 18</td>
-                <td data-sort="57.86">57.86%</td>
-                <td data-sort="-14.37">-14.37%</td>
-                <td data-sort="82.93">¥82.93</td>
-                <td><span class="status partial">partial</span></td>
-              </tr>
-              <tr>
-                <td><span class="rank">10</span><b>Qwen3.8 Flash (Bailian)</b><small>16 valid + 2 final timeout; no-score tasks are counted as failures.</small></td>
-                <td data-sort="18">18 / 18</td>
-                <td data-sort="56.49">56.49%</td>
-                <td data-sort="-7.33">-7.33%</td>
-                <td data-sort="59.34">¥59.34</td>
-                <td><span class="status partial">partial</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="leaderboard-stack">
+          <div>
+            <h3 class="table-title">Tempered Hard-Gated Leaderboard</h3>
+            <p class="table-caption">这是更适合公开汇报的温和版主榜：只处罚已经能明确判定为不可行解的任务；被 gate 的任务在 O-Eval 中按 raw 0 计入，在 Robust BO-Eval 中对非 baseline 模型按 -100% 计入。</p>
+            <div class="table-shell">
+              <table id="hard-gated-table" class="sortable-table">
+                <thead>
+                  <tr>
+                    <th data-type="text">Model</th>
+                    <th data-type="number">Artifacts</th>
+                    <th data-type="number">Hard-gated O-Eval</th>
+                    <th data-type="number">Hard-gated Robust BO-Eval</th>
+                    <th data-type="number">Original O-Eval</th>
+                    <th data-type="number">Cost RMB</th>
+                    <th data-type="text">Hard Gates</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="rank">1</span><b>Tencent Hy4 Preview</b><small>Gate 后仍是最高 O-Eval，异常高分未被整题处罚。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="86.43"><b>86.43%</b></td>
+                    <td data-sort="6.47"><b>6.47%</b></td>
+                    <td data-sort="86.52">86.52%</td>
+                    <td data-sort="97.95">¥97.95</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">2</span><b>GPT-5.6 SOL high</b><small>高分主要来自多题稳定接近 O 奖参照。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="83.77">83.77%</td>
+                    <td data-sort="2.53">2.53%</td>
+                    <td data-sort="84.16">84.16%</td>
+                    <td data-sort="59.98">¥59.98</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">3</span><b>v4 flash baseline</b><small>4h rerun reference；Robust BO 自比较定义为 0。</small></td>
+                    <td data-sort="17">17 / 18</td>
+                    <td data-sort="75.26">75.26%</td>
+                    <td data-sort="0.00">0.00%</td>
+                    <td data-sort="75.65">75.65%</td>
+                    <td data-sort="6.27">¥6.27</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">4</span><b>Qwen3.8-27B-FP8 thinking</b><small>小参数模型里非常强，但 cost 仍受长推理输出影响。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="75.06">75.06%</td>
+                    <td data-sort="4.38">4.38%</td>
+                    <td data-sort="75.45">75.45%</td>
+                    <td data-sort="189.88">¥189.88</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">5</span><b>Kimi K3</b><small>原始 O-Eval 最高，但两个异常高分被确认不可行后回落。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="60.76">60.76%</td>
+                    <td data-sort="-11.64">-11.64%</td>
+                    <td data-sort="86.88">86.88%</td>
+                    <td data-sort="179.76">¥179.76</td>
+                    <td data-sort="3"><span class="status partial">3 gates</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">6</span><b>v4 pro</b><small>作为非 flash 对照，整体绝对分数在中游。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="60.56">60.56%</td>
+                    <td data-sort="-4.26">-4.26%</td>
+                    <td data-sort="61.87">61.87%</td>
+                    <td data-sort="44.83">¥44.83</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">7</span><b>GLM-5.3</b><small>Robust 上有局部增益，但 O-Eval 绝对位置不靠前。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="59.12">59.12%</td>
+                    <td data-sort="-0.43">-0.43%</td>
+                    <td data-sort="59.82">59.82%</td>
+                    <td data-sort="258.05">¥258.05</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">8</span><b>Gemini 3.7 Flash high</b><small>部分题缺 artifact，失败题已进入均值处罚。</small></td>
+                    <td data-sort="15">15 / 18</td>
+                    <td data-sort="56.59">56.59%</td>
+                    <td data-sort="-20.87">-20.87%</td>
+                    <td data-sort="57.86">57.86%</td>
+                    <td data-sort="82.93">¥82.93</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">9</span><b>Qwen3.8 Flash (Bailian)</b><small>两个 final timeout 作为失败题进入均值。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="55.89">55.89%</td>
+                    <td data-sort="-13.12">-13.12%</td>
+                    <td data-sort="56.49">56.49%</td>
+                    <td data-sort="59.34">¥59.34</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">10</span><b>GLM-5.3-Flash (ox-alpha)</b><small>CUMCM 2025 A 烟幕遮蔽异常高分已按不可行解 gate。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="51.41">51.41%</td>
+                    <td data-sort="-7.19">-7.19%</td>
+                    <td data-sort="65.59">65.59%</td>
+                    <td data-sort="19.62">¥19.62</td>
+                    <td data-sort="1"><span class="status partial">1 gate</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="table-title">Original O-Eval Reference</h3>
+            <p class="table-caption">原始榜保留在这里用于追溯自动 scorer 输出；正式解读优先看上面的 hard-gated 榜，因为它把人工复核中明确不可行的异常高分剔除了。</p>
+            <div class="table-shell">
+              <table id="leaderboard-table" class="sortable-table">
+                <thead>
+                  <tr>
+                    <th data-type="text">Model</th>
+                    <th data-type="number">Artifacts</th>
+                    <th data-type="number">O-Eval</th>
+                    <th data-type="number">Robust BO-Eval</th>
+                    <th data-type="number">Cost RMB</th>
+                    <th data-type="text">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="rank">1</span><b>Kimi K3</b><small>Highest original O-Eval before hard-gating confirmed infeasible highs.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="86.88"><b>86.88%</b></td>
+                    <td data-sort="12.19"><b>12.19%</b></td>
+                    <td data-sort="179.76">¥179.76</td>
+                    <td><span class="status partial">17 valid + 1 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">2</span><b>Tencent Hy4 Preview</b><small>Near-top O-Eval; strongest after tempered hard gate.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="86.52">86.52%</td>
+                    <td data-sort="11.70">11.70%</td>
+                    <td data-sort="97.95">¥97.95</td>
+                    <td><span class="status done">complete</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">3</span><b>GPT-5.6 SOL high</b><small>Strong oracle-normalized result, stable robust score.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="84.16">84.16%</td>
+                    <td data-sort="8.08">8.08%</td>
+                    <td data-sort="59.98">¥59.98</td>
+                    <td><span class="status done">complete</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">4</span><b>v4 flash baseline</b><small>4h rerun reference; used as the Robust BO comparison anchor.</small></td>
+                    <td data-sort="17">17 / 18</td>
+                    <td data-sort="75.65">75.65%</td>
+                    <td data-sort="0.00">0.00%</td>
+                    <td data-sort="6.27">¥6.27</td>
+                    <td><span class="status done">18 finished</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">5</span><b>Qwen3.8-27B-FP8 thinking</b><small>Small model size, competitive O-Eval; Robust shifts after the stronger baseline.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="75.45">75.45%</td>
+                    <td data-sort="9.94">9.94%</td>
+                    <td data-sort="189.88">¥189.88</td>
+                    <td><span class="status partial">17 valid + 1 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">6</span><b>GLM-5.3-Flash (ox-alpha)</b><small>17 valid + 1 final timeout; failures are penalized in both metrics.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="65.59">65.59%</td>
+                    <td data-sort="-1.46">-1.46%</td>
+                    <td data-sort="19.62">¥19.62</td>
+                    <td><span class="status partial">partial</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">7</span><b>v4 pro</b><small>Useful as a stronger non-flash comparison point.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="61.87">61.87%</td>
+                    <td data-sort="2.28">2.28%</td>
+                    <td data-sort="44.83">¥44.83</td>
+                    <td><span class="status done">complete</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">8</span><b>GLM-5.3</b><small>More expensive in this run due to token and pricing mix.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="59.82">59.82%</td>
+                    <td data-sort="5.45">5.45%</td>
+                    <td data-sort="258.05">¥258.05</td>
+                    <td><span class="status done">complete</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">9</span><b>Gemini 3.7 Flash high</b><small>Partial artifact coverage; missing tasks receive the failure penalty.</small></td>
+                    <td data-sort="15">15 / 18</td>
+                    <td data-sort="57.86">57.86%</td>
+                    <td data-sort="-14.37">-14.37%</td>
+                    <td data-sort="82.93">¥82.93</td>
+                    <td><span class="status partial">partial</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">10</span><b>Qwen3.8 Flash (Bailian)</b><small>16 valid + 2 final timeout; no-score tasks are counted as failures.</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="56.49">56.49%</td>
+                    <td data-sort="-7.33">-7.33%</td>
+                    <td data-sort="59.34">¥59.34</td>
+                    <td><span class="status partial">partial</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <p class="note">成本按报告中的人民币估算值展示。Leaderboard 默认按 O-Eval 排序。v4 flash baseline 已切换到 4 小时 rerun；没有可评分 artifact 的题目在 O-Eval 中按 raw 0 进入平均值，在 Robust BO-Eval 中按单题 -100% 顶格处罚。</p>
+        <div>
+          <h3 class="table-title">Hard Gate Decisions</h3>
+          <p class="table-caption">当前只对证据很硬的情况动手：自动 scorer 给出 hard-invalid 的结果，或人工复核/独立 replay 已确认“高分但不是可行解”的结果。其余可疑但未确认的 proxy/needs-review 题先保留原分。</p>
+          <div class="table-shell">
+            <table class="sortable-table">
+              <thead>
+                <tr>
+                  <th data-type="text">Model / Scope</th>
+                  <th data-type="text">Task</th>
+                  <th data-type="text">Penalty</th>
+                  <th data-type="text">Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>v4 flash / v4 pro / GLM / GPT / Kimi / Gemini / Qwen / Hy4</b><small>除 ox-alpha 外的已评分模型</small></td>
+                  <td><code>mcm-2024-a-lamprey</code></td>
+                  <td>O raw=0；非 baseline Robust=-100%</td>
+                  <td>自动评分配置标记寄生-宿主共存关键指标 hard-invalid。</td>
+                </tr>
+                <tr>
+                  <td><b>GLM-5.3-Flash (ox-alpha)</b></td>
+                  <td><code>cumcm-2025-a-smoke-screen</code></td>
+                  <td>O raw=0；Robust=-100%</td>
+                  <td>独立烟幕遮蔽 replay 在 O 参照视线几何下覆盖时长为 0.00s。</td>
+                </tr>
+                <tr>
+                  <td><b>Kimi K3</b></td>
+                  <td><code>mcm-2025-b-juneau-tourism</code></td>
+                  <td>O raw=0；Robust=-100%</td>
+                  <td>单位/尺度不可行：resident_acceptance_index=1.5，sustainability_score=232.2，却应是单位尺度得分。</td>
+                </tr>
+                <tr>
+                  <td><b>Kimi K3</b></td>
+                  <td><code>mcm-2025-c-olympic-medals</code></td>
+                  <td>O raw=0；Robust=-100%</td>
+                  <td>coach-effect 高分不成立：只有三个可评分推荐，端点 verifier reward 为负，BO 为 0。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p class="note">成本按报告中的人民币估算值展示。v4 flash baseline 已切换到 4 小时 rerun；作为 Robust BO-Eval 的参照模型，它的 baseline 自比较仍定义为 0。没有可评分 artifact 的题目在 O-Eval 中按 raw 0 进入平均值，在 Robust BO-Eval 中按单题 -100% 顶格处罚。</p>
       </div>
     </section>
 
@@ -734,7 +912,7 @@
         <div class="section-head">
           <div>
             <h2>Evaluation Metrics</h2>
-            <p class="lead">数学建模没有唯一标准答案，所以 TB-MathModel 把 O-Eval 作为主指标，把 Robust BO-Eval 作为稳健辅助，并显式惩罚失败题。</p>
+            <p class="lead">数学建模没有唯一标准答案，所以 TB-MathModel 把 hard-gated O-Eval 作为最谨慎的公开主榜，把原始 O-Eval 作为自动 scorer 追溯值，把 Robust BO-Eval 作为 baseline-relative 的稳健辅助。</p>
           </div>
         </div>
         <div class="metric-grid">
@@ -750,8 +928,8 @@
           </article>
           <article class="metric">
             <span class="tag">Failure</span>
-            <h3>没做出来要顶格扣</h3>
-            <p>缺失或无可评分 artifact 不能被平均数藏起来：O-Eval 记 raw 0，Robust BO-Eval 记 -100%。</p>
+            <h3>明显不可行要处罚</h3>
+            <p>缺失、无可评分 artifact、自动 hard-invalid 或人工复核确认不可行的异常高分，O-Eval 记 raw 0，Robust BO-Eval 对非 baseline 记 -100%。</p>
           </article>
         </div>
       </div>
@@ -762,40 +940,48 @@
         <div class="section-head">
           <div>
             <h2>AA Style Visuals</h2>
-            <p class="lead">以下图表优先展示 O-Eval 相关结果，再给出 Robust BO-Eval 诊断、token、成本和 O-Eval 年/赛制拆分。</p>
+            <p class="lead">以下图表先展示 hard-gated O-Eval 主榜和性价比，再给出原始 O-Eval、Robust BO-Eval 诊断、token、成本和 O-Eval 年/赛制拆分。</p>
           </div>
         </div>
         <div class="gallery">
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-bar.png?v=20260902v4rerun" loading="lazy" alt="O-Eval leaderboard bar chart">
+            <img src="assets/figures/aa-style-2023-2025-hard-gated-o-eval-bar.png?v=20260902hardgate" loading="lazy" alt="Hard-gated O-Eval leaderboard bar chart">
+            <figcaption><b>Hard-gated O-Eval leaderboard</b>温和 gate 后的主榜。Hy4 仍在第一梯队，Kimi 的不可行异常高分被拿掉后明显回落。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png?v=20260902hardgate" loading="lazy" alt="Hard-gated O-Eval versus cost scatter chart">
+            <figcaption><b>Hard-gated O-Eval vs cost</b>公开口径下的分数-cost 图，左上角代表更低成本拿到更接近 O 奖参照解的结果。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-bar.png?v=20260902hardgate" loading="lazy" alt="O-Eval leaderboard bar chart">
             <figcaption><b>O-Eval leaderboard</b>相对 oracle solution 的直观完成度，适合解释“离 O 奖参照解有多近”。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-cost-scatter.png?v=20260902v4rerun" loading="lazy" alt="O-Eval versus cost scatter chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-cost-scatter.png?v=20260902hardgate" loading="lazy" alt="O-Eval versus cost scatter chart">
             <figcaption><b>O-Eval vs cost</b>分数-cost 图，展示 oracle-normalized 效果与人民币成本之间的关系。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png?v=20260902v4rerun" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
+            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png?v=20260902hardgate" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
             <figcaption><b>Robust BO-Eval leaderboard</b>稳健版 BO-Eval，用来辅助看离群点和坏题，不再放在首位。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png?v=20260902v4rerun" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
+            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png?v=20260902hardgate" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
             <figcaption><b>Robust BO-Eval vs cost</b>稳健辅助视图，用来对照 O-Eval 的性价比结论。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-token-usage.png?v=20260902v4rerun" loading="lazy" alt="Token usage chart">
+            <img src="assets/figures/aa-style-2023-2025-token-usage.png?v=20260902hardgate" loading="lazy" alt="Token usage chart">
             <figcaption><b>Token usage</b>输入、缓存命中输入与输出 token 的用量拆分，用来解释成本差异。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-cost.png?v=20260902v4rerun" loading="lazy" alt="Cost chart">
+            <img src="assets/figures/aa-style-2023-2025-cost.png?v=20260902hardgate" loading="lazy" alt="Cost chart">
             <figcaption><b>Cost by model</b>各模型人民币成本估算，结合 token 图可以定位“为什么贵”。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-year-split.png?v=20260902v4rerun" loading="lazy" alt="O-Eval by year split chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-year-split.png?v=20260902hardgate" loading="lazy" alt="O-Eval by year split chart">
             <figcaption><b>O-Eval year split</b>按 2023、2024、2025 拆分主指标，检查模型是否只擅长某一年题型。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-suite-split.png?v=20260902v4rerun" loading="lazy" alt="O-Eval by suite split chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-suite-split.png?v=20260902hardgate" loading="lazy" alt="O-Eval by suite split chart">
             <figcaption><b>O-Eval suite split</b>按 CUMCM 与 MCM 拆分主指标，观察中文赛题和英文赛题上的绝对效果差异。</figcaption>
           </figure>
         </div>
@@ -874,28 +1060,29 @@
       scrollToHash(window.location.hash);
     });
 
-    const table = document.querySelector("#leaderboard-table");
-    const headers = table.querySelectorAll("th");
+    document.querySelectorAll(".sortable-table").forEach((table) => {
+      const headers = table.querySelectorAll("th");
 
-    headers.forEach((header, columnIndex) => {
-      header.addEventListener("click", () => {
-        const type = header.dataset.type || "text";
-        const current = header.dataset.order === "asc" ? "desc" : "asc";
-        headers.forEach((h) => delete h.dataset.order);
-        header.dataset.order = current;
+      headers.forEach((header, columnIndex) => {
+        header.addEventListener("click", () => {
+          const type = header.dataset.type || "text";
+          const current = header.dataset.order === "asc" ? "desc" : "asc";
+          headers.forEach((h) => delete h.dataset.order);
+          header.dataset.order = current;
 
-        const rows = Array.from(table.tBodies[0].rows);
-        rows.sort((a, b) => {
-          const av = sortableValue(a.cells[columnIndex], type);
-          const bv = sortableValue(b.cells[columnIndex], type);
-          if (type === "number") {
-            return current === "asc" ? av - bv : bv - av;
-          }
-          return current === "asc"
-            ? String(av).localeCompare(String(bv), "zh-Hans-CN")
-            : String(bv).localeCompare(String(av), "zh-Hans-CN");
+          const rows = Array.from(table.tBodies[0].rows);
+          rows.sort((a, b) => {
+            const av = sortableValue(a.cells[columnIndex], type);
+            const bv = sortableValue(b.cells[columnIndex], type);
+            if (type === "number") {
+              return current === "asc" ? av - bv : bv - av;
+            }
+            return current === "asc"
+              ? String(av).localeCompare(String(bv), "zh-Hans-CN")
+              : String(bv).localeCompare(String(av), "zh-Hans-CN");
+          });
+          rows.forEach((row) => table.tBodies[0].appendChild(row));
         });
-        rows.forEach((row) => table.tBodies[0].appendChild(row));
       });
     });
 

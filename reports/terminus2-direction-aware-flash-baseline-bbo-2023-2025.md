@@ -8,6 +8,8 @@ Primary O-Eval rule: `model direction-aware raw / O raw`, averaged over all 18 t
 
 Secondary Robust BO-Eval rule: let `gain = model raw - flash raw` and `gap = O raw - flash raw`. If `gap >= 0.10`, score `clip(gain / gap, -100%, +100%)`; otherwise score `clip(gain, -10pp, +10pp)`. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned `-100%` so a completely unfinished task gets the worst possible score.
 
+Tempered hard-gated rule: only clearly non-feasible cells are whole-task penalized. Automatic scorer hard-invalid metrics and manually replay-proven invalid high-score cells receive gated raw `0` for O-Eval and `-100%` for Robust BO-Eval. Needs-review/proxy cells remain scored but are not used as stronger-than-O claims without a better replay verifier.
+
 Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using clipped B-Eval: 6.
 
 ## Overall Mean
@@ -25,11 +27,46 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | Qwen3.8 Flash (Bailian) | 18 | 0.564887 | 56.49% | -19.16 pp | -7.33% | 299,616,972 / 293,563,264 / 6,814,374 | 6,053,708 / 6,814,374 | $8.807824 | ¥59.34 | 16/0/2/0 | 0 |
 | Tencent Hy4 Preview | 18 | 0.865183 | 86.52% | +10.87 pp | 11.70% | 133,731,323 / 128,999,040 / 2,068,825 | 4,732,283 / 2,068,825 | $14.538815 | ¥97.95 | 18/0/0/0 | 0 |
 
+## Tempered Hard-Gated Leaderboard
+
+| Rank | Model | Hard-gated O-Eval | Hard-gated Robust BO-Eval | Original O-Eval | Original Robust BO-Eval | Hard-gated raw mean | Hard gates | Est. cost RMB |
+|---:|---|---:|---:|---:|---:|---:|---|---:|
+| 1 | Tencent Hy4 Preview | 86.43% | 6.47% | 86.52% | 11.70% | 0.864318 | 1: `mcm-2024-a-lamprey` | ¥97.95 |
+| 2 | GPT-5.6 SOL high | 83.77% | 2.53% | 84.16% | 8.08% | 0.837656 | 1: `mcm-2024-a-lamprey` | ¥59.98 |
+| 3 | v4 flash baseline | 75.26% | 0.00% | 75.65% | 0.00% | 0.752619 | 1: `mcm-2024-a-lamprey` | ¥6.27 |
+| 4 | Qwen3.8-27B-FP8 thinking | 75.06% | 4.38% | 75.45% | 9.94% | 0.750559 | 1: `mcm-2024-a-lamprey` | ¥189.88 |
+| 5 | Kimi K3 | 60.76% | -11.64% | 86.88% | 12.19% | 0.607556 | 3: `mcm-2024-a-lamprey`, `mcm-2025-b-juneau-tourism`, `mcm-2025-c-olympic-medals` | ¥179.76 |
+| 6 | v4 pro | 60.56% | -4.26% | 61.87% | 2.28% | 0.605647 | 1: `mcm-2024-a-lamprey` | ¥44.83 |
+| 7 | GLM-5.3 | 59.12% | -0.43% | 59.82% | 5.45% | 0.591244 | 1: `mcm-2024-a-lamprey` | ¥258.05 |
+| 8 | Gemini 3.7 Flash high primary+retry | 56.59% | -20.87% | 57.86% | -14.37% | 0.565890 | 1: `mcm-2024-a-lamprey` | ¥82.93 |
+| 9 | Qwen3.8 Flash (Bailian) | 55.89% | -13.12% | 56.49% | -7.33% | 0.558881 | 1: `mcm-2024-a-lamprey` | ¥59.34 |
+| 10 | GLM-5.3-Flash (ox-alpha) | 51.41% | -7.19% | 65.59% | -1.46% | 0.514071 | 1: `cumcm-2025-a-smoke-screen` | ¥19.62 |
+
+## Hard Gate Decisions
+
+| Model | Task | Raw before gate | Gated raw | O-Eval before | Hard-gated O-Eval | Robust before | Hard-gated Robust | Reason |
+|---|---|---:|---:|---:|---:|---:|---:|---|
+| GLM-5.3-Flash (ox-alpha) | `cumcm-2025-a-smoke-screen` | 2.552664 | 0.000000 | 255.27% | 0.00% | 10.00% | -100.00% | independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry |
+| v4 flash baseline | `mcm-2024-a-lamprey` | 0.070175 | 0.000000 | 7.02% | 0.00% | 0.00% | 0.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| v4 pro | `mcm-2024-a-lamprey` | 0.235294 | 0.000000 | 23.53% | 0.00% | 17.76% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| GLM-5.3 | `mcm-2024-a-lamprey` | 0.125000 | 0.000000 | 12.50% | 0.00% | 5.90% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| GPT-5.6 SOL high | `mcm-2024-a-lamprey` | 0.070175 | 0.000000 | 7.02% | 0.00% | 0.00% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Kimi K3 | `mcm-2024-a-lamprey` | 0.246711 | 0.000000 | 24.67% | 0.00% | 18.99% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index |
+| Gemini 3.7 Flash high primary+retry | `mcm-2024-a-lamprey` | 0.228957 | 0.000000 | 22.90% | 0.00% | 17.08% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index |
+| Qwen3.8-27B-FP8 thinking | `mcm-2024-a-lamprey` | 0.070175 | 0.000000 | 7.02% | 0.00% | 0.00% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Qwen3.8 Flash (Bailian) | `mcm-2024-a-lamprey` | 0.108108 | 0.000000 | 10.81% | 0.00% | 4.08% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Tencent Hy4 Preview | `mcm-2024-a-lamprey` | 0.015564 | 0.000000 | 1.56% | 0.00% | -5.87% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
+| Kimi K3 | `mcm-2025-b-juneau-tourism` | 1.460140 | 0.000000 | 146.01% | 0.00% | 100.00% | -100.00% | unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score |
+| Kimi K3 | `mcm-2025-c-olympic-medals` | 2.995504 | 0.000000 | 299.55% | 0.00% | 10.00% | -100.00% | invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0 |
+
 ## Primary Readout
 
 - 18-task primary O-Eval ranking: Kimi K3 (86.88%) > Tencent Hy4 Preview (86.52%) > GPT-5.6 SOL high (84.16%) > Qwen3.8-27B-FP8 thinking (75.45%) > GLM-5.3-Flash (ox-alpha) (65.59%) > v4 pro (61.87%) > GLM-5.3 (59.82%) > Gemini 3.7 Flash high primary+retry (57.86%) > Qwen3.8 Flash (Bailian) (56.49%).
+- Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (86.43%) > GPT-5.6 SOL high (83.77%) > Qwen3.8-27B-FP8 thinking (75.06%) > Kimi K3 (60.76%) > v4 pro (60.56%) > GLM-5.3 (59.12%) > Gemini 3.7 Flash high primary+retry (56.59%) > Qwen3.8 Flash (Bailian) (55.89%) > GLM-5.3-Flash (ox-alpha) (51.41%).
 - Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) > Tencent Hy4 Preview (11.70%) > Qwen3.8-27B-FP8 thinking (9.94%) > GPT-5.6 SOL high (8.08%) > GLM-5.3 (5.45%) > v4 pro (2.28%) > GLM-5.3-Flash (ox-alpha) (-1.46%) > Qwen3.8 Flash (Bailian) (-7.33%) > Gemini 3.7 Flash high primary+retry (-14.37%).
+- Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (6.47%) > Qwen3.8-27B-FP8 thinking (4.38%) > GPT-5.6 SOL high (2.53%) > GLM-5.3 (-0.43%) > v4 pro (-4.26%) > GLM-5.3-Flash (ox-alpha) (-7.19%) > Kimi K3 (-11.64%) > Qwen3.8 Flash (Bailian) (-13.12%) > Gemini 3.7 Flash high primary+retry (-20.87%).
 - These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.
+- The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.
 - The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.
 - v4 flash baseline now uses the 4-hour rerun jobs: `terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm` and `terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm`.
 - Cost is estimated from OpenRouter model catalog prices (`prompt`, `input_cache_read`, `input_cache_write`, `completion`) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.
@@ -62,6 +99,8 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 
 - Clickable dashboard: `terminus2-bo-eval-aa-dashboard-2023-2025.html`
 - Qwen feasibility audit: `terminus2-qwen27b-feasibility-audit-2023-2025.md`
+- Hard-gated O-Eval effect: `figures/aa-style-2023-2025-hard-gated-o-eval-bar.png`
+- Hard-gated O-Eval score-cost: `figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png`
 - O-Eval effect: `figures/aa-style-2023-2025-o-eval-bar.png`
 - O-Eval score-cost: `figures/aa-style-2023-2025-o-eval-cost-scatter.png`
 - Robust BO-Eval effect: `figures/aa-style-2023-2025-boeval-effect-bar.png`
