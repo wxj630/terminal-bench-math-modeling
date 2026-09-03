@@ -42,34 +42,34 @@
 <text x="174.0" y="354.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#3f7f4a">value zone: &lt;=¥80, &gt;=75% gated O</text>
 <line x1="1125.1" y1="320.0" x2="1125.1" y2="880.0" stroke="#9ca3af" stroke-width="1.0" stroke-dasharray="6 7" />
 <line x1="154.0" y1="460.0" x2="1604.0" y2="460.0" stroke="#9ca3af" stroke-width="1.0" stroke-dasharray="6 7" />
-<circle cx="264.9" cy="458.5" r="16.6" fill="#2f80ed" stroke="#ffffff" stroke-width="3"/>
-<text x="284.9" y="434.5" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">DeepSeek V4 Flash (17/18)</text>
-<text x="284.9" y="458.5" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">75.3% / ¥6.3, 1 gate</text>
-<circle cx="929.5" cy="540.8" r="17.0" fill="#2945d9" stroke="#ffffff" stroke-width="3"/>
-<text x="909.5" y="516.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">DeepSeek V4 Pro</text>
-<text x="909.5" y="540.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">60.6% / ¥44.8, 1 gate</text>
-<circle cx="1520.6" cy="548.9" r="17.0" fill="#6f6f6f" stroke="#ffffff" stroke-width="3"/>
-<text x="1500.6" y="586.9" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">GLM-5.3</text>
-<text x="1500.6" y="610.9" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">59.1% / ¥258.1, 1 gate</text>
-<circle cx="1027.8" cy="410.9" r="17.0" fill="#202020" stroke="#ffffff" stroke-width="3"/>
-<text x="1007.8" y="386.9" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">GPT-5.6 Sol</text>
-<text x="1007.8" y="410.9" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">83.8% / ¥60.0, 1 gate</text>
-<circle cx="1398.5" cy="539.8" r="17.0" fill="#1f83ff" stroke="#ffffff" stroke-width="3"/>
-<text x="1378.5" y="515.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Kimi K3</text>
-<text x="1378.5" y="539.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">60.8% / ¥179.8, 3 gate</text>
-<circle cx="1137.2" cy="563.1" r="15.7" fill="#34a853" stroke="#ffffff" stroke-width="3"/>
-<text x="1137.2" y="625.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Gemini 3.7 Flash (15/18)</text>
-<text x="1137.2" y="649.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">56.6% / ¥82.9, 1 gate</text>
-<circle cx="1417.0" cy="459.7" r="17.0" fill="#7c3aed" stroke="#ffffff" stroke-width="3"/>
-<text x="1397.0" y="435.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Qwen3.8 27B</text>
-<text x="1397.0" y="459.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">75.1% / ¥189.9, 1 gate</text>
-<circle cx="650.4" cy="592.1" r="17.0" fill="#f59e0b" stroke="#ffffff" stroke-width="3"/>
-<text x="630.4" y="568.1" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">GLM-5.3-Flash</text>
-<text x="630.4" y="592.1" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">51.4% / ¥19.6, 1 gate</text>
-<circle cx="1024.2" cy="567.0" r="17.0" fill="#0f766e" stroke="#ffffff" stroke-width="3"/>
-<text x="1004.2" y="605.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Qwen3.8 Flash</text>
-<text x="1004.2" y="629.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">55.9% / ¥59.3, 1 gate</text>
-<circle cx="1193.5" cy="396.0" r="17.0" fill="#dc2626" stroke="#ffffff" stroke-width="3"/>
-<text x="1213.5" y="372.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Hy4 Preview</text>
-<text x="1213.5" y="396.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">86.4% / ¥97.9, 1 gate</text>
+<circle cx="264.9" cy="591.8" r="16.6" fill="#2f80ed" stroke="#ffffff" stroke-width="3"/>
+<text x="284.9" y="567.8" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">DeepSeek V4 Flash (17/18)</text>
+<text x="284.9" y="591.8" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">51.5% / ¥6.3, 1 gate</text>
+<circle cx="925.7" cy="599.4" r="17.0" fill="#2945d9" stroke="#ffffff" stroke-width="3"/>
+<text x="905.7" y="575.4" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">DeepSeek V4 Pro</text>
+<text x="905.7" y="599.4" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">50.1% / ¥44.3, 1 gate</text>
+<circle cx="1520.6" cy="595.7" r="17.0" fill="#6f6f6f" stroke="#ffffff" stroke-width="3"/>
+<text x="1500.6" y="663.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">GLM-5.3</text>
+<text x="1500.6" y="687.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">50.8% / ¥258.1, 1 gate</text>
+<circle cx="1027.8" cy="574.2" r="17.0" fill="#202020" stroke="#ffffff" stroke-width="3"/>
+<text x="993.8" y="670.2" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">GPT-5.6 Sol</text>
+<text x="993.8" y="694.2" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">54.6% / ¥60.0, 1 gate</text>
+<circle cx="1398.5" cy="624.7" r="17.0" fill="#1f83ff" stroke="#ffffff" stroke-width="3"/>
+<text x="1378.5" y="600.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Kimi K3</text>
+<text x="1378.5" y="624.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">45.6% / ¥179.8, 3 gate</text>
+<circle cx="1137.2" cy="640.7" r="15.7" fill="#34a853" stroke="#ffffff" stroke-width="3"/>
+<text x="1103.2" y="736.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Gemini 3.7 Flash (15/18)</text>
+<text x="1103.2" y="760.7" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">42.7% / ¥82.9, 1 gate</text>
+<circle cx="1417.0" cy="573.8" r="17.0" fill="#7c3aed" stroke="#ffffff" stroke-width="3"/>
+<text x="1417.0" y="481.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Qwen3.8 27B</text>
+<text x="1417.0" y="505.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">54.7% / ¥189.9, 1 gate</text>
+<circle cx="650.4" cy="637.1" r="17.0" fill="#f59e0b" stroke="#ffffff" stroke-width="3"/>
+<text x="630.4" y="675.1" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">GLM-5.3-Flash</text>
+<text x="630.4" y="699.1" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">43.4% / ¥19.6, 1 gate</text>
+<circle cx="1024.2" cy="630.5" r="17.0" fill="#0f766e" stroke="#ffffff" stroke-width="3"/>
+<text x="1044.2" y="698.5" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Qwen3.8 Flash</text>
+<text x="1044.2" y="722.5" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">44.5% / ¥59.3, 1 gate</text>
+<circle cx="1193.5" cy="560.8" r="17.0" fill="#dc2626" stroke="#ffffff" stroke-width="3"/>
+<text x="1173.5" y="504.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#333333">Hy4 Preview</text>
+<text x="1173.5" y="528.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="650" fill="#777777">57.0% / ¥97.9, 1 gate</text>
 <text x="879.0" y="1028.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">The hard gate changes scores only where the artifact is clearly not a feasible solution; cost estimates are unchanged.</text></svg>

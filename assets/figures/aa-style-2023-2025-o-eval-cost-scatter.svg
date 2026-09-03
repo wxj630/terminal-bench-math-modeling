@@ -72,35 +72,35 @@
 <line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
 <text x="1664.00" y="320.00" text-anchor="end" class="small-note">O-award = 100%</text>
 <text x="1664.00" y="432.00" text-anchor="end" class="small-note">80% O-Eval</text>
-<path d="M 257.42 466.36 L 1069.23 418.70 L 1245.54 405.49 L 1463.81 403.47" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
-<circle cx="257.42" cy="466.36" r="11.00" fill="#2f80ed" stroke="#ffffff" stroke-width="3.00" />
-<text x="277.42" y="442.36" text-anchor="start" class="point-label">DeepSeek V4 Flash (17/18)</text>
-<text x="277.42" y="466.36" text-anchor="start" class="small-note">75.7% / RMB 6.27</text>
-<circle cx="964.57" cy="543.53" r="11.00" fill="#2945d9" stroke="#ffffff" stroke-width="3.00" />
-<text x="944.57" y="519.53" text-anchor="end" class="point-label">DeepSeek V4 Pro</text>
-<text x="944.57" y="543.53" text-anchor="end" class="small-note">61.9% / RMB 44.83</text>
-<circle cx="1593.78" cy="555.01" r="11.00" fill="#6f6f6f" stroke="#ffffff" stroke-width="3.00" />
-<text x="1573.78" y="593.01" text-anchor="end" class="point-label">GLM-5.3</text>
-<text x="1573.78" y="617.01" text-anchor="end" class="small-note">59.8% / RMB 258.05</text>
-<circle cx="1069.23" cy="418.70" r="11.00" fill="#202020" stroke="#ffffff" stroke-width="3.00" />
-<text x="1049.23" y="394.70" text-anchor="end" class="point-label">GPT-5.6 Sol</text>
-<text x="1049.23" y="418.70" text-anchor="end" class="small-note">84.2% / RMB 59.98</text>
-<circle cx="1463.81" cy="403.47" r="11.00" fill="#1f83ff" stroke="#ffffff" stroke-width="3.00" />
-<text x="1443.81" y="471.47" text-anchor="end" class="point-label">Kimi K3</text>
-<text x="1443.81" y="495.47" text-anchor="end" class="small-note">86.9% / RMB 179.76</text>
-<circle cx="1185.70" cy="565.98" r="11.00" fill="#34a853" stroke="#ffffff" stroke-width="3.00" />
-<text x="1185.70" y="627.98" text-anchor="middle" class="point-label">Gemini 3.7 Flash (15/18)</text>
-<text x="1185.70" y="651.98" text-anchor="middle" class="small-note">57.9% / RMB 82.93</text>
-<circle cx="1483.50" cy="467.48" r="11.00" fill="#7c3aed" stroke="#ffffff" stroke-width="3.00" />
-<text x="1463.50" y="535.48" text-anchor="end" class="point-label">Qwen3.8 27B</text>
-<text x="1463.50" y="559.48" text-anchor="end" class="small-note">75.5% / RMB 189.88</text>
-<circle cx="667.52" cy="522.70" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
-<text x="647.52" y="498.70" text-anchor="end" class="point-label">GLM-5.3-Flash (ox-alpha)</text>
-<text x="647.52" y="522.70" text-anchor="end" class="small-note">65.6% / RMB 19.62</text>
-<circle cx="1065.38" cy="573.66" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
-<text x="1045.38" y="611.66" text-anchor="end" class="point-label">Qwen3.8 Flash (Bailian)</text>
-<text x="1045.38" y="635.66" text-anchor="end" class="small-note">56.5% / RMB 59.34</text>
-<circle cx="1245.54" cy="405.49" r="11.00" fill="#dc2626" stroke="#ffffff" stroke-width="3.00" />
-<text x="1225.54" y="473.49" text-anchor="end" class="point-label">Hy4 Preview</text>
-<text x="1225.54" y="497.49" text-anchor="end" class="small-note">86.5% / RMB 97.95</text>
+<path d="M 257.42 599.64 L 1069.23 582.00 L 1245.54 570.35 L 1463.81 564.75" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<circle cx="257.42" cy="599.64" r="11.00" fill="#2f80ed" stroke="#ffffff" stroke-width="3.00" />
+<text x="277.42" y="575.64" text-anchor="start" class="point-label">DeepSeek V4 Flash (17/18)</text>
+<text x="277.42" y="599.64" text-anchor="start" class="small-note">51.9% / RMB 6.27</text>
+<circle cx="960.54" cy="602.05" r="11.00" fill="#2945d9" stroke="#ffffff" stroke-width="3.00" />
+<text x="940.54" y="578.05" text-anchor="end" class="point-label">DeepSeek V4 Pro</text>
+<text x="940.54" y="602.05" text-anchor="end" class="small-note">51.4% / RMB 44.33</text>
+<circle cx="1593.78" cy="601.82" r="11.00" fill="#6f6f6f" stroke="#ffffff" stroke-width="3.00" />
+<text x="1559.78" y="697.82" text-anchor="end" class="point-label">GLM-5.3</text>
+<text x="1559.78" y="721.82" text-anchor="end" class="small-note">51.5% / RMB 258.05</text>
+<circle cx="1069.23" cy="582.00" r="11.00" fill="#202020" stroke="#ffffff" stroke-width="3.00" />
+<text x="1069.23" y="684.00" text-anchor="middle" class="point-label">GPT-5.6 Sol</text>
+<text x="1069.23" y="708.00" text-anchor="middle" class="small-note">55.0% / RMB 59.98</text>
+<circle cx="1463.81" cy="564.75" r="11.00" fill="#1f83ff" stroke="#ffffff" stroke-width="3.00" />
+<text x="1463.81" y="626.75" text-anchor="middle" class="point-label">Kimi K3</text>
+<text x="1463.81" y="650.75" text-anchor="middle" class="small-note">58.1% / RMB 179.76</text>
+<circle cx="1185.70" cy="643.54" r="11.00" fill="#34a853" stroke="#ffffff" stroke-width="3.00" />
+<text x="1219.70" y="739.54" text-anchor="start" class="point-label">Gemini 3.7 Flash (15/18)</text>
+<text x="1219.70" y="763.54" text-anchor="start" class="small-note">44.0% / RMB 82.93</text>
+<circle cx="1483.50" cy="581.66" r="11.00" fill="#7c3aed" stroke="#ffffff" stroke-width="3.00" />
+<text x="1483.50" y="489.66" text-anchor="middle" class="point-label">Qwen3.8 27B</text>
+<text x="1483.50" y="513.66" text-anchor="middle" class="small-note">55.1% / RMB 189.88</text>
+<circle cx="667.52" cy="615.94" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
+<text x="687.52" y="653.94" text-anchor="start" class="point-label">GLM-5.3-Flash (ox-alpha)</text>
+<text x="687.52" y="677.94" text-anchor="start" class="small-note">48.9% / RMB 19.62</text>
+<circle cx="1065.38" cy="637.16" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
+<text x="1065.38" y="739.16" text-anchor="middle" class="point-label">Qwen3.8 Flash (Bailian)</text>
+<text x="1065.38" y="763.16" text-anchor="middle" class="small-note">45.1% / RMB 59.34</text>
+<circle cx="1245.54" cy="570.35" r="11.00" fill="#dc2626" stroke="#ffffff" stroke-width="3.00" />
+<text x="1225.54" y="514.35" text-anchor="end" class="point-label">Hy4 Preview</text>
+<text x="1225.54" y="538.35" text-anchor="end" class="small-note">57.1% / RMB 97.95</text>
 <text x="914.00" y="1028.00" text-anchor="middle" class="small-note">This view answers: how close is each model to the O-award reproduction per RMB spent?</text></svg>

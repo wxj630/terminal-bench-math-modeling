@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-02",
+  "generated": "2026-09-03",
   "models": {
     "flash": {
       "billable_input_tokens": 1230885,
@@ -2847,7 +2847,7 @@
       "cache_imputed_from_peer_avg": false,
       "canonical_tasks": 18,
       "error_tasks": 0,
-      "estimated_cost_rmb": 44.82510140497341,
+      "estimated_cost_rmb": 44.33120212405049,
       "excluded_retry_trials": 0,
       "job_count": 18,
       "n_cache_tokens": 20096768,

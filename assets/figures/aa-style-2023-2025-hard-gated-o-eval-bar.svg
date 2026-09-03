@@ -22,52 +22,52 @@
 <text x="114.0" y="397.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">80%</text>
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">100%</text>
-<rect x="132.0" y="361.7" width="127.0" height="393.3" fill="#dc2626" rx="8.0" />
-<text x="195.5" y="558.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">86.4%</text>
-<text x="195.5" y="349.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<rect x="132.0" y="495.7" width="127.0" height="259.3" fill="#dc2626" rx="8.0" />
+<text x="195.5" y="625.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">57.0%</text>
+<text x="195.5" y="483.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
 <text x="195.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Hy4</text>
 <text x="195.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Preview</text>
-<rect x="289.0" y="373.9" width="127.0" height="381.1" fill="#202020" rx="8.0" />
-<text x="352.5" y="564.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">83.8%</text>
-<text x="352.5" y="361.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="352.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6</text>
-<text x="352.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Sol</text>
-<rect x="446.0" y="412.6" width="127.0" height="342.4" fill="#2f80ed" rx="8.0" />
-<text x="509.5" y="583.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">75.3%</text>
-<text x="509.5" y="400.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="509.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
-<text x="509.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="603.0" y="413.5" width="127.0" height="341.5" fill="#7c3aed" rx="8.0" />
-<text x="666.5" y="584.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">75.1%</text>
-<text x="666.5" y="401.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="666.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
-<text x="666.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">27B</text>
-<rect x="760.0" y="478.6" width="127.0" height="276.4" fill="#1f83ff" rx="8.0" />
-<text x="823.5" y="616.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">60.8%</text>
-<text x="823.5" y="466.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">3 gates</text>
-<text x="823.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Kimi</text>
-<text x="823.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">K3</text>
-<rect x="917.0" y="479.4" width="127.0" height="275.6" fill="#2945d9" rx="8.0" />
-<text x="980.5" y="617.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">60.6%</text>
-<text x="980.5" y="467.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<rect x="289.0" y="506.2" width="127.0" height="248.8" fill="#7c3aed" rx="8.0" />
+<text x="352.5" y="630.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">54.7%</text>
+<text x="352.5" y="494.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="352.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
+<text x="352.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">27B</text>
+<rect x="446.0" y="506.5" width="127.0" height="248.5" fill="#202020" rx="8.0" />
+<text x="509.5" y="630.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">54.6%</text>
+<text x="509.5" y="494.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="509.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6</text>
+<text x="509.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Sol</text>
+<rect x="603.0" y="520.9" width="127.0" height="234.1" fill="#2f80ed" rx="8.0" />
+<text x="666.5" y="637.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">51.5%</text>
+<text x="666.5" y="508.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="666.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
+<text x="666.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
+<rect x="760.0" y="524.0" width="127.0" height="231.0" fill="#6f6f6f" rx="8.0" />
+<text x="823.5" y="639.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">50.8%</text>
+<text x="823.5" y="512.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="823.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3</text>
+<rect x="917.0" y="527.0" width="127.0" height="228.0" fill="#2945d9" rx="8.0" />
+<text x="980.5" y="641.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">50.1%</text>
+<text x="980.5" y="515.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
 <text x="980.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
 <text x="980.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Pro</text>
-<rect x="1074.0" y="486.0" width="127.0" height="269.0" fill="#6f6f6f" rx="8.0" />
-<text x="1137.5" y="620.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">59.1%</text>
-<text x="1137.5" y="474.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="1137.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3</text>
-<rect x="1231.0" y="497.5" width="127.0" height="257.5" fill="#34a853" rx="8.0" />
-<text x="1294.5" y="626.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">56.6%</text>
-<text x="1294.5" y="485.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="1294.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Gemini 3.7</text>
+<rect x="1074.0" y="547.5" width="127.0" height="207.5" fill="#1f83ff" rx="8.0" />
+<text x="1137.5" y="651.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">45.6%</text>
+<text x="1137.5" y="535.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">3 gates</text>
+<text x="1137.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Kimi</text>
+<text x="1137.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">K3</text>
+<rect x="1231.0" y="552.3" width="127.0" height="202.7" fill="#0f766e" rx="8.0" />
+<text x="1294.5" y="653.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">44.5%</text>
+<text x="1294.5" y="540.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="1294.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
 <text x="1294.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="1388.0" y="500.7" width="127.0" height="254.3" fill="#0f766e" rx="8.0" />
-<text x="1451.5" y="627.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">55.9%</text>
-<text x="1451.5" y="488.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="1451.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
-<text x="1451.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="1545.0" y="521.1" width="127.0" height="233.9" fill="#f59e0b" rx="8.0" />
-<text x="1608.5" y="638.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">51.4%</text>
-<text x="1608.5" y="509.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
-<text x="1608.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3-Flash</text>
+<rect x="1388.0" y="557.6" width="127.0" height="197.4" fill="#f59e0b" rx="8.0" />
+<text x="1451.5" y="656.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">43.4%</text>
+<text x="1451.5" y="545.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="1451.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3-Flash</text>
+<rect x="1545.0" y="560.5" width="127.0" height="194.5" fill="#34a853" rx="8.0" />
+<text x="1608.5" y="657.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">42.7%</text>
+<text x="1608.5" y="548.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">1 gate</text>
+<text x="1608.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Gemini 3.7</text>
+<text x="1608.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
 <text x="902.0" y="970.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">Hard-gated O-Eval is the cautious public-facing score: clear non-feasible cells count as raw 0 before the 18-task mean.</text></svg>

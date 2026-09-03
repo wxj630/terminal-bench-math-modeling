@@ -59,10 +59,10 @@
 <rect x="292.40" y="751.87" width="126.40" height="8.89" fill="#777777" />
 <text x="355.60" y="737.88" text-anchor="middle" class="top-label">RMB 19.62</text>
 <g transform="translate(355.60,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
-<rect x="452.80" y="767.80" width="126.40" height="12.20" fill="#d9dde4" />
-<rect x="452.80" y="750.94" width="126.40" height="16.85" fill="#cfcfcf" />
-<rect x="452.80" y="715.75" width="126.40" height="35.19" fill="#2945d9" />
-<text x="516.00" y="701.74" text-anchor="middle" class="top-label">RMB 44.83</text>
+<rect x="452.80" y="767.93" width="126.40" height="12.07" fill="#d9dde4" />
+<rect x="452.80" y="751.26" width="126.40" height="16.67" fill="#cfcfcf" />
+<rect x="452.80" y="716.46" width="126.40" height="34.80" fill="#2945d9" />
+<text x="516.00" y="702.46" text-anchor="middle" class="top-label">RMB 44.33</text>
 <g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
 <rect x="613.20" y="771.23" width="126.40" height="8.77" fill="#d9dde4" />
 <rect x="613.20" y="725.87" width="126.40" height="45.36" fill="#cfcfcf" />

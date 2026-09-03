@@ -118,14 +118,14 @@
       "model_id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
       "price_rmb_per_mtok": {
-        "input_cached": 0.58514317726,
-        "input_uncached": 7.02171812712,
-        "output": 14.04343625424
+        "input_cached": 0.578695856776,
+        "input_uncached": 6.9443502813119995,
+        "output": 13.888700562623999
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.00000208452",
-        "input_cache_read": "0.000000086855",
-        "prompt": "0.00000104226"
+        "completion": "0.000002061552",
+        "input_cache_read": "0.000000085898",
+        "prompt": "0.000001030776"
       }
     },
     "qwen": {
