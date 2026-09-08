@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-03",
+  "generated": "2026-09-08",
   "models": {
     "flash": {
       "billable_input_tokens": 1230885,
@@ -7,7 +7,7 @@
       "cache_imputed_from_peer_avg": false,
       "canonical_tasks": 18,
       "error_tasks": 0,
-      "estimated_cost_rmb": 6.266449477300645,
+      "estimated_cost_rmb": 10.736855224713073,
       "excluded_retry_trials": 0,
       "job_count": 2,
       "n_cache_tokens": 31802112,
@@ -1460,6 +1460,367 @@
       ],
       "valid_tasks": 18
     },
+    "gptx": {
+      "billable_input_tokens": 1469450,
+      "cache_hit_rate": 0.8794857314288124,
+      "cache_imputed_from_peer_avg": false,
+      "canonical_tasks": 18,
+      "error_tasks": 0,
+      "estimated_cost_rmb": 86.89190847110879,
+      "excluded_retry_trials": 0,
+      "job_count": 2,
+      "n_cache_tokens": 10723712,
+      "n_input_tokens": 12193162,
+      "n_output_tokens": 781405,
+      "pending_tasks": 0,
+      "raw_n_cache_tokens": 10723712,
+      "running_tasks": 1,
+      "tasks": [
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": false,
+            "cache_tokens": 440448,
+            "exception_type": null,
+            "finished": false,
+            "input_tokens": 550149,
+            "output_tokens": 32886,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2023-a-heliostat-field__DiAx9qC",
+            "reward": null,
+            "running": true,
+            "source": "job",
+            "trial_id": "cumcm-2023-a-heliostat-field__DiAx9qC",
+            "valid": false
+          },
+          "status": "running",
+          "task": "cumcm-2023-a-heliostat-field"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 1598208,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 1807805,
+            "output_tokens": 101227,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2023-b-multibeam-lines__phJN5Lr",
+            "reward": 0.0929758762184,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2023-b-multibeam-lines__phJN5Lr",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2023-b-multibeam-lines"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 229376,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 308991,
+            "output_tokens": 37661,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2023-c-vegetable-pricing__LG9QnDQ",
+            "reward": 0.357222694561,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2023-c-vegetable-pricing__LG9QnDQ",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2023-c-vegetable-pricing"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 954752,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 1108171,
+            "output_tokens": 100838,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2024-a-dragon-dance__exciRn7",
+            "reward": 0.203535571103,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2024-a-dragon-dance__exciRn7",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2024-a-dragon-dance"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 171776,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 197439,
+            "output_tokens": 51778,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2024-b-production-decision__cJddnno",
+            "reward": 0.479171621952,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2024-b-production-decision__cJddnno",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2024-b-production-decision"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 166144,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 220245,
+            "output_tokens": 11527,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2024-c-crop-planting__qMVrXJd",
+            "reward": 0.0,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2024-c-crop-planting__qMVrXJd",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2024-c-crop-planting"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 632832,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 719711,
+            "output_tokens": 52795,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2025-a-smoke-screen__JArGBjc",
+            "reward": 0.264543124959,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2025-a-smoke-screen__JArGBjc",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2025-a-smoke-screen"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 1280512,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 1383441,
+            "output_tokens": 66840,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2025-b-sic-thickness__2wg8gmS",
+            "reward": 0.315543176781,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2025-b-sic-thickness__2wg8gmS",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2025-b-sic-thickness"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 2805760,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 2916292,
+            "output_tokens": 90003,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2025-c-nipt__EA9W9eo",
+            "reward": 0.501741510079,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2025-c-nipt__EA9W9eo",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2025-c-nipt"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 122624,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 154864,
+            "output_tokens": 23097,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2023-a-plant-community__NDeQZws",
+            "reward": -0.227195505171,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2023-a-plant-community__NDeQZws",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2023-a-plant-community"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 11520,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 21873,
+            "output_tokens": 2096,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2023-b-maasai-mara__AB3BEBV",
+            "reward": 0.0,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2023-b-maasai-mara__AB3BEBV",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2023-b-maasai-mara"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 1113088,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 1324817,
+            "output_tokens": 63565,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2023-c-wordle__gBkp9N7",
+            "reward": 0.259775873078,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2023-c-wordle__gBkp9N7",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2023-c-wordle"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 138752,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 176332,
+            "output_tokens": 17253,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2024-a-lamprey__FKE79n4",
+            "reward": -0.340393874454,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2024-a-lamprey__FKE79n4",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2024-a-lamprey"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 168320,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 228884,
+            "output_tokens": 30694,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2024-b-submersible-search__UWdyp98",
+            "reward": 0.0835409121622,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2024-b-submersible-search__UWdyp98",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2024-b-submersible-search"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 84224,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 120420,
+            "output_tokens": 20017,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2024-c-tennis-momentum__J8a8aLq",
+            "reward": -0.395037102489,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2024-c-tennis-momentum__J8a8aLq",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2024-c-tennis-momentum"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 102656,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 136292,
+            "output_tokens": 21535,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2025-a-stair-wear__8Z3jDBr",
+            "reward": 0.0,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2025-a-stair-wear__8Z3jDBr",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2025-a-stair-wear"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 94720,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 143147,
+            "output_tokens": 17741,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2025-b-juneau-tourism__4nBMCXy",
+            "reward": 0.251055559546,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2025-b-juneau-tourism__4nBMCXy",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2025-b-juneau-tourism"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 608000,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 674289,
+            "output_tokens": 39852,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-mcm-retryproxy/mcm-2025-c-olympic-medals__zfyfG3h",
+            "reward": -0.405873319565,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2025-c-olympic-medals__zfyfG3h",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2025-c-olympic-medals"
+        }
+      ],
+      "valid_tasks": 17
+    },
     "hy4": {
       "billable_input_tokens": 4732283,
       "cache_hit_rate": 0.964613503449749,
@@ -2847,7 +3208,7 @@
       "cache_imputed_from_peer_avg": false,
       "canonical_tasks": 18,
       "error_tasks": 0,
-      "estimated_cost_rmb": 44.33120212405049,
+      "estimated_cost_rmb": 41.08344018586043,
       "excluded_retry_trials": 0,
       "job_count": 18,
       "n_cache_tokens": 20096768,
@@ -3208,7 +3569,7 @@
       "cache_imputed_from_peer_avg": false,
       "canonical_tasks": 18,
       "error_tasks": 1,
-      "estimated_cost_rmb": 189.8790066641263,
+      "estimated_cost_rmb": 197.92336619296535,
       "excluded_retry_trials": 0,
       "job_count": 4,
       "n_cache_tokens": 0,

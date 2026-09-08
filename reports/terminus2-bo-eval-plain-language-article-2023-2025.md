@@ -1,6 +1,6 @@
 # 用大白话看 terminal-bench-math-modeling 的 18 题 O-Eval / Robust BO-Eval
 
-生成日期：2026-09-03
+生成日期：2026-09-04
 
 这篇文章解释 2023、2024、2025 三年共 18 道 terminal-bench-math-modeling 题。它不重新跑模型，只读取已经保存的 artifact，再用同一套 direction-aware scoring 重新算 O-Eval 主指标、Robust BO-Eval 辅助指标、token 和粗略成本。
 
@@ -14,7 +14,7 @@
 
 18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) > Hy4 Preview (57.08%) > Qwen3.8 27B (55.06%) > GPT-5.6 Sol (55.00%) > GLM-5.3 (51.46%) > v4 pro (51.42%) > ox-alpha (48.94%) > Qwen3.8 Flash (Bailian) (45.15%) > Gemini 3.7 Flash (44.01%)。
 
-另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (56.99%) > Qwen3.8 27B (54.67%) > GPT-5.6 Sol (54.61%) > GLM-5.3 (50.77%) > v4 pro (50.11%) > Kimi K3 (45.59%) > Qwen3.8 Flash (Bailian) (44.55%) > ox-alpha (43.38%) > Gemini 3.7 Flash (42.74%)。
+另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Qwen3.8 27B (54.67%) > GPT-5.6 Sol (54.61%) > Hy4 Preview (51.81%) > v4 pro (50.11%) > Kimi K3 (45.59%) > GLM-5.3 (45.21%) > Qwen3.8 Flash (Bailian) (44.55%) > ox-alpha (43.38%) > Gemini 3.7 Flash (37.35%)。
 
 Robust BO-Eval 仍然保留做辅助解释：正常题用 `(模型 raw - flash raw) / (O raw - flash raw)`，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 `模型 raw - flash raw` 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。
 
@@ -24,16 +24,16 @@ Robust BO-Eval 仍然保留做辅助解释：正常题用 `(模型 raw - flash r
 
 | 模型 | artifacts | 平均 raw | O-Eval 主分 | Hard-gated O-Eval | Robust BO-Eval 辅助 | Hard-gated Robust | tokens input/cache/output | 估算成本 |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|
-| v4 flash | 17/18 | 0.756518 | 51.85% | 51.46% | 0.00% | 0.00% | 33,032,997 / 31,802,112 / 1,896,174 | ¥6.27 |
-| Kimi K3 | 18/18 | 0.868798 | 58.08% | 45.59% | 12.19% | -11.64% | 30,146,116 / 28,928,953 / 956,805 | ¥179.76 |
-| Hy4 Preview | 18/18 | 0.865183 | 57.08% | 56.99% | 11.70% | 6.47% | 133,731,323 / 128,999,040 / 2,068,825 | ¥97.95 |
-| Qwen3.8 27B | 18/18 | 0.754457 | 55.06% | 54.67% | 9.94% | 4.38% | 47,245,909 / 0 / 3,178,409 | ¥189.88 |
-| GPT-5.6 Sol | 18/18 | 0.841554 | 55.00% | 54.61% | 8.08% | 2.53% | 8,774,606 / 7,566,848 / 497,473 | ¥59.98 |
-| GLM-5.3 | 18/18 | 0.598189 | 51.46% | 50.77% | 5.45% | -0.43% | 92,056,972 / 89,637,696 / 2,638,779 | ¥258.05 |
-| v4 pro | 18/18 | 0.618719 | 51.42% | 50.11% | 2.28% | -4.26% | 21,309,105 / 20,096,768 / 1,748,356 | ¥44.33 |
+| v4 flash | 17/18 | 0.756518 | 51.85% | 47.36% | 0.00% | 0.00% | 33,032,997 / 31,802,112 / 1,896,174 | ¥6.27 |
+| Kimi K3 | 18/18 | 0.868798 | 58.08% | 45.59% | 12.19% | -11.25% | 30,146,116 / 28,928,953 / 956,805 | ¥179.76 |
+| Hy4 Preview | 18/18 | 0.865183 | 57.08% | 51.81% | 11.70% | -8.99% | 133,731,323 / 128,999,040 / 2,068,825 | ¥97.95 |
+| Qwen3.8 27B | 18/18 | 0.754457 | 55.06% | 54.67% | 9.94% | 4.38% | 47,245,909 / 0 / 3,178,409 | ¥197.92 |
+| GPT-5.6 Sol | 18/18 | 0.841554 | 55.00% | 54.61% | 8.08% | 2.96% | 8,774,606 / 7,566,848 / 497,473 | ¥59.98 |
+| GLM-5.3 | 18/18 | 0.598189 | 51.46% | 45.21% | 5.45% | -11.54% | 92,056,972 / 89,637,696 / 2,638,779 | ¥185.58 |
+| v4 pro | 18/18 | 0.618719 | 51.42% | 50.11% | 2.28% | -4.26% | 21,309,105 / 20,096,768 / 1,748,356 | ¥44.83 |
 | ox-alpha | 18/18 | 0.655886 | 48.94% | 43.38% | -1.46% | -7.19% | 107,726,029 / 101,466,688 / 3,683,366 | ¥19.62 |
 | Qwen3.8 Flash (Bailian) | 18/18 | 0.564887 | 45.15% | 44.55% | -7.33% | -13.12% | 299,616,972 / 293,563,264 / 6,814,374 | ¥59.34 |
-| Gemini 3.7 Flash | 15/18 | 0.57861 | 44.01% | 42.74% | -14.37% | -20.87% | 69,131,259 / 62,497,004 / 705,776 | ¥82.93 |
+| Gemini 3.7 Flash | 15/18 | 0.57861 | 44.01% | 37.35% | -14.37% | -31.33% | 69,131,259 / 62,497,004 / 705,776 | ¥82.93 |
 
 ## 温和版 hard-gated 怎么算
 
@@ -43,21 +43,25 @@ hard-gated 不是把所有可疑题都删掉。它只惩罚三类很硬的失败
 
 | 模型 | Hard-gated O-Eval | Hard-gated Robust | 原始 O-Eval | gate 数 | 成本 |
 |---|---:|---:|---:|---:|---:|
-| Hy4 Preview | 56.99% | 6.47% | 57.08% | 1 | ¥97.95 |
-| Qwen3.8 27B | 54.67% | 4.38% | 55.06% | 1 | ¥189.88 |
-| GPT-5.6 Sol | 54.61% | 2.53% | 55.00% | 1 | ¥59.98 |
-| v4 flash | 51.46% | 0.00% | 51.85% | 1 | ¥6.27 |
-| GLM-5.3 | 50.77% | -0.43% | 51.46% | 1 | ¥258.05 |
-| v4 pro | 50.11% | -4.26% | 51.42% | 1 | ¥44.33 |
-| Kimi K3 | 45.59% | -11.64% | 58.08% | 3 | ¥179.76 |
+| Qwen3.8 27B | 54.67% | 4.38% | 55.06% | 1 | ¥197.92 |
+| GPT-5.6 Sol | 54.61% | 2.96% | 55.00% | 1 | ¥59.98 |
+| Hy4 Preview | 51.81% | -8.99% | 57.08% | 3 | ¥97.95 |
+| v4 pro | 50.11% | -4.26% | 51.42% | 1 | ¥44.83 |
+| v4 flash | 47.36% | 0.00% | 51.85% | 2 | ¥6.27 |
+| Kimi K3 | 45.59% | -11.25% | 58.08% | 3 | ¥179.76 |
+| GLM-5.3 | 45.21% | -11.54% | 51.46% | 2 | ¥185.58 |
 | Qwen3.8 Flash (Bailian) | 44.55% | -13.12% | 45.15% | 1 | ¥59.34 |
 | ox-alpha | 43.38% | -7.19% | 48.94% | 1 | ¥19.62 |
-| Gemini 3.7 Flash | 42.74% | -20.87% | 44.01% | 1 | ¥82.93 |
+| Gemini 3.7 Flash | 37.35% | -31.33% | 44.01% | 2 | ¥82.93 |
 
 这版最大的变化是：Kimi K3 的朱诺旅游和奥运教练效应高分被扣掉，ox-alpha 的烟幕高分被扣掉；七鳃鳗里凡是把原始种群量写成 0-1 归一化指数的格子，也按整题不可行处理。
 
 | 模型 | 赛题 | 原 O-Eval | gated O-Eval | 原 Robust | gated Robust | 原因 |
 |---|---|---:|---:|---:|---:|---|
+| v4 flash | `cumcm-2023-a-heliostat-field` | 73.82% | 0.00% | 0.00% | 0.00% | hard-invalid/heliostat-constraint: Q2 rated-power constraint violation: 53.795541 MW is below the required approximately 60 MW; Q3 rated-power constraint violation: 53.795541 MW is below the required approximately 60 MW; Q3 does not expose numeric mirror dimensions |
+| GLM-5.3 | `cumcm-2023-a-heliostat-field` | 100.00% | 0.00% | 100.00% | -100.00% | explicit Q3 design note violates heliostat installation-height bound: one tail mirror uses z=1.9024 m, below the required 2 m minimum |
+| Gemini 3.7 Flash | `cumcm-2023-a-heliostat-field` | 96.90% | 0.00% | 88.16% | -100.00% | hard-invalid/heliostat-constraint: Question 2 rated-power constraint violation: 55.460000 MW is below the required approximately 60 MW; Question 3 rated-power constraint violation: 54.966000 MW is below the required approximately 60 MW |
+| Hy4 Preview | `cumcm-2024-b-production-decision` | 36.65% | 0.00% | 36.65% | -100.00% | hard-invalid/decision-constraint: q1 sampling plan 3 has invalid n/c |
 | ox-alpha | `cumcm-2025-a-smoke-screen` | 100.00% | 0.00% | 10.00% | -100.00% | independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry |
 | v4 flash | `mcm-2024-a-lamprey` | 7.02% | 0.00% | 0.00% | 0.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
 | Kimi K3 | `mcm-2024-a-lamprey` | 24.67% | 0.00% | 18.99% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index |
@@ -69,11 +73,12 @@ hard-gated 不是把所有可疑题都删掉。它只惩罚三类很硬的失败
 | Qwen3.8 Flash (Bailian) | `mcm-2024-a-lamprey` | 10.81% | 0.00% | 4.08% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index |
 | Gemini 3.7 Flash | `mcm-2024-a-lamprey` | 22.90% | 0.00% | 17.08% | -100.00% | score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index |
 | Kimi K3 | `mcm-2025-b-juneau-tourism` | 100.00% | 0.00% | 100.00% | -100.00% | unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score |
+| Hy4 Preview | `mcm-2025-b-juneau-tourism` | 56.72% | 0.00% | 41.57% | -100.00% | hard-invalid/tourism-policy-range: policy row 1 sustainability_score=101.329 is outside the 0-100 display range; policy row 2 sustainability_score=101.559 is outside the 0-100 display range; policy row 3 sustainability_score=100.99 is outside the 0-100 display range; policy row 4 sustainability_score=100.418 is outside the 0-100 display range |
 | Kimi K3 | `mcm-2025-c-olympic-medals` | 100.00% | 0.00% | 10.00% | -100.00% | invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0 |
 
 ## 图怎么读
 
-第一组图看温和版 hard-gated O-Eval：它回答“把明显不可行解扣掉以后，谁还稳”。Hy4 Preview 在这张榜上排第一，Kimi K3 因朱诺旅游和奥运教练效应两个高杠杆坏题明显下滑；ox-alpha 因烟幕几何重放为零，也从原 O-Eval 里掉下来。
+第一组图看温和版 hard-gated O-Eval：它回答“把明显不可行解扣掉以后，谁还稳”。Qwen3.8 27B 在这张榜上排第一；Hy4 Preview 因新增的生产抽检阈值/旅游可持续性越界 gate 回落，Kimi K3 因朱诺旅游和奥运教练效应两个高杠杆坏题明显下滑；ox-alpha 因烟幕几何重放为零，也从原 O-Eval 里掉下来。
 
 ![Hard-gated O-Eval 主效果柱状图](figures/aa-style-2023-2025-hard-gated-o-eval-bar.png)
 
@@ -99,7 +104,7 @@ token 和成本图用来解释为什么同样 O-Eval 分数会有不同价格。
 
 成本统一优先按 OpenRouter 当前 catalog 里的 `prompt`、`input_cache_read`、`input_cache_write`、`completion` 价格算，再用 USD/CNY=6.737012 转成人民币/百万 tokens。价格快照写在 `openrouter-pricing-used-2023-2025.json`；当前 `result.json` 只有 input/cache/output 三类 token，没有单独的 cache write/create 字段，所以显式缓存创建费用不额外拆账。
 
-按这个口径，Qwen3.8 27B 是 55.06% O-Eval、9.94% Robust 辅助、¥189.88 估算成本；它不会再被 841% 这类小分母离群值抬高。
+按这个口径，Qwen3.8 27B 是 55.06% O-Eval、9.94% Robust 辅助、¥197.92 估算成本；它不会再被 841% 这类小分母离群值抬高。
 
 Kimi K3 是 58.08% O-Eval、12.19% Robust 辅助、¥179.76 估算成本。Kimi 2023 的汇总 `result.json` 已经回到 3 completed / 0 error 的状态，所以这里不会再因为旧 error 计数低估 artifacts。
 
@@ -1063,7 +1068,7 @@ O-Eval 第一的是 Kimi K3，主分是 58.08%。这说明它在 18 题平均 ra
 
 Robust 辅助第一的是 Kimi K3，辅助分是 12.19%。这个口径说明它在 flash 弱项上追回 gap 的能力强，但它不再是唯一主表，因为它仍然依赖 flash 和 O 之间那段尺子的形状。
 
-温和版 hard-gated 第一的是 Hy4 Preview，主分是 56.99%。这张榜不是新的数学分数，而是给公开解读加了一道保守阀门：明显不可行的高分不再继续抬平均数。
+温和版 hard-gated 第一的是 Qwen3.8 27B，主分是 54.67%。这张榜不是新的数学分数，而是给公开解读加了一道保守阀门：明显不可行的高分不再继续抬平均数。
 
 GLM-5.3 和 v4 pro 的位置很接近，说明它们在 flash 弱项上整体有稳定增益；GPT-5.6 Sol high、Kimi K3、Qwen3.8 27B 都有强题，但 O-Eval 会把强题、弱题、缺失题放到同一张绝对成绩单里平均。
 
