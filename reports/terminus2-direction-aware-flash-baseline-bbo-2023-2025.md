@@ -20,7 +20,7 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | v4 pro | 18 | 0.618719 | 51.42% | -13.78 pp | 2.28% | 21,309,105 / 20,096,768 / 1,748,356 | 1,212,337 / 1,748,356 | $6.098169 | ¥41.08 | 18/0/0/0 | 0 |
 | GLM-5.3 | 18 | 0.598189 | 51.46% | -15.83 pp | 5.45% | 92,056,972 / 89,637,696 / 2,638,779 | 2,419,276 / 2,638,779 | $38.303415 | ¥258.05 | 18/0/0/0 | 0 |
 | GPT-5.6 SOL high | 18 | 0.841554 | 55.00% | +8.50 pp | 8.08% | 8,774,606 / 7,566,848 / 497,473 | 1,207,758 / 497,473 | $8.903616 | ¥59.98 | 18/0/0/0 | 0 |
-| GPT-5.6 SOL xhigh | 16 | 0.636232 | 50.53% | -12.03 pp | -7.20% | 16,596,399 / 14,928,768 / 841,198 | 1,667,631 / 841,198 | $14.732996 | ¥99.26 | 17/0/1/0 | 2 |
+| GPT-5.6 SOL xhigh | 17 | 0.640327 | 50.94% | -11.62 pp | -1.82% | 16,596,399 / 14,928,768 / 841,198 | 1,667,631 / 841,198 | $14.732996 | ¥99.26 | 17/0/1/0 | 3 |
 | Kimi K3 | 18 | 0.868798 | 58.08% | +11.23 pp | 12.19% | 30,146,116 / 28,928,953 / 956,805 | 1,217,163 / 956,805 | $26.682250 | ¥179.76 | 17/0/1/0 | 0 |
 | Gemini 3.7 Flash high primary+retry | 15 | 0.578610 | 44.01% | -17.79 pp | -14.37% | 69,131,259 / 62,497,004 / 705,776 | 6,634,255 / 705,776 | $12.309627 | ¥82.93 | 18/0/0/0 | 1 |
 | Qwen3.8-27B-FP8 thinking | 18 | 0.754457 | 55.06% | -0.21 pp | 9.94% | 47,245,909 / 0 / 3,178,409 | 47,245,909 / 3,178,409 | $29.378509 | ¥197.92 | 17/0/1/0 | 0 |
@@ -36,7 +36,7 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | 2 | Qwen3.8-27B-FP8 thinking | 55.06% | 9.94% | 55.06% | 9.94% | 0.754457 | 0 | ¥197.92 |
 | 3 | GPT-5.6 SOL high | 55.00% | 8.52% | 55.00% | 8.08% | 0.841554 | 0 | ¥59.98 |
 | 4 | v4 pro | 51.42% | 2.28% | 51.42% | 2.28% | 0.618719 | 0 | ¥41.08 |
-| 5 | GPT-5.6 SOL xhigh | 50.53% | -7.20% | 50.53% | -7.20% | 0.636232 | 0 | ¥99.26 |
+| 5 | GPT-5.6 SOL xhigh | 50.94% | -1.82% | 50.94% | -1.82% | 0.640327 | 0 | ¥99.26 |
 | 6 | v4 flash baseline | 47.75% | 0.00% | 51.85% | 0.00% | 0.715506 | 1: `cumcm-2023-a-heliostat-field` | ¥6.27 |
 | 7 | Kimi K3 | 46.97% | -4.64% | 58.08% | 12.19% | 0.621262 | 2: `mcm-2025-b-juneau-tourism`, `mcm-2025-c-olympic-medals` | ¥179.76 |
 | 8 | GLM-5.3 | 45.91% | -5.66% | 51.46% | 5.45% | 0.520770 | 1: `cumcm-2023-a-heliostat-field` | ¥258.05 |
@@ -57,10 +57,10 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 
 ## Primary Readout
 
-- 18-task primary O-Eval ranking: Kimi K3 (58.08%) > Tencent Hy4 Preview (57.08%) > Qwen3.8-27B-FP8 thinking (55.06%) > GPT-5.6 SOL high (55.00%) > GLM-5.3 (51.46%) > v4 pro (51.42%) > GPT-5.6 SOL xhigh (50.53%) > GLM-5.3-Flash (ox-alpha) (48.94%) > Qwen3.8 Flash (Bailian) (45.15%) > Gemini 3.7 Flash high primary+retry (44.01%).
-- Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) > Qwen3.8-27B-FP8 thinking (55.06%) > GPT-5.6 SOL high (55.00%) > v4 pro (51.42%) > GPT-5.6 SOL xhigh (50.53%) > Kimi K3 (46.97%) > GLM-5.3 (45.91%) > Qwen3.8 Flash (Bailian) (45.15%) > GLM-5.3-Flash (ox-alpha) (43.38%) > Gemini 3.7 Flash high primary+retry (38.63%).
-- Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) > Tencent Hy4 Preview (11.70%) > Qwen3.8-27B-FP8 thinking (9.94%) > GPT-5.6 SOL high (8.08%) > GLM-5.3 (5.45%) > v4 pro (2.28%) > GLM-5.3-Flash (ox-alpha) (-1.46%) > GPT-5.6 SOL xhigh (-7.20%) > Qwen3.8 Flash (Bailian) (-7.33%) > Gemini 3.7 Flash high primary+retry (-14.37%).
-- Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) > Qwen3.8-27B-FP8 thinking (9.94%) > GPT-5.6 SOL high (8.52%) > v4 pro (2.28%) > Kimi K3 (-4.64%) > GLM-5.3 (-5.66%) > GPT-5.6 SOL xhigh (-7.20%) > Qwen3.8 Flash (Bailian) (-7.33%) > GLM-5.3-Flash (ox-alpha) (-7.57%) > Gemini 3.7 Flash high primary+retry (-24.82%).
+- 18-task primary O-Eval ranking: Kimi K3 (58.08%) > Tencent Hy4 Preview (57.08%) > Qwen3.8-27B-FP8 thinking (55.06%) > GPT-5.6 SOL high (55.00%) > GLM-5.3 (51.46%) > v4 pro (51.42%) > GPT-5.6 SOL xhigh (50.94%) > GLM-5.3-Flash (ox-alpha) (48.94%) > Qwen3.8 Flash (Bailian) (45.15%) > Gemini 3.7 Flash high primary+retry (44.01%).
+- Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) > Qwen3.8-27B-FP8 thinking (55.06%) > GPT-5.6 SOL high (55.00%) > v4 pro (51.42%) > GPT-5.6 SOL xhigh (50.94%) > Kimi K3 (46.97%) > GLM-5.3 (45.91%) > Qwen3.8 Flash (Bailian) (45.15%) > GLM-5.3-Flash (ox-alpha) (43.38%) > Gemini 3.7 Flash high primary+retry (38.63%).
+- Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) > Tencent Hy4 Preview (11.70%) > Qwen3.8-27B-FP8 thinking (9.94%) > GPT-5.6 SOL high (8.08%) > GLM-5.3 (5.45%) > v4 pro (2.28%) > GLM-5.3-Flash (ox-alpha) (-1.46%) > GPT-5.6 SOL xhigh (-1.82%) > Qwen3.8 Flash (Bailian) (-7.33%) > Gemini 3.7 Flash high primary+retry (-14.37%).
+- Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) > Qwen3.8-27B-FP8 thinking (9.94%) > GPT-5.6 SOL high (8.52%) > v4 pro (2.28%) > GPT-5.6 SOL xhigh (-1.82%) > Kimi K3 (-4.64%) > GLM-5.3 (-5.66%) > Qwen3.8 Flash (Bailian) (-7.33%) > GLM-5.3-Flash (ox-alpha) (-7.57%) > Gemini 3.7 Flash high primary+retry (-24.82%).
 - These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.
 - The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.
 - The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.
@@ -117,7 +117,7 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | v4 pro | 62.17% | 33.58% | 58.51% |
 | GLM-5.3 | 65.89% | 32.36% | 56.14% |
 | GPT-5.6 SOL high | 78.80% | 34.99% | 51.20% |
-| GPT-5.6 SOL xhigh | 54.33% | 45.07% | 52.20% |
+| GPT-5.6 SOL xhigh | 55.56% | 45.07% | 52.20% |
 | Kimi K3 | 62.00% | 38.29% | 73.94% |
 | Gemini 3.7 Flash high primary+retry | 59.63% | 22.24% | 50.17% |
 | Qwen3.8-27B-FP8 thinking | 76.73% | 45.39% | 43.07% |
@@ -133,7 +133,7 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | v4 pro | 64.02% | 38.81% |
 | GLM-5.3 | 58.46% | 44.46% |
 | GPT-5.6 SOL high | 71.68% | 38.31% |
-| GPT-5.6 SOL xhigh | 57.10% | 43.97% |
+| GPT-5.6 SOL xhigh | 57.10% | 44.79% |
 | Kimi K3 | 73.49% | 42.67% |
 | Gemini 3.7 Flash high primary+retry | 68.82% | 19.20% |
 | Qwen3.8-27B-FP8 thinking | 72.93% | 37.20% |
@@ -149,7 +149,7 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | v4 pro | 9.43% | -2.00% | -0.58% |
 | GLM-5.3 | 19.52% | -0.26% | -2.90% |
 | GPT-5.6 SOL high | 22.65% | 1.11% | 0.49% |
-| GPT-5.6 SOL xhigh | -36.39% | 16.09% | -1.29% |
+| GPT-5.6 SOL xhigh | -20.25% | 16.09% | -1.29% |
 | Kimi K3 | 9.51% | 5.34% | 21.73% |
 | Gemini 3.7 Flash high primary+retry | -4.74% | -28.71% | -9.66% |
 | Qwen3.8-27B-FP8 thinking | 19.69% | 13.71% | -3.59% |
@@ -165,7 +165,7 @@ Robust ratio tasks with gap >= 0.10: 12. Saturated or near-zero-gap tasks using 
 | v4 pro | 2.14% | 2.42% | 9 | 9 |
 | GLM-5.3 | 0.41% | 10.49% | 9 | 9 |
 | GPT-5.6 SOL high | 8.53% | 7.63% | 9 | 9 |
-| GPT-5.6 SOL xhigh | -15.34% | 0.94% | 8 | 8 |
+| GPT-5.6 SOL xhigh | -15.34% | 11.70% | 8 | 9 |
 | Kimi K3 | 8.86% | 15.53% | 9 | 9 |
 | Gemini 3.7 Flash high primary+retry | 0.89% | -29.63% | 9 | 6 |
 | Qwen3.8-27B-FP8 thinking | 8.66% | 11.21% | 9 | 9 |
@@ -200,7 +200,7 @@ Cells are `direction-aware raw / O-Eval % / B-Eval vs flash / Robust BO-Eval %`.
 | 2025 | CUMCM | B | `cumcm-2025-b-sic-thickness` | 0.291621 / 29.16% / 0.00% / 0.00% | 0.246099 / 24.61% / 0.00% / -6.43% | 0.306245 / 30.62% / 2.06% / 2.06% | 0.242011 / 24.20% / 0.00% / -7.00% | 0.315543 / 31.55% / 3.38% / 3.38% | 0.436145 / 43.61% / 20.40% / 20.40% | 0.307888 / 30.79% / 2.30% / 2.30% | 0.187085 / 18.71% / 0.00% / -14.76% | 0.309492 / 30.95% / 2.52% / 2.52% | 0.339399 / 33.94% / 6.74% / 6.74% | 0.363177 / 36.32% / 10.10% / 10.10% | 1.000000 |
 | 2025 | CUMCM | C | `cumcm-2025-c-nipt` | 1.506359 / 100.00% / 0.00% / 0.00% | 1.360909 / 100.00% / N/A / -10.00% | 1.071182 / 100.00% / N/A / -10.00% | 1.452420 / 100.00% / N/A / -5.39% | 0.626050 / 62.60% / N/A / -10.00% | 1.289804 / 100.00% / N/A / -10.00% | 1.234068 / 100.00% / N/A / -10.00% | 1.521520 / 100.00% / N/A / 1.52% | 1.073057 / 100.00% / N/A / -10.00% | 1.287680 / 100.00% / N/A / -10.00% | 1.184644 / 100.00% / N/A / -10.00% | 1.000000 |
 | 2023 | MCM | A | `mcm-2023-a-plant-community` | 1.632029 / 100.00% / 0.00% / 0.00% | 1.179422 / 100.00% / N/A / -10.00% | 1.538784 / 100.00% / N/A / -9.32% | 1.364424 / 100.00% / N/A / -10.00% | 1.364410 / 100.00% / N/A / -10.00% | 0.469546 / 46.95% / N/A / -10.00% | 0.545375 / 54.54% / N/A / -10.00% | 1.070439 / 100.00% / N/A / -10.00% | 1.163407 / 100.00% / N/A / -10.00% | 0.373162 / 37.32% / N/A / -10.00% | 1.296434 / 100.00% / N/A / -10.00% | 1.000000 |
-| 2023 | MCM | B | `mcm-2023-b-maasai-mara` | 0.102093 / 10.21% / 0.00% / 0.00% | 0.034371 / 3.44% / 0.00% / -7.54% | 0.068142 / 6.81% / 0.00% / -3.78% | 0.032355 / 3.24% / 0.00% / -7.77% | 0.000000 / 0.00% / 0.00% / -100.00% | 0.028745 / 2.87% / 0.00% / -8.17% | 0.063352 / 6.34% / 0.00% / -4.31% | 0.024041 / 2.40% / 0.00% / -8.69% | 0.088569 / 8.86% / 0.00% / -1.51% | 0.023241 / 2.32% / 0.00% / -8.78% | 0.022503 / 2.25% / 0.00% / -8.86% | 1.000000 |
+| 2023 | MCM | B | `mcm-2023-b-maasai-mara` | 0.102093 / 10.21% / 0.00% / 0.00% | 0.034371 / 3.44% / 0.00% / -7.54% | 0.068142 / 6.81% / 0.00% / -3.78% | 0.032355 / 3.24% / 0.00% / -7.77% | 0.073712 / 7.37% / 0.00% / -3.16% | 0.028745 / 2.87% / 0.00% / -8.17% | 0.063352 / 6.34% / 0.00% / -4.31% | 0.024041 / 2.40% / 0.00% / -8.69% | 0.088569 / 8.86% / 0.00% / -1.51% | 0.023241 / 2.32% / 0.00% / -8.78% | 0.022503 / 2.25% / 0.00% / -8.86% | 1.000000 |
 | 2023 | MCM | C | `mcm-2023-c-wordle` | 0.224201 / 22.42% / 0.00% / 0.00% | 0.097978 / 9.80% / 0.00% / -16.27% | 0.529999 / 53.00% / 39.42% / 39.42% | 0.723478 / 72.35% / 64.36% / 64.36% | 0.259776 / 25.98% / 4.59% / 4.59% | 0.246521 / 24.65% / 2.88% / 2.88% | 0.000000 / 0.00% / 0.00% / -100.00% | 0.580000 / 58.00% / 45.86% / 45.86% | 0.565840 / 56.58% / 44.04% / 44.04% | 0.065441 / 6.54% / 0.00% / -20.46% | 0.983080 / 98.31% / 97.82% / 97.82% | 1.000000 |
 | 2024 | MCM | A | `mcm-2024-a-lamprey` | 0.070175 / 7.02% / 0.00% / 0.00% | 0.235294 / 23.53% / 17.76% / 17.76% | 0.125000 / 12.50% / 5.90% / 5.90% | 0.070175 / 7.02% / 0.00% / 0.00% | 0.070175 / 7.02% / 0.00% / 0.00% | 0.246711 / 24.67% / 18.99% / 18.99% | 0.228957 / 22.90% / 17.08% / 17.08% | 0.070175 / 7.02% / 0.00% / 0.00% | 0.089589 / 8.96% / 2.09% / 2.09% | 0.108108 / 10.81% / 4.08% / 4.08% | 0.015564 / 1.56% / 0.00% / -5.87% | 1.000000 |
 | 2024 | MCM | B | `mcm-2024-b-submersible-search` | 0.371417 / 37.14% / 0.00% / 0.00% | 0.296505 / 29.65% / 0.00% / -11.92% | 0.709302 / 70.93% / 53.75% / 53.75% | 0.389026 / 38.90% / 2.80% / 2.80% | 0.662162 / 66.22% / 46.25% / 46.25% | 0.470888 / 47.09% / 15.82% / 15.82% | 0.187946 / 18.79% / 0.00% / -29.19% | 0.753209 / 75.32% / 60.74% / 60.74% | 0.632353 / 63.24% / 41.51% / 41.51% | 0.272873 / 27.29% / 0.00% / -15.68% | 0.300348 / 30.03% / 0.00% / -11.31% | 1.000000 |

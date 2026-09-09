@@ -42,9 +42,9 @@
 <text x="616.5" y="509.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">0 gates</text>
 <text x="616.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
 <text x="616.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Pro</text>
-<rect x="702.9" y="525.1" width="112.7" height="229.9" fill="#0f766e" rx="8.0" />
-<text x="759.3" y="640.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">50.5%</text>
-<text x="759.3" y="513.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">0 gates</text>
+<rect x="702.9" y="523.2" width="112.7" height="231.8" fill="#0f766e" rx="8.0" />
+<text x="759.3" y="639.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">50.9%</text>
+<text x="759.3" y="511.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">0 gates</text>
 <text x="759.3" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6 Sol</text>
 <text x="759.3" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">XH</text>
 <rect x="845.6" y="537.7" width="112.7" height="217.3" fill="#2f80ed" rx="8.0" />

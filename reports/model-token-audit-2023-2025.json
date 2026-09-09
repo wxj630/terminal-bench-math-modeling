@@ -1467,8 +1467,8 @@
       "canonical_tasks": 18,
       "error_tasks": 1,
       "estimated_cost_rmb": 99.25636815314719,
-      "excluded_retry_trials": 2,
-      "job_count": 4,
+      "excluded_retry_trials": 3,
+      "job_count": 5,
       "n_cache_tokens": 14928768,
       "n_input_tokens": 16596399,
       "n_output_tokens": 841198,
@@ -1697,7 +1697,22 @@
           "task": "mcm-2023-a-plant-community"
         },
         {
-          "excluded": [],
+          "excluded": [
+            {
+              "artifact": true,
+              "cache_tokens": 496768,
+              "exception_type": null,
+              "finished": true,
+              "input_tokens": 598236,
+              "output_tokens": 39485,
+              "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-1h-retry2-maasai-20260908/mcm-2023-b-maasai-mara__ep3QU4R",
+              "reward": -0.528945600064,
+              "running": false,
+              "source": "job",
+              "trial_id": "mcm-2023-b-maasai-mara__ep3QU4R",
+              "valid": true
+            }
+          ],
           "selected": {
             "artifact": true,
             "cache_tokens": 11520,

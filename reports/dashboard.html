@@ -131,11 +131,11 @@
 <p>这个 benchmark 看的不是模型会不会写一篇像样的建模论文，而是：给它完整赛题和附件后，它最后交出来的关键数字，能不能追上优秀论文复现答案。</p>
 <p>最终主指标现在是 O-Eval：<code>clamp(模型 direction-aware raw / O raw, 0, 1)</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；超过 O 奖锚点的部分不再继续加分。</p>
 <p>这也是为什么 O-Eval 和 Robust BO-Eval 会出现排序不一致：O-Eval 看的是离 O 有多近，Robust 看的是比 flash 多追回了多少。一个是绝对分，一个是相对进步分，所以它们是互补的，不是二选一。</p>
-<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
-<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (38.63%)。</p>
+<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.94%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
+<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.94%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (38.63%)。</p>
 <p>Robust BO-Eval 仍然保留做辅助解释：正常题用 <code>(模型 raw - flash raw) / (O raw - flash raw)</code>，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 <code>模型 raw - flash raw</code> 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。</p>
 <p>如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
-<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; GPT-5.6 Sol XH (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
+<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; GPT-5.6 Sol XH (-1.82%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
 <div class="table-wrap"><table>
 <thead><tr>
 <th>模型</th>
@@ -227,12 +227,12 @@
 </tr>
 <tr>
 <td>GPT-5.6 Sol XH</td>
-<td>16/18</td>
-<td>0.636232</td>
-<td>50.53%</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>-7.20%</td>
+<td>17/18</td>
+<td>0.640327</td>
+<td>50.94%</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>-1.82%</td>
 <td>16,596,399 / 14,928,768 / 841,198</td>
 <td>¥99.26</td>
 </tr>
@@ -316,9 +316,9 @@
 </tr>
 <tr>
 <td>GPT-5.6 Sol XH</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>50.53%</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>50.94%</td>
 <td>0</td>
 <td>¥99.26</td>
 </tr>
@@ -517,17 +517,17 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>16</td>
-<td>0.636232</td>
-<td>50.53%</td>
-<td>-12.03 pp</td>
-<td>-7.20%</td>
+<td>17</td>
+<td>0.640327</td>
+<td>50.94%</td>
+<td>-11.62 pp</td>
+<td>-1.82%</td>
 <td>16,596,399 / 14,928,768 / 841,198</td>
 <td>1,667,631 / 841,198</td>
 <td>$14.732996</td>
 <td>¥99.26</td>
 <td>17/0/1/0</td>
-<td>2</td>
+<td>3</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -674,11 +674,11 @@
 <tr>
 <td>5</td>
 <td>GPT-5.6 SOL xhigh</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>0.636232</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>0.640327</td>
 <td>0</td>
 <td>¥99.26</td>
 </tr>
@@ -697,7 +697,7 @@
 <p>生成日期：2026-09-09</p>
 <h2>结论</h2>
 <p>这份复核不把 JSON 字段齐全、轨迹里写过代码或分数高，直接当成数学方案已经可行。可行性分成三层：题面硬约束明确违反时 hard-invalid；能用共同几何/运动学重放时报告 replay-feasible；开放题或缺少布局/代码时只能写 artifact-only，不能据此宣称方案已被独立验证。</p>
-<p>本轮共检查 198 个模型-题目单元。状态计数：artifact-only/calibrated-model=11, artifact-only/no-layout-replay=7, hard-invalid=6, missing-artifact=9, needs-review/decision-structure-pass=9, needs-review/lamprey-state-range-pass=11, needs-review/maasai-partition-pass=10, needs-review/model-layout-missing=5, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=1, needs-review/nipt-range-pass=10, needs-review/no-replenishment-schedule=6, needs-review/olympic-structure-pass=9, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/tourism-policy-range-pass=1, needs-review/tourism-scale-mismatch=9, range-clean/artifact-only=75, replay-feasible-under-O-geometry=9。</p>
+<p>本轮共检查 198 个模型-题目单元。状态计数：artifact-only/calibrated-model=11, artifact-only/no-layout-replay=7, hard-invalid=6, missing-artifact=8, needs-review/decision-structure-pass=9, needs-review/lamprey-state-range-pass=11, needs-review/maasai-partition-pass=11, needs-review/model-layout-missing=5, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=1, needs-review/nipt-range-pass=10, needs-review/no-replenishment-schedule=6, needs-review/olympic-structure-pass=9, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/tourism-policy-range-pass=1, needs-review/tourism-scale-mismatch=9, range-clean/artifact-only=75, replay-feasible-under-O-geometry=9。</p>
 <p>新增确定性处罚：GLM-5.3 的 <code>cumcm-2023-a-heliostat-field</code> Q3 文字明确给出一面尾镜 <code>z=1.9024 m</code>，低于题面安装高度下限 2 m；v4 flash baseline 的 Q3 年平均热功率为 53.7955 MW，Gemini 3.7 Flash 的 Q2/Q3 年平均热功率为 55.460/54.966 MW，均未达到约 60 MW。这些是题面硬约束违反，进入 whole-task hard gate。此前对 Hy4 的 <code>cumcm-2024-b-production-decision</code>（SPRT 的 <code>c=-1</code> 哨兵）和 Juneau 中间年份 <code>sustainability_score&gt;100</code> 的判断是审计误报，已撤销；它们现在分别标为结构通过和量纲需复核。 多波束题补充了独立重放：GLM、ox-alpha、Kimi 和 Qwen 的 artifact 都保存了可读取的实际 Q4 测线坐标。GLM/ox-alpha 为 60 条线，在官方海深网格上覆盖率约 99.945%，存在少量漏测；Kimi 为 81 条线、覆盖率 100%，但约 79.6% 的相邻局部重叠超过 20%；Qwen 为 60 条线、覆盖率 100%，但只有约 14.8% 的局部重叠落在 10%–20%，约 36.2% 低于 10%，约 51.0% 高于 20%。这些结果说明覆盖几何可执行，但质量约束仍需复核，不能直接写成完全满足题面。Qwen 的 Q3 末条测线中心超出 4 海里边界约 4.17 m，仅作为边界约定警告。</p>
 <h2>烟幕题独立重放</h2>
 <p>统一采用题面导弹/无人机坐标、300 m/s 导弹、重力抛体、10 m 烟幕半径、20 s 有效期，以及 Outstanding 复现使用的 27 个目标采样点和 25% 覆盖阈值。重放不读取模型自报的遮蔽时长，只读取投放参数重新计算。</p>
@@ -1286,17 +1286,17 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>16</td>
-<td>0.636232</td>
-<td>50.53%</td>
-<td>-12.03 pp</td>
-<td>-7.20%</td>
+<td>17</td>
+<td>0.640327</td>
+<td>50.94%</td>
+<td>-11.62 pp</td>
+<td>-1.82%</td>
 <td>16,596,399 / 14,928,768 / 841,198</td>
 <td>1,667,631 / 841,198</td>
 <td>$14.732996</td>
 <td>¥99.26</td>
 <td>17/0/1/0</td>
-<td>2</td>
+<td>3</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -1443,11 +1443,11 @@
 <tr>
 <td>5</td>
 <td>GPT-5.6 SOL xhigh</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>0.636232</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>0.640327</td>
 <td>0</td>
 <td>¥99.26</td>
 </tr>
@@ -1599,7 +1599,7 @@
 </tr>
 </tbody></table></div>
 <h2>Primary Readout</h2>
-<ul><li>18-task primary O-Eval ranking: Kimi K3 (58.08%) &gt; Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.53%) &gt; GLM-5.3-Flash (ox-alpha) (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash high primary+retry (44.01%).</li><li>Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.53%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; GLM-5.3-Flash (ox-alpha) (43.38%) &gt; Gemini 3.7 Flash high primary+retry (38.63%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; GPT-5.6 SOL xhigh (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%).</li><li>Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.52%) &gt; v4 pro (2.28%) &gt; Kimi K3 (-4.64%) &gt; GLM-5.3 (-5.66%) &gt; GPT-5.6 SOL xhigh (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; GLM-5.3-Flash (ox-alpha) (-7.57%) &gt; Gemini 3.7 Flash high primary+retry (-24.82%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
+<ul><li>18-task primary O-Eval ranking: Kimi K3 (58.08%) &gt; Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.94%) &gt; GLM-5.3-Flash (ox-alpha) (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash high primary+retry (44.01%).</li><li>Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.94%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; GLM-5.3-Flash (ox-alpha) (43.38%) &gt; Gemini 3.7 Flash high primary+retry (38.63%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; GPT-5.6 SOL xhigh (-1.82%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%).</li><li>Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.52%) &gt; v4 pro (2.28%) &gt; GPT-5.6 SOL xhigh (-1.82%) &gt; Kimi K3 (-4.64%) &gt; GLM-5.3 (-5.66%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; GLM-5.3-Flash (ox-alpha) (-7.57%) &gt; Gemini 3.7 Flash high primary+retry (-24.82%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
 <h2>Price Table</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -1747,7 +1747,7 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>54.33%</td>
+<td>55.56%</td>
 <td>45.07%</td>
 <td>52.20%</td>
 </tr>
@@ -1818,7 +1818,7 @@
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>57.10%</td>
-<td>43.97%</td>
+<td>44.79%</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -1885,7 +1885,7 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>-36.39%</td>
+<td>-20.25%</td>
 <td>16.09%</td>
 <td>-1.29%</td>
 </tr>
@@ -1966,9 +1966,9 @@
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>-15.34%</td>
-<td>0.94%</td>
+<td>11.70%</td>
 <td>8</td>
-<td>8</td>
+<td>9</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -2282,7 +2282,7 @@
 <td>0.034371 / 3.44% / 0.00% / -7.54%</td>
 <td>0.068142 / 6.81% / 0.00% / -3.78%</td>
 <td>0.032355 / 3.24% / 0.00% / -7.77%</td>
-<td>0.000000 / 0.00% / 0.00% / -100.00%</td>
+<td>0.073712 / 7.37% / 0.00% / -3.16%</td>
 <td>0.028745 / 2.87% / 0.00% / -8.17%</td>
 <td>0.063352 / 6.34% / 0.00% / -4.31%</td>
 <td>0.024041 / 2.40% / 0.00% / -8.69%</td>
@@ -2424,11 +2424,11 @@
 <p>这个 benchmark 看的不是模型会不会写一篇像样的建模论文，而是：给它完整赛题和附件后，它最后交出来的关键数字，能不能追上优秀论文复现答案。</p>
 <p>最终主指标现在是 O-Eval：<code>clamp(模型 direction-aware raw / O raw, 0, 1)</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；超过 O 奖锚点的部分不再继续加分。</p>
 <p>这也是为什么 O-Eval 和 Robust BO-Eval 会出现排序不一致：O-Eval 看的是离 O 有多近，Robust 看的是比 flash 多追回了多少。一个是绝对分，一个是相对进步分，所以它们是互补的，不是二选一。</p>
-<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
-<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (38.63%)。</p>
+<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.94%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
+<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.94%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (38.63%)。</p>
 <p>Robust BO-Eval 仍然保留做辅助解释：正常题用 <code>(模型 raw - flash raw) / (O raw - flash raw)</code>，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 <code>模型 raw - flash raw</code> 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。</p>
 <p>如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
-<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; GPT-5.6 Sol XH (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
+<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; GPT-5.6 Sol XH (-1.82%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
 <div class="table-wrap"><table>
 <thead><tr>
 <th>模型</th>
@@ -2520,12 +2520,12 @@
 </tr>
 <tr>
 <td>GPT-5.6 Sol XH</td>
-<td>16/18</td>
-<td>0.636232</td>
-<td>50.53%</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>-7.20%</td>
+<td>17/18</td>
+<td>0.640327</td>
+<td>50.94%</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>-1.82%</td>
 <td>16,596,399 / 14,928,768 / 841,198</td>
 <td>¥99.26</td>
 </tr>
@@ -2609,9 +2609,9 @@
 </tr>
 <tr>
 <td>GPT-5.6 Sol XH</td>
-<td>50.53%</td>
-<td>-7.20%</td>
-<td>50.53%</td>
+<td>50.94%</td>
+<td>-1.82%</td>
+<td>50.94%</td>
 <td>0</td>
 <td>¥99.26</td>
 </tr>
@@ -2912,7 +2912,7 @@
 <td>3.24%</td>
 <td>6.81%</td>
 <td>3.44%</td>
-<td>0.00%</td>
+<td>7.37%</td>
 <td>8.86%</td>
 <td>2.32%</td>
 <td>6.34%</td>
@@ -3016,7 +3016,7 @@
 <td><strong>55.00%</strong></td>
 <td><strong>51.46%</strong></td>
 <td><strong>51.42%</strong></td>
-<td><strong>50.53%</strong></td>
+<td><strong>50.94%</strong></td>
 <td><strong>48.94%</strong></td>
 <td><strong>45.15%</strong></td>
 <td><strong>44.01%</strong></td>
@@ -3181,7 +3181,7 @@
 <td>-7.77%</td>
 <td>-3.78%</td>
 <td>-7.54%</td>
-<td>-100.00%</td>
+<td>-3.16%</td>
 <td>-1.51%</td>
 <td>-8.78%</td>
 <td>-4.31%</td>
@@ -3285,7 +3285,7 @@
 <td><strong>8.08%</strong></td>
 <td><strong>5.45%</strong></td>
 <td><strong>2.28%</strong></td>
-<td><strong>-7.20%</strong></td>
+<td><strong>-1.82%</strong></td>
 <td><strong>-1.46%</strong></td>
 <td><strong>-7.33%</strong></td>
 <td><strong>-14.37%</strong></td>
@@ -3338,7 +3338,7 @@
 </tr>
 <tr>
 <td>GPT-5.6 Sol XH</td>
-<td>54.33%</td>
+<td>55.56%</td>
 <td>45.07%</td>
 <td>52.20%</td>
 </tr>
@@ -3414,9 +3414,9 @@
 <tr>
 <td>GPT-5.6 Sol XH</td>
 <td>57.10%</td>
-<td>43.97%</td>
+<td>44.79%</td>
 <td>8</td>
-<td>8</td>
+<td>9</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
@@ -5567,10 +5567,10 @@
 </tr>
 <tr>
 <td>GPT-5.6 Sol XH</td>
-<td>0</td>
-<td>0.00%</td>
-<td>-10.21 pp</td>
-<td>-100.00%</td>
+<td>0.0737116</td>
+<td>7.37%</td>
+<td>-2.84 pp</td>
+<td>-3.16%</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
@@ -5623,7 +5623,7 @@
 <td>100 / 分 0.0161</td>
 <td>34 / 分 0.06143</td>
 <td>60 / 分 0.02913</td>
-<td>无 artifact</td>
+<td>30 / 分 0.07407</td>
 <td>19 / 分 0.1706</td>
 <td>250 / 分 0.006014</td>
 <td>0 / 分 0.1071</td>
@@ -5639,7 +5639,7 @@
 <td>16.8217 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>31.3485 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>22.16 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
-<td>无 artifact</td>
+<td>40.69 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>44.1259 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>408.45 / 分 0.1074&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>82.4 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
@@ -5655,7 +5655,7 @@
 <td>60 / 分 0.004121</td>
 <td>10 / 分 0.02913</td>
 <td>16 / 分 0.01685</td>
-<td>无 artifact</td>
+<td>10 / 分 0.02913</td>
 <td>10 / 分 0.02913</td>
 <td>1,204 / 分 0.0001996&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>16 / 分 0.01685</td>
@@ -5671,7 +5671,7 @@
 <td>50 / 分 0.02567</td>
 <td>25 / 分 0.06323</td>
 <td>104 / 分 0.01124</td>
-<td>无 artifact</td>
+<td>18 / 分 0.1071</td>
 <td>19 / 分 0.09747</td>
 <td>736 / 分 0.001483&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>30 / 分 0.04891</td>
@@ -5687,7 +5687,7 @@
 <td>190 / 分 0.008737</td>
 <td>31 / 分 0.07975</td>
 <td>220 / 分 0.00748</td>
-<td>无 artifact</td>
+<td>42 / 分 0.05105</td>
 <td>52 / 分 0.03846</td>
 <td>1,414 / 分 0.001112&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>54 / 分 0.03665</td>
