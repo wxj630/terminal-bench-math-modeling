@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-08",
+  "generated": "2026-09-09",
   "models": {
     "flash": {
       "billable_input_tokens": 1230885,
@@ -7,7 +7,7 @@
       "cache_imputed_from_peer_avg": false,
       "canonical_tasks": 18,
       "error_tasks": 0,
-      "estimated_cost_rmb": 10.736855224713073,
+      "estimated_cost_rmb": 6.266449477300645,
       "excluded_retry_trials": 0,
       "job_count": 2,
       "n_cache_tokens": 31802112,
@@ -1461,38 +1461,53 @@
       "valid_tasks": 18
     },
     "gptx": {
-      "billable_input_tokens": 1469450,
-      "cache_hit_rate": 0.8794857314288124,
+      "billable_input_tokens": 1667631,
+      "cache_hit_rate": 0.8995185039839064,
       "cache_imputed_from_peer_avg": false,
       "canonical_tasks": 18,
-      "error_tasks": 0,
-      "estimated_cost_rmb": 86.89190847110879,
-      "excluded_retry_trials": 0,
-      "job_count": 2,
-      "n_cache_tokens": 10723712,
-      "n_input_tokens": 12193162,
-      "n_output_tokens": 781405,
+      "error_tasks": 1,
+      "estimated_cost_rmb": 99.25636815314719,
+      "excluded_retry_trials": 2,
+      "job_count": 4,
+      "n_cache_tokens": 14928768,
+      "n_input_tokens": 16596399,
+      "n_output_tokens": 841198,
       "pending_tasks": 0,
-      "raw_n_cache_tokens": 10723712,
-      "running_tasks": 1,
+      "raw_n_cache_tokens": 14928768,
+      "running_tasks": 0,
       "tasks": [
         {
-          "excluded": [],
+          "excluded": [
+            {
+              "artifact": false,
+              "cache_tokens": 440448,
+              "exception_type": null,
+              "finished": false,
+              "input_tokens": 550149,
+              "output_tokens": 32886,
+              "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2023-a-heliostat-field__DiAx9qC",
+              "reward": null,
+              "running": true,
+              "source": "job",
+              "trial_id": "cumcm-2023-a-heliostat-field__DiAx9qC",
+              "valid": false
+            }
+          ],
           "selected": {
-            "artifact": false,
-            "cache_tokens": 440448,
-            "exception_type": null,
-            "finished": false,
-            "input_tokens": 550149,
-            "output_tokens": 32886,
-            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2023-2025-cumcm-retryproxy/cumcm-2023-a-heliostat-field__DiAx9qC",
-            "reward": null,
-            "running": true,
+            "artifact": true,
+            "cache_tokens": 4645504,
+            "exception_type": "AgentTimeoutError",
+            "finished": true,
+            "input_tokens": 4953386,
+            "output_tokens": 92679,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-2h-resume-helio-20260909/cumcm-2023-a-heliostat-field__y4LYogb",
+            "reward": 0.0,
+            "running": false,
             "source": "job",
-            "trial_id": "cumcm-2023-a-heliostat-field__DiAx9qC",
+            "trial_id": "cumcm-2023-a-heliostat-field__y4LYogb",
             "valid": false
           },
-          "status": "running",
+          "status": "error",
           "task": "cumcm-2023-a-heliostat-field"
         },
         {
@@ -1572,7 +1587,22 @@
           "task": "cumcm-2024-b-production-decision"
         },
         {
-          "excluded": [],
+          "excluded": [
+            {
+              "artifact": true,
+              "cache_tokens": 898560,
+              "exception_type": null,
+              "finished": true,
+              "input_tokens": 1013494,
+              "output_tokens": 65377,
+              "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/terminus2-gpt-5.6-sol-xhigh-1h-retry3-crop-20260908/cumcm-2024-c-crop-planting__cArNkxm",
+              "reward": 0.562189949675,
+              "running": false,
+              "source": "job",
+              "trial_id": "cumcm-2024-c-crop-planting__cArNkxm",
+              "valid": true
+            }
+          ],
           "selected": {
             "artifact": true,
             "cache_tokens": 166144,

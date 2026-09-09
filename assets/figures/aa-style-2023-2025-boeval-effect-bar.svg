@@ -64,19 +64,19 @@
 <text x="1187.5" y="542.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#f59e0b">-1.5%</text>
 <text x="1187.5" y="483.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
 <text x="1187.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3-Flash</text>
-<rect x="1273.8" y="495.0" width="112.7" height="95.3" fill="#0f766e" rx="8.0" />
-<text x="1330.2" y="618.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0f766e">-7.3%</text>
-<text x="1330.2" y="483.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="1330.2" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
-<text x="1330.2" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="1416.5" y="495.0" width="112.7" height="186.8" fill="#34a853" rx="8.0" />
-<text x="1472.9" y="709.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#34a853">-14.4%</text>
-<text x="1472.9" y="483.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">15/18</text>
-<text x="1472.9" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Gemini 3.7</text>
+<rect x="1273.8" y="495.0" width="112.7" height="93.6" fill="#0f766e" rx="8.0" />
+<text x="1330.2" y="616.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0f766e">-7.2%</text>
+<text x="1330.2" y="483.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">16/18</text>
+<text x="1330.2" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6 Sol</text>
+<text x="1330.2" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">XH</text>
+<rect x="1416.5" y="495.0" width="112.7" height="95.3" fill="#0f766e" rx="8.0" />
+<text x="1472.9" y="618.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0f766e">-7.3%</text>
+<text x="1472.9" y="483.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="1472.9" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
 <text x="1472.9" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="1559.3" y="495.0" width="112.7" height="197.3" fill="#0f766e" rx="8.0" />
-<text x="1615.6" y="720.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0f766e">-15.2%</text>
+<rect x="1559.3" y="495.0" width="112.7" height="186.8" fill="#34a853" rx="8.0" />
+<text x="1615.6" y="709.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#34a853">-14.4%</text>
 <text x="1615.6" y="483.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">15/18</text>
-<text x="1615.6" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6 Sol</text>
-<text x="1615.6" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">XH</text>
+<text x="1615.6" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Gemini 3.7</text>
+<text x="1615.6" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
 <text x="902.0" y="970.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">Robust BO-Eval is averaged over all 18 tasks; tiny-gap completed tasks fall back to clipped B-Eval, and missing/non-scoreable artifacts are pinned to -100%.</text></svg>

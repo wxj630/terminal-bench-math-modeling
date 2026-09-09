@@ -49,10 +49,10 @@
 <text x="114.00" y="356.00" text-anchor="end" class="axis">300</text>
 <line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
 <text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Estimated cost (RMB)</text>
-<rect x="132.00" y="778.34" width="111.82" height="1.66" fill="#d9dde4" />
-<rect x="132.00" y="769.74" width="111.82" height="8.60" fill="#cfcfcf" />
-<rect x="132.00" y="764.61" width="111.82" height="5.13" fill="#2f80ed" />
-<text x="187.91" y="750.61" text-anchor="middle" class="top-label">RMB 10.74</text>
+<rect x="132.00" y="779.23" width="111.82" height="0.77" fill="#d9dde4" />
+<rect x="132.00" y="774.31" width="111.82" height="4.91" fill="#cfcfcf" />
+<rect x="132.00" y="771.02" width="111.82" height="3.30" fill="#2f80ed" />
+<text x="187.91" y="757.01" text-anchor="middle" class="top-label">RMB 6.27</text>
 <g transform="translate(187.91,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
 <rect x="277.82" y="775.47" width="111.82" height="4.53" fill="#d9dde4" />
 <rect x="277.82" y="760.76" width="111.82" height="14.70" fill="#cfcfcf" />
@@ -83,20 +83,20 @@
 <rect x="861.09" y="661.13" width="111.82" height="25.56" fill="#34a853" />
 <text x="917.00" y="647.13" text-anchor="middle" class="top-label">RMB 82.93</text>
 <g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="1006.91" y="751.62" width="111.82" height="28.38" fill="#d9dde4" />
-<rect x="1006.91" y="730.91" width="111.82" height="20.71" fill="#cfcfcf" />
-<rect x="1006.91" y="655.46" width="111.82" height="75.46" fill="#0f766e" />
-<text x="1062.82" y="700.18" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">52.6</text>
-<text x="1062.82" y="641.46" text-anchor="middle" class="top-label">RMB 86.89</text>
-<g transform="translate(1062.82,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol XH</tspan></text></g>
-<rect x="1152.73" y="741.89" width="111.82" height="38.11" fill="#d9dde4" />
-<text x="1208.64" y="767.94" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">26.6</text>
-<rect x="1152.73" y="689.56" width="111.82" height="52.33" fill="#cfcfcf" />
-<text x="1208.64" y="722.73" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">36.5</text>
-<rect x="1152.73" y="639.60" width="111.82" height="49.96" fill="#dc2626" />
-<text x="1208.64" y="671.58" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">34.9</text>
-<text x="1208.64" y="625.61" text-anchor="middle" class="top-label">RMB 97.95</text>
-<g transform="translate(1208.64,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Hy4</tspan><tspan x="0" dy="17">Preview</tspan></text></g>
+<rect x="1006.91" y="741.89" width="111.82" height="38.11" fill="#d9dde4" />
+<text x="1062.82" y="767.94" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">26.6</text>
+<rect x="1006.91" y="689.56" width="111.82" height="52.33" fill="#cfcfcf" />
+<text x="1062.82" y="722.73" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">36.5</text>
+<rect x="1006.91" y="639.60" width="111.82" height="49.96" fill="#dc2626" />
+<text x="1062.82" y="671.58" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">34.9</text>
+<text x="1062.82" y="625.61" text-anchor="middle" class="top-label">RMB 97.95</text>
+<g transform="translate(1062.82,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Hy4</tspan><tspan x="0" dy="17">Preview</tspan></text></g>
+<rect x="1152.73" y="747.79" width="111.82" height="32.21" fill="#d9dde4" />
+<rect x="1152.73" y="718.96" width="111.82" height="28.83" fill="#cfcfcf" />
+<rect x="1152.73" y="637.73" width="111.82" height="81.23" fill="#0f766e" />
+<text x="1208.64" y="685.35" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">56.7</text>
+<text x="1208.64" y="623.73" text-anchor="middle" class="top-label">RMB 99.26</text>
+<g transform="translate(1208.64,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol XH</tspan></text></g>
 <rect x="1298.55" y="744.74" width="111.82" height="35.26" fill="#d9dde4" />
 <rect x="1298.55" y="660.94" width="111.82" height="83.80" fill="#cfcfcf" />
 <text x="1354.45" y="709.84" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">58.5</text>

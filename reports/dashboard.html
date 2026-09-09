@@ -101,7 +101,7 @@
       <div class="topline">
         <div>
           <h1>18 题 O-Eval / Robust BO-Eval Dashboard</h1>
-          <div class="meta">2023-2025 · generated 2026-09-08 · AA-style</div>
+          <div class="meta">2023-2025 · generated 2026-09-09 · AA-style</div>
         </div>
         <div class="meta"><a href="terminus2-direction-aware-flash-baseline-bbo-2023-2025.md">正式报告</a> · <a href="terminus2-bo-eval-plain-language-article-2023-2025.md">大白话</a> · <a href="terminus2-all-model-feasibility-audit-2023-2025.md">全模型可行性复核</a></div>
       </div>
@@ -131,11 +131,11 @@
 <p>这个 benchmark 看的不是模型会不会写一篇像样的建模论文，而是：给它完整赛题和附件后，它最后交出来的关键数字，能不能追上优秀论文复现答案。</p>
 <p>最终主指标现在是 O-Eval：<code>clamp(模型 direction-aware raw / O raw, 0, 1)</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；超过 O 奖锚点的部分不再继续加分。</p>
 <p>这也是为什么 O-Eval 和 Robust BO-Eval 会出现排序不一致：O-Eval 看的是离 O 有多近，Robust 看的是比 flash 多追回了多少。一个是绝对分，一个是相对进步分，所以它们是互补的，不是二选一。</p>
-<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
-<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Qwen3.8 27B (54.67%) &gt; GPT-5.6 Sol (54.61%) &gt; Hy4 Preview (51.81%) &gt; v4 pro (50.11%) &gt; Kimi K3 (45.59%) &gt; GLM-5.3 (45.21%) &gt; Qwen3.8 Flash (Bailian) (44.55%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (37.35%)。</p>
+<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
+<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (38.63%)。</p>
 <p>Robust BO-Eval 仍然保留做辅助解释：正常题用 <code>(模型 raw - flash raw) / (O raw - flash raw)</code>，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 <code>模型 raw - flash raw</code> 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。</p>
 <p>如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
-<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
+<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; GPT-5.6 Sol XH (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
 <div class="table-wrap"><table>
 <thead><tr>
 <th>模型</th>
@@ -153,7 +153,7 @@
 <td>17/18</td>
 <td>0.756518</td>
 <td>51.85%</td>
-<td>47.36%</td>
+<td>47.75%</td>
 <td>0.00%</td>
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
@@ -164,9 +164,9 @@
 <td>18/18</td>
 <td>0.868798</td>
 <td>58.08%</td>
-<td>45.59%</td>
+<td>46.97%</td>
 <td>12.19%</td>
-<td>-11.25%</td>
+<td>-4.64%</td>
 <td>30,146,116 / 28,928,953 / 956,805</td>
 <td>¥179.76</td>
 </tr>
@@ -175,9 +175,9 @@
 <td>18/18</td>
 <td>0.865183</td>
 <td>57.08%</td>
-<td>51.81%</td>
+<td>57.08%</td>
 <td>11.70%</td>
-<td>-8.99%</td>
+<td>11.70%</td>
 <td>133,731,323 / 128,999,040 / 2,068,825</td>
 <td>¥97.95</td>
 </tr>
@@ -186,9 +186,9 @@
 <td>18/18</td>
 <td>0.754457</td>
 <td>55.06%</td>
-<td>54.67%</td>
+<td>55.06%</td>
 <td>9.94%</td>
-<td>4.38%</td>
+<td>9.94%</td>
 <td>47,245,909 / 0 / 3,178,409</td>
 <td>¥197.92</td>
 </tr>
@@ -197,9 +197,9 @@
 <td>18/18</td>
 <td>0.841554</td>
 <td>55.00%</td>
-<td>54.61%</td>
+<td>55.00%</td>
 <td>8.08%</td>
-<td>2.96%</td>
+<td>8.52%</td>
 <td>8,774,606 / 7,566,848 / 497,473</td>
 <td>¥59.98</td>
 </tr>
@@ -208,22 +208,33 @@
 <td>18/18</td>
 <td>0.598189</td>
 <td>51.46%</td>
-<td>45.21%</td>
+<td>45.91%</td>
 <td>5.45%</td>
-<td>-11.54%</td>
+<td>-5.66%</td>
 <td>92,056,972 / 89,637,696 / 2,638,779</td>
-<td>¥185.58</td>
+<td>¥258.05</td>
 </tr>
 <tr>
 <td>v4 pro</td>
 <td>18/18</td>
 <td>0.618719</td>
 <td>51.42%</td>
-<td>50.11%</td>
+<td>51.42%</td>
 <td>2.28%</td>
-<td>-4.26%</td>
+<td>2.28%</td>
 <td>21,309,105 / 20,096,768 / 1,748,356</td>
-<td>¥44.83</td>
+<td>¥41.08</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol XH</td>
+<td>16/18</td>
+<td>0.636232</td>
+<td>50.53%</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>-7.20%</td>
+<td>16,596,399 / 14,928,768 / 841,198</td>
+<td>¥99.26</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
@@ -232,7 +243,7 @@
 <td>48.94%</td>
 <td>43.38%</td>
 <td>-1.46%</td>
-<td>-7.19%</td>
+<td>-7.57%</td>
 <td>107,726,029 / 101,466,688 / 3,683,366</td>
 <td>¥19.62</td>
 </tr>
@@ -241,9 +252,9 @@
 <td>18/18</td>
 <td>0.564887</td>
 <td>45.15%</td>
-<td>44.55%</td>
+<td>45.15%</td>
 <td>-7.33%</td>
-<td>-13.12%</td>
+<td>-7.33%</td>
 <td>299,616,972 / 293,563,264 / 6,814,374</td>
 <td>¥59.34</td>
 </tr>
@@ -252,9 +263,9 @@
 <td>15/18</td>
 <td>0.57861</td>
 <td>44.01%</td>
-<td>37.35%</td>
+<td>38.63%</td>
 <td>-14.37%</td>
-<td>-31.33%</td>
+<td>-24.82%</td>
 <td>69,131,259 / 62,497,004 / 705,776</td>
 <td>¥82.93</td>
 </tr>
@@ -272,83 +283,91 @@
 <th>成本</th>
 </tr></thead><tbody>
 <tr>
+<td>Hy4 Preview</td>
+<td>57.08%</td>
+<td>11.70%</td>
+<td>57.08%</td>
+<td>0</td>
+<td>¥97.95</td>
+</tr>
+<tr>
 <td>Qwen3.8 27B</td>
-<td>54.67%</td>
-<td>4.38%</td>
 <td>55.06%</td>
-<td>1</td>
+<td>9.94%</td>
+<td>55.06%</td>
+<td>0</td>
 <td>¥197.92</td>
 </tr>
 <tr>
 <td>GPT-5.6 Sol</td>
-<td>54.61%</td>
-<td>2.96%</td>
 <td>55.00%</td>
-<td>1</td>
+<td>8.52%</td>
+<td>55.00%</td>
+<td>0</td>
 <td>¥59.98</td>
 </tr>
 <tr>
-<td>Hy4 Preview</td>
-<td>51.81%</td>
-<td>-8.99%</td>
-<td>57.08%</td>
-<td>3</td>
-<td>¥97.95</td>
+<td>v4 pro</td>
+<td>51.42%</td>
+<td>2.28%</td>
+<td>51.42%</td>
+<td>0</td>
+<td>¥41.08</td>
 </tr>
 <tr>
-<td>v4 pro</td>
-<td>50.11%</td>
-<td>-4.26%</td>
-<td>51.42%</td>
-<td>1</td>
-<td>¥44.83</td>
+<td>GPT-5.6 Sol XH</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>50.53%</td>
+<td>0</td>
+<td>¥99.26</td>
 </tr>
 <tr>
 <td>v4 flash</td>
-<td>47.36%</td>
+<td>47.75%</td>
 <td>0.00%</td>
 <td>51.85%</td>
-<td>2</td>
+<td>1</td>
 <td>¥6.27</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
-<td>45.59%</td>
-<td>-11.25%</td>
+<td>46.97%</td>
+<td>-4.64%</td>
 <td>58.08%</td>
-<td>3</td>
+<td>2</td>
 <td>¥179.76</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
-<td>45.21%</td>
-<td>-11.54%</td>
+<td>45.91%</td>
+<td>-5.66%</td>
 <td>51.46%</td>
-<td>2</td>
-<td>¥185.58</td>
+<td>1</td>
+<td>¥258.05</td>
 </tr>
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
-<td>44.55%</td>
-<td>-13.12%</td>
 <td>45.15%</td>
-<td>1</td>
+<td>-7.33%</td>
+<td>45.15%</td>
+<td>0</td>
 <td>¥59.34</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
 <td>43.38%</td>
-<td>-7.19%</td>
+<td>-7.57%</td>
 <td>48.94%</td>
 <td>1</td>
 <td>¥19.62</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash</td>
-<td>37.35%</td>
-<td>-31.33%</td>
+<td>38.63%</td>
+<td>-24.82%</td>
 <td>44.01%</td>
-<td>2</td>
+<td>1</td>
 <td>¥82.93</td>
 </tr>
 </tbody></table></div>
@@ -391,15 +410,6 @@
 <td>hard-invalid/heliostat-constraint: Question 2 rated-power constraint violation: 55.460000 MW is below the required approximately 60 MW; Question 3 rated-power constraint violation: 54.966000 MW is below the required approximately 60 MW</td>
 </tr>
 <tr>
-<td>Hy4 Preview</td>
-<td><code>cumcm-2024-b-production-decision</code></td>
-<td>36.65%</td>
-<td>0.00%</td>
-<td>36.65%</td>
-<td>-100.00%</td>
-<td>hard-invalid/decision-constraint: q1 sampling plan 3 has invalid n/c</td>
-</tr>
-<tr>
 <td>ox-alpha</td>
 <td><code>cumcm-2025-a-smoke-screen</code></td>
 <td>100.00%</td>
@@ -407,87 +417,6 @@
 <td>10.00%</td>
 <td>-100.00%</td>
 <td>independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry</td>
-</tr>
-<tr>
-<td>v4 flash</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>7.02%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Kimi K3</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>24.67%</td>
-<td>0.00%</td>
-<td>18.99%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Hy4 Preview</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>1.56%</td>
-<td>0.00%</td>
-<td>-5.87%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Qwen3.8 27B</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>7.02%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>GPT-5.6 Sol</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>7.02%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>GLM-5.3</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>12.50%</td>
-<td>0.00%</td>
-<td>5.90%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>v4 pro</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>23.53%</td>
-<td>0.00%</td>
-<td>17.76%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Qwen3.8 Flash (Bailian)</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>10.81%</td>
-<td>0.00%</td>
-<td>4.08%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Gemini 3.7 Flash</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>22.90%</td>
-<td>0.00%</td>
-<td>17.08%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -499,15 +428,6 @@
 <td>unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score</td>
 </tr>
 <tr>
-<td>Hy4 Preview</td>
-<td><code>mcm-2025-b-juneau-tourism</code></td>
-<td>56.72%</td>
-<td>0.00%</td>
-<td>41.57%</td>
-<td>-100.00%</td>
-<td>hard-invalid/tourism-policy-range: policy row 1 sustainability_score=101.329 is outside the 0-100 display range; policy row 2 sustainability_score=101.559 is outside the 0-100 display range; policy row 3 sustainability_score=100.99 is outside the 0-100 display range; policy row 4 sustainability_score=100.418 is outside the 0-100 display range</td>
-</tr>
-<tr>
 <td>Kimi K3</td>
 <td><code>mcm-2025-c-olympic-medals</code></td>
 <td>100.00%</td>
@@ -517,7 +437,7 @@
 <td>invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0</td>
 </tr>
 </tbody></table></div></section><section class="prose mini"><h1>O-Eval and Robust BO-Eval: 2023-2025</h1>
-<p>Generated: 2026-09-08</p>
+<p>Generated: 2026-09-09</p>
 <p>Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.</p>
 <p>Primary O-Eval rule: <code>clamp(model direction-aware raw / O raw, 0, 1)</code>, averaged over all 18 tasks. Since the O-award reproduction is normalized near raw=1 on these tasks, O-Eval is the easiest-to-read absolute oracle-normalized score, and overshoots are capped at 100%.</p>
 <p>Secondary Robust BO-Eval rule: let <code>gain = model raw - flash raw</code> and <code>gap = O raw - flash raw</code>. If <code>gap &gt;= 0.10</code>, score <code>clip(gain / gap, -100%, +100%)</code>; otherwise score <code>clip(gain, -10pp, +10pp)</code>. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned <code>-100%</code> so a completely unfinished task gets the worst possible score.</p>
@@ -548,8 +468,8 @@
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
 <td>1,230,885 / 1,896,174</td>
-<td>$1.593712</td>
-<td>¥10.74</td>
+<td>$0.930153</td>
+<td>¥6.27</td>
 <td>18/0/0/0</td>
 <td>0</td>
 </tr>
@@ -597,17 +517,17 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>15</td>
-<td>0.604280</td>
-<td>47.34%</td>
-<td>-15.22 pp</td>
-<td>-15.18%</td>
-<td>12,193,162 / 10,723,712 / 781,405</td>
-<td>1,469,450 / 781,405</td>
-<td>$12.897692</td>
-<td>¥86.89</td>
-<td>17/1/0/0</td>
-<td>0</td>
+<td>16</td>
+<td>0.636232</td>
+<td>50.53%</td>
+<td>-12.03 pp</td>
+<td>-7.20%</td>
+<td>16,596,399 / 14,928,768 / 841,198</td>
+<td>1,667,631 / 841,198</td>
+<td>$14.732996</td>
+<td>¥99.26</td>
+<td>17/0/1/0</td>
+<td>2</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -753,6 +673,17 @@
 </tr>
 <tr>
 <td>5</td>
+<td>GPT-5.6 SOL xhigh</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>0.636232</td>
+<td>0</td>
+<td>¥99.26</td>
+</tr>
+<tr>
+<td>6</td>
 <td>v4 flash baseline</td>
 <td>47.75%</td>
 <td>0.00%</td>
@@ -760,24 +691,13 @@
 <td>0.00%</td>
 <td>0.715506</td>
 <td>1: <code>cumcm-2023-a-heliostat-field</code></td>
-<td>¥10.74</td>
-</tr>
-<tr>
-<td>6</td>
-<td>GPT-5.6 SOL xhigh</td>
-<td>47.34%</td>
-<td>-15.18%</td>
-<td>47.34%</td>
-<td>-15.18%</td>
-<td>0.604280</td>
-<td>0</td>
-<td>¥86.89</td>
+<td>¥6.27</td>
 </tr>
 </tbody></table></div></section></div></section><section id="hard-gated-o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png" alt="HardGate O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png">aa-style-2023-2025-hard-gated-o-eval-bar.png</a></figcaption></figure></section><section id="hard-gated-o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png" alt="HardGate O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png">aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-bar.png" alt="O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-bar.png">aa-style-2023-2025-o-eval-bar.png</a></figcaption></figure></section><section id="o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-cost-scatter.png" alt="O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-cost-scatter.png">aa-style-2023-2025-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-effect-bar.png" alt="Robust效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-effect-bar.png">aa-style-2023-2025-boeval-effect-bar.png</a></figcaption></figure></section><section id="score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-score-cost.png" alt="Robust分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-score-cost.png">aa-style-2023-2025-boeval-score-cost.png</a></figcaption></figure></section><section id="tokens" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-token-usage.png" alt="Token" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-token-usage.png">aa-style-2023-2025-token-usage.png</a></figcaption></figure></section><section id="cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-cost.png" alt="成本" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-cost.png">aa-style-2023-2025-cost.png</a></figcaption></figure></section><section id="year" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-year-split.png" alt="O年份" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-year-split.png">aa-style-2023-2025-o-eval-year-split.png</a></figcaption></figure></section><section id="suite" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-suite-split.png" alt="O赛制" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-suite-split.png">aa-style-2023-2025-o-eval-suite-split.png</a></figcaption></figure></section><section id="qwen-audit" class="panel prose"><h1>2023-2025 全模型答案可行性复核</h1>
-<p>生成日期：2026-09-04</p>
+<p>生成日期：2026-09-09</p>
 <h2>结论</h2>
 <p>这份复核不把 JSON 字段齐全、轨迹里写过代码或分数高，直接当成数学方案已经可行。可行性分成三层：题面硬约束明确违反时 hard-invalid；能用共同几何/运动学重放时报告 replay-feasible；开放题或缺少布局/代码时只能写 artifact-only，不能据此宣称方案已被独立验证。</p>
-<p>本轮共检查 180 个模型-题目单元。状态计数：artifact-only/calibrated-model=10, artifact-only/no-layout-replay=6, hard-invalid=6, missing-artifact=7, needs-review/decision-structure-pass=8, needs-review/lamprey-state-range-pass=10, needs-review/maasai-partition-pass=10, needs-review/model-layout-missing=5, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=1, needs-review/nipt-range-pass=9, needs-review/no-replenishment-schedule=5, needs-review/olympic-structure-pass=8, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/tourism-scale-mismatch=9, range-clean/artifact-only=68, replay-feasible-under-O-geometry=8。</p>
+<p>本轮共检查 198 个模型-题目单元。状态计数：artifact-only/calibrated-model=11, artifact-only/no-layout-replay=7, hard-invalid=6, missing-artifact=9, needs-review/decision-structure-pass=9, needs-review/lamprey-state-range-pass=11, needs-review/maasai-partition-pass=10, needs-review/model-layout-missing=5, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=1, needs-review/nipt-range-pass=10, needs-review/no-replenishment-schedule=6, needs-review/olympic-structure-pass=9, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/tourism-policy-range-pass=1, needs-review/tourism-scale-mismatch=9, range-clean/artifact-only=75, replay-feasible-under-O-geometry=9。</p>
 <p>新增确定性处罚：GLM-5.3 的 <code>cumcm-2023-a-heliostat-field</code> Q3 文字明确给出一面尾镜 <code>z=1.9024 m</code>，低于题面安装高度下限 2 m；v4 flash baseline 的 Q3 年平均热功率为 53.7955 MW，Gemini 3.7 Flash 的 Q2/Q3 年平均热功率为 55.460/54.966 MW，均未达到约 60 MW。这些是题面硬约束违反，进入 whole-task hard gate。此前对 Hy4 的 <code>cumcm-2024-b-production-decision</code>（SPRT 的 <code>c=-1</code> 哨兵）和 Juneau 中间年份 <code>sustainability_score&gt;100</code> 的判断是审计误报，已撤销；它们现在分别标为结构通过和量纲需复核。 多波束题补充了独立重放：GLM、ox-alpha、Kimi 和 Qwen 的 artifact 都保存了可读取的实际 Q4 测线坐标。GLM/ox-alpha 为 60 条线，在官方海深网格上覆盖率约 99.945%，存在少量漏测；Kimi 为 81 条线、覆盖率 100%，但约 79.6% 的相邻局部重叠超过 20%；Qwen 为 60 条线、覆盖率 100%，但只有约 14.8% 的局部重叠落在 10%–20%，约 36.2% 低于 10%，约 51.0% 高于 20%。这些结果说明覆盖几何可执行，但质量约束仍需复核，不能直接写成完全满足题面。Qwen 的 Q3 末条测线中心超出 4 海里边界约 4.17 m，仅作为边界约定警告。</p>
 <h2>烟幕题独立重放</h2>
 <p>统一采用题面导弹/无人机坐标、300 m/s 导弹、重力抛体、10 m 烟幕半径、20 s 有效期，以及 Outstanding 复现使用的 27 个目标采样点和 25% 覆盖阈值。重放不读取模型自报的遮蔽时长，只读取投放参数重新计算。</p>
@@ -810,6 +730,12 @@
 <td>GPT-5.6 SOL high</td>
 <td>42.3921</td>
 <td>54.46</td>
+<td>replay-feasible-under-O-geometry</td>
+</tr>
+<tr>
+<td>GPT-5.6 SOL xhigh</td>
+<td>16.26</td>
+<td>17.94</td>
 <td>replay-feasible-under-O-geometry</td>
 </tr>
 <tr>
@@ -975,6 +901,14 @@
 <td>final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact</td>
 </tr>
 <tr>
+<td>GPT-5.6 SOL xhigh</td>
+<td><code>cumcm-2023-b-multibeam-lines</code></td>
+<td>1.4631</td>
+<td>100.00%</td>
+<td>artifact-only/no-layout-replay</td>
+<td>final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact</td>
+</tr>
+<tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
 <td><code>cumcm-2023-b-multibeam-lines</code></td>
 <td>1.4964</td>
@@ -1037,6 +971,14 @@
 <td>100.00%</td>
 <td>needs-review/schedule-basic-check-pass</td>
 <td>saved 33-SKU plan passes candidate/minimum-quantity checks; 6/6 categories recovered; optimization and demand-coverage claims still need replay</td>
+</tr>
+<tr>
+<td>GPT-5.6 SOL xhigh</td>
+<td><code>cumcm-2023-c-vegetable-pricing</code></td>
+<td>1.4274</td>
+<td>100.00%</td>
+<td>needs-review/no-replenishment-schedule</td>
+<td>artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
@@ -1207,6 +1149,14 @@
 <td>the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations</td>
 </tr>
 <tr>
+<td>GPT-5.6 SOL xhigh</td>
+<td><code>mcm-2023-a-plant-community</code></td>
+<td>1.3644</td>
+<td>100.00%</td>
+<td>artifact-only/calibrated-model</td>
+<td>the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations</td>
+</tr>
+<tr>
 <td>Tencent Hy4 Preview</td>
 <td><code>mcm-2023-a-plant-community</code></td>
 <td>1.2964</td>
@@ -1231,6 +1181,14 @@
 <td>unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score</td>
 </tr>
 <tr>
+<td>GPT-5.6 SOL xhigh</td>
+<td><code>mcm-2025-c-olympic-medals</code></td>
+<td>2.1017</td>
+<td>100.00%</td>
+<td>needs-review/olympic-structure-pass</td>
+<td>recommendation count, probability ranges, and medal interval ordering pass basic checks</td>
+</tr>
+<tr>
 <td>Kimi K3</td>
 <td><code>mcm-2025-c-olympic-medals</code></td>
 <td>2.9955</td>
@@ -1248,7 +1206,7 @@
 <p>本轮只有证据充分的 whole-task 错误进入 hard-gated 榜：GLM 2023 A 定日镜高度、v4 flash 2023 A 额定功率、Gemini 2023 A 额定功率、Kimi 2025 B 的 unit/scale 错误、Kimi 2025 C 的推荐结构错误，以及既有的 ox-alpha 烟幕错误。Qwen 2023 A 因布局缺失保持 needs-review 不处罚；Qwen 2023 B 因覆盖几何通过但重叠质量超标改为 needs-review/overlap-quality-warning，不直接 hard gate；Qwen 2025 A 烟幕重放通过，不处罚；Hy4 的生产决策和 Juneau 不再处罚。原始 O-Eval 仍是主榜，hard-gated O-Eval 是可行性更保守的辅助榜，Robust BO-Eval 继续使用 hard-invalid=-100% 的失败惩罚。</p>
 <h2>复核边界</h2>
 <p>模型作答时生成的 <code>/root/results</code> 代码、Excel、CSV 和中间验证文件没有完整进入当前 Harbor artifact；因此本报告不会把轨迹中自报的“运行了仿真”当成独立证据。后续若要把某个开放题标成 verified feasible，应在 artifact 中保存最小可重放包：输入数据哈希、代码、参数、随机种子、约束检查结果和最终数值。</p></section><section id="report" class="panel prose"><h1>O-Eval and Robust BO-Eval: 2023-2025</h1>
-<p>Generated: 2026-09-08</p>
+<p>Generated: 2026-09-09</p>
 <p>Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.</p>
 <p>Primary O-Eval rule: <code>clamp(model direction-aware raw / O raw, 0, 1)</code>, averaged over all 18 tasks. Since the O-award reproduction is normalized near raw=1 on these tasks, O-Eval is the easiest-to-read absolute oracle-normalized score, and overshoots are capped at 100%.</p>
 <p>Secondary Robust BO-Eval rule: let <code>gain = model raw - flash raw</code> and <code>gap = O raw - flash raw</code>. If <code>gap &gt;= 0.10</code>, score <code>clip(gain / gap, -100%, +100%)</code>; otherwise score <code>clip(gain, -10pp, +10pp)</code>. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned <code>-100%</code> so a completely unfinished task gets the worst possible score.</p>
@@ -1279,8 +1237,8 @@
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
 <td>1,230,885 / 1,896,174</td>
-<td>$1.593712</td>
-<td>¥10.74</td>
+<td>$0.930153</td>
+<td>¥6.27</td>
 <td>18/0/0/0</td>
 <td>0</td>
 </tr>
@@ -1328,17 +1286,17 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>15</td>
-<td>0.604280</td>
-<td>47.34%</td>
-<td>-15.22 pp</td>
-<td>-15.18%</td>
-<td>12,193,162 / 10,723,712 / 781,405</td>
-<td>1,469,450 / 781,405</td>
-<td>$12.897692</td>
-<td>¥86.89</td>
-<td>17/1/0/0</td>
-<td>0</td>
+<td>16</td>
+<td>0.636232</td>
+<td>50.53%</td>
+<td>-12.03 pp</td>
+<td>-7.20%</td>
+<td>16,596,399 / 14,928,768 / 841,198</td>
+<td>1,667,631 / 841,198</td>
+<td>$14.732996</td>
+<td>¥99.26</td>
+<td>17/0/1/0</td>
+<td>2</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -1484,6 +1442,17 @@
 </tr>
 <tr>
 <td>5</td>
+<td>GPT-5.6 SOL xhigh</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>0.636232</td>
+<td>0</td>
+<td>¥99.26</td>
+</tr>
+<tr>
+<td>6</td>
 <td>v4 flash baseline</td>
 <td>47.75%</td>
 <td>0.00%</td>
@@ -1491,18 +1460,7 @@
 <td>0.00%</td>
 <td>0.715506</td>
 <td>1: <code>cumcm-2023-a-heliostat-field</code></td>
-<td>¥10.74</td>
-</tr>
-<tr>
-<td>6</td>
-<td>GPT-5.6 SOL xhigh</td>
-<td>47.34%</td>
-<td>-15.18%</td>
-<td>47.34%</td>
-<td>-15.18%</td>
-<td>0.604280</td>
-<td>0</td>
-<td>¥86.89</td>
+<td>¥6.27</td>
 </tr>
 <tr>
 <td>7</td>
@@ -1641,7 +1599,7 @@
 </tr>
 </tbody></table></div>
 <h2>Primary Readout</h2>
-<ul><li>18-task primary O-Eval ranking: Kimi K3 (58.08%) &gt; Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GLM-5.3-Flash (ox-alpha) (48.94%) &gt; GPT-5.6 SOL xhigh (47.34%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash high primary+retry (44.01%).</li><li>Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (47.34%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; GLM-5.3-Flash (ox-alpha) (43.38%) &gt; Gemini 3.7 Flash high primary+retry (38.63%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%) &gt; GPT-5.6 SOL xhigh (-15.18%).</li><li>Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.52%) &gt; v4 pro (2.28%) &gt; Kimi K3 (-4.64%) &gt; GLM-5.3 (-5.66%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; GLM-5.3-Flash (ox-alpha) (-7.57%) &gt; GPT-5.6 SOL xhigh (-15.18%) &gt; Gemini 3.7 Flash high primary+retry (-24.82%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
+<ul><li>18-task primary O-Eval ranking: Kimi K3 (58.08%) &gt; Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.53%) &gt; GLM-5.3-Flash (ox-alpha) (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash high primary+retry (44.01%).</li><li>Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.53%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; GLM-5.3-Flash (ox-alpha) (43.38%) &gt; Gemini 3.7 Flash high primary+retry (38.63%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; GPT-5.6 SOL xhigh (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%).</li><li>Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.52%) &gt; v4 pro (2.28%) &gt; Kimi K3 (-4.64%) &gt; GLM-5.3 (-5.66%) &gt; GPT-5.6 SOL xhigh (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; GLM-5.3-Flash (ox-alpha) (-7.57%) &gt; Gemini 3.7 Flash high primary+retry (-24.82%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
 <h2>Price Table</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -1657,10 +1615,10 @@
 <td>v4 flash baseline</td>
 <td><code>deepseek/deepseek-v4-flash-0731</code></td>
 <td>OpenRouter live</td>
-<td>¥0.9432/M</td>
-<td>¥0.1886/M</td>
+<td>¥0.4379/M</td>
+<td>¥0.1078/M</td>
 <td>N/A</td>
-<td>¥1.8864/M</td>
+<td>¥1.2127/M</td>
 </tr>
 <tr>
 <td>v4 pro</td>
@@ -1790,7 +1748,7 @@
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>54.33%</td>
-<td>35.48%</td>
+<td>45.07%</td>
 <td>52.20%</td>
 </tr>
 <tr>
@@ -1859,7 +1817,7 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>50.71%</td>
+<td>57.10%</td>
 <td>43.97%</td>
 </tr>
 <tr>
@@ -1928,7 +1886,7 @@
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>-36.39%</td>
-<td>-7.85%</td>
+<td>16.09%</td>
 <td>-1.29%</td>
 </tr>
 <tr>
@@ -2007,9 +1965,9 @@
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>-31.29%</td>
+<td>-15.34%</td>
 <td>0.94%</td>
-<td>7</td>
+<td>8</td>
 <td>8</td>
 </tr>
 <tr>
@@ -2234,7 +2192,7 @@
 <td>0.345043 / 34.50% / 13.06% / 13.06%</td>
 <td>0.285151 / 28.52% / 5.11% / 5.11%</td>
 <td>0.588775 / 58.88% / 45.41% / 45.41%</td>
-<td>0.000000 / 0.00% / 0.00% / -100.00%</td>
+<td>0.575125 / 57.51% / 43.60% / 43.60%</td>
 <td>0.191121 / 19.11% / 0.00% / -7.38%</td>
 <td>0.193549 / 19.35% / 0.00% / -7.05%</td>
 <td>0.172944 / 17.29% / 0.00% / -9.79%</td>
@@ -2460,17 +2418,17 @@
 <td>1.000000</td>
 </tr>
 </tbody></table></div></section><section id="article" class="panel prose"><h1>用大白话看 terminal-bench-math-modeling 的 18 题 O-Eval / Robust BO-Eval</h1>
-<p>生成日期：2026-09-04</p>
+<p>生成日期：2026-09-09</p>
 <p>这篇文章解释 2023、2024、2025 三年共 18 道 terminal-bench-math-modeling 题。它不重新跑模型，只读取已经保存的 artifact，再用同一套 direction-aware scoring 重新算 O-Eval 主指标、Robust BO-Eval 辅助指标、token 和粗略成本。</p>
 <h2>先说结论</h2>
 <p>这个 benchmark 看的不是模型会不会写一篇像样的建模论文，而是：给它完整赛题和附件后，它最后交出来的关键数字，能不能追上优秀论文复现答案。</p>
 <p>最终主指标现在是 O-Eval：<code>clamp(模型 direction-aware raw / O raw, 0, 1)</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；超过 O 奖锚点的部分不再继续加分。</p>
 <p>这也是为什么 O-Eval 和 Robust BO-Eval 会出现排序不一致：O-Eval 看的是离 O 有多近，Robust 看的是比 flash 多追回了多少。一个是绝对分，一个是相对进步分，所以它们是互补的，不是二选一。</p>
-<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
-<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Qwen3.8 27B (54.67%) &gt; GPT-5.6 Sol (54.61%) &gt; Hy4 Preview (51.81%) &gt; v4 pro (50.11%) &gt; Kimi K3 (45.59%) &gt; GLM-5.3 (45.21%) &gt; Qwen3.8 Flash (Bailian) (44.55%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (37.35%)。</p>
+<p>18 题总排名按 O-Eval 算是：Kimi K3 (58.08%) &gt; Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; ox-alpha (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash (44.01%)。</p>
+<p>另外新增一个温和版 hard-gated leaderboard：只把“明显不是可行解”的模型-题目格子整题清零，不把所有 needs-review/proxy 题一刀切。按这个谨慎口径，Hard-gated O-Eval 排名是：Hy4 Preview (57.08%) &gt; Qwen3.8 27B (55.06%) &gt; GPT-5.6 Sol (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 Sol XH (50.53%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; ox-alpha (43.38%) &gt; Gemini 3.7 Flash (38.63%)。</p>
 <p>Robust BO-Eval 仍然保留做辅助解释：正常题用 <code>(模型 raw - flash raw) / (O raw - flash raw)</code>，而且赢很多和输很多都一起截到 ±100%；分母小于 0.10 的已完成题，改用 clipped B-Eval，也就是把 <code>模型 raw - flash raw</code> 截到 ±10pp。若 trial 没有产出可评分结果，就直接记 -100%。它回答的是“相对便宜 flash baseline 多追回多少”，并且不会让 841% 这种小分母离群值主导结论。</p>
 <p>如果两个排名冲突，正式主榜以 O-Eval 为准，Robust 只做辅榜和解释。GLM-5.3-Flash 和 DeepSeek flash 的差别也属于这一类：一个可能在相对追赶上更猛，另一个可能在绝对接近 O 上更好。</p>
-<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
+<p>按 Robust 辅助口径排序是：Kimi K3 (12.19%) &gt; Hy4 Preview (11.70%) &gt; Qwen3.8 27B (9.94%) &gt; GPT-5.6 Sol (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; ox-alpha (-1.46%) &gt; GPT-5.6 Sol XH (-7.20%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash (-14.37%)。</p>
 <div class="table-wrap"><table>
 <thead><tr>
 <th>模型</th>
@@ -2488,7 +2446,7 @@
 <td>17/18</td>
 <td>0.756518</td>
 <td>51.85%</td>
-<td>47.36%</td>
+<td>47.75%</td>
 <td>0.00%</td>
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
@@ -2499,9 +2457,9 @@
 <td>18/18</td>
 <td>0.868798</td>
 <td>58.08%</td>
-<td>45.59%</td>
+<td>46.97%</td>
 <td>12.19%</td>
-<td>-11.25%</td>
+<td>-4.64%</td>
 <td>30,146,116 / 28,928,953 / 956,805</td>
 <td>¥179.76</td>
 </tr>
@@ -2510,9 +2468,9 @@
 <td>18/18</td>
 <td>0.865183</td>
 <td>57.08%</td>
-<td>51.81%</td>
+<td>57.08%</td>
 <td>11.70%</td>
-<td>-8.99%</td>
+<td>11.70%</td>
 <td>133,731,323 / 128,999,040 / 2,068,825</td>
 <td>¥97.95</td>
 </tr>
@@ -2521,9 +2479,9 @@
 <td>18/18</td>
 <td>0.754457</td>
 <td>55.06%</td>
-<td>54.67%</td>
+<td>55.06%</td>
 <td>9.94%</td>
-<td>4.38%</td>
+<td>9.94%</td>
 <td>47,245,909 / 0 / 3,178,409</td>
 <td>¥197.92</td>
 </tr>
@@ -2532,9 +2490,9 @@
 <td>18/18</td>
 <td>0.841554</td>
 <td>55.00%</td>
-<td>54.61%</td>
+<td>55.00%</td>
 <td>8.08%</td>
-<td>2.96%</td>
+<td>8.52%</td>
 <td>8,774,606 / 7,566,848 / 497,473</td>
 <td>¥59.98</td>
 </tr>
@@ -2543,22 +2501,33 @@
 <td>18/18</td>
 <td>0.598189</td>
 <td>51.46%</td>
-<td>45.21%</td>
+<td>45.91%</td>
 <td>5.45%</td>
-<td>-11.54%</td>
+<td>-5.66%</td>
 <td>92,056,972 / 89,637,696 / 2,638,779</td>
-<td>¥185.58</td>
+<td>¥258.05</td>
 </tr>
 <tr>
 <td>v4 pro</td>
 <td>18/18</td>
 <td>0.618719</td>
 <td>51.42%</td>
-<td>50.11%</td>
+<td>51.42%</td>
 <td>2.28%</td>
-<td>-4.26%</td>
+<td>2.28%</td>
 <td>21,309,105 / 20,096,768 / 1,748,356</td>
-<td>¥44.83</td>
+<td>¥41.08</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol XH</td>
+<td>16/18</td>
+<td>0.636232</td>
+<td>50.53%</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>-7.20%</td>
+<td>16,596,399 / 14,928,768 / 841,198</td>
+<td>¥99.26</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
@@ -2567,7 +2536,7 @@
 <td>48.94%</td>
 <td>43.38%</td>
 <td>-1.46%</td>
-<td>-7.19%</td>
+<td>-7.57%</td>
 <td>107,726,029 / 101,466,688 / 3,683,366</td>
 <td>¥19.62</td>
 </tr>
@@ -2576,9 +2545,9 @@
 <td>18/18</td>
 <td>0.564887</td>
 <td>45.15%</td>
-<td>44.55%</td>
+<td>45.15%</td>
 <td>-7.33%</td>
-<td>-13.12%</td>
+<td>-7.33%</td>
 <td>299,616,972 / 293,563,264 / 6,814,374</td>
 <td>¥59.34</td>
 </tr>
@@ -2587,9 +2556,9 @@
 <td>15/18</td>
 <td>0.57861</td>
 <td>44.01%</td>
-<td>37.35%</td>
+<td>38.63%</td>
 <td>-14.37%</td>
-<td>-31.33%</td>
+<td>-24.82%</td>
 <td>69,131,259 / 62,497,004 / 705,776</td>
 <td>¥82.93</td>
 </tr>
@@ -2607,83 +2576,91 @@
 <th>成本</th>
 </tr></thead><tbody>
 <tr>
+<td>Hy4 Preview</td>
+<td>57.08%</td>
+<td>11.70%</td>
+<td>57.08%</td>
+<td>0</td>
+<td>¥97.95</td>
+</tr>
+<tr>
 <td>Qwen3.8 27B</td>
-<td>54.67%</td>
-<td>4.38%</td>
 <td>55.06%</td>
-<td>1</td>
+<td>9.94%</td>
+<td>55.06%</td>
+<td>0</td>
 <td>¥197.92</td>
 </tr>
 <tr>
 <td>GPT-5.6 Sol</td>
-<td>54.61%</td>
-<td>2.96%</td>
 <td>55.00%</td>
-<td>1</td>
+<td>8.52%</td>
+<td>55.00%</td>
+<td>0</td>
 <td>¥59.98</td>
 </tr>
 <tr>
-<td>Hy4 Preview</td>
-<td>51.81%</td>
-<td>-8.99%</td>
-<td>57.08%</td>
-<td>3</td>
-<td>¥97.95</td>
+<td>v4 pro</td>
+<td>51.42%</td>
+<td>2.28%</td>
+<td>51.42%</td>
+<td>0</td>
+<td>¥41.08</td>
 </tr>
 <tr>
-<td>v4 pro</td>
-<td>50.11%</td>
-<td>-4.26%</td>
-<td>51.42%</td>
-<td>1</td>
-<td>¥44.83</td>
+<td>GPT-5.6 Sol XH</td>
+<td>50.53%</td>
+<td>-7.20%</td>
+<td>50.53%</td>
+<td>0</td>
+<td>¥99.26</td>
 </tr>
 <tr>
 <td>v4 flash</td>
-<td>47.36%</td>
+<td>47.75%</td>
 <td>0.00%</td>
 <td>51.85%</td>
-<td>2</td>
+<td>1</td>
 <td>¥6.27</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
-<td>45.59%</td>
-<td>-11.25%</td>
+<td>46.97%</td>
+<td>-4.64%</td>
 <td>58.08%</td>
-<td>3</td>
+<td>2</td>
 <td>¥179.76</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
-<td>45.21%</td>
-<td>-11.54%</td>
+<td>45.91%</td>
+<td>-5.66%</td>
 <td>51.46%</td>
-<td>2</td>
-<td>¥185.58</td>
+<td>1</td>
+<td>¥258.05</td>
 </tr>
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
-<td>44.55%</td>
-<td>-13.12%</td>
 <td>45.15%</td>
-<td>1</td>
+<td>-7.33%</td>
+<td>45.15%</td>
+<td>0</td>
 <td>¥59.34</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
 <td>43.38%</td>
-<td>-7.19%</td>
+<td>-7.57%</td>
 <td>48.94%</td>
 <td>1</td>
 <td>¥19.62</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash</td>
-<td>37.35%</td>
-<td>-31.33%</td>
+<td>38.63%</td>
+<td>-24.82%</td>
 <td>44.01%</td>
-<td>2</td>
+<td>1</td>
 <td>¥82.93</td>
 </tr>
 </tbody></table></div>
@@ -2726,15 +2703,6 @@
 <td>hard-invalid/heliostat-constraint: Question 2 rated-power constraint violation: 55.460000 MW is below the required approximately 60 MW; Question 3 rated-power constraint violation: 54.966000 MW is below the required approximately 60 MW</td>
 </tr>
 <tr>
-<td>Hy4 Preview</td>
-<td><code>cumcm-2024-b-production-decision</code></td>
-<td>36.65%</td>
-<td>0.00%</td>
-<td>36.65%</td>
-<td>-100.00%</td>
-<td>hard-invalid/decision-constraint: q1 sampling plan 3 has invalid n/c</td>
-</tr>
-<tr>
 <td>ox-alpha</td>
 <td><code>cumcm-2025-a-smoke-screen</code></td>
 <td>100.00%</td>
@@ -2744,87 +2712,6 @@
 <td>independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry</td>
 </tr>
 <tr>
-<td>v4 flash</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>7.02%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Kimi K3</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>24.67%</td>
-<td>0.00%</td>
-<td>18.99%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Hy4 Preview</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>1.56%</td>
-<td>0.00%</td>
-<td>-5.87%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Qwen3.8 27B</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>7.02%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>GPT-5.6 Sol</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>7.02%</td>
-<td>0.00%</td>
-<td>0.00%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>GLM-5.3</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>12.50%</td>
-<td>0.00%</td>
-<td>5.90%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>v4 pro</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>23.53%</td>
-<td>0.00%</td>
-<td>17.76%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Qwen3.8 Flash (Bailian)</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>10.81%</td>
-<td>0.00%</td>
-<td>4.08%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.final_parasite_index, experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
-<td>Gemini 3.7 Flash</td>
-<td><code>mcm-2024-a-lamprey</code></td>
-<td>22.90%</td>
-<td>0.00%</td>
-<td>17.08%</td>
-<td>-100.00%</td>
-<td>score-config hard-invalid metric(s): experiment_result.parasite_coexistence_case.host_fish_index</td>
-</tr>
-<tr>
 <td>Kimi K3</td>
 <td><code>mcm-2025-b-juneau-tourism</code></td>
 <td>100.00%</td>
@@ -2832,15 +2719,6 @@
 <td>100.00%</td>
 <td>-100.00%</td>
 <td>unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score</td>
-</tr>
-<tr>
-<td>Hy4 Preview</td>
-<td><code>mcm-2025-b-juneau-tourism</code></td>
-<td>56.72%</td>
-<td>0.00%</td>
-<td>41.57%</td>
-<td>-100.00%</td>
-<td>hard-invalid/tourism-policy-range: policy row 1 sustainability_score=101.329 is outside the 0-100 display range; policy row 2 sustainability_score=101.559 is outside the 0-100 display range; policy row 3 sustainability_score=100.99 is outside the 0-100 display range; policy row 4 sustainability_score=100.418 is outside the 0-100 display range</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
@@ -2853,7 +2731,7 @@
 </tr>
 </tbody></table></div>
 <h2>图怎么读</h2>
-<p>第一组图看温和版 hard-gated O-Eval：它回答“把明显不可行解扣掉以后，谁还稳”。Qwen3.8 27B 在这张榜上排第一；Hy4 Preview 因新增的生产抽检阈值/旅游可持续性越界 gate 回落，Kimi K3 因朱诺旅游和奥运教练效应两个高杠杆坏题明显下滑；ox-alpha 因烟幕几何重放为零，也从原 O-Eval 里掉下来。</p>
+<p>第一组图看温和版 hard-gated O-Eval：它回答“把明显不可行解扣掉以后，谁还稳”。Hy4 Preview 在这张榜上排第一；Hy4 Preview 因新增的生产抽检阈值/旅游可持续性越界 gate 回落，Kimi K3 因朱诺旅游和奥运教练效应两个高杠杆坏题明显下滑；ox-alpha 因烟幕几何重放为零，也从原 O-Eval 里掉下来。</p>
 <figure class="inline-figure"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png" alt="Hard-gated O-Eval 主效果柱状图" loading="lazy"></figure>
 <figure class="inline-figure"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png" alt="Hard-gated O-Eval vs Cost" loading="lazy"></figure>
 <p>第二组图看原始 O-Eval 主效果；它仍然有意义，因为它展示 verifier 当前定义下的可评分数值表现，但需要和 hard-gated 榜一起读。</p>
@@ -2891,6 +2769,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -2904,11 +2783,13 @@
 <td>100.00%</td>
 <td>100.00%</td>
 <td>0.00%</td>
+<td>0.00%</td>
 <td>100.00%</td>
 <td>96.90%</td>
 </tr>
 <tr>
 <td>CUMCM 2023 B</td>
+<td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
@@ -2930,6 +2811,7 @@
 <td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
+<td>100.00%</td>
 </tr>
 <tr>
 <td>CUMCM 2024 A</td>
@@ -2939,6 +2821,7 @@
 <td>20.35%</td>
 <td>20.35%</td>
 <td>25.46%</td>
+<td>20.35%</td>
 <td>20.35%</td>
 <td>20.35%</td>
 <td>25.46%</td>
@@ -2951,6 +2834,7 @@
 <td>44.45%</td>
 <td>25.73%</td>
 <td>31.86%</td>
+<td>47.92%</td>
 <td>39.02%</td>
 <td>0.00%</td>
 <td>46.91%</td>
@@ -2963,6 +2847,7 @@
 <td>58.88%</td>
 <td>28.52%</td>
 <td>34.50%</td>
+<td>57.51%</td>
 <td>56.96%</td>
 <td>44.83%</td>
 <td>19.35%</td>
@@ -2975,6 +2860,7 @@
 <td>100.00%</td>
 <td>85.44%</td>
 <td>100.00%</td>
+<td>93.92%</td>
 <td>100.00%</td>
 <td>0.00%</td>
 <td>100.00%</td>
@@ -2987,6 +2873,7 @@
 <td>24.20%</td>
 <td>30.62%</td>
 <td>24.61%</td>
+<td>31.55%</td>
 <td>30.95%</td>
 <td>33.94%</td>
 <td>30.79%</td>
@@ -2999,6 +2886,7 @@
 <td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
+<td>62.60%</td>
 <td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
@@ -3006,6 +2894,7 @@
 <tr>
 <td>MCM 2023 A</td>
 <td>46.95%</td>
+<td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
 <td>100.00%</td>
@@ -3023,6 +2912,7 @@
 <td>3.24%</td>
 <td>6.81%</td>
 <td>3.44%</td>
+<td>0.00%</td>
 <td>8.86%</td>
 <td>2.32%</td>
 <td>6.34%</td>
@@ -3035,6 +2925,7 @@
 <td>72.35%</td>
 <td>53.00%</td>
 <td>9.80%</td>
+<td>25.98%</td>
 <td>56.58%</td>
 <td>6.54%</td>
 <td>0.00%</td>
@@ -3047,6 +2938,7 @@
 <td>7.02%</td>
 <td>12.50%</td>
 <td>23.53%</td>
+<td>7.02%</td>
 <td>8.96%</td>
 <td>10.81%</td>
 <td>22.90%</td>
@@ -3059,6 +2951,7 @@
 <td>38.90%</td>
 <td>70.93%</td>
 <td>29.65%</td>
+<td>66.22%</td>
 <td>63.24%</td>
 <td>27.29%</td>
 <td>18.79%</td>
@@ -3071,6 +2964,7 @@
 <td>40.33%</td>
 <td>36.14%</td>
 <td>56.46%</td>
+<td>71.38%</td>
 <td>77.33%</td>
 <td>46.46%</td>
 <td>0.00%</td>
@@ -3086,6 +2980,7 @@
 <td>0.00%</td>
 <td>0.00%</td>
 <td>0.00%</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>MCM 2025 B</td>
@@ -3095,6 +2990,7 @@
 <td>37.29%</td>
 <td>33.72%</td>
 <td>42.61%</td>
+<td>25.11%</td>
 <td>0.00%</td>
 <td>90.71%</td>
 <td>70.20%</td>
@@ -3107,6 +3003,7 @@
 <td>45.71%</td>
 <td>87.03%</td>
 <td>83.82%</td>
+<td>100.00%</td>
 <td>18.61%</td>
 <td>92.09%</td>
 <td>0.00%</td>
@@ -3119,6 +3016,7 @@
 <td><strong>55.00%</strong></td>
 <td><strong>51.46%</strong></td>
 <td><strong>51.42%</strong></td>
+<td><strong>50.53%</strong></td>
 <td><strong>48.94%</strong></td>
 <td><strong>45.15%</strong></td>
 <td><strong>44.01%</strong></td>
@@ -3140,6 +3038,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -3153,6 +3052,7 @@
 <td>100.00%</td>
 <td>100.00%</td>
 <td>-100.00%</td>
+<td>-100.00%</td>
 <td>100.00%</td>
 <td>88.16%</td>
 </tr>
@@ -3164,12 +3064,14 @@
 <td>10.00%</td>
 <td>0.83%</td>
 <td>0.37%</td>
+<td>-2.93%</td>
 <td>0.82%</td>
 <td>5.03%</td>
 <td>0.40%</td>
 </tr>
 <tr>
 <td>CUMCM 2023 C</td>
+<td>-10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
@@ -3191,6 +3093,7 @@
 <td>-100.00%</td>
 <td>-100.00%</td>
 <td>-100.00%</td>
+<td>-100.00%</td>
 </tr>
 <tr>
 <td>CUMCM 2024 B</td>
@@ -3200,6 +3103,7 @@
 <td>44.45%</td>
 <td>25.73%</td>
 <td>31.86%</td>
+<td>47.92%</td>
 <td>39.02%</td>
 <td>-100.00%</td>
 <td>46.91%</td>
@@ -3212,6 +3116,7 @@
 <td>45.41%</td>
 <td>5.11%</td>
 <td>13.06%</td>
+<td>43.60%</td>
 <td>42.87%</td>
 <td>26.76%</td>
 <td>-7.05%</td>
@@ -3224,6 +3129,7 @@
 <td>10.00%</td>
 <td>-10.00%</td>
 <td>0.44%</td>
+<td>-10.00%</td>
 <td>10.00%</td>
 <td>-100.00%</td>
 <td>-10.00%</td>
@@ -3236,6 +3142,7 @@
 <td>-7.00%</td>
 <td>2.06%</td>
 <td>-6.43%</td>
+<td>3.38%</td>
 <td>2.52%</td>
 <td>6.74%</td>
 <td>2.30%</td>
@@ -3246,6 +3153,7 @@
 <td>-10.00%</td>
 <td>1.52%</td>
 <td>-5.39%</td>
+<td>-10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
@@ -3263,6 +3171,7 @@
 <td>-10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
+<td>-10.00%</td>
 </tr>
 <tr>
 <td>MCM 2023 B</td>
@@ -3272,6 +3181,7 @@
 <td>-7.77%</td>
 <td>-3.78%</td>
 <td>-7.54%</td>
+<td>-100.00%</td>
 <td>-1.51%</td>
 <td>-8.78%</td>
 <td>-4.31%</td>
@@ -3284,6 +3194,7 @@
 <td>64.36%</td>
 <td>39.42%</td>
 <td>-16.27%</td>
+<td>4.59%</td>
 <td>44.04%</td>
 <td>-20.46%</td>
 <td>-100.00%</td>
@@ -3296,6 +3207,7 @@
 <td>0.00%</td>
 <td>5.90%</td>
 <td>17.76%</td>
+<td>0.00%</td>
 <td>2.09%</td>
 <td>4.08%</td>
 <td>17.08%</td>
@@ -3308,6 +3220,7 @@
 <td>2.80%</td>
 <td>53.75%</td>
 <td>-11.92%</td>
+<td>46.25%</td>
 <td>41.51%</td>
 <td>-15.68%</td>
 <td>-29.19%</td>
@@ -3320,6 +3233,7 @@
 <td>13.98%</td>
 <td>7.95%</td>
 <td>37.24%</td>
+<td>58.74%</td>
 <td>67.32%</td>
 <td>22.83%</td>
 <td>-100.00%</td>
@@ -3335,6 +3249,7 @@
 <td>0.00%</td>
 <td>0.00%</td>
 <td>0.00%</td>
+<td>0.00%</td>
 </tr>
 <tr>
 <td>MCM 2025 B</td>
@@ -3344,6 +3259,7 @@
 <td>15.33%</td>
 <td>10.51%</td>
 <td>22.51%</td>
+<td>-1.12%</td>
 <td>-35.02%</td>
 <td>87.46%</td>
 <td>59.77%</td>
@@ -3356,6 +3272,7 @@
 <td>-10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
+<td>10.00%</td>
 <td>-10.00%</td>
 <td>-10.00%</td>
 <td>-100.00%</td>
@@ -3368,6 +3285,7 @@
 <td><strong>8.08%</strong></td>
 <td><strong>5.45%</strong></td>
 <td><strong>2.28%</strong></td>
+<td><strong>-7.20%</strong></td>
 <td><strong>-1.46%</strong></td>
 <td><strong>-7.33%</strong></td>
 <td><strong>-14.37%</strong></td>
@@ -3417,6 +3335,12 @@
 <td>62.17%</td>
 <td>33.58%</td>
 <td>58.51%</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol XH</td>
+<td>54.33%</td>
+<td>45.07%</td>
+<td>52.20%</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
@@ -3486,6 +3410,13 @@
 <td>38.81%</td>
 <td>9</td>
 <td>9</td>
+</tr>
+<tr>
+<td>GPT-5.6 Sol XH</td>
+<td>57.10%</td>
+<td>43.97%</td>
+<td>8</td>
+<td>8</td>
 </tr>
 <tr>
 <td>ox-alpha</td>
@@ -3613,6 +3544,13 @@
 <td>100.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0</td>
+<td>0.00%</td>
+<td>-73.82 pp</td>
+<td>-100.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0</td>
 <td>0.00%</td>
@@ -3647,6 +3585,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -3663,6 +3602,7 @@
 <td>0.533961 / 分 1.27215</td>
 <td>0.562315 / 分 1.43764</td>
 <td>无 artifact</td>
+<td>无 artifact</td>
 <td>0.5678 / 分 1.46673</td>
 <td>0.4749 / 分 0.8479</td>
 </tr>
@@ -3677,6 +3617,7 @@
 <td>120,400 / 分 0.9224</td>
 <td>113,707 / 分 1.3248</td>
 <td>111,276 / 分 1.44065</td>
+<td>无 artifact</td>
 <td>无 artifact</td>
 <td>108,402 / 分 1.56226</td>
 <td>120,780 / 分 0.9003</td>
@@ -3693,6 +3634,7 @@
 <td>2,321 / 分 2.25039</td>
 <td>3,091 / 分 1.44065</td>
 <td>无 artifact</td>
+<td>无 artifact</td>
 <td>2,670 / 分 1.96062</td>
 <td>2,805 / 分 1.82133</td>
 </tr>
@@ -3708,6 +3650,7 @@
 <td>0.527675 / 分 1.16469</td>
 <td>0.544185 / 分 1.27506</td>
 <td>无 artifact</td>
+<td>无 artifact</td>
 <td>0.5536 / 分 1.33294</td>
 <td>0.4551 / 分 0.7014</td>
 </tr>
@@ -3722,6 +3665,7 @@
 <td>60.2494 / 分 0.9882</td>
 <td>60.0002 / 分 0.9557</td>
 <td>60.5548 / 分 0.9707</td>
+<td>无 artifact</td>
 <td>无 artifact</td>
 <td>60.009 / 分 0.9568</td>
 <td>54.966 / 分 0.5742</td>
@@ -3831,6 +3775,13 @@
 <td>0.37%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>1.46314</td>
+<td>100.00%</td>
+<td>-2.93 pp</td>
+<td>-2.93%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>1.50062</td>
 <td>100.00%</td>
@@ -3865,6 +3816,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -3880,6 +3832,7 @@
 <td>0 / 分 3.23359</td>
 <td>151.167 / 分 0.02885</td>
 <td>156.13 / 分 0.02775</td>
+<td>196.92 / 分 0.02111</td>
 <td>151.9 / 分 0.02869</td>
 <td>102.195 / 分 0.0475</td>
 <td>156.58 / 分 0.02765</td>
@@ -3895,6 +3848,7 @@
 <td>12.0574 / 分 0.4436</td>
 <td>27.2229 / 分 0.06986</td>
 <td>28.4878 / 分 0.06528</td>
+<td>45.879 / 分 0.03431</td>
 <td>27.2259 / 分 0.06985</td>
 <td>17.984 / 分 0.1435</td>
 <td>28.01 / 分 0.06694</td>
@@ -3910,6 +3864,7 @@
 <td>6.57901e-09 / 分 3.23359&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>1.4184e-12 / 分 3.23359&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>4.44089e-17 / 分 3.23359</td>
+<td>0.00198212 / 分 3.23308&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>0 / 分 3.23359</td>
 <td>0.00169 / 分 3.23316&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>0.000618794 / 分 3.23343&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
@@ -3925,6 +3880,7 @@
 <td>248.75 / 分 2.79187</td>
 <td>300 / 分 2.67035</td>
 <td>305 / 分 2.65767</td>
+<td>340 / 分 2.56405</td>
 <td>300 / 分 2.67035</td>
 <td>268.519 / 分 2.74673</td>
 <td>305 / 分 2.65767</td>
@@ -4034,6 +3990,13 @@
 <td>-10.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>1.42736</td>
+<td>100.00%</td>
+<td>-112.29 pp</td>
+<td>-10.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>1.70757</td>
 <td>100.00%</td>
@@ -4068,6 +4031,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -4083,6 +4047,7 @@
 <td>7,896.15 / 分 2.71465</td>
 <td>3,217.1071 / 分 0.245</td>
 <td>4,256.2218 / 分 0.419</td>
+<td>6,951.4365 / 分 2.38948</td>
 <td>8,798.7708 / 分 2.9499</td>
 <td>9,227.31 / 分 3.04478</td>
 <td>20,614.5 / 分 4.27008</td>
@@ -4098,6 +4063,7 @@
 <td>33 / 分 0.4652</td>
 <td>33 / 分 0.4652</td>
 <td>30 / 分 0.7768</td>
+<td>33 / 分 0.4652</td>
 <td>33 / 分 0.4652</td>
 <td>33 / 分 0.4652</td>
 <td>30 / 分 0.7768</td>
@@ -4207,6 +4173,13 @@
 <td>-100.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.203536</td>
+<td>20.35%</td>
+<td>-51.93 pp</td>
+<td>-100.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.203536</td>
 <td>20.35%</td>
@@ -4241,6 +4214,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -4258,6 +4232,7 @@
 <td>1.40628 / 分 0.2879</td>
 <td>1.24627 / 分 0.2415</td>
 <td>1.24627 / 分 0.2415</td>
+<td>1.24627 / 分 0.2415</td>
 <td>1.40628 / 分 0.2879</td>
 </tr>
 <tr>
@@ -4271,6 +4246,7 @@
 <td>1.60479 / 分 0.1656</td>
 <td>1.60479 / 分 0.1656</td>
 <td>1.4222 / 分 0.2213</td>
+<td>1.60479 / 分 0.1656</td>
 <td>1.60479 / 分 0.1656</td>
 <td>1.60479 / 分 0.1656</td>
 <td>1.4222 / 分 0.2213</td>
@@ -4380,6 +4356,13 @@
 <td>31.86%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.479172</td>
+<td>47.92%</td>
+<td>+47.92 pp</td>
+<td>47.92%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.390214</td>
 <td>39.02%</td>
@@ -4414,6 +4397,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -4429,6 +4413,7 @@
 <td>25.1307 / 分 0.788</td>
 <td>22.3441 / 分 0.4623</td>
 <td>23.3696 / 分 0.5452</td>
+<td>25.6826 / 分 0.9158</td>
 <td>24.1494 / 分 0.6313</td>
 <td>无 artifact</td>
 <td>24.0993 / 分 0.625</td>
@@ -4444,6 +4429,7 @@
 <td>80.8201 / 分 0.6334</td>
 <td>62.7448 / 分 0.3018</td>
 <td>68.9831 / 分 0.3684</td>
+<td>82.2811 / 分 0.6951</td>
 <td>76.6675 / 分 0.5057</td>
 <td>无 artifact</td>
 <td>77.7896 / 分 0.5349</td>
@@ -4459,6 +4445,7 @@
 <td>21.2324 / 分 0.401</td>
 <td>17.8629 / 分 0.2794</td>
 <td>18.5079 / 分 0.2966</td>
+<td>20.3757 / 分 0.3611</td>
 <td>20.3405 / 分 0.3596</td>
 <td>无 artifact</td>
 <td>22.3374 / 分 0.4678</td>
@@ -4474,6 +4461,7 @@
 <td>64.5483 / 分 0.3206</td>
 <td>46.6109 / 分 0.2064</td>
 <td>59 / 分 0.2737</td>
+<td>67.9535 / 分 0.3583</td>
 <td>64.4756 / 分 0.3199</td>
 <td>无 artifact</td>
 <td>73.5791 / 分 0.4445</td>
@@ -4489,6 +4477,7 @@
 <td>18.3198 / 分 0.2933</td>
 <td>11.6857 / 分 0.18</td>
 <td>13.8601 / 分 0.2061</td>
+<td>17.6341 / 分 0.2754</td>
 <td>16.8862 / 分 0.2582</td>
 <td>无 artifact</td>
 <td>20.4424 / 分 0.3672</td>
@@ -4504,6 +4493,7 @@
 <td>51.7936 / 分 0.2309</td>
 <td>5.88401 / 分 0.1141</td>
 <td>49.8571 / 分 0.2214</td>
+<td>58.1951 / 分 0.2694</td>
 <td>57.7778 / 分 0.2665</td>
 <td>无 artifact</td>
 <td>69.0139 / 分 0.375</td>
@@ -4613,6 +4603,13 @@
 <td>13.06%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.575125</td>
+<td>57.51%</td>
+<td>+32.84 pp</td>
+<td>43.60%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.569595</td>
 <td>56.96%</td>
@@ -4647,6 +4644,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -4662,6 +4660,7 @@
 <td>62,135,198.07 / 分 0.2014</td>
 <td>32,201,769.57 / 分 0.1414</td>
 <td>24,746,820.26 / 分 0.1317</td>
+<td>43,547,118.88 / 分 0.1594</td>
 <td>39,892,125.71 / 分 0.1532</td>
 <td>38,421,280.4 / 分 0.1508</td>
 <td>63,032,703.57 / 分 0.204</td>
@@ -4677,6 +4676,7 @@
 <td>0.25217 / 分 0.9762</td>
 <td>0.414915 / 分 0.4289</td>
 <td>0.35 / 分 0.5584</td>
+<td>0.256212 / 分 0.9908</td>
 <td>0.2534 / 分 0.986</td>
 <td>0.296 / 分 0.7458</td>
 <td>0.7904 / 分 0.1831</td>
@@ -4786,6 +4786,13 @@
 <td>0.44%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.939201</td>
+<td>93.92%</td>
+<td>-58.88 pp</td>
+<td>-10.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>2.55266</td>
 <td>100.00%</td>
@@ -4820,6 +4827,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -4835,6 +4843,7 @@
 <td>17.8668 / 分 2.9632</td>
 <td>6.6904 / 分 0.2551</td>
 <td>5.97825 / 分 0.2224</td>
+<td>7.6 / 分 0.314</td>
 <td>18.295 / 分 3.01069</td>
 <td>无 artifact</td>
 <td>5.0659 / 分 0.191</td>
@@ -4850,6 +4859,7 @@
 <td>13.1348 / 分 3.33418</td>
 <td>3.91439 / 分 0.2456</td>
 <td>8.51003 / 分 2.41218</td>
+<td>3.06 / 分 0.1916</td>
 <td>5.265 / 分 0.4431</td>
 <td>无 artifact</td>
 <td>6.4811 / 分 1.3205</td>
@@ -4865,6 +4875,7 @@
 <td>11.3905 / 分 4.02454</td>
 <td>4.93947 / 分 2.56302</td>
 <td>5.06029 / 分 2.62321</td>
+<td>5.6 / 分 2.85507</td>
 <td>10.04 / 分 3.84923</td>
 <td>无 artifact</td>
 <td>5.8739 / 分 2.95494</td>
@@ -4880,6 +4891,7 @@
 <td>42.3921 / 分 3.34361</td>
 <td>15.5443 / 分 0.3541</td>
 <td>19.5486 / 分 0.8717</td>
+<td>16.26 / 分 0.3962</td>
 <td>33.6 / 分 2.90762</td>
 <td>无 artifact</td>
 <td>17.4209 / 分 0.4906</td>
@@ -4989,6 +5001,13 @@
 <td>-6.43%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.315543</td>
+<td>31.55%</td>
+<td>+2.39 pp</td>
+<td>3.38%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.309492</td>
 <td>30.95%</td>
@@ -5023,6 +5042,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -5038,6 +5058,7 @@
 <td>3.37611 / 分 0.1502</td>
 <td>3.41874 / 分 0.151</td>
 <td>7.87019 / 分 0.323</td>
+<td>3.38354 / 分 0.1503</td>
 <td>3.42229 / 分 0.151</td>
 <td>3.55 / 分 0.1534</td>
 <td>3.4836 / 分 0.1522</td>
@@ -5053,6 +5074,7 @@
 <td>6.83062 / 分 0.3338</td>
 <td>7.72399 / 分 0.4615</td>
 <td>14.2745 / 分 0.1692</td>
+<td>7.8174 / 分 0.4807</td>
 <td>7.75608 / 分 0.4679</td>
 <td>8.008 / 分 0.5254</td>
 <td>7.7346 / 分 0.4636</td>
@@ -5162,6 +5184,13 @@
 <td>-10.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.62605</td>
+<td>62.60%</td>
+<td>-88.03 pp</td>
+<td>-10.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>1.07306</td>
 <td>100.00%</td>
@@ -5196,6 +5225,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -5211,6 +5241,7 @@
 <td>0.894215 / 分 1.21185</td>
 <td>0.798347 / 分 0.6398</td>
 <td>0.912397 / 分 1.32748</td>
+<td>0.733884 / 分 0.4762</td>
 <td>0.876033 / 分 1.08107</td>
 <td>0.9056 / 分 1.28581</td>
 <td>0.8909 / 分 1.18924</td>
@@ -5226,6 +5257,7 @@
 <td>0.492063 / 分 1.693</td>
 <td>0.45045 / 分 1.50254</td>
 <td>0.430108 / 分 1.39433</td>
+<td>0.337449 / 分 0.7759</td>
 <td>0.380165 / 分 1.06505</td>
 <td>0.4124 / 分 1.28956</td>
 <td>0.4107 / 分 1.27889</td>
@@ -5335,6 +5367,13 @@
 <td>-10.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>1.36441</td>
+<td>100.00%</td>
+<td>-26.76 pp</td>
+<td>-10.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>1.16341</td>
 <td>100.00%</td>
@@ -5369,6 +5408,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -5384,6 +5424,7 @@
 <td>20.4702 / 分 2.38693</td>
 <td>1.87062 / 分 3.17999</td>
 <td>12.453 / 分 2.80671</td>
+<td>20.3261 / 分 2.39626</td>
 <td>15.2259 / 分 2.6805</td>
 <td>37.7449 / 分 0.4006</td>
 <td>35.63 / 分 0.5141</td>
@@ -5399,6 +5440,7 @@
 <td>0.9949 / 分 1.66054</td>
 <td>0.941244 / 分 1.3979</td>
 <td>0.810421 / 分 0.6244</td>
+<td>0.986318 / 分 1.62289</td>
 <td>0.8318 / 分 0.7026</td>
 <td>0.8214 / 分 0.6623</td>
 <td>0.8885 / 分 1.048</td>
@@ -5414,6 +5456,7 @@
 <td>7 / 分 0.0458</td>
 <td>8 / 分 0.03846</td>
 <td>4 / 分 0.1071</td>
+<td>5 / 分 0.07407</td>
 <td>4 / 分 0.1071</td>
 <td>6 / 分 0.0566</td>
 <td>5 / 分 0.07407</td>
@@ -5523,6 +5566,13 @@
 <td>-7.54%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0</td>
+<td>0.00%</td>
+<td>-10.21 pp</td>
+<td>-100.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.0885694</td>
 <td>8.86%</td>
@@ -5557,6 +5607,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -5572,6 +5623,7 @@
 <td>100 / 分 0.0161</td>
 <td>34 / 分 0.06143</td>
 <td>60 / 分 0.02913</td>
+<td>无 artifact</td>
 <td>19 / 分 0.1706</td>
 <td>250 / 分 0.006014</td>
 <td>0 / 分 0.1071</td>
@@ -5587,6 +5639,7 @@
 <td>16.8217 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>31.3485 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>22.16 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
+<td>无 artifact</td>
 <td>44.1259 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>408.45 / 分 0.1074&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>82.4 / 分 0.1072&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
@@ -5602,6 +5655,7 @@
 <td>60 / 分 0.004121</td>
 <td>10 / 分 0.02913</td>
 <td>16 / 分 0.01685</td>
+<td>无 artifact</td>
 <td>10 / 分 0.02913</td>
 <td>1,204 / 分 0.0001996&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>16 / 分 0.01685</td>
@@ -5617,6 +5671,7 @@
 <td>50 / 分 0.02567</td>
 <td>25 / 分 0.06323</td>
 <td>104 / 分 0.01124</td>
+<td>无 artifact</td>
 <td>19 / 分 0.09747</td>
 <td>736 / 分 0.001483&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>30 / 分 0.04891</td>
@@ -5632,6 +5687,7 @@
 <td>190 / 分 0.008737</td>
 <td>31 / 分 0.07975</td>
 <td>220 / 分 0.00748</td>
+<td>无 artifact</td>
 <td>52 / 分 0.03846</td>
 <td>1,414 / 分 0.001112&lt;br&gt;需复核: review_extreme_actual_oracle_ratio</td>
 <td>54 / 分 0.03665</td>
@@ -5741,6 +5797,13 @@
 <td>-16.27%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.259776</td>
+<td>25.98%</td>
+<td>+3.56 pp</td>
+<td>4.59%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.56584</td>
 <td>56.58%</td>
@@ -5775,6 +5838,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -5790,6 +5854,7 @@
 <td>0.623188 / 分 0.7235</td>
 <td>0.569444 / 分 0.53</td>
 <td>0.449438 / 分 0.09798</td>
+<td>0.494382 / 分 0.2598</td>
 <td>0.5794 / 分 0.5658</td>
 <td>0.4404 / 分 0.06544</td>
 <td>无 artifact</td>
@@ -5899,6 +5964,13 @@
 <td>17.76%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.0701754</td>
+<td>7.02%</td>
+<td>+0.00 pp</td>
+<td>0.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.0895894</td>
 <td>8.96%</td>
@@ -5933,6 +6005,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -5948,6 +6021,7 @@
 <td>0.384952 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>0.480867 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>1 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
+<td>0.593156 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>69.7873 / 分 0.0165</td>
 <td>0.7266 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>5.3513 / 分 0.2424</td>
@@ -5963,6 +6037,7 @@
 <td>0.185551 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>0.845848 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>0.501714 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
+<td>0.774634 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>367.6338 / 分 0.1539</td>
 <td>0.8596 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
 <td>8.6612 / 分 0&lt;br&gt;无效: invalid_normalized_value_for_raw_population_index</td>
@@ -5978,6 +6053,7 @@
 <td>1 / 分 0.2105</td>
 <td>0.75 / 分 0.375</td>
 <td>0.6 / 分 0.7059</td>
+<td>1 / 分 0.2105</td>
 <td>1.65 / 分 0.09836</td>
 <td>0.3 / 分 0.3243</td>
 <td>0.4 / 分 0.4444</td>
@@ -6087,6 +6163,13 @@
 <td>-11.92%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.662162</td>
+<td>66.22%</td>
+<td>+29.07 pp</td>
+<td>46.25%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.632353</td>
 <td>63.24%</td>
@@ -6121,6 +6204,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -6137,6 +6221,7 @@
 <td>1.35 / 分 1</td>
 <td>1.9 / 分 0.2275</td>
 <td>1.35 / 分 1</td>
+<td>1.35 / 分 1</td>
 <td>1.6 / 分 0.3932</td>
 <td>2.15 / 分 0.1684</td>
 </tr>
@@ -6151,6 +6236,7 @@
 <td>1.35 / 分 0.4898</td>
 <td>1.4 / 分 0.4186</td>
 <td>1.45 / 分 0.3655</td>
+<td>1.5 / 分 0.3243</td>
 <td>1.6 / 分 0.2647</td>
 <td>2 / 分 0.1525</td>
 <td>1.75 / 分 0.2075</td>
@@ -6260,6 +6346,13 @@
 <td>37.24%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.713777</td>
+<td>71.38%</td>
+<td>+40.75 pp</td>
+<td>58.74%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.773319</td>
 <td>77.33%</td>
@@ -6294,6 +6387,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -6309,6 +6403,7 @@
 <td>0.5 / 分 0.1954</td>
 <td>0.303797 / 分 0.2872</td>
 <td>0.253049 / 分 0.3269</td>
+<td>0.166667 / 分 0.4276</td>
 <td>0.011976 / 分 0.9526</td>
 <td>0.06587 / 分 0.6671</td>
 <td>无 artifact</td>
@@ -6324,6 +6419,7 @@
 <td>0.25068 / 分 0.3524</td>
 <td>-0.226975 / 分 0.3182</td>
 <td>-0.0651453 / 分 0.5572</td>
+<td>-0.0256758 / 分 0.6823</td>
 <td>0.0882577 / 分 0.6739</td>
 <td>-0.1901 / 分 0.3526</td>
 <td>无 artifact</td>
@@ -6339,6 +6435,7 @@
 <td>0.185976 / 分 0.3655</td>
 <td>-0.21091 / 分 0.3888</td>
 <td>-0.0605063 / 分 0.7585</td>
+<td>-0.0235936 / 分 0.9893</td>
 <td>0.0751836 / 分 0.5518</td>
 <td>0.1483 / 分 0.4129</td>
 <td>无 artifact</td>
@@ -6354,6 +6451,7 @@
 <td>0.066918 / 分 0.6996</td>
 <td>-0.130371 / 分 0.4515</td>
 <td>-0.0594703 / 分 0.6158</td>
+<td>-0.023347 / 分 0.7559</td>
 <td>0.0265459 / 分 0.915</td>
 <td>-0.1464 / 分 0.4258</td>
 <td>无 artifact</td>
@@ -6463,6 +6561,13 @@
 <td>0.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0</td>
+<td>0.00%</td>
+<td>+0.00 pp</td>
+<td>0.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0</td>
 <td>0.00%</td>
@@ -6497,6 +6602,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -6512,6 +6618,7 @@
 <td>7.305 / 分 0</td>
 <td>1.82 / 分 0</td>
 <td>28.72 / 分 0</td>
+<td>72.1415 / 分 0</td>
 <td>7 / 分 0</td>
 <td>7.6 / 分 0</td>
 <td>90.8 / 分 0</td>
@@ -6527,6 +6634,7 @@
 <td>1.178 / 分 0</td>
 <td>0.48 / 分 0</td>
 <td>4.42 / 分 0</td>
+<td>11.0987 / 分 0</td>
 <td>2 / 分 0</td>
 <td>14.4 / 分 0</td>
 <td>13.97 / 分 0</td>
@@ -6542,6 +6650,7 @@
 <td>11.783 / 分 0</td>
 <td>4.8 / 分 0</td>
 <td>44.18 / 分 0</td>
+<td>110.9869 / 分 0</td>
 <td>20 / 分 0</td>
 <td>152 / 分 0</td>
 <td>139.74 / 分 0</td>
@@ -6651,6 +6760,13 @@
 <td>22.51%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>0.251056</td>
+<td>25.11%</td>
+<td>-0.83 pp</td>
+<td>-1.12%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0</td>
 <td>0.00%</td>
@@ -6685,6 +6801,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -6700,6 +6817,7 @@
 <td>1,600,000 / 分 1.83234</td>
 <td>1,575,000 / 分 1.69284</td>
 <td>1,600,000 / 分 1.83234</td>
+<td>1,450,292 / 分 0.5063</td>
 <td>1,185,309 / 分 0</td>
 <td>2,258,158 / 分 3.32026</td>
 <td>1,740,224 / 分 2.38065</td>
@@ -6715,6 +6833,7 @@
 <td>20,000 / 分 0</td>
 <td>15,000 / 分 0</td>
 <td>16,000 / 分 0</td>
+<td>20,000 / 分 0</td>
 <td>15,000 / 分 0</td>
 <td>12,000 / 分 0</td>
 <td>16,500 / 分 0</td>
@@ -6730,6 +6849,7 @@
 <td>20 / 分 0</td>
 <td>35 / 分 0</td>
 <td>30 / 分 0</td>
+<td>20 / 分 0</td>
 <td>60 / 分 0</td>
 <td>30 / 分 0</td>
 <td>15 / 分 0</td>
@@ -6745,6 +6865,7 @@
 <td>0.61511 / 分 0</td>
 <td>0.667084 / 分 0</td>
 <td>75.8→0.758 / 分 0</td>
+<td>1 / 分 1</td>
 <td>0.636608 / 分 0</td>
 <td>0.6817 / 分 0</td>
 <td>1 / 分 1</td>
@@ -6760,6 +6881,7 @@
 <td>69.7742→0.697742 / 分 0</td>
 <td>78.5144→0.785144 / 分 0</td>
 <td>68.5976→0.685976 / 分 0</td>
+<td>0.833326 / 分 0</td>
 <td>70.0293→0.700293 / 分 0</td>
 <td>43.223→0.43223 / 分 0</td>
 <td>74.76→0.7476 / 分 0</td>
@@ -6775,6 +6897,7 @@
 <td>413,042,845.93 / 分 0.4051</td>
 <td>410,713,333.84 / 分 0.3304</td>
 <td>423,000,000 / 分 0.7241</td>
+<td>345,937,862.94 / 分 0</td>
 <td>348,925,381.94 / 分 0</td>
 <td>496,297,968.11 / 分 2.12254</td>
 <td>426,354,880 / 分 0.8316</td>
@@ -6884,6 +7007,13 @@
 <td>-10.00%</td>
 </tr>
 <tr>
+<td>GPT-5.6 Sol XH</td>
+<td>2.10169</td>
+<td>100.00%</td>
+<td>+52.64 pp</td>
+<td>10.00%</td>
+</tr>
+<tr>
 <td>ox-alpha</td>
 <td>0.186115</td>
 <td>18.61%</td>
@@ -6918,6 +7048,7 @@
 <th>GPT-5.6 Sol</th>
 <th>GLM-5.3</th>
 <th>v4 pro</th>
+<th>GPT-5.6 Sol XH</th>
 <th>ox-alpha</th>
 <th>Qwen3.8 Flash (Bailian)</th>
 <th>Gemini 3.7 Flash</th>
@@ -6933,6 +7064,7 @@
 <td>3.333 / 分 0.2126</td>
 <td>3.6667 / 分 0.2358</td>
 <td>0 / 分 0.1071</td>
+<td>3.66667 / 分 0.2358</td>
 <td>1.66667 / 分 0.1425</td>
 <td>9.33 / 分 2.72722</td>
 <td>无 artifact</td>
@@ -6948,6 +7080,7 @@
 <td>1.667 / 分 1.00166</td>
 <td>2 / 分 1.98083</td>
 <td>2 / 分 1.98083</td>
+<td>3.5 / 分 3.31911</td>
 <td>0.666667 / 分 0.1667</td>
 <td>1.44 / 分 0.4687</td>
 <td>无 artifact</td>
@@ -6963,6 +7096,7 @@
 <td>1.667 / 分 0.4188</td>
 <td>2 / 分 1</td>
 <td>2 / 分 1</td>
+<td>3.5 / 分 2.981</td>
 <td>1.2 / 分 0.2308</td>
 <td>1.44 / 分 0.3</td>
 <td>无 artifact</td>
@@ -6978,6 +7112,7 @@
 <td>1.517 / 分 0.1953</td>
 <td>2 / 分 0.2647</td>
 <td>2 / 分 0.2647</td>
+<td>3.5 / 分 1.87083</td>
 <td>1.6 / 分 0.2045</td>
 <td>1.44 / 分 0.1875</td>
 <td>无 artifact</td>
@@ -6987,7 +7122,7 @@
 <h2>为什么排名会长这样</h2>
 <p>O-Eval 第一的是 Kimi K3，主分是 58.08%。这说明它在 18 题平均 raw 上最接近 O 奖复现锚点，不是靠某一道小分母题爆表冲上去。</p>
 <p>Robust 辅助第一的是 Kimi K3，辅助分是 12.19%。这个口径说明它在 flash 弱项上追回 gap 的能力强，但它不再是唯一主表，因为它仍然依赖 flash 和 O 之间那段尺子的形状。</p>
-<p>温和版 hard-gated 第一的是 Qwen3.8 27B，主分是 54.67%。这张榜不是新的数学分数，而是给公开解读加了一道保守阀门：明显不可行的高分不再继续抬平均数。</p>
+<p>温和版 hard-gated 第一的是 Hy4 Preview，主分是 57.08%。这张榜不是新的数学分数，而是给公开解读加了一道保守阀门：明显不可行的高分不再继续抬平均数。</p>
 <p>GLM-5.3 和 v4 pro 的位置很接近，说明它们在 flash 弱项上整体有稳定增益；GPT-5.6 Sol high、Kimi K3、Qwen3.8 27B 都有强题，但 O-Eval 会把强题、弱题、缺失题放到同一张绝对成绩单里平均。</p>
 <p>Gemini 3.7 Flash 只有 15/18 个 artifact，所以缺失题按 raw 0 进入统计；这会直接压低它的 O-Eval 主分。</p>
 <p>所以这套结果要分三眼看：O-Eval 是最终主排名，Robust BO-Eval 是相对 flash 的辅助口径，score-cost 图再加一眼：同样的分，到底花了多少钱。</p></section>

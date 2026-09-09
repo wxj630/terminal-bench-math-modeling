@@ -56,10 +56,10 @@
 <rect x="132.00" y="768.27" width="111.82" height="0.63" fill="#202020" />
 <text x="187.91" y="754.27" text-anchor="middle" class="top-label">9.3M</text>
 <g transform="translate(187.91,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
-<rect x="277.82" y="778.14" width="111.82" height="1.86" fill="#4c4c4c" />
-<rect x="277.82" y="764.58" width="111.82" height="13.56" fill="#cfcfcf" />
-<rect x="277.82" y="763.59" width="111.82" height="0.99" fill="#0f766e" />
-<text x="333.73" y="749.59" text-anchor="middle" class="top-label">13M</text>
+<rect x="277.82" y="777.89" width="111.82" height="2.11" fill="#4c4c4c" />
+<rect x="277.82" y="759.01" width="111.82" height="18.88" fill="#cfcfcf" />
+<rect x="277.82" y="757.95" width="111.82" height="1.06" fill="#0f766e" />
+<text x="333.73" y="743.95" text-anchor="middle" class="top-label">17M</text>
 <g transform="translate(333.73,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol XH</tspan></text></g>
 <rect x="423.64" y="778.47" width="111.82" height="1.53" fill="#4c4c4c" />
 <rect x="423.64" y="753.05" width="111.82" height="25.42" fill="#cfcfcf" />

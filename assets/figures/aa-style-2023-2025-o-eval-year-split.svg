@@ -54,8 +54,8 @@
 <text x="776.2" y="726.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">32</text>
 <rect x="803.2" y="625.1" width="29.9" height="174.9" fill="#202020" rx="5.0" />
 <text x="818.1" y="719.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">35</text>
-<rect x="845.1" y="622.6" width="29.9" height="177.4" fill="#0f766e" rx="5.0" />
-<text x="860.1" y="718.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">35</text>
+<rect x="845.1" y="574.7" width="29.9" height="225.3" fill="#0f766e" rx="5.0" />
+<text x="860.1" y="694.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">45</text>
 <rect x="887.0" y="608.5" width="29.9" height="191.5" fill="#1f83ff" rx="5.0" />
 <text x="902.0" y="711.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">38</text>
 <rect x="929.0" y="688.8" width="29.9" height="111.2" fill="#34a853" rx="5.0" />

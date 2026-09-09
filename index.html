@@ -606,7 +606,7 @@
           <p class="hero-note">关注知乎专栏，继续看最新进展、详细解读和后续拆题。</p>
         </div>
         <figure class="hero-media">
-          <img src="assets/figures/tb-mathmodel-cover.svg?v=20260904feasibility" alt="TB-MathModel cover image">
+          <img src="assets/figures/tb-mathmodel-cover.svg?v=20260909reruns" alt="TB-MathModel cover image">
         </figure>
       </div>
     </section>
@@ -722,20 +722,20 @@
                     <td><span class="status done">complete</span></td>
                   </tr>
                   <tr>
-                    <td><span class="rank">8</span><b>GLM-5.3-Flash (ox-alpha)</b><small>17 valid + 1 final timeout; failures are penalized in both metrics.</small></td>
+                    <td><span class="rank">8</span><b>GPT-5.6 SOL xhigh</b><small>Latest monitored reruns: crop planting recovered a scoreable artifact; heliostat field ended in the final 2h timeout.</small></td>
+                    <td data-sort="16">16 / 18</td>
+                    <td data-sort="50.53">50.53%</td>
+                    <td data-sort="-7.20">-7.20%</td>
+                    <td data-sort="99.26">¥99.26</td>
+                    <td><span class="status partial">17 valid + 1 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">9</span><b>GLM-5.3-Flash (ox-alpha)</b><small>17 valid + 1 final timeout; failures are penalized in both metrics.</small></td>
                     <td data-sort="18">18 / 18</td>
                     <td data-sort="48.94">48.94%</td>
                     <td data-sort="-1.46">-1.46%</td>
                     <td data-sort="19.62">¥19.62</td>
                     <td><span class="status partial">partial</span></td>
-                  </tr>
-                  <tr>
-                    <td><span class="rank">9</span><b>GPT-5.6 SOL xhigh</b><small>18-task xhigh rerun; one task still running and three lack a scoreable artifact.</small></td>
-                    <td data-sort="15">15 / 18</td>
-                    <td data-sort="47.34">47.34%</td>
-                    <td data-sort="-15.18">-15.18%</td>
-                    <td data-sort="86.89">¥86.89</td>
-                    <td><span class="status partial">17 valid + 1 running</span></td>
                   </tr>
                   <tr>
                     <td><span class="rank">10</span><b>Qwen3.8 Flash (Bailian)</b><small>16 valid + 2 final timeout; no-score tasks are counted as failures.</small></td>
@@ -812,22 +812,22 @@
                     <td data-sort="0"><span class="status done">0 gates</span></td>
                   </tr>
                   <tr>
-                    <td><span class="rank">5</span><b>v4 flash baseline</b><small>4h rerun reference；Robust BO 自比较定义为 0。</small></td>
+                    <td><span class="rank">5</span><b>GPT-5.6 SOL xhigh</b><small>xhigh 无 hard gate；农作物重跑已有可评分 artifact，定日镜重跑最终超时。</small></td>
+                    <td data-sort="16">16 / 18</td>
+                    <td data-sort="50.53">50.53%</td>
+                    <td data-sort="-7.20">-7.20%</td>
+                    <td data-sort="50.53">50.53%</td>
+                    <td data-sort="99.26">¥99.26</td>
+                    <td data-sort="0"><span class="status done">0 gates</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">6</span><b>v4 flash baseline</b><small>4h rerun reference；Robust BO 自比较定义为 0。</small></td>
                     <td data-sort="17">17 / 18</td>
                     <td data-sort="47.75">47.75%</td>
                     <td data-sort="0.00">0.00%</td>
                     <td data-sort="51.85">51.85%</td>
                     <td data-sort="10.74">¥10.74</td>
                     <td data-sort="1"><span class="status partial">1 gate</span></td>
-                  </tr>
-                  <tr>
-                    <td><span class="rank">6</span><b>GPT-5.6 SOL xhigh</b><small>xhigh 无 hard gate；O-Eval 受 2023 A 超时与缺失 artifact 拖累。</small></td>
-                    <td data-sort="15">15 / 18</td>
-                    <td data-sort="47.34">47.34%</td>
-                    <td data-sort="-15.18">-15.18%</td>
-                    <td data-sort="47.34">47.34%</td>
-                    <td data-sort="86.89">¥86.89</td>
-                    <td data-sort="0"><span class="status done">0 gates</span></td>
                   </tr>
                   <tr>
                     <td><span class="rank">7</span><b>Kimi K3</b><small>原始 O-Eval 最高，但两个异常高分被确认不可行后回落。</small></td>
@@ -975,43 +975,43 @@
         </div>
         <div class="gallery">
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-bar.png?v=20260904feasibility" loading="lazy" alt="O-Eval leaderboard bar chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-bar.png?v=20260909reruns" loading="lazy" alt="O-Eval leaderboard bar chart">
             <figcaption><b>O-Eval leaderboard</b>相对 oracle solution 的直观完成度，适合解释“离 O 奖参照解有多近”。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-cost-scatter.png?v=20260904feasibility" loading="lazy" alt="O-Eval versus cost scatter chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-cost-scatter.png?v=20260909reruns" loading="lazy" alt="O-Eval versus cost scatter chart">
             <figcaption><b>O-Eval vs cost</b>分数-cost 图，展示 oracle-normalized 效果与人民币成本之间的关系。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-hard-gated-o-eval-bar.png?v=20260904feasibility" loading="lazy" alt="Hard-gated O-Eval leaderboard bar chart">
+            <img src="assets/figures/aa-style-2023-2025-hard-gated-o-eval-bar.png?v=20260909reruns" loading="lazy" alt="Hard-gated O-Eval leaderboard bar chart">
             <figcaption><b>Hard-gated O-Eval leaderboard</b>温和 gate 后的主榜。Hy4 仍在第一梯队，Kimi 的不可行异常高分被拿掉后明显回落。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png?v=20260904feasibility" loading="lazy" alt="Hard-gated O-Eval versus cost scatter chart">
+            <img src="assets/figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png?v=20260909reruns" loading="lazy" alt="Hard-gated O-Eval versus cost scatter chart">
             <figcaption><b>Hard-gated O-Eval vs cost</b>公开口径下的分数-cost 图，左上角代表更低成本拿到更接近 O 奖参照解的结果。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png?v=20260904feasibility" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
+            <img src="assets/figures/aa-style-2023-2025-boeval-effect-bar.png?v=20260909reruns" loading="lazy" alt="Robust BO-Eval leaderboard bar chart">
             <figcaption><b>Robust BO-Eval leaderboard</b>稳健版 BO-Eval，用来辅助看离群点和坏题，不再放在首位。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png?v=20260904feasibility" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
+            <img src="assets/figures/aa-style-2023-2025-boeval-score-cost.png?v=20260909reruns" loading="lazy" alt="Robust BO-Eval versus cost scatter chart">
             <figcaption><b>Robust BO-Eval vs cost</b>稳健辅助视图，用来对照 O-Eval 的性价比结论。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-token-usage.png?v=20260904feasibility" loading="lazy" alt="Token usage chart">
+            <img src="assets/figures/aa-style-2023-2025-token-usage.png?v=20260909reruns" loading="lazy" alt="Token usage chart">
             <figcaption><b>Token usage</b>输入、缓存命中输入与输出 token 的用量拆分，用来解释成本差异。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-cost.png?v=20260904feasibility" loading="lazy" alt="Cost chart">
+            <img src="assets/figures/aa-style-2023-2025-cost.png?v=20260909reruns" loading="lazy" alt="Cost chart">
             <figcaption><b>Cost by model</b>各模型人民币成本估算，结合 token 图可以定位“为什么贵”。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-year-split.png?v=20260904feasibility" loading="lazy" alt="O-Eval by year split chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-year-split.png?v=20260909reruns" loading="lazy" alt="O-Eval by year split chart">
             <figcaption><b>O-Eval year split</b>按 2023、2024、2025 拆分主指标，检查模型是否只擅长某一年题型。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/aa-style-2023-2025-o-eval-suite-split.png?v=20260904feasibility" loading="lazy" alt="O-Eval by suite split chart">
+            <img src="assets/figures/aa-style-2023-2025-o-eval-suite-split.png?v=20260909reruns" loading="lazy" alt="O-Eval by suite split chart">
             <figcaption><b>O-Eval suite split</b>按 CUMCM 与 MCM 拆分主指标，观察中文赛题和英文赛题上的绝对效果差异。</figcaption>
           </figure>
         </div>
@@ -1054,7 +1054,7 @@
   <footer>
     <div class="wrap">
       <span>TB-MathModel, generated from 2023-2025 benchmark artifacts.</span>
-      <span>Last updated: 2026-09-04</span>
+      <span>Last updated: 2026-09-09</span>
     </div>
   </footer>
 
