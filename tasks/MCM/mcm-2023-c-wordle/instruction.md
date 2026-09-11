@@ -45,6 +45,8 @@ Wordle 是《纽约时报》目前每天提供的一个流行谜题。玩家尝�
 
 图 1：2022 年 7 月 21 日的 Wordle Puzzle 解决方案示例[3]
 
+![图 1](/root/data/figures/page_1.png)
+
 ## 第 2 页
 
 | ©2023 COMAP 公司 | www.comap.com | www.mathmodels.org | | info@comap.com |
@@ -66,6 +68,8 @@ X）。  例如，在图 2 中，2022 年 7 月 20 日的单词是“TRITE”，
 
 
 图2：2022年7月20日报告结果在Twitter上的分布[4]
+
+![图2](/root/data/figures/page_2.png)
 
 要求
 《纽约时报》要求您对此文件中的结果进行分析，以
@@ -182,8 +186,8 @@ Times.
 
 # 题面附图
 
-原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
-供具备图像能力的 agent 直接查看：
+原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`）。
+所有渲染页汇总如下，包含全部插图与表格，供具备图像能力的 agent 直接查看：
 
 - `/root/data/figures/page_1.png`
 - `/root/data/figures/page_2.png`

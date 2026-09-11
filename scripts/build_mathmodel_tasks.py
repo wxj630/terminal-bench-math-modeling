@@ -9,6 +9,7 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -1124,6 +1125,8 @@ def write_attachments(case: Case, data_root: Path) -> list[tuple[str, str]]:
 
 # Matches figure references such as ``图 1`` / ``图1`` / ``Figure 2``.
 FIGURE_REF = re.compile(r"图\s*[0-9]|Figure\s*[0-9]", re.IGNORECASE)
+# Captures the figure number from a reference (group 1 for 图N, group 2 for FigureN).
+FIGURE_NUMBER = re.compile(r"图\s*(\d+)|Figure\s*(\d+)", re.IGNORECASE)
 FIGURE_DPI = 150
 
 
@@ -1142,26 +1145,94 @@ def find_problem_pdf(rels: tuple[str, ...]) -> Path | None:
     return None
 
 
-def write_figures(case: Case, data_root: Path, problem_statement: str) -> list[str]:
+def pdf_page_count(pdf: Path) -> int | None:
+    result = subprocess.run(
+        ["gs", "-q", "-dNODISPLAY", "-dNOSAFER", "-c",
+         f"({pdf}) (r) file runpdfbegin pdfpagecount = quit"],
+        capture_output=True, text=True,
+    )
+    match = re.search(r"(\d+)", result.stdout)
+    return int(match.group(1)) if match else None
+
+
+def pdf_page_texts(pdf: Path) -> list[str]:
+    """Extract the text of each PDF page so figure captions can be located."""
+    count = pdf_page_count(pdf)
+    if not count:
+        return []
+    texts: list[str] = []
+    with tempfile.TemporaryDirectory() as tmp:
+        for page in range(1, count + 1):
+            out = Path(tmp) / f"p{page}.txt"
+            subprocess.run(
+                ["gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=txtwrite",
+                 f"-dFirstPage={page}", f"-dLastPage={page}", f"-sOutputFile={out}", str(pdf)],
+                capture_output=True,
+            )
+            texts.append(out.read_text(encoding="utf-8", errors="ignore") if out.exists() else "")
+    return texts
+
+
+# A caption line begins with the figure token, e.g. "图 1 龙头的俯视图" or "Figure 2: ...".
+FIGURE_CAPTION_START = re.compile(r"^\s*(?:图\s*\d+|Figure\s*\d+)\s*[:：]?\s*\S")
+# Prose that merely starts with a figure token ("图 1 和图 2）。...（见图 3）。").
+INLINE_FIGURE_MARKER = re.compile(r"见图|如图|参见|见图|见 图|see\s+Figure", re.IGNORECASE)
+
+
+def is_caption_line(line: str) -> bool:
+    """Distinguish a figure caption from prose that happens to start with 图N.
+
+    Cleaned statements keep a whole paragraph on one line, so a sentence like
+    "图 1 和图 2）。相邻两条板凳…（见图 3）。" also begins with a figure token.
+    Captions are single clauses: no inline-reference wording and no sentence
+    punctuation before the final character.
+    """
+    if not FIGURE_CAPTION_START.match(line):
+        return False
+    if INLINE_FIGURE_MARKER.search(line):
+        return False
+    body = line.rstrip()
+    core = body[:-1] if body and body[-1] in "。？！" else body
+    return not re.search(r"[。？！]", core)
+
+
+def figure_page_map(pdf: Path) -> dict[int, int]:
+    """Map each figure number to the 1-based PDF page where its caption appears."""
+    mapping: dict[int, int] = {}
+    for page, text in enumerate(pdf_page_texts(pdf), start=1):
+        for line in text.splitlines():
+            if not is_caption_line(line):
+                continue
+            for token in FIGURE_NUMBER.finditer(line):
+                number = int(token.group(1) or token.group(2))
+                mapping.setdefault(number, page)
+    return mapping
+
+
+def write_figures(
+    case: Case, data_root: Path, problem_statement: str
+) -> tuple[list[str], dict[int, int]]:
     """Render the original problem PDF to page images for figure-referencing tasks.
 
-    The problem statements cite figures, but a text-only instruction cannot carry them.
-    Rendering the original PDF pages gives any image-capable agent the exact figures.
-    Requires Ghostscript; if unavailable the PDF itself is still delivered as an
-    attachment, so this degrades to a warning rather than failing the build.
+    The problem statements cite figures (图1, Figure 1, ...), but a text-only
+    instruction cannot carry them. Rendering the original PDF pages gives any
+    image-capable agent the exact figures, and the returned figure->page map lets
+    the instruction place each rendered page next to the caption that cites it.
+    Requires Ghostscript; without it the PDF is still delivered as an attachment,
+    so this degrades to a warning rather than failing the build.
     """
     figures_root = data_root / "figures"
     if figures_root.exists():
         shutil.rmtree(figures_root)
     if not FIGURE_REF.search(problem_statement):
-        return []
+        return [], {}
     pdf = find_problem_pdf(case.data_rels)
     if pdf is None:
         print(f"  ! {case.slug}: figure references found but no source PDF to render")
-        return []
+        return [], {}
     if shutil.which("gs") is None:
         print(f"  ! {case.slug}: ghostscript not found; skipping figure rendering")
-        return []
+        return [], {}
     figures_root.mkdir(parents=True)
     subprocess.run(
         [
@@ -1171,7 +1242,35 @@ def write_figures(case: Case, data_root: Path, problem_statement: str) -> list[s
         check=True,
     )
     pages = sorted(figures_root.glob("page_*.png"), key=lambda p: int(p.stem.split("_")[1]))
-    return [f"/root/data/figures/{p.name}" for p in pages]
+    return (
+        [f"/root/data/figures/{p.name}" for p in pages],
+        figure_page_map(pdf),
+    )
+
+
+def inline_figure_images(problem_statement: str, fig_map: dict[int, int]) -> str:
+    """Insert each figure page image immediately after the caption that cites it.
+
+    Figures on the same page share one rendered image, so each page is emitted once,
+    right after the first caption that references it.
+    """
+    if not fig_map:
+        return problem_statement
+    emitted: set[int] = set()
+    out: list[str] = []
+    for line in problem_statement.splitlines():
+        out.append(line)
+        if not is_caption_line(line):
+            continue
+        for token in FIGURE_NUMBER.finditer(line):
+            number = int(token.group(1) or token.group(2))
+            page = fig_map.get(number)
+            if page is None or page in emitted:
+                continue
+            emitted.add(page)
+            out.append("")
+            out.append(f"![{token.group(0).strip()}](/root/data/figures/page_{page}.png)")
+    return "\n".join(out)
 
 
 def extract_problem_statement(text: str) -> str:
@@ -2242,8 +2341,15 @@ def string_checks(result: dict[str, Any]) -> list[dict[str, str]]:
     return checks
 
 
-def instruction(case: Case, problem_statement: str, figures: list[str] | None = None) -> str:
+def instruction(
+    case: Case,
+    problem_statement: str,
+    figures: list[str] | None = None,
+    fig_map: dict[int, int] | None = None,
+) -> str:
     problem_statement = "\n".join(line.rstrip() for line in problem_statement.rstrip().splitlines())
+    if figures and fig_map:
+        problem_statement = inline_figure_images(problem_statement, fig_map)
     figure_section = ""
     if case.figure_notes:
         figure_section = f"""
@@ -2258,8 +2364,8 @@ def instruction(case: Case, problem_statement: str, figures: list[str] | None = 
         figure_section += f"""
 # 题面附图
 
-原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
-供具备图像能力的 agent 直接查看：
+原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`）。
+所有渲染页汇总如下，包含全部插图与表格，供具备图像能力的 agent 直接查看：
 
 {listed}
 """
@@ -2963,9 +3069,11 @@ def build_case(case: Case) -> str:
     problem_text = (SOURCE_ROOT / case.problem_rel).read_text(encoding="utf-8")
     problem_statement = extract_problem_statement(problem_text)
 
-    figures = write_figures(case, data_root, problem_statement)
+    figures, fig_map = write_figures(case, data_root, problem_statement)
 
-    (task_dir / "instruction.md").write_text(instruction(case, problem_statement, figures), encoding="utf-8")
+    (task_dir / "instruction.md").write_text(
+        instruction(case, problem_statement, figures, fig_map), encoding="utf-8"
+    )
     (task_dir / "scoring_table.md").write_text(scoring_table, encoding="utf-8")
     (task_dir / "task.toml").write_text(task_toml(case), encoding="utf-8")
     (environment / "Dockerfile").write_text(ENV_DOCKERFILE, encoding="utf-8")
