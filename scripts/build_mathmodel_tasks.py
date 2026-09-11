@@ -1348,12 +1348,84 @@ def inline_figure_images(problem_statement: str, figure_numbers: list[int]) -> s
     return "\n".join(out)
 
 
+# Corpus bookkeeping that must never reach the agent-facing statement.
+STATEMENT_DROP_LINE = re.compile(
+    r"""^\s*(?:
+        \#\s*(?:题目原文|题目核心|中文题面|英文原文|每问/小问拆解|题目与问题)\b
+      | \#\s*第\s*\d+\s*页\s*$
+      | -\s*(?:来源目录|数据状态)
+      | \|?\s*(?:©?\s*20\d{2}\s*(?:by\s+)?COMAP|www\.comap|www\.mathmodels)
+      | (?:https?://)?(?:www\.)?(?:comap|mathmodels)\.(?:com|org)\b
+    )""",
+    re.IGNORECASE | re.VERBOSE,
+)
+# Wingdings/private-use glyphs left over from PDF text extraction.
+PRIVATE_USE = re.compile("[\ue000-\uf8ff]")
+
+
+def _tidy_statement_body(body: str) -> str:
+    """Strip page markers/footers and turn the flattened bullet markers back into list items.
+
+    PDF extraction emits each bullet as a lone Wingdings glyph (``\\uf0b7``) on its own
+    line, so the items read as an unmarked wall of paragraphs. Treat that marker as the
+    start of a list item and re-emit it as Markdown ``- ``.
+    """
+    lines: list[str] = []
+    blanks = 0
+    pending_bullet = False
+    for raw in body.splitlines():
+        has_bullet = bool(PRIVATE_USE.search(raw))
+        line = PRIVATE_USE.sub("", raw).rstrip()
+        if STATEMENT_DROP_LINE.match(line):
+            continue
+        if not line.strip():
+            if has_bullet:
+                pending_bullet = True  # marker line: the item text is the next line
+                continue
+            pending_bullet = False
+            blanks += 1
+            if blanks > 1:
+                continue
+            lines.append(line)
+            continue
+        blanks = 0
+        if has_bullet or pending_bullet:
+            line = "- " + line.strip()
+        elif line.startswith("•"):
+            line = "- " + line[1:].strip()
+        elif re.match(r"^o\s+[A-Z]", line):
+            line = "  - " + line[2:].strip()
+        pending_bullet = False
+        lines.append(line)
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    while lines and not lines[-1].strip():
+        lines.pop()
+    return "\n".join(lines)
+
+
 def extract_problem_statement(text: str) -> str:
-    if "## 题目原文" in text and "## 题目核心" in text:
-        head, rest = text.split("## 题目原文", 1)
-        body = rest.split("## 题目核心", 1)[0].strip()
-        return (head.strip() + "\n\n## 题目原文\n" + body + "\n").strip() + "\n"
-    return text.strip() + "\n"
+    """Reduce a corpus problem file to just the contest statement.
+
+    The corpus files wrap the statement in derived material the agent should not see:
+    provenance bullets, a per-question "which model family to use" breakdown (a solution
+    hint), duplicated Chinese/English text, ``## 第 N 页`` page markers and COMAP footers.
+    Keep only the authoring contest's own statement — English for MCM (the original), the
+    Chinese original for CUMCM — under the problem title.
+    """
+    lines = text.splitlines()
+    title = next((line[1:].strip() for line in lines if line.startswith("# ")), "")
+    if "## 题目原文" in text:
+        body = text.split("## 题目原文", 1)[1].split("## 题目核心", 1)[0]
+    elif "## 英文原文" in text:
+        body = text.split("## 英文原文", 1)[1]
+    elif "## 中文题面" in text:
+        body = text.split("## 中文题面", 1)[1].split("## 英文原文", 1)[0]
+    else:
+        body = text
+    cleaned = _tidy_statement_body(body)
+    heading = f"## {title}\n\n" if title else ""
+    return f"{heading}{cleaned}\n"
 
 
 def schema_of(value: Any) -> Any:
