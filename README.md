@@ -32,7 +32,7 @@ The preferred baseline endpoint is computed from the archived per-question `ques
 
 For geometry-heavy tasks, [`docs/GEOMETRY_VISUAL_GUIDE.md`](docs/GEOMETRY_VISUAL_GUIDE.md) provides schematic figures that connect the contest geometry to the final numeric answer used by the verifier.
 
-Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. Where a referenced figure carries information absent from the text, the generator records it under a "附图中承载的关键信息" section in `instruction.md`. For every task whose statement cites figures, the original problem PDF is rendered to `page_*.png` next to `instruction.md` (embedded after each caption via a relative path, so GitHub previews them) and hardlinked to `/root/data/figures` for the container.
+Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. Where a referenced figure carries information absent from the text, the generator records it under a "附图中承载的关键信息" section in `instruction.md`. For every task whose statement cites figures, each figure is cropped from the original PDF (its artwork plus its own caption, without the surrounding prose) into `fig_N.png` next to `instruction.md` — embedded after the caption via a relative path so GitHub previews it — and hardlinked to `/root/data/figures` for the container.
 
 ## Tasks
 
@@ -68,8 +68,11 @@ The required artifact for each task is `/root/results/<task-slug>_result.json`.
 
 ## Regenerating Tasks
 
-The generated tasks can be rebuilt from the local source corpus:
+The generated tasks can be rebuilt from the local source corpus. Figure extraction needs
+PyMuPDF, so create the virtualenv first (its absence is a hard error, not a silent
+figure-less build):
 
 ```bash
-python scripts/build_mathmodel_tasks.py
+uv venv .venv && uv pip install --python .venv/bin/python pymupdf
+.venv/bin/python scripts/build_mathmodel_tasks.py
 ```

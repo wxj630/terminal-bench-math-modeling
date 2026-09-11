@@ -45,7 +45,7 @@ Wordle 是《纽约时报》目前每天提供的一个流行谜题。玩家尝�
 
 图 1：2022 年 7 月 21 日的 Wordle Puzzle 解决方案示例[3]
 
-![图 1](page_1.png)
+![图 1](fig_1.png)
 
 ## 第 2 页
 
@@ -69,7 +69,7 @@ X）。  例如，在图 2 中，2022 年 7 月 20 日的单词是“TRITE”，
 
 图2：2022年7月20日报告结果在Twitter上的分布[4]
 
-![图2](page_2.png)
+![图2](fig_2.png)
 
 要求
 《纽约时报》要求您对此文件中的结果进行分析，以
@@ -186,15 +186,13 @@ Times.
 
 # 题面附图
 
-原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`，
+原题正文引用的每一张图，都已从官方 PDF 中裁出（仅含图形与图题），并紧跟在对应图题之后（见上文 `![](...)`，
 相对路径与本文件同级，便于在 GitHub 上直接预览）。
 
 在容器内这些图片位于 `/root/data/figures`（`instruction.md` 不进入容器，故容器内请使用下列绝对路径）：
 
-- `/root/data/figures/page_1.png`
-- `/root/data/figures/page_2.png`
-- `/root/data/figures/page_3.png`
-- `/root/data/figures/page_4.png`
+- `/root/data/figures/fig_1.png`
+- `/root/data/figures/fig_2.png`
 
 # Required Benchmark Artifact
 

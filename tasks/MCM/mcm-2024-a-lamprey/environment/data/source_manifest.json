@@ -11,6 +11,6 @@
       "original": "/root/data/repo/mcm/source_materials/official_extracted/2024/Resource Availability and Sex Ratios.pdf/Resource Availability and Sex Ratios.pdf"
     }
   ],
-  "figure_pages": [],
+  "figures": [],
   "required_output": "/root/results/mcm-2024-a-lamprey_result.json"
 }

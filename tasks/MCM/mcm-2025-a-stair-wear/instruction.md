@@ -36,7 +36,7 @@
 
 图 1：长期使用后出现不均匀磨损的台阶示例。
 
-![图 1](page_1.png)
+![图 1](fig_1.png)
 
 用于建造台阶的石头和其他材料会受到持续、长期的磨损，并且
 磨损可能不均匀。例如，非常古老的寺庙和教堂可能有楼梯
@@ -170,13 +170,12 @@ short time or a small number of people over a longer time?
 
 # 题面附图
 
-原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`，
+原题正文引用的每一张图，都已从官方 PDF 中裁出（仅含图形与图题），并紧跟在对应图题之后（见上文 `![](...)`，
 相对路径与本文件同级，便于在 GitHub 上直接预览）。
 
 在容器内这些图片位于 `/root/data/figures`（`instruction.md` 不进入容器，故容器内请使用下列绝对路径）：
 
-- `/root/data/figures/page_1.png`
-- `/root/data/figures/page_2.png`
+- `/root/data/figures/fig_1.png`
 
 # Required Benchmark Artifact
 

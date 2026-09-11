@@ -11,6 +11,6 @@
       "original": "/root/data/repo/mcm/source_materials/official_extracted/2023/Drought-Stricken Plant Communities.pdf/Drought-Stricken Plant Communities.pdf"
     }
   ],
-  "figure_pages": [],
+  "figures": [],
   "required_output": "/root/results/mcm-2023-a-plant-community_result.json"
 }

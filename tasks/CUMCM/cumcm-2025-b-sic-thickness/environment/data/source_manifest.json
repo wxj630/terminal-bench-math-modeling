@@ -27,9 +27,9 @@
       "original": "/root/data/repo/cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/B题/附件/附件4.xlsx"
     }
   ],
-  "figure_pages": [
-    "/root/data/figures/page_1.png",
-    "/root/data/figures/page_2.png"
+  "figures": [
+    "/root/data/figures/fig_1.png",
+    "/root/data/figures/fig_2.png"
   ],
   "required_output": "/root/results/cumcm-2025-b-sic-thickness_result.json"
 }

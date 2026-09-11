@@ -23,10 +23,12 @@
       "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/A题/附件/result4.xlsx"
     }
   ],
-  "figure_pages": [
-    "/root/data/figures/page_1.png",
-    "/root/data/figures/page_2.png",
-    "/root/data/figures/page_3.png"
+  "figures": [
+    "/root/data/figures/fig_1.png",
+    "/root/data/figures/fig_2.png",
+    "/root/data/figures/fig_3.png",
+    "/root/data/figures/fig_4.png",
+    "/root/data/figures/fig_5.png"
   ],
   "required_output": "/root/results/cumcm-2024-a-dragon-dance_result.json"
 }

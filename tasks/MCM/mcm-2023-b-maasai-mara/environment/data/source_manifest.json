@@ -11,6 +11,6 @@
       "original": "/root/data/repo/mcm/source_materials/official_extracted/2023/Reimagining Maasai Mara.pdf/Reimagining Maasai Mara.pdf"
     }
   ],
-  "figure_pages": [],
+  "figures": [],
   "required_output": "/root/results/mcm-2023-b-maasai-mara_result.json"
 }

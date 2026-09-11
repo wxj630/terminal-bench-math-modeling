@@ -11,6 +11,6 @@
       "original": "/root/data/repo/mcm/source_materials/official_extracted/2024/Searching for Submersibles.pdf/Searching for Submersibles.pdf"
     }
   ],
-  "figure_pages": [],
+  "figures": [],
   "required_output": "/root/results/mcm-2024-b-submersible-search_result.json"
 }

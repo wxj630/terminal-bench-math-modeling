@@ -20,6 +20,6 @@
       "original": "/root/data/repo/mcm/source_materials/official_extracted/2024/Problem Data- Momentum in Tennis/2024_data_dictionary.csv"
     }
   ],
-  "figure_pages": [],
+  "figures": [],
   "required_output": "/root/results/mcm-2024-c-tennis-momentum_result.json"
 }

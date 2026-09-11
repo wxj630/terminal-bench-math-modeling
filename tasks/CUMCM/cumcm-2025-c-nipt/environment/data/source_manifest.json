@@ -15,6 +15,6 @@
       "original": "/root/data/repo/cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/C题/附件.xlsx"
     }
   ],
-  "figure_pages": [],
+  "figures": [],
   "required_output": "/root/results/cumcm-2025-c-nipt_result.json"
 }

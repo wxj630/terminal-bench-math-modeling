@@ -22,13 +22,17 @@ A 题  “板凳龙”  闹元宵
 
 图 1 龙头的俯视图
 
-![图 1](page_1.png)
+![图 1](fig_1.png)
 
 
 图 2 龙身和龙尾的俯视图
 
+![图 2](fig_2.png)
+
 
 图 3 板凳的正视图
+
+![图 3](fig_3.png)
 
 请建立数学模型，解决以下问题：
 问题 1  舞龙队沿螺距为 55 cm 的等距螺线顺时针盘入，各把手中心均位于螺线上。龙
@@ -67,7 +71,7 @@ A 题  “板凳龙”  闹元宵
 
 图 4  盘入螺线示意图
 
-![图 4](page_2.png)
+![图 4](fig_4.png)
 
 表 1  论文中位置结果的格式
  0 s 60 s 120 s 180 s 240 s 300 s
@@ -112,7 +116,7 @@ O
 
 图 5  调头空间示意图
 
-![图 5](page_3.png)
+![图 5](fig_5.png)
 
 问题 4  盘入螺线的螺距为 1.7 m，盘出螺线与盘入螺线关于螺线中心呈中心对称，舞
 龙队在问题 3 设定的调头空间内完成调头，调头路径是由两段圆弧相切连接而成的 S 形曲
@@ -139,14 +143,16 @@ O
 
 # 题面附图
 
-原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`，
+原题正文引用的每一张图，都已从官方 PDF 中裁出（仅含图形与图题），并紧跟在对应图题之后（见上文 `![](...)`，
 相对路径与本文件同级，便于在 GitHub 上直接预览）。
 
 在容器内这些图片位于 `/root/data/figures`（`instruction.md` 不进入容器，故容器内请使用下列绝对路径）：
 
-- `/root/data/figures/page_1.png`
-- `/root/data/figures/page_2.png`
-- `/root/data/figures/page_3.png`
+- `/root/data/figures/fig_1.png`
+- `/root/data/figures/fig_2.png`
+- `/root/data/figures/fig_3.png`
+- `/root/data/figures/fig_4.png`
+- `/root/data/figures/fig_5.png`
 
 # Required Benchmark Artifact
 
