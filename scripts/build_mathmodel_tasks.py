@@ -42,7 +42,6 @@ class Case:
     problem_rel: str
     data_rels: tuple[str, ...] = ()
     needs_support: bool = False
-    figure_notes: str = ""
 
     @property
     def problem_id(self) -> str:
@@ -81,15 +80,7 @@ CASES: tuple[Case, ...] = (
         "cumcm/outstanding_solutions/2023/A/A175/result.json",
         "cumcm/problems/2023/A.md",
         ("cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/A题",),
-        True,
-        (
-            "题面引用的两幅图均不承载额外数值信息，正文已给出全部建模所需的几何与光学定义：\n"
-            "- 图 1 是定日镜及底座实物示意图，仅说明纵向转轴（控制方位角）与水平转轴（控制俯仰角）"
-            "的构造，以及“两转轴交点即定日镜中心、其离地高度即安装高度”这一定义。\n"
-            "- 图 2 是圆形定日镜场的实景俯拍图，仅示意镜场整体为圆形阵列。\n"
-            "坐标系的定义（原点在圆形区域中心，正东为 x、正北为 y、垂直向上为 z）、镜场半径 350 m、"
-            "吸收塔高 80 m、集热器尺寸、镜面边长与安装高度范围等关键参数均已在正文文字中明确。"
-        ),
+                True,
     ),
     Case(
         "cumcm",
@@ -103,20 +94,7 @@ CASES: tuple[Case, ...] = (
         "cumcm/outstanding_solutions/2023/B/B226/result.json",
         "cumcm/problems/2023/B.md",
         ("cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/B题",),
-        True,
-        (
-            "题面引用图 1-图 8，均为原理示意或几何关系图，其含义与符号已在正文中定义，图本身不含额外数值：\n"
-            "- 图 1、图 2：单波束与多波束测深的工作原理，说明多波束一次发射多个波束、覆盖为条带。\n"
-            "- 图 3、图 4：条带/测线/重叠区域示意；图 4 给出覆盖宽度 W、相邻测线间距 d、水深 D、"
-            "换能器开角 θ 与重叠率 η 的关系，并给出 η = 1 − d/W（η<0 表示漏测）。\n"
-            "- 图 5、图 6：用平均间距与用最浅处间距布线的两种情形对比，说明浅处漏测/深处冗余的成因。\n"
-            "- 图 7：问题 1 的几何示意，给出坡度角 α（测线方向垂直平面与海底坡面交线与水平面夹角）、"
-            "海水深度 D 与覆盖宽度 W 的空间关系。\n"
-            "- 图 8：问题 2 的几何示意，给出矩形海域、测线方向、海底坡面法向及其在水平面投影，"
-            "以及二者夹角 β 的定义。\n"
-            "正文已明确：多波束换能器开角 120°、坡度 1.5°、中心处海水深度（问题 1 为 70 m、问题 2 为 120 m）"
-            "及各测线位置（结果填入 result1.xlsx / result2.xlsx）。"
-        ),
+                True,
     ),
     Case(
         "cumcm",
@@ -144,18 +122,7 @@ CASES: tuple[Case, ...] = (
         "cumcm/outstanding_solutions/2024/A/A016/result.json",
         "cumcm/problems/2024/A.md",
         ("cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/A题",),
-        False,
-        (
-            "题面引用图 1-图 5，图本身为几何示意；其中图 1-图 3 的尺寸已在正文给出，"
-            "唯一未在正文文字中写明的是图 4 中 A 点的位置，现补充如下：\n"
-            "- 图 1（龙头的俯视图）、图 2（龙身和龙尾的俯视图）、图 3（板凳的正视图）：标注板凳的板长、"
-            "板宽 30 cm、孔径 5.5 cm、孔心距最近板头 27.5 cm 等，这些数值正文均已给出。\n"
-            "- 盘入螺线为等距螺线（阿基米德螺线），极坐标方程 r = b·θ，螺距 55 cm，故 b = 0.55/(2π) m。\n"
-            "- 螺线中心为原点 O；图 4 中标注的 A 点位于螺线与 x 轴正半轴的交点处（即 θ = 2π·16 = 32π，"
-            "对应第 16 圈、方向为正东方向）。\n"
-            "- 舞龙队沿该螺线顺时针盘入，故极角 θ 随时间递减；初始时刻龙头前把手位于 A 点。\n"
-            "- 图 5 为调头空间示意：以螺线中心为圆心、直径 9 m 的圆形区域。"
-        ),
+                False,
     ),
     Case(
         "cumcm",
@@ -169,16 +136,7 @@ CASES: tuple[Case, ...] = (
         "cumcm/outstanding_solutions/2024/B/B159/result.json",
         "cumcm/problems/2024/B.md",
         ("cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/B题",),
-        False,
-        (
-            "题面引用的图 1（两道工序、8 个零配件的组装情况）是纯拓扑示意图，正文未给出其内容，现补充如下：\n"
-            "- 工序 1 产出 3 个半成品，工序 2 由这 3 个半成品组装为成品。\n"
-            "- 半成品 1 由零配件 1、2、3 装配而成；半成品 2 由零配件 4、5、6 装配而成；"
-            "半成品 3 由零配件 7、8 装配而成。\n"
-            "- 最终成品由半成品 1、2、3 装配而成。\n"
-            "（半成品的次品率、装配成本、检测成本、拆解费用等数值见表 2；表 2 中"
-            "“半成品”列与零配件行的对应关系应与上述分组一致，不要按行序误读为一一对应。）"
-        ),
+                False,
     ),
     Case(
         "cumcm",
@@ -218,17 +176,7 @@ CASES: tuple[Case, ...] = (
         "cumcm/outstanding_solutions/2025/B/B157/result.json",
         "cumcm/problems/2025/B.md",
         ("cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/B题",),
-        False,
-        (
-            "题面引用图 1、图 2，均为光学原理示意，不含额外数值：\n"
-            "- 图 1：单次反射/透射的干涉原理。红外光入射到外延层后，一部分从外延层表面反射（光束 1），"
-            "另一部分透射后在衬底表面反射再返回（光束 2），两束光产生干涉条纹。图中还标出入射角 θ、"
-            "外延层厚度 d 以及外延层/衬底的折射率 n1、n2 等符号。\n"
-            "- 图 2：多次反射与透射形成的多光束干涉，光束 1、2、3、4 依次在外延层界面与衬底界面间往返，"
-            "用于问题 3 的多光束干涉条件推导。\n"
-            "正文已说明：外延层折射率与掺杂载流子浓度及波长有关（非常数），附件 1-4 给出入射角 10°、15° 下"
-            "同一片 SiC/Si 晶圆的波数（cm⁻¹）与反射率（%）实测数据。"
-        ),
+                False,
     ),
     Case(
         "cumcm",
@@ -286,17 +234,7 @@ CASES: tuple[Case, ...] = (
             "mcm/source_materials/official_extracted/2023/Predicting Wordle Results.pdf",
             "mcm/source_materials/official_extracted/2023/Problem Data- Predicting Wordle Results",
         ),
-        True,
-        (
-            "题面引用图 1、图 2，均为示例说明，正文已完整描述其含义，图本身不含额外数值：\n"
-            "- 图 1：2022 年 7 月 21 日的 Wordle 解法示例（ADIEU → AVOID → APHID，三次猜中）。"
-            "用于说明反馈规则：黄色=字母在词中但位置错，绿色=字母在词中且位置对，灰色=字母不在词中；"
-            "以及 Hard Mode 规则（已确认的字母必须在后续猜测中沿用）。\n"
-            "- 图 2：2022 年 7 月 20 日（词为 TRITE，编号 #Wordle396）Twitter 结果的分布截图，"
-            "给出 1/2/3/4/5/6/X 各猜中次数的百分比（0%、4%、14%、22%、22%、23%、15%），"
-            "并注明当日 42,237 条结果、3,685 名 Hard Mode 玩家。这些比例的完整逐日数据见附件 1"
-            "（2023_MCM_Problem_C_Data.xlsx），图 2 只是其中一天的可视化示例。"
-        ),
+                True,
     ),
     Case(
         "mcm",
@@ -352,11 +290,7 @@ CASES: tuple[Case, ...] = (
         "mcm/outstanding_solutions/2025/A/2501909/result.json",
         "mcm/problems/2025/A.md",
         ("docs/mcm-2015-2025/official_assets_extracted/2025/2025_MCM_Problem_A.pdf",),
-        False,
-        (
-            "题面引用图 1（Figure 1），是一张实景照片：长期使用后台阶中部比边缘磨损更深的楼梯，"
-            "用于直观说明“不均匀磨损”这一现象。图不含数值或几何参数，建模所需的假设与结论均由正文给出。"
-        ),
+                False,
     ),
     Case(
         "mcm",
@@ -2532,14 +2466,6 @@ def instruction(
     if figure_numbers:
         problem_statement = inline_figure_images(problem_statement, figure_numbers)
     figure_section = ""
-    if case.figure_notes:
-        figure_section = f"""
-# 附图中承载的关键信息
-
-原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
-
-{case.figure_notes.strip()}
-"""
     if figure_numbers:
         listed = "\n".join(f"- `/root/data/figures/fig_{n}.png`" for n in figure_numbers)
         figure_section += f"""
@@ -3383,7 +3309,7 @@ The preferred baseline endpoint is computed from the archived per-question `ques
 
 For geometry-heavy tasks, [`docs/GEOMETRY_VISUAL_GUIDE.md`](docs/GEOMETRY_VISUAL_GUIDE.md) provides schematic figures that connect the contest geometry to the final numeric answer used by the verifier.
 
-Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. Where a referenced figure carries information absent from the text, the generator records it under a "附图中承载的关键信息" section in `instruction.md`. For every task whose statement cites figures, each figure is cropped from the original PDF (its artwork plus its own caption, without the surrounding prose) into `fig_N.png` next to `instruction.md` — embedded after the caption via a relative path so GitHub previews it — and hardlinked to `/root/data/figures` for the container.
+Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. For every task whose statement cites figures, each figure is cropped from the original PDF (its artwork plus its own caption, without the surrounding prose) into `fig_N.png` next to `instruction.md` — embedded after the caption via a relative path so GitHub previews it — and hardlinked to `/root/data/figures` for the container.
 
 ## Tasks
 

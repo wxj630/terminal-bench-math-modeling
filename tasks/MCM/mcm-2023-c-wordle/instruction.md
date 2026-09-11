@@ -72,14 +72,6 @@ List and describe some other interesting features of this data set.
 Finally, summarize your results in a one- to two-page letter to the Puzzle Editor of the New York
 Times.
 
-# 附图中承载的关键信息
-
-原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
-
-题面引用图 1、图 2，均为示例说明，正文已完整描述其含义，图本身不含额外数值：
-- 图 1：2022 年 7 月 21 日的 Wordle 解法示例（ADIEU → AVOID → APHID，三次猜中）。用于说明反馈规则：黄色=字母在词中但位置错，绿色=字母在词中且位置对，灰色=字母不在词中；以及 Hard Mode 规则（已确认的字母必须在后续猜测中沿用）。
-- 图 2：2022 年 7 月 20 日（词为 TRITE，编号 #Wordle396）Twitter 结果的分布截图，给出 1/2/3/4/5/6/X 各猜中次数的百分比（0%、4%、14%、22%、22%、23%、15%），并注明当日 42,237 条结果、3,685 名 Hard Mode 玩家。这些比例的完整逐日数据见附件 1（2023_MCM_Problem_C_Data.xlsx），图 2 只是其中一天的可视化示例。
-
 # 题面附图
 
 原题正文引用的每一张图，都已从官方 PDF 中裁出（仅含图形与图题），并紧跟在对应图题之后（见上文 `![](...)`，

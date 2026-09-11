@@ -66,12 +66,6 @@ are assumed to be used?
 stairs in a typical day and were there large numbers of people using the stairs over a
 short time or a small number of people over a longer time?
 
-# 附图中承载的关键信息
-
-原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
-
-题面引用图 1（Figure 1），是一张实景照片：长期使用后台阶中部比边缘磨损更深的楼梯，用于直观说明“不均匀磨损”这一现象。图不含数值或几何参数，建模所需的假设与结论均由正文给出。
-
 # 题面附图
 
 原题正文引用的每一张图，都已从官方 PDF 中裁出（仅含图形与图题），并紧跟在对应图题之后（见上文 `![](...)`，
