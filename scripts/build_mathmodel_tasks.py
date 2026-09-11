@@ -1210,7 +1210,7 @@ def figure_page_map(pdf: Path) -> dict[int, int]:
 
 
 def write_figures(
-    case: Case, data_root: Path, problem_statement: str
+    case: Case, task_dir: Path, data_root: Path, problem_statement: str
 ) -> tuple[list[str], dict[int, int]]:
     """Render the original problem PDF to page images for figure-referencing tasks.
 
@@ -1218,12 +1218,22 @@ def write_figures(
     instruction cannot carry them. Rendering the original PDF pages gives any
     image-capable agent the exact figures, and the returned figure->page map lets
     the instruction place each rendered page next to the caption that cites it.
+
+    Images are written both next to ``instruction.md`` (so the markdown previews
+    on GitHub via a relative path) and under ``environment/data/figures`` (so they
+    also land at ``/root/data/figures`` inside the container, which is the only
+    directory the Docker build context can reach). The second copy is hardlinked.
+
     Requires Ghostscript; without it the PDF is still delivered as an attachment,
     so this degrades to a warning rather than failing the build.
     """
-    figures_root = data_root / "figures"
-    if figures_root.exists():
-        shutil.rmtree(figures_root)
+    preview_root = task_dir
+    container_root = data_root / "figures"
+    # Drop stale preview pages from any earlier build of this task.
+    for stale in task_dir.glob("page_*.png"):
+        stale.unlink()
+    if container_root.exists():
+        shutil.rmtree(container_root)
     if not FIGURE_REF.search(problem_statement):
         return [], {}
     pdf = find_problem_pdf(case.data_rels)
@@ -1233,15 +1243,21 @@ def write_figures(
     if shutil.which("gs") is None:
         print(f"  ! {case.slug}: ghostscript not found; skipping figure rendering")
         return [], {}
-    figures_root.mkdir(parents=True)
     subprocess.run(
         [
             "gs", "-q", "-dNOPAUSE", "-dBATCH", "-sDEVICE=png16m",
-            f"-r{FIGURE_DPI}", f"-sOutputFile={figures_root}/page_%d.png", str(pdf),
+            f"-r{FIGURE_DPI}", f"-sOutputFile={preview_root}/page_%d.png", str(pdf),
         ],
         check=True,
     )
-    pages = sorted(figures_root.glob("page_*.png"), key=lambda p: int(p.stem.split("_")[1]))
+    pages = sorted(preview_root.glob("page_*.png"), key=lambda p: int(p.stem.split("_")[1]))
+    container_root.mkdir(parents=True)
+    for page in pages:
+        target = container_root / page.name
+        try:
+            os.link(page, target)
+        except OSError:
+            shutil.copy2(page, target)
     return (
         [f"/root/data/figures/{p.name}" for p in pages],
         figure_page_map(pdf),
@@ -1252,7 +1268,9 @@ def inline_figure_images(problem_statement: str, fig_map: dict[int, int]) -> str
     """Insert each figure page image immediately after the caption that cites it.
 
     Figures on the same page share one rendered image, so each page is emitted once,
-    right after the first caption that references it.
+    right after the first caption that references it. The relative path resolves both
+    for GitHub's markdown preview and inside the container, where ``instruction.md``
+    is not present but the task directory maps to the agent's working tree.
     """
     if not fig_map:
         return problem_statement
@@ -1269,7 +1287,7 @@ def inline_figure_images(problem_statement: str, fig_map: dict[int, int]) -> str
                 continue
             emitted.add(page)
             out.append("")
-            out.append(f"![{token.group(0).strip()}](/root/data/figures/page_{page}.png)")
+            out.append(f"![{token.group(0).strip()}](page_{page}.png)")
     return "\n".join(out)
 
 
@@ -2364,8 +2382,10 @@ def instruction(
         figure_section += f"""
 # 题面附图
 
-原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`）。
-所有渲染页汇总如下，包含全部插图与表格，供具备图像能力的 agent 直接查看：
+原题正文引用的每一张图，都已在其图题（如「图 1 …」）之后直接嵌入对应页的渲染图（见上文 `![](...)`，
+相对路径与本文件同级，便于在 GitHub 上直接预览）。
+
+在容器内这些图片位于 `/root/data/figures`（`instruction.md` 不进入容器，故容器内请使用下列绝对路径）：
 
 {listed}
 """
@@ -3069,7 +3089,7 @@ def build_case(case: Case) -> str:
     problem_text = (SOURCE_ROOT / case.problem_rel).read_text(encoding="utf-8")
     problem_statement = extract_problem_statement(problem_text)
 
-    figures, fig_map = write_figures(case, data_root, problem_statement)
+    figures, fig_map = write_figures(case, task_dir, data_root, problem_statement)
 
     (task_dir / "instruction.md").write_text(
         instruction(case, problem_statement, figures, fig_map), encoding="utf-8"
@@ -3200,7 +3220,7 @@ The preferred baseline endpoint is computed from the archived per-question `ques
 
 For geometry-heavy tasks, [`docs/GEOMETRY_VISUAL_GUIDE.md`](docs/GEOMETRY_VISUAL_GUIDE.md) provides schematic figures that connect the contest geometry to the final numeric answer used by the verifier.
 
-Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. Where a referenced figure carries information absent from the text, the generator records it under a "附图中承载的关键信息" section in `instruction.md`, and for every task whose statement cites figures the original problem PDF is rendered to `/root/data/figures/page_*.png` (see "题面附图") so image-capable agents can view the actual figures.
+Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. Where a referenced figure carries information absent from the text, the generator records it under a "附图中承载的关键信息" section in `instruction.md`. For every task whose statement cites figures, the original problem PDF is rendered to `page_*.png` next to `instruction.md` (embedded after each caption via a relative path, so GitHub previews them) and hardlinked to `/root/data/figures` for the container.
 
 ## Tasks
 
