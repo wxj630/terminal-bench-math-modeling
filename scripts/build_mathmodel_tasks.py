@@ -1404,7 +1404,33 @@ def _tidy_statement_body(body: str) -> str:
     return "\n".join(lines)
 
 
-def extract_problem_statement(text: str) -> str:
+def pdf_statement_text(pdf: Path) -> str | None:
+    """Read the contest statement from the official problem PDF.
+
+    Used when the corpus markdown's extraction is demonstrably incomplete. Reads pages
+    from the start and stops at the first section that is not the statement itself
+    (glossary/references/worked examples/COMAP's AI-use boilerplate).
+    """
+    if pymupdf is None:
+        return None
+    document = pymupdf.open(pdf)
+    text = "\n".join(page.get_text() for page in document)
+    cut = len(text)
+    for marker in ("\nGlossary", "\nReferences:", "\nExamples to Help Understand",
+                   "\nUse of Large Language Models", "\nGuidance for teams"):
+        index = text.find(marker)
+        if index != -1:
+            cut = min(cut, index)
+    statement = text[:cut]
+    # Drop the COMAP header/footer that repeats on every page.
+    statement = "\n".join(
+        line for line in statement.splitlines()
+        if not re.match(r"^\s*\|?\s*©?\s*20\d{2}\s*(by\s+)?COMAP", line, re.IGNORECASE)
+    )
+    return statement or None
+
+
+def extract_problem_statement(text: str, pdf: Path | None = None) -> str:
     """Reduce a corpus problem file to just the contest statement.
 
     The corpus files wrap the statement in derived material the agent should not see:
@@ -1412,6 +1438,10 @@ def extract_problem_statement(text: str) -> str:
     hint), duplicated Chinese/English text, ``## 第 N 页`` page markers and COMAP footers.
     Keep only the authoring contest's own statement — English for MCM (the original), the
     Chinese original for CUMCM — under the problem title.
+
+    The corpus English extraction is incomplete for at least one MCM task (it stops partway
+    through the requirement list). When it has fewer bullet items than the Chinese section,
+    fall back to the official PDF so no requirement is silently dropped.
     """
     lines = text.splitlines()
     title = next((line[1:].strip() for line in lines if line.startswith("# ")), "")
@@ -1419,6 +1449,11 @@ def extract_problem_statement(text: str) -> str:
         body = text.split("## 题目原文", 1)[1].split("## 题目核心", 1)[0]
     elif "## 英文原文" in text:
         body = text.split("## 英文原文", 1)[1]
+        chinese = text.split("## 中文题面", 1)[1].split("## 英文原文", 1)[0] if "## 中文题面" in text else ""
+        if body.count("•") < chinese.count("•") and pdf is not None:
+            from_pdf = pdf_statement_text(pdf)
+            if from_pdf:
+                body = from_pdf
     elif "## 中文题面" in text:
         body = text.split("## 中文题面", 1)[1].split("## 英文原文", 1)[0]
     else:
@@ -3215,7 +3250,7 @@ def build_case(case: Case) -> str:
     score = score_config(case, result)
     scoring_table = scoring_table_markdown(case, score)
     problem_text = (SOURCE_ROOT / case.problem_rel).read_text(encoding="utf-8")
-    problem_statement = extract_problem_statement(problem_text)
+    problem_statement = extract_problem_statement(problem_text, find_problem_pdf(case.data_rels))
 
     figure_numbers = render_figures(case, task_dir, data_root, problem_statement)
 
