@@ -5,5 +5,28 @@
   "visible_data": [
     "cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/B题"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/B题.pdf",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/B题/B题.pdf"
+    },
+    {
+      "path": "/root/data/attachments/result1.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/B题/result1.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/result2.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/B题/result2.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/附件.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/B题/附件.xlsx"
+    }
+  ],
+  "figure_pages": [
+    "/root/data/figures/page_1.png",
+    "/root/data/figures/page_2.png",
+    "/root/data/figures/page_3.png"
+  ],
   "required_output": "/root/results/cumcm-2023-b-multibeam-lines_result.json"
 }

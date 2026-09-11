@@ -5,5 +5,16 @@
   "visible_data": [
     "cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/C题"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/C题.pdf",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/C题/C题.pdf"
+    },
+    {
+      "path": "/root/data/attachments/附件.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/C题/附件.xlsx"
+    }
+  ],
+  "figure_pages": [],
   "required_output": "/root/results/cumcm-2025-c-nipt_result.json"
 }

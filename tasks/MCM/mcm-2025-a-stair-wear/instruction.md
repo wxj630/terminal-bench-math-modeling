@@ -160,9 +160,23 @@ are assumed to be used?
 stairs in a typical day and were there large numbers of people using the stairs over a
 short time or a small number of people over a longer time?
 
+# 附图中承载的关键信息
+
+原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
+
+题面引用图 1（Figure 1），是一张实景照片：长期使用后台阶中部比边缘磨损更深的楼梯，用于直观说明“不均匀磨损”这一现象。图不含数值或几何参数，建模所需的假设与结论均由正文给出。
+
+# 题面附图
+
+原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
+供具备图像能力的 agent 直接查看：
+
+- `/root/data/figures/page_1.png`
+- `/root/data/figures/page_2.png`
+
 # Required Benchmark Artifact
 
-Solve the contest problem above. Use the official attachments and data under `/root/data/repo` whenever they are relevant. Write your final structured answer to:
+Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
 
 ```text
 /root/results/mcm-2025-a-stair-wear_result.json

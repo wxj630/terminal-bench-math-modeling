@@ -89,9 +89,27 @@ B 题  生产过程中的决策问题
 (2) 不合格成品中的调换损失是指除调换次品之外的损失 （如： 物流成本、企业信誉等） 。
 (3) 购买单价、 检测成本、 装配成本、 市场售价、 调换损失和拆解费用的单位均为元/件。
 
+# 附图中承载的关键信息
+
+原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
+
+题面引用的图 1（两道工序、8 个零配件的组装情况）是纯拓扑示意图，正文未给出其内容，现补充如下：
+- 工序 1 产出 3 个半成品，工序 2 由这 3 个半成品组装为成品。
+- 半成品 1 由零配件 1、2、3 装配而成；半成品 2 由零配件 4、5、6 装配而成；半成品 3 由零配件 7、8 装配而成。
+- 最终成品由半成品 1、2、3 装配而成。
+（半成品的次品率、装配成本、检测成本、拆解费用等数值见表 2；表 2 中“半成品”列与零配件行的对应关系应与上述分组一致，不要按行序误读为一一对应。）
+
+# 题面附图
+
+原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
+供具备图像能力的 agent 直接查看：
+
+- `/root/data/figures/page_1.png`
+- `/root/data/figures/page_2.png`
+
 # Required Benchmark Artifact
 
-Solve the contest problem above. Use the official attachments and data under `/root/data/repo` whenever they are relevant. Write your final structured answer to:
+Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
 
 ```text
 /root/results/cumcm-2024-b-production-decision_result.json

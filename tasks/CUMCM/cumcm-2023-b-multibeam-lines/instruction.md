@@ -120,9 +120,30 @@ B 题 多波束测线问题
 
 附件 海水深度数据
 
+# 附图中承载的关键信息
+
+原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
+
+题面引用图 1-图 8，均为原理示意或几何关系图，其含义与符号已在正文中定义，图本身不含额外数值：
+- 图 1、图 2：单波束与多波束测深的工作原理，说明多波束一次发射多个波束、覆盖为条带。
+- 图 3、图 4：条带/测线/重叠区域示意；图 4 给出覆盖宽度 W、相邻测线间距 d、水深 D、换能器开角 θ 与重叠率 η 的关系，并给出 η = 1 − d/W（η<0 表示漏测）。
+- 图 5、图 6：用平均间距与用最浅处间距布线的两种情形对比，说明浅处漏测/深处冗余的成因。
+- 图 7：问题 1 的几何示意，给出坡度角 α（测线方向垂直平面与海底坡面交线与水平面夹角）、海水深度 D 与覆盖宽度 W 的空间关系。
+- 图 8：问题 2 的几何示意，给出矩形海域、测线方向、海底坡面法向及其在水平面投影，以及二者夹角 β 的定义。
+正文已明确：多波束换能器开角 120°、坡度 1.5°、中心处海水深度（问题 1 为 70 m、问题 2 为 120 m）及各测线位置（结果填入 result1.xlsx / result2.xlsx）。
+
+# 题面附图
+
+原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
+供具备图像能力的 agent 直接查看：
+
+- `/root/data/figures/page_1.png`
+- `/root/data/figures/page_2.png`
+- `/root/data/figures/page_3.png`
+
 # Required Benchmark Artifact
 
-Solve the contest problem above. Use the official attachments and data under `/root/data/repo` whenever they are relevant. Write your final structured answer to:
+Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
 
 ```text
 /root/results/cumcm-2023-b-multibeam-lines_result.json

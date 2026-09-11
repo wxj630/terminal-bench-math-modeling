@@ -219,7 +219,7 @@ Explain how these insight(s) can inform country Olympic committees.
 
 # Required Benchmark Artifact
 
-Solve the contest problem above. Use the official attachments and data under `/root/data/repo` whenever they are relevant. Write your final structured answer to:
+Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
 
 ```text
 /root/results/mcm-2025-c-olympic-medals_result.json

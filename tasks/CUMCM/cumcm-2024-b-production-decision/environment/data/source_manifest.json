@@ -5,5 +5,15 @@
   "visible_data": [
     "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/B题"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/B题.pdf",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/B题/B题.pdf"
+    }
+  ],
+  "figure_pages": [
+    "/root/data/figures/page_1.png",
+    "/root/data/figures/page_2.png"
+  ],
   "required_output": "/root/results/cumcm-2024-b-production-decision_result.json"
 }

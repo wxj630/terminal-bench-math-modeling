@@ -172,9 +172,27 @@ List and describe some other interesting features of this data set.
 Finally, summarize your results in a one- to two-page letter to the Puzzle Editor of the New York
 Times.
 
+# 附图中承载的关键信息
+
+原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
+
+题面引用图 1、图 2，均为示例说明，正文已完整描述其含义，图本身不含额外数值：
+- 图 1：2022 年 7 月 21 日的 Wordle 解法示例（ADIEU → AVOID → APHID，三次猜中）。用于说明反馈规则：黄色=字母在词中但位置错，绿色=字母在词中且位置对，灰色=字母不在词中；以及 Hard Mode 规则（已确认的字母必须在后续猜测中沿用）。
+- 图 2：2022 年 7 月 20 日（词为 TRITE，编号 #Wordle396）Twitter 结果的分布截图，给出 1/2/3/4/5/6/X 各猜中次数的百分比（0%、4%、14%、22%、22%、23%、15%），并注明当日 42,237 条结果、3,685 名 Hard Mode 玩家。这些比例的完整逐日数据见附件 1（2023_MCM_Problem_C_Data.xlsx），图 2 只是其中一天的可视化示例。
+
+# 题面附图
+
+原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
+供具备图像能力的 agent 直接查看：
+
+- `/root/data/figures/page_1.png`
+- `/root/data/figures/page_2.png`
+- `/root/data/figures/page_3.png`
+- `/root/data/figures/page_4.png`
+
 # Required Benchmark Artifact
 
-Solve the contest problem above. Use the official attachments and data under `/root/data/repo` whenever they are relevant. Write your final structured answer to:
+Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
 
 ```text
 /root/results/mcm-2023-c-wordle_result.json

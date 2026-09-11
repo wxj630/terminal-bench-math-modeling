@@ -5,5 +5,28 @@
   "visible_data": [
     "cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/C题.pdf",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题/C题.pdf"
+    },
+    {
+      "path": "/root/data/attachments/附件1.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题/附件1.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/附件2.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题/附件2.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/附件3.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题/附件3.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/附件4.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/C题/附件4.xlsx"
+    }
+  ],
+  "figure_pages": [],
   "required_output": "/root/results/cumcm-2023-c-vegetable-pricing_result.json"
 }

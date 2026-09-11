@@ -32,6 +32,8 @@ The preferred baseline endpoint is computed from the archived per-question `ques
 
 For geometry-heavy tasks, [`docs/GEOMETRY_VISUAL_GUIDE.md`](docs/GEOMETRY_VISUAL_GUIDE.md) provides schematic figures that connect the contest geometry to the final numeric answer used by the verifier.
 
+Official attachments are delivered twice: at their full corpus path under `/root/data/repo` (kept for oracle compatibility) and mirrored at the shallow path `/root/data/attachments` so a shallow `find` still locates them. See `environment/data/attachments/INDEX.md` in each task. Where a referenced figure carries information absent from the text, the generator records it under a "附图中承载的关键信息" section in `instruction.md`, and for every task whose statement cites figures the original problem PDF is rendered to `/root/data/figures/page_*.png` (see "题面附图") so image-capable agents can view the actual figures.
+
 ## Tasks
 
 | Contest | Year | Problem | Slug | Description |

@@ -5,5 +5,29 @@
   "visible_data": [
     "cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/A题"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/A题.pdf",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/A题/A题.pdf"
+    },
+    {
+      "path": "/root/data/attachments/result2.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/A题/result2.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/result3.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/A题/result3.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/附件.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2023_Y20WPner9fa62862794e6dc82731a5561ce1132f/A题/附件.xlsx"
+    }
+  ],
+  "figure_pages": [
+    "/root/data/figures/page_1.png",
+    "/root/data/figures/page_2.png",
+    "/root/data/figures/page_3.png",
+    "/root/data/figures/page_4.png"
+  ],
   "required_output": "/root/results/cumcm-2023-a-heliostat-field_result.json"
 }

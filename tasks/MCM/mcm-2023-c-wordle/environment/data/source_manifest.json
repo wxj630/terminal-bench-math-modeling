@@ -6,5 +6,21 @@
     "mcm/source_materials/official_extracted/2023/Predicting Wordle Results.pdf",
     "mcm/source_materials/official_extracted/2023/Problem Data- Predicting Wordle Results"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/Predicting Wordle Results.pdf",
+      "original": "/root/data/repo/mcm/source_materials/official_extracted/2023/Predicting Wordle Results.pdf/Predicting Wordle Results.pdf"
+    },
+    {
+      "path": "/root/data/attachments/2023_MCM_Problem_C_Data.xlsx",
+      "original": "/root/data/repo/mcm/source_materials/official_extracted/2023/Problem Data- Predicting Wordle Results/2023_MCM_Problem_C_Data.xlsx"
+    }
+  ],
+  "figure_pages": [
+    "/root/data/figures/page_1.png",
+    "/root/data/figures/page_2.png",
+    "/root/data/figures/page_3.png",
+    "/root/data/figures/page_4.png"
+  ],
   "required_output": "/root/results/mcm-2023-c-wordle_result.json"
 }

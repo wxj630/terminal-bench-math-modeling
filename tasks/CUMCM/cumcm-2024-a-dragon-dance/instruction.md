@@ -120,9 +120,29 @@ O
 行进速度，使得舞龙队各把手的速度均不超过 2 m/s。
 调头空间
 
+# 附图中承载的关键信息
+
+原题正文引用了示意图，但纯文本题面无法呈现图像。以下内容取自官方 PDF 中的图，是解题所必需的信息：
+
+题面引用图 1-图 5，图本身为几何示意；其中图 1-图 3 的尺寸已在正文给出，唯一未在正文文字中写明的是图 4 中 A 点的位置，现补充如下：
+- 图 1（龙头的俯视图）、图 2（龙身和龙尾的俯视图）、图 3（板凳的正视图）：标注板凳的板长、板宽 30 cm、孔径 5.5 cm、孔心距最近板头 27.5 cm 等，这些数值正文均已给出。
+- 盘入螺线为等距螺线（阿基米德螺线），极坐标方程 r = b·θ，螺距 55 cm，故 b = 0.55/(2π) m。
+- 螺线中心为原点 O；图 4 中标注的 A 点位于螺线与 x 轴正半轴的交点处（即 θ = 2π·16 = 32π，对应第 16 圈、方向为正东方向）。
+- 舞龙队沿该螺线顺时针盘入，故极角 θ 随时间递减；初始时刻龙头前把手位于 A 点。
+- 图 5 为调头空间示意：以螺线中心为圆心、直径 9 m 的圆形区域。
+
+# 题面附图
+
+原题正文引用的图像不易在纯文本中呈现。以下 PNG 是官方题面 PDF 各页的渲染图，包含全部插图与表格，
+供具备图像能力的 agent 直接查看：
+
+- `/root/data/figures/page_1.png`
+- `/root/data/figures/page_2.png`
+- `/root/data/figures/page_3.png`
+
 # Required Benchmark Artifact
 
-Solve the contest problem above. Use the official attachments and data under `/root/data/repo` whenever they are relevant. Write your final structured answer to:
+Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
 
 ```text
 /root/results/cumcm-2024-a-dragon-dance_result.json

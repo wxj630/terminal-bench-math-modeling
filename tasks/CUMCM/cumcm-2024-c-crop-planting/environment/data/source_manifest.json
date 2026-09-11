@@ -5,5 +5,32 @@
   "visible_data": [
     "cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题"
   ],
+  "attachments_index": [
+    {
+      "path": "/root/data/attachments/C题.pdf",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/C题.pdf"
+    },
+    {
+      "path": "/root/data/attachments/附件1.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件1.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/附件2.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件2.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/result1_1.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件3/result1_1.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/result1_2.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件3/result1_2.xlsx"
+    },
+    {
+      "path": "/root/data/attachments/result2.xlsx",
+      "original": "/root/data/repo/cumcm/source_materials/extracted/2024_pmkWxf8H9cfe9984c1a1a5b1263e5dd3b5596ed5/CUMCM2024Problems/C题/附件3/result2.xlsx"
+    }
+  ],
+  "figure_pages": [],
   "required_output": "/root/results/cumcm-2024-c-crop-planting_result.json"
 }
