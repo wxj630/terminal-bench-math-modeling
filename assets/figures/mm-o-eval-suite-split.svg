@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1120" viewBox="0 0 1800 1120" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; font-weight: 500; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #777777; font-weight: 650; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #777777; font-weight: 650; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #111111; font-weight: 720; }
+      .label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #151515; font-weight: 700; }
+      .small { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #777777; font-weight: 650; }
+    </style>
+    <rect width="1800" height="1120" fill="#ffffff"/><rect x="24.0" y="24.0" width="1752.0" height="1072.0" fill="#ffffff" rx="16.0" stroke="#dedede" />
+<text x="72.0" y="126.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="500" fill="#151515">O-Eval by Suite</text>
+<text x="72.0" y="168.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="650" fill="#777777">Primary O-normalized score split by CUMCM and MCM, showing where each model&#x27;s absolute performance comes from.</text>
+<line x1="132.0" y1="800.0" x2="1672.0" y2="800.0" stroke="#aaaaaa" stroke-width="1.4" />
+<text x="114.0" y="806.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">0%</text>
+<line x1="132.0" y1="700.0" x2="1672.0" y2="700.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="706.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">20%</text>
+<line x1="132.0" y1="600.0" x2="1672.0" y2="600.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="606.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">40%</text>
+<line x1="132.0" y1="500.0" x2="1672.0" y2="500.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="506.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">60%</text>
+<line x1="132.0" y1="400.0" x2="1672.0" y2="400.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="406.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">80%</text>
+<line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
+<text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">100%</text>
+<text x="493.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">CUMCM</text>
+<rect x="132.0" y="434.0" width="355.0" height="366.0" fill="#00897b" rx="5.0" />
+<text x="309.5" y="624.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">73</text>
+<rect x="499.0" y="418.8" width="355.0" height="381.2" fill="#000000" rx="5.0" />
+<text x="676.5" y="616.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">76</text>
+<text x="1311.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">MCM</text>
+<rect x="950.0" y="621.1" width="355.0" height="178.9" fill="#00897b" rx="5.0" />
+<text x="1127.5" y="717.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">36</text>
+<rect x="1317.0" y="598.3" width="355.0" height="201.7" fill="#000000" rx="5.0" />
+<text x="1494.5" y="706.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">40</text>
+<rect x="132.0" y="940.0" width="22.0" height="16.0" fill="#00897b" rx="3.0" />
+<text x="164.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">DeepSeek Flash (opencode)</text>
+<rect x="492.0" y="940.0" width="22.0" height="16.0" fill="#000000" rx="3.0" />
+<text x="524.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">GPT-5.5 xhigh (codex)</text></svg>

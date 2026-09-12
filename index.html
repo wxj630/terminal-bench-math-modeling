@@ -736,29 +736,41 @@
         <div class="section-head">
           <div>
             <h2>Multimodal Visuals</h2>
-            <p class="lead">多模态主榜的配套可视化：O-Eval、O-Eval 对美元成本、CUMCM/MCM 拆分、年度稳定性，以及 token 用量。所有数字都由同一份生成报告解析，和主榜不会漂移。</p>
+            <p class="lead">多模态主榜的配套可视化，与纯文本榜共用同一套 AA 风格绘图脚本（<code>write_aa_style_eval_figures.py</code> 与 <code>write_all_models_boeval_2023_2025.py</code>），只是把模型集合收窄到两个多模态条目、并把成本统一为美元。所有数字都由同一份生成报告解析，和主榜不会漂移。</p>
           </div>
         </div>
         <div class="gallery">
           <figure class="viz">
-            <img src="assets/figures/mm-multimodal-o-eval-bar.png" loading="lazy" alt="Multimodal O-Eval bar chart">
-            <figcaption><b>Multimodal O-Eval</b>两个多模态模型都在 54%–58% 区间，彼此只差约 3.8 个百分点。</figcaption>
+            <img src="assets/figures/mm-o-eval-bar.png" loading="lazy" alt="Multimodal O-Eval bar chart">
+            <figcaption><b>O-Eval</b>主指标：两个多模态模型都在 54%–58% 区间，彼此只差约 3.8 个百分点。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-multimodal-o-eval-cost-scatter.png" loading="lazy" alt="Multimodal O-Eval versus USD cost scatter chart">
-            <figcaption><b>O-Eval vs. cost（USD，对数轴）</b>分数几乎持平，成本相差约 <b>138 倍</b>：这张榜同时也是性价比榜。</figcaption>
+            <img src="assets/figures/mm-o-eval-cost-scatter.png" loading="lazy" alt="Multimodal O-Eval versus USD cost scatter chart">
+            <figcaption><b>O-Eval vs. Cost（USD，对数轴）</b>分数几乎持平，成本相差约 <b>138 倍</b>（$99.37 vs $0.72）：这张榜同时也是性价比榜。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-multimodal-suite-split.png" loading="lazy" alt="Multimodal O-Eval by contest suite">
-            <figcaption><b>CUMCM vs. MCM</b>两个模型都是中文赛题（CUMCM）显著高于英文赛题（MCM），与纯文本榜的规律一致。</figcaption>
+            <img src="assets/figures/mm-o-eval-suite-split.png" loading="lazy" alt="Multimodal O-Eval by contest suite">
+            <figcaption><b>O-Eval by Suite</b>两个模型都是中文赛题（CUMCM 76% / 73%）显著高于英文赛题（MCM 40% / 36%），与纯文本榜规律一致。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-multimodal-year-split.png" loading="lazy" alt="Multimodal O-Eval by year">
-            <figcaption><b>O-Eval 年度拆分</b>GPT-5.5 跨年更稳（66.9 / 52.0 / 55.9）；DeepSeek V4.1 Flash 2023 最高但在 2024 明显回落。</figcaption>
+            <img src="assets/figures/mm-o-eval-year-split.png" loading="lazy" alt="Multimodal O-Eval by year">
+            <figcaption><b>O-Eval by Year</b>GPT-5.5 跨年更稳（66.9 / 52.0 / 55.9）；DeepSeek V4.1 Flash 2023 最高但在 2024 明显回落。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-multimodal-token-usage.png" loading="lazy" alt="Multimodal token usage by class">
-            <figcaption><b>Token 用量</b>按未命中输入 / 缓存命中输入 / 输出三面板展示。用量差距只有数倍，真正的成本差来自每 token 单价（输入约 33 倍、输出约 50 倍）。</figcaption>
+            <img src="assets/figures/mm-cost.png" loading="lazy" alt="Multimodal cost by model in USD">
+            <figcaption><b>Estimated Cost（USD）</b>按输入 / 缓存命中 / 输出拆分。GPT-5.5 的 $99.37 里最大一块是缓存输入 $52.6，输出 $29.8，未命中输入 $16.9。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-token-usage.png" loading="lazy" alt="Multimodal token usage">
+            <figcaption><b>Token Usage</b>两个模型的用量只差数倍，真正的成本差来自每 token 单价（输入约 33 倍、输出约 50 倍）。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-effect-bar.png" loading="lazy" alt="Multimodal Robust BO-Eval bar chart">
+            <figcaption><b>Robust BO-Eval</b>辅助指标：相对 baseline 的稳健增益。GPT-5.5 为正（10.65%），V4.1 Flash 略负（−0.86%）。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-effect-cost-scatter.png" loading="lazy" alt="Multimodal Robust BO-Eval versus USD cost">
+            <figcaption><b>Robust BO-Eval vs. Cost</b>同一性价比视角的辅助对照，结论与 O-Eval 版本一致。</figcaption>
           </figure>
         </div>
       </div>
