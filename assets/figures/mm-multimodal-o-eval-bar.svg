@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="690" viewBox="0 0 1080 690" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #4e4e4e; font-weight: 760; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #151515; font-weight: 680; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #ffffff; font-weight: 800; }
+      .bar-label-out { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #111111; font-weight: 800; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #333333; font-weight: 700; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #949494; font-weight: 650; }
+      .brand { font-family: Georgia, Times, serif; font-size: 25px; fill: #555555; }
+      .modality { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #6b7280; font-weight: 700; }
+    </style>
+    <rect x="0" y="0" width="1080" height="690" rx="0" fill="#ffffff"/>
+<text x="56" y="74" class="title" text-anchor="start">Multimodal O-Eval</text>
+<text x="56" y="112" class="subtitle" text-anchor="start">Oracle-normalized, all 18 tasks</text>
+<rect x="56.00" y="136.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 60.50 140.50)" />
+<rect x="69.00" y="136.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 73.50 140.50)" />
+<rect x="56.00" y="150.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 60.50 154.50)" />
+<text x="90" y="160" class="brand" text-anchor="start">Terminal-Bench Math Modeling</text>
+<rect x="1080" y="66" width="120" height="56" rx="8" fill="#efefef"/>
+<text x="1096" y="102" class="tab" text-anchor="start">O-Eval</text>
+<text x="1246" y="102" class="tab" text-anchor="start">O-Eval vs. Cost</text>
+<text x="1486" y="102" class="tab" text-anchor="start">CUMCM vs. MCM</text>
+<text x="1716" y="102" class="tab" text-anchor="start">By Year</text>
+<text x="1876" y="102" class="tab" text-anchor="start">Token Usage</text>
+<rect x="190" y="214" width="760" height="300" rx="0" fill="#fcfcfc"/>
+<line x1="190" y1="214" x2="190" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="190" y="542" class="axis" text-anchor="middle">0%</text>
+<line x1="342" y1="214" x2="342" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="342" y="542" class="axis" text-anchor="middle">20%</text>
+<line x1="494" y1="214" x2="494" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="494" y="542" class="axis" text-anchor="middle">40%</text>
+<line x1="646" y1="214" x2="646" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="646" y="542" class="axis" text-anchor="middle">60%</text>
+<line x1="798" y1="214" x2="798" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="798" y="542" class="axis" text-anchor="middle">80%</text>
+<line x1="950" y1="214" x2="950" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="950" y="542" class="axis" text-anchor="middle">100%</text>
+<text x="570" y="576" class="axis-title" text-anchor="middle">O-Eval (share of the O-award reference answer)</text>
+<text x="168" y="297" class="legend" text-anchor="end">GPT-5.5 xhigh</text>
+<rect x="190" y="260" width="760" height="58" rx="3" fill="#f3f3f3"/>
+<rect x="190" y="260" width="443.004" height="58" rx="3" fill="#111111"/>
+<text x="647.004" y="297" class="bar-label-out" text-anchor="start">58.3%</text>
+<text x="202" y="297" class="bar-label" text-anchor="start">GPT-5.5</text>
+<text x="168" y="447" class="legend" text-anchor="end">V4.1 Flash</text>
+<rect x="190" y="410" width="760" height="58" rx="3" fill="#f3f3f3"/>
+<rect x="190" y="410" width="414.048" height="58" rx="3" fill="#00897b"/>
+<text x="618.048" y="447" class="bar-label-out" text-anchor="start">54.5%</text>
+<text x="202" y="447" class="bar-label" text-anchor="start">DeepSeek</text>
+<text x="56" y="656" class="small-note" text-anchor="start">Both entries are text+image multimodal: the agent can open the contest figures shipped with each task.</text></svg>

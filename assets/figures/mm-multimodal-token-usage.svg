@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="690" viewBox="0 0 1080 690" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #4e4e4e; font-weight: 760; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #151515; font-weight: 680; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #ffffff; font-weight: 800; }
+      .bar-label-out { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #111111; font-weight: 800; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #333333; font-weight: 700; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #949494; font-weight: 650; }
+      .brand { font-family: Georgia, Times, serif; font-size: 25px; fill: #555555; }
+      .modality { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #6b7280; font-weight: 700; }
+    </style>
+    <rect x="0" y="0" width="1080" height="690" rx="0" fill="#ffffff"/>
+<text x="56" y="74" class="title" text-anchor="start">Token Usage</text>
+<text x="56" y="112" class="subtitle" text-anchor="start">Input (uncached) / cache-hit input / output</text>
+<rect x="56.00" y="136.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 60.50 140.50)" />
+<rect x="69.00" y="136.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 73.50 140.50)" />
+<rect x="56.00" y="150.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 60.50 154.50)" />
+<text x="90" y="160" class="brand" text-anchor="start">Terminal-Bench Math Modeling</text>
+<text x="1096" y="102" class="tab" text-anchor="start">O-Eval</text>
+<text x="1246" y="102" class="tab" text-anchor="start">O-Eval vs. Cost</text>
+<text x="1486" y="102" class="tab" text-anchor="start">CUMCM vs. MCM</text>
+<text x="1716" y="102" class="tab" text-anchor="start">By Year</text>
+<rect x="1860" y="66" width="190" height="56" rx="8" fill="#efefef"/>
+<text x="1876" y="102" class="tab" text-anchor="start">Token Usage</text>
+<rect x="56" y="206" width="300" height="260" rx="0" fill="#fcfcfc"/>
+<text x="56" y="188" class="axis-title" text-anchor="start">uncached input</text>
+<rect x="115" y="242" width="74" height="190" rx="3" fill="#111111"/>
+<text x="152" y="230" class="point-label" text-anchor="middle">3.4M</text>
+<text x="152" y="454" class="axis" text-anchor="middle">GPT-5.5 xhigh</text>
+<rect x="223" y="392.18" width="74" height="39.8198" rx="3" fill="#00897b"/>
+<text x="260" y="380.18" class="point-label" text-anchor="middle">709K</text>
+<text x="260" y="454" class="axis" text-anchor="middle">V4.1 Flash</text>
+<rect x="386" y="206" width="300" height="260" rx="0" fill="#fcfcfc"/>
+<text x="386" y="188" class="axis-title" text-anchor="start">cache-hit input</text>
+<rect x="445" y="242" width="74" height="190" rx="3" fill="#111111"/>
+<text x="482" y="230" class="point-label" text-anchor="middle">105.2M</text>
+<text x="482" y="454" class="axis" text-anchor="middle">GPT-5.5 xhigh</text>
+<rect x="553" y="270.619" width="74" height="161.381" rx="3" fill="#00897b"/>
+<text x="590" y="258.619" class="point-label" text-anchor="middle">89.4M</text>
+<text x="590" y="454" class="axis" text-anchor="middle">V4.1 Flash</text>
+<rect x="716" y="206" width="300" height="260" rx="0" fill="#fcfcfc"/>
+<text x="716" y="188" class="axis-title" text-anchor="start">output</text>
+<rect x="775" y="242" width="74" height="190" rx="3" fill="#111111"/>
+<text x="812" y="230" class="point-label" text-anchor="middle">995K</text>
+<text x="812" y="454" class="axis" text-anchor="middle">GPT-5.5 xhigh</text>
+<rect x="883" y="322.33" width="74" height="109.67" rx="3" fill="#00897b"/>
+<text x="920" y="310.33" class="point-label" text-anchor="middle">574K</text>
+<text x="920" y="454" class="axis" text-anchor="middle">V4.1 Flash</text>
+<text x="56" y="656" class="small-note" text-anchor="start">Uncached input differs ~4.8× and output ~1.7×, but the price per token differs ~33× (input) / 50× (output) — that is the cost gap.</text></svg>

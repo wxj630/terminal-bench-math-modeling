@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="690" viewBox="0 0 1080 690" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #4e4e4e; font-weight: 760; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #151515; font-weight: 680; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #ffffff; font-weight: 800; }
+      .bar-label-out { font-family: Arial, Helvetica, sans-serif; font-size: 21px; fill: #111111; font-weight: 800; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #333333; font-weight: 700; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #949494; font-weight: 650; }
+      .brand { font-family: Georgia, Times, serif; font-size: 25px; fill: #555555; }
+      .modality { font-family: Arial, Helvetica, sans-serif; font-size: 17px; fill: #6b7280; font-weight: 700; }
+    </style>
+    <rect x="0" y="0" width="1080" height="690" rx="0" fill="#ffffff"/>
+<text x="56" y="74" class="title" text-anchor="start">O-Eval vs. Cost</text>
+<text x="56" y="112" class="subtitle" text-anchor="start">OpenRouter list price, USD</text>
+<rect x="56.00" y="136.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 60.50 140.50)" />
+<rect x="69.00" y="136.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 73.50 140.50)" />
+<rect x="56.00" y="150.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 60.50 154.50)" />
+<text x="90" y="160" class="brand" text-anchor="start">Terminal-Bench Math Modeling</text>
+<text x="1096" y="102" class="tab" text-anchor="start">O-Eval</text>
+<rect x="1230" y="66" width="210" height="56" rx="8" fill="#efefef"/>
+<text x="1246" y="102" class="tab" text-anchor="start">O-Eval vs. Cost</text>
+<text x="1486" y="102" class="tab" text-anchor="start">CUMCM vs. MCM</text>
+<text x="1716" y="102" class="tab" text-anchor="start">By Year</text>
+<text x="1876" y="102" class="tab" text-anchor="start">Token Usage</text>
+<rect x="190" y="214" width="760" height="300" rx="0" fill="#fcfcfc"/>
+<line x1="190" y1="214" x2="190" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="190" y="542" class="axis" text-anchor="middle">$0.1</text>
+<line x1="431.48" y1="214" x2="431.48" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="431.48" y="542" class="axis" text-anchor="middle">$1</text>
+<line x1="672.961" y1="214" x2="672.961" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="672.961" y="542" class="axis" text-anchor="middle">$10</text>
+<line x1="914.441" y1="214" x2="914.441" y2="514" stroke="#ececec" stroke-width="1"/>
+<text x="914.441" y="542" class="axis" text-anchor="middle">$100</text>
+<text x="570" y="576" class="axis-title" text-anchor="middle">Estimated cost for all 18 tasks (USD, log scale)</text>
+<line x1="190" y1="485.157" x2="950" y2="485.157" stroke="#f1f1f1" stroke-width="1"/>
+<text x="176" y="491.157" class="axis" text-anchor="end">50%</text>
+<line x1="190" y1="390.281" x2="950" y2="390.281" stroke="#f1f1f1" stroke-width="1"/>
+<text x="176" y="396.281" class="axis" text-anchor="end">55%</text>
+<line x1="190" y1="295.404" x2="950" y2="295.404" stroke="#f1f1f1" stroke-width="1"/>
+<text x="176" y="301.404" class="axis" text-anchor="end">60%</text>
+<circle cx="913.778" cy="327.852" r="12" fill="#111111"/>
+<text x="913.778" y="303.852" class="point-label" text-anchor="middle">GPT-5.5 xhigh — $99.37</text>
+<text x="913.778" y="365.852" class="axis" text-anchor="middle">58.3%</text>
+<circle cx="396.886" cy="400.148" r="12" fill="#00897b"/>
+<text x="396.886" y="376.148" class="point-label" text-anchor="middle">V4.1 Flash — $0.72</text>
+<text x="396.886" y="438.148" class="axis" text-anchor="middle">54.5%</text>
+<text x="56" y="656" class="small-note" text-anchor="start">Same benchmark and near-equal O-Eval, ~138× apart in price: the multimodal board is also a cost-efficiency board.</text></svg>

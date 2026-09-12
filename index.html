@@ -576,9 +576,10 @@
         <span class="brand-mark">TB-MathModel</span>
       </a>
       <div class="nav-links">
-        <a href="#leaderboard">Leaderboard</a>
+        <a href="#multimodal-leaderboard">Multimodal</a>
+        <a href="#multimodal-visuals">Multimodal Visuals</a>
+        <a href="#leaderboard">Text-Only</a>
         <a href="#metrics">Metrics</a>
-        <a href="#visuals">Visuals</a>
         <a href="#tasks">Tasks</a>
         <a href="https://github.com/wxj630/terminal-bench-math-modeling">GitHub</a>
       </div>
@@ -594,8 +595,9 @@
           <p class="subtitle">一个面向数学建模长程任务的 Terminal-Bench 风格评测：统一终端环境、完整 agent workflow、可执行结果文件和可复核评价指标。</p>
           <p class="hero-note">它把“会不会写一篇看起来合理的建模报告”推进到“能不能在标准环境里完成建模、编程、求解、验证和提交结构化结果”。这种形式适合评测真实问题求解能力，也可以进一步作为强化学习环境使用。</p>
           <div class="actions">
-            <a class="button primary" href="#leaderboard">查看排行榜</a>
-            <a class="button" href="#visuals">查看可视化</a>
+            <a class="button primary" href="#multimodal-leaderboard">查看多模态排行榜</a>
+            <a class="button" href="#multimodal-visuals">多模态可视化</a>
+            <a class="button" href="#leaderboard">纯文本榜（对照）</a>
             <a class="button" href="reports/dashboard.html">可点击分析面板</a>
             <a class="button" href="reports/full-report.md">完整报告</a>
             <a class="button" href="reports/terminus2-all-model-feasibility-audit-2023-2025.md">全模型可行性复核</a>
@@ -629,8 +631,8 @@
             <span>2023、2024、2025 三个年度，避免单年偶然性。</span>
           </div>
           <div class="kpi">
-            <strong>10 组</strong>
-            <span>已纳入 leaderboard 的模型或模型配置，含失败 run 标记。</span>
+            <strong>2 组</strong>
+            <span>多模态主榜条目（可读题图），另有 11 组纯文本条目作为对照。</span>
           </div>
           <div class="kpi">
             <strong>JSON</strong>
@@ -640,12 +642,134 @@
       </div>
     </section>
 
+    <section id="multimodal-leaderboard">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Multimodal Leaderboard</h2>
+            <p class="lead">主榜。两个条目都是 <b>文本+图像</b> 多模态模型，可以打开题目随附的官方插图（7 道题带图，共 21 张裁切图）。它们用同一套 verifier、同一批 18 道题，所以与后面的纯文本榜可直接对照。成本统一按 <b>OpenRouter 目录价（美元）</b> 计算。</p>
+          </div>
+        </div>
+        <div class="leaderboard-stack">
+          <div>
+            <h3 class="table-title">Multimodal O-Eval</h3>
+            <p class="table-caption">O-Eval 是相对 O 奖参照解的绝对完成度（100% = 平均达到 O 奖复现答案的 raw 水平，超出部分封顶）。两者分数几乎持平，但成本相差约 138 倍。</p>
+            <div class="table-shell">
+              <table id="multimodal-table" class="sortable-table">
+                <thead>
+                  <tr>
+                    <th data-type="text">Model</th>
+                    <th data-type="number">Artifacts</th>
+                    <th data-type="number">O-Eval</th>
+                    <th data-type="number">Robust BO-Eval</th>
+                    <th data-type="number">Cost USD</th>
+                    <th data-type="number">Cost RMB</th>
+                    <th data-type="text">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="rank">1</span><b>codex + GPT-5.5 xhigh</b><small>OpenAI GPT-5.5（<code>text+image-&gt;text</code>），reasoning_effort=xhigh，codex CLI。全 18 题均产出可评分结果，0 hard gate。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="58.29"><b>58.29%</b></td>
+                    <td data-sort="10.65"><b>10.65%</b></td>
+                    <td data-sort="99.37"><b>$99.37</b></td>
+                    <td data-sort="669.45">¥669.45</td>
+                    <td><span class="status done">18 valid + 0 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">2</span><b>opencode + DeepSeek V4.1 Flash</b><small>DeepSeek V4.1 Flash（<code>text+image-&gt;text</code>），opencode CLI。17/18 产出可评分结果；<code>mcm-2024-a-lamprey</code> 两轮均未写出结果文件，按模型失败计入。</small></td>
+                    <td data-sort="17">17 / 18</td>
+                    <td data-sort="54.48"><b>54.48%</b></td>
+                    <td data-sort="-0.86">-0.86%</td>
+                    <td data-sort="0.72"><b>$0.72</b></td>
+                    <td data-sort="4.84">¥4.84</td>
+                    <td><span class="status partial">17 valid + 1 no-artifact</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="table-caption">O-Eval / Robust BO-Eval 与下面纯文本榜同口径（<code>write_all_models_boeval_2023_2025.py</code> 生成）；美元成本按 OpenRouter 目录价对实测 token 用量估算。</p>
+          </div>
+          <div>
+            <h3 class="table-title">Multimodal Tempered Hard-Gated</h3>
+            <p class="table-caption">温和版 hard-gated 对照。两个多模态条目均为 <b>0 gates</b>，说明它们的高分不是靠不可行解刷出来的。</p>
+            <div class="table-shell">
+              <table id="multimodal-hard-gated-table" class="sortable-table">
+                <thead>
+                  <tr>
+                    <th data-type="text">Model</th>
+                    <th data-type="number">Hard-gated O-Eval</th>
+                    <th data-type="number">Hard-gated Robust BO-Eval</th>
+                    <th data-type="number">Original O-Eval</th>
+                    <th data-type="number">Cost USD</th>
+                    <th data-type="text">Hard Gates</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="rank">1</span><b>codex + GPT-5.5 xhigh</b><small>没有被判为明显不可行的题，gate 前后分数一致。</small></td>
+                    <td data-sort="58.29">58.29%</td>
+                    <td data-sort="10.65">10.65%</td>
+                    <td data-sort="58.29">58.29%</td>
+                    <td data-sort="99.37">$99.37</td>
+                    <td><span class="status done">0 gates</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">2</span><b>opencode + DeepSeek V4.1 Flash</b><small>同样 0 gate；Robust BO-Eval 为小幅负值，说明它在若干题上未超过 baseline。</small></td>
+                    <td data-sort="54.48">54.48%</td>
+                    <td data-sort="-0.86">-0.86%</td>
+                    <td data-sort="54.48">54.48%</td>
+                    <td data-sort="0.72">$0.72</td>
+                    <td><span class="status done">0 gates</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="multimodal-visuals">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>Multimodal Visuals</h2>
+            <p class="lead">多模态主榜的配套可视化：O-Eval、O-Eval 对美元成本、CUMCM/MCM 拆分、年度稳定性，以及 token 用量。所有数字都由同一份生成报告解析，和主榜不会漂移。</p>
+          </div>
+        </div>
+        <div class="gallery">
+          <figure class="viz">
+            <img src="assets/figures/mm-multimodal-o-eval-bar.png" loading="lazy" alt="Multimodal O-Eval bar chart">
+            <figcaption><b>Multimodal O-Eval</b>两个多模态模型都在 54%–58% 区间，彼此只差约 3.8 个百分点。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-multimodal-o-eval-cost-scatter.png" loading="lazy" alt="Multimodal O-Eval versus USD cost scatter chart">
+            <figcaption><b>O-Eval vs. cost（USD，对数轴）</b>分数几乎持平，成本相差约 <b>138 倍</b>：这张榜同时也是性价比榜。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-multimodal-suite-split.png" loading="lazy" alt="Multimodal O-Eval by contest suite">
+            <figcaption><b>CUMCM vs. MCM</b>两个模型都是中文赛题（CUMCM）显著高于英文赛题（MCM），与纯文本榜的规律一致。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-multimodal-year-split.png" loading="lazy" alt="Multimodal O-Eval by year">
+            <figcaption><b>O-Eval 年度拆分</b>GPT-5.5 跨年更稳（66.9 / 52.0 / 55.9）；DeepSeek V4.1 Flash 2023 最高但在 2024 明显回落。</figcaption>
+          </figure>
+          <figure class="viz">
+            <img src="assets/figures/mm-multimodal-token-usage.png" loading="lazy" alt="Multimodal token usage by class">
+            <figcaption><b>Token 用量</b>按未命中输入 / 缓存命中输入 / 输出三面板展示。用量差距只有数倍，真正的成本差来自每 token 单价（输入约 33 倍、输出约 50 倍）。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section id="leaderboard">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <h2>Leaderboard</h2>
-            <p class="lead">默认先看原始 O-Eval 主榜：它保留自动 scorer 的完整输出，方便追溯每个模型的原始完成度；温和版 hard-gated 榜放在下面，作为把明显不可行高分剔除后的保守对照。</p>
+            <h2>Text-Only Leaderboard</h2>
+            <p class="lead">这是此前的纯文本榜（Terminus-2 等 agent 没有图片输入通道），保留在此用于追溯与对照。正式的当前榜首见上面的 <a href="#multimodal-leaderboard">Multimodal Leaderboard</a>。</p>
           </div>
         </div>
         <div class="leaderboard-stack">
@@ -969,8 +1093,8 @@
       <div class="wrap">
         <div class="section-head">
           <div>
-            <h2>AA Style Visuals</h2>
-            <p class="lead">以下图表先展示原始 O-Eval 主榜和性价比，再给出 hard-gated O-Eval 的保守对照、Robust BO-Eval 诊断、token、成本和 O-Eval 年/赛制拆分。可行性复核链接见正式报告。</p>
+            <h2>Text-Only Visuals</h2>
+            <p class="lead">纯文本榜的配套图表（原始 O-Eval、hard-gated 对照、Robust BO-Eval、token、成本与年/赛制拆分）。多模态版本的图表见上面的 <a href="#multimodal-visuals">Multimodal Visuals</a>。</p>
           </div>
         </div>
         <div class="gallery">
@@ -1054,7 +1178,7 @@
   <footer>
     <div class="wrap">
       <span>TB-MathModel, generated from 2023-2025 benchmark artifacts.</span>
-      <span>Last updated: 2026-09-09</span>
+      <span>Last updated: 2026-09-13</span>
     </div>
   </footer>
 
