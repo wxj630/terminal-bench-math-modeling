@@ -653,7 +653,7 @@
         <div class="leaderboard-stack">
           <div>
             <h3 class="table-title">Multimodal O-Eval</h3>
-            <p class="table-caption">O-Eval 是相对 O 奖参照解的绝对完成度（100% = 平均达到 O 奖复现答案的 raw 水平，超出部分封顶）。两者分数几乎持平，但成本相差约 138 倍。</p>
+            <p class="table-caption">O-Eval 是相对 O 奖参照解的绝对完成度（100% = 平均达到 O 奖复现答案的 raw 水平，超出部分封顶）。两者分数几乎持平，但成本相差约 39 倍（按下述计费口径）。</p>
             <div class="table-shell">
               <table id="multimodal-table" class="sortable-table">
                 <thead>
@@ -682,14 +682,17 @@
                     <td data-sort="17">17 / 18</td>
                     <td data-sort="54.48"><b>54.48%</b></td>
                     <td data-sort="-0.86">-0.86%</td>
-                    <td data-sort="0.72"><b>$0.72</b></td>
-                    <td data-sort="4.84">¥4.84</td>
+                    <td data-sort="2.55"><b>$2.55</b></td>
+                    <td data-sort="17.21">¥17.21</td>
                     <td><span class="status partial">17 valid + 1 no-artifact</span></td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p class="table-caption">O-Eval / Robust BO-Eval 与下面纯文本榜同口径（<code>write_all_models_boeval_2023_2025.py</code> 生成）；美元成本按 OpenRouter 目录价对实测 token 用量估算。</p>
+            <p class="table-caption">O-Eval / Robust BO-Eval 与下面纯文本榜同口径（<code>write_all_models_boeval_2023_2025.py</code> 生成）。</p>
+            <p class="table-caption"><b>计费口径（成本列的算法）</b>：按 OpenRouter 目录价对实测 token 用量计算，并做两项保守处理——<br>
+            (1) <b>推理 token 计入费用</b>。OpenAI 的 <code>output_tokens</code> 已包含推理，不再另加；DeepSeek（opencode 侧）的推理是独立计数器（每步满足 <code>total = input + output + reasoning + cache_read</code>），因此在其输出上补加 930,044 个推理 token。<br>
+            (2) <b>按高峰时段计价</b>。DeepSeek V4.1 Flash 在工作日 UTC 100–400 与 600–1000 三个项目均为 2 倍价，成本列按高峰价计，避免低估；GPT-5.5 的 &gt;272k 长上下文档位本次未触发（最大单请求 219,735）。</p>
           </div>
           <div>
             <h3 class="table-title">Multimodal Tempered Hard-Gated</h3>
@@ -720,7 +723,7 @@
                     <td data-sort="54.48">54.48%</td>
                     <td data-sort="-0.86">-0.86%</td>
                     <td data-sort="54.48">54.48%</td>
-                    <td data-sort="0.72">$0.72</td>
+                    <td data-sort="2.55">$2.55</td>
                     <td><span class="status done">0 gates</span></td>
                   </tr>
                 </tbody>
@@ -746,7 +749,7 @@
           </figure>
           <figure class="viz">
             <img src="assets/figures/mm-o-eval-cost-scatter.png" loading="lazy" alt="Multimodal O-Eval versus USD cost scatter chart">
-            <figcaption><b>O-Eval vs. Cost（USD，对数轴）</b>分数几乎持平，成本相差约 <b>138 倍</b>（$99.37 vs $0.72）：这张榜同时也是性价比榜。</figcaption>
+            <figcaption><b>O-Eval vs. Cost（USD，对数轴）</b>分数几乎持平，成本相差约 <b>39 倍</b>（$99.37 vs $2.55）：这张榜同时也是性价比榜。</figcaption>
           </figure>
           <figure class="viz">
             <img src="assets/figures/mm-o-eval-suite-split.png" loading="lazy" alt="Multimodal O-Eval by contest suite">
