@@ -52,10 +52,10 @@
 <line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
 <text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Tokens (million)</text>
 <rect x="132.00" y="777.46" width="768.00" height="2.54" fill="#4c4c4c" />
-<rect x="132.00" y="457.27" width="768.00" height="320.18" fill="#cfcfcf" />
-<text x="516.00" y="624.37" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">89M</text>
-<rect x="132.00" y="455.22" width="768.00" height="2.06" fill="#00897b" />
-<text x="516.00" y="441.22" text-anchor="middle" class="top-label">91M</text>
+<rect x="132.00" y="459.73" width="768.00" height="317.73" fill="#cfcfcf" />
+<text x="516.00" y="625.60" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">89M</text>
+<rect x="132.00" y="457.69" width="768.00" height="2.04" fill="#00897b" />
+<text x="516.00" y="443.69" text-anchor="middle" class="top-label">90M</text>
 <g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
 <rect x="934.00" y="767.87" width="768.00" height="12.13" fill="#4c4c4c" />
 <rect x="934.00" y="390.91" width="768.00" height="376.97" fill="#cfcfcf" />

@@ -54,8 +54,8 @@
 <text x="516.00" y="659.15" text-anchor="middle" class="bar-label">58.3%</text>
 <text x="516.00" y="501.52" text-anchor="middle" class="top-label">raw 0.774</text>
 <g transform="translate(516.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
-<rect x="934.00" y="532.29" width="768.00" height="239.71" fill="#00897b" rx="8.00" />
-<text x="1318.00" y="666.53" text-anchor="middle" class="bar-label">54.5%</text>
-<text x="1318.00" y="518.29" text-anchor="middle" class="top-label">raw 0.797</text>
+<rect x="934.00" y="530.57" width="768.00" height="241.43" fill="#00897b" rx="8.00" />
+<text x="1318.00" y="665.77" text-anchor="middle" class="bar-label">54.9%</text>
+<text x="1318.00" y="516.57" text-anchor="middle" class="top-label">raw 0.801</text>
 <g transform="translate(1318.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
 <text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by O-Eval over all 18 tasks. This is the primary absolute score for the report.</text></svg>
