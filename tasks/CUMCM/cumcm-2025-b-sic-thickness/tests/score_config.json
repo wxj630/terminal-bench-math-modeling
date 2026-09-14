@@ -1,11 +1,11 @@
 {
   "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
   "question_scope": "final_question_only",
-  "candidate_metric_count_before_final_filter": 2,
+  "candidate_metric_count_before_final_filter": 4,
   "final_question": {
     "label": "Q3",
     "plain_question": "把多光束反射/透射造成的干涉也考虑进去，重新确定碳化硅外延层厚度，并分析结果可靠性。",
-    "final_answer_summary": "O 奖复现推荐厚度为 SiC 8.9815 um、Si 10.5145 um。",
+    "final_answer_summary": "O 奖论文推荐厚度为 SiC 约 7.604 um、Si 约 3.814 um。",
     "baseline_model_summary": "baseline 用数据拟合与回归分析，从光谱条纹周期和非线性拟合中反推出外延层厚度。",
     "metric_selection": "final_question_only_numeric_core"
   },
@@ -25,7 +25,7 @@
   "metrics": [
     {
       "path": "experiment_result.si_recommended_thickness_um",
-      "oracle_value": 10.5145,
+      "oracle_value": 3.7899,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
@@ -40,7 +40,7 @@
     },
     {
       "path": "experiment_result.sic_recommended_thickness_um",
-      "oracle_value": 8.9815,
+      "oracle_value": 7.5712,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,

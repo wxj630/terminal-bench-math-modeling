@@ -7,7 +7,7 @@
   "official_problem": "cumcm/source_materials/cleaned_text/problems_md/2024/A_A题_pdf.md",
   "reproduction_level": "algorithmic",
   "reproduction_scope": "独立实现 A016 的板凳龙几何递推、碰撞搜索和速度约束模型链，不读取既有逐问结果。",
-  "methods": "等距螺线弧长反解 + 把手递推 + 非相邻碰撞检测 + 螺距搜索 + 速度比例缩放",
+  "methods": "等距螺线弧长反解 + 把手递归 + 非相邻碰撞检测 + 螺距搜索 + S形两圆弧调头路径 + 板凳方向速度投影递推(式19) + 速度比例缩放",
   "experiment_result": {
     "q1": {
       "computed_seconds": 301,
@@ -24,13 +24,19 @@
       "search_rows": 45
     },
     "q4": {
-      "base_ratio_2_to_1_length_m": 14.1372,
+      "base_ratio_2_to_1_length_m": 13.6212,
       "shortest_candidate_ratio": 1.0,
-      "shortest_candidate_length_m": 14.1372
+      "shortest_candidate_length_m": 13.6212,
+      "r1_m": 3.0054,
+      "r2_m": 1.5027,
+      "alpha1_deg": 3.4408,
+      "turn_length_m": 13.6212
     },
     "q5": {
-      "max_speed_ratio_when_head_1mps": 0.99999,
-      "max_head_speed_mps": 2.00002
+      "max_speed_ratio_when_head_1mps": 1.422195,
+      "max_head_speed_mps": 1.406277,
+      "max_speed_time_s": 14,
+      "max_speed_handle": 1
     },
     "artifact_paths": [
       "cumcm/outstanding_solutions/2024/A/A016/artifacts/dragon_spiral_snapshots.png",
@@ -41,6 +47,8 @@
       "cumcm/outstanding_solutions/2024/A/A016/artifacts/q2_collision_scan.csv",
       "cumcm/outstanding_solutions/2024/A/A016/artifacts/q2_terminal_positions.xlsx",
       "cumcm/outstanding_solutions/2024/A/A016/artifacts/q5_velocity_scaling.csv",
+      "cumcm/outstanding_solutions/2024/A/A016/artifacts/runner_stderr.log",
+      "cumcm/outstanding_solutions/2024/A/A016/artifacts/runner_stdout.log",
       "cumcm/outstanding_solutions/2024/A/A016/artifacts/turn_path_candidates.csv"
     ]
   },
@@ -53,6 +61,8 @@
     "cumcm/outstanding_solutions/2024/A/A016/artifacts/q2_collision_scan.csv",
     "cumcm/outstanding_solutions/2024/A/A016/artifacts/q2_terminal_positions.xlsx",
     "cumcm/outstanding_solutions/2024/A/A016/artifacts/q5_velocity_scaling.csv",
+    "cumcm/outstanding_solutions/2024/A/A016/artifacts/runner_stderr.log",
+    "cumcm/outstanding_solutions/2024/A/A016/artifacts/runner_stdout.log",
     "cumcm/outstanding_solutions/2024/A/A016/artifacts/turn_path_candidates.csv"
   ],
   "difference_from_advanced": "从通用几何拟合升级为 O 奖论文式整题几何引擎：所有小问共享同一条螺线弧长反解和把手递推链，碰撞、螺距和速度上限都由同一模型派生。"

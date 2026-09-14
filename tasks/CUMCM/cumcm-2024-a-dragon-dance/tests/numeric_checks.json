@@ -48,14 +48,32 @@
     "abs_tol": 1e-06
   },
   {
+    "path": "experiment_result.q4.alpha1_deg",
+    "expected": 3.4408,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
     "path": "experiment_result.q4.base_ratio_2_to_1_length_m",
-    "expected": 14.1372,
+    "expected": 13.6212,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q4.r1_m",
+    "expected": 3.0054,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q4.r2_m",
+    "expected": 1.5027,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q4.shortest_candidate_length_m",
-    "expected": 14.1372,
+    "expected": 13.6212,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
@@ -66,15 +84,33 @@
     "abs_tol": 0.0001
   },
   {
-    "path": "experiment_result.q5.max_head_speed_mps",
-    "expected": 2.00002,
+    "path": "experiment_result.q4.turn_length_m",
+    "expected": 13.6212,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
-    "path": "experiment_result.q5.max_speed_ratio_when_head_1mps",
-    "expected": 0.99999,
+    "path": "experiment_result.q5.max_head_speed_mps",
+    "expected": 1.406277,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q5.max_speed_handle",
+    "expected": 1,
     "rel_tol": 0.12,
     "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q5.max_speed_ratio_when_head_1mps",
+    "expected": 1.422195,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q5.max_speed_time_s",
+    "expected": 14,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
   }
 ]

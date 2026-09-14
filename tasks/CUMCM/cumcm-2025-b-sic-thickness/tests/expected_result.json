@@ -7,9 +7,30 @@
   "paper_title": "碳化硅外延层厚度的双光束和多光束干涉法测量研究",
   "paper_source_ocr": "Outstanding_Solutions/CUMCM/OCR-results/B157/B157.md",
   "paper_source_pdf": "Outstanding_Solutions/CUMCM/PDF-2025/B157.pdf",
-  "reproduction_scope": "独立实现 B157 的 Snell/Fresnel/Cauchy、FFT 初值、非线性最小二乘和 Airy 多光束修正测厚链。",
+  "reproduction_scope": "独立实现 B157 的 AsLS 去趋势、自相关主周期提取、Snell/Cauchy 修正、双角联合非线性最小二乘与 Airy 多光束判定和反演。",
   "selected_model": {
-    "name": "two-beam interference + Cauchy dispersion + nonlinear least squares + Airy correction"
+    "SiC": "two-beam Fresnel interference + Cauchy dispersion + two-angle joint least squares",
+    "Si": "Airy multi-beam interference + Cauchy dispersion + two-angle joint least squares"
+  },
+  "analysis_band": {
+    "SiC": [
+      2500.0,
+      3700.0
+    ],
+    "Si": [
+      1170.0,
+      2170.0
+    ]
+  },
+  "measured_periods": {
+    "SiC": [
+      256.03194497904565,
+      256.938111081351
+    ],
+    "Si": [
+      380.6687784200016,
+      387.6135032175916
+    ]
   },
   "data_source": {
     "type": "official_cumcm_xlsx",
@@ -26,89 +47,107 @@
       "sample": "SiC",
       "angle_deg": 10.0,
       "source_file": "cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/B题/附件/附件1.xlsx",
-      "rows": 7468,
-      "fringe_peak_count": 9,
-      "period_cm_minus_1": 122.6985,
-      "fft_peak_initial_thickness_um": 16.014,
-      "two_beam_thickness_um": 15.5109,
-      "two_beam_rmse_pct": 16.4333,
-      "airy_thickness_um": 15.5108,
-      "airy_finesse": 0.8966,
-      "airy_rmse_pct": 16.4328,
+      "rows": 6001,
+      "period_cm_minus_1": 256.0319,
+      "initial_thickness_um": 7.3852,
+      "two_beam_thickness_um": 7.602,
+      "two_beam_rmse_pct": 0.0541,
+      "airy_thickness_um": 7.6019,
+      "airy_rmse_pct": 0.0541,
+      "harmonic_2_over_1": 0.0076,
       "multi_beam_detected": false
     },
     {
       "sample": "SiC",
       "angle_deg": 15.0,
       "source_file": "cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/B题/附件/附件2.xlsx",
-      "rows": 7468,
-      "fringe_peak_count": 11,
-      "period_cm_minus_1": 111.1278,
-      "fft_peak_initial_thickness_um": 17.7319,
-      "two_beam_thickness_um": 17.548,
-      "two_beam_rmse_pct": 17.6696,
-      "airy_thickness_um": 1.9609,
-      "airy_finesse": 11.7781,
-      "airy_rmse_pct": 15.6836,
-      "multi_beam_detected": true
+      "rows": 6001,
+      "period_cm_minus_1": 256.9381,
+      "initial_thickness_um": 7.3786,
+      "two_beam_thickness_um": 7.5677,
+      "two_beam_rmse_pct": 0.0834,
+      "airy_thickness_um": 7.5676,
+      "airy_rmse_pct": 0.0834,
+      "harmonic_2_over_1": 0.0083,
+      "multi_beam_detected": false
     },
     {
       "sample": "Si",
       "angle_deg": 10.0,
       "source_file": "cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/B题/附件/附件3.xlsx",
-      "rows": 7468,
-      "fringe_peak_count": 11,
-      "period_cm_minus_1": 154.5181,
-      "fft_peak_initial_thickness_um": 9.4733,
-      "two_beam_thickness_um": 9.6149,
-      "two_beam_rmse_pct": 12.2041,
-      "airy_thickness_um": 9.6135,
-      "airy_finesse": 0.0583,
-      "airy_rmse_pct": 12.2041,
-      "multi_beam_detected": false
+      "rows": 6001,
+      "period_cm_minus_1": 380.6688,
+      "initial_thickness_um": 3.8455,
+      "two_beam_thickness_um": 3.7981,
+      "two_beam_rmse_pct": 3.6582,
+      "airy_thickness_um": 3.7981,
+      "airy_rmse_pct": 3.6577,
+      "harmonic_2_over_1": 0.3162,
+      "multi_beam_detected": true
     },
     {
       "sample": "Si",
       "angle_deg": 15.0,
       "source_file": "cumcm/source_materials/extracted/2025_SvpohSGacdffe718bcaa3b6e835c03ae3461cab1/B题/附件/附件4.xlsx",
-      "rows": 7468,
-      "fringe_peak_count": 12,
-      "period_cm_minus_1": 127.2791,
-      "fft_peak_initial_thickness_um": 11.5189,
-      "two_beam_thickness_um": 11.5181,
-      "two_beam_rmse_pct": 13.6137,
-      "airy_thickness_um": 11.5194,
-      "airy_finesse": 0.0542,
-      "airy_rmse_pct": 13.6138,
-      "multi_beam_detected": false
+      "rows": 6001,
+      "period_cm_minus_1": 387.6135,
+      "initial_thickness_um": 3.7826,
+      "two_beam_thickness_um": 3.3317,
+      "two_beam_rmse_pct": 4.4465,
+      "airy_thickness_um": 3.3317,
+      "airy_rmse_pct": 4.4461,
+      "harmonic_2_over_1": 0.2774,
+      "multi_beam_detected": true
     }
   ],
   "joint_thickness_summary": [
     {
       "sample": "Si",
-      "joint_two_beam_thickness_um": 10.5145,
-      "joint_airy_corrected_thickness_um": 10.5144,
-      "angle_spread_um": 1.9032,
-      "multi_beam_any_angle": false,
-      "recommended_model": "two-beam least-squares"
+      "joint_two_beam_thickness_um": 3.79,
+      "joint_airy_corrected_thickness_um": 3.7899,
+      "joint_cauchy_a": 3.445,
+      "joint_cauchy_b": -0.0,
+      "initial_thickness_um": 3.8141,
+      "angle_spread_um": 0.4664,
+      "multi_beam_any_angle": true,
+      "recommended_model": "Airy multi-beam + Cauchy",
+      "recommended_thickness_um": 3.7899
     },
     {
       "sample": "SiC",
-      "joint_two_beam_thickness_um": 16.4925,
-      "joint_airy_corrected_thickness_um": 8.9815,
-      "angle_spread_um": 2.0371,
-      "multi_beam_any_angle": true,
-      "recommended_model": "Airy multi-beam correction"
+      "joint_two_beam_thickness_um": 7.5712,
+      "joint_airy_corrected_thickness_um": 7.5713,
+      "joint_cauchy_a": 2.705,
+      "joint_cauchy_b": -0.3951,
+      "initial_thickness_um": 7.3819,
+      "angle_spread_um": 0.0343,
+      "multi_beam_any_angle": false,
+      "recommended_model": "two-beam Fresnel + Cauchy",
+      "recommended_thickness_um": 7.5712
     }
   ],
   "experiment_result": {
-    "sic_recommended_thickness_um": 8.9815,
-    "si_recommended_thickness_um": 10.5145,
+    "sic_recommended_thickness_um": 7.5712,
+    "si_recommended_thickness_um": 3.7899,
     "multi_beam_samples": [
-      "SiC"
+      "Si"
     ]
   },
-  "difference_from_advanced": "从厚度公式和摘要升级为 O 奖级反演流程：直接处理四个光谱附件，先由 FFT/峰间距给初值，再做双角非线性拟合和 Airy 多光束误差校正，并输出残差图验证可靠性。",
+  "target_comparison": {
+    "sic_recommended_thickness_um": {
+      "actual": 7.5712,
+      "paper_target": 7.604,
+      "absolute_error": -0.0328,
+      "relative_error_pct": -0.4314
+    },
+    "si_recommended_thickness_um": {
+      "actual": 3.7899,
+      "paper_target": 3.814,
+      "absolute_error": -0.0241,
+      "relative_error_pct": -0.6319
+    }
+  },
+  "difference_from_advanced": "从厚度公式和摘要升级为 O 奖级反演流程：等间距重采样 + AsLS 去趋势 + 自相关兜底的主周期提取，用 [2500,3700]/[1170,2170] cm^-1 有效带做双角联合 Snell-Cauchy 拟合，并以二次谐波能量比判定 Si 的多光束效应、以 Airy 模型反演，输出残差图与目标对比验证可靠性。",
   "artifact_paths": {
     "thickness_fit_table": "cumcm/outstanding_solutions/2025/B/B157/artifacts/thickness_fit_table.csv",
     "joint_thickness_summary": "cumcm/outstanding_solutions/2025/B/B157/artifacts/joint_thickness_summary.csv",

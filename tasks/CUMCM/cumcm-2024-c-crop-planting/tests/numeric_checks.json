@@ -1,133 +1,139 @@
 [
   {
+    "path": "experiment_result.q1.discount_cost_yuan",
+    "expected": 6905071.0,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
     "path": "experiment_result.q1.discount_gain_pct",
-    "expected": 8.1067954e+18,
+    "expected": 45.28,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q1.discount_profit_yuan",
-    "expected": 75678478.0,
+    "expected": 58718967.38,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.discount_revenue_yuan",
+    "expected": 65624038.38,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.discount.dual_bound_profit",
+    "expected": 58784286.50425379,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.discount.mip_gap",
+    "expected": 0.0011124025533169116,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q1.solver.discount.node_count",
+    "expected": 1,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q1.solver.discount.planted_rows",
+    "expected": 614,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.discount.solved_seconds",
+    "expected": 49.4,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.discount.status",
+    "expected": 0,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q1.solver.waste.dual_bound_profit",
+    "expected": 40476175.04438246,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.waste.mip_gap",
+    "expected": 0.0014176130400261587,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q1.solver.waste.node_count",
+    "expected": 1,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q1.solver.waste.planted_rows",
+    "expected": 497,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.waste.solved_seconds",
+    "expected": 83.6,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "experiment_result.q1.solver.waste.status",
+    "expected": 0,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q1.waste_cost_yuan",
+    "expected": 5309265.14,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q1.waste_profit_yuan",
-    "expected": -5389476.0,
+    "expected": 40418876.72,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
-    "path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
-    "expected": 118550698.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[0].correlated_cvar10_profit_yuan",
-    "expected": 118550698.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[0].cvar10_profit_yuan",
-    "expected": 118937552.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[0].deterministic_profit_yuan",
-    "expected": -5389476.0,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[0].mean_profit_yuan",
-    "expected": 119827636.74,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[0].q10_profit_yuan",
-    "expected": 119159280.66,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[1].correlated_cvar10_profit_yuan",
-    "expected": 118550698.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[1].cvar10_profit_yuan",
-    "expected": 118937552.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[1].deterministic_profit_yuan",
-    "expected": 75678478.0,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[1].mean_profit_yuan",
-    "expected": 119827636.74,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[1].q10_profit_yuan",
-    "expected": 119159280.66,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[2].correlated_cvar10_profit_yuan",
-    "expected": 118550698.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[2].cvar10_profit_yuan",
-    "expected": 118937552.19,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[2].deterministic_profit_yuan",
-    "expected": 75678478.0,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[2].mean_profit_yuan",
-    "expected": 119827636.74,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.q2_q3.risk_summary[2].q10_profit_yuan",
-    "expected": 119159280.66,
+    "path": "experiment_result.q1.waste_revenue_yuan",
+    "expected": 45728141.86,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q2_q3.spearman_price_cost",
-    "expected": 0.2551,
+    "expected": 0.0782,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q2_q3.spearman_yield_cost",
+    "expected": 0.7629,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "experiment_result.q2_q3.spearman_yield_price",
+    "expected": -0.1927,
     "rel_tol": 0.12,
     "abs_tol": 0.0001
   },
   {
     "path": "experiment_result.data_source.candidate_rows",
-    "expected": 1230,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "experiment_result.data_source.crops",
-    "expected": 42,
+    "expected": 990,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },

@@ -22,7 +22,7 @@ verification_explanation = "The verifier runs in a separate container and checks
 scoring_scope = "final_question_only"
 final_question_label = "Q5"
 final_question_plain = "沿着前面求出的调头路径行进时，求龙头最大能跑多快，才能保证所有把手速度都不超过 2 m/s。"
-final_answer_summary = "O 奖复现给出的最大龙头速度约 2.00002 m/s；当龙头速度为 1 m/s 时，全队最大速度比例约 0.99999。"
+final_answer_summary = "O 奖论文给出的最大龙头速度约 1.406276 m/s（速度比例常数 k = 2 / v_max ≈ 1.422195）。"
 baseline_model_summary = "baseline 用几何解析和运动学参数方程，沿路径传播各把手位置，再由速度约束反推龙头速度上限。"
 domain = "CUMCM"
 field = "math-modeling"

@@ -9,7 +9,24 @@
   "paper_source_pdf": "string",
   "reproduction_scope": "string",
   "selected_model": {
-    "name": "string"
+    "SiC": "string",
+    "Si": "string"
+  },
+  "analysis_band": {
+    "SiC": [
+      "number"
+    ],
+    "Si": [
+      "number"
+    ]
+  },
+  "measured_periods": {
+    "SiC": [
+      "number"
+    ],
+    "Si": [
+      "number"
+    ]
   },
   "data_source": {
     "type": "string",
@@ -24,14 +41,13 @@
       "angle_deg": "number",
       "source_file": "string",
       "rows": "integer",
-      "fringe_peak_count": "integer",
       "period_cm_minus_1": "number",
-      "fft_peak_initial_thickness_um": "number",
+      "initial_thickness_um": "number",
       "two_beam_thickness_um": "number",
       "two_beam_rmse_pct": "number",
       "airy_thickness_um": "number",
-      "airy_finesse": "number",
       "airy_rmse_pct": "number",
+      "harmonic_2_over_1": "number",
       "multi_beam_detected": "boolean"
     }
   ],
@@ -40,9 +56,13 @@
       "sample": "string",
       "joint_two_beam_thickness_um": "number",
       "joint_airy_corrected_thickness_um": "number",
+      "joint_cauchy_a": "number",
+      "joint_cauchy_b": "number",
+      "initial_thickness_um": "number",
       "angle_spread_um": "number",
       "multi_beam_any_angle": "boolean",
-      "recommended_model": "string"
+      "recommended_model": "string",
+      "recommended_thickness_um": "number"
     }
   ],
   "experiment_result": {
@@ -51,6 +71,20 @@
     "multi_beam_samples": [
       "string"
     ]
+  },
+  "target_comparison": {
+    "sic_recommended_thickness_um": {
+      "actual": "number",
+      "paper_target": "number",
+      "absolute_error": "number",
+      "relative_error_pct": "number"
+    },
+    "si_recommended_thickness_um": {
+      "actual": "number",
+      "paper_target": "number",
+      "absolute_error": "number",
+      "relative_error_pct": "number"
+    }
   },
   "difference_from_advanced": "string",
   "artifact_paths": {

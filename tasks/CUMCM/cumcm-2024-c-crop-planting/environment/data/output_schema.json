@@ -14,35 +14,46 @@
       "land_path": "string",
       "stat_path": "string",
       "plots": "integer",
-      "crops": "integer",
       "candidate_rows": "integer"
     },
     "q1": {
       "waste_profit_yuan": "number",
       "discount_profit_yuan": "number",
-      "discount_gain_pct": "number"
+      "waste_revenue_yuan": "number",
+      "discount_revenue_yuan": "number",
+      "waste_cost_yuan": "number",
+      "discount_cost_yuan": "number",
+      "discount_gain_pct": "number",
+      "sales_cap_rule": "string",
+      "solver": {
+        "waste": {
+          "mip_gap": "number",
+          "dual_bound_profit": "number",
+          "node_count": "integer",
+          "status": "integer",
+          "solved_seconds": "number",
+          "planted_rows": "integer"
+        },
+        "discount": {
+          "mip_gap": "number",
+          "dual_bound_profit": "number",
+          "node_count": "integer",
+          "status": "integer",
+          "solved_seconds": "number",
+          "planted_rows": "integer"
+        }
+      }
     },
     "q2_q3": {
-      "risk_summary": [
-        {
-          "plan": "string",
-          "deterministic_profit_yuan": "number",
-          "mean_profit_yuan": "number",
-          "q10_profit_yuan": "number",
-          "cvar10_profit_yuan": "number",
-          "correlated_cvar10_profit_yuan": "number"
-        }
-      ],
-      "best_correlated_cvar_plan": "string",
-      "best_correlated_cvar10_profit_yuan": "number",
-      "spearman_price_cost": "number"
+      "spearman_price_cost": "number",
+      "spearman_yield_cost": "number",
+      "spearman_yield_price": "number"
     },
-    "artifact_paths": [
-      "string"
-    ]
+    "artifacts": []
   },
-  "artifacts": [
-    "string"
-  ],
+  "feasibility_note": {
+    "paper_full_constraints_feasible": "boolean",
+    "reason": "string"
+  },
   "difference_from_advanced": "string"
 }

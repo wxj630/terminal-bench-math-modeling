@@ -389,7 +389,7 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
             "沿着前面求出的调头路径行进时，求龙头最大能跑多快，才能保证所有把手速度都不超过 2 m/s。"
         ),
         final_answer_summary=(
-            "O 奖复现给出的最大龙头速度约 2.00002 m/s；当龙头速度为 1 m/s 时，全队最大速度比例约 0.99999。"
+            "O 奖论文给出的最大龙头速度约 1.406276 m/s（速度比例常数 k = 2 / v_max ≈ 1.422195）。"
         ),
         baseline_model_summary=(
             "baseline 用几何解析和运动学参数方程，沿路径传播各把手位置，再由速度约束反推龙头速度上限。"
@@ -421,20 +421,28 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
         ),
     ),
     "cumcm-2024-c-crop-planting": FinalQuestionSpec(
-        label="Q3",
+        label="Q1",
         plain_question=(
-            "在问题 2 的基础上加入作物之间的替代、互补和价格/成本/销量相关性，求 2024-2030 年的稳健种植策略。"
+            "2024-2030 年最优种植方案：超产分别按（1）滞销浪费、（2）按 2023 年价格 50% 降价出售，"
+            "求两种情形下七年总利润最大的种植策略。"
         ),
         final_answer_summary=(
-            "O 奖复现的相关性稳健方案给出 best correlated CVaR10 利润 118550698.19 元，"
-            "价格和成本的 Spearman 相关系数约 0.2551。"
+            "本题为 special case：O 奖论文的完整约束集（含其自创的“实际产量≥0.9×预期销量”）在官方附件上"
+            "不可行，且论文使用未公开的启发式，其汇报值无法忠实复现。评分锚点改为一套可复现的精确求解结果："
+            "按论文式(19)的逐地块销量封顶建模（min(x·y, d) 在逐地块求和之内），用 HiGHS 混合整数规划求解，"
+            "滞销情境七年总利润约 36271603 元、50% 降价情境约 43282389 元（MIP gap < 1%）。"
         ),
         baseline_model_summary=(
-            "baseline 用规划优化和资源配置模型，在随机场景下比较候选种植方案的收益和风险。"
+            "baseline 用规划优化和资源配置模型，在候选种植方案间比较收益与风险。"
         ),
         include_paths=(
-            "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
-            "experiment_result.q2_q3.spearman_price_cost",
+            "experiment_result.q1.waste_profit_yuan",
+            "experiment_result.q1.discount_profit_yuan",
+        ),
+        note=(
+            "special case：O 奖论文的完整约束集在官方附件上无可行解（“分散度≤5 块地”与"
+            "“实际产量≥0.9×预期销量”联立冲突），论文亦使用未公开的 DEGA 启发式，其汇报值无法忠实复现。"
+            "本题锚点改为论文式(19)口径下用 HiGHS 求得的可复现解（脚本：outstanding_solutions/2024/C/C038/solution.py）。"
         ),
     ),
     "cumcm-2025-a-smoke-screen": FinalQuestionSpec(
@@ -461,7 +469,7 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
             "把多光束反射/透射造成的干涉也考虑进去，重新确定碳化硅外延层厚度，并分析结果可靠性。"
         ),
         final_answer_summary=(
-            "O 奖复现推荐厚度为 SiC 8.9815 um、Si 10.5145 um。"
+            "O 奖论文推荐厚度为 SiC 约 7.604 um、Si 约 3.814 um。"
         ),
         baseline_model_summary=(
             "baseline 用数据拟合与回归分析，从光谱条纹周期和非线性拟合中反推出外延层厚度。"
@@ -709,8 +717,8 @@ SEMANTIC_METRIC_DIRECTIONS: dict[str, dict[str, tuple[str, str]]] = {
             "The final question asks for the largest feasible head speed under handle-speed limits.",
         ),
         "experiment_result.q5.max_speed_ratio_when_head_1mps": (
-            "lower_is_better",
-            "This is a speed-amplification/safety ratio; smaller leaves more margin under the 2 m/s cap.",
+            "target_value",
+            "This is the paper's derived speed-amplification ratio k = max_handle_speed / head_speed; it is a physical quantity, not a monotone objective.",
         ),
     },
     "cumcm-2024-b-production-decision": {
@@ -740,13 +748,13 @@ SEMANTIC_METRIC_DIRECTIONS: dict[str, dict[str, tuple[str, str]]] = {
         ),
     },
     "cumcm-2024-c-crop-planting": {
-        "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan": (
+        "experiment_result.q1.waste_profit_yuan": (
             "higher_is_better",
-            "The robust crop strategy maximizes downside-risk-adjusted profit.",
+            "Seven-year total profit under the surplus-wasted rule is the problem-1 objective.",
         ),
-        "experiment_result.q2_q3.spearman_price_cost": (
-            "target_value",
-            "This is an estimated correlation describing the scenario model, not a policy objective.",
+        "experiment_result.q1.discount_profit_yuan": (
+            "higher_is_better",
+            "Seven-year total profit under the 50%-discount rule is the problem-1 objective.",
         ),
     },
     "cumcm-2025-a-smoke-screen": {
@@ -2320,6 +2328,21 @@ def score_config(case: Case, oracle_result: dict[str, Any]) -> dict[str, Any]:
             "paper_id": case.paper_id,
             "result_path": case.result_rel,
         },
+        **(
+            {
+                "special_case": True,
+                "special_case_reason": (
+                    "The O-award paper's full constraint set is infeasible on the official attachments "
+                    "(its own 'per-crop plot dispersity <= 5' rule and its 'output >= 0.9 x expected sales' "
+                    "rule cannot hold together), and the paper uses an undisclosed DEGA heuristic whose "
+                    "reported totals cannot be faithfully reproduced. The anchor is therefore a reproducible "
+                    "exact solve of the paper's eq.(19) per-plot sales model (HiGHS MILP), recorded with its "
+                    "MIP gap."
+                ),
+            }
+            if case.slug == "cumcm-2024-c-crop-planting"
+            else {}
+        ),
     }
 
 
@@ -2360,6 +2383,7 @@ def scoring_table_markdown(case: Case, score: dict[str, Any]) -> str:
         f"- Final answer: {final_question.get('final_answer_summary', '')}",
         f"- Baseline model: {final_question.get('baseline_model_summary', '')}",
         *([f"- Note: {final_question.get('note')}"] if final_question.get("note") else []),
+        *(["- Special case: yes"] if score.get("special_case") else []),
         f"- Primary evaluation: `{score.get('primary_eval', 'BO-Eval')}`",
         f"- Secondary evaluation: `{', '.join(score.get('secondary_evals', ['B-Eval']))}`",
         f"- Candidate metric count before final-question filter: {score.get('candidate_metric_count_before_final_filter')}",

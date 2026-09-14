@@ -1,17 +1,143 @@
 {
   "models": {
+    "codex_gpt55_xhigh": {
+      "model_id": "openai/gpt-5.5",
+      "name": "OpenAI: GPT-5.5",
+      "price_rmb_per_mtok": {
+        "billing": {
+          "peak_multiplier": 1.0,
+          "reasoning_is_additive": false
+        },
+        "input_cached": 3.368506,
+        "input_uncached": 33.68506,
+        "output": 202.11036000000001
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.00003",
+        "input_cache_read": "0.0000005",
+        "overrides": [
+          {
+            "completion": "0.000045",
+            "input_cache_read": "0.000001",
+            "min_prompt_tokens": 272000,
+            "prompt": "0.00001"
+          }
+        ],
+        "prompt": "0.000005",
+        "web_search": "0.01"
+      }
+    },
     "flash": {
       "model_id": "deepseek/deepseek-v4-flash-0731",
       "name": "DeepSeek: DeepSeek V4 Flash 0731",
       "price_rmb_per_mtok": {
-        "input_cached": 0.10779219200000001,
-        "input_uncached": 0.43790578,
-        "output": 1.21266216
+        "input_cached": 0.080844144,
+        "input_uncached": 0.40422072,
+        "output": 0.80844144
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.00000018",
-        "input_cache_read": "0.000000016",
-        "prompt": "0.000000065"
+        "completion": "0.00000012",
+        "input_cache_read": "0.000000012",
+        "prompt": "0.00000006"
+      }
+    },
+    "flash_opencode": {
+      "model_id": "deepseek/deepseek-v4.1-flash",
+      "name": "DeepSeek: DeepSeek V4.1 Flash",
+      "price_rmb_per_mtok": {
+        "billing": {
+          "peak_multiplier": 1.0,
+          "reasoning_is_additive": true
+        },
+        "input_cached": 0.040422072,
+        "input_uncached": 2.0211036,
+        "output": 8.0844144
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.0000012",
+        "input_cache_read": "0.000000006",
+        "overrides": [
+          {
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "prompt": "0.00000015",
+            "utc_days": [
+              "saturday",
+              "sunday"
+            ]
+          },
+          {
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "prompt": "0.00000015",
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_end": 100,
+            "utc_start": 0
+          },
+          {
+            "completion": "0.0000012",
+            "input_cache_read": "0.000000006",
+            "prompt": "0.0000003",
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_end": 400,
+            "utc_start": 100
+          },
+          {
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "prompt": "0.00000015",
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_end": 600,
+            "utc_start": 400
+          },
+          {
+            "completion": "0.0000012",
+            "input_cache_read": "0.000000006",
+            "prompt": "0.0000003",
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_end": 1000,
+            "utc_start": 600
+          },
+          {
+            "completion": "0.0000006",
+            "input_cache_read": "0.000000003",
+            "prompt": "0.00000015",
+            "utc_days": [
+              "monday",
+              "tuesday",
+              "wednesday",
+              "thursday",
+              "friday"
+            ],
+            "utc_end": 0,
+            "utc_start": 1000
+          }
+        ],
+        "prompt": "0.0000003"
       }
     },
     "gemini37flash": {
@@ -75,6 +201,32 @@
         "web_search": "0.01"
       }
     },
+    "gptx": {
+      "model_id": "openai/gpt-5.6-sol",
+      "name": "OpenAI: GPT-5.6 Sol",
+      "price_rmb_per_mtok": {
+        "explicit_cache_create": 16.84253,
+        "input_cached": 1.3474023999999998,
+        "input_uncached": 13.474024,
+        "output": 67.37012
+      },
+      "raw_pricing_usd_per_token": {
+        "completion": "0.00001",
+        "input_cache_read": "0.0000002",
+        "input_cache_write": "0.0000025",
+        "overrides": [
+          {
+            "completion": "0.000015",
+            "input_cache_read": "0.0000004",
+            "input_cache_write": "0.000005",
+            "min_prompt_tokens": 272000,
+            "prompt": "0.000004"
+          }
+        ],
+        "prompt": "0.000002",
+        "web_search": "0.01"
+      }
+    },
     "hy4": {
       "model_id": "tencent/hy4-preview",
       "name": "Tencent: Hy4 preview",
@@ -93,14 +245,14 @@
       "model_id": "moonshotai/kimi-k3",
       "name": "MoonshotAI: Kimi K3",
       "price_rmb_per_mtok": {
-        "input_cached": 2.0211036,
-        "input_uncached": 20.211036,
-        "output": 101.05518000000001
+        "input_cached": 2.0389186176822,
+        "input_uncached": 17.840537908087754,
+        "output": 89.48587266494101
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.000015",
-        "input_cache_read": "0.0000003",
-        "prompt": "0.000003"
+        "completion": "0.00001328272425",
+        "input_cache_read": "0.00000030264435",
+        "prompt": "0.000002648138063"
       }
     },
     "oxalpha": {
@@ -118,14 +270,14 @@
       "model_id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
       "price_rmb_per_mtok": {
-        "input_cached": 0.58514317726,
-        "input_uncached": 7.02171812712,
-        "output": 14.04343625424
+        "input_cached": 0.9094966200000001,
+        "input_uncached": 10.779219199999998,
+        "output": 21.558438399999996
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.00000208452",
-        "input_cache_read": "0.000000086855",
-        "prompt": "0.00000104226"
+        "completion": "0.0000032",
+        "input_cache_read": "0.000000135",
+        "prompt": "0.0000016"
       }
     },
     "qwen": {
@@ -133,15 +285,14 @@
       "name": "Qwen: Qwen3.8 27B",
       "price_rmb_per_mtok": {
         "explicit_cache_create": 3.579037625,
-        "input_cached": 0.57264602,
-        "input_uncached": 2.8632301,
+        "input_cached": 1.0105518,
+        "input_uncached": 1.4417205680000003,
         "output": 17.179380600000002
       },
       "raw_pricing_usd_per_token": {
         "completion": "0.00000255",
-        "input_cache_read": "0.000000085",
-        "input_cache_write": "0.00000053125",
-        "prompt": "0.000000425"
+        "input_cache_read": "0.00000015",
+        "prompt": "0.000000214"
       }
     },
     "qwenflash": {

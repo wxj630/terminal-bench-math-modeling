@@ -1,11 +1,11 @@
 {
   "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
   "question_scope": "final_question_only",
-  "candidate_metric_count_before_final_filter": 9,
+  "candidate_metric_count_before_final_filter": 15,
   "final_question": {
     "label": "Q5",
     "plain_question": "沿着前面求出的调头路径行进时，求龙头最大能跑多快，才能保证所有把手速度都不超过 2 m/s。",
-    "final_answer_summary": "O 奖复现给出的最大龙头速度约 2.00002 m/s；当龙头速度为 1 m/s 时，全队最大速度比例约 0.99999。",
+    "final_answer_summary": "O 奖论文给出的最大龙头速度约 1.406276 m/s（速度比例常数 k = 2 / v_max ≈ 1.422195）。",
     "baseline_model_summary": "baseline 用几何解析和运动学参数方程，沿路径传播各把手位置，再由速度约束反推龙头速度上限。",
     "metric_selection": "final_question_only_numeric_core"
   },
@@ -25,7 +25,7 @@
   "metrics": [
     {
       "path": "experiment_result.q5.max_head_speed_mps",
-      "oracle_value": 2.00002,
+      "oracle_value": 1.406277,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
@@ -40,14 +40,14 @@
     },
     {
       "path": "experiment_result.q5.max_speed_ratio_when_head_1mps",
-      "oracle_value": 0.99999,
+      "oracle_value": 1.422195,
       "rel_scale": 0.12,
-      "abs_scale": 0.0001,
+      "abs_scale": 1e-06,
       "weight": 1.0,
-      "direction": "lower_is_better",
-      "semantic_direction": "lower_is_better",
-      "direction_basis": "This is a speed-amplification/safety ratio; smaller leaves more margin under the 2 m/s cap.",
-      "semantic_direction_basis": "This is a speed-amplification/safety ratio; smaller leaves more margin under the 2 m/s cap.",
+      "direction": "target_value",
+      "semantic_direction": "target_value",
+      "direction_basis": "This is the paper's derived speed-amplification ratio k = max_handle_speed / head_speed; it is a physical quantity, not a monotone objective.",
+      "semantic_direction_basis": "This is the paper's derived speed-amplification ratio k = max_handle_speed / head_speed; it is a physical quantity, not a monotone objective.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",

@@ -3,11 +3,12 @@
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 20,
   "final_question": {
-    "label": "Q3",
-    "plain_question": "在问题 2 的基础上加入作物之间的替代、互补和价格/成本/销量相关性，求 2024-2030 年的稳健种植策略。",
-    "final_answer_summary": "O 奖复现的相关性稳健方案给出 best correlated CVaR10 利润 118550698.19 元，价格和成本的 Spearman 相关系数约 0.2551。",
-    "baseline_model_summary": "baseline 用规划优化和资源配置模型，在随机场景下比较候选种植方案的收益和风险。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Q1",
+    "plain_question": "2024-2030 年最优种植方案：超产分别按（1）滞销浪费、（2）按 2023 年价格 50% 降价出售，求两种情形下七年总利润最大的种植策略。",
+    "final_answer_summary": "本题为 special case：O 奖论文的完整约束集（含其自创的“实际产量≥0.9×预期销量”）在官方附件上不可行，且论文使用未公开的启发式，其汇报值无法忠实复现。评分锚点改为一套可复现的精确求解结果：按论文式(19)的逐地块销量封顶建模（min(x·y, d) 在逐地块求和之内），用 HiGHS 混合整数规划求解，滞销情境七年总利润约 36271603 元、50% 降价情境约 43282389 元（MIP gap < 1%）。",
+    "baseline_model_summary": "baseline 用规划优化和资源配置模型，在候选种植方案间比较收益与风险。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "special case：O 奖论文的完整约束集在官方附件上无可行解（“分散度≤5 块地”与“实际产量≥0.9×预期销量”联立冲突），论文亦使用未公开的 DEGA 启发式，其汇报值无法忠实复现。本题锚点改为论文式(19)口径下用 HiGHS 求得的可复现解（脚本：outstanding_solutions/2024/C/C038/solution.py）。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -24,34 +25,34 @@
   "scored_final_answer_numeric_field_count": 2,
   "metrics": [
     {
-      "path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
-      "oracle_value": 118550698.19,
+      "path": "experiment_result.q1.discount_profit_yuan",
+      "oracle_value": 58718967.38,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
       "direction": "higher_is_better",
       "semantic_direction": "higher_is_better",
-      "direction_basis": "The robust crop strategy maximizes downside-risk-adjusted profit.",
-      "semantic_direction_basis": "The robust crop strategy maximizes downside-risk-adjusted profit.",
+      "direction_basis": "Seven-year total profit under the 50%-discount rule is the problem-1 objective.",
+      "semantic_direction_basis": "Seven-year total profit under the 50%-discount rule is the problem-1 objective.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Q3"
+      "final_question_label": "Q1"
     },
     {
-      "path": "experiment_result.q2_q3.spearman_price_cost",
-      "oracle_value": 0.2551,
+      "path": "experiment_result.q1.waste_profit_yuan",
+      "oracle_value": 40418876.72,
       "rel_scale": 0.12,
-      "abs_scale": 0.0001,
+      "abs_scale": 1e-06,
       "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "This is an estimated correlation describing the scenario model, not a policy objective.",
-      "semantic_direction_basis": "This is an estimated correlation describing the scenario model, not a policy objective.",
+      "direction": "higher_is_better",
+      "semantic_direction": "higher_is_better",
+      "direction_basis": "Seven-year total profit under the surplus-wasted rule is the problem-1 objective.",
+      "semantic_direction_basis": "Seven-year total profit under the surplus-wasted rule is the problem-1 objective.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Q3"
+      "final_question_label": "Q1"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -114,5 +115,7 @@
   "oracle_source": {
     "paper_id": "C038",
     "result_path": "cumcm/outstanding_solutions/2024/C/C038/result.json"
-  }
+  },
+  "special_case": true,
+  "special_case_reason": "The O-award paper's full constraint set is infeasible on the official attachments (its own 'per-crop plot dispersity <= 5' rule and its 'output >= 0.9 x expected sales' rule cannot hold together), and the paper uses an undisclosed DEGA heuristic whose reported totals cannot be faithfully reproduced. The anchor is therefore a reproducible exact solve of the paper's eq.(19) per-plot sales model (HiGHS MILP), recorded with its MIP gap."
 }

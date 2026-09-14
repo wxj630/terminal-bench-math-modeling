@@ -1,0 +1,35 @@
+name: Feasibility Gate
+
+# Guards the programmatic feasibility gate. Two regressions have actually
+# happened in this benchmark and both are caught here:
+#   * a task shipped with no registered check (CUMCM 2024 C went live ungated);
+#   * a check whose bounds rejected the human O-award reference (a mis-set
+#     ceiling would have zeroed a correct reproduction).
+# The check module only uses the standard library, so no environment setup is
+# required.
+
+on:
+  pull_request:
+    paths:
+      - "tasks/**"
+      - "scripts/feasibility_checks.py"
+      - "scripts/test_feasibility_checks.py"
+      - ".github/workflows/feasibility-gate.yml"
+  push:
+    branches: [main]
+    paths:
+      - "tasks/**"
+      - "scripts/feasibility_checks.py"
+      - "scripts/test_feasibility_checks.py"
+
+jobs:
+  feasibility-gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gate coverage (every task must have a registered check)
+        run: python3 scripts/feasibility_checks.py --coverage
+
+      - name: Gate contracts (coverage, oracle self-consistency, discrimination)
+        run: python3 scripts/test_feasibility_checks.py

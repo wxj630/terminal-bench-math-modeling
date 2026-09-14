@@ -1,67 +1,205 @@
 [
   {
     "path": "experiment_result.si_recommended_thickness_um",
-    "expected": 10.5145,
+    "expected": 3.7899,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.sic_recommended_thickness_um",
-    "expected": 8.9815,
+    "expected": 7.5712,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "target_comparison.si_recommended_thickness_um.absolute_error",
+    "expected": -0.0241,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "target_comparison.si_recommended_thickness_um.actual",
+    "expected": 3.7899,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "target_comparison.si_recommended_thickness_um.paper_target",
+    "expected": 3.814,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "target_comparison.si_recommended_thickness_um.relative_error_pct",
+    "expected": -0.6319,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "target_comparison.sic_recommended_thickness_um.absolute_error",
+    "expected": -0.0328,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "target_comparison.sic_recommended_thickness_um.actual",
+    "expected": 7.5712,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "target_comparison.sic_recommended_thickness_um.paper_target",
+    "expected": 7.604,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "target_comparison.sic_recommended_thickness_um.relative_error_pct",
+    "expected": -0.4314,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "analysis_band.SiC[0]",
+    "expected": 2500.0,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "analysis_band.SiC[1]",
+    "expected": 3700.0,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "analysis_band.Si[0]",
+    "expected": 1170.0,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "analysis_band.Si[1]",
+    "expected": 2170.0,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "joint_thickness_summary[0].angle_spread_um",
-    "expected": 1.9032,
+    "expected": 0.4664,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "joint_thickness_summary[0].initial_thickness_um",
+    "expected": 3.8141,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "joint_thickness_summary[0].joint_airy_corrected_thickness_um",
-    "expected": 10.5144,
+    "expected": 3.7899,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
+    "path": "joint_thickness_summary[0].joint_cauchy_a",
+    "expected": 3.445,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "joint_thickness_summary[0].joint_cauchy_b",
+    "expected": -0.0,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
     "path": "joint_thickness_summary[0].joint_two_beam_thickness_um",
-    "expected": 10.5145,
+    "expected": 3.79,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "joint_thickness_summary[0].recommended_thickness_um",
+    "expected": 3.7899,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "joint_thickness_summary[1].angle_spread_um",
-    "expected": 2.0371,
+    "expected": 0.0343,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
+    "path": "joint_thickness_summary[1].initial_thickness_um",
+    "expected": 7.3819,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "joint_thickness_summary[1].joint_airy_corrected_thickness_um",
-    "expected": 8.9815,
+    "expected": 7.5713,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
-    "path": "joint_thickness_summary[1].joint_two_beam_thickness_um",
-    "expected": 16.4925,
+    "path": "joint_thickness_summary[1].joint_cauchy_a",
+    "expected": 2.705,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
-    "path": "single_angle_fits[0].airy_finesse",
-    "expected": 0.8966,
+    "path": "joint_thickness_summary[1].joint_cauchy_b",
+    "expected": -0.3951,
     "rel_tol": 0.12,
     "abs_tol": 0.0001
   },
   {
-    "path": "single_angle_fits[0].airy_rmse_pct",
-    "expected": 16.4328,
+    "path": "joint_thickness_summary[1].joint_two_beam_thickness_um",
+    "expected": 7.5712,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
+    "path": "joint_thickness_summary[1].recommended_thickness_um",
+    "expected": 7.5712,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "measured_periods.SiC[0]",
+    "expected": 256.03194497904565,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "measured_periods.SiC[1]",
+    "expected": 256.938111081351,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "measured_periods.Si[0]",
+    "expected": 380.6687784200016,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "measured_periods.Si[1]",
+    "expected": 387.6135032175916,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
+    "path": "single_angle_fits[0].airy_rmse_pct",
+    "expected": 0.0541,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
     "path": "single_angle_fits[0].airy_thickness_um",
-    "expected": 15.5108,
+    "expected": 7.6019,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
@@ -72,146 +210,8 @@
     "abs_tol": 1e-06
   },
   {
-    "path": "single_angle_fits[0].fft_peak_initial_thickness_um",
-    "expected": 16.014,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[0].fringe_peak_count",
-    "expected": 9,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[0].period_cm_minus_1",
-    "expected": 122.6985,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[0].two_beam_rmse_pct",
-    "expected": 16.4333,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[0].two_beam_thickness_um",
-    "expected": 15.5109,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].airy_finesse",
-    "expected": 11.7781,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].airy_rmse_pct",
-    "expected": 15.6836,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].airy_thickness_um",
-    "expected": 1.9609,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].angle_deg",
-    "expected": 15.0,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].fft_peak_initial_thickness_um",
-    "expected": 17.7319,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].fringe_peak_count",
-    "expected": 11,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].period_cm_minus_1",
-    "expected": 111.1278,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].two_beam_rmse_pct",
-    "expected": 17.6696,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[1].two_beam_thickness_um",
-    "expected": 17.548,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].airy_finesse",
-    "expected": 0.0583,
-    "rel_tol": 0.12,
-    "abs_tol": 0.0001
-  },
-  {
-    "path": "single_angle_fits[2].airy_rmse_pct",
-    "expected": 12.2041,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].airy_thickness_um",
-    "expected": 9.6135,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].angle_deg",
-    "expected": 10.0,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].fft_peak_initial_thickness_um",
-    "expected": 9.4733,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].fringe_peak_count",
-    "expected": 11,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].period_cm_minus_1",
-    "expected": 154.5181,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].two_beam_rmse_pct",
-    "expected": 12.2041,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[2].two_beam_thickness_um",
-    "expected": 9.6149,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "single_angle_fits[3].airy_finesse",
-    "expected": 0.0542,
+    "path": "single_angle_fits[0].harmonic_2_over_1",
+    "expected": 0.0076,
     "rel_tol": 0.12,
     "abs_tol": 0.0001
   }

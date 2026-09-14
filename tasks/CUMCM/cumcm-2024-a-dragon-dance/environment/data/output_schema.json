@@ -26,11 +26,17 @@
     "q4": {
       "base_ratio_2_to_1_length_m": "number",
       "shortest_candidate_ratio": "number",
-      "shortest_candidate_length_m": "number"
+      "shortest_candidate_length_m": "number",
+      "r1_m": "number",
+      "r2_m": "number",
+      "alpha1_deg": "number",
+      "turn_length_m": "number"
     },
     "q5": {
       "max_speed_ratio_when_head_1mps": "number",
-      "max_head_speed_mps": "number"
+      "max_head_speed_mps": "number",
+      "max_speed_time_s": "integer",
+      "max_speed_handle": "integer"
     },
     "artifact_paths": [
       "string"
