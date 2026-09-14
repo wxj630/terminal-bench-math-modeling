@@ -101,7 +101,7 @@
       <div class="topline">
         <div>
           <h1>18 题 O-Eval / Robust BO-Eval Dashboard</h1>
-          <div class="meta">2023-2025 · generated 2026-09-09 · AA-style</div>
+          <div class="meta">2023-2025 · generated 2026-09-14 · AA-style</div>
         </div>
         <div class="meta"><a href="terminus2-direction-aware-flash-baseline-bbo-2023-2025.md">正式报告</a> · <a href="terminus2-bo-eval-plain-language-article-2023-2025.md">大白话</a> · <a href="terminus2-all-model-feasibility-audit-2023-2025.md">全模型可行性复核</a></div>
       </div>
@@ -122,11 +122,11 @@
     </div>
   </header>
   <main class="shell">
-    <section id="overview" class="panel active"><div class="metrics"><article class="metric"><span>最佳 O-Eval</span><strong>58.08%</strong><small>Kimi K3 · 主榜</small></article>
-<article class="metric"><span>最佳 HardGate O</span><strong>57.08%</strong><small>Tencent Hy4 Preview · 谨慎榜</small></article>
-<article class="metric"><span>最佳 Robust</span><strong>12.19%</strong><small>Kimi K3 · 辅助口径，冲突时让位 O-Eval</small></article>
-<article class="metric"><span>Qwen O-Eval</span><strong>55.06%</strong><small>¥197.92 · OpenRouter价/原始cache计数</small></article>
-<article class="metric"><span>Kimi O-Eval</span><strong>58.08%</strong><small>¥179.76</small></article>
+    <section id="overview" class="panel active"><div class="metrics"><article class="metric"><span>最佳 O-Eval</span><strong>64.29%</strong><small>codex + gpt-5.5 xhigh · 主榜</small></article>
+<article class="metric"><span>最佳 HardGate O</span><strong>64.29%</strong><small>codex + gpt-5.5 xhigh · 谨慎榜</small></article>
+<article class="metric"><span>最佳 Robust</span><strong>21.27%</strong><small>Kimi K3 · 辅助口径，冲突时让位 O-Eval</small></article>
+<article class="metric"><span>Qwen O-Eval</span><strong>62.24%</strong><small>¥122.72 · OpenRouter价/原始cache计数</small></article>
+<article class="metric"><span>Kimi O-Eval</span><strong>64.24%</strong><small>¥166.32</small></article>
 <article class="metric"><span>Gemini 覆盖</span><strong>15/18</strong><small>缺失 artifact 按 raw 0</small></article></div><div class="two-col"><section class="prose mini"><h2>先说结论</h2>
 <p>这个 benchmark 看的不是模型会不会写一篇像样的建模论文，而是：给它完整赛题和附件后，它最后交出来的关键数字，能不能追上优秀论文复现答案。</p>
 <p>最终主指标现在是 O-Eval：<code>clamp(模型 direction-aware raw / O raw, 0, 1)</code>，再对 18 题取平均。大白话说，100% 就是平均达到 O 奖复现答案的 raw 水平；超过 O 奖锚点的部分不再继续加分。</p>
@@ -437,12 +437,12 @@
 <td>invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0</td>
 </tr>
 </tbody></table></div></section><section class="prose mini"><h1>O-Eval and Robust BO-Eval: 2023-2025</h1>
-<p>Generated: 2026-09-09</p>
+<p>Generated: 2026-09-14</p>
 <p>Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.</p>
 <p>Primary O-Eval rule: <code>clamp(model direction-aware raw / O raw, 0, 1)</code>, averaged over all 18 tasks. Since the O-award reproduction is normalized near raw=1 on these tasks, O-Eval is the easiest-to-read absolute oracle-normalized score, and overshoots are capped at 100%.</p>
 <p>Secondary Robust BO-Eval rule: let <code>gain = model raw - flash raw</code> and <code>gap = O raw - flash raw</code>. If <code>gap &gt;= 0.10</code>, score <code>clip(gain / gap, -100%, +100%)</code>; otherwise score <code>clip(gain, -10pp, +10pp)</code>. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned <code>-100%</code> so a completely unfinished task gets the worst possible score.</p>
 <p>Tempered hard-gated rule: only clearly non-feasible cells are whole-task penalized. Automatic scorer hard-invalid metrics and manually replay-proven invalid high-score cells receive gated raw <code>0</code> for O-Eval and <code>-100%</code> for Robust BO-Eval. Needs-review/proxy cells remain scored but are not used as stronger-than-O claims without a better replay verifier.</p>
-<p>Robust ratio tasks with gap &gt;= 0.10: 12. Saturated or near-zero-gap tasks using clipped B-Eval: 6.</p>
+<p>Robust ratio tasks with gap &gt;= 0.10: 11. Saturated or near-zero-gap tasks using clipped B-Eval: 7.</p>
 <h2>Overall Mean</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -462,38 +462,66 @@
 <tr>
 <td>v4 flash baseline</td>
 <td>17</td>
-<td>0.756518</td>
-<td>51.85%</td>
+<td>0.838752</td>
+<td>58.14%</td>
 <td>+0.00 pp</td>
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
 <td>1,230,885 / 1,896,174</td>
-<td>$0.930153</td>
-<td>¥6.27</td>
+<td>$0.683019</td>
+<td>¥4.60</td>
+<td>18/0/0/0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td>18</td>
+<td>0.907032</td>
+<td>62.19%</td>
+<td>+6.83 pp</td>
+<td>12.24%</td>
+<td>89,376,395 / 88,668,288 / 569,862</td>
+<td>708,107 / 569,862</td>
+<td>$2.536206</td>
+<td>¥17.09</td>
+<td>18/0/0/0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>18</td>
+<td>0.854280</td>
+<td>64.29%</td>
+<td>+1.55 pp</td>
+<td>17.03%</td>
+<td>108,584,170 / 105,199,744 / 994,910</td>
+<td>3,384,426 / 994,910</td>
+<td>$99.369302</td>
+<td>¥669.45</td>
 <td>18/0/0/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>v4 pro</td>
 <td>18</td>
-<td>0.618719</td>
-<td>51.42%</td>
-<td>-13.78 pp</td>
-<td>2.28%</td>
+<td>0.713865</td>
+<td>58.44%</td>
+<td>-12.49 pp</td>
+<td>6.91%</td>
 <td>21,309,105 / 20,096,768 / 1,748,356</td>
 <td>1,212,337 / 1,748,356</td>
-<td>$6.098169</td>
-<td>¥41.08</td>
+<td>$10.247542</td>
+<td>¥69.04</td>
 <td>18/0/0/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
 <td>18</td>
-<td>0.598189</td>
-<td>51.46%</td>
-<td>-15.83 pp</td>
-<td>5.45%</td>
+<td>0.646092</td>
+<td>56.25%</td>
+<td>-19.27 pp</td>
+<td>6.03%</td>
 <td>92,056,972 / 89,637,696 / 2,638,779</td>
 <td>2,419,276 / 2,638,779</td>
 <td>$38.303415</td>
@@ -504,10 +532,10 @@
 <tr>
 <td>GPT-5.6 SOL high</td>
 <td>18</td>
-<td>0.841554</td>
-<td>55.00%</td>
-<td>+8.50 pp</td>
-<td>8.08%</td>
+<td>0.892644</td>
+<td>60.10%</td>
+<td>+5.39 pp</td>
+<td>10.01%</td>
 <td>8,774,606 / 7,566,848 / 497,473</td>
 <td>1,207,758 / 497,473</td>
 <td>$8.903616</td>
@@ -518,10 +546,10 @@
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>17</td>
-<td>0.640327</td>
-<td>50.94%</td>
-<td>-11.62 pp</td>
-<td>-1.82%</td>
+<td>0.700131</td>
+<td>56.84%</td>
+<td>-13.86 pp</td>
+<td>3.68%</td>
 <td>16,596,399 / 14,928,768 / 841,198</td>
 <td>1,667,631 / 841,198</td>
 <td>$14.732996</td>
@@ -532,24 +560,24 @@
 <tr>
 <td>Kimi K3</td>
 <td>18</td>
-<td>0.868798</td>
-<td>58.08%</td>
-<td>+11.23 pp</td>
-<td>12.19%</td>
+<td>0.934701</td>
+<td>64.24%</td>
+<td>+9.59 pp</td>
+<td>21.27%</td>
 <td>30,146,116 / 28,928,953 / 956,805</td>
 <td>1,217,163 / 956,805</td>
-<td>$26.682250</td>
-<td>¥179.76</td>
+<td>$24.687377</td>
+<td>¥166.32</td>
 <td>17/0/1/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
 <td>15</td>
-<td>0.578610</td>
-<td>44.01%</td>
-<td>-17.79 pp</td>
-<td>-14.37%</td>
+<td>0.674352</td>
+<td>53.58%</td>
+<td>-16.44 pp</td>
+<td>-8.14%</td>
 <td>69,131,259 / 62,497,004 / 705,776</td>
 <td>6,634,255 / 705,776</td>
 <td>$12.309627</td>
@@ -560,24 +588,24 @@
 <tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
 <td>18</td>
-<td>0.754457</td>
-<td>55.06%</td>
-<td>-0.21 pp</td>
-<td>9.94%</td>
+<td>0.830722</td>
+<td>62.24%</td>
+<td>-0.80 pp</td>
+<td>16.30%</td>
 <td>47,245,909 / 0 / 3,178,409</td>
 <td>47,245,909 / 3,178,409</td>
-<td>$29.378509</td>
-<td>¥197.92</td>
+<td>$18.215567</td>
+<td>¥122.72</td>
 <td>17/0/1/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
 <td>18</td>
-<td>0.655886</td>
-<td>48.94%</td>
-<td>-10.06 pp</td>
-<td>-1.46%</td>
+<td>0.724187</td>
+<td>55.09%</td>
+<td>-11.46 pp</td>
+<td>4.93%</td>
 <td>107,726,029 / 101,466,688 / 3,683,366</td>
 <td>6,259,341 / 3,683,366</td>
 <td>$2.912292</td>
@@ -588,10 +616,10 @@
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
 <td>18</td>
-<td>0.564887</td>
-<td>45.15%</td>
-<td>-19.16 pp</td>
-<td>-7.33%</td>
+<td>0.626646</td>
+<td>51.32%</td>
+<td>-21.21 pp</td>
+<td>-1.82%</td>
 <td>299,616,972 / 293,563,264 / 6,814,374</td>
 <td>6,053,708 / 6,814,374</td>
 <td>$8.807824</td>
@@ -602,10 +630,10 @@
 <tr>
 <td>Tencent Hy4 Preview</td>
 <td>18</td>
-<td>0.865183</td>
-<td>57.08%</td>
-<td>+10.87 pp</td>
-<td>11.70%</td>
+<td>0.912611</td>
+<td>61.82%</td>
+<td>+7.39 pp</td>
+<td>11.21%</td>
 <td>133,731,323 / 128,999,040 / 2,068,825</td>
 <td>4,732,283 / 2,068,825</td>
 <td>$14.538815</td>
@@ -629,75 +657,53 @@
 </tr></thead><tbody>
 <tr>
 <td>1</td>
-<td>Tencent Hy4 Preview</td>
-<td>57.08%</td>
-<td>11.70%</td>
-<td>57.08%</td>
-<td>11.70%</td>
-<td>0.865183</td>
+<td>codex + gpt-5.5 xhigh</td>
+<td>64.29%</td>
+<td>17.03%</td>
+<td>64.29%</td>
+<td>17.03%</td>
+<td>0.854280</td>
 <td>0</td>
-<td>¥97.95</td>
+<td>¥669.45</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Qwen3.8-27B-FP8 thinking</td>
-<td>55.06%</td>
-<td>9.94%</td>
-<td>55.06%</td>
-<td>9.94%</td>
-<td>0.754457</td>
+<td>62.24%</td>
+<td>16.30%</td>
+<td>62.24%</td>
+<td>16.30%</td>
+<td>0.830722</td>
 <td>0</td>
-<td>¥197.92</td>
+<td>¥122.72</td>
 </tr>
 <tr>
 <td>3</td>
-<td>GPT-5.6 SOL high</td>
-<td>55.00%</td>
-<td>8.52%</td>
-<td>55.00%</td>
-<td>8.08%</td>
-<td>0.841554</td>
+<td>opencode + deepseek-flash</td>
+<td>62.19%</td>
+<td>12.24%</td>
+<td>62.19%</td>
+<td>12.24%</td>
+<td>0.907032</td>
 <td>0</td>
-<td>¥59.98</td>
+<td>¥17.09</td>
 </tr>
 <tr>
 <td>4</td>
-<td>v4 pro</td>
-<td>51.42%</td>
-<td>2.28%</td>
-<td>51.42%</td>
-<td>2.28%</td>
-<td>0.618719</td>
+<td>Tencent Hy4 Preview</td>
+<td>61.82%</td>
+<td>11.21%</td>
+<td>61.82%</td>
+<td>11.21%</td>
+<td>0.912611</td>
 <td>0</td>
-<td>¥41.08</td>
-</tr>
-<tr>
-<td>5</td>
-<td>GPT-5.6 SOL xhigh</td>
-<td>50.94%</td>
-<td>-1.82%</td>
-<td>50.94%</td>
-<td>-1.82%</td>
-<td>0.640327</td>
-<td>0</td>
-<td>¥99.26</td>
-</tr>
-<tr>
-<td>6</td>
-<td>v4 flash baseline</td>
-<td>47.75%</td>
-<td>0.00%</td>
-<td>51.85%</td>
-<td>0.00%</td>
-<td>0.715506</td>
-<td>1: <code>cumcm-2023-a-heliostat-field</code></td>
-<td>¥6.27</td>
+<td>¥97.95</td>
 </tr>
 </tbody></table></div></section></div></section><section id="hard-gated-o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png" alt="HardGate O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-hard-gated-o-eval-bar.png">aa-style-2023-2025-hard-gated-o-eval-bar.png</a></figcaption></figure></section><section id="hard-gated-o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png" alt="HardGate O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png">aa-style-2023-2025-hard-gated-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="o-effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-bar.png" alt="O效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-bar.png">aa-style-2023-2025-o-eval-bar.png</a></figcaption></figure></section><section id="o-score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-cost-scatter.png" alt="O分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-cost-scatter.png">aa-style-2023-2025-o-eval-cost-scatter.png</a></figcaption></figure></section><section id="effect" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-effect-bar.png" alt="Robust效果" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-effect-bar.png">aa-style-2023-2025-boeval-effect-bar.png</a></figcaption></figure></section><section id="score-cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-boeval-score-cost.png" alt="Robust分数-cost" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-boeval-score-cost.png">aa-style-2023-2025-boeval-score-cost.png</a></figcaption></figure></section><section id="tokens" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-token-usage.png" alt="Token" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-token-usage.png">aa-style-2023-2025-token-usage.png</a></figcaption></figure></section><section id="cost" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-cost.png" alt="成本" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-cost.png">aa-style-2023-2025-cost.png</a></figcaption></figure></section><section id="year" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-year-split.png" alt="O年份" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-year-split.png">aa-style-2023-2025-o-eval-year-split.png</a></figcaption></figure></section><section id="suite" class="panel"><figure class="chart-frame"><img src="figures/aa-style-2023-2025-o-eval-suite-split.png" alt="O赛制" loading="lazy"><figcaption><a href="figures/aa-style-2023-2025-o-eval-suite-split.png">aa-style-2023-2025-o-eval-suite-split.png</a></figcaption></figure></section><section id="qwen-audit" class="panel prose"><h1>2023-2025 全模型答案可行性复核</h1>
-<p>生成日期：2026-09-09</p>
+<p>生成日期：2026-09-14</p>
 <h2>结论</h2>
 <p>这份复核不把 JSON 字段齐全、轨迹里写过代码或分数高，直接当成数学方案已经可行。可行性分成三层：题面硬约束明确违反时 hard-invalid；能用共同几何/运动学重放时报告 replay-feasible；开放题或缺少布局/代码时只能写 artifact-only，不能据此宣称方案已被独立验证。</p>
-<p>本轮共检查 198 个模型-题目单元。状态计数：artifact-only/calibrated-model=11, artifact-only/no-layout-replay=7, hard-invalid=6, missing-artifact=8, needs-review/decision-structure-pass=9, needs-review/lamprey-state-range-pass=11, needs-review/maasai-partition-pass=11, needs-review/model-layout-missing=5, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=1, needs-review/nipt-range-pass=10, needs-review/no-replenishment-schedule=6, needs-review/olympic-structure-pass=9, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/tourism-policy-range-pass=1, needs-review/tourism-scale-mismatch=9, range-clean/artifact-only=75, replay-feasible-under-O-geometry=9。</p>
+<p>本轮共检查 234 个模型-题目单元。状态计数：artifact-only/calibrated-model=13, artifact-only/no-layout-replay=9, hard-invalid=6, missing-artifact=8, needs-review/crop-planting-demand-cap-ambiguous=9, needs-review/crop-planting-summary-only=4, needs-review/decision-structure-pass=11, needs-review/lamprey-state-range-pass=13, needs-review/maasai-partition-pass=13, needs-review/model-layout-missing=7, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=2, needs-review/nipt-range-pass=11, needs-review/no-replenishment-schedule=8, needs-review/olympic-structure-pass=11, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/stair-wear-domain=1, needs-review/tourism-policy-range-pass=3, needs-review/tourism-scale-mismatch=9, range-clean/sic-thickness=13, range-clean/stair-wear-domain=12, range-clean/submersible-domain=13, range-clean/tennis-domain=12, range-clean/wordle-domain=12, replay-feasible-under-O-geometry=11, replay-feasible-under-O-geometry/dragon=13。</p>
 <p>新增确定性处罚：GLM-5.3 的 <code>cumcm-2023-a-heliostat-field</code> Q3 文字明确给出一面尾镜 <code>z=1.9024 m</code>，低于题面安装高度下限 2 m；v4 flash baseline 的 Q3 年平均热功率为 53.7955 MW，Gemini 3.7 Flash 的 Q2/Q3 年平均热功率为 55.460/54.966 MW，均未达到约 60 MW。这些是题面硬约束违反，进入 whole-task hard gate。此前对 Hy4 的 <code>cumcm-2024-b-production-decision</code>（SPRT 的 <code>c=-1</code> 哨兵）和 Juneau 中间年份 <code>sustainability_score&gt;100</code> 的判断是审计误报，已撤销；它们现在分别标为结构通过和量纲需复核。 多波束题补充了独立重放：GLM、ox-alpha、Kimi 和 Qwen 的 artifact 都保存了可读取的实际 Q4 测线坐标。GLM/ox-alpha 为 60 条线，在官方海深网格上覆盖率约 99.945%，存在少量漏测；Kimi 为 81 条线、覆盖率 100%，但约 79.6% 的相邻局部重叠超过 20%；Qwen 为 60 条线、覆盖率 100%，但只有约 14.8% 的局部重叠落在 10%–20%，约 36.2% 低于 10%，约 51.0% 高于 20%。这些结果说明覆盖几何可执行，但质量约束仍需复核，不能直接写成完全满足题面。Qwen 的 Q3 末条测线中心超出 4 海里边界约 4.17 m，仅作为边界约定警告。</p>
 <h2>烟幕题独立重放</h2>
 <p>统一采用题面导弹/无人机坐标、300 m/s 导弹、重力抛体、10 m 烟幕半径、20 s 有效期，以及 Outstanding 复现使用的 27 个目标采样点和 25% 覆盖阈值。重放不读取模型自报的遮蔽时长，只读取投放参数重新计算。</p>
@@ -712,6 +718,18 @@
 <td>v4 flash baseline</td>
 <td>22.23</td>
 <td>24.04</td>
+<td>replay-feasible-under-O-geometry</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td>47.243</td>
+<td>55.14</td>
+<td>replay-feasible-under-O-geometry</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>22.9656</td>
+<td>30.42</td>
 <td>replay-feasible-under-O-geometry</td>
 </tr>
 <tr>
@@ -949,6 +967,22 @@
 <td>final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact</td>
 </tr>
 <tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td><code>cumcm-2023-b-multibeam-lines</code></td>
+<td>2.543</td>
+<td>100.00%</td>
+<td>artifact-only/no-layout-replay</td>
+<td>final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td><code>cumcm-2023-b-multibeam-lines</code></td>
+<td>1.5661</td>
+<td>100.00%</td>
+<td>artifact-only/no-layout-replay</td>
+<td>final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact</td>
+</tr>
+<tr>
 <td>v4 pro</td>
 <td><code>cumcm-2023-b-multibeam-lines</code></td>
 <td>1.4961</td>
@@ -1005,12 +1039,116 @@
 <td>artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table</td>
 </tr>
 <tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td><code>cumcm-2023-c-vegetable-pricing</code></td>
+<td>1.6351</td>
+<td>100.00%</td>
+<td>needs-review/no-replenishment-schedule</td>
+<td>artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td><code>cumcm-2023-c-vegetable-pricing</code></td>
+<td>1.7142</td>
+<td>100.00%</td>
+<td>needs-review/no-replenishment-schedule</td>
+<td>artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table</td>
+</tr>
+<tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
 <td><code>cumcm-2024-b-production-decision</code></td>
 <td>1.4457</td>
 <td>100.00%</td>
 <td>needs-review/decision-structure-pass</td>
 <td>binary decisions and probability ranges pass basic checks</td>
+</tr>
+<tr>
+<td>GLM-5.3</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.5472</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-summary-only</td>
+<td>alpha=0 profit is within both the aggregate and per-plot demand-cap ceilings; correlation is a valid coefficient</td>
+</tr>
+<tr>
+<td>GLM-5.3-Flash (ox-alpha)</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.682</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=40,938,580 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>GPT-5.6 SOL high</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>2.0463</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=39,580,872 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>GPT-5.6 SOL xhigh</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.7643</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=42,309,825 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>Gemini 3.7 Flash high primary+retry</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>2.0716</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-summary-only</td>
+<td>alpha=0 profit is within both the aggregate and per-plot demand-cap ceilings; correlation is a valid coefficient</td>
+</tr>
+<tr>
+<td>Kimi K3</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.9955</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=39,009,320 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>Qwen3.8 Flash (Bailian)</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.6625</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=40,598,282 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>Qwen3.8-27B-FP8 thinking</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.9498</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=41,417,113 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>Tencent Hy4 Preview</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.9354</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-summary-only</td>
+<td>alpha=0 profit is within both the aggregate and per-plot demand-cap ceilings; correlation is a valid coefficient</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>2.131</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=40,320,587 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td><code>cumcm-2024-c-crop-planting</code></td>
+<td>1.752</td>
+<td>100.00%</td>
+<td>needs-review/crop-planting-demand-cap-ambiguous</td>
+<td>waste_profit_yuan=41,559,515 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.; waste_revenue_yuan=47,163,366 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper&#x27;s per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
@@ -1059,6 +1197,22 @@
 <td>100.00%</td>
 <td>replay-feasible-under-O-geometry</td>
 <td>reported total=62.8845 s; independent total=56.42 s</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td><code>cumcm-2025-a-smoke-screen</code></td>
+<td>1.8293</td>
+<td>100.00%</td>
+<td>replay-feasible-under-O-geometry</td>
+<td>reported total=22.9656 s; independent total=30.42 s</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td><code>cumcm-2025-a-smoke-screen</code></td>
+<td>3.5782</td>
+<td>100.00%</td>
+<td>replay-feasible-under-O-geometry</td>
+<td>reported total=47.243 s; independent total=55.14 s</td>
 </tr>
 <tr>
 <td>v4 pro</td>
@@ -1117,6 +1271,14 @@
 <td>timing, probability, and classification ranges pass basic checks</td>
 </tr>
 <tr>
+<td>opencode + deepseek-flash</td>
+<td><code>cumcm-2025-c-nipt</code></td>
+<td>1.2355</td>
+<td>100.00%</td>
+<td>needs-review/nipt-group-coverage</td>
+<td>observed BMI ranges have an uncovered gap (27.98, 28.13); observed BMI ranges have an uncovered gap (31.96, 32.01); observed BMI ranges have an uncovered gap (35.81, 36.08); observed BMI ranges have an uncovered gap (39.8, 40.57)</td>
+</tr>
+<tr>
 <td>v4 pro</td>
 <td><code>cumcm-2025-c-nipt</code></td>
 <td>1.3609</td>
@@ -1165,6 +1327,14 @@
 <td>the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations</td>
 </tr>
 <tr>
+<td>opencode + deepseek-flash</td>
+<td><code>mcm-2023-a-plant-community</code></td>
+<td>1.3409</td>
+<td>100.00%</td>
+<td>artifact-only/calibrated-model</td>
+<td>the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations</td>
+</tr>
+<tr>
 <td>v4 pro</td>
 <td><code>mcm-2023-a-plant-community</code></td>
 <td>1.1794</td>
@@ -1196,6 +1366,14 @@
 <td>hard-invalid</td>
 <td>invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0</td>
 </tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td><code>mcm-2025-c-olympic-medals</code></td>
+<td>1.3394</td>
+<td>100.00%</td>
+<td>needs-review/olympic-structure-pass</td>
+<td>recommendation count, probability ranges, and medal interval ordering pass basic checks</td>
+</tr>
 </tbody></table></div>
 <h2>多波束独立重放细节</h2>
 <p>Qwen 的 Q4 方案使用 60 条南北测线，位置范围约 0.02141–3.99624 NM；官方附件为 201×251 网格，深度范围 20–197.2 m。按 120° 开角、局部东西向坡度和多波束覆盖宽度逐网格重算，覆盖率为 100%，漏测率为 0%，相邻条带重叠超过 20% 的长度约 151.10 NM，平均重叠约 27.08%，与自报 147.98 NM 和 26.28% 接近。但逐网格的相邻重叠只有约 14.8% 落在题面建议的 10%–20% 区间，约 36.2% 低于 10%，约 51.0% 高于 20%，所以这是一份“覆盖可执行、质量约束需复核”的方案，不应写成完全满足题面质量要求。</p>
@@ -1206,12 +1384,12 @@
 <p>本轮只有证据充分的 whole-task 错误进入 hard-gated 榜：GLM 2023 A 定日镜高度、v4 flash 2023 A 额定功率、Gemini 2023 A 额定功率、Kimi 2025 B 的 unit/scale 错误、Kimi 2025 C 的推荐结构错误，以及既有的 ox-alpha 烟幕错误。Qwen 2023 A 因布局缺失保持 needs-review 不处罚；Qwen 2023 B 因覆盖几何通过但重叠质量超标改为 needs-review/overlap-quality-warning，不直接 hard gate；Qwen 2025 A 烟幕重放通过，不处罚；Hy4 的生产决策和 Juneau 不再处罚。原始 O-Eval 仍是主榜，hard-gated O-Eval 是可行性更保守的辅助榜，Robust BO-Eval 继续使用 hard-invalid=-100% 的失败惩罚。</p>
 <h2>复核边界</h2>
 <p>模型作答时生成的 <code>/root/results</code> 代码、Excel、CSV 和中间验证文件没有完整进入当前 Harbor artifact；因此本报告不会把轨迹中自报的“运行了仿真”当成独立证据。后续若要把某个开放题标成 verified feasible，应在 artifact 中保存最小可重放包：输入数据哈希、代码、参数、随机种子、约束检查结果和最终数值。</p></section><section id="report" class="panel prose"><h1>O-Eval and Robust BO-Eval: 2023-2025</h1>
-<p>Generated: 2026-09-09</p>
+<p>Generated: 2026-09-14</p>
 <p>Scope: 2023, 2024, and 2025 terminal-bench-math-modeling tasks, 18 tasks total. This report rescored saved artifacts only; it does not rerun models or modify job result files.</p>
 <p>Primary O-Eval rule: <code>clamp(model direction-aware raw / O raw, 0, 1)</code>, averaged over all 18 tasks. Since the O-award reproduction is normalized near raw=1 on these tasks, O-Eval is the easiest-to-read absolute oracle-normalized score, and overshoots are capped at 100%.</p>
 <p>Secondary Robust BO-Eval rule: let <code>gain = model raw - flash raw</code> and <code>gap = O raw - flash raw</code>. If <code>gap &gt;= 0.10</code>, score <code>clip(gain / gap, -100%, +100%)</code>; otherwise score <code>clip(gain, -10pp, +10pp)</code>. Normal completed tasks still use the clipped fallback on tiny-gap cases, but any missing or non-scoreable artifact is assigned <code>-100%</code> so a completely unfinished task gets the worst possible score.</p>
 <p>Tempered hard-gated rule: only clearly non-feasible cells are whole-task penalized. Automatic scorer hard-invalid metrics and manually replay-proven invalid high-score cells receive gated raw <code>0</code> for O-Eval and <code>-100%</code> for Robust BO-Eval. Needs-review/proxy cells remain scored but are not used as stronger-than-O claims without a better replay verifier.</p>
-<p>Robust ratio tasks with gap &gt;= 0.10: 12. Saturated or near-zero-gap tasks using clipped B-Eval: 6.</p>
+<p>Robust ratio tasks with gap &gt;= 0.10: 11. Saturated or near-zero-gap tasks using clipped B-Eval: 7.</p>
 <h2>Overall Mean</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -1231,38 +1409,66 @@
 <tr>
 <td>v4 flash baseline</td>
 <td>17</td>
-<td>0.756518</td>
-<td>51.85%</td>
+<td>0.838752</td>
+<td>58.14%</td>
 <td>+0.00 pp</td>
 <td>0.00%</td>
 <td>33,032,997 / 31,802,112 / 1,896,174</td>
 <td>1,230,885 / 1,896,174</td>
-<td>$0.930153</td>
-<td>¥6.27</td>
+<td>$0.683019</td>
+<td>¥4.60</td>
+<td>18/0/0/0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td>18</td>
+<td>0.907032</td>
+<td>62.19%</td>
+<td>+6.83 pp</td>
+<td>12.24%</td>
+<td>89,376,395 / 88,668,288 / 569,862</td>
+<td>708,107 / 569,862</td>
+<td>$2.536206</td>
+<td>¥17.09</td>
+<td>18/0/0/0</td>
+<td>6</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>18</td>
+<td>0.854280</td>
+<td>64.29%</td>
+<td>+1.55 pp</td>
+<td>17.03%</td>
+<td>108,584,170 / 105,199,744 / 994,910</td>
+<td>3,384,426 / 994,910</td>
+<td>$99.369302</td>
+<td>¥669.45</td>
 <td>18/0/0/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>v4 pro</td>
 <td>18</td>
-<td>0.618719</td>
-<td>51.42%</td>
-<td>-13.78 pp</td>
-<td>2.28%</td>
+<td>0.713865</td>
+<td>58.44%</td>
+<td>-12.49 pp</td>
+<td>6.91%</td>
 <td>21,309,105 / 20,096,768 / 1,748,356</td>
 <td>1,212,337 / 1,748,356</td>
-<td>$6.098169</td>
-<td>¥41.08</td>
+<td>$10.247542</td>
+<td>¥69.04</td>
 <td>18/0/0/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
 <td>18</td>
-<td>0.598189</td>
-<td>51.46%</td>
-<td>-15.83 pp</td>
-<td>5.45%</td>
+<td>0.646092</td>
+<td>56.25%</td>
+<td>-19.27 pp</td>
+<td>6.03%</td>
 <td>92,056,972 / 89,637,696 / 2,638,779</td>
 <td>2,419,276 / 2,638,779</td>
 <td>$38.303415</td>
@@ -1273,10 +1479,10 @@
 <tr>
 <td>GPT-5.6 SOL high</td>
 <td>18</td>
-<td>0.841554</td>
-<td>55.00%</td>
-<td>+8.50 pp</td>
-<td>8.08%</td>
+<td>0.892644</td>
+<td>60.10%</td>
+<td>+5.39 pp</td>
+<td>10.01%</td>
 <td>8,774,606 / 7,566,848 / 497,473</td>
 <td>1,207,758 / 497,473</td>
 <td>$8.903616</td>
@@ -1287,10 +1493,10 @@
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>17</td>
-<td>0.640327</td>
-<td>50.94%</td>
-<td>-11.62 pp</td>
-<td>-1.82%</td>
+<td>0.700131</td>
+<td>56.84%</td>
+<td>-13.86 pp</td>
+<td>3.68%</td>
 <td>16,596,399 / 14,928,768 / 841,198</td>
 <td>1,667,631 / 841,198</td>
 <td>$14.732996</td>
@@ -1301,24 +1507,24 @@
 <tr>
 <td>Kimi K3</td>
 <td>18</td>
-<td>0.868798</td>
-<td>58.08%</td>
-<td>+11.23 pp</td>
-<td>12.19%</td>
+<td>0.934701</td>
+<td>64.24%</td>
+<td>+9.59 pp</td>
+<td>21.27%</td>
 <td>30,146,116 / 28,928,953 / 956,805</td>
 <td>1,217,163 / 956,805</td>
-<td>$26.682250</td>
-<td>¥179.76</td>
+<td>$24.687377</td>
+<td>¥166.32</td>
 <td>17/0/1/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
 <td>15</td>
-<td>0.578610</td>
-<td>44.01%</td>
-<td>-17.79 pp</td>
-<td>-14.37%</td>
+<td>0.674352</td>
+<td>53.58%</td>
+<td>-16.44 pp</td>
+<td>-8.14%</td>
 <td>69,131,259 / 62,497,004 / 705,776</td>
 <td>6,634,255 / 705,776</td>
 <td>$12.309627</td>
@@ -1329,24 +1535,24 @@
 <tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
 <td>18</td>
-<td>0.754457</td>
-<td>55.06%</td>
-<td>-0.21 pp</td>
-<td>9.94%</td>
+<td>0.830722</td>
+<td>62.24%</td>
+<td>-0.80 pp</td>
+<td>16.30%</td>
 <td>47,245,909 / 0 / 3,178,409</td>
 <td>47,245,909 / 3,178,409</td>
-<td>$29.378509</td>
-<td>¥197.92</td>
+<td>$18.215567</td>
+<td>¥122.72</td>
 <td>17/0/1/0</td>
 <td>0</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
 <td>18</td>
-<td>0.655886</td>
-<td>48.94%</td>
-<td>-10.06 pp</td>
-<td>-1.46%</td>
+<td>0.724187</td>
+<td>55.09%</td>
+<td>-11.46 pp</td>
+<td>4.93%</td>
 <td>107,726,029 / 101,466,688 / 3,683,366</td>
 <td>6,259,341 / 3,683,366</td>
 <td>$2.912292</td>
@@ -1357,10 +1563,10 @@
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
 <td>18</td>
-<td>0.564887</td>
-<td>45.15%</td>
-<td>-19.16 pp</td>
-<td>-7.33%</td>
+<td>0.626646</td>
+<td>51.32%</td>
+<td>-21.21 pp</td>
+<td>-1.82%</td>
 <td>299,616,972 / 293,563,264 / 6,814,374</td>
 <td>6,053,708 / 6,814,374</td>
 <td>$8.807824</td>
@@ -1371,10 +1577,10 @@
 <tr>
 <td>Tencent Hy4 Preview</td>
 <td>18</td>
-<td>0.865183</td>
-<td>57.08%</td>
-<td>+10.87 pp</td>
-<td>11.70%</td>
+<td>0.912611</td>
+<td>61.82%</td>
+<td>+7.39 pp</td>
+<td>11.21%</td>
 <td>133,731,323 / 128,999,040 / 2,068,825</td>
 <td>4,732,283 / 2,068,825</td>
 <td>$14.538815</td>
@@ -1398,122 +1604,144 @@
 </tr></thead><tbody>
 <tr>
 <td>1</td>
-<td>Tencent Hy4 Preview</td>
-<td>57.08%</td>
-<td>11.70%</td>
-<td>57.08%</td>
-<td>11.70%</td>
-<td>0.865183</td>
+<td>codex + gpt-5.5 xhigh</td>
+<td>64.29%</td>
+<td>17.03%</td>
+<td>64.29%</td>
+<td>17.03%</td>
+<td>0.854280</td>
 <td>0</td>
-<td>¥97.95</td>
+<td>¥669.45</td>
 </tr>
 <tr>
 <td>2</td>
 <td>Qwen3.8-27B-FP8 thinking</td>
-<td>55.06%</td>
-<td>9.94%</td>
-<td>55.06%</td>
-<td>9.94%</td>
-<td>0.754457</td>
+<td>62.24%</td>
+<td>16.30%</td>
+<td>62.24%</td>
+<td>16.30%</td>
+<td>0.830722</td>
 <td>0</td>
-<td>¥197.92</td>
+<td>¥122.72</td>
 </tr>
 <tr>
 <td>3</td>
+<td>opencode + deepseek-flash</td>
+<td>62.19%</td>
+<td>12.24%</td>
+<td>62.19%</td>
+<td>12.24%</td>
+<td>0.907032</td>
+<td>0</td>
+<td>¥17.09</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Tencent Hy4 Preview</td>
+<td>61.82%</td>
+<td>11.21%</td>
+<td>61.82%</td>
+<td>11.21%</td>
+<td>0.912611</td>
+<td>0</td>
+<td>¥97.95</td>
+</tr>
+<tr>
+<td>5</td>
 <td>GPT-5.6 SOL high</td>
-<td>55.00%</td>
-<td>8.52%</td>
-<td>55.00%</td>
-<td>8.08%</td>
-<td>0.841554</td>
+<td>60.10%</td>
+<td>10.45%</td>
+<td>60.10%</td>
+<td>10.01%</td>
+<td>0.892644</td>
 <td>0</td>
 <td>¥59.98</td>
 </tr>
 <tr>
-<td>4</td>
+<td>6</td>
 <td>v4 pro</td>
-<td>51.42%</td>
-<td>2.28%</td>
-<td>51.42%</td>
-<td>2.28%</td>
-<td>0.618719</td>
+<td>58.44%</td>
+<td>6.91%</td>
+<td>58.44%</td>
+<td>6.91%</td>
+<td>0.713865</td>
 <td>0</td>
-<td>¥41.08</td>
+<td>¥69.04</td>
 </tr>
 <tr>
-<td>5</td>
+<td>7</td>
 <td>GPT-5.6 SOL xhigh</td>
-<td>50.94%</td>
-<td>-1.82%</td>
-<td>50.94%</td>
-<td>-1.82%</td>
-<td>0.640327</td>
+<td>56.84%</td>
+<td>3.68%</td>
+<td>56.84%</td>
+<td>3.68%</td>
+<td>0.700131</td>
 <td>0</td>
 <td>¥99.26</td>
 </tr>
 <tr>
-<td>6</td>
-<td>v4 flash baseline</td>
-<td>47.75%</td>
-<td>0.00%</td>
-<td>51.85%</td>
-<td>0.00%</td>
-<td>0.715506</td>
-<td>1: <code>cumcm-2023-a-heliostat-field</code></td>
-<td>¥6.27</td>
-</tr>
-<tr>
-<td>7</td>
-<td>Kimi K3</td>
-<td>46.97%</td>
-<td>-4.64%</td>
-<td>58.08%</td>
-<td>12.19%</td>
-<td>0.621262</td>
-<td>2: <code>mcm-2025-b-juneau-tourism</code>, <code>mcm-2025-c-olympic-medals</code></td>
-<td>¥179.76</td>
-</tr>
-<tr>
 <td>8</td>
-<td>GLM-5.3</td>
-<td>45.91%</td>
-<td>-5.66%</td>
-<td>51.46%</td>
-<td>5.45%</td>
-<td>0.520770</td>
+<td>v4 flash baseline</td>
+<td>54.04%</td>
+<td>0.00%</td>
+<td>58.14%</td>
+<td>0.00%</td>
+<td>0.797740</td>
 <td>1: <code>cumcm-2023-a-heliostat-field</code></td>
-<td>¥258.05</td>
+<td>¥4.60</td>
 </tr>
 <tr>
 <td>9</td>
+<td>Kimi K3</td>
+<td>53.13%</td>
+<td>4.43%</td>
+<td>64.24%</td>
+<td>21.27%</td>
+<td>0.687166</td>
+<td>2: <code>mcm-2025-b-juneau-tourism</code>, <code>mcm-2025-c-olympic-medals</code></td>
+<td>¥166.32</td>
+</tr>
+<tr>
+<td>10</td>
 <td>Qwen3.8 Flash (Bailian)</td>
-<td>45.15%</td>
-<td>-7.33%</td>
-<td>45.15%</td>
-<td>-7.33%</td>
-<td>0.564887</td>
+<td>51.32%</td>
+<td>-1.82%</td>
+<td>51.32%</td>
+<td>-1.82%</td>
+<td>0.626646</td>
 <td>0</td>
 <td>¥59.34</td>
 </tr>
 <tr>
-<td>10</td>
+<td>11</td>
+<td>GLM-5.3</td>
+<td>50.70%</td>
+<td>-5.09%</td>
+<td>56.25%</td>
+<td>6.03%</td>
+<td>0.568674</td>
+<td>1: <code>cumcm-2023-a-heliostat-field</code></td>
+<td>¥258.05</td>
+</tr>
+<tr>
+<td>12</td>
 <td>GLM-5.3-Flash (ox-alpha)</td>
-<td>43.38%</td>
-<td>-7.57%</td>
-<td>48.94%</td>
-<td>-1.46%</td>
-<td>0.514071</td>
+<td>49.53%</td>
+<td>-1.18%</td>
+<td>55.09%</td>
+<td>4.93%</td>
+<td>0.582372</td>
 <td>1: <code>cumcm-2025-a-smoke-screen</code></td>
 <td>¥19.62</td>
 </tr>
 <tr>
-<td>11</td>
+<td>13</td>
 <td>Gemini 3.7 Flash high primary+retry</td>
-<td>38.63%</td>
-<td>-24.82%</td>
-<td>44.01%</td>
-<td>-14.37%</td>
-<td>0.524776</td>
+<td>48.20%</td>
+<td>-18.60%</td>
+<td>53.58%</td>
+<td>-8.14%</td>
+<td>0.620518</td>
 <td>1: <code>cumcm-2023-a-heliostat-field</code></td>
 <td>¥82.93</td>
 </tr>
@@ -1599,7 +1827,7 @@
 </tr>
 </tbody></table></div>
 <h2>Primary Readout</h2>
-<ul><li>18-task primary O-Eval ranking: Kimi K3 (58.08%) &gt; Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; GLM-5.3 (51.46%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.94%) &gt; GLM-5.3-Flash (ox-alpha) (48.94%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; Gemini 3.7 Flash high primary+retry (44.01%).</li><li>Tempered hard-gated O-Eval ranking: Tencent Hy4 Preview (57.08%) &gt; Qwen3.8-27B-FP8 thinking (55.06%) &gt; GPT-5.6 SOL high (55.00%) &gt; v4 pro (51.42%) &gt; GPT-5.6 SOL xhigh (50.94%) &gt; Kimi K3 (46.97%) &gt; GLM-5.3 (45.91%) &gt; Qwen3.8 Flash (Bailian) (45.15%) &gt; GLM-5.3-Flash (ox-alpha) (43.38%) &gt; Gemini 3.7 Flash high primary+retry (38.63%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (12.19%) &gt; Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.08%) &gt; GLM-5.3 (5.45%) &gt; v4 pro (2.28%) &gt; GLM-5.3-Flash (ox-alpha) (-1.46%) &gt; GPT-5.6 SOL xhigh (-1.82%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; Gemini 3.7 Flash high primary+retry (-14.37%).</li><li>Tempered hard-gated Robust BO-Eval ranking: Tencent Hy4 Preview (11.70%) &gt; Qwen3.8-27B-FP8 thinking (9.94%) &gt; GPT-5.6 SOL high (8.52%) &gt; v4 pro (2.28%) &gt; GPT-5.6 SOL xhigh (-1.82%) &gt; Kimi K3 (-4.64%) &gt; GLM-5.3 (-5.66%) &gt; Qwen3.8 Flash (Bailian) (-7.33%) &gt; GLM-5.3-Flash (ox-alpha) (-7.57%) &gt; Gemini 3.7 Flash high primary+retry (-24.82%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
+<ul><li>18-task primary O-Eval ranking: codex + gpt-5.5 xhigh (64.29%) &gt; Kimi K3 (64.24%) &gt; Qwen3.8-27B-FP8 thinking (62.24%) &gt; opencode + deepseek-flash (62.19%) &gt; Tencent Hy4 Preview (61.82%) &gt; GPT-5.6 SOL high (60.10%) &gt; v4 pro (58.44%) &gt; GPT-5.6 SOL xhigh (56.84%) &gt; GLM-5.3 (56.25%) &gt; GLM-5.3-Flash (ox-alpha) (55.09%) &gt; Gemini 3.7 Flash high primary+retry (53.58%) &gt; Qwen3.8 Flash (Bailian) (51.32%).</li><li>Tempered hard-gated O-Eval ranking: codex + gpt-5.5 xhigh (64.29%) &gt; Qwen3.8-27B-FP8 thinking (62.24%) &gt; opencode + deepseek-flash (62.19%) &gt; Tencent Hy4 Preview (61.82%) &gt; GPT-5.6 SOL high (60.10%) &gt; v4 pro (58.44%) &gt; GPT-5.6 SOL xhigh (56.84%) &gt; Kimi K3 (53.13%) &gt; Qwen3.8 Flash (Bailian) (51.32%) &gt; GLM-5.3 (50.70%) &gt; GLM-5.3-Flash (ox-alpha) (49.53%) &gt; Gemini 3.7 Flash high primary+retry (48.20%).</li><li>Secondary Robust BO-Eval ranking: Kimi K3 (21.27%) &gt; codex + gpt-5.5 xhigh (17.03%) &gt; Qwen3.8-27B-FP8 thinking (16.30%) &gt; opencode + deepseek-flash (12.24%) &gt; Tencent Hy4 Preview (11.21%) &gt; GPT-5.6 SOL high (10.01%) &gt; v4 pro (6.91%) &gt; GLM-5.3 (6.03%) &gt; GLM-5.3-Flash (ox-alpha) (4.93%) &gt; GPT-5.6 SOL xhigh (3.68%) &gt; Qwen3.8 Flash (Bailian) (-1.82%) &gt; Gemini 3.7 Flash high primary+retry (-8.14%).</li><li>Tempered hard-gated Robust BO-Eval ranking: codex + gpt-5.5 xhigh (17.03%) &gt; Qwen3.8-27B-FP8 thinking (16.30%) &gt; opencode + deepseek-flash (12.24%) &gt; Tencent Hy4 Preview (11.21%) &gt; GPT-5.6 SOL high (10.45%) &gt; v4 pro (6.91%) &gt; Kimi K3 (4.43%) &gt; GPT-5.6 SOL xhigh (3.68%) &gt; GLM-5.3-Flash (ox-alpha) (-1.18%) &gt; Qwen3.8 Flash (Bailian) (-1.82%) &gt; GLM-5.3 (-5.09%) &gt; Gemini 3.7 Flash high primary+retry (-18.60%).</li><li>These two metrics are complementary, not competing: O-Eval is the absolute oracle-normalized score for the headline leaderboard, while Robust BO-Eval is the baseline-relative gain view. If the rankings disagree, it usually means a model is closer to O in absolute terms but does not pull as far ahead of flash, or it gains a lot on a few weak-baseline tasks without being closest overall. This report therefore uses O-Eval as the final ranking and Robust BO-Eval as a diagnostic view.</li><li>The hard-gated tables are the cautious public-facing view: they keep the normal O-Eval leaderboard visible, but remove credit from cells that are clearly not feasible solutions.</li><li>The GLM-5.3-Flash vs DeepSeek flash difference is a good example: Robust can favor the model that moves farther above flash, while O-Eval still favors the model that lands closer to the oracle anchor.</li><li>v4 flash baseline now uses the 4-hour rerun jobs: <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-cumcm</code> and <code>terminus2-deepseek-v4-flash-0731-rerun-2023-2025-mcm</code>.</li><li>Cost is estimated from OpenRouter model catalog prices (<code>prompt</code>, <code>input_cache_read</code>, <code>input_cache_write</code>, <code>completion</code>) converted from USD/token to RMB/M tokens at USD/CNY=6.737012.</li><li>Token/cost totals use exactly one canonical trial per model x task. A valid artifact outranks a live trajectory; retries are retained in the audit but excluded from these totals.</li><li>Cost is an evaluation-normalized estimate, not the actual OpenRouter Activity/Usage bill. Activity/Usage includes every request from retries and is the authority for actual spend.</li><li>Cache-hit input is charged using <code>input_cache_read</code>; explicit cache write/create is not added because trial result files expose no cache-write token counter.</li><li>No peer-average cache imputation is used. Cache tokens in this report are the raw per-trial counters; Qwen3.8 Flash uses the supplied OpenRouter cached-read price.</li><li>Fixed monitored prices: GLM-5.3-Flash (ox-alpha) input $0.075/M, cached read $0.015/M, output $0.25/M; Qwen3.8 Flash (Bailian) input $0.15/M, cached read $0.016/M, cached write $0.20/M, output $0.47/M. The requested estimate uses input, cached-read, and output counters; no cache-write token counter is available.</li><li>GLM-5.3-Flash (ox-alpha) has 17 valid completed tasks and one final model-timeout failure on <code>cumcm-2023-a-heliostat-field</code>; that task is excluded from valid results and will not be retried.</li><li>Per-task selection audit: <code>model-token-audit-2023-2025.json</code>.</li><li>Price snapshot used by this run: <code>openrouter-pricing-used-2023-2025.json</code>.</li><li>Claude Opus 5 is not listed because no completed artifacts were present in the workspace for the 18-task scope.</li></ul>
 <h2>Price Table</h2>
 <div class="table-wrap"><table>
 <thead><tr>
@@ -1615,19 +1843,37 @@
 <td>v4 flash baseline</td>
 <td><code>deepseek/deepseek-v4-flash-0731</code></td>
 <td>OpenRouter live</td>
-<td>¥0.4379/M</td>
-<td>¥0.1078/M</td>
+<td>¥0.4042/M</td>
+<td>¥0.0808/M</td>
 <td>N/A</td>
-<td>¥1.2127/M</td>
+<td>¥0.8084/M</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td><code>deepseek/deepseek-v4.1-flash</code></td>
+<td>OpenRouter live</td>
+<td>¥2.0211/M</td>
+<td>¥0.0404/M</td>
+<td>N/A</td>
+<td>¥8.0844/M</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td><code>openai/gpt-5.5</code></td>
+<td>OpenRouter live</td>
+<td>¥33.6851/M</td>
+<td>¥3.3685/M</td>
+<td>N/A</td>
+<td>¥202.1104/M</td>
 </tr>
 <tr>
 <td>v4 pro</td>
 <td><code>deepseek/deepseek-v4-pro</code></td>
 <td>OpenRouter live</td>
-<td>¥6.4356/M</td>
-<td>¥0.5363/M</td>
+<td>¥10.7792/M</td>
+<td>¥0.9095/M</td>
 <td>N/A</td>
-<td>¥12.8712/M</td>
+<td>¥21.5584/M</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
@@ -1660,10 +1906,10 @@
 <td>Kimi K3</td>
 <td><code>moonshotai/kimi-k3</code></td>
 <td>OpenRouter live</td>
-<td>¥20.2110/M</td>
-<td>¥2.0211/M</td>
+<td>¥17.8405/M</td>
+<td>¥2.0389/M</td>
 <td>N/A</td>
-<td>¥101.0552/M</td>
+<td>¥89.4859/M</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
@@ -1678,10 +1924,10 @@
 <td>Qwen3.8-27B-FP8 thinking</td>
 <td><code>qwen/qwen3.8-27b</code></td>
 <td>OpenRouter live</td>
-<td>¥2.8295/M</td>
-<td>¥0.5726/M</td>
+<td>¥1.4417/M</td>
+<td>¥1.0106/M</td>
 <td>¥3.5790/M</td>
-<td>¥20.2110/M</td>
+<td>¥17.1794/M</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
@@ -1724,68 +1970,80 @@
 <tr>
 <td>v4 flash baseline</td>
 <td>67.74%</td>
-<td>28.62%</td>
-<td>59.18%</td>
+<td>39.66%</td>
+<td>67.03%</td>
+</tr>
+<tr>
+<td>opencode + deepseek-flash</td>
+<td>77.94%</td>
+<td>48.40%</td>
+<td>60.23%</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>66.93%</td>
+<td>63.53%</td>
+<td>62.39%</td>
 </tr>
 <tr>
 <td>v4 pro</td>
 <td>62.17%</td>
-<td>33.58%</td>
-<td>58.51%</td>
+<td>56.92%</td>
+<td>56.23%</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
 <td>65.89%</td>
-<td>32.36%</td>
-<td>56.14%</td>
+<td>40.12%</td>
+<td>62.76%</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL high</td>
 <td>78.80%</td>
-<td>34.99%</td>
-<td>51.20%</td>
+<td>45.39%</td>
+<td>56.12%</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>55.56%</td>
-<td>45.07%</td>
-<td>52.20%</td>
+<td>57.06%</td>
+<td>57.90%</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
 <td>62.00%</td>
-<td>38.29%</td>
-<td>73.94%</td>
+<td>51.89%</td>
+<td>78.83%</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
 <td>59.63%</td>
-<td>22.24%</td>
-<td>50.17%</td>
+<td>44.05%</td>
+<td>57.08%</td>
 </tr>
 <tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
 <td>76.73%</td>
-<td>45.39%</td>
-<td>43.07%</td>
+<td>64.08%</td>
+<td>45.90%</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
 <td>60.91%</td>
-<td>44.31%</td>
-<td>41.59%</td>
+<td>56.39%</td>
+<td>47.97%</td>
 </tr>
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
 <td>57.70%</td>
-<td>24.96%</td>
-<td>52.79%</td>
+<td>38.06%</td>
+<td>58.22%</td>
 </tr>
 <tr>
 <td>Tencent Hy4 Preview</td>
 <td>82.82%</td>
-<td>32.15%</td>
-<td>56.27%</td>
+<td>43.08%</td>
+<td>59.57%</td>
 </tr>
 </tbody></table></div>
 <h2>Suite Mean O-Eval</h2>
@@ -1797,57 +2055,67 @@
 </tr></thead><tbody>
 <tr>
 <td>v4 flash baseline</td>
-<td>66.66%</td>
+<td>79.24%</td>
 <td>37.04%</td>
 </tr>
 <tr>
+<td>opencode + deepseek-flash</td>
+<td>87.82%</td>
+<td>36.55%</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>88.23%</td>
+<td>40.34%</td>
+</tr>
+<tr>
 <td>v4 pro</td>
-<td>64.02%</td>
+<td>78.07%</td>
 <td>38.81%</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
-<td>58.46%</td>
+<td>68.05%</td>
 <td>44.46%</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL high</td>
-<td>71.68%</td>
+<td>81.89%</td>
 <td>38.31%</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>57.10%</td>
+<td>68.89%</td>
 <td>44.79%</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
-<td>73.49%</td>
+<td>85.82%</td>
 <td>42.67%</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
-<td>68.82%</td>
+<td>87.97%</td>
 <td>19.20%</td>
 </tr>
 <tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
-<td>72.93%</td>
+<td>87.28%</td>
 <td>37.20%</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
-<td>60.81%</td>
+<td>73.12%</td>
 <td>37.06%</td>
 </tr>
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
-<td>55.46%</td>
+<td>67.81%</td>
 <td>34.84%</td>
 </tr>
 <tr>
 <td>Tencent Hy4 Preview</td>
-<td>68.46%</td>
+<td>77.94%</td>
 <td>45.70%</td>
 </tr>
 </tbody></table></div>
@@ -1866,64 +2134,76 @@
 <td>0.00%</td>
 </tr>
 <tr>
+<td>opencode + deepseek-flash</td>
+<td>22.00%</td>
+<td>24.98%</td>
+<td>-10.25%</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>14.93%</td>
+<td>45.70%</td>
+<td>-9.55%</td>
+</tr>
+<tr>
 <td>v4 pro</td>
 <td>9.43%</td>
-<td>-2.00%</td>
-<td>-0.58%</td>
+<td>27.49%</td>
+<td>-16.18%</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
 <td>19.52%</td>
-<td>-0.26%</td>
-<td>-2.90%</td>
+<td>5.94%</td>
+<td>-7.38%</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL high</td>
 <td>22.65%</td>
-<td>1.11%</td>
-<td>0.49%</td>
+<td>21.52%</td>
+<td>-14.13%</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
 <td>-20.25%</td>
-<td>16.09%</td>
-<td>-1.29%</td>
+<td>40.49%</td>
+<td>-9.21%</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
 <td>9.51%</td>
-<td>5.34%</td>
-<td>21.73%</td>
+<td>38.23%</td>
+<td>16.06%</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
 <td>-4.74%</td>
-<td>-28.71%</td>
-<td>-9.66%</td>
+<td>-6.87%</td>
+<td>-12.83%</td>
 </tr>
 <tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
 <td>19.69%</td>
-<td>13.71%</td>
-<td>-3.59%</td>
+<td>47.01%</td>
+<td>-17.79%</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
 <td>-12.77%</td>
-<td>15.47%</td>
-<td>-7.08%</td>
+<td>39.99%</td>
+<td>-12.44%</td>
 </tr>
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
 <td>9.30%</td>
-<td>-27.00%</td>
-<td>-4.30%</td>
+<td>-2.52%</td>
+<td>-12.25%</td>
 </tr>
 <tr>
 <td>Tencent Hy4 Preview</td>
 <td>29.83%</td>
-<td>-1.68%</td>
-<td>6.94%</td>
+<td>12.65%</td>
+<td>-8.84%</td>
 </tr>
 </tbody></table></div>
 <h2>Suite Mean Robust BO-Eval</h2>
@@ -1943,71 +2223,85 @@
 <td>9</td>
 </tr>
 <tr>
+<td>opencode + deepseek-flash</td>
+<td>24.62%</td>
+<td>-0.13%</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
+<td>codex + gpt-5.5 xhigh</td>
+<td>27.16%</td>
+<td>6.89%</td>
+<td>9</td>
+<td>9</td>
+</tr>
+<tr>
 <td>v4 pro</td>
-<td>2.14%</td>
+<td>11.41%</td>
 <td>2.42%</td>
 <td>9</td>
 <td>9</td>
 </tr>
 <tr>
 <td>GLM-5.3</td>
-<td>0.41%</td>
+<td>1.56%</td>
 <td>10.49%</td>
 <td>9</td>
 <td>9</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL high</td>
-<td>8.53%</td>
+<td>12.39%</td>
 <td>7.63%</td>
 <td>9</td>
 <td>9</td>
 </tr>
 <tr>
 <td>GPT-5.6 SOL xhigh</td>
-<td>-15.34%</td>
+<td>-4.35%</td>
 <td>11.70%</td>
 <td>8</td>
 <td>9</td>
 </tr>
 <tr>
 <td>Kimi K3</td>
-<td>8.86%</td>
+<td>27.00%</td>
 <td>15.53%</td>
 <td>9</td>
 <td>9</td>
 </tr>
 <tr>
 <td>Gemini 3.7 Flash high primary+retry</td>
-<td>0.89%</td>
+<td>13.34%</td>
 <td>-29.63%</td>
 <td>9</td>
 <td>6</td>
 </tr>
 <tr>
 <td>Qwen3.8-27B-FP8 thinking</td>
-<td>8.66%</td>
+<td>21.38%</td>
 <td>11.21%</td>
 <td>9</td>
 <td>9</td>
 </tr>
 <tr>
 <td>GLM-5.3-Flash (ox-alpha)</td>
-<td>-13.86%</td>
+<td>-1.08%</td>
 <td>10.94%</td>
 <td>8</td>
 <td>9</td>
 </tr>
 <tr>
 <td>Qwen3.8 Flash (Bailian)</td>
-<td>-20.16%</td>
+<td>-9.14%</td>
 <td>5.49%</td>
 <td>7</td>
 <td>9</td>
 </tr>
 <tr>
 <td>Tencent Hy4 Preview</td>
-<td>5.45%</td>
+<td>4.48%</td>
 <td>17.94%</td>
 <td>9</td>
 <td>9</td>
@@ -2037,6 +2331,14 @@
 <td>C</td>
 <td><code>cumcm-2023-c-vegetable-pricing</code></td>
 <td>2.550299</td>
+<td>1.000000</td>
+</tr>
+<tr>
+<td>2024</td>
+<td>CUMCM</td>
+<td>A</td>
+<td><code>cumcm-2024-a-dragon-dance</code></td>
+<td>1.347590</td>
 <td>1.000000</td>
 </tr>
 <tr>
@@ -2081,6 +2383,8 @@
 <th>Problem</th>
 <th>Task</th>
 <th>v4 flash baseline</th>
+<th>opencode + deepseek-flash</th>
+<th>codex + gpt-5.5 xhigh</th>
 <th>v4 pro</th>
 <th>GLM-5.3</th>
 <th>GPT-5.6 SOL high</th>
@@ -2099,6 +2403,8 @@
 <td>A</td>
 <td><code>cumcm-2023-a-heliostat-field</code></td>
 <td>0.738213 / 73.82% / 0.00% / 0.00%</td>
+<td>1.103930 / 100.00% / 139.70% / 100.00%</td>
+<td>1.097346 / 100.00% / 137.19% / 100.00%</td>
 <td>1.312936 / 100.00% / 219.54% / 100.00%</td>
 <td>1.393536 / 100.00% / 250.33% / 100.00%</td>
 <td>0.971969 / 97.20% / 89.29% / 89.29%</td>
@@ -2117,6 +2423,8 @@
 <td>B</td>
 <td><code>cumcm-2023-b-multibeam-lines</code></td>
 <td>1.492402 / 100.00% / 0.00% / 0.00%</td>
+<td>1.566098 / 100.00% / N/A / 7.37%</td>
+<td>2.542996 / 100.00% / N/A / 10.00%</td>
 <td>1.496072 / 100.00% / N/A / 0.37%</td>
 <td>1.500666 / 100.00% / N/A / 0.83%</td>
 <td>2.425664 / 100.00% / N/A / 10.00%</td>
@@ -2135,6 +2443,8 @@
 <td>C</td>
 <td><code>cumcm-2023-c-vegetable-pricing</code></td>
 <td>2.550299 / 100.00% / 0.00% / 0.00%</td>
+<td>1.714187 / 100.00% / N/A / -10.00%</td>
+<td>1.635081 / 100.00% / N/A / -10.00%</td>
 <td>0.597918 / 59.79% / N/A / -10.00%</td>
 <td>0.355098 / 35.51% / N/A / -10.00%</td>
 <td>1.589944 / 100.00% / N/A / -10.00%</td>
@@ -2152,17 +2462,19 @@
 <td>CUMCM</td>
 <td>A</td>
 <td><code>cumcm-2024-a-dragon-dance</code></td>
-<td>0.722875 / 72.29% / 0.00% / 0.00%</td>
-<td>0.254589 / 25.46% / 0.00% / -100.00%</td>
-<td>0.203536 / 20.35% / 0.00% / -100.00%</td>
-<td>0.203536 / 20.35% / 0.00% / -100.00%</td>
-<td>0.203536 / 20.35% / 0.00% / -100.00%</td>
-<td>0.068138 / 6.81% / 0.00% / -100.00%</td>
-<td>0.254590 / 25.46% / 0.00% / -100.00%</td>
-<td>0.203541 / 20.35% / 0.00% / -100.00%</td>
-<td>0.203536 / 20.35% / 0.00% / -100.00%</td>
-<td>0.203536 / 20.35% / 0.00% / -100.00%</td>
-<td>0.203536 / 20.35% / 0.00% / -100.00%</td>
+<td>1.347590 / 100.00% / 0.00% / 0.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.999998 / 100.00% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.075390 / 7.54% / N/A / -10.00%</td>
+<td>1.000000 / 100.00% / N/A / -10.00%</td>
+<td>0.498231 / 49.82% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
+<td>0.498202 / 49.82% / N/A / -10.00%</td>
 <td>1.000000</td>
 </tr>
 <tr>
@@ -2171,6 +2483,8 @@
 <td>B</td>
 <td><code>cumcm-2024-b-production-decision</code></td>
 <td>0.000000 / 0.00% / 0.00% / 0.00%</td>
+<td>0.737706 / 73.77% / 73.77% / 73.77%</td>
+<td>0.788883 / 78.89% / 78.89% / 78.89%</td>
 <td>0.318573 / 31.86% / 31.86% / 31.86%</td>
 <td>0.257329 / 25.73% / 25.73% / 25.73%</td>
 <td>0.444542 / 44.45% / 44.45% / 44.45%</td>
@@ -2188,17 +2502,19 @@
 <td>CUMCM</td>
 <td>C</td>
 <td><code>cumcm-2024-c-crop-planting</code></td>
-<td>0.246679 / 24.67% / 0.00% / 0.00%</td>
-<td>0.345043 / 34.50% / 13.06% / 13.06%</td>
-<td>0.285151 / 28.52% / 5.11% / 5.11%</td>
-<td>0.588775 / 58.88% / 45.41% / 45.41%</td>
-<td>0.575125 / 57.51% / 43.60% / 43.60%</td>
-<td>0.191121 / 19.11% / 0.00% / -7.38%</td>
-<td>0.193549 / 19.35% / 0.00% / -7.05%</td>
-<td>0.172944 / 17.29% / 0.00% / -9.79%</td>
-<td>0.569595 / 56.96% / 42.87% / 42.87%</td>
-<td>0.448288 / 44.83% / 26.76% / 26.76%</td>
-<td>0.264186 / 26.42% / 2.32% / 2.32%</td>
+<td>0.631481 / 63.15% / 0.00% / 0.00%</td>
+<td>1.593766 / 100.00% / 261.12% / 100.00%</td>
+<td>1.361571 / 100.00% / 198.11% / 100.00%</td>
+<td>1.448533 / 100.00% / 221.71% / 100.00%</td>
+<td>0.455660 / 45.57% / 0.00% / -47.71%</td>
+<td>0.918474 / 91.85% / 77.88% / 77.88%</td>
+<td>1.015015 / 100.00% / 104.07% / 100.00%</td>
+<td>1.076446 / 100.00% / 120.74% / 100.00%</td>
+<td>0.756826 / 75.68% / 34.01% / 34.01%</td>
+<td>1.081087 / 100.00% / 122.00% / 100.00%</td>
+<td>1.121885 / 100.00% / 133.07% / 100.00%</td>
+<td>0.939687 / 93.97% / 83.63% / 83.63%</td>
+<td>0.625186 / 62.52% / 0.00% / -1.71%</td>
 <td>1.000000</td>
 </tr>
 <tr>
@@ -2207,6 +2523,8 @@
 <td>A</td>
 <td><code>cumcm-2025-a-smoke-screen</code></td>
 <td>1.527989 / 100.00% / 0.00% / 0.00%</td>
+<td>3.578239 / 100.00% / N/A / 10.00%</td>
+<td>1.829285 / 100.00% / N/A / 10.00%</td>
 <td>1.532372 / 100.00% / N/A / 0.44%</td>
 <td>0.854445 / 85.44% / N/A / -10.00%</td>
 <td>3.416382 / 100.00% / N/A / 10.00%</td>
@@ -2224,17 +2542,19 @@
 <td>CUMCM</td>
 <td>B</td>
 <td><code>cumcm-2025-b-sic-thickness</code></td>
-<td>0.291621 / 29.16% / 0.00% / 0.00%</td>
-<td>0.246099 / 24.61% / 0.00% / -6.43%</td>
-<td>0.306245 / 30.62% / 2.06% / 2.06%</td>
-<td>0.242011 / 24.20% / 0.00% / -7.00%</td>
-<td>0.315543 / 31.55% / 3.38% / 3.38%</td>
-<td>0.436145 / 43.61% / 20.40% / 20.40%</td>
-<td>0.307888 / 30.79% / 2.30% / 2.30%</td>
-<td>0.187085 / 18.71% / 0.00% / -14.76%</td>
-<td>0.309492 / 30.95% / 2.52% / 2.52%</td>
-<td>0.339399 / 33.94% / 6.74% / 6.74%</td>
-<td>0.363177 / 36.32% / 10.10% / 10.10%</td>
+<td>0.762319 / 76.23% / 0.00% / 0.00%</td>
+<td>0.668246 / 66.82% / 0.00% / -39.58%</td>
+<td>0.704257 / 70.43% / 0.00% / -24.43%</td>
+<td>0.109821 / 10.98% / 0.00% / -100.00%</td>
+<td>0.703334 / 70.33% / 0.00% / -24.82%</td>
+<td>0.537264 / 53.73% / 0.00% / -94.69%</td>
+<td>0.657456 / 65.75% / 0.00% / -44.12%</td>
+<td>0.729831 / 72.98% / 0.00% / -13.67%</td>
+<td>0.722558 / 72.26% / 0.00% / -16.73%</td>
+<td>0.357013 / 35.70% / 0.00% / -100.00%</td>
+<td>0.691962 / 69.20% / 0.00% / -29.60%</td>
+<td>0.664995 / 66.50% / 0.00% / -40.95%</td>
+<td>0.561223 / 56.12% / 0.00% / -84.61%</td>
 <td>1.000000</td>
 </tr>
 <tr>
@@ -2243,6 +2563,8 @@
 <td>C</td>
 <td><code>cumcm-2025-c-nipt</code></td>
 <td>1.506359 / 100.00% / 0.00% / 0.00%</td>
+<td>1.235518 / 100.00% / N/A / -10.00%</td>
+<td>0.949136 / 94.91% / N/A / -10.00%</td>
 <td>1.360909 / 100.00% / N/A / -10.00%</td>
 <td>1.071182 / 100.00% / N/A / -10.00%</td>
 <td>1.452420 / 100.00% / N/A / -5.39%</td>
@@ -2261,6 +2583,8 @@
 <td>A</td>
 <td><code>mcm-2023-a-plant-community</code></td>
 <td>1.632029 / 100.00% / 0.00% / 0.00%</td>
+<td>1.340862 / 100.00% / N/A / -10.00%</td>
+<td>0.702577 / 70.26% / N/A / -10.00%</td>
 <td>1.179422 / 100.00% / N/A / -10.00%</td>
 <td>1.538784 / 100.00% / N/A / -9.32%</td>
 <td>1.364424 / 100.00% / N/A / -10.00%</td>
@@ -2279,6 +2603,8 @@
 <td>B</td>
 <td><code>mcm-2023-b-maasai-mara</code></td>
 <td>0.102093 / 10.21% / 0.00% / 0.00%</td>
+<td>0.130340 / 13.03% / 3.15% / 3.15%</td>
+<td>0.033496 / 3.35% / 0.00% / -7.64%</td>
 <td>0.034371 / 3.44% / 0.00% / -7.54%</td>
 <td>0.068142 / 6.81% / 0.00% / -3.78%</td>
 <td>0.032355 / 3.24% / 0.00% / -7.77%</td>
@@ -2297,6 +2623,8 @@
 <td>C</td>
 <td><code>mcm-2023-c-wordle</code></td>
 <td>0.224201 / 22.42% / 0.00% / 0.00%</td>
+<td>0.546040 / 54.60% / 41.48% / 41.48%</td>
+<td>0.280001 / 28.00% / 7.19% / 7.19%</td>
 <td>0.097978 / 9.80% / 0.00% / -16.27%</td>
 <td>0.529999 / 53.00% / 39.42% / 39.42%</td>
 <td>0.723478 / 72.35% / 64.36% / 64.36%</td>
@@ -2315,6 +2643,8 @@
 <td>A</td>
 <td><code>mcm-2024-a-lamprey</code></td>
 <td>0.070175 / 7.02% / 0.00% / 0.00%</td>
+<td>0.070175 / 7.02% / 0.00% / 0.00%</td>
+<td>0.265383 / 26.54% / 20.99% / 20.99%</td>
 <td>0.235294 / 23.53% / 17.76% / 17.76%</td>
 <td>0.125000 / 12.50% / 5.90% / 5.90%</td>
 <td>0.070175 / 7.02% / 0.00% / 0.00%</td>
@@ -2333,6 +2663,8 @@
 <td>B</td>
 <td><code>mcm-2024-b-submersible-search</code></td>
 <td>0.371417 / 37.14% / 0.00% / 0.00%</td>
+<td>0.212392 / 21.24% / 0.00% / -25.30%</td>
+<td>0.403101 / 40.31% / 5.04% / 5.04%</td>
 <td>0.296505 / 29.65% / 0.00% / -11.92%</td>
 <td>0.709302 / 70.93% / 53.75% / 53.75%</td>
 <td>0.389026 / 38.90% / 2.80% / 2.80%</td>
@@ -2351,6 +2683,8 @@
 <td>C</td>
 <td><code>mcm-2024-c-tennis-momentum</code></td>
 <td>0.306291 / 30.63% / 0.00% / 0.00%</td>
+<td>0.385581 / 38.56% / 11.43% / 11.43%</td>
+<td>0.856263 / 85.63% / 79.28% / 79.28%</td>
 <td>0.564619 / 56.46% / 37.24% / 37.24%</td>
 <td>0.361433 / 36.14% / 7.95% / 7.95%</td>
 <td>0.403266 / 40.33% / 13.98% / 13.98%</td>
@@ -2375,6 +2709,8 @@
 <td>0.000000 / 0.00% / 0.00% / 0.00%</td>
 <td>0.000000 / 0.00% / 0.00% / 0.00%</td>
 <td>0.000000 / 0.00% / 0.00% / 0.00%</td>
+<td>0.000000 / 0.00% / 0.00% / 0.00%</td>
+<td>0.000000 / 0.00% / 0.00% / 0.00%</td>
 <td>0.233333 / 23.33% / 23.33% / 23.33%</td>
 <td>0.000000 / 0.00% / 0.00% / 0.00%</td>
 <td>0.000000 / 0.00% / 0.00% / 0.00%</td>
@@ -2387,6 +2723,8 @@
 <td>B</td>
 <td><code>mcm-2025-b-juneau-tourism</code></td>
 <td>0.259364 / 25.94% / 0.00% / 0.00%</td>
+<td>0.171015 / 17.10% / 0.00% / -11.93%</td>
+<td>0.090096 / 9.01% / 0.00% / -22.85%</td>
 <td>0.426076 / 42.61% / 22.51% / 22.51%</td>
 <td>0.337214 / 33.72% / 10.51% / 10.51%</td>
 <td>0.372904 / 37.29% / 15.33% / 15.33%</td>
@@ -2405,6 +2743,8 @@
 <td>C</td>
 <td><code>mcm-2025-c-olympic-medals</code></td>
 <td>1.575307 / 100.00% / 0.00% / 0.00%</td>
+<td>0.774277 / 77.43% / N/A / -10.00%</td>
+<td>1.339365 / 100.00% / N/A / -10.00%</td>
 <td>0.838169 / 83.82% / N/A / -10.00%</td>
 <td>0.870336 / 87.03% / N/A / -10.00%</td>
 <td>0.457106 / 45.71% / N/A / -10.00%</td>

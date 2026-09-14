@@ -68,11 +68,11 @@
 <line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
 <text x="1664.00" y="320.00" text-anchor="end" class="small-note">O-award = 100%</text>
 <text x="1664.00" y="432.00" text-anchor="end" class="small-note">80% O-Eval</text>
-<path d="M 258.64 582.73 L 1592.83 563.58" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
-<circle cx="258.64" cy="582.73" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
-<text x="278.64" y="558.73" text-anchor="start" class="point-label">V4.1 Flash</text>
-<text x="278.64" y="582.73" text-anchor="start" class="small-note">54.9% / USD 2.54</text>
-<circle cx="1592.83" cy="563.58" r="11.00" fill="#111111" stroke="#ffffff" stroke-width="3.00" />
-<text x="1572.83" y="539.58" text-anchor="end" class="point-label">GPT-5.5 xhigh</text>
-<text x="1572.83" y="563.58" text-anchor="end" class="small-note">58.3% / USD 99.37</text>
+<path d="M 258.64 541.74 L 1592.83 529.98" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<circle cx="258.64" cy="541.74" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
+<text x="278.64" y="517.74" text-anchor="start" class="point-label">V4.1 Flash</text>
+<text x="278.64" y="541.74" text-anchor="start" class="small-note">62.2% / USD 2.54</text>
+<circle cx="1592.83" cy="529.98" r="11.00" fill="#111111" stroke="#ffffff" stroke-width="3.00" />
+<text x="1572.83" y="505.98" text-anchor="end" class="point-label">GPT-5.5 xhigh</text>
+<text x="1572.83" y="529.98" text-anchor="end" class="small-note">64.3% / USD 99.37</text>
 <text x="914.00" y="1028.00" text-anchor="middle" class="small-note">This view answers: how close is each model to the O-award reproduction per USD spent?</text></svg>

@@ -50,12 +50,12 @@
 <line x1="132.00" y1="332.00" x2="1702.00" y2="332.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
 <text x="1690.00" y="322.00" text-anchor="end" class="small-note">O-award = 100%</text>
 <text x="44.00" y="552.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 552.00)">O-Eval (%)</text>
-<rect x="132.00" y="515.52" width="768.00" height="256.48" fill="#111111" rx="8.00" />
-<text x="516.00" y="659.15" text-anchor="middle" class="bar-label">58.3%</text>
-<text x="516.00" y="501.52" text-anchor="middle" class="top-label">raw 0.774</text>
+<rect x="132.00" y="489.12" width="768.00" height="282.88" fill="#111111" rx="8.00" />
+<text x="516.00" y="647.53" text-anchor="middle" class="bar-label">64.3%</text>
+<text x="516.00" y="475.12" text-anchor="middle" class="top-label">raw 0.897</text>
 <g transform="translate(516.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
-<rect x="934.00" y="530.57" width="768.00" height="241.43" fill="#00897b" rx="8.00" />
-<text x="1318.00" y="665.77" text-anchor="middle" class="bar-label">54.9%</text>
-<text x="1318.00" y="516.57" text-anchor="middle" class="top-label">raw 0.801</text>
+<rect x="934.00" y="498.36" width="768.00" height="273.64" fill="#00897b" rx="8.00" />
+<text x="1318.00" y="651.60" text-anchor="middle" class="bar-label">62.2%</text>
+<text x="1318.00" y="484.36" text-anchor="middle" class="top-label">raw 0.916</text>
 <g transform="translate(1318.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
 <text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by O-Eval over all 18 tasks. This is the primary absolute score for the report.</text></svg>

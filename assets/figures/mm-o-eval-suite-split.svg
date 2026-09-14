@@ -23,10 +23,10 @@
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">100%</text>
 <text x="493.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">CUMCM</text>
-<rect x="132.0" y="434.0" width="355.0" height="366.0" fill="#00897b" rx="5.0" />
-<text x="309.5" y="624.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">73</text>
-<rect x="499.0" y="418.8" width="355.0" height="381.2" fill="#000000" rx="5.0" />
-<text x="676.5" y="616.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">76</text>
+<rect x="132.0" y="360.9" width="355.0" height="439.1" fill="#00897b" rx="5.0" />
+<text x="309.5" y="587.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">88</text>
+<rect x="499.0" y="358.9" width="355.0" height="441.1" fill="#000000" rx="5.0" />
+<text x="676.5" y="586.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">88</text>
 <text x="1311.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">MCM</text>
 <rect x="950.0" y="617.2" width="355.0" height="182.8" fill="#00897b" rx="5.0" />
 <text x="1127.5" y="715.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">37</text>

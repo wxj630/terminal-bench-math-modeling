@@ -1,12 +1,12 @@
 # 2023-2025 全模型答案可行性复核
 
-生成日期：2026-09-09
+生成日期：2026-09-14
 
 ## 结论
 
 这份复核不把 JSON 字段齐全、轨迹里写过代码或分数高，直接当成数学方案已经可行。可行性分成三层：题面硬约束明确违反时 hard-invalid；能用共同几何/运动学重放时报告 replay-feasible；开放题或缺少布局/代码时只能写 artifact-only，不能据此宣称方案已被独立验证。
 
-本轮共检查 198 个模型-题目单元。状态计数：artifact-only/calibrated-model=11, artifact-only/no-layout-replay=7, hard-invalid=6, missing-artifact=8, needs-review/decision-structure-pass=9, needs-review/lamprey-state-range-pass=11, needs-review/maasai-partition-pass=11, needs-review/model-layout-missing=5, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=1, needs-review/nipt-range-pass=10, needs-review/no-replenishment-schedule=6, needs-review/olympic-structure-pass=9, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/tourism-policy-range-pass=1, needs-review/tourism-scale-mismatch=9, range-clean/artifact-only=75, replay-feasible-under-O-geometry=9。
+本轮共检查 234 个模型-题目单元。状态计数：artifact-only/calibrated-model=13, artifact-only/no-layout-replay=9, hard-invalid=6, missing-artifact=8, needs-review/crop-planting-demand-cap-ambiguous=9, needs-review/crop-planting-summary-only=4, needs-review/decision-structure-pass=11, needs-review/lamprey-state-range-pass=13, needs-review/maasai-partition-pass=13, needs-review/model-layout-missing=7, needs-review/model-scale-mismatch=1, needs-review/nipt-group-coverage=2, needs-review/nipt-range-pass=11, needs-review/no-replenishment-schedule=8, needs-review/olympic-structure-pass=11, needs-review/overlap-quality-warning=2, needs-review/replay-gaps=2, needs-review/schedule-basic-check-pass=4, needs-review/schedule-fields-missing=1, needs-review/stair-wear-domain=1, needs-review/tourism-policy-range-pass=3, needs-review/tourism-scale-mismatch=9, range-clean/sic-thickness=13, range-clean/stair-wear-domain=12, range-clean/submersible-domain=13, range-clean/tennis-domain=12, range-clean/wordle-domain=12, replay-feasible-under-O-geometry=11, replay-feasible-under-O-geometry/dragon=13。
 
 新增确定性处罚：GLM-5.3 的 `cumcm-2023-a-heliostat-field` Q3 文字明确给出一面尾镜 `z=1.9024 m`，低于题面安装高度下限 2 m；v4 flash baseline 的 Q3 年平均热功率为 53.7955 MW，Gemini 3.7 Flash 的 Q2/Q3 年平均热功率为 55.460/54.966 MW，均未达到约 60 MW。这些是题面硬约束违反，进入 whole-task hard gate。此前对 Hy4 的 `cumcm-2024-b-production-decision`（SPRT 的 `c=-1` 哨兵）和 Juneau 中间年份 `sustainability_score>100` 的判断是审计误报，已撤销；它们现在分别标为结构通过和量纲需复核。
 多波束题补充了独立重放：GLM、ox-alpha、Kimi 和 Qwen 的 artifact 都保存了可读取的实际 Q4 测线坐标。GLM/ox-alpha 为 60 条线，在官方海深网格上覆盖率约 99.945%，存在少量漏测；Kimi 为 81 条线、覆盖率 100%，但约 79.6% 的相邻局部重叠超过 20%；Qwen 为 60 条线、覆盖率 100%，但只有约 14.8% 的局部重叠落在 10%–20%，约 36.2% 低于 10%，约 51.0% 高于 20%。这些结果说明覆盖几何可执行，但质量约束仍需复核，不能直接写成完全满足题面。Qwen 的 Q3 末条测线中心超出 4 海里边界约 4.17 m，仅作为边界约定警告。
@@ -18,6 +18,8 @@
 | 模型 | 自报 Q5 总时长(s) | 独立重放总时长(s) | 状态 |
 |---|---:|---:|---|
 | v4 flash baseline | 22.23 | 24.04 | replay-feasible-under-O-geometry |
+| opencode + deepseek-flash | 47.243 | 55.14 | replay-feasible-under-O-geometry |
+| codex + gpt-5.5 xhigh | 22.9656 | 30.42 | replay-feasible-under-O-geometry |
 | v4 pro | 19.5486 | 20.44 | replay-feasible-under-O-geometry |
 | GLM-5.3 | 15.5443 | 20.3 | replay-feasible-under-O-geometry |
 | GPT-5.6 SOL high | 42.3921 | 54.46 | replay-feasible-under-O-geometry |
@@ -66,6 +68,8 @@ ox-alpha 的 Q5 在共同重放下为 0 s，保留既有 hard gate。其余模�
 | Qwen3.8 Flash (Bailian) | `cumcm-2023-b-multibeam-lines` | 1.5427 | 100.00% | artifact-only/no-layout-replay | final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact |
 | Qwen3.8-27B-FP8 thinking | `cumcm-2023-b-multibeam-lines` | 1.5018 | 100.00% | needs-review/overlap-quality-warning | Q4 replay on official 201x251 grid: 60 N-S lines in [0.0214,3.9962] NM, coverage=100%, missed=0%, >20% overlap=151.1 NM, mean overlap=27.08%; overlap below10/within10-20/above20=36.2/12.7/51%; warning: Q3 last line center is 4.17 m beyond the 4 NM east boundary |
 | Tencent Hy4 Preview | `cumcm-2023-b-multibeam-lines` | 2.3499 | 100.00% | artifact-only/no-layout-replay | final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact |
+| codex + gpt-5.5 xhigh | `cumcm-2023-b-multibeam-lines` | 2.543 | 100.00% | artifact-only/no-layout-replay | final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact |
+| opencode + deepseek-flash | `cumcm-2023-b-multibeam-lines` | 1.5661 | 100.00% | artifact-only/no-layout-replay | final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact |
 | v4 pro | `cumcm-2023-b-multibeam-lines` | 1.4961 | 100.00% | artifact-only/no-layout-replay | final JSON has summary metrics but the claimed line schedule/coverage files are not in the collected artifact |
 | GLM-5.3-Flash (ox-alpha) | `cumcm-2023-c-vegetable-pricing` | 1.7076 | 100.00% | needs-review/schedule-basic-check-pass | saved 33-SKU plan passes candidate/minimum-quantity checks; 6/6 categories recovered; optimization and demand-coverage claims still need replay |
 | GPT-5.6 SOL high | `cumcm-2023-c-vegetable-pricing` | 1.5899 | 100.00% | needs-review/schedule-basic-check-pass | saved 33-SKU plan passes candidate/minimum-quantity checks; 6/6 categories recovered; optimization and demand-coverage claims still need replay |
@@ -73,13 +77,20 @@ ox-alpha 的 Q5 在共同重放下为 0 s，保留既有 hard gate。其余模�
 | Gemini 3.7 Flash high primary+retry | `cumcm-2023-c-vegetable-pricing` | 2.5234 | 100.00% | needs-review/no-replenishment-schedule | artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table |
 | Qwen3.8 Flash (Bailian) | `cumcm-2023-c-vegetable-pricing` | 1.755 | 100.00% | needs-review/schedule-basic-check-pass | saved 33-SKU plan passes candidate/minimum-quantity checks; 6/6 categories recovered; optimization and demand-coverage claims still need replay |
 | Qwen3.8-27B-FP8 thinking | `cumcm-2023-c-vegetable-pricing` | 1.2929 | 100.00% | needs-review/no-replenishment-schedule | artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table |
+| codex + gpt-5.5 xhigh | `cumcm-2023-c-vegetable-pricing` | 1.6351 | 100.00% | needs-review/no-replenishment-schedule | artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table |
+| opencode + deepseek-flash | `cumcm-2023-c-vegetable-pricing` | 1.7142 | 100.00% | needs-review/no-replenishment-schedule | artifact has aggregate demand/profit numbers but no concrete July 1 SKU replenishment and pricing table |
 | Qwen3.8-27B-FP8 thinking | `cumcm-2024-b-production-decision` | 1.4457 | 100.00% | needs-review/decision-structure-pass | binary decisions and probability ranges pass basic checks |
+| codex + gpt-5.5 xhigh | `cumcm-2024-c-crop-planting` | 1.3616 | 100.00% | needs-review/crop-planting-demand-cap-ambiguous | waste_profit_yuan=40,320,587 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper's per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility. |
+| opencode + deepseek-flash | `cumcm-2024-c-crop-planting` | 1.5938 | 100.00% | needs-review/crop-planting-demand-cap-ambiguous | waste_profit_yuan=41,559,515 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper's per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility.; waste_revenue_yuan=47,163,366 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper's per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility. |
+| v4 pro | `cumcm-2024-c-crop-planting` | 1.4485 | 100.00% | needs-review/crop-planting-demand-cap-ambiguous | waste_profit_yuan=39,893,151 exceeds the aggregate demand-cap ceiling 36,277,448 yuan (问题一规则: sum of expected sales x price), so it is only reachable under the O-award paper's per-plot cap (eq.19 applies min(x*y,d) per plot rather than to the crop-season total). This is an interpretation difference, not proven infeasibility. |
 | GLM-5.3-Flash (ox-alpha) | `cumcm-2025-a-smoke-screen` | 2.5527 | 100.00% | hard-invalid | independent smoke-screen replay gives 0.00s coverage under O-reference line-of-sight geometry |
 | GPT-5.6 SOL high | `cumcm-2025-a-smoke-screen` | 3.4164 | 100.00% | replay-feasible-under-O-geometry | reported total=42.3921 s; independent total=54.46 s |
 | Gemini 3.7 Flash high primary+retry | `cumcm-2025-a-smoke-screen` | 1.2393 | 100.00% | replay-feasible-under-O-geometry | reported total=17.4209 s; independent total=21.04 s |
 | Kimi K3 | `cumcm-2025-a-smoke-screen` | 2.894 | 100.00% | replay-feasible-under-O-geometry | reported total=34.37 s; independent total=39.64 s |
 | Qwen3.8-27B-FP8 thinking | `cumcm-2025-a-smoke-screen` | 2.5918 | 100.00% | replay-feasible-under-O-geometry | reported total=31.6525 s; independent total=32.62 s |
 | Tencent Hy4 Preview | `cumcm-2025-a-smoke-screen` | 4.004 | 100.00% | replay-feasible-under-O-geometry | reported total=62.8845 s; independent total=56.42 s |
+| codex + gpt-5.5 xhigh | `cumcm-2025-a-smoke-screen` | 1.8293 | 100.00% | replay-feasible-under-O-geometry | reported total=22.9656 s; independent total=30.42 s |
+| opencode + deepseek-flash | `cumcm-2025-a-smoke-screen` | 3.5782 | 100.00% | replay-feasible-under-O-geometry | reported total=47.243 s; independent total=55.14 s |
 | v4 pro | `cumcm-2025-a-smoke-screen` | 1.5324 | 100.00% | replay-feasible-under-O-geometry | reported total=19.5486 s; independent total=20.44 s |
 | GPT-5.6 SOL high | `cumcm-2025-c-nipt` | 1.4524 | 100.00% | needs-review/nipt-range-pass | timing, probability, and classification ranges pass basic checks |
 | Gemini 3.7 Flash high primary+retry | `cumcm-2025-c-nipt` | 1.2341 | 100.00% | needs-review/nipt-range-pass | timing, probability, and classification ranges pass basic checks |
@@ -87,16 +98,19 @@ ox-alpha 的 Q5 在共同重放下为 0 s，保留既有 hard gate。其余模�
 | Qwen3.8 Flash (Bailian) | `cumcm-2025-c-nipt` | 1.2877 | 100.00% | needs-review/nipt-group-coverage | observed BMI ranges have an uncovered gap (33.21, 33.28); observed BMI ranges have an uncovered gap (34.06, 34.14); observed BMI ranges have an uncovered gap (35, 35.06); observed BMI ranges have an uncovered gap (36.36, 36.51) |
 | Qwen3.8-27B-FP8 thinking | `cumcm-2025-c-nipt` | 1.5215 | 100.00% | needs-review/nipt-range-pass | timing, probability, and classification ranges pass basic checks |
 | Tencent Hy4 Preview | `cumcm-2025-c-nipt` | 1.1846 | 100.00% | needs-review/nipt-range-pass | timing, probability, and classification ranges pass basic checks |
+| opencode + deepseek-flash | `cumcm-2025-c-nipt` | 1.2355 | 100.00% | needs-review/nipt-group-coverage | observed BMI ranges have an uncovered gap (27.98, 28.13); observed BMI ranges have an uncovered gap (31.96, 32.01); observed BMI ranges have an uncovered gap (35.81, 36.08); observed BMI ranges have an uncovered gap (39.8, 40.57) |
 | v4 pro | `cumcm-2025-c-nipt` | 1.3609 | 100.00% | needs-review/nipt-range-pass | timing, probability, and classification ranges pass basic checks |
 | GLM-5.3 | `mcm-2023-a-plant-community` | 1.5388 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
 | GLM-5.3-Flash (ox-alpha) | `mcm-2023-a-plant-community` | 1.1634 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
 | GPT-5.6 SOL high | `mcm-2023-a-plant-community` | 1.3644 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
 | GPT-5.6 SOL xhigh | `mcm-2023-a-plant-community` | 1.3644 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
 | Tencent Hy4 Preview | `mcm-2023-a-plant-community` | 1.2964 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
+| opencode + deepseek-flash | `mcm-2023-a-plant-community` | 1.3409 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
 | v4 pro | `mcm-2023-a-plant-community` | 1.1794 | 100.00% | artifact-only/calibrated-model | the problem supplies no numerical ecology time series; reported trajectories are model assumptions, not independently verifiable observations |
 | Kimi K3 | `mcm-2025-b-juneau-tourism` | 1.4601 | 100.00% | hard-invalid | unit/scale invalid: resident_acceptance_index=1.5 and sustainability_score=232.2 on a unit-scale score |
 | GPT-5.6 SOL xhigh | `mcm-2025-c-olympic-medals` | 2.1017 | 100.00% | needs-review/olympic-structure-pass | recommendation count, probability ranges, and medal interval ordering pass basic checks |
 | Kimi K3 | `mcm-2025-c-olympic-medals` | 2.9955 | 100.00% | hard-invalid | invalid high coach-effect result: only three scored recommendations and endpoint verifier reward is negative/BO 0 |
+| codex + gpt-5.5 xhigh | `mcm-2025-c-olympic-medals` | 1.3394 | 100.00% | needs-review/olympic-structure-pass | recommendation count, probability ranges, and medal interval ordering pass basic checks |
 
 ## 多波束独立重放细节
 

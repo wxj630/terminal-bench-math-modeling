@@ -47,12 +47,12 @@
 <line x1="132.00" y1="332.00" x2="1702.00" y2="332.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
 <text x="114.00" y="338.00" text-anchor="end" class="axis">20%</text>
 <text x="44.00" y="552.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 552.00)">Robust BO-Eval (%)</text>
-<rect x="132.00" y="496.56" width="768.00" height="187.44" fill="#111111" rx="8.00" />
-<text x="516.00" y="601.53" text-anchor="middle" class="bar-label" fill="#ffffff">10.7%</text>
-<text x="516.00" y="482.56" text-anchor="middle" class="top-label">raw 0.774</text>
+<rect x="132.00" y="491.81" width="768.00" height="192.19" fill="#111111" rx="8.00" />
+<text x="516.00" y="599.44" text-anchor="middle" class="bar-label" fill="#ffffff">10.9%</text>
+<text x="516.00" y="477.81" text-anchor="middle" class="top-label">raw 0.897</text>
 <g transform="translate(516.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
-<rect x="934.00" y="601.28" width="768.00" height="82.72" fill="#00897b" rx="8.00" />
-<text x="1318.00" y="647.60" text-anchor="middle" class="bar-label" fill="#ffffff">4.7%</text>
-<text x="1318.00" y="587.28" text-anchor="middle" class="top-label">raw 0.801</text>
+<rect x="934.00" y="576.11" width="768.00" height="107.89" fill="#00897b" rx="8.00" />
+<text x="1318.00" y="636.53" text-anchor="middle" class="bar-label" fill="#ffffff">6.1%</text>
+<text x="1318.00" y="562.11" text-anchor="middle" class="top-label">raw 0.916</text>
 <g transform="translate(1318.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
 <text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by Robust BO-Eval over all 18 tasks. Tiny-gap tasks fall back to clipped B-Eval, so the leaderboard is not driven by ratio outliers.</text></svg>
