@@ -23,16 +23,22 @@
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">100%</text>
 <text x="493.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">CUMCM</text>
-<rect x="132.0" y="360.9" width="355.0" height="439.1" fill="#00897b" rx="5.0" />
-<text x="309.5" y="587.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">88</text>
-<rect x="499.0" y="358.9" width="355.0" height="441.1" fill="#000000" rx="5.0" />
-<text x="676.5" y="586.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">88</text>
+<rect x="132.0" y="360.9" width="232.7" height="439.1" fill="#00897b" rx="5.0" />
+<text x="248.3" y="587.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">88</text>
+<rect x="376.7" y="418.5" width="232.7" height="381.5" fill="#00695c" rx="5.0" />
+<text x="493.0" y="616.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">76</text>
+<rect x="621.3" y="358.9" width="232.7" height="441.1" fill="#000000" rx="5.0" />
+<text x="737.7" y="586.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">88</text>
 <text x="1311.0" y="850.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800" fill="#151515">MCM</text>
-<rect x="950.0" y="617.2" width="355.0" height="182.8" fill="#00897b" rx="5.0" />
-<text x="1127.5" y="715.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">37</text>
-<rect x="1317.0" y="598.3" width="355.0" height="201.7" fill="#000000" rx="5.0" />
-<text x="1494.5" y="706.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">40</text>
+<rect x="950.0" y="617.2" width="232.7" height="182.8" fill="#00897b" rx="5.0" />
+<text x="1066.3" y="715.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">37</text>
+<rect x="1194.7" y="666.7" width="232.7" height="133.3" fill="#00695c" rx="5.0" />
+<text x="1311.0" y="740.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">27</text>
+<rect x="1439.3" y="598.3" width="232.7" height="201.7" fill="#000000" rx="5.0" />
+<text x="1555.7" y="706.1" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="800" fill="#ffffff">40</text>
 <rect x="132.0" y="940.0" width="22.0" height="16.0" fill="#00897b" rx="3.0" />
 <text x="164.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">DeepSeek Flash (opencode)</text>
-<rect x="492.0" y="940.0" width="22.0" height="16.0" fill="#000000" rx="3.0" />
-<text x="524.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">GPT-5.5 xhigh (codex)</text></svg>
+<rect x="492.0" y="940.0" width="22.0" height="16.0" fill="#00695c" rx="3.0" />
+<text x="524.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">DeepSeek Flash max (opencode)</text>
+<rect x="852.0" y="940.0" width="22.0" height="16.0" fill="#000000" rx="3.0" />
+<text x="884.0" y="956.0" text-anchor="start" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#555555">GPT-5.5 xhigh (codex)</text></svg>

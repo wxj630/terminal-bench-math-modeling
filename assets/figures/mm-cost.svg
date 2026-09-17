@@ -49,17 +49,22 @@
 <text x="114.00" y="356.00" text-anchor="end" class="axis">125</text>
 <line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
 <text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Estimated cost (USD)</text>
-<rect x="132.00" y="779.63" width="768.00" height="0.37" fill="#d9dde4" />
-<rect x="132.00" y="778.72" width="768.00" height="0.91" fill="#cfcfcf" />
-<rect x="132.00" y="777.54" width="768.00" height="1.18" fill="#00897b" />
-<text x="516.00" y="757.27" text-anchor="middle" class="top-label">USD 2.54</text>
-<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="934.00" y="721.79" width="768.00" height="58.21" fill="#d9dde4" />
-<text x="1318.00" y="757.89" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">16.9</text>
-<rect x="934.00" y="540.84" width="768.00" height="180.94" fill="#cfcfcf" />
-<text x="1318.00" y="638.32" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">52.6</text>
-<rect x="934.00" y="438.17" width="768.00" height="102.67" fill="#111111" />
-<text x="1318.00" y="496.51" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">29.8</text>
-<text x="1318.00" y="424.17" text-anchor="middle" class="top-label">USD 99.37</text>
-<g transform="translate(1318.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
+<rect x="132.00" y="779.27" width="500.67" height="0.73" fill="#d9dde4" />
+<rect x="132.00" y="777.44" width="500.67" height="1.83" fill="#cfcfcf" />
+<rect x="132.00" y="775.09" width="500.67" height="2.35" fill="#00897b" />
+<text x="382.33" y="757.27" text-anchor="middle" class="top-label">USD 2.54</text>
+<g transform="translate(382.33,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="666.67" y="779.28" width="500.67" height="0.72" fill="#d9dde4" />
+<rect x="666.67" y="777.12" width="500.67" height="2.16" fill="#cfcfcf" />
+<rect x="666.67" y="774.60" width="500.67" height="2.52" fill="#00695c" />
+<text x="917.00" y="756.43" text-anchor="middle" class="top-label">USD 2.78</text>
+<g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash max</tspan></text></g>
+<rect x="1201.33" y="721.79" width="500.67" height="58.21" fill="#d9dde4" />
+<text x="1451.67" y="757.89" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">16.9</text>
+<rect x="1201.33" y="540.84" width="500.67" height="180.94" fill="#cfcfcf" />
+<text x="1451.67" y="638.32" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">52.6</text>
+<rect x="1201.33" y="438.17" width="500.67" height="102.67" fill="#111111" />
+<text x="1451.67" y="496.51" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">29.8</text>
+<text x="1451.67" y="424.17" text-anchor="middle" class="top-label">USD 99.37</text>
+<g transform="translate(1451.67,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
 <text x="917.00" y="994.00" text-anchor="middle" class="small-note">Price split is parsed from the generated report; USD/token prices use USD/CNY 6.737012.</text></svg>

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-09-14",
+  "generated": "2026-09-16",
   "models": {
     "codex_gpt55_xhigh": {
       "billable_input_tokens": 3384426,
@@ -1236,6 +1236,386 @@
         }
       ],
       "valid_tasks": 18
+    },
+    "flash_opencode_max": {
+      "billable_input_tokens": 699984,
+      "cache_hit_rate": 0.993363912114042,
+      "cache_imputed_from_peer_avg": false,
+      "canonical_tasks": 18,
+      "error_tasks": 1,
+      "estimated_cost_rmb": 18.754703122452483,
+      "excluded_retry_trials": 0,
+      "job_count": 2,
+      "n_cache_tokens": 104781440,
+      "n_input_tokens": 105481424,
+      "n_output_tokens": 610561,
+      "n_reasoning_tokens": 1010395,
+      "pending_tasks": 0,
+      "raw_n_cache_tokens": 104781440,
+      "running_tasks": 0,
+      "tasks": [
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 10924544,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 10958363,
+            "output_tokens": 35813,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2023-a-heliostat-field__xQJvN9o",
+            "reasoning_tokens": 95592,
+            "reward": 0.786153901833,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2023-a-heliostat-field__xQJvN9o",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2023-a-heliostat-field"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 5788032,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 5829176,
+            "output_tokens": 27906,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2023-b-multibeam-lines__spxcoFo",
+            "reasoning_tokens": 80779,
+            "reward": 0.111337403773,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2023-b-multibeam-lines__spxcoFo",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2023-b-multibeam-lines"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 3415040,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 3446062,
+            "output_tokens": 25597,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2023-c-vegetable-pricing__9yHs3Z7",
+            "reasoning_tokens": 27591,
+            "reward": 0.277245452618,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2023-c-vegetable-pricing__9yHs3Z7",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2023-c-vegetable-pricing"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 9114752,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 9156991,
+            "output_tokens": 33240,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2024-a-dragon-dance__vUo7MPH",
+            "reasoning_tokens": 110763,
+            "reward": 0.498227958704,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2024-a-dragon-dance__vUo7MPH",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2024-a-dragon-dance"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 2951424,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 2979652,
+            "output_tokens": 19151,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2024-b-production-decision__xYn9zwk",
+            "reasoning_tokens": 46395,
+            "reward": 0.613248241018,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2024-b-production-decision__xYn9zwk",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2024-b-production-decision"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 12842752,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 12905195,
+            "output_tokens": 49853,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2024-c-crop-planting__No6zZcA",
+            "reasoning_tokens": 63569,
+            "reward": 0.911223482498,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2024-c-crop-planting__No6zZcA",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2024-c-crop-planting"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 5178752,
+            "exception_type": "AgentTimeoutError",
+            "finished": true,
+            "input_tokens": 5209252,
+            "output_tokens": 28616,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2025-a-smoke-screen__C8UECPt",
+            "reasoning_tokens": 65727,
+            "reward": 0.0,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2025-a-smoke-screen__C8UECPt",
+            "valid": false
+          },
+          "status": "error",
+          "task": "cumcm-2025-a-smoke-screen"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 6248192,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 6286525,
+            "output_tokens": 51172,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2025-b-sic-thickness__uU2MpeJ",
+            "reasoning_tokens": 85322,
+            "reward": 0.707945881266,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2025-b-sic-thickness__uU2MpeJ",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2025-b-sic-thickness"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 3324544,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 3367227,
+            "output_tokens": 34370,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-cumcm/cumcm-2025-c-nipt__fGrKpxf",
+            "reasoning_tokens": 57780,
+            "reward": 0.544334074954,
+            "running": false,
+            "source": "job",
+            "trial_id": "cumcm-2025-c-nipt__fGrKpxf",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "cumcm-2025-c-nipt"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 6162560,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 6198395,
+            "output_tokens": 41591,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2023-a-plant-community__xagd2GC",
+            "reasoning_tokens": 64387,
+            "reward": -0.208841090024,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2023-a-plant-community__xagd2GC",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2023-a-plant-community"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 3382528,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 3412273,
+            "output_tokens": 27114,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2023-b-maasai-mara__K6kjLuf",
+            "reasoning_tokens": 33637,
+            "reward": -0.571919513445,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2023-b-maasai-mara__K6kjLuf",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2023-b-maasai-mara"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 7832064,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 7892661,
+            "output_tokens": 44199,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2023-c-wordle__ZXkTA3Q",
+            "reasoning_tokens": 46015,
+            "reward": 0.480160415872,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2023-c-wordle__ZXkTA3Q",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2023-c-wordle"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 5624704,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 5666519,
+            "output_tokens": 39298,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2024-a-lamprey__qPJTREn",
+            "reasoning_tokens": 49240,
+            "reward": -0.356871540191,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2024-a-lamprey__qPJTREn",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2024-a-lamprey"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 4718848,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 4755118,
+            "output_tokens": 42178,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2024-b-submersible-search__hiXNWFE",
+            "reasoning_tokens": 42429,
+            "reward": -0.0640532564427,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2024-b-submersible-search__hiXNWFE",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2024-b-submersible-search"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 1531008,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 1554335,
+            "output_tokens": 17965,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2024-c-tennis-momentum__vCLeFcJ",
+            "reasoning_tokens": 13736,
+            "reward": -0.580264211777,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2024-c-tennis-momentum__vCLeFcJ",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2024-c-tennis-momentum"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 2884608,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 2916222,
+            "output_tokens": 18753,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2025-a-stair-wear__8BPhtg3",
+            "reasoning_tokens": 39954,
+            "reward": 0.0,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2025-a-stair-wear__8BPhtg3",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2025-a-stair-wear"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 4434944,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 4473348,
+            "output_tokens": 26991,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2025-b-juneau-tourism__zRirP65",
+            "reasoning_tokens": 37623,
+            "reward": 0.0,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2025-b-juneau-tourism__zRirP65",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2025-b-juneau-tourism"
+        },
+        {
+          "excluded": [],
+          "selected": {
+            "artifact": true,
+            "cache_tokens": 8422144,
+            "exception_type": null,
+            "finished": true,
+            "input_tokens": 8474110,
+            "output_tokens": 46754,
+            "path": "/Volumes/PSSD/code/My-Agent/Agent-Benchmark/terminal-bench-math-modeling/jobs/opencode-deepseek-flash-max-mcm/mcm-2025-c-olympic-medals__hcYXRp3",
+            "reasoning_tokens": 49856,
+            "reward": -0.217959188898,
+            "running": false,
+            "source": "job",
+            "trial_id": "mcm-2025-c-olympic-medals__hcYXRp3",
+            "valid": true
+          },
+          "status": "valid",
+          "task": "mcm-2025-c-olympic-medals"
+        }
+      ],
+      "valid_tasks": 17
     },
     "gemini37flash": {
       "billable_input_tokens": 6634255,

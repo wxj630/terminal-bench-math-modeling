@@ -34,25 +34,29 @@
 <rect x="1295.00" y="284.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1299.50 288.50)" />
 <rect x="1282.00" y="298.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 302.50)" />
 <text x="1316.00" y="308.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
-<line x1="132.00" y1="772.00" x2="1702.00" y2="772.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="114.00" y="778.00" text-anchor="end" class="axis">-5%</text>
-<line x1="132.00" y1="684.00" x2="1702.00" y2="684.00" stroke="#9e9e9e" stroke-width="1.50" />
-<text x="114.00" y="690.00" text-anchor="end" class="axis">0%</text>
+<line x1="132.00" y1="772.00" x2="1702.00" y2="772.00" stroke="#9e9e9e" stroke-width="1.50" />
+<text x="114.00" y="778.00" text-anchor="end" class="axis">0%</text>
+<line x1="132.00" y1="684.00" x2="1702.00" y2="684.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="690.00" text-anchor="end" class="axis">5%</text>
 <line x1="132.00" y1="596.00" x2="1702.00" y2="596.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="114.00" y="602.00" text-anchor="end" class="axis">5%</text>
+<text x="114.00" y="602.00" text-anchor="end" class="axis">10%</text>
 <line x1="132.00" y1="508.00" x2="1702.00" y2="508.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="114.00" y="514.00" text-anchor="end" class="axis">10%</text>
+<text x="114.00" y="514.00" text-anchor="end" class="axis">15%</text>
 <line x1="132.00" y1="420.00" x2="1702.00" y2="420.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="114.00" y="426.00" text-anchor="end" class="axis">15%</text>
+<text x="114.00" y="426.00" text-anchor="end" class="axis">20%</text>
 <line x1="132.00" y1="332.00" x2="1702.00" y2="332.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="114.00" y="338.00" text-anchor="end" class="axis">20%</text>
+<text x="114.00" y="338.00" text-anchor="end" class="axis">25%</text>
 <text x="44.00" y="552.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 552.00)">Robust BO-Eval (%)</text>
-<rect x="132.00" y="491.81" width="768.00" height="192.19" fill="#111111" rx="8.00" />
-<text x="516.00" y="599.44" text-anchor="middle" class="bar-label" fill="#ffffff">10.9%</text>
-<text x="516.00" y="477.81" text-anchor="middle" class="top-label">raw 0.897</text>
-<g transform="translate(516.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
-<rect x="934.00" y="576.11" width="768.00" height="107.89" fill="#00897b" rx="8.00" />
-<text x="1318.00" y="636.53" text-anchor="middle" class="bar-label" fill="#ffffff">6.1%</text>
-<text x="1318.00" y="562.11" text-anchor="middle" class="top-label">raw 0.916</text>
-<g transform="translate(1318.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="132.00" y="472.27" width="500.67" height="299.73" fill="#111111" rx="8.00" />
+<text x="382.33" y="640.12" text-anchor="middle" class="bar-label" fill="#ffffff">17.0%</text>
+<text x="382.33" y="458.27" text-anchor="middle" class="top-label">raw 0.854</text>
+<g transform="translate(382.33,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
+<rect x="666.67" y="556.58" width="500.67" height="215.42" fill="#00897b" rx="8.00" />
+<text x="917.00" y="677.21" text-anchor="middle" class="bar-label" fill="#ffffff">12.2%</text>
+<text x="917.00" y="542.58" text-anchor="middle" class="top-label">raw 0.907</text>
+<g transform="translate(917.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="1201.33" y="653.02" width="500.67" height="118.98" fill="#00695c" rx="8.00" />
+<text x="1451.67" y="719.65" text-anchor="middle" class="bar-label" fill="#ffffff">6.8%</text>
+<text x="1451.67" y="639.02" text-anchor="middle" class="top-label">raw 0.617</text>
+<g transform="translate(1451.67,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash max</tspan></text></g>
 <text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by Robust BO-Eval over all 18 tasks. Tiny-gap tasks fall back to clipped B-Eval, so the leaderboard is not driven by ratio outliers.</text></svg>

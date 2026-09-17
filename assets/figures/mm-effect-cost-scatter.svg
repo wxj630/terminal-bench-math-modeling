@@ -26,27 +26,27 @@
 <text x="66.00" y="170.00" text-anchor="start" class="title">Robust BO-Eval vs. Cost</text>
 <text x="66.00" y="210.00" text-anchor="start" class="subtitle">Robust BO-Eval vs. estimated USD cost. Green marks the current high-value zone.</text>
 <rect x="66.00" y="252.00" width="24.00" height="18.00" fill="#dff7e4" stroke="#98d9a5" rx="3.00" />
-<text x="102.00" y="270.00" text-anchor="start" class="legend">Value zone: &lt;=$80, &gt;=8.2% robust</text>
+<text x="102.00" y="270.00" text-anchor="start" class="legend">Value zone: &lt;=$80, &gt;=10.0% robust</text>
 <line x1="584.00" y1="262.00" x2="644.00" y2="262.00" stroke="#222222" stroke-width="3.00" stroke-dasharray="1 10" />
 <text x="660.00" y="270.00" text-anchor="start" class="legend">Pareto line</text>
 <rect x="1254.00" y="286.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1258.50 290.50)" />
 <rect x="1267.00" y="286.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1271.50 290.50)" />
 <rect x="1254.00" y="300.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1258.50 304.50)" />
 <text x="1288.00" y="310.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
-<rect x="154.00" y="330.00" width="1359.97" height="264.54" fill="#dff7e4" />
-<rect x="1513.97" y="594.54" width="160.03" height="295.46" fill="#fafafa" />
-<line x1="154.00" y1="890.00" x2="1674.00" y2="890.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="136.00" y="896.00" text-anchor="end" class="axis">-5.0%</text>
-<line x1="154.00" y1="778.00" x2="1674.00" y2="778.00" stroke="#9e9e9e" stroke-width="1.50" />
-<text x="136.00" y="784.00" text-anchor="end" class="axis">0.0%</text>
+<rect x="154.00" y="330.00" width="1359.97" height="336.00" fill="#dff7e4" />
+<rect x="1513.97" y="666.00" width="160.03" height="224.00" fill="#fafafa" />
+<line x1="154.00" y1="890.00" x2="1674.00" y2="890.00" stroke="#9e9e9e" stroke-width="1.50" />
+<text x="136.00" y="896.00" text-anchor="end" class="axis">0.0%</text>
+<line x1="154.00" y1="778.00" x2="1674.00" y2="778.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="784.00" text-anchor="end" class="axis">5.0%</text>
 <line x1="154.00" y1="666.00" x2="1674.00" y2="666.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="136.00" y="672.00" text-anchor="end" class="axis">5.0%</text>
+<text x="136.00" y="672.00" text-anchor="end" class="axis">10.0%</text>
 <line x1="154.00" y1="554.00" x2="1674.00" y2="554.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="136.00" y="560.00" text-anchor="end" class="axis">10.0%</text>
+<text x="136.00" y="560.00" text-anchor="end" class="axis">15.0%</text>
 <line x1="154.00" y1="442.00" x2="1674.00" y2="442.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="136.00" y="448.00" text-anchor="end" class="axis">15.0%</text>
+<text x="136.00" y="448.00" text-anchor="end" class="axis">20.0%</text>
 <line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
-<text x="136.00" y="336.00" text-anchor="end" class="axis">20.0%</text>
+<text x="136.00" y="336.00" text-anchor="end" class="axis">25.0%</text>
 <line x1="505.46" y1="890.00" x2="505.46" y2="898.00" stroke="#777777" stroke-width="1.20" />
 <text x="505.46" y="926.00" text-anchor="middle" class="axis">5</text>
 <line x1="757.59" y1="890.00" x2="757.59" y2="898.00" stroke="#777777" stroke-width="1.20" />
@@ -63,11 +63,13 @@
 <line x1="154.00" y1="330.00" x2="154.00" y2="890.00" stroke="#9e9e9e" stroke-width="1.20" />
 <text x="914.00" y="972.00" text-anchor="middle" class="axis-title">Estimated cost (USD, log scale)</text>
 <text x="50.00" y="610.00" text-anchor="middle" class="axis-title" transform="rotate(-90 50.00 610.00)">Robust BO-Eval (%)</text>
-<line x1="154.00" y1="594.54" x2="1674.00" y2="594.54" stroke="#808080" stroke-width="1.20" stroke-dasharray="6 7" opacity="0.550" />
-<text x="1664.00" y="584.54" text-anchor="end" class="small-note">8.2% robust</text>
-<path d="M 258.64 640.69 L 1592.83 533.39" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
-<circle cx="258.64" cy="640.69" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
-<text x="278.64" y="616.69" text-anchor="start" class="point-label">V4.1 Flash</text>
-<circle cx="1592.83" cy="533.39" r="11.00" fill="#111111" stroke="#ffffff" stroke-width="3.00" />
-<text x="1572.83" y="509.39" text-anchor="end" class="point-label">GPT-5.5 xhigh</text>
+<line x1="154.00" y1="666.00" x2="1674.00" y2="666.00" stroke="#808080" stroke-width="1.20" stroke-dasharray="6 7" opacity="0.550" />
+<text x="1664.00" y="656.00" text-anchor="end" class="small-note">10.0% robust</text>
+<path d="M 258.64 615.82 L 1592.83 508.53" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<circle cx="258.64" cy="615.82" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
+<text x="278.64" y="591.82" text-anchor="start" class="point-label">V4.1 Flash</text>
+<circle cx="292.36" cy="738.58" r="11.00" fill="#00695c" stroke="#ffffff" stroke-width="3.00" />
+<text x="312.36" y="714.58" text-anchor="start" class="point-label">V4.1 Flash max (17/18)</text>
+<circle cx="1592.83" cy="508.53" r="11.00" fill="#111111" stroke="#ffffff" stroke-width="3.00" />
+<text x="1572.83" y="484.53" text-anchor="end" class="point-label">GPT-5.5 xhigh</text>
 <text x="914.00" y="1028.00" text-anchor="middle" class="small-note">Pareto front rewards higher effect at lower cost; rows without API price estimates are not placed on the x-axis.</text></svg>

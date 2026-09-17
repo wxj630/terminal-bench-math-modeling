@@ -51,16 +51,22 @@
 <text x="114.00" y="356.00" text-anchor="end" class="axis">120M</text>
 <line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
 <text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Tokens (million)</text>
-<rect x="132.00" y="777.46" width="768.00" height="2.54" fill="#4c4c4c" />
-<rect x="132.00" y="459.73" width="768.00" height="317.73" fill="#cfcfcf" />
-<text x="516.00" y="625.60" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">89M</text>
-<rect x="132.00" y="457.69" width="768.00" height="2.04" fill="#00897b" />
-<text x="516.00" y="443.69" text-anchor="middle" class="top-label">90M</text>
-<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="934.00" y="767.87" width="768.00" height="12.13" fill="#4c4c4c" />
-<rect x="934.00" y="390.91" width="768.00" height="376.97" fill="#cfcfcf" />
-<text x="1318.00" y="586.39" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">105M</text>
-<rect x="934.00" y="387.34" width="768.00" height="3.57" fill="#111111" />
-<text x="1318.00" y="373.34" text-anchor="middle" class="top-label">110M</text>
-<g transform="translate(1318.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
+<rect x="132.00" y="777.46" width="500.67" height="2.54" fill="#4c4c4c" />
+<rect x="132.00" y="459.73" width="500.67" height="317.73" fill="#cfcfcf" />
+<text x="382.33" y="625.60" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">89M</text>
+<rect x="132.00" y="457.69" width="500.67" height="2.04" fill="#00897b" />
+<text x="382.33" y="443.69" text-anchor="middle" class="top-label">90M</text>
+<g transform="translate(382.33,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="666.67" y="777.49" width="500.67" height="2.51" fill="#4c4c4c" />
+<rect x="666.67" y="402.02" width="500.67" height="375.47" fill="#cfcfcf" />
+<text x="917.00" y="596.76" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">105M</text>
+<rect x="666.67" y="399.84" width="500.67" height="2.19" fill="#00695c" />
+<text x="917.00" y="385.84" text-anchor="middle" class="top-label">106M</text>
+<g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash max</tspan></text></g>
+<rect x="1201.33" y="767.87" width="500.67" height="12.13" fill="#4c4c4c" />
+<rect x="1201.33" y="390.91" width="500.67" height="376.97" fill="#cfcfcf" />
+<text x="1451.67" y="586.39" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="19">105M</text>
+<rect x="1201.33" y="387.34" width="500.67" height="3.57" fill="#111111" />
+<text x="1451.67" y="373.34" text-anchor="middle" class="top-label">110M</text>
+<g transform="translate(1451.67,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
 <text x="917.00" y="994.00" text-anchor="middle" class="small-note">Cache-hit input is displayed separately and charged when the report price table provides a cached-read price.</text></svg>

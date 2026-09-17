@@ -20,67 +20,72 @@
 <text x="114.0" y="419.8" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">20%</text>
 <line x1="132.0" y1="300.0" x2="1672.0" y2="300.0" stroke="#d7d7d7" stroke-width="1.0" stroke-dasharray="4 8" />
 <text x="114.0" y="306.0" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">30%</text>
-<rect x="132.0" y="399.3" width="90.8" height="241.9" fill="#1f83ff" rx="8.0" />
-<text x="177.4" y="520.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">21.3%</text>
-<text x="177.4" y="387.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="177.4" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Kimi</text>
-<text x="177.4" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">K3</text>
-<rect x="252.8" y="447.6" width="90.8" height="193.7" fill="#000000" rx="8.0" />
-<text x="298.2" y="544.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">17.0%</text>
-<text x="298.2" y="435.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="298.2" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.5 xhigh</text>
-<text x="298.2" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">(codex)</text>
-<rect x="373.5" y="455.8" width="90.8" height="185.4" fill="#7c3aed" rx="8.0" />
-<text x="418.9" y="548.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">16.3%</text>
-<text x="418.9" y="443.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="418.9" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
-<text x="418.9" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">27B</text>
-<rect x="494.3" y="502.0" width="90.8" height="139.3" fill="#00897b" rx="8.0" />
-<text x="539.7" y="571.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">12.2%</text>
-<text x="539.7" y="490.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="539.7" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek Flash</text>
-<text x="539.7" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">(opencode)</text>
-<rect x="615.1" y="513.7" width="90.8" height="127.5" fill="#dc2626" rx="8.0" />
-<text x="660.5" y="577.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">11.2%</text>
-<text x="660.5" y="501.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="660.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Hy4</text>
-<text x="660.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Preview</text>
-<rect x="735.8" y="527.3" width="90.8" height="113.9" fill="#202020" rx="8.0" />
-<text x="781.2" y="584.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">10.0%</text>
-<text x="781.2" y="515.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="781.2" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6</text>
-<text x="781.2" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Sol</text>
-<rect x="856.6" y="562.6" width="90.8" height="78.6" fill="#2945d9" rx="8.0" />
-<text x="902.0" y="601.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">6.9%</text>
-<text x="902.0" y="550.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="902.0" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
-<text x="902.0" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Pro</text>
-<rect x="977.4" y="572.7" width="90.8" height="68.5" fill="#6f6f6f" rx="8.0" />
-<text x="1022.8" y="607.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">6.0%</text>
-<text x="1022.8" y="560.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="1022.8" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3</text>
-<rect x="1098.2" y="585.2" width="90.8" height="56.0" fill="#f59e0b" rx="8.0" />
-<text x="1143.5" y="615.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">4.9%</text>
-<text x="1143.5" y="573.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="1143.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3-Flash</text>
-<rect x="1218.9" y="599.4" width="90.8" height="41.8" fill="#0f766e" rx="8.0" />
-<text x="1264.3" y="629.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">3.7%</text>
-<text x="1264.3" y="587.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">17/18</text>
-<text x="1264.3" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6 Sol</text>
-<text x="1264.3" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">XH</text>
-<rect x="1339.7" y="641.2" width="90.8" height="0.0" fill="#2f80ed" rx="8.0" />
-<text x="1385.1" y="671.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">0.0%</text>
-<text x="1385.1" y="629.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">17/18</text>
-<text x="1385.1" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
-<text x="1385.1" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="1460.5" y="641.2" width="90.8" height="20.8" fill="#0f766e" rx="8.0" />
-<text x="1505.8" y="690.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0f766e">-1.8%</text>
-<text x="1505.8" y="629.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
-<text x="1505.8" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
-<text x="1505.8" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
-<rect x="1581.2" y="641.2" width="90.8" height="92.6" fill="#34a853" rx="8.0" />
-<text x="1626.6" y="761.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#34a853">-8.1%</text>
-<text x="1626.6" y="629.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">15/18</text>
-<text x="1626.6" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Gemini 3.7</text>
-<text x="1626.6" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
+<rect x="132.0" y="399.3" width="82.1" height="241.9" fill="#1f83ff" rx="8.0" />
+<text x="173.1" y="520.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">21.3%</text>
+<text x="173.1" y="387.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="173.1" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Kimi</text>
+<text x="173.1" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">K3</text>
+<rect x="244.1" y="447.6" width="82.1" height="193.7" fill="#000000" rx="8.0" />
+<text x="285.2" y="544.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">17.0%</text>
+<text x="285.2" y="435.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="285.2" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.5 xhigh</text>
+<text x="285.2" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">(codex)</text>
+<rect x="356.3" y="455.8" width="82.1" height="185.4" fill="#7c3aed" rx="8.0" />
+<text x="397.4" y="548.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">16.3%</text>
+<text x="397.4" y="443.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="397.4" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
+<text x="397.4" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">27B</text>
+<rect x="468.4" y="502.0" width="82.1" height="139.3" fill="#00897b" rx="8.0" />
+<text x="509.5" y="571.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">12.2%</text>
+<text x="509.5" y="490.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="509.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek Flash</text>
+<text x="509.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">(opencode)</text>
+<rect x="580.6" y="513.7" width="82.1" height="127.5" fill="#dc2626" rx="8.0" />
+<text x="621.6" y="577.5" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">11.2%</text>
+<text x="621.6" y="501.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="621.6" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Hy4</text>
+<text x="621.6" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Preview</text>
+<rect x="692.7" y="527.3" width="82.1" height="113.9" fill="#202020" rx="8.0" />
+<text x="733.8" y="584.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">10.0%</text>
+<text x="733.8" y="515.3" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="733.8" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6</text>
+<text x="733.8" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Sol</text>
+<rect x="804.9" y="562.6" width="82.1" height="78.6" fill="#2945d9" rx="8.0" />
+<text x="845.9" y="601.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">6.9%</text>
+<text x="845.9" y="550.6" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="845.9" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
+<text x="845.9" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Pro</text>
+<rect x="917.0" y="564.4" width="82.1" height="76.9" fill="#00695c" rx="8.0" />
+<text x="958.1" y="602.8" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">6.8%</text>
+<text x="958.1" y="552.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">17/18</text>
+<text x="958.1" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek Flash</text>
+<text x="958.1" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">max (opencode)</text>
+<rect x="1029.1" y="572.7" width="82.1" height="68.5" fill="#6f6f6f" rx="8.0" />
+<text x="1070.2" y="607.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">6.0%</text>
+<text x="1070.2" y="560.7" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="1070.2" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3</text>
+<rect x="1141.3" y="585.2" width="82.1" height="56.0" fill="#f59e0b" rx="8.0" />
+<text x="1182.4" y="615.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">4.9%</text>
+<text x="1182.4" y="573.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="1182.4" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GLM-5.3-Flash</text>
+<rect x="1253.4" y="599.4" width="82.1" height="41.8" fill="#0f766e" rx="8.0" />
+<text x="1294.5" y="629.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">3.7%</text>
+<text x="1294.5" y="587.4" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">17/18</text>
+<text x="1294.5" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">GPT-5.6 Sol</text>
+<text x="1294.5" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">XH</text>
+<rect x="1365.6" y="641.2" width="82.1" height="0.0" fill="#2f80ed" rx="8.0" />
+<text x="1406.6" y="671.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#ffffff">0.0%</text>
+<text x="1406.6" y="629.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">17/18</text>
+<text x="1406.6" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">DeepSeek V4</text>
+<text x="1406.6" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
+<rect x="1477.7" y="641.2" width="82.1" height="20.8" fill="#0f766e" rx="8.0" />
+<text x="1518.8" y="690.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#0f766e">-1.8%</text>
+<text x="1518.8" y="629.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">18/18</text>
+<text x="1518.8" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Qwen3.8</text>
+<text x="1518.8" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
+<rect x="1589.9" y="641.2" width="82.1" height="92.6" fill="#34a853" rx="8.0" />
+<text x="1630.9" y="761.9" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800" fill="#34a853">-8.1%</text>
+<text x="1630.9" y="629.2" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#8a8a8a">15/18</text>
+<text x="1630.9" y="797.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Gemini 3.7</text>
+<text x="1630.9" y="819.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#151515">Flash</text>
 <text x="902.0" y="970.0" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="600" fill="#777777">Robust BO-Eval is averaged over all 18 tasks; tiny-gap completed tasks fall back to clipped B-Eval, and missing/non-scoreable artifacts are pinned to -100%.</text></svg>
