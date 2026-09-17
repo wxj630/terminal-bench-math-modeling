@@ -31,6 +31,7 @@ SITE_FIGURES = ROOT / "jobs" / "github-pages-site" / "assets" / "figures"
 MULTIMODAL_MODELS = (
     "codex + gpt-5.5 xhigh",
     "opencode + deepseek-flash",
+    "opencode + deepseek-flash (max)",
 )
 
 #: Filenames produced into <site>/assets/figures by this driver.

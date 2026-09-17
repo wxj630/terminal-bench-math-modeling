@@ -209,6 +209,22 @@ def model_config(builder: Any) -> dict[str, dict[str, Any]]:
             },
             "provenance": "opencode CLI agent jobs run 2026-09-11: opencode-deepseek-flash-2023-2025-cumcm and opencode-deepseek-flash-2023-2025-mcm (model openai/deepseek-flash via api.deepseek.com)",
         },
+        "flash_opencode_max": {
+            "label": "opencode + deepseek-flash (max)",
+            "short": "DeepSeek Flash max (opencode)",
+            "template": "opencode-deepseek-flash-max-{contest}",
+            # Same agent/model as flash_opencode, but run with
+            # `--agent-kwarg variant=max` (DeepSeek thinking effort = max, one notch
+            # above the default `high`). Kept as a separate entry so the two tiers
+            # can be compared directly.
+            "artifact_job_overrides": {},
+            "color": "#00695c",
+            "openrouter_model": "deepseek/deepseek-v4.1-flash",
+            "price_rmb_per_mtok": {
+                "billing": {"peak_multiplier": 1.0, "reasoning_is_additive": True},
+            },
+            "provenance": "opencode CLI agent jobs run 2026-09-15: opencode-deepseek-flash-max-cumcm and opencode-deepseek-flash-max-mcm (model openai/deepseek-flash via api.deepseek.com, --variant max)",
+        },
         "codex_gpt55_xhigh": {
             "label": "codex + gpt-5.5 xhigh",
             "short": "GPT-5.5 xhigh (codex)",

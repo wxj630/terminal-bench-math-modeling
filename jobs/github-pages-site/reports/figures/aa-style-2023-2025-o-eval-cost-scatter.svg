@@ -76,13 +76,16 @@
 <line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#777777" stroke-width="1.80" stroke-dasharray="6 8" opacity="0.750" />
 <text x="1664.00" y="320.00" text-anchor="end" class="small-note">O-award = 100%</text>
 <text x="1664.00" y="432.00" text-anchor="end" class="small-note">80% O-Eval</text>
-<path d="M 233.63 564.42 L 788.71 541.74 L 1142.62 541.46 L 1226.77 530.26 L 1612.23 529.98" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<path d="M 233.63 564.42 L 596.92 541.74 L 1142.62 541.46 L 1226.77 530.26 L 1612.23 529.98" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
 <circle cx="233.63" cy="564.42" r="11.00" fill="#2f80ed" stroke="#ffffff" stroke-width="3.00" />
 <text x="253.63" y="540.42" text-anchor="start" class="point-label">DeepSeek V4 Flash (17/18)</text>
 <text x="253.63" y="564.42" text-anchor="start" class="small-note">58.1% / RMB 4.60</text>
-<circle cx="788.71" cy="541.74" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
-<text x="768.71" y="517.74" text-anchor="end" class="point-label">V4.1 Flash</text>
-<text x="768.71" y="541.74" text-anchor="end" class="small-note">62.2% / RMB 34.17</text>
+<circle cx="596.92" cy="541.74" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
+<text x="616.92" y="517.74" text-anchor="start" class="point-label">V4.1 Flash</text>
+<text x="616.92" y="541.74" text-anchor="start" class="small-note">62.2% / RMB 17.09</text>
+<circle cx="622.58" cy="601.71" r="11.00" fill="#00695c" stroke="#ffffff" stroke-width="3.00" />
+<text x="588.58" y="697.71" text-anchor="end" class="point-label">V4.1 Flash max (17/18)</text>
+<text x="588.58" y="721.71" text-anchor="end" class="small-note">51.5% / RMB 18.75</text>
 <circle cx="1612.23" cy="529.98" r="11.00" fill="#111111" stroke="#ffffff" stroke-width="3.00" />
 <text x="1592.23" y="505.98" text-anchor="end" class="point-label">GPT-5.5 xhigh</text>
 <text x="1592.23" y="529.98" text-anchor="end" class="small-note">64.3% / RMB 669.45</text>
@@ -108,8 +111,8 @@
 <text x="1122.62" y="485.46" text-anchor="end" class="point-label">Qwen3.8 27B</text>
 <text x="1122.62" y="509.46" text-anchor="end" class="small-note">62.2% / RMB 122.72</text>
 <circle cx="635.14" cy="581.50" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
-<text x="615.14" y="619.50" text-anchor="end" class="point-label">GLM-5.3-Flash (ox-alpha)</text>
-<text x="615.14" y="643.50" text-anchor="end" class="small-note">55.1% / RMB 19.62</text>
+<text x="635.14" y="643.50" text-anchor="middle" class="point-label">GLM-5.3-Flash (ox-alpha)</text>
+<text x="635.14" y="667.50" text-anchor="middle" class="small-note">55.1% / RMB 19.62</text>
 <circle cx="941.49" cy="602.61" r="11.00" fill="#777777" stroke="#ffffff" stroke-width="3.00" />
 <text x="921.49" y="578.61" text-anchor="end" class="point-label">Qwen3.8 Flash (Bailian)</text>
 <text x="921.49" y="602.61" text-anchor="end" class="small-note">51.3% / RMB 59.34</text>

@@ -49,75 +49,80 @@
 <text x="114.00" y="356.00" text-anchor="end" class="axis">750</text>
 <line x1="132.00" y1="780.00" x2="1702.00" y2="780.00" stroke="#dadada" stroke-width="1.20" />
 <text x="44.00" y="565.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 565.00)">Estimated cost (RMB)</text>
-<rect x="132.00" y="779.71" width="89.38" height="0.29" fill="#d9dde4" />
-<rect x="132.00" y="778.24" width="89.38" height="1.47" fill="#cfcfcf" />
-<rect x="132.00" y="777.36" width="89.38" height="0.88" fill="#2f80ed" />
-<text x="176.69" y="763.36" text-anchor="middle" class="top-label">RMB 4.60</text>
-<g transform="translate(176.69,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="255.38" y="778.19" width="89.38" height="1.81" fill="#d9dde4" />
-<rect x="255.38" y="772.31" width="89.38" height="5.88" fill="#cfcfcf" />
-<rect x="255.38" y="768.75" width="89.38" height="3.56" fill="#777777" />
-<text x="300.08" y="754.75" text-anchor="middle" class="top-label">RMB 19.62</text>
-<g transform="translate(300.08,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
-<rect x="378.77" y="779.18" width="89.38" height="0.82" fill="#d9dde4" />
-<rect x="378.77" y="777.13" width="89.38" height="2.05" fill="#cfcfcf" />
-<rect x="378.77" y="774.48" width="89.38" height="2.64" fill="#00897b" />
-<text x="423.46" y="746.41" text-anchor="middle" class="top-label">RMB 34.17</text>
-<g transform="translate(423.46,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="502.15" y="776.49" width="89.38" height="3.51" fill="#d9dde4" />
-<rect x="502.15" y="758.35" width="89.38" height="18.14" fill="#cfcfcf" />
-<rect x="502.15" y="745.98" width="89.38" height="12.37" fill="#777777" />
-<text x="546.85" y="731.98" text-anchor="middle" class="top-label">RMB 59.34</text>
-<g transform="translate(546.85,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
-<rect x="625.54" y="770.67" width="89.38" height="9.33" fill="#d9dde4" />
-<rect x="625.54" y="764.82" width="89.38" height="5.85" fill="#cfcfcf" />
-<rect x="625.54" y="745.61" width="89.38" height="19.22" fill="#202020" />
-<text x="670.23" y="731.61" text-anchor="middle" class="top-label">RMB 59.98</text>
-<g transform="translate(670.23,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
-<rect x="748.92" y="772.51" width="89.38" height="7.49" fill="#d9dde4" />
-<rect x="748.92" y="762.03" width="89.38" height="10.48" fill="#cfcfcf" />
-<rect x="748.92" y="740.42" width="89.38" height="21.61" fill="#2945d9" />
-<text x="793.62" y="726.42" text-anchor="middle" class="top-label">RMB 69.04</text>
-<g transform="translate(793.62,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
-<rect x="872.31" y="760.78" width="89.38" height="19.22" fill="#d9dde4" />
-<rect x="872.31" y="742.68" width="89.38" height="18.11" fill="#cfcfcf" />
-<rect x="872.31" y="732.45" width="89.38" height="10.22" fill="#34a853" />
-<text x="917.00" y="718.45" text-anchor="middle" class="top-label">RMB 82.93</text>
-<g transform="translate(917.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
-<rect x="995.69" y="764.76" width="89.38" height="15.24" fill="#d9dde4" />
-<rect x="995.69" y="743.82" width="89.38" height="20.93" fill="#cfcfcf" />
-<rect x="995.69" y="723.84" width="89.38" height="19.99" fill="#dc2626" />
-<text x="1040.38" y="709.84" text-anchor="middle" class="top-label">RMB 97.95</text>
-<g transform="translate(1040.38,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Hy4</tspan><tspan x="0" dy="17">Preview</tspan></text></g>
-<rect x="1119.08" y="767.12" width="89.38" height="12.88" fill="#d9dde4" />
-<rect x="1119.08" y="755.58" width="89.38" height="11.53" fill="#cfcfcf" />
-<rect x="1119.08" y="723.09" width="89.38" height="32.49" fill="#0f766e" />
-<text x="1163.77" y="709.09" text-anchor="middle" class="top-label">RMB 99.26</text>
-<g transform="translate(1163.77,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol XH</tspan></text></g>
-<rect x="1242.46" y="740.95" width="89.38" height="39.05" fill="#d9dde4" />
-<text x="1287.15" y="767.47" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">68.1</text>
-<rect x="1242.46" y="709.64" width="89.38" height="31.31" fill="#7c3aed" />
-<text x="1287.15" y="695.64" text-anchor="middle" class="top-label">RMB 122.72</text>
-<g transform="translate(1287.15,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
-<rect x="1365.85" y="767.55" width="89.38" height="12.45" fill="#d9dde4" />
-<rect x="1365.85" y="733.73" width="89.38" height="33.82" fill="#cfcfcf" />
-<rect x="1365.85" y="684.64" width="89.38" height="49.09" fill="#1f83ff" />
-<text x="1410.54" y="716.19" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">85.6</text>
-<text x="1410.54" y="670.64" text-anchor="middle" class="top-label">RMB 166.32</text>
-<g transform="translate(1410.54,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
-<rect x="1489.23" y="766.92" width="89.38" height="13.08" fill="#d9dde4" />
-<rect x="1489.23" y="676.90" width="89.38" height="90.02" fill="#cfcfcf" />
-<text x="1533.92" y="728.91" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">157.0</text>
-<rect x="1489.23" y="632.05" width="89.38" height="44.85" fill="#6f6f6f" />
-<text x="1533.92" y="661.48" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">78.2</text>
-<text x="1533.92" y="618.05" text-anchor="middle" class="top-label">RMB 258.05</text>
-<g transform="translate(1533.92,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
-<rect x="1612.62" y="714.64" width="89.38" height="65.36" fill="#d9dde4" />
-<text x="1657.31" y="754.32" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">114.0</text>
-<rect x="1612.62" y="511.47" width="89.38" height="203.17" fill="#cfcfcf" />
-<text x="1657.31" y="620.05" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">354.4</text>
-<rect x="1612.62" y="396.18" width="89.38" height="115.29" fill="#111111" />
-<text x="1657.31" y="460.82" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">201.1</text>
-<text x="1657.31" y="382.18" text-anchor="middle" class="top-label">RMB 669.45</text>
-<g transform="translate(1657.31,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
+<rect x="132.00" y="779.71" width="80.57" height="0.29" fill="#d9dde4" />
+<rect x="132.00" y="778.24" width="80.57" height="1.47" fill="#cfcfcf" />
+<rect x="132.00" y="777.36" width="80.57" height="0.88" fill="#2f80ed" />
+<text x="172.29" y="763.36" text-anchor="middle" class="top-label">RMB 4.60</text>
+<g transform="translate(172.29,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="246.57" y="779.18" width="80.57" height="0.82" fill="#d9dde4" />
+<rect x="246.57" y="777.13" width="80.57" height="2.05" fill="#cfcfcf" />
+<rect x="246.57" y="774.48" width="80.57" height="2.64" fill="#00897b" />
+<text x="286.86" y="756.20" text-anchor="middle" class="top-label">RMB 17.09</text>
+<g transform="translate(286.86,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="361.14" y="779.19" width="80.57" height="0.81" fill="#d9dde4" />
+<rect x="361.14" y="776.76" width="80.57" height="2.43" fill="#cfcfcf" />
+<rect x="361.14" y="773.93" width="80.57" height="2.83" fill="#00695c" />
+<text x="401.43" y="755.25" text-anchor="middle" class="top-label">RMB 18.75</text>
+<g transform="translate(401.43,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash max</tspan></text></g>
+<rect x="475.71" y="778.19" width="80.57" height="1.81" fill="#d9dde4" />
+<rect x="475.71" y="772.31" width="80.57" height="5.88" fill="#cfcfcf" />
+<rect x="475.71" y="768.75" width="80.57" height="3.56" fill="#777777" />
+<text x="516.00" y="754.75" text-anchor="middle" class="top-label">RMB 19.62</text>
+<g transform="translate(516.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3-Flash (ox-alpha)</tspan></text></g>
+<rect x="590.29" y="776.49" width="80.57" height="3.51" fill="#d9dde4" />
+<rect x="590.29" y="758.35" width="80.57" height="18.14" fill="#cfcfcf" />
+<rect x="590.29" y="745.98" width="80.57" height="12.37" fill="#777777" />
+<text x="630.57" y="731.98" text-anchor="middle" class="top-label">RMB 59.34</text>
+<g transform="translate(630.57,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8 Flash (Bailian)</tspan></text></g>
+<rect x="704.86" y="770.67" width="80.57" height="9.33" fill="#d9dde4" />
+<rect x="704.86" y="764.82" width="80.57" height="5.85" fill="#cfcfcf" />
+<rect x="704.86" y="745.61" width="80.57" height="19.22" fill="#202020" />
+<text x="745.14" y="731.61" text-anchor="middle" class="top-label">RMB 59.98</text>
+<g transform="translate(745.14,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol</tspan></text></g>
+<rect x="819.43" y="772.51" width="80.57" height="7.49" fill="#d9dde4" />
+<rect x="819.43" y="762.03" width="80.57" height="10.48" fill="#cfcfcf" />
+<rect x="819.43" y="740.42" width="80.57" height="21.61" fill="#2945d9" />
+<text x="859.71" y="726.42" text-anchor="middle" class="top-label">RMB 69.04</text>
+<g transform="translate(859.71,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">DeepSeek V4</tspan><tspan x="0" dy="17">Pro</tspan></text></g>
+<rect x="934.00" y="760.78" width="80.57" height="19.22" fill="#d9dde4" />
+<rect x="934.00" y="742.68" width="80.57" height="18.11" fill="#cfcfcf" />
+<rect x="934.00" y="732.45" width="80.57" height="10.22" fill="#34a853" />
+<text x="974.29" y="718.45" text-anchor="middle" class="top-label">RMB 82.93</text>
+<g transform="translate(974.29,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Gemini 3.7</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="1048.57" y="764.76" width="80.57" height="15.24" fill="#d9dde4" />
+<rect x="1048.57" y="743.82" width="80.57" height="20.93" fill="#cfcfcf" />
+<rect x="1048.57" y="723.84" width="80.57" height="19.99" fill="#dc2626" />
+<text x="1088.86" y="709.84" text-anchor="middle" class="top-label">RMB 97.95</text>
+<g transform="translate(1088.86,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Hy4</tspan><tspan x="0" dy="17">Preview</tspan></text></g>
+<rect x="1163.14" y="767.12" width="80.57" height="12.88" fill="#d9dde4" />
+<rect x="1163.14" y="755.58" width="80.57" height="11.53" fill="#cfcfcf" />
+<rect x="1163.14" y="723.09" width="80.57" height="32.49" fill="#0f766e" />
+<text x="1203.43" y="709.09" text-anchor="middle" class="top-label">RMB 99.26</text>
+<g transform="translate(1203.43,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.6</tspan><tspan x="0" dy="17">Sol XH</tspan></text></g>
+<rect x="1277.71" y="740.95" width="80.57" height="39.05" fill="#d9dde4" />
+<text x="1318.00" y="767.47" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">68.1</text>
+<rect x="1277.71" y="709.64" width="80.57" height="31.31" fill="#7c3aed" />
+<text x="1318.00" y="695.64" text-anchor="middle" class="top-label">RMB 122.72</text>
+<g transform="translate(1318.00,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Qwen3.8</tspan><tspan x="0" dy="17">27B</tspan></text></g>
+<rect x="1392.29" y="767.55" width="80.57" height="12.45" fill="#d9dde4" />
+<rect x="1392.29" y="733.73" width="80.57" height="33.82" fill="#cfcfcf" />
+<rect x="1392.29" y="684.64" width="80.57" height="49.09" fill="#1f83ff" />
+<text x="1432.57" y="716.19" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">85.6</text>
+<text x="1432.57" y="670.64" text-anchor="middle" class="top-label">RMB 166.32</text>
+<g transform="translate(1432.57,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Kimi K3</tspan></text></g>
+<rect x="1506.86" y="766.92" width="80.57" height="13.08" fill="#d9dde4" />
+<rect x="1506.86" y="676.90" width="80.57" height="90.02" fill="#cfcfcf" />
+<text x="1547.14" y="728.91" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">157.0</text>
+<rect x="1506.86" y="632.05" width="80.57" height="44.85" fill="#6f6f6f" />
+<text x="1547.14" y="661.48" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">78.2</text>
+<text x="1547.14" y="618.05" text-anchor="middle" class="top-label">RMB 258.05</text>
+<g transform="translate(1547.14,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GLM-5.3</tspan></text></g>
+<rect x="1621.43" y="714.64" width="80.57" height="65.36" fill="#d9dde4" />
+<text x="1661.71" y="754.32" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">114.0</text>
+<rect x="1621.43" y="511.47" width="80.57" height="203.17" fill="#cfcfcf" />
+<text x="1661.71" y="620.05" text-anchor="middle" class="bar-label" fill="#777777" font-size="18">354.4</text>
+<rect x="1621.43" y="396.18" width="80.57" height="115.29" fill="#111111" />
+<text x="1661.71" y="460.82" text-anchor="middle" class="bar-label" fill="#ffffff" font-size="18">201.1</text>
+<text x="1661.71" y="382.18" text-anchor="middle" class="top-label">RMB 669.45</text>
+<g transform="translate(1661.71,824.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
 <text x="917.00" y="994.00" text-anchor="middle" class="small-note">Price split is parsed from the generated report; USD/token prices use USD/CNY 6.737012.</text></svg>

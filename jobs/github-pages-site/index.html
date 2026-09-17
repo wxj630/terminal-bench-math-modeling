@@ -647,13 +647,13 @@
         <div class="section-head">
           <div>
             <h2>Multimodal Leaderboard</h2>
-            <p class="lead">主榜。两个条目都是 <b>文本+图像</b> 多模态模型，可以打开题目随附的官方插图（7 道题带图，共 21 张裁切图）。它们用同一套 verifier、同一批 18 道题，所以与后面的纯文本榜可直接对照。成本统一按 <b>OpenRouter 目录价（美元）</b> 计算。</p>
+            <p class="lead">主榜。三个条目都是 <b>文本+图像</b> 多模态配置，可以打开题目随附的官方插图（7 道题带图，共 21 张裁切图）。它们用同一套 verifier、同一批 18 道题，所以与后面的纯文本榜可直接对照。成本统一按 <b>OpenRouter 目录价（美元）</b> 计算。<b>第 3 个条目是思考档位对照</b>：同一模型（DeepSeek V4.1 Flash）配同一 opencode CLI，只把 thinking 档位从默认 <code>high</code> 提到 <code>max</code>，用来直接观察提高思考预算是否换来更好成绩。</p>
           </div>
         </div>
         <div class="leaderboard-stack">
           <div>
             <h3 class="table-title">Multimodal O-Eval</h3>
-            <p class="table-caption">O-Eval 是相对 O 奖参照解的绝对完成度（100% = 平均达到 O 奖复现答案的 raw 水平，超出部分封顶）。两者分数几乎持平，但成本相差约 39 倍（按下述计费口径）。</p>
+            <p class="table-caption">O-Eval 是相对 O 奖参照解的绝对完成度（100% = 平均达到 O 奖复现答案的 raw 水平，超出部分封顶）。codex 与 opencode(high) 分数几乎持平，但成本相差约 39 倍；而 opencode(max) 分数反而<b>低于</b>它的 high 档（51.48% vs 62.19%），成本却更高（按下述计费口径）。</p>
             <div class="table-shell">
               <table id="multimodal-table" class="sortable-table">
                 <thead>
@@ -685,6 +685,15 @@
                     <td data-sort="2.54"><b>$2.54</b></td>
                     <td data-sort="17.09">¥17.09</td>
                     <td><span class="status done">18 valid + 0 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">3</span><b>opencode + DeepSeek V4.1 Flash (max)</b><small>同一模型、同一 opencode CLI，仅把 thinking 档位从默认 <code>high</code> 提到 <code>max</code>（<code>--agent-kwarg variant=max</code>）。这是 <b>high vs max</b> 的对照条目。<code>mcm-2024-a-lamprey</code> 与 high 档同样写错文件名（<code>-result.json</code>），已从轨迹复原并重评（<b>O-Eval 9.15%</b>）；<code>cumcm-2025-a-smoke-screen</code> 四次尝试后触及 4 小时上限超时，且 <code>cumcm-2023-a-heliostat-field</code> 的额定功率为 59.997 MW（差 0.003 MW 未达 60 MW）被 hard gate。因此 17/18 有效。</small></td>
+                    <td data-sort="17">17 / 18</td>
+                    <td data-sort="51.48">51.48%</td>
+                    <td data-sort="6.76">6.76%</td>
+                    <td data-sort="2.78">$2.78</td>
+                    <td data-sort="18.75">¥18.75</td>
+                    <td><span class="status partial">17 valid + 1 timeout</span></td>
                   </tr>
                 </tbody>
               </table>
@@ -748,11 +757,11 @@
         <div class="gallery">
           <figure class="viz">
             <img src="assets/figures/mm-o-eval-bar.png" loading="lazy" alt="Multimodal O-Eval bar chart">
-            <figcaption><b>O-Eval</b>主指标：两个多模态模型都在 62%–64% 区间，彼此只差约 2.1 个百分点。</figcaption>
+            <figcaption><b>O-Eval</b>主指标：codex 与 opencode(high) 在 62%–64% 区间只差约 2.1 个百分点，而同一模型的 max 档掉到 51.48%——档位提高并未带来收益。</figcaption>
           </figure>
           <figure class="viz">
             <img src="assets/figures/mm-o-eval-cost-scatter.png" loading="lazy" alt="Multimodal O-Eval versus USD cost scatter chart">
-            <figcaption><b>O-Eval vs. Cost（USD，对数轴）</b>分数几乎持平，成本相差约 <b>39 倍</b>（$99.37 vs $2.54）：这张榜同时也是性价比榜。</figcaption>
+            <figcaption><b>O-Eval vs. Cost（USD，对数轴）</b>codex 与 opencode(high) 分数几乎持平、成本差约 <b>39 倍</b>（$99.37 vs $2.54）；opencode(max) 在相近低价位却明显低于 high 档。</figcaption>
           </figure>
           <figure class="viz">
             <img src="assets/figures/mm-o-eval-suite-split.png" loading="lazy" alt="Multimodal O-Eval by contest suite">
@@ -772,7 +781,7 @@
           </figure>
           <figure class="viz">
             <img src="assets/figures/mm-effect-bar.png" loading="lazy" alt="Multimodal Robust BO-Eval bar chart">
-            <figcaption><b>Robust BO-Eval</b>辅助指标：相对 baseline 的稳健增益。GPT-5.5 为 17.03%，V4.1 Flash 为 12.24%——Flash 的追分效率约为旗舰的七成。</figcaption>
+            <figcaption><b>Robust BO-Eval</b>辅助指标：相对 baseline 的稳健增益。GPT-5.5 为 17.03%，V4.1 Flash(high) 为 12.24%，Flash(max) 仅 6.76%——max 档的追分效率明显更低。</figcaption>
           </figure>
           <figure class="viz">
             <img src="assets/figures/mm-effect-cost-scatter.png" loading="lazy" alt="Multimodal Robust BO-Eval versus USD cost">

@@ -60,6 +60,7 @@ DISPLAY = {
     "Tencent Hy4 Preview": "Hy4 Preview",
     "codex + gpt-5.5 xhigh": "GPT-5.5 xhigh (codex)",
     "opencode + deepseek-flash": "V4.1 Flash (opencode)",
+    "opencode + deepseek-flash (max)": "V4.1 Flash max (opencode)",
 }
 
 SHORT_LINES = {
@@ -76,6 +77,7 @@ SHORT_LINES = {
     "Tencent Hy4 Preview": ["Hy4", "Preview"],
     "codex + gpt-5.5 xhigh": ["GPT-5.5", "xhigh"],
     "opencode + deepseek-flash": ["V4.1", "Flash"],
+    "opencode + deepseek-flash (max)": ["V4.1", "Flash max"],
 }
 
 COLORS = {
@@ -92,6 +94,7 @@ COLORS = {
     "Tencent Hy4 Preview": "#dc2626",
     "codex + gpt-5.5 xhigh": "#111111",
     "opencode + deepseek-flash": "#00897b",
+    "opencode + deepseek-flash (max)": "#00695c",
 }
 
 PRICE_RMB_PER_MTOK = {
