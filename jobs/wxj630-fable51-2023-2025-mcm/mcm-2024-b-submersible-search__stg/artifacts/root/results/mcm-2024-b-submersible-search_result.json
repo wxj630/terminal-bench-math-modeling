@@ -1,0 +1,22 @@
+{
+ "experiment_result": {
+  "caribbean_adaptation": {
+   "current_multiplier": 3.0,
+   "terrain_uncertainty_multiplier": 2.0
+  },
+  "search_strategy": {
+   "find_probability_6h": 0.6748667542975262,
+   "find_probability_10h_start_1h": 0.8000064581700295,
+   "find_probability_10h_start_3h": 0.7709502861776125,
+   "find_probability_10h_start_5h": 0.7482819287321862,
+   "find_probability_18h": 0.86553757460873,
+   "recovery_note": "Recovered from the original trajectory observations (results_raw.json / CPD curves); the download package omitted the artifact file."
+  }
+ },
+ "_recovery_provenance": {
+  "source_trial": "fable-claude-code/mcm-2024-b-submersible-search__aCCG3VW",
+  "trajectory_sha256": "aaf04ac06e462854aa49257efc954c5eb00956f04bcb5a46cd3b60619cdb37cb",
+  "evidence_steps": [19, 26],
+  "method": "Direct transcription of five numeric values printed in the original agent trajectory; no model rerun or recomputation."
+ }
+}

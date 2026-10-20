@@ -1,0 +1,8525 @@
+{
+ "tasks": {
+  "cumcm-2023-a-heliostat-field": {
+   "n_papers_total": 4,
+   "n_oracles_used": 4,
+   "oracles": [
+    {
+     "paper_id": "A092",
+     "n_fields": 5,
+     "coverage": 1.0,
+     "notes": "Q3 results: Table 6 gives 2315 heliostats and total mirror area 87633.4929 m2; Table 8 gives annual optical efficiency 0.7818, annual thermal power 60.359 MW and unit-area power 0.7551 kW/m2. Quote: '"
+    },
+    {
+     "paper_id": "A127",
+     "n_fields": 5,
+     "coverage": 1.0,
+     "notes": "Q3 Table 15: 2846 heliostats, total area 116572.2 m2; Table 14: annual optical efficiency 0.544565, annual thermal power 61.859281 MW, unit-area power 0.530652 kW/m2. Quote: '0.544565 ... 61.859281MW "
+    },
+    {
+     "paper_id": "A165",
+     "n_fields": 5,
+     "coverage": 1.0,
+     "notes": "Q3 Table 8: annual optical efficiency 0.5856, annual thermal power 44.25 MW, unit-area power 0.4556 kW/m2; Table 9: 3249 heliostats, total area 97106.40 m2 (Q3 kept Q2 layout and only varied mounting "
+    },
+    {
+     "paper_id": "A175",
+     "n_fields": 5,
+     "coverage": 1.0,
+     "notes": "Q3 Table 9: annual optical efficiency 0.496428083, annual thermal power 60.336111 MW, unit-area power 0.506192417 kW/m2; design table: 3311 heliostats, total area 119196 m2. Quote: '0.496428083 ... 60"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.5421370581199043,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.3040340561915974,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.5570880679700037,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.5692133144155848,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 0.7382127939024316,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.7375114985903084,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.42485024546488004,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.7938442030569084,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.731351545839445,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.7634054457738368,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.42667425470697956,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.8468122946072721,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.7801352337810956,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.8510372096786514,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.48021163219396207,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.9239372065206435,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.6824817382048695,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.40089624506010296,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.6872725262909232,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.6901888384654221,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 0.9515693430030296,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.7375552341364071,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.4224137385507435,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.7990593296740018,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.7287478683208829,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.8343726579602382,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.45225340411612774,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.9997382293158793,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.8854989984089456,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.894534675792831,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.5781387031713239,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.689941661124518,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.4130239868768946,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.718609758916057,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.6561638982649762,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 0.9719690004401442,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "kimi": {
+     "o_eval": 0.690386775644896,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.4071475421505131,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.7142334111259371,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.6648253240400755,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 0.9753408252630582,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.7086080612028061,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.3485354967372662,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.7293956761532945,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.7874908203472122,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 0.9690102515734512,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.8190885412831234,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.44956417229934137,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 0.9345510078611075,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 0.8922389849720446,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "qwenflash": {
+     "o_eval": 0.8730789859352075,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.49231594374083015,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.9119919167203268,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "A092",
+       "score": 0.6479676668813072,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A127",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A165",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      },
+      {
+       "paper_id": "A175",
+       "score": 1.0,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2023-b-multibeam-lines": {
+   "n_papers_total": 3,
+   "n_oracles_used": 3,
+   "oracles": [
+    {
+     "paper_id": "B226",
+     "n_fields": 4,
+     "coverage": 1.0,
+     "notes": "Q4 summary table: total 622 nautical miles, missed 3.48%, over-20% overlap 55560 m = 30 nm. Quote: '测线总长度为622海里...3.48%...重叠率超过20%部分的总长度为55560m，即30海里'. The paper never prints an average overlap for Q4"
+    },
+    {
+     "paper_id": "B311",
+     "n_fields": 2,
+     "coverage": 0.5,
+     "notes": "Q4 reports total survey-line length 466394.4 m and missed rate 2.3%. Quote: '总测线长度为 466394.4m ... 最终得出漏测率为 2.3%'. Converted m to nautical miles: 466394.4/1852 = 251.83 nm. The paper does not report th"
+    },
+    {
+     "paper_id": "B477",
+     "n_fields": 4,
+     "coverage": 1.0,
+     "notes": "Q4 Table 4: total length 434662 (m), missed 0.04%, overlap>20% length 21998 (m). Quote: '测线的总长度 434662 ... 漏测海区所占百分比 0.04% ... 重叠率超过20%部分的总长度 21998'. Converted to nm: 434662/1852=234.70; 21998/1852=11"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.8024751805317721,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.40742554159531635,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.7347990367327853,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.20439711019835613,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.72726420636848,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.18179261910543987,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 3
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 1.0,
+       "n": 4,
+       "found": 3
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.8037044387819288,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.4111133163457864,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.80535708994098,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.4160712698229402,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.793854026134583,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.3815620784037488,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.7887666321501077,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.3662998964503231,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.803505336832193,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.41051601049657904,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.8056694417946515,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.4170083253839547,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.8053518249047992,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.41605547471439763,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.8231372945192904,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 0.4694118835578711,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "B226",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      },
+      {
+       "paper_id": "B311",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B477",
+       "score": 1.0,
+       "n": 4,
+       "found": 4
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2023-c-vegetable-pricing": {
+   "n_papers_total": 3,
+   "n_oracles_used": 3,
+   "oracles": [
+    {
+     "paper_id": "C050",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "Abstract: '求解出未来一周最大收益为5105.60元' (Q2) and '筛选出29种可售单品蔬菜，并估计2023年7月1日最大收益为1282.2631元' (Q3). Selected count 29 is explicit. Both values reported in yuan / items, no conversion."
+    },
+    {
+     "paper_id": "C126",
+     "n_fields": 1,
+     "coverage": 0.5,
+     "notes": "Selected count explicit: '最终筛选出29个品种' (also via VAR model, 29 items). The paper solves max-profit models in Lingo but never prints the optimal total profit for the week; it only gives cost-profit-rate"
+    },
+    {
+     "paper_id": "C228",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "Q2 Table 8 gives seven daily max profits (1810.02, 1802.87, 1745.22, 1758.42, 1790.44, 1794.12, 1799.79); the paper prints no weekly total, so the field value is their sum = 12500.8806 (yen). Q3 selec"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.82174688057041,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.703675953947655,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.645787220131735,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.749661820465052,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.7837448196839263,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.48241167211304087,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 0.4072639335188432,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.5747304411090493,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.6910752766227892,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.6079851881571378,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.6983110194793918,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.6296924167269453,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.5787187030153552,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 0.5979178091698715,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.7767857142857143,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.3614525855904801,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.4632971493899308,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 0.3550976500945095,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.569553156364053,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.6960342380348593,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.6228620723933479,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.6905459700931901,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.6063972685683402,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.6857993377238616,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.592157371460355,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.9255952380952381,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.7767857142857143,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.6878506330257689,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.5983112573660768,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.7031400480945669,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.6441795025724705,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.7074544424341692,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.657122685591278,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.672248535224227,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "C050",
+       "score": 0.96363124435561,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C126",
+       "score": 0.46524064171123,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "C228",
+       "score": 0.5878737196058412,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2024-a-dragon-dance": {
+   "n_papers_total": 5,
+   "n_oracles_used": 5,
+   "oracles": [
+    {
+     "paper_id": "A016",
+     "n_fields": 1,
+     "coverage": 0.5,
+     "notes": "5.5.3节原文：'得出龙头的最大行进速度为：1.406276 m/s'。方法为在整数秒采样的速度矩阵中取最大速度，再用 2/v_max 缩放龙头速度（k=2/v_max）；论文只给出该比值常数的定义式(47)，未打印其数值，故 ratio 字段置 null。按论文值反推 k≈1.422195，但这是笔者计算而非论文报告值，不写入。该 1.406276 为整数秒采样结果，跨过连续时间峰值，按此速度"
+    },
+    {
+     "paper_id": "A053",
+     "n_fields": 1,
+     "coverage": 0.5,
+     "notes": "5.5.2节原文：'根据上述算法, 我们用粒子群算法得出龙头最大速度为: 1.33 m/s'。摘要（OCR 第15行）同一数值写作 '1.33 cm/s'，与正文单位冲突；cm/s 对龙头行进速度物理上不合理（且 cm→m 会得 0.0133 m/s），按正文明确标注的 m/s 记录为 1.33。未报告速度放大比值。注：1.33 m/s 大于连续时间可行值 1.246266 m/s，属论文启发式搜"
+    },
+    {
+     "paper_id": "A163",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "4.5.1节原文：'程序求解得到, 这段过程中第三节龙身前把手的最大速度为 1.604793 m/s'（该值对应龙头速度 1 m/s，即速度放大比例 k）；随后'通过限制第三节龙身前把手的最大速度为 2m/s，来得到龙头的最大行进速度'。4.5.2节原文：'代入数据,求解得龙头的最大行进速度为 1.246266 m/s'。两字段均为论文明确打印的数值。"
+    },
+    {
+     "paper_id": "A178",
+     "n_fields": 1,
+     "coverage": 0.5,
+     "notes": "第624行原文：'解得龙头的最大行进速度为 1.2462 m/s, 其中误差控制在 0.0001 m/s 之内'（二分法搜索）。全文未给出最大把手速度/龙头速度的比值 k，故 ratio 置 null。"
+    },
+    {
+     "paper_id": "A242",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "问题五结果原文：'经计算，我们得出在 t≈14.47997148s 时，max_n v_n(t) 达到其最大值 1.60479338 m/s 故题目所求结果为 v_max≈1.246266 m/s'。前者为龙头 1 m/s 时的全体把手速度峰值，即比例常数 k，直接作为 ratio 记录。"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.21822498330939596,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.25094254507870845,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.21579232017306657,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.22026346562080934,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.18386316245032852,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.220263423224067,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.8337480383064545,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132975521697488,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895841092702,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247831,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.999556448446219,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987881822516,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.8336987753558098,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5133219722198629,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6559317436441195,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9998945902096552,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9994519669041483,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9998936038012631,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.8337480414954926,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132975494372968,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895793919589,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247782,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564601388336,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987998845957,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.8337480414955041,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132975494372871,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895793919423,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247784,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564601388751,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987998846374,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.8337480383064382,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.513297552169763,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895841092949,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247833,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564484461582,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987881821908,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.6312032104687255,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.9999961048495021,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.676624816598787,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.4982021659390117,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.48299102938983185,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.4982019355664945,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.8337486941284815,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132969902463512,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558886140037973,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995588530178455,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999990133744137,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.833748041495485,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132975494373034,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895793919702,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.999997818624778,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564601388054,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987998845679,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.8337480383004943,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132975521748557,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.655889584118087,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247832,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564484243656,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987881603801,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.10829196651542712,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.12652707414754882,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.12785365725985098,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.07877083019276901,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.12953743678748914,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.07877083418947764,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.6312023220090982,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.9999940742187515,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6766238336081942,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.49820171887996,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.48299049483077694,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.498201488507808,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.8336930557264912,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5133250951375337,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6559371352479899,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9998827134431979,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9994386077472133,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9998817270565215,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.8337480414945564,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.513297549438099,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895793933439,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247198,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564601354007,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987998812188,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.8337486941284815,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132969902463512,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558886140037973,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995588530178455,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999990133744137,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.8337480383063733,
+     "n_oracles_scored": 5,
+     "per_paper": [
+      {
+       "paper_id": "A016",
+       "score": 0.5132975521698185,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A053",
+       "score": 0.6558895841093906,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A163",
+       "score": 0.9999978186247827,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "A178",
+       "score": 0.9995564484459208,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "A242",
+       "score": 0.9999987881819539,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2024-b-production-decision": {
+   "n_papers_total": 3,
+   "n_oracles_used": 1,
+   "oracles": [
+    {
+     "paper_id": "B159",
+     "n_fields": 2,
+     "coverage": 0.333,
+     "notes": "论文只做了单一后验情景（均匀先验 α=β=1，p̂=k/n=0.1，后验 Beta(1+n p̂,1+n-n p̂)），未报告基准所需的 3 组（c-2, c, c+2 观测次品数）后验情景，故仅把该单一后验结果放在语义最接近的中心行 posterior_rows[1]，其余两行置 null。Q2: 表8 '问题二 6 种情况最终决策方案及决策指标值表' 情况1 '检测零配件1，不检测零配件2，不"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "flash_opencode": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.6673056975693946,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 0.6673056975693946,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "hy4": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "B159",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2024-c-crop-planting": {
+   "n_papers_total": 4,
+   "n_oracles_used": 4,
+   "oracles": [
+    {
+     "paper_id": "C038",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "摘要及 5.1.3 节原文：'50% 降价情境下的七年总利润收敛至21533950.7元，显著高于滞销情境下的17925814.6元'。单位已为元，无需换算。注意：本题为 benchmark 的 special case——论文完整约束集在官方附件上不可行且使用未公开 DEGA 启发式，评分锚点已改为 HiGHS 精确解（40418876.72/58718967.38）；此处按要求只如实记录论文原"
+    },
+    {
+     "paper_id": "C063",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "摘要原文：'若滞销部分浪费，则7年最大收益约为4530万元；若超过部分半价销售，则7年最大收益约为6469万元'。论文以万元、约数报告，按 1万元=10000元 换算：4530万元→45300000元，6469万元→64690000元。正文未再给出更精确的数值（仅该摘要句报告），因此保留其四位有效数字的近似值，notes 说明其为'约'值。"
+    },
+    {
+     "paper_id": "C094",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "摘要原文：'使用求解器求解得：超出部分滞销结果为40244799.20元，超出部分折价结果为56325297.78元'；5.1.2 表5 亦列 '超出滞销 40,244,799.20 / 超出半价 56,325,297.78'。该文目标函数式(10) Z=总收入-总成本（即利润），表5列名写作'总收入（元）'但数值对应目标函数 Z，按利润记录。表中 p=3,q=8 行给出滞销 40244799.2"
+    },
+    {
+     "paper_id": "C234",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "摘要原文：'情况1——超过部分滞销，造成浪费的总利润为：29276719.5元；情况2——超过部分按2023年销售价格的 50% 降价出售的总利润为：42837286.75元'。第5.1节结果处重复给出同样两值（'最优种植方案从2024年到2030年的总利润为：29276719.5元' / '42837286.75元'）。单位元，无换算。"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.793621514438565,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.39281278497743416,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 0.781673272776826,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.8803796786769826,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.5215187147079308,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.8929759149450363,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.5719036597801448,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.8919786392970273,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.5679145571881088,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.9662503227164991,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.8650012908659968,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.7081711882468931,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.34279490196880913,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 0.48988985101876326,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.8809930453858765,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.523972181543506,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.8886011251894324,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.5544045007577294,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.900391357040005,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.6015654281600198,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.8359159813549051,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.4514529069522394,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 0.8922110184673807,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.8926538021111323,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.5706152084445291,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.8960086370444789,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.5840345481779154,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.8815208818471361,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.526083527388544,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.7903936491295455,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "C038",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C063",
+       "score": 0.42193856842263355,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C094",
+       "score": 0.7396360280955483,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C234",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2025-a-smoke-screen": {
+   "n_papers_total": 1,
+   "n_oracles_used": 1,
+   "oracles": [
+    {
+     "paper_id": "A196",
+     "n_fields": 1,
+     "coverage": 0.25,
+     "notes": "Q5 total: '通过上面的策略结合问题三的求解思路，求解得到总最长有效遮蔽时间为21.0770s。' (line 1014; same value in abstract line 15). Unit is seconds as written, no conversion. Per-missile M1/M2/M3 durations are NOT reported in the pap"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.623321701070562,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 0.623321701070562,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.31372483187420547,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 0.31372483187420547,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.34429041251034526,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 0.34429041251034526,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.4089088069532151,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 0.4089088069532151,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "A196",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2025-b-sic-thickness": {
+   "n_papers_total": 2,
+   "n_oracles_used": 2,
+   "oracles": [
+    {
+     "paper_id": "B060",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "Units are micrometres (μm) as written in the paper; no conversion needed. Si: abstract line 11 states '最终以 3.432μm 作为附件3、4硅晶片的厚度计算结果' (direct method 3.453 μm, Newton inversion 3.414 μm; 3.432 is the r"
+    },
+    {
+     "paper_id": "B157",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "Units are micrometres (μm) as written; no conversion needed. Si: Q3 Airy multi-beam + Cauchy joint fit gives 'd_hat = 3.814 μm' (Sec. 5.3.5, line ~770) and the abstract states '最终得到硅晶圆片厚度约 3.814 μm'. "
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.8343323857051191,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.9299869064921684,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.7386778649180699,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.7710048977966908,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.8690212847027443,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6729885108906373,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.7980980346126088,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.90815002971085,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6880460395143676,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.811696634750069,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.935507673666254,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6878855958338841,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.7927910309372466,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.9022063091632868,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6833757527112063,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.765361566958952,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.8229551759088772,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.7077679580090266,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.10630021015177903,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.10173665284762612,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.11086376745593193,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.8058350145120436,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.9014813264907697,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.7101887025333176,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.6230250739842542,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.7198968167700255,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.5261533311984828,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.7471397173888445,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.8313868228018847,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6628926119758045,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.6157650583831162,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.5008797478123828,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.7306503689538498,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.7925704191140868,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.857367286884616,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.7277735513435575,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.4579943108880912,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.5657078651184597,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.35028075665772274,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.7957884404830341,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.8935860993763283,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6979907815897399,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.6914337461096471,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.7192135185629465,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.6636539736563479,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.6497513218187849,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "B060",
+       "score": 0.7375878235159612,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "B157",
+       "score": 0.5619148201216088,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "cumcm-2025-c-nipt": {
+   "n_papers_total": 2,
+   "n_oracles_used": 2,
+   "oracles": [
+    {
+     "paper_id": "C023",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "Q2 (BMI-only grouping) main result, Table 4 '不同 BMI 分组的推荐孕周' (OCR line 366): '[20.7, 26.8] -> 11.9 周; [26.9, 39.9] -> 12.8 周; [40.0, 42.5] -> 17.5 周; [42.8, 46.8] -> 20.4 周; [44.7, 46.8] -> 22.8 周'. T"
+    },
+    {
+     "paper_id": "C132",
+     "n_fields": 2,
+     "coverage": 1.0,
+     "notes": "Scenario chosen: the paper's primary recommended scenario, Q2 50%-accuracy early-screening strategy (Table 3, OCR line 619): '(,29.88] 55 11.00; (29.89,31.82] 82 11.64; (31.82,) 125 12.00', summarized"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.4130175057703713,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.4916907570751776,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.3343442544655649,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.6068983358054469,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.7304774430687355,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.4833192285421584,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.4337838859244459,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.6183506587301859,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.24921711311870587,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.3917412769162091,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.6173986765261054,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.16608387730631274,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.578261614386956,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.8062269418168422,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.3502962869570699,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.2848422395365704,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.31829484306812017,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.2513896360050206,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.4379793777401187,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.30801142993041386,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.5679473255498235,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.3246769127087955,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.49625282805429854,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.1531009973632924,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.27236282525673394,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.3964332101951655,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.14829244031830238,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.4130175057703713,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.4916907570751776,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.3343442544655649,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.25976802687307526,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.3824882963424905,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.13704775740366001,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.6139172159226198,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.5722176526059933,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.6556167792392462,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.38741767243342773,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.3579996450696953,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.4168356997971602,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.3136111951945659,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.3626433703753291,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.2645790200138026,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.3916119526446359,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.5758667110611805,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.20735719422809135,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.5479195076054597,
+     "n_oracles_scored": 2,
+     "per_paper": [
+      {
+       "paper_id": "C023",
+       "score": 0.7389216489443546,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "C132",
+       "score": 0.3569173662665649,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2023-a-plant-community": {
+   "n_papers_total": 7,
+   "n_oracles_used": 6,
+   "oracles": [
+    {
+     "paper_id": "2300336",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Species threshold: Sec. 4.1.1 / Summary: 'it can be concluded that the minimal number of species for the community to benefit is three.' Sensitivity analysis varies drought coefficient dr and white-no"
+    },
+    {
+     "paper_id": "2303950",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Sec. 5.2: 'when the number of species are more than eight, the index will be larger than that of one species. Therefore, over eight types of species are required for the community to gain overall bene"
+    },
+    {
+     "paper_id": "2309229",
+     "n_fields": 3,
+     "coverage": 1.0,
+     "notes": "beta_decline_pct: Sec. 6.1: 'In the process of beta changing from 1e-3 to 2e-2, the total biomass decreases by about 32%' - value reported as written (percent, no conversion). Pielou: Sec. 4.1.3: 'The"
+    },
+    {
+     "paper_id": "2316994",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Species threshold: Summary and Sec. 5.3.1: 'the minimal number of plant species is 5 if the community want to benefit from this biodiversity'; at n=5 the change rates of Shannon-Wiener index and ICV a"
+    },
+    {
+     "paper_id": "2321860",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Summary: 'when there are at least four species, the plant community shows higher resistance to irregular weather cycles'; Conclusion item 3 repeats 'When the number of species is larger than 4, the co"
+    },
+    {
+     "paper_id": "2322687",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Conclusion item 2: 'Only two species are required to benefit from the biodiversity phenomenon. This is also where the greatest marginal benefit occurs'. Model is a dimensionless PDE; sensitivity analy"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.39657254022925664,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.06716417910447761,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.038461538461538464,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.4655608356173328,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.15254237288135594,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.24242424242424243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.07407407407407407,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.3771497208649102,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.2647058823529412,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.1935483870967742,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 0.32250119859688914,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.37499999999999994,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.1897164696622682,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.016853932584269662,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.056603773584905655,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.03061224489795918,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.023437499999999997,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.010791366906474819,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.1790129028508902,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.056603773584905655,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.48979591836734687,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 0.2765025303977623,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.13043478260869565,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.0875912408759124,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.03314917127071823,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.41902435889382345,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.15254237288135594,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.24242424242424243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 0.7207811396589441,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.07407407407407407,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.4900661877654287,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.2647058823529412,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.1935483870967742,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.37499999999999994,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.39657254022925664,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.06716417910447761,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.038461538461538464,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.33114441961272384,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.08256880733944955,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.48979591836734687,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.13793103448275862,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.045801526717557245,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.4655608356173328,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.15254237288135594,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.24242424242424243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.07407407407407407,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.24733816856959645,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.08256880733944955,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.48979591836734687,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 0.4971624937412357,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.13793103448275862,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.045801526717557245,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.39508910682950055,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.15254237288135594,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.24242424242424243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 0.5771696272730064,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.07407407407407407,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.4655608356173328,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.15254237288135594,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.24242424242424243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.07407407407407407,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.4900661877654287,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.2647058823529412,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.1935483870967742,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.37499999999999994,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.24104642945144097,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 0.3896592345597847,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 0.37499999999999994,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.1935483870967742,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.056603773584905655,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.4655608356173328,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2300336",
+       "score": 0.15254237288135594,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2303950",
+       "score": 0.24242424242424243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2309229",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2316994",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2321860",
+       "score": 0.3243243243243243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2322687",
+       "score": 0.07407407407407407,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2023-b-maasai-mara": {
+   "n_papers_total": 3,
+   "n_oracles_used": 1,
+   "oracles": [
+    {
+     "paper_id": "2315379",
+     "n_fields": 5,
+     "coverage": 1.0,
+     "notes": "Grid: the reserve is split into 36 isometric grids of 50 km^2 each (Sec. 5.3.1). Scenario 2 allocation (Table 5, Sec. 5.4): tourist area 9, agricultural expansion area 12, hunting area 2, wildlife san"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.10209313687124433,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.10209313687124433,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.13033986720212504,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.13033986720212504,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.03073773655527192,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.03073773655527192,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.06808476784080232,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.06808476784080232,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.04648155108021217,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.04648155108021217,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.03349589361782769,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.03349589361782769,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.034371436209540876,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.034371436209540876,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.06814166535747394,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.06814166535747394,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.0323552519982729,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.0323552519982729,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.07371164993624388,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.07371164993624388,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.02874497224963877,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.02874497224963877,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.06335154448527183,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.06335154448527183,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.02404110884917756,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.02404110884917756,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.08856937934702291,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.08856937934702291,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.02324097773320183,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.02324097773320183,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.0225034675141616,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2315379",
+       "score": 0.0225034675141616,
+       "n": 5,
+       "found": 5
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2023-c-wordle": {
+   "n_papers_total": 12,
+   "n_oracles_used": 7,
+   "oracles": [
+    {
+     "paper_id": "2300348",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Sec. 7.4: 'we randomly sampled 30 words, manually labeled their difficulty levels, and used the K-Means++ model for clustering analysis... 28 out of 30 data points matched, resulting in a 93.33% match"
+    },
+    {
+     "paper_id": "2307166",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Sec. 7.2: 'We chose K = 8 as the parameter, and the prediction accuracy was 75.28%' - this is KNN classifier accuracy selected by cross-validation (accuracy interval given as [63.16%, 82.76%]). Conver"
+    },
+    {
+     "paper_id": "2307946",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Table 8 (Sec. 8.5): LightGBM difficulty classifier (K-means 4 groups) 'Validation set Accuracy 71.13%', 'Training set Accuracy 98.28%'. Validation (held-out) value used -> 0.7113. The summary also sta"
+    },
+    {
+     "paper_id": "2310767",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Summary / Sec. 6.4: GMM clustering into difficult/moderate/easy compared against each word's true difficulty (expected number of tries trichotomy): 'It demonstrates that our model has a 67% accuracy r"
+    },
+    {
+     "paper_id": "2311035",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Table 5 (Sec. 6.4): SVM with RBF kernel for 3-level difficulty, trained on a 3:1 train/test split: Accuracy score 0.6556, Precision 0.6762, Recall 0.6556, F1 0.6634. Summary reports 'accuracy score of"
+    },
+    {
+     "paper_id": "2314151",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Sec. 6.5: 'The accuracy of our model is calculated to be 91.3649025%' by matching attribute-interval-derived difficulty against the K-means difficulty label on 405 words (Jan 7 2022 - Feb 16 2023). Co"
+    },
+    {
+     "paper_id": "2318036",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Table 8 (Sec. 7.2): Random Forest difficulty classifier (3 K-means clusters) on an 80/20 train/test split: 'accuracy 0.68' (n=72 test), weighted precision/recall/F1 0.69/0.69/0.68. Recorded 0.68 (test"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.3242781248671408,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.21097046413502107,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.3090394025238217,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.34602076124567466,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.392798690671031,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.41222947440742014,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.21853942815516297,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.3803486529318541,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.43714361413064307,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2503128911138923,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.4014720642355302,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.4662004662004661,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.5552984729291992,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.5949429846306397,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.26103980857080705,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.530738611233967,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.40773133648071674,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2411091018685955,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.3783102143757881,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.43525571273122954,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.5119453924914674,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.5454545454545455,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.2510460251046025,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.49099836333878877,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.32267688038536474,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.21032655010063034,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.307659664757055,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.3442919754246762,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.3905723905723905,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.40977815458527633,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.2178485576923077,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.3782608695652174,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.48921130494183723,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2650822574305482,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.44086904326588067,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.5201793356927279,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.6336142786316312,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.6857547595029088,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.27714286953466893,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.601836590534495,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.33929610391925724,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.21688053497198626,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.32188841201716734,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.36220947781466944,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.4137931034482758,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.4354136429608128,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.22488755622188908,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.3999999999999999,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.29491713786412704,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.19872089980823435,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.2834453729904904,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.31424965039726394,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.3523587481868205,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.3679153304186264,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.20542246842485476,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.3423074948225991,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.4295753313108758,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.248007671703978,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.3955748361660886,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.4582671391910056,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.5440795081521244,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.5820834707697083,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.2585337688191039,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.5204809243741214,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.5448788623881239,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2789973616553843,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.4807468995308653,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.5766137175567733,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.7193744569939181,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.7873416758586591,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.29238940053110346,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.6786885245901637,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.3336880175734657,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.21470055504516147,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.3171096700634219,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.3561697742590634,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.4059293044469783,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.4267152514743252,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.22254450890178037,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.3926470588235293,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.3301161033949765,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2132954141485958,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.31405391258832765,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.3523194362889019,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.4009355162044771,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.4212004212004213,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.2210351814330448,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.38797284190106684,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "qwen": {
+     "o_eval": 0.4541374249068516,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2553372579615576,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.41455550437586364,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.4839360129049603,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.5806451612903225,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.6241331484049932,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.2665087355641102,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.5538461538461538,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.4468840849844951,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.2532179784764718,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.4089979550102249,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.47637951568082565,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.5698005698005698,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.6116207951070339,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.26420079260237783,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.5439709882139618,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.2882195174190666,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.19579050416054822,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.27752081406105455,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.3069838833461243,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 0.3432494279176201,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 0.3579952267303103,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.20229265003371544,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 0.3337041156840934,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.7497599371646562,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2300348",
+       "score": 0.33519553072625696,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307166",
+       "score": 0.6760563380281691,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2307946",
+       "score": 0.8823529411764705,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2310767",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2311035",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2314151",
+       "score": 0.3547147502216968,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2318036",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2024-a-lamprey": {
+   "n_papers_total": 5,
+   "n_oracles_used": 4,
+   "oracles": [
+    {
+     "paper_id": "2400996",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Sec. 4.2.1: \"Indicators of ecosystem stability $S_{1} = 3.7175 \\cdot 10^{-4}$ for lamprey with change in sex ratio; Indicators of ecosystem stability $S_{2} = 6.4414 \\cdot 10^{-4}$ for lamprey without"
+    },
+    {
+     "paper_id": "2405424",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Table 1 \"Ecosystem stability assessment\": Stability row is Ideal 0.63, Constant sex ratio 0.54, Changing sex ratio 0.61. adaptive_stability = 0.61 (the paper's 0-1 ESI composite for the changing-sex-r"
+    },
+    {
+     "paper_id": "2407093",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Table 3 \"Ecosystem Stability\", Average column: alpha as a Variable gives S1=1076 (resistance), S2=79 (recovery time), S=47701 (comprehensive stability); alpha as a Constant gives S1=1168.8, S2=95, S=5"
+    },
+    {
+     "paper_id": "2425397",
+     "n_fields": 1,
+     "coverage": 1.0,
+     "notes": "Table 5 \"Data on Population Mutation of Lampreys\": with a variable sex ratio, Recovery Duration = 18 and Fluctuation Level = 23.28%; with an invariant sex ratio, 22 and 30.41%. The paper's resistance-"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.10714285714285714,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.10714285714285714,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.6092300732026352,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.13500626084627806,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.30191403196426303,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.14359524924344363,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.1127635925896013,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.14920704972608917,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.185492950195679,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.1269174044624051,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.8420821809551581,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.3683287238206323,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.1074155492806516,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.10720243140124881,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.10748067559681614,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.10764979542087941,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.10732929470366204,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.8091691047390253,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.23667641895610103,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.1076817840088358,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.10726025810311754,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.1078102659015094,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.10814592622254648,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.10751068580816976,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.15004411442748708,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.11340751150707183,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.15582854051021022,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.2014360566660198,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.12950434902664643,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.10795924987132395,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.10732017256705469,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.10815351642844129,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.10866424408137297,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.10769906640842686,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.8365380074613944,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.3461520298455775,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.4049406475102871,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.12161181277089941,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.32756913874086396,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.17058163852938502,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.11801954773562454,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.10927066970994673,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.120403612232239,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.12831676588346463,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.11408714311684777,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.10858126083699896,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.10745319502215747,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.10892208001968733,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.10983084718442984,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.10811892112172121,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.8498365567965133,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.39934622718605295,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.20078670377883984,
+     "n_oracles_scored": 4,
+     "per_paper": [
+      {
+       "paper_id": "2400996",
+       "score": 0.1166253430742101,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2405424",
+       "score": 0.1983622866763603,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2407093",
+       "score": 0.3445071357451045,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425397",
+       "score": 0.1436520496196845,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2024-b-submersible-search": {
+   "n_papers_total": 4,
+   "n_oracles_used": 1,
+   "oracles": [
+    {
+     "paper_id": "2419984",
+     "n_fields": 2,
+     "coverage": 0.4,
+     "notes": "Sec. 7.3.2: \"if the search starts at $t = 1$ h, the probability of finding the submersible within 10 hours reaches $43\\%$\" -> 0.43; \"If the search begins at $t = 5$ h, the probability of finding the s"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 1.0,
+     "n_oracles_scored": 1,
+     "per_paper": [
+      {
+       "paper_id": "2419984",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2024-c-tennis-momentum": {
+   "n_papers_total": 11,
+   "n_oracles_used": 6,
+   "oracles": [
+    {
+     "paper_id": "2401298",
+     "n_fields": 2,
+     "coverage": 0.667,
+     "notes": "Sec. 4.2: \"The Ljung-Box Q test results for the first match, with a corresponding p-value of 0.497 ... The results of other matches are similar.\" The runs test gives \"$P = 0.691$\". Both values are rep"
+    },
+    {
+     "paper_id": "2401919",
+     "n_fields": 2,
+     "coverage": 0.667,
+     "notes": "Sec. 4.3: \"we conducted tests on a total of 62 sequences from 31 matches. Among them, 60 sequences were found to be non-white-noise, while only 2 sequences were identified as white noise. This indicat"
+    },
+    {
+     "paper_id": "2406176",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Sec. 4 uses a Kolmogorov-Smirnov test, not Ljung-Box or runs: Table 3 gives Carlos $p = 1.338\\times10^{-62}$ and Nicolas $p = 5.945\\times10^{-56}$, both \"much smaller than 0.05\", rejecting the coach's"
+    },
+    {
+     "paper_id": "2406324",
+     "n_fields": 2,
+     "coverage": 0.667,
+     "notes": "Sec. 4.3: \"we first applies a run test ... The P value calculated by the run test is 0.000, far less than 0.05\" for the 2023 Wimbledon final (one match) -> median_runs_p = 0.0 and share = 1.0 (1/1 mat"
+    },
+    {
+     "paper_id": "2409404",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Sec. 4.1 Table 4 (runs test, pooled sequence over 31 matches): Point Victor Z=-5.613, p=1.986e-8; Player 1 Consecutive Win and Player 2 Consecutive Win both p=0.000 (<0.01). median_runs_p = 0.0 (repre"
+    },
+    {
+     "paper_id": "2425454",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Sec. 6.1: \"within a $90\\%$ confidence interval, the percentage of games rejecting the null hypothesis accounted for $45.11\\%$ of the total number of games\" -> 0.4511. Caveat: this is the share of GAME"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.1556914317441989,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.23331443846394676,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.2619938606112932,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.1462800971299845,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.292560194259969,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.13941775745967908,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.3215347460366762,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.0761614623001404,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.1462701121404193,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.2925402242808386,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.1593455212663825,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.4300027562729387,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.08726003490409828,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.1462701121404193,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.2925402242808386,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.16055038699144025,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.43669523880301586,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.08776694625718055,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.14628004562948171,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.29256009125896343,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.13450462074038702,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.4527777205155309,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.0797342192691734,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.09150526155253927,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.18301052310507854,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.1396302078237129,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.5197020835905858,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.07555330685524686,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.08084195216548157,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.16168390433096314,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.14083616254905315,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.3290177708990839,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.07715906750678994,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.14628004562948171,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.29256009125896343,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.17978564312983344,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.7384658664666169,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.09454774661213808,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.0819000819000819,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.1638001638001638,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.1613727097271585,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.6071922739572222,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.10744927946316801,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.08453156831418693,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.16906313662837386,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.15375650090329174,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.5819973820267088,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.08694684938906086,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.08453159133466025,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.1690631826693205,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.15560090977559227,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.23345364473125785,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.26131152253234224,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.1462800971299845,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.292560194259969,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "qwen": {
+     "o_eval": 0.13824944591782054,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.3153526275890126,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.07530375652795719,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.1462800971299845,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.292560194259969,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.11924184498749535,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.220397573446013,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.05621335959051389,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.14628004562948174,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.2925600912589635,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.15813097118853683,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.5682067580471042,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.106063284426499,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.09150526155253927,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.18301052310507854,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.15560090977559227,
+     "n_oracles_scored": 6,
+     "per_paper": [
+      {
+       "paper_id": "2401298",
+       "score": 0.23345364473125785,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2401919",
+       "score": 0.26131152253234224,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2406176",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      },
+      {
+       "paper_id": "2406324",
+       "score": 0.1462800971299845,
+       "n": 2,
+       "found": 1
+      },
+      {
+       "paper_id": "2409404",
+       "score": 0.292560194259969,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2425454",
+       "score": 0.0,
+       "n": 1,
+       "found": 0
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2025-a-stair-wear": {
+   "n_papers_total": 5,
+   "n_oracles_used": 3,
+   "oracles": [
+    {
+     "paper_id": "2500836",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Daily users: Sec. 5.1 'By substituting the above parameters into Equation (3), we calculated that the number of people passing through the stairs each day was 1175.' Also summary: 'the daily pedestria"
+    },
+    {
+     "paper_id": "2501567",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Daily users: Sec. 4.3.2 validation states 'with a walking frequency of f_use ≈ 52 passages/day and a total usage time of 1647 days, the predicted wear volume was 29.2 cm^3, while the actual measured w"
+    },
+    {
+     "paper_id": "2501909",
+     "n_fields": 1,
+     "coverage": 0.333,
+     "notes": "Daily users: Sec. 3 results, Eq. 3.18, 'N_d = A_ceff * d_avg / (T * G * k_m) = 261'; following sentence 'This means that 261 people walked on it every day in the past.' (Edinburgh sandstone step case)"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.1508466713266118,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11391177896267572,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.19235511713933415,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.14627311787782551,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.12804409688101623,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11829652996845426,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.07967313585291114,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.1861626248216833,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.1717659612315067,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.14141008925885068,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.022845427253423155,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.35104236718224624,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.15379606971978022,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.10975342094401304,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.23164306191532744,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.11999172630000018,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.12837750467068568,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11867687905058497,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.07596785975164354,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.19048777520982849,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.12902017965392842,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11669615970368354,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.10068735578835633,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.1696770234697454,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.2269653493923035,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11086474501108648,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.4438122332859175,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.1262190698799065,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.11107770067360383,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.10753508236729714,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.11676646706586827,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.10893155258764609,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.11802387573390281,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.1081108435176048,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.13431775620466238,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.11164302747944123,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.12846601281234835,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11701117606107353,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.09566605188963448,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.172720810486337,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.22644739927475377,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.1122790253225036,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.43213296398891954,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.13493020851283818,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.1305126432158288,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.11987145699080136,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.06639710576718451,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.2052693668895006,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.24466524970419123,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.1109939071429696,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.49602543720190767,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.12697640476769642,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.128995987831868,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.10879629629629628,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.16317991631799164,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.11501175088131609,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.13435768842689053,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.1211340206185567,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.058734939759036146,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.2232041049030787,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.16627700888193586,
+     "n_oracles_scored": 3,
+     "per_paper": [
+      {
+       "paper_id": "2500836",
+       "score": 0.12610678830158303,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501567",
+       "score": 0.04101485473905613,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2501909",
+       "score": 0.33170938360516844,
+       "n": 1,
+       "found": 1
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2025-b-juneau-tourism": {
+   "n_papers_total": 7,
+   "n_oracles_used": 7,
+   "oracles": [
+    {
+     "paper_id": "2501687",
+     "n_fields": 1,
+     "coverage": 0.167,
+     "notes": "Peak-season cap: Sec. 3.5/4 'the government needs to control the number of people at around 13993 during the peak season'; PSO average c1=13993, c2=1035 (off-season). Memo: 'controlling the daily tota"
+    },
+    {
+     "paper_id": "2502617",
+     "n_fields": 1,
+     "coverage": 0.167,
+     "notes": "Annual visitors: Sec. 5.3 'the total benefits is maximized when the total number of tourists is 1.32 million'; memo 'The social benefit is maximized when the total number of tourists is 1.32 million i"
+    },
+    {
+     "paper_id": "2503268",
+     "n_fields": 2,
+     "coverage": 0.333,
+     "notes": "Daily cap: memo 'A cap of 15,000 visitors per day would balance ecological protection with revenue retention.' Sustainability score: Sec. 8 'a final score of 0.6894' (AHP-based overall evaluation, 0-1"
+    },
+    {
+     "paper_id": "2504448",
+     "n_fields": 2,
+     "coverage": 0.333,
+     "notes": "Annual visitors: abstract/memo 'Our results predict a stable tourist volume of around 1.6 million visitors per year'; Table 3 gives a 5-year path 1.537, 1.548, 1.522, 1.583, 1.683 million, so 1.6M is "
+    },
+    {
+     "paper_id": "2505199",
+     "n_fields": 2,
+     "coverage": 0.333,
+     "notes": "Daily cap and fee: Sec. 4.3 and memo 'the optimal solution is: 12,000 daily tourists(x), an 8% tourism tax(y3), a $15-per-person tourist fee(y4)'. Annual visitors: not reported (x is a daily tourist c"
+    },
+    {
+     "paper_id": "2509557",
+     "n_fields": 1,
+     "coverage": 0.167,
+     "notes": "Visitor fee: Sec. 6 and conclusions 'introduce an entry fee of $50 per person' (the fixed fee f_other) with a tax rate of 6.3%. Daily cap: none - the policy uses price controls rather than a headcount"
+    },
+    {
+     "paper_id": "2517929",
+     "n_fields": 2,
+     "coverage": 0.333,
+     "notes": "Abstract: 'limit the tourist flow to around 1.43 million, increase the tourist fee by 72.4 USD per person, and increase the hotel tax rate by 0.08'; memo: 'limit the total number of tourists to touris"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.6717150154482517,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.4572676571826935,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.6958235582818624,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.5535714285714286,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.7645732333325477,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.6003796565734679,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.455530959046813,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 0.8861938970100396,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.8484871119611896,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.18592436974789917,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.595752027479103,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.5298152802085065,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.9958485552972435,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 0.5256451099076139,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 0.48672521397995105,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.9189688941615093,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.34165526675786595,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.27319725468869505,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.6077547597335229,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.6251154063793668,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.5046309913307427,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.29451510333863273,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.6633551504192514,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.7743117788086565,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.9958485552972435,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.9306909114412975,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.26287375415282394,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.530776496171311,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.21846539754571853,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.4873008365582264,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.20862412761714855,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.6343784448114163,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.6177251663278891,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.455530959046813,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 0.8075576873217527,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.7150537634408602,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.18592436974789917,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.9292401539686672,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.6599034547626585,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.6251154063793668,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.6045952990797313,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.20344656583188692,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.2857142857142857,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.9004526263333388,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.5453237260732303,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.21846539754571853,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 0.6659575264398181,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.6422171656118894,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.20862412761714855,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.9153351986313707,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.6029625023409071,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.21846539754571853,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.20862412761714855,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.6269813245568159,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.3719094666983334,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.21886404871639797,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 0.5243591992929095,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.1559243961584127,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.2647058823529412,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.2728460737010061,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.7341585764700799,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.4011217918091998,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 0.9704346588546042,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.6212121212121212,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.14634146341463417,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwen": {
+     "o_eval": 0.5949050929817534,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.6251154063793668,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 0.5689655172413793,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.4303785233601952,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.18661868390129258,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.35325751999003974,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.491689954286858,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.6251154063793668,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 0.5404464824917858,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.3080885553557534,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.18139293139293136,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.37499999999999994,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.41178630438816893,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.6554553966733883,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.4572676571826935,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 0.346579460190365,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.5535714285714286,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.23076923076923073,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.5948528669756451,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2501687",
+       "score": 0.21846539754571853,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2502617",
+       "score": 1.0,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2503268",
+       "score": 1.0,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2504448",
+       "score": 0.6548786783686112,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2505199",
+       "score": 0.20862412761714855,
+       "n": 2,
+       "found": 2
+      },
+      {
+       "paper_id": "2509557",
+       "score": 0.16666666666666666,
+       "n": 1,
+       "found": 1
+      },
+      {
+       "paper_id": "2517929",
+       "score": 0.9153351986313707,
+       "n": 2,
+       "found": 2
+      }
+     ]
+    }
+   }
+  },
+  "mcm-2025-c-olympic-medals": {
+   "n_papers_total": 18,
+   "n_oracles_used": 7,
+   "oracles": [
+    {
+     "paper_id": "2500759",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump is reported anywhere in the paper, so the global jump field is null. Recommendations: Sec. 5 'For countries such as Japan, Italy, and Australia, the committees could enhance in"
+    },
+    {
+     "paper_id": "2501869",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump reported. Sec. 6.3 Table 10 gives per-sport 'Magnitude' (medals) for three countries: USA - Wrestling 2, Rowing 1, Judo 1, Archery 1, Triathlon 2; Great Britain - Wrestling 1, "
+    },
+    {
+     "paper_id": "2510185",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump. Sec. 4.3.2 recommends three country-event pairs in this order: China women's gymnastics, Jamaica men's athletics, Germany men's shooting, then states 'these events are likely "
+    },
+    {
+     "paper_id": "2510862",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump. Abstract/end of Task 4: 'K-Means clustering identified Spain, Japan, and Canada as nations with potential to benefit from hiring great coaches, with predicted medal increases "
+    },
+    {
+     "paper_id": "2514461",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump. Model IV: 'We predicted that CHN Archery would go from 2 in 2024 to 7 in 2028, USA Taekwondo from 5 to 8, and TPE Swimming from 0 to 9, after hiring great coaches.' Gains comp"
+    },
+    {
+     "paper_id": "2516695",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump. Table 8 'Investment Recommendations for High-Potential Sports Events' gives Exp. Medal Incr. (90% CI): Norway - Biathlon 2.7 [1.8,3.5]; Japan - Skateboarding 2.4 [1.6,3.2]; Au"
+    },
+    {
+     "paper_id": "2521556",
+     "n_fields": 3,
+     "coverage": 0.75,
+     "notes": "No 75th-percentile jump. Sec. 7.2 recommendations verbatim: 'For the USA NOC, we suggested hiring a great coach for Rowing, Fencing, and Canoeing. With the influence of a great coach, these sports are"
+    }
+   ],
+   "per_model": {
+    "flash": {
+     "o_eval": 0.6329682400019847,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.20637427089039992,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.17951022584453669,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.5870177254034991,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.45787545787545786,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "flash_opencode": {
+     "o_eval": 0.4193245058973023,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.14834651886072775,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.13987050025421818,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.1771327132527596,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.16141823714617134,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.30850357176723914,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "flash_opencode_max": {
+     "o_eval": 0.4188638112852753,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.14930592295870806,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.14043038015308826,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.18037431769548476,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.16470268551683245,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.2972333726728134,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "codex_gpt6_astra": {
+     "o_eval": 0.1303717761892467,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.114366550919484,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.11315400393151386,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 0.13586957938324207,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.11716324808843982,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.11504757025564111,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.12493265795123121,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 0.19206882279517476,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "claude_fable51": {
+     "o_eval": 0.41764997622603833,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.1472116673546757,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.1389953106177748,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.1784336200778125,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.1640540482153707,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.294855187316635,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "codex_gpt55_xhigh": {
+     "o_eval": 0.5573992132709963,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.18590429597920807,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.16617853275822284,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.29816724771242353,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.2515444164471197,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "pro": {
+     "o_eval": 0.45645132684456563,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.16195856873822975,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.14964012073368935,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.21157529596399924,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.18834530511874717,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.4836399973572938,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "glm": {
+     "o_eval": 0.45645132684456563,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.16195856873822975,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.14964012073368935,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.21157529596399924,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.18834530511874717,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.4836399973572938,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "gpt": {
+     "o_eval": 0.4146266813985383,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.14733189430695495,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.1389825916694382,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.17808748894908208,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.16377320225734013,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.27421159260695305,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "gptx": {
+     "o_eval": 0.7367534237404917,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.26501035196687367,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.21358445201362453,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.9051203681651078,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.7735587940378358,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "kimi": {
+     "o_eval": 0.7926016749183873,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.338235294117647,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.2493872549019608,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.9605891754091035,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "gemini37flash": {
+     "o_eval": 0.0,
+     "n_oracles_scored": 0,
+     "per_paper": [],
+     "missing_artifact": true
+    },
+    "qwen": {
+     "o_eval": 0.13806169192710716,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.1164429457847536,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.11484059385155497,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 0.14534110281441615,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.12063528834857308,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.11804667684220549,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.13045146923707648,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 0.2206737666111703,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "oxalpha": {
+     "o_eval": 0.32466236827973727,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.13510212254705647,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.12938671811863586,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 0.49831347935613374,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.1492525953217176,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.13854892628477533,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.22203273632984163,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "qwenflash": {
+     "o_eval": 0.33933270059537496,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.1416083916083916,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.1346590909090909,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 0.5454545454545453,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.16415312818921754,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.15224358974358973,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.23721015826278982,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    },
+    "hy4": {
+     "o_eval": 0.40626493261402413,
+     "n_oracles_scored": 7,
+     "per_paper": [
+      {
+       "paper_id": "2500759",
+       "score": 0.1440312640655961,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2501869",
+       "score": 0.13650759455868272,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510185",
+       "score": 0.97850249486889,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2510862",
+       "score": 0.17449101153348442,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2514461",
+       "score": 0.16237308987393148,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2516695",
+       "score": 0.2479490733975842,
+       "n": 3,
+       "found": 3
+      },
+      {
+       "paper_id": "2521556",
+       "score": 1.0,
+       "n": 3,
+       "found": 3
+      }
+     ]
+    }
+   }
+  }
+ },
+ "models": {}
+}

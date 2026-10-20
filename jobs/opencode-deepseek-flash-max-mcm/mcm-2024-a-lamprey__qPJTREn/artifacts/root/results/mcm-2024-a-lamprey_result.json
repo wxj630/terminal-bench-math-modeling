@@ -1,0 +1,26 @@
+{
+  "problem_id": "2024-A",
+  "paper_id": "MCM-2024-A",
+  "paper_title": "Resource Availability and Sex Ratios (2024 MCM Problem A)",
+  "reproduction_level": "Independent full reproduction: coupled dynamic model, scenario simulation, stability analysis and sensitivity testing.",
+  "experiment_result": {
+    "largest_stability_gain": {
+      "resource_level": 0.8,
+      "adaptive_stability": 0.86975,
+      "fixed_stability": 0.835558,
+      "adaptive_gain_pct": 4.0921
+    },
+    "parasite_coexistence_case": {
+      "resource_level": 1.0,
+      "final_parasite_index": 23.585992,
+      "host_fish_index": 9.340914,
+      "interpretation": "At abundant food the adaptive (female-biased) sex ratio raises the adult female fraction and lamprey biomass, enlarging the parasite's host reservoir: the parasite index under the adaptive rule (23.59) exceeds the fixed-ratio value (23.25), so variable sex ratios can benefit parasites by supplying a larger, more persistent host pool, while host fish remain near carrying capacity (9.34) but slightly depressed."
+    }
+  },
+  "_recovery_provenance": {
+    "source_trial": "opencode-deepseek-flash-max-mcm/mcm-2024-a-lamprey__qPJTREn",
+    "trajectory_sha256": "23b8842d8052f4b8495bdf41d6b1cde925db9a914e6230df3a26cd5fd82e7a8f",
+    "evidence_steps": [70, 71, 76],
+    "method": "Direct transcription of the final schema-validated largest_stability_gain printed in the original agent trajectory; the earlier intermediate 1.3596% result was not used."
+  }
+}

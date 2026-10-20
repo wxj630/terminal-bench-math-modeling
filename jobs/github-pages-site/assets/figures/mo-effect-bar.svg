@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1040" viewBox="0 0 1800 1040" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 23px; fill: #4e4e4e; font-weight: 760; }
+      .tab-active { fill: #111111; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #151515; font-weight: 680; }
+      .x-label { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #151515; font-weight: 650; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #ffffff; font-weight: 800; }
+      .top-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #939393; font-weight: 750; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #949494; font-weight: 650; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #4a4a4a; font-weight: 700; }
+      .brand { font-family: Georgia, Times, serif; font-size: 26px; fill: #555555; }
+    </style>
+    <rect x="24.00" y="24.00" width="1752.00" height="992.00" fill="#ffffff" stroke="#dddddd" rx="16.00" />
+<rect x="24.00" y="24.00" width="1752.00" height="88.00" fill="#ffffff" rx="16.00" />
+<rect x="66.00" y="48.00" width="140.00" height="58.00" fill="#efefef" rx="8.00" />
+<text x="84.00" y="84.00" text-anchor="start" class="tab tab-active">Robust</text>
+<text x="276.00" y="84.00" text-anchor="start" class="tab">O-Eval</text>
+<text x="468.00" y="84.00" text-anchor="start" class="tab">Token Usage</text>
+<text x="730.00" y="84.00" text-anchor="start" class="tab">Cost</text>
+<text x="892.00" y="84.00" text-anchor="start" class="tab">Robust vs. Cost</text>
+<text x="1174.00" y="84.00" text-anchor="start" class="tab">O vs. Cost</text>
+<line x1="24.00" y1="114.00" x2="1776.00" y2="114.00" stroke="#dddddd" stroke-width="1.20" />
+<text x="66.00" y="170.00" text-anchor="start" class="title">Robust BO-Eval</text>
+<text x="66.00" y="210.00" text-anchor="start" class="subtitle">Secondary robustness metric from the source report. Its oracle aggregation may differ from the primary O-Eval.</text>
+<circle cx="76.00" cy="270.00" r="8.00" fill="#555555" />
+<text x="94.00" y="277.00" text-anchor="start" class="legend">Robust score</text>
+<circle cx="212.00" cy="270.00" r="8.00" fill="#b0b0b0" />
+<text x="230.00" y="277.00" text-anchor="start" class="legend">Raw score label</text>
+<rect x="1282.00" y="284.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 288.50)" />
+<rect x="1295.00" y="284.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1299.50 288.50)" />
+<rect x="1282.00" y="298.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1286.50 302.50)" />
+<text x="1316.00" y="308.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
+<line x1="132.00" y1="772.00" x2="1702.00" y2="772.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="778.00" text-anchor="end" class="axis">-25%</text>
+<line x1="132.00" y1="684.00" x2="1702.00" y2="684.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="690.00" text-anchor="end" class="axis">-20%</text>
+<line x1="132.00" y1="596.00" x2="1702.00" y2="596.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="602.00" text-anchor="end" class="axis">-15%</text>
+<line x1="132.00" y1="508.00" x2="1702.00" y2="508.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="514.00" text-anchor="end" class="axis">-10%</text>
+<line x1="132.00" y1="420.00" x2="1702.00" y2="420.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="114.00" y="426.00" text-anchor="end" class="axis">-5%</text>
+<line x1="132.00" y1="332.00" x2="1702.00" y2="332.00" stroke="#9e9e9e" stroke-width="1.50" />
+<text x="114.00" y="338.00" text-anchor="end" class="axis">0%</text>
+<text x="44.00" y="552.00" text-anchor="middle" class="axis-title" transform="rotate(-90 44.00 552.00)">Robust BO-Eval (%)</text>
+<rect x="132.00" y="332.00" width="286.80" height="0.00" fill="#00897b" rx="8.00" />
+<text x="275.40" y="318.00" text-anchor="middle" class="top-label">raw 1.295</text>
+<g transform="translate(275.40,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash</tspan></text></g>
+<rect x="452.80" y="332.00" width="286.80" height="56.32" fill="#e8590c" rx="8.00" />
+<text x="596.20" y="414.32" text-anchor="middle" class="bar-label" fill="#e8590c">-3.2%</text>
+<text x="596.20" y="318.00" text-anchor="middle" class="top-label">raw 1.349</text>
+<g transform="translate(596.20,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">Fable 5.1</tspan></text></g>
+<rect x="773.60" y="332.00" width="286.80" height="90.64" fill="#000000" rx="8.00" />
+<text x="917.00" y="448.64" text-anchor="middle" class="bar-label" fill="#000000">-5.2%</text>
+<text x="917.00" y="318.00" text-anchor="middle" class="top-label">raw 0.941</text>
+<g transform="translate(917.00,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-5.5</tspan><tspan x="0" dy="17">xhigh</tspan></text></g>
+<rect x="1094.40" y="332.00" width="286.80" height="267.34" fill="#00695c" rx="8.00" />
+<text x="1237.80" y="625.34" text-anchor="middle" class="bar-label" fill="#00695c">-15.2%</text>
+<text x="1237.80" y="318.00" text-anchor="middle" class="top-label">raw 0.838</text>
+<g transform="translate(1237.80,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">V4.1</tspan><tspan x="0" dy="17">Flash max</tspan></text></g>
+<rect x="1415.20" y="332.00" width="286.80" height="337.39" fill="#5f3dc4" rx="8.00" />
+<text x="1558.60" y="695.39" text-anchor="middle" class="bar-label" fill="#5f3dc4">-19.2%</text>
+<text x="1558.60" y="318.00" text-anchor="middle" class="top-label">raw 1.223</text>
+<g transform="translate(1558.60,816.00) rotate(-55)"><text class="x-label" text-anchor="end"><tspan x="0" dy="0">GPT-6</tspan><tspan x="0" dy="17">Astra</tspan></text></g>
+<text x="917.00" y="974.00" text-anchor="middle" class="small-note">Models sorted by Robust BO-Eval over all 18 tasks. On the multi-reference board this remains a single-anchor continuity metric.</text></svg>

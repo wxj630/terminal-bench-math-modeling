@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100" role="img">
+    <style>
+      .title { font-family: Georgia, Times, serif; font-size: 42px; fill: #050505; }
+      .subtitle { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #8b8b8b; font-weight: 650; }
+      .tab { font-family: Arial, Helvetica, sans-serif; font-size: 23px; fill: #4e4e4e; font-weight: 760; }
+      .tab-active { fill: #111111; }
+      .axis { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #767676; font-weight: 600; }
+      .axis-title { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #101010; font-weight: 720; }
+      .legend { font-family: Arial, Helvetica, sans-serif; font-size: 20px; fill: #151515; font-weight: 680; }
+      .x-label { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #151515; font-weight: 650; }
+      .bar-label { font-family: Arial, Helvetica, sans-serif; font-size: 22px; fill: #ffffff; font-weight: 800; }
+      .top-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #939393; font-weight: 750; }
+      .small-note { font-family: Arial, Helvetica, sans-serif; font-size: 18px; fill: #949494; font-weight: 650; }
+      .point-label { font-family: Arial, Helvetica, sans-serif; font-size: 19px; fill: #4a4a4a; font-weight: 700; }
+      .brand { font-family: Georgia, Times, serif; font-size: 26px; fill: #555555; }
+    </style>
+    <rect x="24.00" y="24.00" width="1752.00" height="1052.00" fill="#ffffff" stroke="#dddddd" rx="16.00" />
+<text x="84.00" y="84.00" text-anchor="start" class="tab">Robust</text>
+<text x="276.00" y="84.00" text-anchor="start" class="tab">O-Eval</text>
+<text x="468.00" y="84.00" text-anchor="start" class="tab">Token Usage</text>
+<text x="730.00" y="84.00" text-anchor="start" class="tab">Cost</text>
+<rect x="874.00" y="48.00" width="230.00" height="58.00" fill="#efefef" rx="8.00" />
+<text x="892.00" y="84.00" text-anchor="start" class="tab tab-active">Robust vs. Cost</text>
+<text x="1174.00" y="84.00" text-anchor="start" class="tab">O vs. Cost</text>
+<line x1="24.00" y1="114.00" x2="1776.00" y2="114.00" stroke="#dddddd" stroke-width="1.20" />
+<text x="66.00" y="170.00" text-anchor="start" class="title">Robust BO-Eval vs. Cost</text>
+<text x="66.00" y="210.00" text-anchor="start" class="subtitle">Secondary Robust BO-Eval vs. estimated USD cost; the multi-reference board keeps this single-anchor.</text>
+<rect x="66.00" y="252.00" width="24.00" height="18.00" fill="#dff7e4" stroke="#98d9a5" rx="3.00" />
+<text x="102.00" y="270.00" text-anchor="start" class="legend">Value zone: &lt;=$80, &gt;=5.0% robust</text>
+<line x1="584.00" y1="262.00" x2="644.00" y2="262.00" stroke="#222222" stroke-width="3.00" stroke-dasharray="1 10" />
+<text x="660.00" y="270.00" text-anchor="start" class="legend">Pareto line</text>
+<rect x="1254.00" y="286.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1258.50 290.50)" />
+<rect x="1267.00" y="286.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1271.50 290.50)" />
+<rect x="1254.00" y="300.00" width="9" height="9" rx="1.5" fill="#8a63ff" transform="rotate(-45 1258.50 304.50)" />
+<text x="1288.00" y="310.00" text-anchor="start" class="brand">Terminal-Bench Math Modeling</text>
+<rect x="154.00" y="330.00" width="1095.30" height="80.00" fill="#dff7e4" />
+<rect x="1249.30" y="410.00" width="424.70" height="480.00" fill="#fafafa" />
+<line x1="154.00" y1="890.00" x2="1674.00" y2="890.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="896.00" text-anchor="end" class="axis">-25.0%</text>
+<line x1="154.00" y1="810.00" x2="1674.00" y2="810.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="816.00" text-anchor="end" class="axis">-20.0%</text>
+<line x1="154.00" y1="730.00" x2="1674.00" y2="730.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="736.00" text-anchor="end" class="axis">-15.0%</text>
+<line x1="154.00" y1="650.00" x2="1674.00" y2="650.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="656.00" text-anchor="end" class="axis">-10.0%</text>
+<line x1="154.00" y1="570.00" x2="1674.00" y2="570.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="576.00" text-anchor="end" class="axis">-5.0%</text>
+<line x1="154.00" y1="490.00" x2="1674.00" y2="490.00" stroke="#9e9e9e" stroke-width="1.50" />
+<text x="136.00" y="496.00" text-anchor="end" class="axis">0.0%</text>
+<line x1="154.00" y1="410.00" x2="1674.00" y2="410.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="416.00" text-anchor="end" class="axis">5.0%</text>
+<line x1="154.00" y1="330.00" x2="1674.00" y2="330.00" stroke="#cfcfcf" stroke-width="1.20" stroke-dasharray="4 8" />
+<text x="136.00" y="336.00" text-anchor="end" class="axis">10.0%</text>
+<line x1="437.13" y1="890.00" x2="437.13" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="437.13" y="926.00" text-anchor="middle" class="axis">5</text>
+<line x1="640.17" y1="890.00" x2="640.17" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="640.17" y="926.00" text-anchor="middle" class="axis">10</text>
+<line x1="843.22" y1="890.00" x2="843.22" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="843.22" y="926.00" text-anchor="middle" class="axis">20</text>
+<line x1="1111.62" y1="890.00" x2="1111.62" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1111.62" y="926.00" text-anchor="middle" class="axis">50</text>
+<line x1="1249.30" y1="890.00" x2="1249.30" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1249.30" y="926.00" text-anchor="middle" class="axis">80</text>
+<line x1="1314.66" y1="890.00" x2="1314.66" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1314.66" y="926.00" text-anchor="middle" class="axis">100</text>
+<line x1="1433.43" y1="890.00" x2="1433.43" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1433.43" y="926.00" text-anchor="middle" class="axis">150</text>
+<line x1="1517.70" y1="890.00" x2="1517.70" y2="898.00" stroke="#777777" stroke-width="1.20" />
+<text x="1517.70" y="926.00" text-anchor="middle" class="axis">200</text>
+<line x1="154.00" y1="890.00" x2="1674.00" y2="890.00" stroke="#9e9e9e" stroke-width="1.20" />
+<line x1="154.00" y1="330.00" x2="154.00" y2="890.00" stroke="#9e9e9e" stroke-width="1.20" />
+<text x="914.00" y="972.00" text-anchor="middle" class="axis-title">Estimated cost (USD, log scale)</text>
+<text x="50.00" y="610.00" text-anchor="middle" class="axis-title" transform="rotate(-90 50.00 610.00)">Robust BO-Eval (%)</text>
+<line x1="154.00" y1="410.00" x2="1674.00" y2="410.00" stroke="#808080" stroke-width="1.20" stroke-dasharray="6 7" opacity="0.550" />
+<text x="1664.00" y="400.00" text-anchor="end" class="small-note">5.0% robust</text>
+<path d="M 238.27 490.00" fill="none" stroke="#2f2f2f" stroke-width="3.00" stroke-dasharray="1 11" stroke-linecap="round" />
+<circle cx="1608.64" cy="541.20" r="11.00" fill="#e8590c" stroke="#ffffff" stroke-width="3.00" />
+<text x="1588.64" y="517.20" text-anchor="end" class="point-label">Fable 5.1</text>
+<circle cx="238.27" cy="490.00" r="11.00" fill="#00897b" stroke="#ffffff" stroke-width="3.00" />
+<text x="258.27" y="466.00" text-anchor="start" class="point-label">V4.1 Flash</text>
+<circle cx="1578.83" cy="796.72" r="11.00" fill="#5f3dc4" stroke="#ffffff" stroke-width="3.00" />
+<text x="1558.83" y="772.72" text-anchor="end" class="point-label">GPT-6 Astra</text>
+<circle cx="1312.81" cy="572.40" r="11.00" fill="#000000" stroke="#ffffff" stroke-width="3.00" />
+<text x="1292.81" y="548.40" text-anchor="end" class="point-label">GPT-5.5 xhigh</text>
+<circle cx="265.56" cy="733.04" r="11.00" fill="#00695c" stroke="#ffffff" stroke-width="3.00" />
+<text x="285.56" y="709.04" text-anchor="start" class="point-label">V4.1 Flash max (17/18)</text>
+<text x="914.00" y="1028.00" text-anchor="middle" class="small-note">Pareto front rewards higher effect at lower cost; rows without API price estimates are not placed on the x-axis.</text></svg>
