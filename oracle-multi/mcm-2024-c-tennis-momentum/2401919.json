@@ -1,0 +1,11 @@
+{
+  "paper_id": "2401919",
+  "task_slug": "mcm-2024-c-tennis-momentum",
+  "source": "mcm/2024-C/2401919/ocr/2401919.md",
+  "fields": {
+    "experiment_result.randomness_tests.median_ljung_box_p": 6.645e-13,
+    "experiment_result.randomness_tests.median_runs_p": null,
+    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": 0.9678
+  },
+  "notes": "Sec. 4.3: \"we conducted tests on a total of 62 sequences from 31 matches. Among them, 60 sequences were found to be non-white-noise, while only 2 sequences were identified as white noise. This indicates that the non-random sequence rate is as high as 96.78%.\" -> share = 0.9678, but note this is per serve sequence (two per match), not per match. Representative Ljung-Box p for the 2023 Wimbledon final is $p_{LB} = 6.645 \\times 10^{-13}$ (not a median; per-match values are not tabulated). No runs test is performed, so median_runs_p = null."
+}

@@ -1,0 +1,18 @@
+\section{Related Work}
+
+\todo{fill citations; the paragraph claims below are the intended framing}
+
+\paragraph{LLM agent benchmarks.}
+Software-engineering and terminal agents are measured by repository tasks (SWE-bench~\cite{TODO-swebench}) and by end-to-end command-line tasks (Terminal-Bench~\cite{TODO-terminalbench}); general assistants are measured by tool-use suites (GAIA~\cite{TODO-gaia}, $\tau$-bench~\cite{TODO-taubench}). These capture tool use and code editing but do not score a modeling artifact, and they do not attach a feasibility contract to the answer.
+
+\paragraph{Mathematical and optimization reasoning.}
+Closed-form math benchmarks (competition mathematics~\cite{TODO-math}, frontier research mathematics~\cite{TODO-frontiermath}, formal-to-natural proving~\cite{TODO-minif2f}) measure deduction, not modeling. Operations-research datasets (e.g.\ NL4OPT~\cite{TODO-nl4opt}) parse word problems into solvers; they do not require assumptions, sensitivity, or a defended recommendation. Machine-learning engineering benchmarks (MLE-bench~\cite{TODO-mlebench}) are the closest in spirit but are scored by leaderboard position rather than by a physical feasibility contract.
+
+\paragraph{Formal verification in evaluation.}
+Interactive theorem provers such as Lean~4~\cite{TODO-lean4} with Mathlib~\cite{TODO-mathlib} have been used to certify competition and research mathematics (e.g.\ AlphaProof~\cite{TODO-alphaproof}). Using a prover not to \emph{find} answers but to \emph{audit} a benchmark's feasibility decisions is, to our knowledge, new: our Lean layer re-proves the invariants that the programmatic gate checks, so the audit itself becomes machine-checkable.
+
+\paragraph{Multimodal agents.}
+Vision-language agents are increasingly given screenshots and diagrams. \bench{} contributes a setting where figures are load-bearing---they are cropped from the official PDFs and referenced inline in the statement---and where we can compare text-only and multimodal harnesses on the same tasks.
+
+\paragraph{Reproduction-anchored scoring.}
+Anchoring on a published solution is standard in numerical-answer benchmarks. We show that this creates three specific, previously under-reported hazards---direction asymmetry, degenerate bands, and unpinned units---and give auditable rules and contract tests for each.

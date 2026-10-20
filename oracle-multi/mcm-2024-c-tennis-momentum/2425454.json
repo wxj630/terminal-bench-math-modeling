@@ -1,0 +1,11 @@
+{
+  "paper_id": "2425454",
+  "task_slug": "mcm-2024-c-tennis-momentum",
+  "source": "mcm/2024-C/2425454/ocr/2425454.md",
+  "fields": {
+    "experiment_result.randomness_tests.median_ljung_box_p": null,
+    "experiment_result.randomness_tests.median_runs_p": null,
+    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": 0.4511
+  },
+  "notes": "Sec. 6.1: \"within a $90\\%$ confidence interval, the percentage of games rejecting the null hypothesis accounted for $45.11\\%$ of the total number of games\" -> 0.4511. Caveat: this is the share of GAMES (points within a game), not matches, and it is at the 90% confidence level (alpha=0.10), not 5%; used as the requested approximate share with this caveat. No median runs/Ljung-Box p-value is reported, so both p fields are null."
+}

@@ -1,0 +1,12 @@
+{
+  "paper_id": "A196",
+  "task_slug": "cumcm-2025-a-smoke-screen",
+  "source": "cumcm/2025-A/A196/ocr/A196.md",
+  "fields": {
+    "experiment_result.q5_union_duration_s.M1": null,
+    "experiment_result.q5_union_duration_s.M2": null,
+    "experiment_result.q5_union_duration_s.M3": null,
+    "experiment_result.q5_union_duration_s.total": 21.077
+  },
+  "notes": "Q5 total: '通过上面的策略结合问题三的求解思路，求解得到总最长有效遮蔽时间为21.0770s。' (line 1014; same value in abstract line 15). Unit is seconds as written, no conversion. Per-missile M1/M2/M3 durations are NOT reported in the paper text: Sec. 10.2.2 only says the problem is split into three subproblems for M1/M2/M3 and the three cover intervals are intersected; the detailed numbers are said to be in 'result3.xlsx' (not included in OCR, only an image '图2：问题五详细数据'). Therefore M1/M2/M3 are null rather than inferred. Note also the semantic difference: A196's 21.0770 s is the length of the intersection of the three missile-specific cover intervals, whereas the benchmark's existing anchor total (19.9) equals the sum of its per-missile values (10.3+6.2+3.4); no adjustment was made."
+}

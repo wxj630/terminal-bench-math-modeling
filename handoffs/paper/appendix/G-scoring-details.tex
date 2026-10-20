@@ -1,0 +1,64 @@
+\section{Appendix G: Scoring Details}
+\label{app:scoring}
+
+\subsection{The metric panel}
+Every task ships a \texttt{tests/score\_config.json} declaring its scored metrics.
+A metric entry specifies: \texttt{path} (dot/index path into the artifact),
+\texttt{oracle\_value}, optional \texttt{baseline\_value}/\texttt{outstanding\_value},
+\texttt{direction} (and a matching \texttt{semantic\_direction}),
+\texttt{normalization\_mode}, and \texttt{weight}. Across the 18 tasks there are
+\textbf{62 declared metrics}, of which \textbf{61 are scored} (one Wordle metric declares weight~0 and is recorded but excluded from the panel); the per-task counts are in Table~\ref{tab:dataset}.
+
+\subsection{Formulas}
+Let $R$ be a submission's weighted panel raw, $F$ the flash baseline's, $O$ the
+oracle's, and $\mathrm{gain}=R-F$, $\mathrm{gap}=O-F$:
+\[
+\oeval = \mathrm{clamp}\!\left(\frac{R}{O},0,1\right), \qquad
+\beval = R - F, \qquad
+\roeval =
+\begin{cases}
+\mathrm{clip}\!\left(\frac{\mathrm{gain}}{\mathrm{gap}},-1,1\right), & \mathrm{gap}\ge0.10,\\[3pt]
+\mathrm{clip}\!\left(\mathrm{gain},-0.10,0.10\right), & \text{otherwise}.
+\end{cases}
+\]
+A missing or non-scoreable artifact gets $\roeval=-1$. Per-metric reward is given
+in Section~\ref{sec:per-metric}; the one-sided property (meeting/beating the
+anchor never scores below 1.0) is locked by a contract test.
+
+\subsection{Excluded metrics}
+Two metrics are excluded from the panel for every model \emph{and} the oracle,
+both by configuration-only rules:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item the Olympic 4th recommendation
+(\texttt{great\_coach\_model.recommendations[3]...}) --- the prompt asks for three
+countries; the reproduction emits four rows;
+\item the two lamprey raw population indices
+(\texttt{final\_parasite\_index}, \texttt{host\_fish\_index}) when
+$|O|>5$ --- the anchor is an arbitrary raw index with no schema-pinned unit.
+\end{itemize}
+Out-of-domain values (correlations outside $[-1,1]$, unit-interval quantities
+outside $[0,1]$, negative counts, non-positive physical quantities) are not
+excluded but have their reward set to zero, with the reason recorded.
+
+\subsection{Hard-gate decisions}
+Seven whole-task penalties were applied across the 16 entries; the reasons are:
+four heliostat violations (rated power below 60~MW, or a mirror below the 2~m
+minimum), one smoke-screen plan failing an independent coverage replay, one
+Juneau answer with unit-invalid acceptance/sustainability values, and one Olympic
+answer with a degenerate coach-effect result. Full rows are in the generated
+report's ``Hard Gate Decisions'' table.
+
+\subsection{Degenerate-band and validity rules}
+The band-widening rule (Section~\ref{sec:edge-rules}) applies to the endpoint
+metrics of the three endpoint-style tasks. Applying all scoring fixes in this
+paper moved \emph{every} entry upward by 0.05--2.62\,pp, because the affected
+penalties applied to all submissions equally---the diagnostic signature of a
+systematic scoring error rather than a model difference.
+
+\subsection{Ranking tables}
+The generated report
+(\texttt{terminus2-direction-aware-flash-baseline-bbo-2023-2025.md}) contains, in
+addition to the overall mean and the tempered hard-gated board: year splits,
+CUMCM/MCM suite splits, the per-task values, the saturated-gap cases, the hard-gate
+decisions, and the price table. Those tables are the machine-generated source for
+every number in the main text.

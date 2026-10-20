@@ -1,0 +1,10 @@
+{
+  "paper_id": "A053",
+  "task_slug": "cumcm-2024-a-dragon-dance",
+  "source": "cumcm/2024-A/A053/ocr/A053.md",
+  "fields": {
+    "experiment_result.q5.max_head_speed_mps": 1.33,
+    "experiment_result.q5.max_speed_ratio_when_head_1mps": null
+  },
+  "notes": "5.5.2节原文：'根据上述算法, 我们用粒子群算法得出龙头最大速度为: 1.33 m/s'。摘要（OCR 第15行）同一数值写作 '1.33 cm/s'，与正文单位冲突；cm/s 对龙头行进速度物理上不合理（且 cm→m 会得 0.0133 m/s），按正文明确标注的 m/s 记录为 1.33。未报告速度放大比值。注：1.33 m/s 大于连续时间可行值 1.246266 m/s，属论文启发式搜索的偏高结果，按 spec 未做任何调整。"
+}

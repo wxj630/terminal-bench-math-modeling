@@ -1,0 +1,10 @@
+{
+  "paper_id": "C038",
+  "task_slug": "cumcm-2024-c-crop-planting",
+  "source": "cumcm/2024-C/C038/ocr/C038.md",
+  "fields": {
+    "experiment_result.q1.discount_profit_yuan": 21533950.7,
+    "experiment_result.q1.waste_profit_yuan": 17925814.6
+  },
+  "notes": "摘要及 5.1.3 节原文：'50% 降价情境下的七年总利润收敛至21533950.7元，显著高于滞销情境下的17925814.6元'。单位已为元，无需换算。注意：本题为 benchmark 的 special case——论文完整约束集在官方附件上不可行且使用未公开 DEGA 启发式，评分锚点已改为 HiGHS 精确解（40418876.72/58718967.38）；此处按要求只如实记录论文原值，未做任何调整。"
+}

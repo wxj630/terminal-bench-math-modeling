@@ -1,0 +1,47 @@
+\section{Experimental Setup}
+\label{sec:setup}
+
+\subsection{Models and harnesses}
+We evaluate \textbf{16 configurations} spanning proprietary and open models, three agent harnesses, and multiple reasoning tiers. Because the tasks ship figures, we distinguish \emph{multimodal} entries (the harness can open the cropped PNGs) from text-only entries (the \texttt{terminus-2} agent has no image channel). Table~\ref{tab:configs} summarises the roster; full commands and configuration are in Appendix~\ref{app:settings}.
+
+\begin{table}[t]
+\centering
+\small
+\caption{The 16 evaluated configurations. ``MM'' marks multimodal harnesses. Cost is the normalized 18-task, one-attempt estimate.}
+\label{tab:configs}
+\begin{tabular}{@{}llcccc@{}}
+\toprule
+Entry & Model & Harness & Tier & MM & Cost (USD) \\
+\midrule
+codex + gpt-5.5 xhigh            & \texttt{openai/gpt-5.5}            & codex CLI       & xhigh & \checkmark & 99.37 \\
+Qwen3.8-27B-FP8 thinking         & \texttt{qwen/qwen3.8-27b}          & terminus-2      & thinking & & 28.18 \\
+opencode + deepseek-flash        & \texttt{deepseek/deepseek-v4.1-flash} & opencode CLI & high (default) & \checkmark & 2.54 \\
+Tencent Hy4 Preview              & \texttt{tencent/hy4-preview}       & terminus-2      & default & & 14.54 \\
+GPT-5.6 SOL high                 & \texttt{openai/gpt-5.6-sol}        & terminus-2      & high & & 8.90 \\
+claude-code + Fable 5.1          & \texttt{claude-fable-5-1}          & claude-code CLI & max & \checkmark & 272.80 \\
+GPT-5.6 SOL xhigh                & \texttt{openai/gpt-5.6-sol}        & terminus-2      & xhigh & & 14.73 \\
+v4 pro                           & \texttt{deepseek/deepseek-v4-pro}  & terminus-2      & default & & 5.55 \\
+GLM-5.3                          & \texttt{z-ai/glm-5.3}              & terminus-2      & default & & 38.30 \\
+Kimi K3                          & \texttt{moonshotai/kimi-k3}        & terminus-2      & default & & 26.68 \\
+opencode + deepseek-flash (max)  & \texttt{deepseek/deepseek-v4.1-flash} & opencode CLI & max & \checkmark & 2.78 \\
+codex + GPT-6 Astra              & \texttt{gpt-6-astra}               & codex CLI       & max & \checkmark & 246.41 \\
+GLM-5.3-Flash (ox-alpha)         & \texttt{z-ai/glm-5.3-flash}        & terminus-2      & default & & 2.91 \\
+v4 flash baseline                & \texttt{deepseek/deepseek-v4-flash-0731} & terminus-2 & default & & 0.68 \\
+Qwen3.8 Flash (Bailian)          & \texttt{qwen/qwen3.8-flash}        & terminus-2      & default & & 8.81 \\
+Gemini 3.7 Flash high            & \texttt{google/gemini-3.7-flash}   & terminus-2      & high & & 6.15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Two entries deserve notes. \textbf{opencode + deepseek-flash (max)} is the same model and harness as the high entry, differing only in the thinking tier (\texttt{variant=max} vs.\ the default \texttt{high}); it is a controlled tier comparison, not a separate model. \textbf{codex + GPT-6 Astra} and \textbf{claude-code + Fable 5.1} are third-party runs (independent operators, Modal, October 2026) on the same task revision; we re-scored their artifacts with \emph{our} scorer and current anchors so that all 16 rows share one scoring definition.
+
+\subsection{Prompt design}
+The prompt is the task's \texttt{instruction.md}, passed verbatim by the harness. It contains the original contest statement, the cited figures inline, and a fixed ``Required Benchmark Artifact'' block naming the output path. \texttt{terminus-2} prepends a generic command-line system prompt; \texttt{codex} and \texttt{opencode} receive the statement as their positional prompt. Appendix~\ref{app:prompts} reproduces the template and the exact per-harness commands.
+
+\emph{Version caveat.} The \texttt{instruction.md} files were revised after some trials were recorded (figure-path notes added; one statement re-sourced). The paper therefore describes the prompt as delivered in the recorded trials, not as the file reads today; the captured command lines in each \texttt{trial.log} are authoritative.
+
+\subsection{Environment}
+Tasks run in Docker containers under harbor~0.14.0. Each task's agent container is \texttt{python:3.12-slim} with a fixed scientific stack (NumPy 2.0.2, pandas 2.2.2, SciPy 1.14.1, scikit-learn 1.5.2, Matplotlib 3.9.2, openpyxl 3.1.5, xlrd 2.0.1) and \texttt{MPLBACKEND=Agg}. Resource limits are 2 CPUs, 8~GB memory, 20~GB storage, no GPU; the agent timeout is 4~hours, the verifier timeout 180~s. \textbf{Internet is disabled} (\texttt{allow\_internet=false}); model traffic is routed through a local retry proxy, so an agent cannot fetch solutions or install packages at runtime. The verifier runs in a \emph{separate} container that only has pytest. Full details are in Appendix~\ref{app:environment}.
+
+\subsection{Protocol and statistics}
+Each model is evaluated on all 18 tasks with a single attempt (\texttt{n\_attempts=1}, no retries), so the main results are single-run. Two consequences are reported honestly rather than papered over: (i) we do not select ``the best run''---a single run is a single run; and (ii) we cannot report multi-seed mean$/$std. The one task with repeated attempts is the dragon-dance problem, run four times per model as a consistency probe; the four answers were identical to machine precision (\texttt{mean}=1.246266, \texttt{std}=$4.6\times10^{-16}$). We report that as evidence of determinism on a numerically well-posed task, not as a variance estimate.

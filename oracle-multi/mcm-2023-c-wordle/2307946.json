@@ -1,0 +1,9 @@
+{
+  "paper_id": "2307946",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2307946/ocr/2307946.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": 0.7113
+  },
+  "notes": "Table 8 (Sec. 8.5): LightGBM difficulty classifier (K-means 4 groups) 'Validation set Accuracy 71.13%', 'Training set Accuracy 98.28%'. Validation (held-out) value used -> 0.7113. The summary also states 'The accuracy of the test set reaches 70%' (rounded), consistent with 71.13%. Converted percent -> fraction. EERIE predicted as Group 2 (second easiest of 4); eerie_group is not scored (weight 0) so not included."
+}

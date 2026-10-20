@@ -1,0 +1,11 @@
+{
+  "paper_id": "2303950",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2303950/ocr/2303950.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": null,
+    "target_comparison.five_species_pielou_evenness.actual": null,
+    "target_comparison.optimal_species_count.actual": 8
+  },
+  "notes": "Sec. 5.2: 'when the number of species are more than eight, the index will be larger than that of one species. Therefore, over eight types of species are required for the community to gain overall benefit' (TOPSIS on scale+stability); recorded as 8 (the stated threshold). No beta sensitivity and no Pielou evenness; indices used are average total weight E and variance var, plus TOPSIS score."
+}

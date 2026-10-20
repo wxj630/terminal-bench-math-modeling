@@ -1,0 +1,10 @@
+{
+  "paper_id": "C050",
+  "task_slug": "cumcm-2023-c-vegetable-pricing",
+  "source": "cumcm/2023-C/C050/ocr/C050.md",
+  "fields": {
+    "target_comparison.future_week_max_profit_yuan.actual": 5105.6,
+    "target_comparison.problem3_selected_item_count.actual": 29
+  },
+  "notes": "Abstract: '求解出未来一周最大收益为5105.60元' (Q2) and '筛选出29种可售单品蔬菜，并估计2023年7月1日最大收益为1282.2631元' (Q3). Selected count 29 is explicit. Both values reported in yuan / items, no conversion."
+}

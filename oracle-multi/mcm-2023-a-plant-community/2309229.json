@@ -1,0 +1,11 @@
+{
+  "paper_id": "2309229",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2309229/ocr/2309229.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": 32.0,
+    "target_comparison.five_species_pielou_evenness.actual": 0.87,
+    "target_comparison.optimal_species_count.actual": 2
+  },
+  "notes": "beta_decline_pct: Sec. 6.1: 'In the process of beta changing from 1e-3 to 2e-2, the total biomass decreases by about 32%' - value reported as written (percent, no conversion). Pielou: Sec. 4.1.3: 'The Pielou index reached 0.87 when the number of species reached 5' - the paper gives 0.87 (2 s.f.), not 0.8826 as in the benchmark anchor. Species count: Sec. 4.1.3: 'at least two different plants could make the community benefit'. This is the paper that the task's reproduced oracle (2309229) is based on, but its prose reports 0.87 for evenness."
+}

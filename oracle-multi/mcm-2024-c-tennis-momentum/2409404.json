@@ -1,0 +1,11 @@
+{
+  "paper_id": "2409404",
+  "task_slug": "mcm-2024-c-tennis-momentum",
+  "source": "mcm/2024-C/2409404/ocr/2409404.md",
+  "fields": {
+    "experiment_result.randomness_tests.median_ljung_box_p": null,
+    "experiment_result.randomness_tests.median_runs_p": 0.0,
+    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
+  },
+  "notes": "Sec. 4.1 Table 4 (runs test, pooled sequence over 31 matches): Point Victor Z=-5.613, p=1.986e-8; Player 1 Consecutive Win and Player 2 Consecutive Win both p=0.000 (<0.01). median_runs_p = 0.0 (representative; all reported p-values reject at 5%). The paper does not report how many individual matches reject, only these three aggregate indicators, so share_rejecting_iid_at_5pct = null. No Ljung-Box test is reported."
+}

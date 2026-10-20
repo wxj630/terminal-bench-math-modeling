@@ -1,0 +1,13 @@
+{
+  "paper_id": "2318300",
+  "task_slug": "mcm-2023-b-maasai-mara",
+  "source": "mcm/2023-B/2318300/ocr/2318300.md",
+  "fields": {
+    "target_comparison.scenario2_agriculture_cells.actual": null,
+    "target_comparison.scenario2_benefit_million.actual": null,
+    "target_comparison.scenario2_hunting_cells.actual": null,
+    "target_comparison.scenario2_tourism_cells.actual": null,
+    "target_comparison.scenario2_wildlife_cells.actual": null
+  },
+  "notes": "No grid/land-allocation scenario at all. The paper builds a 6-ODE predator-prey/tourism/degradation/poaching model, optimizes 8 policy parameters with L-BFGS-B and reports a budget (KSh379 million) and percentage changes (prey +24%, predators +78%, degradation -19%, retaliatory killings -97%, poaching -50%, tourism +7.5%). No 'scenario 2' partition, no cell counts, no economic benefit in millions of the benchmark's type; unusable for these fields."
+}

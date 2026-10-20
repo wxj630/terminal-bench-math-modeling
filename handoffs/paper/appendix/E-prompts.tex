@@ -1,0 +1,74 @@
+\section{Appendix E: Prompt Design}
+\label{app:prompts}
+
+\subsection{The prompt is the task statement}
+There is no hand-written prompt wrapper in this benchmark. The prompt is the
+task's \texttt{instruction.md}, delivered verbatim by the harness. Its structure
+is fixed across tasks:
+
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt]
+\item a machine-readable canary comment (stripped before delivery);
+\item \texttt{\# Original Contest Problem} --- the verbatim contest statement,
+with each cited figure embedded inline as \texttt{![图 N](fig\_N.png)};
+\item any results tables the statement requires, as plain text;
+\item \texttt{\# 题面附图} / \texttt{\# Figures} --- a note listing the
+in-container figure paths (e.g.\ \texttt{/root/data/figures/fig\_1.png\ldots});
+\item \texttt{\# Required Benchmark Artifact} --- instructs the agent to solve
+the problem, points at the mirrored attachments, names the required output path,
+and points at the output schema;
+\item the time limit line (\texttt{You have 14400 seconds\ldots}).
+\end{enumerate}
+
+\subsection{The artifact block (verbatim template)}
+\begin{verbatim}
+# Required Benchmark Artifact
+
+Solve the contest problem above. The official attachments are mirrored at
+`/root/data/attachments` (flat filenames; see
+`/root/data/attachments/INDEX.md`) and also remain at their full corpus paths
+under `/root/data/repo`. Use them whenever they are relevant. Write your final
+structured answer to:
+
+/root/results/<slug>_result.json
+
+The result must be valid JSON and should follow the shape shown in
+`/root/data/output_schema.json`. Include the numerical quantities, modeling
+decisions, diagnostics, sensitivity or uncertainty results, conclusions for the
+contest questions, and generated artifact paths needed to support your answer.
+You may also write supplementary CSV, XLSX, or PNG files under `/root/results`,
+but the JSON file above is the required artifact.
+
+You have 14400 seconds to complete this task. Do not cheat by using online
+solutions or hints specific to this task.
+\end{verbatim}
+
+\subsection{Harness wrapping}
+Three harnesses deliver the same text differently:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{terminus-2} (harbor): prepends a fixed command-line system prompt
+(``You are an AI assistant tasked with solving command-line tasks in a Linux
+environment\ldots provide batches of shell commands\ldots format your response as
+JSON with \texttt{commands:[{keystrokes,duration}]}'') and then appends
+\texttt{Task Description:} followed by the statement.
+\item \textbf{codex CLI}: the statement is the positional prompt
+(\texttt{codex exec \ldots\ -{}- '<statement>'}).
+\item \textbf{opencode CLI}: the statement is the positional prompt
+(\texttt{opencode run \ldots\ -{}- '<statement>'}).
+\end{itemize}
+
+\subsection{Version caveat}
+The \texttt{instruction.md} files were revised after some trials were recorded:
+a figure-path section was added, and one MCM statement was re-sourced from the
+official PDF. The prompt actually delivered in a given trial is the one captured
+in that trial's \texttt{trial.log} / \texttt{trajectory.json}; for
+reproducibility, cite those, not the current file. This is why we describe the
+prompt structure above rather than quoting today's file as if it were what every
+model saw.
+
+\subsection{What the prompt does \emph{not} say}
+Deliberately, the prompt gives no modeling hints, no method suggestions, and no
+pointer to the scored fields beyond the schema. It also does not tell the agent
+which sub-question is scored, except that the artifact is required and must
+contain ``the numerical quantities\ldots conclusions for the contest questions''.
+This keeps the benchmark a test of doing the whole modeling problem, at the cost
+of the agent having to infer which numbers matter.

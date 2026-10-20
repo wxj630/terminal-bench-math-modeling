@@ -1,0 +1,12 @@
+{
+  "paper_id": "B311",
+  "task_slug": "cumcm-2023-b-multibeam-lines",
+  "source": "cumcm/2023-B/B311/ocr/B311.md",
+  "fields": {
+    "reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles": null,
+    "reproduced.problem4_summary.sa_avg_overlap_pct": null,
+    "target_comparison.problem4_missed_area_pct.actual": 2.3,
+    "target_comparison.problem4_total_length_nm.actual": 251.83
+  },
+  "notes": "Q4 reports total survey-line length 466394.4 m and missed rate 2.3%. Quote: '总测线长度为 466394.4m ... 最终得出漏测率为 2.3%'. Converted m to nautical miles: 466394.4/1852 = 251.83 nm. The paper does not report the length of segments with overlap >20% nor an average overlap percentage (Q4 design drives the widest-spacing overlap to zero), so those two fields are null."
+}

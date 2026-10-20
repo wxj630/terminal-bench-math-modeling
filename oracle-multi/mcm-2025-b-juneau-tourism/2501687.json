@@ -1,0 +1,14 @@
+{
+  "paper_id": "2501687",
+  "task_slug": "mcm-2025-b-juneau-tourism",
+  "source": "mcm/2025-B/2501687/ocr/2501687.md",
+  "fields": {
+    "experiment_result.annual_visitors": null,
+    "experiment_result.optimal_daily_cap": 13993.0,
+    "experiment_result.optimal_visitor_fee_usd": null,
+    "experiment_result.resident_acceptance_index": null,
+    "experiment_result.sustainability_score": null,
+    "experiment_result.total_revenue_usd": null
+  },
+  "notes": "Peak-season cap: Sec. 3.5/4 'the government needs to control the number of people at around 13993 during the peak season'; PSO average c1=13993, c2=1035 (off-season). Memo: 'controlling the daily total tourist number to around 14,000 ... during the peak season'. Annual visitors: not reported (only peak/off-season daily targets); no annual total. Visitor fee: none - x1=195643.33 is a total daily tax amount (USD), not a per-visitor fee; y-type tourist fee is not a decision variable. Resident acceptance: not reported; the model monetizes social welfare (S1/S2) into total utility U=187,448,693.71 rather than a normalized index. Sustainability score: not reported; objective is total social utility. Total revenue: not reported."
+}

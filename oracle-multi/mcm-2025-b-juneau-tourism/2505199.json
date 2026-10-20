@@ -1,0 +1,14 @@
+{
+  "paper_id": "2505199",
+  "task_slug": "mcm-2025-b-juneau-tourism",
+  "source": "mcm/2025-B/2505199/ocr/2505199.md",
+  "fields": {
+    "experiment_result.annual_visitors": null,
+    "experiment_result.optimal_daily_cap": 12000.0,
+    "experiment_result.optimal_visitor_fee_usd": 15.0,
+    "experiment_result.resident_acceptance_index": null,
+    "experiment_result.sustainability_score": null,
+    "experiment_result.total_revenue_usd": null
+  },
+  "notes": "Daily cap and fee: Sec. 4.3 and memo 'the optimal solution is: 12,000 daily tourists(x), an 8% tourism tax(y3), a $15-per-person tourist fee(y4)'. Annual visitors: not reported (x is a daily tourist count; no annual total). Resident acceptance: satisfaction is a model objective but no numeric value is reported. Sustainability score: none. Total revenue: no numeric revenue value reported."
+}

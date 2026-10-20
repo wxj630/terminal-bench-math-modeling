@@ -1,0 +1,9 @@
+{
+  "paper_id": "2311035",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2311035/ocr/2311035.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": 0.6556
+  },
+  "notes": "Table 5 (Sec. 6.4): SVM with RBF kernel for 3-level difficulty, trained on a 3:1 train/test split: Accuracy score 0.6556, Precision 0.6762, Recall 0.6556, F1 0.6634. Summary reports 'accuracy score of 0.6556'. Field recorded as 0.6556 (test-set accuracy, already a fraction). EERIE classified 'hard'."
+}

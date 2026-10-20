@@ -1,0 +1,13 @@
+{
+  "paper_id": "A165",
+  "task_slug": "cumcm-2023-a-heliostat-field",
+  "source": "cumcm/2023-A/A165/ocr/A165.md",
+  "fields": {
+    "reproduced.design_summary[2].annual_optical_efficiency": 0.5856,
+    "reproduced.design_summary[2].mirror_area_m2": 97106.4,
+    "reproduced.design_summary[2].mirror_count": 3249,
+    "reproduced.design_summary[2].unit_area_power_kw_m2": 0.4556,
+    "target_comparison.q3_annual_thermal_power_mw.actual": 44.25
+  },
+  "notes": "Q3 Table 8: annual optical efficiency 0.5856, annual thermal power 44.25 MW, unit-area power 0.4556 kW/m2; Table 9: 3249 heliostats, total area 97106.40 m2 (Q3 kept Q2 layout and only varied mounting heights). Quote: '0.5856 ... 44.25 ... 0.4556'. Reported as-is; note annual power is below the 60 MW rated target."
+}

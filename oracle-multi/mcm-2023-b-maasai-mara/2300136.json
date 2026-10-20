@@ -1,0 +1,13 @@
+{
+  "paper_id": "2300136",
+  "task_slug": "mcm-2023-b-maasai-mara",
+  "source": "mcm/2023-B/2300136/ocr/2300136.md",
+  "fields": {
+    "target_comparison.scenario2_agriculture_cells.actual": null,
+    "target_comparison.scenario2_benefit_million.actual": null,
+    "target_comparison.scenario2_hunting_cells.actual": null,
+    "target_comparison.scenario2_tourism_cells.actual": null,
+    "target_comparison.scenario2_wildlife_cells.actual": null
+  },
+  "notes": "No grid-based land allocation. The paper divides Maasai Mara into three land-use types (core wildlife preservation zone, human settlement zone, livestock grazing zone) and enumerates eight policy scenarios per type (24 total), scored 0-1 by an AHP-weighted network model. No cell counts, no monetary benefit in millions, and 'scenario 2' is not a land-partition scenario. Unusable for these fields."
+}

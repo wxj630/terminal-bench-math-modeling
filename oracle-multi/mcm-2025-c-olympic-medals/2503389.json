@@ -1,0 +1,13 @@
+{
+  "paper_id": "2503389",
+  "task_slug": "mcm-2025-c-olympic-medals",
+  "source": "mcm/2025-C/2503389/ocr/2503389.md",
+  "fields": {
+    "great_coach_model.global_top_jump_75pct": null,
+    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
+  },
+  "notes": "No 75th-percentile jump. Sec. 9 recommends Poland (athletics, canoe sprint, sailing), Nigeria (football) and India (badminton, weightlifting, wrestling), but no medal-count gain is given per recommendation. The only quantitative coach effect is a contribution rate u = 1.7 ('after introducing the coach, the Score for 2024 increases by u x the pre-coaching Score') and a median post/pre-coach medal ratio of 1.7 - both are multiplicative ratios on a weighted 'Score', not medal-count gains, so no number was entered."
+}

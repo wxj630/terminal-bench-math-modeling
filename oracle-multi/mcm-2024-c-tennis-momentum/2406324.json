@@ -1,0 +1,11 @@
+{
+  "paper_id": "2406324",
+  "task_slug": "mcm-2024-c-tennis-momentum",
+  "source": "mcm/2024-C/2406324/ocr/2406324.md",
+  "fields": {
+    "experiment_result.randomness_tests.median_ljung_box_p": null,
+    "experiment_result.randomness_tests.median_runs_p": 0.0,
+    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": 1.0
+  },
+  "notes": "Sec. 4.3: \"we first applies a run test ... The P value calculated by the run test is 0.000, far less than 0.05\" for the 2023 Wimbledon final (one match) -> median_runs_p = 0.0 and share = 1.0 (1/1 match). Note the paper's next clause says \"which means the swings are random\", contradicting p < 0.05; strictly the runs test rejects randomness. No Ljung-Box test is reported, so median_ljung_box_p = null."
+}

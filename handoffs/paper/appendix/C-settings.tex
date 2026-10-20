@@ -1,0 +1,76 @@
+\section{Appendix C: Experimental Settings}
+\label{app:settings}
+
+\subsection{Per-entry configuration}
+\begin{table}[h]
+\centering
+\small
+\caption{Per-entry configuration. ``Tier'' is the reasoning setting actually passed to the model.}
+\label{tab:app-configs}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Entry & Model id & Harness & Tier & Multimodal \\
+\midrule
+codex + gpt-5.5 xhigh        & \texttt{openai/gpt-5.5} & codex CLI & \texttt{reasoning\_effort=xhigh} & yes \\
+opencode + deepseek-flash    & \texttt{deepseek/deepseek-v4.1-flash} & opencode CLI & high (default) & yes \\
+opencode + deepseek-flash (max) & \texttt{deepseek/deepseek-v4.1-flash} & opencode CLI & \texttt{variant=max} & yes \\
+codex + GPT-6 Astra          & \texttt{gpt-6-astra} & codex CLI & max & yes \\
+claude-code + Fable 5.1      & \texttt{claude-fable-5-1} & claude-code CLI & max & yes \\
+Qwen3.8-27B-FP8 thinking     & \texttt{qwen/qwen3.8-27b} & terminus-2 & thinking & no \\
+Tencent Hy4 Preview          & \texttt{tencent/hy4-preview} & terminus-2 & default & no \\
+GPT-5.6 SOL high             & \texttt{openai/gpt-5.6-sol} & terminus-2 & high & no \\
+GPT-5.6 SOL xhigh            & \texttt{openai/gpt-5.6-sol} & terminus-2 & xhigh & no \\
+v4 pro                       & \texttt{deepseek/deepseek-v4-pro} & terminus-2 & default & no \\
+GLM-5.3                      & \texttt{z-ai/glm-5.3} & terminus-2 & default & no \\
+Kimi K3                      & \texttt{moonshotai/kimi-k3} & terminus-2 & default & no \\
+GLM-5.3-Flash (ox-alpha)     & \texttt{z-ai/glm-5.3-flash} & terminus-2 & default & no \\
+v4 flash baseline            & \texttt{deepseek/deepseek-v4-flash-0731} & terminus-2 & default & no \\
+Qwen3.8 Flash (Bailian)      & \texttt{qwen/qwen3.8-flash} & terminus-2 & default & no \\
+Gemini 3.7 Flash high        & \texttt{google/gemini-3.7-flash} & terminus-2 & high & no \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Multimodal status is defined by which harness exposes an image channel; the 11 \texttt{terminus-2} entries cannot open the cropped PNGs, which is why the multimodal subset (Table~\ref{tab:mm}) is reported separately.
+
+\subsection{Agent command templates}
+The task statement is passed to the agent as its prompt. Representative commands (from the recorded \texttt{trial.log}s):
+\begin{verbatim}
+# codex
+codex exec --dangerously-bypass-approvals-and-sandbox --skip-git-repo-check \
+  --model gpt-5.5 --json --enable unified_exec \
+  -c model_reasoning_effort=xhigh -- '<instruction.md body>'
+
+# opencode
+opencode --model=openai/deepseek-flash run --format=json --thinking \
+  --dangerously-skip-permissions -- '<instruction.md body>'
+\end{verbatim}
+\texttt{terminus-2} is driven by harbor, which prepends a generic command-line
+system prompt (``Provide batches of shell commands\ldots format your response as
+JSON'') and then the statement.
+
+\subsection{Retries, concurrency, and artifact recovery}
+All entries used \texttt{n\_concurrent\_trials=1} and \texttt{n\_attempts=1} with
+no automatic retries. Two subtleties are disclosed:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{Misfiled artifacts.} Two tasks (lamprey; and, at the max tier, the
+same) wrote the result as \texttt{<slug>-result.json} rather than the required
+\texttt{<slug>\_result.json} (hyphen vs.\ underscore), so the harness did not
+collect it. We replayed the recorded run's scripts to reproduce the artifact and
+re-scored it; the reproduction is marked in the report.
+\item \textbf{Third-party runs.} The GPT-6 Astra and Fable 5.1 entries were run
+by independent operators. Because their verifier used a different reward
+formula, we re-scored their saved artifacts with \emph{our} scorer and current
+anchors, so that all 16 rows share one scoring definition. Where their artifacts
+were not packaged, we reconstructed the scored fields from their saved
+per-metric records (verified to reproduce their own numbers exactly on tasks
+where the full artifact was present).
+\end{itemize}
+
+\subsection{Cost accounting}
+Cost is computed from measured token usage against a \emph{fixed} price
+snapshot, with two adjustments stated in the report: reasoning tokens that the
+provider bills outside its completion counter are added to output; and where a
+provider charges a peak/off-peak rate, the peak rate is used. For the two
+third-party entries, cost is their own measured per-run USD. Prices are a fixed
+local file so that costs do not drift between reruns.

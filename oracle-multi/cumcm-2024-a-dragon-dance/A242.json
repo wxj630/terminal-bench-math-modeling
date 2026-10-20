@@ -1,0 +1,10 @@
+{
+  "paper_id": "A242",
+  "task_slug": "cumcm-2024-a-dragon-dance",
+  "source": "cumcm/2024-A/A242/ocr/A242.md",
+  "fields": {
+    "experiment_result.q5.max_head_speed_mps": 1.246266,
+    "experiment_result.q5.max_speed_ratio_when_head_1mps": 1.60479338
+  },
+  "notes": "问题五结果原文：'经计算，我们得出在 t≈14.47997148s 时，max_n v_n(t) 达到其最大值 1.60479338 m/s 故题目所求结果为 v_max≈1.246266 m/s'。前者为龙头 1 m/s 时的全体把手速度峰值，即比例常数 k，直接作为 ratio 记录。"
+}

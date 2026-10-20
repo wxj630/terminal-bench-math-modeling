@@ -3,11 +3,12 @@
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 105,
   "final_question": {
-    "label": "Final ecosystem-benefit question",
-    "plain_question": "判断七鳃鳗可变性别比例是否也会让生态系统中的其他生物受益，尤其是寄生者/宿主相关指标。",
-    "final_answer_summary": "O 奖复现的共存情景资源水平为 0.55，寄生者指数 8.562，宿主鱼指数 1080.356。",
-    "baseline_model_summary": "baseline 用生态动力系统仿真，把资源水平、性别比例、七鳃鳗、宿主鱼和寄生者一起演化。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Q3 ecosystem stability (numeric fallback)",
+    "plain_question": "可变性别比例下生态系统的稳定性如何比较：在最优资源水平上，可变性别比例比固定比例带来多少稳定性收益。",
+    "final_answer_summary": "O 奖复现的最大稳定性收益出现在资源水平 0.35：可变性别比例稳定性 0.9144 对固定比例 0.8855，相对增益 3.26%（earlier 的寄生者/宿主指数是复现内部量，论文并不报告，故回退到这一问）。",
+    "baseline_model_summary": "baseline 用生态动力系统仿真，在资源水平网格上同时演化七鳃鳗、宿主鱼和寄生者，比较可变性别比例与固定比例的稳定性指标。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "回退说明：末问（可变性别比例能否让寄生者等其他生物受益）本身是定性判断题，原计分的 parasite/host 指数是复现脚本自定的任意种群单位，人类论文不报告。这里回退到 Q3 的生态系统稳定性数值，论文普遍报告 resistance/resilience/composite stability。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,55 +19,25 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 3,
-  "effective_metric_count": 3,
-  "final_answer_numeric_field_count": 3,
-  "scored_final_answer_numeric_field_count": 3,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "experiment_result.parasite_coexistence_case.final_parasite_index",
-      "oracle_value": 8.562,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "The parasite index is a simulated ecosystem-response indicator, not a one-sided objective.",
-      "semantic_direction_basis": "The parasite index is a simulated ecosystem-response indicator, not a one-sided objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final ecosystem-benefit question"
-    },
-    {
-      "path": "experiment_result.parasite_coexistence_case.host_fish_index",
-      "oracle_value": 1080.356,
+      "path": "experiment_result.largest_stability_gain.adaptive_gain_pct",
+      "oracle_value": 3.26,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
       "direction": "higher_is_better",
       "semantic_direction": "higher_is_better",
-      "direction_basis": "A larger host-fish index indicates a healthier supported host population in the coexistence scenario.",
-      "semantic_direction_basis": "A larger host-fish index indicates a healthier supported host population in the coexistence scenario.",
+      "direction_basis": "The relative stability gain of the adaptive sex-ratio strategy: positive means the adaptive population is more stable than a fixed 1:1 ratio. This is the benefit the question asks about, and it is the only quantity comparable across papers with different stability indices.",
+      "semantic_direction_basis": "The relative stability gain of the adaptive sex-ratio strategy: positive means the adaptive population is more stable than a fixed 1:1 ratio. This is the benefit the question asks about, and it is the only quantity comparable across papers with different stability indices.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Final ecosystem-benefit question"
-    },
-    {
-      "path": "experiment_result.parasite_coexistence_case.resource_level",
-      "oracle_value": 0.55,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "The resource level is a simulated ecosystem state in a coexistence scenario.",
-      "semantic_direction_basis": "The resource level is a simulated ecosystem state in a coexistence scenario.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final ecosystem-benefit question"
+      "final_question_label": "Q3 ecosystem stability (numeric fallback)"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -110,7 +81,7 @@
       "mcm/question_results/2024/A/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 3
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

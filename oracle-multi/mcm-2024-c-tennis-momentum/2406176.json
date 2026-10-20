@@ -1,0 +1,11 @@
+{
+  "paper_id": "2406176",
+  "task_slug": "mcm-2024-c-tennis-momentum",
+  "source": "mcm/2024-C/2406176/ocr/2406176.md",
+  "fields": {
+    "experiment_result.randomness_tests.median_ljung_box_p": null,
+    "experiment_result.randomness_tests.median_runs_p": null,
+    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": 1.0
+  },
+  "notes": "Sec. 4 uses a Kolmogorov-Smirnov test, not Ljung-Box or runs: Table 3 gives Carlos $p = 1.338\\times10^{-62}$ and Nicolas $p = 5.945\\times10^{-56}$, both \"much smaller than 0.05\", rejecting the coach's no-momentum null for the one match analyzed (2023 Wimbledon final). share_rejecting_iid_at_5pct = 1.0 (1 of 1 match); the Ljung-Box and runs fields are null because those tests are not reported."
+}

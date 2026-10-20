@@ -1,0 +1,10 @@
+{
+  "paper_id": "B157",
+  "task_slug": "cumcm-2025-b-sic-thickness",
+  "source": "cumcm/2025-B/B157/ocr/B157.md",
+  "fields": {
+    "experiment_result.si_recommended_thickness_um": 3.814,
+    "experiment_result.sic_recommended_thickness_um": 7.604
+  },
+  "notes": "Units are micrometres (μm) as written; no conversion needed. Si: Q3 Airy multi-beam + Cauchy joint fit gives 'd_hat = 3.814 μm' (Sec. 5.3.5, line ~770) and the abstract states '最终得到硅晶圆片厚度约 3.814 μm'. SiC: two-beam joint fit gives '厚度估计 d = 7.604 μm' (Sec. 5.2, line 408; abstract also says '最终得到 SiC 外延层厚度约 7.604 μm'); the Q3 Airy multi-beam fit gives d = 7.626 μm, but the paper concludes the SiC multi-beam effect is negligible and the two-beam model is sufficient ('碳化硅外延层测试结果...多光束效应不显著，两束干涉模型已足以解释实验数据并保证厚度估计的精度'), so 7.604 is recorded as the recommended SiC value and 7.626 is noted as the Q3 Airy alternative."
+}

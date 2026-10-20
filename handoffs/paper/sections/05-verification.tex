@@ -1,0 +1,68 @@
+\section{Feasibility Verification: Two Layers}
+\label{sec:verification}
+
+Proximity to an anchor does not imply that an answer is \emph{physically admissible}. A submission can match a reference value on one field while violating a stated constraint on another, or can report numbers that are internally contradictory. \bench{} verifies feasibility independently of scoring, in two layers with different trust bases.
+
+\subsection{Layer 1: a programmatic gate over six decidable forms}
+Every task registers one feasibility check. The gate is a registry covering \textbf{18/18} tasks, and every hard-error branch it can raise falls into one of six decidable forms:
+
+\begin{table}[h]
+\centering
+\small
+\caption{The six decidable invariant forms covering all 18 tasks' hard-error branches.}
+\label{tab:invariants}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Form & Example obligation \\
+\midrule
+domain / range        & probability $\in[0,1]$; thickness $\in(0,500]\,\mu$m \\
+integer / binary      & decision bits $\in\{0,1\}$; counts are integers \\
+ordering              & $q_{95}\ge$ mean; peak users $\ge$ spread average; interval low $\le$ high \\
+exact identity        & area $=$ count $\times$ width $\times$ height; union $\le \sum$ parts \\
+finite-domain         & decision-bit count $\in\{16,17\}$; case ids $=\{1..6\}$ \\
+partition / sum       & four land-use counts sum to the declared grid \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Checks come in two styles: \emph{structural/domain bounds} (rates, correlations, probabilities, nonnegative counts, distributions summing to 100, peak $\ge$ average) and \emph{constraint replay} (heliostat rated power $\ge 60$~MW and installation height $\in[2,6]$~m; dragon-dance head speed $\times$ amplification ratio $\le 2$~m/s; crop-planting demand-capped revenue ceiling; smoke-screen union duration $\le$ sum of parts).
+
+Three contracts keep the gate honest, enforced by \texttt{test\_feasibility\_checks.py}:
+\textbf{coverage} (a task cannot ship ungated), \textbf{oracle self-consistency} (the O-award reference must pass its own check---a gate that rejects the human solution is wrong by construction), and \textbf{discrimination} (synthetic and real-field violations must be rejected for the right reason; an empty artifact must warn, not hard-fail).
+
+\paragraph{Hand adjudication.} Four constraints require an independent replay rather than a field check and are recorded as whole-task penalties: a heliostat design whose tail mirror sits below the 2~m minimum; a smoke-screen plan whose independent replay gives zero coverage; a tourism answer whose acceptance index and sustainability score are on the wrong scale; and an Olympic coach-effect answer whose scored recommendations are degenerate.
+
+\subsection{Layer 2: Lean certificates}
+The programmatic gate is only as trustworthy as its code. Layer 2 re-proves the same invariants as Lean~4 theorems, so the audit itself becomes machine-checkable.
+
+\textbf{Scale and scope.} The layer generates \textbf{624 obligations across all 18 tasks}, evaluated against the real saved artifacts. Every obligation is discharged by \texttt{decide} (exact-integer decision) or \texttt{omega} (integer linear arithmetic). \textbf{No Mathlib is used}: because the checked propositions are decidable on exact integers, Lean core suffices, and a clean build completes in about a second.
+
+\textbf{Exactness.} Values are scaled to exact integers before comparison (rates $\times1000$, money $\times1$), so there is no floating-point tolerance anywhere. The one tolerance that exists---for a unit-like composite index---is \emph{declared} in the predicate (\texttt{InIndex scale tol}) rather than hidden in the code, because ``how much tolerance is allowed'' is itself part of the modeling assumption being audited.
+
+\textbf{Trust audit.} \texttt{\#print axioms} on every certificate reports only \texttt{[propext, Quot.sound]} (Lean's standard classical logic) or no axioms at all. Crucially, there is \textbf{no \texttt{sorryAx}} (an admitted gap) and \textbf{no \texttt{native\_decide}} (which would trust the compiler via \texttt{Lean.ofReduceBool} rather than the kernel). The layer is grep-checked for both; a certificate that only ``runs clean'' is not accepted.
+
+\textbf{Discrimination.} A checker that cannot fail is worthless. A discrimination suite mutates one numeric leaf at a time and requires the build to break \emph{and} to cite the mutated field. \textbf{10 mutations across all six forms}---out-of-range probability, out-of-range correlation, reversed ordering (discount profit below wasted-surplus profit), a violated exact identity (head speed $\times$ ratio $\ne$ 2~m/s), non-positive thickness, reversed interval, a non-binary decision bit, a negative acceptance index, a $q_{95}$ below its mean, and a zero species count---are all rejected, each pointing at its own field.
+
+\textbf{What the layer upgrades.} Two soft warnings in the programmatic gate become proofs. A tourism artifact whose acceptance index is 85.098 is \emph{refuted} for the unit convention and shown to fit the percent convention; its sustainability score 118.362 is shown to fit \emph{neither} under any tolerance within the declared 5\% budget---so ``just widen the tolerance'' is not an escape. A crop-planting profit is shown to lie strictly inside the per-plot/aggregate demand-cap interpretation gap, so the verdict rests on a declared reading rather than on arithmetic.
+
+\subsection{What verification can and cannot do}
+\label{sec:abc}
+The two layers cover two of three feasibility questions, and we state the boundary explicitly, because conflating them would overclaim.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Three layers of feasibility. Both our layers cover A and B; C requires formalising physics.}
+\label{tab:abc}
+\begin{tabular}{@{}lp{6.4cm}l@{}}
+\toprule
+Layer & Content & Covered by \\
+\midrule
+A --- unit / range & probability $\in[0,1]$, thickness $>0$, percentages in range & gate + Lean \\
+B --- internal consistency & area $=$ count $\times$ w $\times$ h, partitions sum, union $\le$ parts & gate + Lean \\
+C --- external physical truth & does this mirror field really produce 60~MW? & neither (replay / hand) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Lean proves ``the reported value is 60.0 and $60.0\ge60$''; it does not prove ``the field produces 60~MW''. The latter would require formalising optics and geometry, which is out of scope. Likewise, the layer's strength is bounded by \emph{witness completeness}: it can only check what the artifact exposes. Where a task reports only summary scalars, the layer inherits the same blind spot---so three obligations are \emph{skipped and reported} rather than silently satisfied (a missing overlap field, a null declared grid count, and a recommendation-count interpretation difference). Making these visible is itself part of the design: an audit that hides its gaps is not an audit.

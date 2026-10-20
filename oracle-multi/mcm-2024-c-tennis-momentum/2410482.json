@@ -1,0 +1,11 @@
+{
+  "paper_id": "2410482",
+  "task_slug": "mcm-2024-c-tennis-momentum",
+  "source": "mcm/2024-C/2410482/ocr/2410482.md",
+  "fields": {
+    "experiment_result.randomness_tests.median_ljung_box_p": null,
+    "experiment_result.randomness_tests.median_runs_p": null,
+    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
+  },
+  "notes": "Sec. 5 uses hypothesis testing and logistic regression: \"a t-statistic for momentum yielding a p-value well below 0.05\". No numeric p-value, no Ljung-Box runs-test result, and no per-match rejection share is reported, so all three fields are null."
+}

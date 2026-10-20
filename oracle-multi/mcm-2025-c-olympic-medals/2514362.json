@@ -1,0 +1,13 @@
+{
+  "paper_id": "2514362",
+  "task_slug": "mcm-2025-c-olympic-medals",
+  "source": "mcm/2025-C/2514362/ocr/2514362.md",
+  "fields": {
+    "great_coach_model.global_top_jump_75pct": null,
+    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
+  },
+  "notes": "No 75th-percentile jump. Recommendations are Sweden (wrestling), Hungary (wrestling) and France (rowing), with gains stated only as ranges: 'increase the medal counts for Sweden, Hungary, and France by 5-8, 3-5, and 6-10 medals respectively in the next two Olympic Games'. The paper reports no point estimate, so the fields are null (range lower/upper bounds were not converted or averaged)."
+}

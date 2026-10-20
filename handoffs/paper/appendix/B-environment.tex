@@ -1,0 +1,26 @@
+\section{Appendix B: Software and Hardware Environment}
+\label{app:environment}
+
+\subsection{Host and framework}
+The evaluation harness is \textbf{harbor 0.14.0}, run from a macOS host (Darwin 25.3, arm64). Harbor orchestrates per-task Docker containers; the enforced resource limits are container limits, not host limits. Task schema version is \texttt{1.3}.
+
+\subsection{Agent container}
+All 18 tasks use the same base and dependency set:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item Base image: \texttt{python:3.12-slim}, plus \texttt{uv} (0.8.15) copied from \texttt{ghcr.io/astral-sh/uv}.
+\item OS packages: \texttt{bash}, \texttt{ca-certificates}, \texttt{libgomp1}, \texttt{libgfortran5}, \texttt{tmux}.
+\item Python environment at \texttt{/opt/venv}: NumPy 2.0.2, pandas 2.2.2, SciPy 1.14.1, scikit-learn 1.5.2, Matplotlib 3.9.2 (\texttt{MPLBACKEND=Agg}), openpyxl 3.1.5, xlrd 2.0.1.
+\item Writable paths: \texttt{/root/data} (read-only inputs), \texttt{/root/results} (the scored artifact), \texttt{/logs/agent}.
+\end{itemize}
+
+\subsection{Verifier container}
+The verifier runs in a \emph{separate} container (\texttt{environment\_mode="separate"}) built from a minimal \texttt{python:3.12-slim} image installing only \texttt{pytest==8.4.1} and \texttt{pytest-json-ctrf==0.3.5}. It has no network and no access to the agent's working directory beyond the copied artifacts. Verifier timeout is 180~s.
+
+\subsection{Resource limits}
+Identical for all tasks: 2 CPUs, 8192~MB memory, 20480~MB storage, 0 GPUs. Build timeout 900~s. Agent timeout 14400~s (4~h), also stated at the end of each prompt. Per-job overrides in the recorded runs set memory to 3072--4096~MB; execution used one concurrent trial and no retries.
+
+\subsection{Network isolation}
+Every task sets \texttt{allow\_internet=false}. Model traffic is routed through a local retry proxy (e.g.\ a CLIPROXY endpoint) so that the agent can call the model API but cannot fetch solutions, download packages, or install tooling at runtime. This is what makes the harness install step special: for CLI agents (\texttt{codex}, \texttt{opencode}, \texttt{claude-code}) the client has to be present in the image, since it cannot be installed after the trial starts. The third-party operator's runs did exactly this---pre-installing the CLIs at the end of the Dockerfile and allow-listing only the model gateway, leaving statement, data, and verifier unchanged.
+
+\subsection{Frozen versions}
+For reproducibility we note: harbor 0.14.0; task schema 1.3; the Python dependency pins above; the pricing snapshot used for cost is a fixed local file (the board no longer fetches live prices, so costs are stable across reruns).

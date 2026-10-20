@@ -1,0 +1,13 @@
+{
+  "paper_id": "2419984",
+  "task_slug": "mcm-2024-b-submersible-search",
+  "source": "mcm/2024-B/2419984/ocr/2419984.md",
+  "fields": {
+    "experiment_result.search_strategy.find_probability_10h_start_1h": 0.43,
+    "experiment_result.search_strategy.find_probability_10h_start_3h": null,
+    "experiment_result.search_strategy.find_probability_10h_start_5h": 0.1,
+    "experiment_result.search_strategy.find_probability_18h": null,
+    "experiment_result.search_strategy.find_probability_6h": null
+  },
+  "notes": "Sec. 7.3.2: \"if the search starts at $t = 1$ h, the probability of finding the submersible within 10 hours reaches $43\\%$\" -> 0.43; \"If the search begins at $t = 5$ h, the probability of finding the submersible within 10 hours is only about $10\\%$\" -> 0.10 (approximate, as stated). The $t = 3$ h case appears only as a curve in Fig. 13 with no number, and no 6 h or 18 h probability is reported; those fields are null."
+}

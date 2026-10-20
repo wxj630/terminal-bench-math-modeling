@@ -1,0 +1,9 @@
+{
+  "paper_id": "2310767",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2310767/ocr/2310767.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": 0.67
+  },
+  "notes": "Summary / Sec. 6.4: GMM clustering into difficult/moderate/easy compared against each word's true difficulty (expected number of tries trichotomy): 'It demonstrates that our model has a 67% accuracy rate'; Sec. 6.4 also gives 'only ... an accuracy of 60% for the clustering of words at the medium level'. Recorded the overall 67% -> 0.67. (Sensitivity check reports ~60% accuracy for 5-letter words in a separate 25-set experiment.) EERIE classified 'difficult'."
+}

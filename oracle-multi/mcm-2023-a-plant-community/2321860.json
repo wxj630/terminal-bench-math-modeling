@@ -1,0 +1,11 @@
+{
+  "paper_id": "2321860",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2321860/ocr/2321860.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": null,
+    "target_comparison.five_species_pielou_evenness.actual": null,
+    "target_comparison.optimal_species_count.actual": 4
+  },
+  "notes": "Summary: 'when there are at least four species, the plant community shows higher resistance to irregular weather cycles'; Conclusion item 3 repeats 'When the number of species is larger than 4, the community is more resistant' (the two statements disagree by one; recorded the stated threshold 4). No beta sensitivity (indicator is NPP, not biomass; no beta parameter) and no Pielou evenness."
+}

@@ -1,0 +1,14 @@
+{
+  "paper_id": "2509557",
+  "task_slug": "mcm-2025-b-juneau-tourism",
+  "source": "mcm/2025-B/2509557/ocr/2509557.md",
+  "fields": {
+    "experiment_result.annual_visitors": null,
+    "experiment_result.optimal_daily_cap": null,
+    "experiment_result.optimal_visitor_fee_usd": 50.0,
+    "experiment_result.resident_acceptance_index": null,
+    "experiment_result.sustainability_score": null,
+    "experiment_result.total_revenue_usd": null
+  },
+  "notes": "Visitor fee: Sec. 6 and conclusions 'introduce an entry fee of $50 per person' (the fixed fee f_other) with a tax rate of 6.3%. Daily cap: none - the policy uses price controls rather than a headcount cap. Annual visitors: no single optimal value; the model reports carrying capacity K=1,650,000/yr and stabilization at 1.45-1.50 million under high-investment scenarios, so no unambiguous number was entered. Resident acceptance: the paper only states policy targets ('raise resident satisfaction above the 0.80 threshold', S>=0.80 in the long-term phase) and a baseline S0=0.7; the simulated steady-state value is not reported numerically, so the field is null rather than using the 0.80 threshold as an outcome. Sustainability score: none (environmental degradation index E=0.45-0.55 is not a composite score). Total revenue: not reported numerically."
+}

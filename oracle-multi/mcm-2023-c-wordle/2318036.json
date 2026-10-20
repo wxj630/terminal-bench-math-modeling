@@ -1,0 +1,9 @@
+{
+  "paper_id": "2318036",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2318036/ocr/2318036.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": 0.68
+  },
+  "notes": "Table 8 (Sec. 7.2): Random Forest difficulty classifier (3 K-means clusters) on an 80/20 train/test split: 'accuracy 0.68' (n=72 test), weighted precision/recall/F1 0.69/0.69/0.68. Recorded 0.68 (test-set accuracy, already a fraction). EERIE classified 'hard' (per-class precision 0.58)."
+}

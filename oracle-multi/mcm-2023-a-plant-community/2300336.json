@@ -1,0 +1,11 @@
+{
+  "paper_id": "2300336",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2300336/ocr/2300336.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": null,
+    "target_comparison.five_species_pielou_evenness.actual": null,
+    "target_comparison.optimal_species_count.actual": 3
+  },
+  "notes": "Species threshold: Sec. 4.1.1 / Summary: 'it can be concluded that the minimal number of species for the community to benefit is three.' Sensitivity analysis varies drought coefficient dr and white-noise variance, not the water-absorption coefficient beta, so no beta-decline percentage exists. The paper uses niche width, not biomass/Pielou, and reports no Pielou evenness value."
+}

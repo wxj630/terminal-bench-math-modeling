@@ -1,0 +1,10 @@
+{
+  "paper_id": "C132",
+  "task_slug": "cumcm-2025-c-nipt",
+  "source": "cumcm/2025-C/C132/ocr/C132.md",
+  "fields": {
+    "experiment_result.earliest_recommended_week": 11.0,
+    "experiment_result.latest_recommended_week": 12.0
+  },
+  "notes": "Scenario chosen: the paper's primary recommended scenario, Q2 50%-accuracy early-screening strategy (Table 3, OCR line 619): '(,29.88] 55 11.00; (29.89,31.82] 82 11.64; (31.82,) 125 12.00', summarized at line 621 as '在 50% 准确率要求下...对应的NIPT推荐时点为11.00-12.00孕周'. This is the paper's headline recommendation: the abstract (line 9) leads with '50% 准确率下推荐时点为11.00-12.00孕周，均为低风险', and Sec. 7.5 concludes '实验结果推荐各个组别的孕妇的第一次检测尽可能在12周前' (line 644). Taking min/max over the three BMI groups gives earliest=11.00, latest=12.00 weeks (already weeks). Other scenarios for audit: Q2 75% (Table 4) 12.86/13.11/16.04 -> 12.86-16.04; Q2 90% (Table 5) 16.09/15.19/20.27 -> 15.19-20.27; Q2 99% (Table 6) 20.71/19.67/25.09 -> 19.67-25.09. The paper lists 95% among the optimized accuracy scenarios (P in {50,75,90,95,99}%) but reports no 95% timing table in the OCR. Q3 multi-factor results (Table 9, line 982) for reference: 50% 11.43/11.86/12.29; 75% 12.71/13.57/14.86; 90% 14.29/16.14/18.43; 99% 18.86/21.00/24.57. Q2 was used because it directly answers the BMI-group best-timing question."
+}

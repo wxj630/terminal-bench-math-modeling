@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "recoveries": [
+    {
+      "model": "claude_fable51",
+      "task_slug": "mcm-2024-b-submersible-search",
+      "artifact_path": "jobs/wxj630-fable51-2023-2025-mcm/mcm-2024-b-submersible-search__stg/artifacts/root/results/mcm-2024-b-submersible-search_result.json",
+      "source_trial": "fable-claude-code/mcm-2024-b-submersible-search__aCCG3VW",
+      "source_trajectory_sha256": "aaf04ac06e462854aa49257efc954c5eb00956f04bcb5a46cd3b60619cdb37cb",
+      "evidence_steps": [19, 26],
+      "method": "Direct transcription of values printed by the original run; no rerun or recomputation.",
+      "fields": {
+        "experiment_result.search_strategy.find_probability_6h": 0.6748667542975262,
+        "experiment_result.search_strategy.find_probability_10h_start_1h": 0.8000064581700295,
+        "experiment_result.search_strategy.find_probability_10h_start_3h": 0.7709502861776125,
+        "experiment_result.search_strategy.find_probability_10h_start_5h": 0.7482819287321862,
+        "experiment_result.search_strategy.find_probability_18h": 0.86553757460873
+      }
+    },
+    {
+      "model": "flash_opencode_max",
+      "task_slug": "mcm-2024-a-lamprey",
+      "artifact_path": "jobs/opencode-deepseek-flash-max-mcm/mcm-2024-a-lamprey__qPJTREn/artifacts/root/results/mcm-2024-a-lamprey_result.json",
+      "source_trial": "opencode-deepseek-flash-max-mcm/mcm-2024-a-lamprey__qPJTREn",
+      "source_trajectory_sha256": "23b8842d8052f4b8495bdf41d6b1cde925db9a914e6230df3a26cd5fd82e7a8f",
+      "evidence_steps": [70, 71, 76],
+      "method": "Direct transcription of the final schema-validated result printed by the original run; the earlier intermediate 1.3596% result is excluded.",
+      "fields": {
+        "experiment_result.largest_stability_gain.resource_level": 0.8,
+        "experiment_result.largest_stability_gain.adaptive_stability": 0.86975,
+        "experiment_result.largest_stability_gain.fixed_stability": 0.835558,
+        "experiment_result.largest_stability_gain.adaptive_gain_pct": 4.0921
+      }
+    }
+  ]
+}

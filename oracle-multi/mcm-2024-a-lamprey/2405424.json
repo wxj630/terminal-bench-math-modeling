@@ -1,0 +1,18 @@
+{
+ "paper_id": "2405424",
+ "task_slug": "mcm-2024-a-lamprey",
+ "source": "mcm/2024-A/2405424/ocr/2405424.md",
+ "fields": {
+  "experiment_result.largest_stability_gain.adaptive_gain_pct": 12.96,
+  "experiment_result.largest_stability_gain.adaptive_stability": null
+ },
+ "derivations": {
+  "experiment_result.largest_stability_gain.adaptive_gain_pct": {
+   "kind": "relative_improvement_pct_higher_is_better",
+   "reported_values": {"adaptive": 0.61, "fixed": 0.54},
+   "formula": "100 * (adaptive - fixed) / fixed",
+   "computed_value": 12.96
+  }
+ },
+ "notes": "Table 1 \"Ecosystem stability assessment\": Stability row is Ideal 0.63, Constant sex ratio 0.54, Changing sex ratio 0.61. adaptive_stability = 0.61 (the paper's 0-1 ESI composite for the changing-sex-ratio ecosystem). No relative gain percentage is reported; the paper only concludes the ability to change sex ratio \"can significantly mitigate this phenomenon\". | DERIVED adaptive_gain_pct=12.96 from the two directly reported endpoints (ESI changing 0.61 vs constant 0.54 -> +12.96%). The two stability numbers use this paper's own units; the percentage is the only cross-paper comparable quantity, so adaptive_stability is set to null to avoid mixing scales."
+}

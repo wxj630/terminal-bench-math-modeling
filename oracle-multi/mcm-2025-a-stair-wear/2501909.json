@@ -1,0 +1,11 @@
+{
+  "paper_id": "2501909",
+  "task_slug": "mcm-2025-a-stair-wear",
+  "source": "mcm/2025-A/2501909/ocr/2501909.md",
+  "fields": {
+    "daily_use_pattern.peak_period_users": null,
+    "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": null,
+    "experiment_result.estimated_daily_users": 261.0
+  },
+  "notes": "Daily users: Sec. 3 results, Eq. 3.18, 'N_d = A_ceff * d_avg / (T * G * k_m) = 261'; following sentence 'This means that 261 people walked on it every day in the past.' (Edinburgh sandstone step case). Peak-period users: not reported; Section 4.6 simulates 1000 time steps with probability P_o of one/two people per step but gives no single peak headcount. Regular-hour users: not reported. Summary says 'dispersed X-direction wear indicates heavy use over short periods', but no number."
+}

@@ -1,0 +1,10 @@
+{
+ "paper_id": "2400996",
+ "task_slug": "mcm-2024-a-lamprey",
+ "source": "mcm/2024-A/2400996/ocr/2400996.md",
+ "fields": {
+  "experiment_result.largest_stability_gain.adaptive_gain_pct": 73.3,
+  "experiment_result.largest_stability_gain.adaptive_stability": null
+ },
+ "notes": "Sec. 4.2.1: \"Indicators of ecosystem stability $S_{1} = 3.7175 \\cdot 10^{-4}$ for lamprey with change in sex ratio; Indicators of ecosystem stability $S_{2} = 6.4414 \\cdot 10^{-4}$ for lamprey without change in sex ratio\" and \"The optimization rate of ecosystem stability by the sex ratio adjustment mechanism was calculated to be $R = 73.3\\%$.\" S is a variance-type index where smaller = more stable, so adaptive_stability is on that scale (not a 0-1 score). No resource-level grid is reported; the value is at the paper's single food-supply perturbation. Reconciling: S2/S1 - 1 = 73.27%, consistent with the stated R = 73.3%. The adaptive_gain_pct field uses the paper's directly reported optimization rate 73.3%. The two stability numbers use this paper's own units; the percentage is the only cross-paper comparable quantity, so adaptive_stability is set to null to avoid mixing scales."
+}

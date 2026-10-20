@@ -1,0 +1,13 @@
+{
+  "paper_id": "2510862",
+  "task_slug": "mcm-2025-c-olympic-medals",
+  "source": "mcm/2025-C/2510862/ocr/2510862.md",
+  "fields": {
+    "great_coach_model.global_top_jump_75pct": null,
+    "great_coach_model.recommendations[0].estimated_medal_count_gain": 4.32,
+    "great_coach_model.recommendations[1].estimated_medal_count_gain": 2.89,
+    "great_coach_model.recommendations[2].estimated_medal_count_gain": 4.75,
+    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
+  },
+  "notes": "No 75th-percentile jump. Abstract/end of Task 4: 'K-Means clustering identified Spain, Japan, and Canada as nations with potential to benefit from hiring great coaches, with predicted medal increases of 4.32, 2.89, and 4.75, respectively.' Filled in that order. recommendations[3] null (only three countries)."
+}

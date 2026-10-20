@@ -1,0 +1,10 @@
+{
+  "paper_id": "C023",
+  "task_slug": "cumcm-2025-c-nipt",
+  "source": "cumcm/2025-C/C023/ocr/C023.md",
+  "fields": {
+    "experiment_result.earliest_recommended_week": 11.9,
+    "experiment_result.latest_recommended_week": 22.8
+  },
+  "notes": "Q2 (BMI-only grouping) main result, Table 4 '不同 BMI 分组的推荐孕周' (OCR line 366): '[20.7, 26.8] -> 11.9 周; [26.9, 39.9] -> 12.8 周; [40.0, 42.5] -> 17.5 周; [42.8, 46.8] -> 20.4 周; [44.7, 46.8] -> 22.8 周'. The abstract (line 9) repeats the same five-group list. Taking the minimum and maximum over all BMI groups gives earliest=11.9 and latest=22.8 weeks; no unit conversion needed (already in weeks). Ambiguity recorded rather than corrected: group 5's stated BMI interval [44.7, 46.8] is nested inside group 4's [42.8, 46.8], which is biologically/arithmetically odd, but the paper reports it in both abstract and Table 4 and we do not alter it. Q3 (Table 7, line 469) stratifies by age and reports per-age-layer BMI segments (10.5 to 22.4 weeks); those are multi-factor age-stratified values, not the single Q2 BMI grouping, so they were not used for these fields."
+}

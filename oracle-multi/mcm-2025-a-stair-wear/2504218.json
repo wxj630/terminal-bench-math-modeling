@@ -1,0 +1,11 @@
+{
+  "paper_id": "2504218",
+  "task_slug": "mcm-2025-a-stair-wear",
+  "source": "mcm/2025-A/2504218/ocr/2504218.md",
+  "fields": {
+    "daily_use_pattern.peak_period_users": null,
+    "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": null,
+    "experiment_result.estimated_daily_users": null
+  },
+  "notes": "No numeric estimate of daily users anywhere in the paper. The work is a forward/inverse modelling framework (hybrid Archard/PDE + PSO/MCMC + discrete-event simulation) and reports only relative uncertainties: 'peak foot traffic at 30%-40%', 'usage frequency uncertainty of ±5%-10%', depth error ±0.015 m. Section 5.2 defines an arrival-rate function lambda(t) in people/hour and simulates short-term-large vs long-term-small modes, but no calibrated value is given."
+}

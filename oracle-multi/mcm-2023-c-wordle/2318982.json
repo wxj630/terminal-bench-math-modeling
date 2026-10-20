@@ -1,0 +1,9 @@
+{
+  "paper_id": "2318982",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2318982/ocr/2318982.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": null
+  },
+  "notes": "Difficulty classification is K-Prototypes clustering of word attributes into 3 classes; the paper validates it only by Kullback-Leibler divergence between class difficulty-score densities (109.59, 271.9, 864.3) and density plots. No accuracy/precision/recall/F1 for a classifier is reported, so the field is null. EERIE is classified in the 'hard' class."
+}

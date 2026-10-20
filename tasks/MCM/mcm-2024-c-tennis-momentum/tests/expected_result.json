@@ -23,7 +23,8 @@
     "randomness_tests": {
       "median_ljung_box_p": 0.712832,
       "matches_rejecting_iid_at_5pct": 0,
-      "median_runs_p": 0.290172
+      "median_runs_p": 0.290172,
+      "share_rejecting_iid_at_5pct": 0.16129
     },
     "dual_temporal_bayes": {
       "transition_rows": 26,
@@ -74,6 +75,8 @@
       "mcm/outstanding_solutions/2024/C/2401298/artifacts/final_match_momentum_flow.csv",
       "mcm/outstanding_solutions/2024/C/2401298/artifacts/final_match_momentum_flow.png",
       "mcm/outstanding_solutions/2024/C/2401298/artifacts/randomness_tests.csv",
+      "mcm/outstanding_solutions/2024/C/2401298/artifacts/runner_stderr.log",
+      "mcm/outstanding_solutions/2024/C/2401298/artifacts/runner_stdout.log",
       "mcm/outstanding_solutions/2024/C/2401298/artifacts/swing_feature_effects.csv",
       "mcm/outstanding_solutions/2024/C/2401298/artifacts/swing_predictions.csv"
     ]
@@ -83,6 +86,8 @@
     "mcm/outstanding_solutions/2024/C/2401298/artifacts/final_match_momentum_flow.csv",
     "mcm/outstanding_solutions/2024/C/2401298/artifacts/final_match_momentum_flow.png",
     "mcm/outstanding_solutions/2024/C/2401298/artifacts/randomness_tests.csv",
+    "mcm/outstanding_solutions/2024/C/2401298/artifacts/runner_stderr.log",
+    "mcm/outstanding_solutions/2024/C/2401298/artifacts/runner_stdout.log",
     "mcm/outstanding_solutions/2024/C/2401298/artifacts/swing_feature_effects.csv",
     "mcm/outstanding_solutions/2024/C/2401298/artifacts/swing_predictions.csv"
   ],

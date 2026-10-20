@@ -35,7 +35,7 @@
     "q5": {
       "max_speed_ratio_when_head_1mps": "number",
       "max_head_speed_mps": "number",
-      "max_speed_time_s": "integer",
+      "max_speed_time_s": "number",
       "max_speed_handle": "integer"
     },
     "artifact_paths": [

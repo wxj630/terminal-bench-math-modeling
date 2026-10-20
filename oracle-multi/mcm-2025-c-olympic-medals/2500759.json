@@ -1,0 +1,13 @@
+{
+  "paper_id": "2500759",
+  "task_slug": "mcm-2025-c-olympic-medals",
+  "source": "mcm/2025-C/2500759/ocr/2500759.md",
+  "fields": {
+    "great_coach_model.global_top_jump_75pct": null,
+    "great_coach_model.recommendations[0].estimated_medal_count_gain": 6.0,
+    "great_coach_model.recommendations[1].estimated_medal_count_gain": 5.0,
+    "great_coach_model.recommendations[2].estimated_medal_count_gain": 5.0,
+    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
+  },
+  "notes": "No 75th-percentile jump is reported anywhere in the paper, so the global jump field is null. Recommendations: Sec. 5 'For countries such as Japan, Italy, and Australia, the committees could enhance investments in judo, athletics, and swimming'; Table 4 DID interaction coefficients beta3 are the incremental medal counts: JPN Judo 6.0 (p=0.001, CI [4.8,7.2]), ITA Athletics 5.0 (p=0.010, CI [3.5,6.5]), AUS Swimming 5.0 (p=0.020, CI [3.0,7.0]). Filled in that order. A 4th significant pair exists (KOR Archery 4.0, POL Athletics 4.0) but the paper names only three countries for investment, so recommendations[3] is null."
+}

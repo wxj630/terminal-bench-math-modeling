@@ -1,0 +1,13 @@
+{
+  "paper_id": "2517690",
+  "task_slug": "mcm-2025-c-olympic-medals",
+  "source": "mcm/2025-C/2517690/ocr/2517690.md",
+  "fields": {
+    "great_coach_model.global_top_jump_75pct": null,
+    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
+    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
+  },
+  "notes": "No 75th-percentile jump and no medal-count gain per recommendation. Sec. 6.3 recommends China invest in men's volleyball, the USA in badminton/table tennis and Japan in swimming, but reports only probabilities of winning a medal (China men's volleyball 0.85, table tennis men's doubles 0.79, triathlon 0.67, etc.) from the logistic model. Logistic coefficients (coaching duration 4.14, historical medals 7.25, participants 1.98) are not medal gains."
+}

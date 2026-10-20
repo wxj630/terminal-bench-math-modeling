@@ -61,6 +61,11 @@ DISPLAY = {
     "codex + gpt-5.5 xhigh": "GPT-5.5 xhigh (codex)",
     "opencode + deepseek-flash": "V4.1 Flash (opencode)",
     "opencode + deepseek-flash (max)": "V4.1 Flash max (opencode)",
+    "codex + GPT-6 Astra": "GPT-6 Astra (codex)",
+    "claude-code + Fable 5.1": "Fable 5.1 (claude-code)",
+    "codex + GPT-5.5 xhigh": "GPT-5.5 xhigh (codex)",
+    "opencode + DeepSeek V4.1 Flash": "V4.1 Flash (opencode)",
+    "opencode + DeepSeek V4.1 Flash (max)": "V4.1 Flash max (opencode)",
 }
 
 SHORT_LINES = {
@@ -78,6 +83,11 @@ SHORT_LINES = {
     "codex + gpt-5.5 xhigh": ["GPT-5.5", "xhigh"],
     "opencode + deepseek-flash": ["V4.1", "Flash"],
     "opencode + deepseek-flash (max)": ["V4.1", "Flash max"],
+    "codex + GPT-6 Astra": ["GPT-6", "Astra"],
+    "claude-code + Fable 5.1": ["Fable 5.1"],
+    "codex + GPT-5.5 xhigh": ["GPT-5.5", "xhigh"],
+    "opencode + DeepSeek V4.1 Flash": ["V4.1", "Flash"],
+    "opencode + DeepSeek V4.1 Flash (max)": ["V4.1", "Flash max"],
 }
 
 COLORS = {
@@ -94,7 +104,11 @@ COLORS = {
     "Tencent Hy4 Preview": "#dc2626",
     "codex + gpt-5.5 xhigh": "#111111",
     "opencode + deepseek-flash": "#00897b",
-    "opencode + deepseek-flash (max)": "#00695c",
+    "opencode + deepseek-flash (max)": "#00695c",    "codex + GPT-6 Astra": "#5f3dc4",
+    "claude-code + Fable 5.1": "#e8590c",
+    "codex + GPT-5.5 xhigh": "#000000",
+    "opencode + DeepSeek V4.1 Flash": "#00897b",
+    "opencode + DeepSeek V4.1 Flash (max)": "#00695c",
 }
 
 PRICE_RMB_PER_MTOK = {
@@ -138,6 +152,21 @@ PRICE_RMB_PER_MTOK = {
         "input": openrouter_rmb_per_mtok("0.000000425"),
         "cache": openrouter_rmb_per_mtok("0.000000085"),
         "output": openrouter_rmb_per_mtok("0.00000255"),
+    },
+    "opencode + DeepSeek V4.1 Flash": {
+        "input": 2.0211,
+        "cache": 0.0404,
+        "output": 8.0844,
+    },
+    "opencode + DeepSeek V4.1 Flash (max)": {
+        "input": 2.0211,
+        "cache": 0.0404,
+        "output": 8.0844,
+    },
+    "codex + GPT-5.5 xhigh": {
+        "input": 33.6851,
+        "cache": 3.3685,
+        "output": 202.1104,
     },
 }
 
@@ -232,10 +261,17 @@ def parse_percent(cell: str) -> float:
 
 
 def parse_money_cell(cell: str) -> float | None:
-    cleaned = cell.replace("¥", "").replace(",", "").strip()
+    cleaned = cell.replace("¥", "").replace("$", "").replace(",", "").strip()
     if cleaned.upper() == "N/A" or not cleaned:
         return None
     return float(cleaned)
+
+
+def parse_report_cost(cell: str, source_currency: str) -> float | None:
+    value = parse_money_cell(cell)
+    if value is None:
+        return None
+    return value * OPENROUTER_USD_TO_RMB if source_currency == "usd" else value
 
 
 def parse_price_cell(cell: str) -> float | None:
@@ -294,6 +330,15 @@ def parse_price_table(lines: list[str]) -> dict[str, dict[str, float]]:
 MODEL_FILTER: set[str] = set()
 
 
+def _model_key(label: str) -> str:
+    key = "".join(ch for ch in label.lower() if ch.isalnum())
+    aliases = {
+        "opencodedeepseekflash": "opencodedeepseekv41flash",
+        "opencodedeepseekflashmax": "opencodedeepseekv41flashmax",
+    }
+    return aliases.get(key, key)
+
+
 def parse_report(report_path: Path = REPORT_PATH) -> list[Row]:
     global PRICE_RMB_PER_MTOK
     lines = report_path.read_text(encoding="utf-8").splitlines()
@@ -313,7 +358,9 @@ def parse_report(report_path: Path = REPORT_PATH) -> list[Row]:
     header_index = {name: idx for idx, name in enumerate(headers)}
     token_idx = header_index.get("Tokens input/cache/output")
     billable_idx = header_index.get("Billable input/output")
-    cost_idx = header_index.get("Est. cost RMB")
+    cost_rmb_idx = header_index.get("Est. cost RMB")
+    cost_usd_idx = header_index.get("Est. cost USD")
+    cost_idx = cost_usd_idx if COST_CURRENCY == "usd" and cost_usd_idx is not None else cost_rmb_idx
     raw_idx = header_index.get("Mean direction-aware raw")
     o_idx = header_index.get("Mean O-Eval on all 18 (%)")
     b_idx = header_index.get("Mean B-Eval vs flash (pp)")
@@ -346,11 +393,15 @@ def parse_report(report_path: Path = REPORT_PATH) -> list[Row]:
                 output_tokens=output_tokens,
                 billable_input_tokens=billable_input_tokens,
                 billable_output_tokens=billable_output_tokens,
-                cost_rmb=parse_money_cell(cells[cost_idx]),
+                cost_rmb=parse_report_cost(
+                    cells[cost_idx],
+                    "usd" if cost_idx == cost_usd_idx else "rmb",
+                ),
             )
         )
     if MODEL_FILTER:
-        rows = [row for row in rows if row.model in MODEL_FILTER]
+        wanted = {_model_key(label) for label in MODEL_FILTER}
+        rows = [row for row in rows if _model_key(row.model) in wanted]
     return rows
 
 
@@ -770,7 +821,7 @@ def write_effect_bar(rows: list[Row]) -> Path:
         draw_tabs("effect", card_x + 42, card_y + 50),
         line(card_x, card_y + 90, card_x + card_w, card_y + 90, stroke="#dddddd", width=1.2),
         text(card_x + 42, 170, "Robust BO-Eval", cls="title"),
-        text(card_x + 42, 210, "Clipped ratio for clean gaps; clipped B-Eval for saturated or tiny-gap tasks. Bad tasks can go negative.", cls="subtitle"),
+        text(card_x + 42, 210, "Secondary robustness metric from the source report. Its oracle aggregation may differ from the primary O-Eval.", cls="subtitle"),
         circle(card_x + 52, 270, 8, fill="#555555"),
         text(card_x + 70, 277, "Robust score", cls="legend"),
         circle(card_x + 188, 270, 8, fill="#b0b0b0"),
@@ -795,7 +846,7 @@ def write_effect_bar(rows: list[Row]) -> Path:
         out.append(multiline_rotated_label(x + bar_w / 2, plot_y + plot_h + 44, row.short_lines))
     out.extend(
         [
-            text(plot_x + plot_w / 2, height - 66, "Models sorted by Robust BO-Eval over all 18 tasks. Tiny-gap tasks fall back to clipped B-Eval, so the leaderboard is not driven by ratio outliers.", cls="small-note", anchor="middle"),
+            text(plot_x + plot_w / 2, height - 66, "Models sorted by Robust BO-Eval over all 18 tasks. On the multi-reference board this remains a single-anchor continuity metric.", cls="small-note", anchor="middle"),
         ]
     )
     path_out = OUT_DIR / f"{OUTPUT_PREFIX}-effect-bar.svg"
@@ -828,7 +879,7 @@ def write_o_eval_bar(rows: list[Row]) -> Path:
         draw_tabs("o-effect", card_x + 42, card_y + 50),
         line(card_x, card_y + 90, card_x + card_w, card_y + 90, stroke="#dddddd", width=1.2),
         text(card_x + 42, 170, "O-Eval", cls="title"),
-        text(card_x + 42, 210, "Absolute oracle-normalized score: model direction-aware raw divided by O-award raw over all 18 tasks.", cls="subtitle"),
+        text(card_x + 42, 210, "Primary oracle-normalized score over all 18 tasks, using the source report's reference aggregation.", cls="subtitle"),
         circle(card_x + 52, 270, 8, fill="#555555"),
         text(card_x + 70, 277, "O-Eval score", cls="legend"),
         circle(card_x + 222, 270, 8, fill="#b0b0b0"),
@@ -849,7 +900,7 @@ def write_o_eval_bar(rows: list[Row]) -> Path:
         raw_label = f"raw {fmt_num(row.raw, 3)}"
         out.append(text(x + bar_w / 2, y - 14, raw_label, cls="top-label", anchor="middle"))
         out.append(multiline_rotated_label(x + bar_w / 2, plot_y + plot_h + 44, row.short_lines))
-    out.append(text(plot_x + plot_w / 2, height - 66, "Models sorted by O-Eval over all 18 tasks. This is the primary absolute score for the report.", cls="small-note", anchor="middle"))
+    out.append(text(plot_x + plot_w / 2, height - 66, "Models sorted by O-Eval over all 18 tasks. Reference aggregation follows the source report.", cls="small-note", anchor="middle"))
     path_out = OUT_DIR / f"{OUTPUT_PREFIX}-o-eval-bar.svg"
     path_out.write_text(svg_shell(width, height, "\n".join(out)), encoding="utf-8")
     return path_out
@@ -931,6 +982,8 @@ def write_cost(rows: list[Row]) -> Path:
         text(card_x + 236, 285, "Cache hit cost", cls="legend"),
         circle(card_x + 424, 278, 8, fill="#2f80ed"),
         text(card_x + 442, 285, "Output cost", cls="legend"),
+        circle(card_x + 606, 278, 8, fill="#9ca3af"),
+        text(card_x + 624, 285, "Measured total without token-price split", cls="legend"),
         draw_brand(plot_x + plot_w - 420, plot_y - 34),
         grid,
         text(plot_x - 88, plot_y + plot_h / 2, f"Estimated cost ({cost_label()})", cls="axis-title", anchor="middle", transform=f"rotate(-90 {plot_x - 88:.2f} {plot_y + plot_h / 2:.2f})"),
@@ -940,7 +993,14 @@ def write_cost(rows: list[Row]) -> Path:
         input_cost = row.input_cost
         cache_cost = row.cache_cost
         output_cost = row.output_cost
-        segments = [("Input", input_cost, "#d9dde4"), ("Cache", cache_cost, "#cfcfcf"), ("Output", output_cost, row.color)]
+        allocated_cost = input_cost + cache_cost + output_cost
+        unallocated_cost = max(0.0, (row.cost or 0.0) - allocated_cost)
+        segments = [
+            ("Unallocated total", unallocated_cost, "#9ca3af"),
+            ("Input", input_cost, "#d9dde4"),
+            ("Cache", cache_cost, "#cfcfcf"),
+            ("Output", output_cost, row.color),
+        ]
         cursor_y = plot_y + plot_h
         for _, value, fill in segments:
             if value <= 0:
@@ -1016,7 +1076,7 @@ def write_effect_cost_scatter(rows: list[Row]) -> Path:
         draw_tabs("scatter", card_x + 42, card_y + 50),
         line(card_x, card_y + 90, card_x + card_w, card_y + 90, stroke="#dddddd", width=1.2),
         text(card_x + 42, 170, "Robust BO-Eval vs. Cost", cls="title"),
-        text(card_x + 42, 210, f"Robust BO-Eval vs. estimated {cost_label()} cost. Green marks the current high-value zone.", cls="subtitle"),
+        text(card_x + 42, 210, f"Secondary Robust BO-Eval vs. estimated {cost_label()} cost; the multi-reference board keeps this single-anchor.", cls="subtitle"),
         rect(card_x + 42, 252, 24, 18, fill="#dff7e4", stroke="#98d9a5", rx=3),
         text(card_x + 78, 270, f"Value zone: <={cost_symbol()}{cost_threshold:.0f}, >={effect_threshold:.1f}% robust", cls="legend"),
         line(card_x + 560, 262, card_x + 620, 262, stroke="#222222", width=3, dash="1 10"),
@@ -1117,7 +1177,7 @@ def write_o_eval_cost_scatter(rows: list[Row]) -> Path:
         draw_tabs("o-scatter", card_x + 42, card_y + 50),
         line(card_x, card_y + 90, card_x + card_w, card_y + 90, stroke="#dddddd", width=1.2),
         text(card_x + 42, 170, "O-Eval vs. Cost", cls="title"),
-        text(card_x + 42, 210, f"Primary absolute O-normalized score against estimated {cost_label()} cost. Green marks the high-value zone.", cls="subtitle"),
+        text(card_x + 42, 210, f"Primary O-Eval from the source report against estimated {cost_label()} cost. Green marks the high-value zone.", cls="subtitle"),
         rect(card_x + 42, 252, 24, 18, fill="#dff7e4", stroke="#98d9a5", rx=3),
         text(card_x + 78, 270, f"Value zone: <={cost_symbol()}{cost_threshold:.0f}, >={score_threshold:.0f}% O-Eval", cls="legend"),
         line(card_x + 560, 262, card_x + 620, 262, stroke="#222222", width=3, dash="1 10"),
@@ -1184,7 +1244,7 @@ def write_o_eval_cost_scatter(rows: list[Row]) -> Path:
         note = "; ".join(f"{row.label}: {row.o_eval_pct:.1f}% O-Eval, cost N/A" for row in no_cost_rows)
         out.append(rect(card_x + 760, 218, 900, 48, fill="#f3e8ff", rx=8))
         out.append(text(card_x + 780, 250, note, cls="legend", fill="#6d28d9"))
-    out.append(text(plot_x + plot_w / 2, height - 72, f"This view answers: how close is each model to the O-award reproduction per {cost_label()} spent?", cls="small-note", anchor="middle"))
+    out.append(text(plot_x + plot_w / 2, height - 72, f"This view answers: how much source-report O-Eval does each model deliver per {cost_label()} spent?", cls="small-note", anchor="middle"))
     path_out = OUT_DIR / f"{OUTPUT_PREFIX}-o-eval-cost-scatter.svg"
     path_out.write_text(svg_shell(width, height, "\n".join(out)), encoding="utf-8")
     return path_out

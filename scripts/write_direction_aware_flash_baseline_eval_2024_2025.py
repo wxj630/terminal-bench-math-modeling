@@ -133,6 +133,34 @@ def _metric_exclusion_reason(metric: dict[str, Any], score_config: dict[str, Any
         and metric.get("path") == "great_coach_model.recommendations[3].estimated_medal_count_gain"
     ):
         return "excluded_prompt_asks_three_countries_not_four_recommendation_rows"
+    return _non_comparable_reason(metric)
+
+
+#: Reference values that are arbitrary *raw indices*: the paper picks an undefined population
+#: unit (e.g. "host fish index = 1080"), so a model that reports the same quantity on a
+#: normalized 0-1 scale is not wrong -- the schema never pinned the unit. Scoring such a value
+#: 0 would conflate "used a different unit" with "gave a wrong answer", so the metric is dropped
+#: from the panel for every model *and for the oracle*, keeping the rest like-for-like.
+_RAW_INDEX_SUFFIXES = (
+    "parasite_coexistence_case.final_parasite_index",
+    "parasite_coexistence_case.host_fish_index",
+)
+
+
+def _non_comparable_reason(metric: dict[str, Any]) -> str | None:
+    """Value-independent: depends only on the metric config, so oracle and models agree."""
+    path = str(metric.get("path", "")).lower()
+    for suffix in _RAW_INDEX_SUFFIXES:
+        if path.endswith(suffix):
+            try:
+                oracle = abs(_as_float(metric["oracle_value"]))
+            except (TypeError, ValueError, KeyError):
+                return None
+            if oracle > 5.0:
+                return (
+                    "excluded_non_comparable_raw_index_scale: the reference value is an arbitrary "
+                    "raw index and the output schema does not specify units"
+                )
     return None
 
 
@@ -310,30 +338,42 @@ def _legacy_score(actual: float, metric: dict[str, Any]) -> float:
     return 1.0 / (1.0 + error / scale)
 
 
+#: A target-distance band is only *widened* when it is degenerate: narrower than
+#: DEGENERATE_BAND_REL of the value. At that width the paper's own reproduction would sit
+#: at 0 and so would every other answer, so the band carries no discrimination at all.
+#: A merely narrow-but-sane band (a few percent) is left exactly as configured.
+DEGENERATE_BAND_REL = 0.02
+#: Width a degenerate band is widened to.
+WIDENED_BAND_REL = 0.05
+
+
+def _band_width(a: float, b: float, metric: dict[str, Any]) -> float:
+    gap = abs(a - b)
+    magnitude = max(abs(a), abs(b), 1e-12)
+    if gap >= DEGENERATE_BAND_REL * magnitude:
+        return max(gap, 1e-12)
+    widened = abs(_as_float(metric.get("min_rel_band", WIDENED_BAND_REL))) * magnitude
+    return max(gap, widened, 1e-12)
+
+
 def _endpoint_score(actual: float, metric: dict[str, Any]) -> float:
     baseline = _as_float(metric["baseline_value"])
     outstanding = _as_float(metric["outstanding_value"])
     scale = _scale(metric)
     direction = _direction(metric)
     if direction == "higher_is_better":
-        denom = outstanding - baseline
-        if denom <= 1e-12:
-            return 0.0
+        denom = _band_width(outstanding, baseline, metric)
         if actual >= outstanding:
             return _over_o_score(actual - outstanding, scale)
-        return max(0.0, (actual - baseline) / denom)
+        return _clamp01((actual - baseline) / denom)
     if direction == "lower_is_better":
-        denom = baseline - outstanding
-        if denom <= 1e-12:
-            return 0.0
+        denom = _band_width(outstanding, baseline, metric)
         if actual <= outstanding:
             return _over_o_score(outstanding - actual, scale)
-        return max(0.0, (baseline - actual) / denom)
+        return _clamp01((baseline - actual) / denom)
     if direction == "exact_value":
         return 1.0 if actual == outstanding else 0.0
-    denom = abs(outstanding - baseline)
-    if denom <= 1e-12:
-        return 1.0 if actual == outstanding else 0.0
+    denom = _band_width(outstanding, baseline, metric)
     return _clamp01(1.0 - abs(actual - outstanding) / denom)
 
 

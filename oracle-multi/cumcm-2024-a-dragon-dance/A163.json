@@ -1,0 +1,10 @@
+{
+  "paper_id": "A163",
+  "task_slug": "cumcm-2024-a-dragon-dance",
+  "source": "cumcm/2024-A/A163/ocr/A163.md",
+  "fields": {
+    "experiment_result.q5.max_head_speed_mps": 1.246266,
+    "experiment_result.q5.max_speed_ratio_when_head_1mps": 1.604793
+  },
+  "notes": "4.5.1节原文：'程序求解得到, 这段过程中第三节龙身前把手的最大速度为 1.604793 m/s'（该值对应龙头速度 1 m/s，即速度放大比例 k）；随后'通过限制第三节龙身前把手的最大速度为 2m/s，来得到龙头的最大行进速度'。4.5.2节原文：'代入数据,求解得龙头的最大行进速度为 1.246266 m/s'。两字段均为论文明确打印的数值。"
+}

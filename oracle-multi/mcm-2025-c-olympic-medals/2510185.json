@@ -1,0 +1,13 @@
+{
+  "paper_id": "2510185",
+  "task_slug": "mcm-2025-c-olympic-medals",
+  "source": "mcm/2025-C/2510185/ocr/2510185.md",
+  "fields": {
+    "great_coach_model.global_top_jump_75pct": null,
+    "great_coach_model.recommendations[0].estimated_medal_count_gain": 1.6,
+    "great_coach_model.recommendations[1].estimated_medal_count_gain": 1.6,
+    "great_coach_model.recommendations[2].estimated_medal_count_gain": 1.6,
+    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
+  },
+  "notes": "No 75th-percentile jump. Sec. 4.3.2 recommends three country-event pairs in this order: China women's gymnastics, Jamaica men's athletics, Germany men's shooting, then states 'these events are likely to see the greatest improvement in total medal counts ... with an estimated increase of approximately 1.6 medals'. The paper gives one shared figure for the three events (not per-event values); 1.6 was entered for each of the three recommendations as the per-event estimate. Table 14's underlying per-event model outputs are +1.44 (CHN men's gymnastics), +1.69 (CHN women's gymnastics), +1.44 (CHN men's swimming). recommendations[3] null (only three recommended)."
+}

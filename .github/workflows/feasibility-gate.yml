@@ -1,10 +1,12 @@
 name: Feasibility Gate
 
-# Guards the programmatic feasibility gate. Two regressions have actually
-# happened in this benchmark and both are caught here:
+# Guards the programmatic feasibility gate. Three regressions have actually
+# happened in this benchmark and all are caught here:
 #   * a task shipped with no registered check (CUMCM 2024 C went live ungated);
 #   * a check whose bounds rejected the human O-award reference (a mis-set
-#     ceiling would have zeroed a correct reproduction).
+#     ceiling would have zeroed a correct reproduction);
+#   * an oracle suite that globbed a path matching nothing, so it passed for
+#     ever without checking anything (oracle-coverage suite now prevents it).
 # The check module only uses the standard library, so no environment setup is
 # required.
 
@@ -14,6 +16,8 @@ on:
       - "tasks/**"
       - "scripts/feasibility_checks.py"
       - "scripts/test_feasibility_checks.py"
+      - "scripts/test_scoring_contracts.py"
+      - "scripts/write_direction_aware_flash_baseline_eval_2024_2025.py"
       - ".github/workflows/feasibility-gate.yml"
   push:
     branches: [main]
@@ -21,6 +25,8 @@ on:
       - "tasks/**"
       - "scripts/feasibility_checks.py"
       - "scripts/test_feasibility_checks.py"
+      - "scripts/test_scoring_contracts.py"
+      - "scripts/write_direction_aware_flash_baseline_eval_2024_2025.py"
 
 jobs:
   feasibility-gate:
@@ -31,5 +37,13 @@ jobs:
       - name: Gate coverage (every task must have a registered check)
         run: python3 scripts/feasibility_checks.py --coverage
 
-      - name: Gate contracts (coverage, oracle self-consistency, discrimination)
+      - name: Gate contracts
+        # coverage, oracle coverage, oracle self-consistency, no-always-hard-fail,
+        # result shape, synthetic rejections, saved-artifact rejections.
+        # The O-award reference is tasks/*/<slug>/tests/expected_result.json, which
+        # is committed, so the oracle suites run here. The saved-artifact suite
+        # reads jobs/, which is gitignored and therefore self-skips in CI.
         run: python3 scripts/test_feasibility_checks.py
+
+      - name: Scoring contracts (oracle panel = 1.0; one-sided directional scoring)
+        run: python3 scripts/test_scoring_contracts.py

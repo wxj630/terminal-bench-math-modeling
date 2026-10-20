@@ -1,0 +1,13 @@
+{
+  "paper_id": "2425792",
+  "task_slug": "mcm-2024-b-submersible-search",
+  "source": "mcm/2024-B/2425792/ocr/2425792.md",
+  "fields": {
+    "experiment_result.search_strategy.find_probability_10h_start_1h": null,
+    "experiment_result.search_strategy.find_probability_10h_start_3h": null,
+    "experiment_result.search_strategy.find_probability_10h_start_5h": null,
+    "experiment_result.search_strategy.find_probability_18h": null,
+    "experiment_result.search_strategy.find_probability_6h": null
+  },
+  "notes": "Sec. 5.2 gives only $\\mathbf{P}(\\mathrm{found}|t) = 1/(\\alpha t)$, with alpha a decay coefficient, and Fig. 13 a probability heatmap; no numeric cumulative find probability at 6 h, 10 h (any start delay), or 18 h is reported. All five fields null."
+}

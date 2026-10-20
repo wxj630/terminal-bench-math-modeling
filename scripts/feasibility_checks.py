@@ -192,7 +192,10 @@ def production_decision_check(data: dict[str, Any]) -> dict[str, Any]:
     q2 = result.get("q2")
     decisions = q2.get("best_decisions") if isinstance(q2, dict) else None
     if not isinstance(decisions, list):
-        errors.append("q2 best_decisions is missing")
+        # Absence is incomplete evidence, not a contradiction -- same contract the
+        # q1/q4 branches already follow. (A submission that omits q2 is unscorable,
+        # not infeasible; hard-failing it here silently zeroed a scorable answer.)
+        warnings.append("q2 best_decisions is missing")
     else:
         case_ids: list[int] = []
         for index, decision in enumerate(decisions):
@@ -217,7 +220,9 @@ def production_decision_check(data: dict[str, Any]) -> dict[str, Any]:
 
     q3 = result.get("q3")
     bits = q3.get("decision_bits") if isinstance(q3, dict) else None
-    if not isinstance(bits, list) or len(bits) not in (16, 17):
+    if not isinstance(bits, list):
+        warnings.append("q3 decision_bits is missing")
+    elif len(bits) not in (16, 17):
         errors.append("q3 decision_bits must contain the 16 or 17 binary decisions required by the supplied topology")
     elif any(not _binary(bit) for bit in bits):
         errors.append("q3 decision_bits contains a non-binary value")
@@ -242,6 +247,8 @@ def production_decision_check(data: dict[str, Any]) -> dict[str, Any]:
 
     if errors:
         status = "hard-invalid/decision-constraint"
+    elif warnings:
+        status = "needs-review/decision-evidence-missing"
     else:
         status = "needs-review/decision-structure-pass"
     return {"status": status, "hard_errors": errors, "warnings": warnings, "evidence": "; ".join(errors + warnings) or "binary decisions and probability ranges pass basic checks"}
@@ -555,11 +562,17 @@ def olympic_check(data: dict[str, Any]) -> dict[str, Any]:
     # contradicts the required structure is a hard error.
     if not isinstance(recommendations, list):
         warnings.append("great_coach_model recommendations are missing; structure cannot be checked")
-    elif len(recommendations) != 3:
-        errors.append(
-            f"great_coach_model must provide exactly three country-sport recommendations, found {len(recommendations)}"
-        )
     else:
+        if len(recommendations) != 3:
+            # The contest statement says "choose three countries", but the O-award
+            # reproduction reports four recommendations and the task's score_config
+            # scores recommendations[0..3] (four slots). A count mismatch is therefore
+            # a stated interpretation difference, not a boundary/logic contradiction --
+            # keeping it a hard error would hard-fail the reference itself.
+            warnings.append(
+                f"great_coach_model reports {len(recommendations)} country-sport recommendations; "
+                "the contest statement asks for three while the O-award reference and the scoring config use four"
+            )
         seen: set[tuple[str, str]] = set()
         for index, recommendation in enumerate(recommendations):
             if not isinstance(recommendation, dict):
@@ -603,6 +616,8 @@ def olympic_check(data: dict[str, Any]) -> dict[str, Any]:
             errors.append("total-medal prediction interval is reversed")
     if errors:
         status = "hard-invalid/olympic-structure"
+    elif warnings:
+        status = "needs-review/olympic-structure"
     else:
         status = "needs-review/olympic-structure-pass"
     return {"status": status, "hard_errors": errors, "warnings": warnings, "evidence": "; ".join(errors + warnings) or "recommendation count, probability ranges, and medal interval ordering pass basic checks"}
@@ -1094,7 +1109,14 @@ def tennis_momentum_check(data: dict[str, Any]) -> dict[str, Any]:
 def stair_wear_check(data: dict[str, Any]) -> dict[str, Any]:
     errors: list[str] = []
     warnings: list[str] = []
+    # A "users/passages" leaf is only a *count* when the key names a level. Elasticities
+    # (d_log_*_d_log_*) are signed by construction -- a negative elasticity is normal --
+    # so they must not be read as counts. Without this guard the gate hard-failed a
+    # submission whose only "crime" was reporting a correctly-signed elasticity.
     for path, value in _leaf_numbers(data, "users|passages"):
+        leaf = path.rsplit(".", 1)[-1].lower()
+        if leaf.startswith(("d_log", "log_", "elasticit")) or "_d_log" in leaf or "derivative" in leaf:
+            continue
         if value < -1e-9:
             errors.append(f"user/passage count negative at {path}: {value:g}")
     peak = _first_number(data, "daily_use_pattern.peak_period_users")

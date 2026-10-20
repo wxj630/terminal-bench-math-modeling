@@ -1,0 +1,11 @@
+{
+  "paper_id": "2500836",
+  "task_slug": "mcm-2025-a-stair-wear",
+  "source": "mcm/2025-A/2500836/ocr/2500836.md",
+  "fields": {
+    "daily_use_pattern.peak_period_users": null,
+    "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": null,
+    "experiment_result.estimated_daily_users": 1175.0
+  },
+  "notes": "Daily users: Sec. 5.1 'By substituting the above parameters into Equation (3), we calculated that the number of people passing through the stairs each day was 1175.' Also summary: 'the daily pedestrian traffic is 1,175'. Peak-period users: not reported; the paper only classifies the pattern qualitatively ('Since 0.205 < 0.241, we determined that there were a small number of people using the stairs over a longer time', approx. d_measure=0.205 um vs (0.326+0.156)/2=0.241 um). Regular-hour users: not reported; no 10-hour spread calculation. The '20-30 visitors at a time' quote is simultaneous occupancy of the Pisa tower, not a daily peak-period count, so it was not used."
+}

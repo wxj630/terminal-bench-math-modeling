@@ -1,0 +1,65 @@
+\section{Appendix D: Baseline Information}
+\label{app:baselines}
+
+The word ``baseline'' is overloaded in this benchmark; we distinguish three
+distinct objects so the numbers are unambiguous.
+
+\subsection{The flash baseline (score normalization)}
+\beval{} and \roeval{} are computed against a \emph{single reference submission},
+the \texttt{v4 flash baseline} (\texttt{deepseek/deepseek-v4-flash-0731} under
+\texttt{terminus-2}). It defines the zero point: \beval{} is the raw gain over
+it, and \roeval{} normalises the model--baseline gain by the
+oracle--baseline gap. It is a model submission, not a curated baseline panel.
+
+\subsection{The outstanding anchor (score ceiling)}
+Each task's ceiling is the reproduction of one O-award paper. This is the value
+that scores \oeval{}$=100\%$. Anchors and their paper ids:
+
+\begin{table}[h]
+\centering
+\small
+\caption{O-award anchor per task.}
+\label{tab:app-anchors}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Slug & Paper id & Slug & Paper id \\
+\midrule
+cumcm-2023-a-heliostat-field   & A175    & mcm-2023-a-plant-community    & 2309229 \\
+cumcm-2023-b-multibeam-lines   & B226    & mcm-2023-b-maasai-mara        & 2315379 \\
+cumcm-2023-c-vegetable-pricing & C050    & mcm-2023-c-wordle             & 2307946 \\
+cumcm-2024-a-dragon-dance      & A016    & mcm-2024-a-lamprey            & 2407093 \\
+cumcm-2024-b-production-decision& B159   & mcm-2024-b-submersible-search & 2419984 \\
+cumcm-2024-c-crop-planting     & C038    & mcm-2024-c-tennis-momentum    & 2401298 \\
+cumcm-2025-a-smoke-screen      & A196    & mcm-2025-a-stair-wear         & 2501909 \\
+cumcm-2025-b-sic-thickness     & B157    & mcm-2025-b-juneau-tourism     & 2504448 \\
+cumcm-2025-c-nipt              & C023    & mcm-2025-c-olympic-medals     & 2505964 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Each anchor is a runnable script (\texttt{solution/oracle/}) that reads the
+official attachments and emits the artifact JSON, plus a committed
+\texttt{expected\_result.json} recording its values. Oracle coverage is 18/18.
+
+\subsection{Legacy per-task baseline endpoints}
+Fifteen of 18 tasks use \texttt{legacy\_target\_distance\_to\_outstanding}
+scoring with a legacy baseline endpoint; three (\texttt{mcm-2023-c-wordle},
+\texttt{mcm-2025-a-stair-wear}, \texttt{mcm-2025-b-juneau-tourism}) use true
+per-metric baseline-to-outstanding min--max endpoints. The distinction is
+recorded per metric in each \texttt{score\_config.json} and surfaced in the
+report's per-task tables.
+
+\subsection{Anchor caveats}
+Two anchors carry caveats that affect how their scores should be read:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{\texttt{cumcm-2024-c-crop-planting} is a marked special case.} The
+paper's full constraint set is jointly infeasible on the official attachments
+and its reported value came from an undisclosed heuristic; the anchor is a
+reproducible exact MILP optimum under the paper's per-plot demand cap.
+\item \textbf{\texttt{cumcm-2024-a-dragon-dance} was corrected.} The paper's
+1.406276~m/s is infeasible (a handle would reach 2.2568~m/s); the anchor is the
+continuous-time value 1.246266~m/s, and the metric direction is
+\texttt{target\_value}.
+\end{itemize}
+These are examples of the general principle: an anchor is a reproduction of one
+team's choices, and its provenance must be inspectable.

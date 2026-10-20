@@ -31,14 +31,14 @@
       "model_id": "deepseek/deepseek-v4-flash-0731",
       "name": "DeepSeek: DeepSeek V4 Flash 0731",
       "price_rmb_per_mtok": {
-        "input_cached": 0.080844144,
-        "input_uncached": 0.40422072,
-        "output": 0.80844144
+        "input_cached": 0.121266216,
+        "input_uncached": 0.121266216,
+        "output": 2.15584384
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.00000012",
-        "input_cache_read": "0.000000012",
-        "prompt": "0.00000006"
+        "completion": "0.00000032",
+        "input_cache_read": "0.000000018",
+        "prompt": "0.000000018"
       }
     },
     "flash_opencode": {
@@ -56,87 +56,6 @@
       "raw_pricing_usd_per_token": {
         "completion": "0.0000012",
         "input_cache_read": "0.000000006",
-        "overrides": [
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "saturday",
-              "sunday"
-            ]
-          },
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 100,
-            "utc_start": 0
-          },
-          {
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000006",
-            "prompt": "0.0000003",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 400,
-            "utc_start": 100
-          },
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 600,
-            "utc_start": 400
-          },
-          {
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000006",
-            "prompt": "0.0000003",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 1000,
-            "utc_start": 600
-          },
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 0,
-            "utc_start": 1000
-          }
-        ],
         "prompt": "0.0000003"
       }
     },
@@ -155,87 +74,6 @@
       "raw_pricing_usd_per_token": {
         "completion": "0.0000012",
         "input_cache_read": "0.000000006",
-        "overrides": [
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "saturday",
-              "sunday"
-            ]
-          },
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 100,
-            "utc_start": 0
-          },
-          {
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000006",
-            "prompt": "0.0000003",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 400,
-            "utc_start": 100
-          },
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 600,
-            "utc_start": 400
-          },
-          {
-            "completion": "0.0000012",
-            "input_cache_read": "0.000000006",
-            "prompt": "0.0000003",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 1000,
-            "utc_start": 600
-          },
-          {
-            "completion": "0.0000006",
-            "input_cache_read": "0.000000003",
-            "prompt": "0.00000015",
-            "utc_days": [
-              "monday",
-              "tuesday",
-              "wednesday",
-              "thursday",
-              "friday"
-            ],
-            "utc_end": 0,
-            "utc_start": 1000
-          }
-        ],
         "prompt": "0.0000003"
       }
     },
@@ -344,14 +182,14 @@
       "model_id": "moonshotai/kimi-k3",
       "name": "MoonshotAI: Kimi K3",
       "price_rmb_per_mtok": {
-        "input_cached": 2.0389186176822,
-        "input_uncached": 17.840537908087754,
-        "output": 89.48587266494101
+        "input_cached": 2.0211036,
+        "input_uncached": 20.211036,
+        "output": 101.05518000000001
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.00001328272425",
-        "input_cache_read": "0.00000030264435",
-        "prompt": "0.000002648138063"
+        "completion": "0.000015",
+        "input_cache_read": "0.0000003",
+        "prompt": "0.000003"
       }
     },
     "oxalpha": {
@@ -369,14 +207,14 @@
       "model_id": "deepseek/deepseek-v4-pro",
       "name": "DeepSeek: DeepSeek V4 Pro 0423",
       "price_rmb_per_mtok": {
-        "input_cached": 0.9094966200000001,
-        "input_uncached": 10.779219199999998,
-        "output": 21.558438399999996
+        "input_cached": 0.525651992794,
+        "input_uncached": 6.307823913528,
+        "output": 12.615647827056
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.0000032",
-        "input_cache_read": "0.000000135",
-        "prompt": "0.0000016"
+        "completion": "0.000001872588",
+        "input_cache_read": "0.0000000780245",
+        "prompt": "0.000000936294"
       }
     },
     "qwen": {
@@ -384,14 +222,14 @@
       "name": "Qwen: Qwen3.8 27B",
       "price_rmb_per_mtok": {
         "explicit_cache_create": 3.579037625,
-        "input_cached": 1.0105518,
-        "input_uncached": 1.4417205680000003,
-        "output": 17.179380600000002
+        "input_cached": 0.1340665388,
+        "input_uncached": 0.1677515988,
+        "output": 29.642852800000004
       },
       "raw_pricing_usd_per_token": {
-        "completion": "0.00000255",
-        "input_cache_read": "0.00000015",
-        "prompt": "0.000000214"
+        "completion": "0.0000044",
+        "input_cache_read": "0.0000000199",
+        "prompt": "0.0000000249"
       }
     },
     "qwenflash": {

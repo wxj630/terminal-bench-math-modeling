@@ -1,0 +1,10 @@
+{
+  "paper_id": "A178",
+  "task_slug": "cumcm-2024-a-dragon-dance",
+  "source": "cumcm/2024-A/A178/ocr/A178.md",
+  "fields": {
+    "experiment_result.q5.max_head_speed_mps": 1.2462,
+    "experiment_result.q5.max_speed_ratio_when_head_1mps": null
+  },
+  "notes": "第624行原文：'解得龙头的最大行进速度为 1.2462 m/s, 其中误差控制在 0.0001 m/s 之内'（二分法搜索）。全文未给出最大把手速度/龙头速度的比值 k，故 ratio 置 null。"
+}

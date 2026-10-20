@@ -389,7 +389,9 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
             "沿着前面求出的调头路径行进时，求龙头最大能跑多快，才能保证所有把手速度都不超过 2 m/s。"
         ),
         final_answer_summary=(
-            "O 奖论文给出的最大龙头速度约 1.406276 m/s（速度比例常数 k = 2 / v_max ≈ 1.422195）。"
+            "连续时间求解得最大龙头速度 1.246266 m/s（峰值在 t=14.48 s，速度比例常数 k=1.604793）。"
+            "O 奖论文报的是 1.406276 m/s（k=1.422195），因为它只在整数秒上取速度矩阵最大值，"
+            "跨过了 t=14.48 s 的真峰值；按论文值驱动龙头，该把手在 t=14.48 s 达 2.2568 m/s，超过题目 2 m/s 上限。"
         ),
         baseline_model_summary=(
             "baseline 用几何解析和运动学参数方程，沿路径传播各把手位置，再由速度约束反推龙头速度上限。"
@@ -398,6 +400,7 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
             "experiment_result.q5.max_head_speed_mps",
             "experiment_result.q5.max_speed_ratio_when_head_1mps",
         ),
+        note="参考值已由论文的整数秒采样修正为连续时间峰值：论文 1.406276 不可行（超 2 m/s 上限），真值 1.246266。",
     ),
     "cumcm-2024-b-production-decision": FinalQuestionSpec(
         label="Q4",
@@ -480,19 +483,27 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
         ),
     ),
     "cumcm-2025-c-nipt": FinalQuestionSpec(
-        label="Q4",
+        label="Q2/Q3 optimal NIPT timing (numeric core)",
         plain_question=(
-            "对女胎样本，用染色体 Z 值、GC 含量、读段数、BMI 等指标判断胎儿是否异常。"
+            "按 BMI 分组后，各组的最佳 NIPT 检测时点应定在什么孕周，才能把孕妇的潜在风险降到最低。"
         ),
         final_answer_summary=(
-            "O 奖复现的女胎异常判定模型 leave-one-out accuracy 为 0.8659，F1 为 0.3721。"
+            "O 奖复现按 BMI 分成 4 组，前三组最佳时点 12.0 周、最高 BMI 组 20.0 周；"
+            "因此推荐时点区间为 12.0 到 20.0 周（Q4 的女胎异常判定本身是分类方法，"
+            "论文普遍只报判定例数或不同交叉验证协议下的指标，不可比，故回退到 Q2/Q3 的时点核心）。"
         ),
         baseline_model_summary=(
-            "baseline 用综合评价和权重决策，把多项检测指标合成风险分数，再给出异常判定。"
+            "baseline 用混合效应/生存模型估计各 BMI 组 Y 染色体浓度达标时间，"
+            "再在风险函数下优化每组统一检测时点。"
         ),
         include_paths=(
-            "experiment_result.female_loo_accuracy",
-            "female_abnormality.leave_one_out_f1",
+            "experiment_result.earliest_recommended_week",
+            "experiment_result.latest_recommended_week",
+        ),
+        note=(
+            "回退说明：Q4（女胎异常判定）是方法题，人类论文报的 accuracy/F1 取决于各自的分组数、"
+            "交叉验证协议（留一法 vs 5 折）与阈值，彼此不可比；一篇甚至不给数值。"
+            "Q2/Q3 要求的每组最佳 NIPT 时点才是本题真正的数值核心，两篇论文都报告了孕周区间。"
         ),
     ),
     "mcm-2023-a-plant-community": FinalQuestionSpec(
@@ -549,54 +560,76 @@ FINAL_QUESTION_SPECS: dict[str, FinalQuestionSpec] = {
         ),
     ),
     "mcm-2024-a-lamprey": FinalQuestionSpec(
-        label="Final ecosystem-benefit question",
+        label="Q3 ecosystem stability (numeric fallback)",
         plain_question=(
-            "判断七鳃鳗可变性别比例是否也会让生态系统中的其他生物受益，尤其是寄生者/宿主相关指标。"
+            "可变性别比例下生态系统的稳定性如何比较：在最优资源水平上，可变性别比例比固定比例带来多少稳定性收益。"
         ),
         final_answer_summary=(
-            "O 奖复现的共存情景资源水平为 0.55，寄生者指数 8.562，宿主鱼指数 1080.356。"
+            "O 奖复现的最大稳定性收益出现在资源水平 0.35：可变性别比例稳定性 0.9144 对固定比例 0.8855，"
+            "相对增益 3.26%（earlier 的寄生者/宿主指数是复现内部量，论文并不报告，故回退到这一问）。"
         ),
         baseline_model_summary=(
-            "baseline 用生态动力系统仿真，把资源水平、性别比例、七鳃鳗、宿主鱼和寄生者一起演化。"
+            "baseline 用生态动力系统仿真，在资源水平网格上同时演化七鳃鳗、宿主鱼和寄生者，"
+            "比较可变性别比例与固定比例的稳定性指标。"
         ),
         include_paths=(
-            "experiment_result.parasite_coexistence_case.resource_level",
-            "experiment_result.parasite_coexistence_case.final_parasite_index",
-            "experiment_result.parasite_coexistence_case.host_fish_index",
+            "experiment_result.largest_stability_gain.adaptive_gain_pct",
+        ),
+        note=(
+            "回退说明：末问（可变性别比例能否让寄生者等其他生物受益）本身是定性判断题，"
+            "原计分的 parasite/host 指数是复现脚本自定的任意种群单位，人类论文不报告。"
+            "这里回退到 Q3 的生态系统稳定性数值，论文普遍报告 resistance/resilience/composite stability。"
         ),
     ),
     "mcm-2024-b-submersible-search": FinalQuestionSpec(
-        label="Q4",
+        label="Q3 search probability (numeric fallback)",
         plain_question=(
-            "把潜水器搜索模型迁移到加勒比海场景，并说明洋流、海底地形和多潜水器协同时需要怎样调整。"
+            "给出搜索方案后，找到失联潜水器的概率随时间如何增长：在 6 小时、以及开始时刻后 1/3/5 小时的累计发现概率。"
         ),
         final_answer_summary=(
-            "O 奖复现给出的加勒比海调整为洋流不确定性乘数 1.35、地形不确定性乘数 1.2。"
+            "O 奖复现的累计发现概率为 6 小时 0.4068、10 小时（滞后 1/3/5 小时起步）0.43 / 0.2338 / 0.1158。"
+            "（Q4 的加勒比海迁移是定性描述，原计分乘数是复现内部量，论文不报告，故回退到 Q3。）"
         ),
         baseline_model_summary=(
-            "baseline 用贝叶斯搜索规划，先估计位置后验，再按海流和地形不确定性调整搜索区域。"
+            "baseline 用贝叶斯搜索规划，先估计位置后验，再按搜索路径累积更新发现概率。"
         ),
         include_paths=(
-            "experiment_result.caribbean_adaptation.current_multiplier",
-            "experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier",
+            "experiment_result.search_strategy.find_probability_6h",
+            "experiment_result.search_strategy.find_probability_10h_start_1h",
+            "experiment_result.search_strategy.find_probability_10h_start_3h",
+            "experiment_result.search_strategy.find_probability_10h_start_5h",
+            "experiment_result.search_strategy.find_probability_18h",
+        ),
+        note=(
+            "回退说明：Q4（加勒比海外推、多潜水器）是开放式定性题，原计分的 current_multiplier/terrain_multiplier "
+            "是复现脚本自造的量，任何人类论文都不报告。这里回退到 Q3——题面明确要求"
+            "\"determine the probability of finding the submersible as a function of time\"，这是本题真正的数值核心。"
         ),
     ),
     "mcm-2024-c-tennis-momentum": FinalQuestionSpec(
-        label="Q5",
+        label="Q2 randomness test (numeric fallback)",
         plain_question=(
-            "把势头模型转成教练能用的赛中提示：什么时候可能发生势头转换，应重点监控哪些指标。"
+            "教练认为比赛中的起伏是随机的。用统计检验评估这个说法：有多大比例的比赛在 5% 水平上"
+            "拒绝了\"走势独立同分布\"的原假设（即数据支持动量存在）。"
         ),
         final_answer_summary=(
-            "O 奖复现的最终比赛预警率为 0.006；前三个势头预警特征相关系数约为 0.0302、-0.0223、0.0154。"
+            "O 奖复现的结果：中位 Ljung-Box p = 0.7128、中位 Runs p = 0.2902，"
+            "按 Ljung-Box 或 Runs 任一在 5% 水平拒绝 iid 的比赛比例为 0.0000——即数据并不支持动量存在。"
         ),
         baseline_model_summary=(
-            "baseline 用势头时间序列、随机性检验和贝叶斯/分类预警模型，把比赛数据转成教练提示。"
+            "baseline 用服务器调整后的得失分残差序列，对每场比赛做 Ljung-Box 与 Runs 检验，"
+            "统计拒绝随机原假设的比赛比例。"
         ),
         include_paths=(
-            "experiment_result.dual_temporal_bayes.final_match_warning_rate",
-            "experiment_result.top_swing_features[0].warning_correlation",
-            "experiment_result.top_swing_features[1].warning_correlation",
-            "experiment_result.top_swing_features[2].warning_correlation",
+            "experiment_result.randomness_tests.share_rejecting_iid_at_5pct",
+            "experiment_result.randomness_tests.median_ljung_box_p",
+            "experiment_result.randomness_tests.median_runs_p",
+        ),
+        note=(
+            "回退说明：Q5（给教练的赛中提示）是定性建议，原计分的 warning_rate 由复现自设阈值产生，"
+            "论文普遍不报告。这里回退到 Q2——题面明确要求评估\"起伏是否随机\"，这是本题唯一的统计检验型数值核心。"
+            "方向说明：share_rejecting_iid_at_5pct 越高越支持动量存在；median p 值则是 target-like"
+            "（论文间的 p 值不可比，仅作辅助项）。"
         ),
     ),
     "mcm-2025-a-stair-wear": FinalQuestionSpec(
@@ -713,12 +746,12 @@ SEMANTIC_METRIC_DIRECTIONS: dict[str, dict[str, tuple[str, str]]] = {
     },
     "cumcm-2024-a-dragon-dance": {
         "experiment_result.q5.max_head_speed_mps": (
-            "higher_is_better",
-            "The final question asks for the largest feasible head speed under handle-speed limits.",
+            "target_value",
+            "The head speed that exactly saturates the 2 m/s handle cap at the binding moment: a physical target, not a monotone objective. Ranking it higher_is_better rewarded a 1.91 m/s answer that violates the cap.",
         ),
         "experiment_result.q5.max_speed_ratio_when_head_1mps": (
             "target_value",
-            "This is the paper's derived speed-amplification ratio k = max_handle_speed / head_speed; it is a physical quantity, not a monotone objective.",
+            "The derived speed-amplification ratio k = max_handle_speed / head_speed at the continuous-time peak; a physical quantity, not a monotone objective.",
         ),
     },
     "cumcm-2024-b-production-decision": {
@@ -786,13 +819,17 @@ SEMANTIC_METRIC_DIRECTIONS: dict[str, dict[str, tuple[str, str]]] = {
         ),
     },
     "cumcm-2025-c-nipt": {
-        "experiment_result.female_loo_accuracy": (
-            "higher_is_better",
-            "Higher diagnostic accuracy means better abnormality classification.",
+        # Q4 (female-abnormality classification) is not comparable across human papers:
+        # each uses a different grouping count, validation protocol (leave-one-mother-out
+        # vs 5-fold) and threshold, and one paper reports no metric at all. Q2/Q3's
+        # per-BMI-group optimal testing week is the numeric core every paper reports.
+        "experiment_result.earliest_recommended_week": (
+            "target_value",
+            "The earliest recommended testing week is a timing decision, not a monotone objective.",
         ),
-        "female_abnormality.leave_one_out_f1": (
-            "higher_is_better",
-            "Higher F1 means better balance between precision and recall on abnormal samples.",
+        "experiment_result.latest_recommended_week": (
+            "target_value",
+            "The latest recommended testing week is likewise a timing decision.",
         ),
     },
     "mcm-2023-a-plant-community": {
@@ -842,46 +879,55 @@ SEMANTIC_METRIC_DIRECTIONS: dict[str, dict[str, tuple[str, str]]] = {
         ),
     },
     "mcm-2024-a-lamprey": {
-        "experiment_result.parasite_coexistence_case.resource_level": (
-            "target_value",
-            "The resource level is a simulated ecosystem state in a coexistence scenario.",
-        ),
-        "experiment_result.parasite_coexistence_case.final_parasite_index": (
-            "target_value",
-            "The parasite index is a simulated ecosystem-response indicator, not a one-sided objective.",
-        ),
-        "experiment_result.parasite_coexistence_case.host_fish_index": (
+        # Only the *relative* gain is cross-paper comparable. Human papers each define
+        # their own stability index (1e-4 variance, 0-1 ESI, curve-area whose smaller
+        # value is better), so an absolute stability number would be a scale mismatch,
+        # not a modelling difference. The percentage is orientation-free and every
+        # paper that reports a fixed/adaptive pair can be reduced to it.
+        "experiment_result.largest_stability_gain.adaptive_gain_pct": (
             "higher_is_better",
-            "A larger host-fish index indicates a healthier supported host population in the coexistence scenario.",
+            "The relative stability gain of the adaptive sex-ratio strategy: positive means the adaptive "
+            "population is more stable than a fixed 1:1 ratio. This is the benefit the question asks about, "
+            "and it is the only quantity comparable across papers with different stability indices.",
         ),
     },
     "mcm-2024-b-submersible-search": {
-        "experiment_result.caribbean_adaptation.current_multiplier": (
-            "target_value",
-            "The multiplier is a recommended uncertainty adjustment, not a monotone objective.",
+        "experiment_result.search_strategy.find_probability_6h": (
+            "higher_is_better",
+            "A higher probability of locating the submersible within 6 hours is a better search plan.",
         ),
-        "experiment_result.caribbean_adaptation.terrain_uncertainty_multiplier": (
-            "target_value",
-            "The multiplier is a recommended uncertainty adjustment, not a monotone objective.",
+        "experiment_result.search_strategy.find_probability_10h_start_1h": (
+            "higher_is_better",
+            "A higher cumulative find probability with a 1-hour delay is better.",
+        ),
+        "experiment_result.search_strategy.find_probability_10h_start_3h": (
+            "higher_is_better",
+            "A higher cumulative find probability with a 3-hour delay is better.",
+        ),
+        "experiment_result.search_strategy.find_probability_10h_start_5h": (
+            "higher_is_better",
+            "A higher cumulative find probability with a 5-hour delay is better.",
+        ),
+        "experiment_result.search_strategy.find_probability_18h": (
+            "higher_is_better",
+            "A higher cumulative find probability within 18 hours is better.",
         ),
     },
     "mcm-2024-c-tennis-momentum": {
-        "experiment_result.dual_temporal_bayes.final_match_warning_rate": (
-            "target_value",
-            "The warning rate is a calibrated alert frequency, not simply higher or lower in isolation.",
+        "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": (
+            "higher_is_better",
+            "A larger share of matches rejecting the iid null is stronger evidence that momentum exists, "
+            "which is the claim under test.",
         ),
-        "experiment_result.top_swing_features[0].warning_correlation": (
+        "experiment_result.randomness_tests.median_ljung_box_p": (
             "target_value",
-            "The correlation is an explanatory model statistic rather than an objective value.",
+            "Median p-values are not comparable across models' residual definitions; scored as a target only.",
         ),
-        "experiment_result.top_swing_features[1].warning_correlation": (
+        "experiment_result.randomness_tests.median_runs_p": (
             "target_value",
-            "The correlation is an explanatory model statistic rather than an objective value.",
+            "Median runs-test p-values are likewise model-definition dependent.",
         ),
-        "experiment_result.top_swing_features[2].warning_correlation": (
-            "target_value",
-            "The correlation is an explanatory model statistic rather than an objective value.",
-        ),
+
     },
     "mcm-2025-a-stair-wear": {
         "experiment_result.estimated_daily_users": (

@@ -1,0 +1,18 @@
+{
+ "paper_id": "2407093",
+ "task_slug": "mcm-2024-a-lamprey",
+ "source": "mcm/2024-A/2407093/ocr/2407093.md",
+ "fields": {
+  "experiment_result.largest_stability_gain.adaptive_gain_pct": 8.65,
+  "experiment_result.largest_stability_gain.adaptive_stability": null
+ },
+ "derivations": {
+  "experiment_result.largest_stability_gain.adaptive_gain_pct": {
+   "kind": "relative_improvement_pct_lower_is_better",
+   "reported_values": {"adaptive": 47701.0, "fixed": 52216.0},
+   "formula": "100 * (fixed - adaptive) / fixed",
+   "computed_value": 8.65
+  }
+ },
+ "notes": "Table 3 \"Ecosystem Stability\", Average column: alpha as a Variable gives S1=1076 (resistance), S2=79 (recovery time), S=47701 (comprehensive stability); alpha as a Constant gives S1=1168.8, S2=95, S=52216. Comprehensive stability S is the area between curves and is smaller-is-more-stable, so adaptive_stability is on that scale, not 0-1. The paper states no relative gain percentage (its conclusion is qualitative: variable sex ratios \"enhance the stability of the ecosystem\"); comparing the reported values gives only 8.65% smaller S, which is not stated in the paper, so the printed text remains qualitative. | DERIVED adaptive_gain_pct=8.65 from the two directly reported endpoints (S smaller-is-more-stable: constant 52216 vs variable 47701 -> +8.65%). The two stability numbers use this paper's own units; the percentage is the only cross-paper comparable quantity, so adaptive_stability is set to null to avoid mixing scales."
+}

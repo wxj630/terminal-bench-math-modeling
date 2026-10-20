@@ -1,0 +1,11 @@
+{
+  "paper_id": "2300661",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2300661/ocr/2300661.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": null,
+    "target_comparison.five_species_pielou_evenness.actual": null,
+    "target_comparison.optimal_species_count.actual": null
+  },
+  "notes": "Only reports a benefit metric B by species count (k=2: 3 of 6 combinations positive, k=3: 3 of 4 positive, k=4: B=6.987e4); it never states a minimum/target species number, so optimal_species_count is left null rather than inferred. No beta sensitivity ('beta' appears only as the type-scaling coefficient beta_i) and no Pielou/Shannon evenness value (only biomass benefit analysis)."
+}

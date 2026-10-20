@@ -1,0 +1,78 @@
+\section{Appendix F: Case Studies (Full Numerics)}
+\label{app:cases}
+
+We give the full per-field comparison for the three case studies. Values are read
+from each role's saved artifact; the oracle column is the anchor.
+
+\subsection{F.1 Dragon-dance (CUMCM 2024 A, Q5)}
+\begin{table}[h]
+\centering
+\small
+\caption{Dragon-dance final question. All three roles agree; the paper value is the outlier and is infeasible.}
+\label{tab:case-dragon}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Quantity & Oracle (anchor) & GPT-5.5 & DeepSeek V4.1 \\
+\midrule
+\texttt{max\_head\_speed\_mps}        & 1.246266 & 1.24626636 & 1.24626636 \\
+\texttt{max\_speed\_ratio}            & 1.604793 & 1.60479338 & 1.60479338 \\
+peak time (s)                         & 14.48    & ---        & --- \\
+\midrule
+\multicolumn{4}{@{}l@{}}{\emph{Paper's isolated value:} 1.406276 m/s (ratio 1.422195) --- infeasible: implies 2.2568 m/s at a handle.} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Discussion: the reconstruction of the true peak is a continuous-time maximum of
+the handle-speed ratio; the paper sampled integer seconds and stepped over it. The
+exact identity \texttt{head\_speed}$\times$\texttt{ratio}$=2$~m/s (checked by both
+the programmatic gate and the Lean layer) is what exposes the paper value as
+infeasible.
+
+\subsection{F.2 Crop-planting (CUMCM 2024 C, Q1)}
+\begin{table}[h]
+\centering
+\small
+\caption{Crop-planting final question (special case: anchor is a reproducible exact optimum under the paper's per-plot cap).}
+\label{tab:case-crop}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Quantity (yuan, 7-year) & Anchor (exact MILP) & GPT-5.5 & DeepSeek V4.1 \\
+\midrule
+waste-surplus profit   & 40{,}418{,}876.72 & 40{,}320{,}587.0 & 41{,}559{,}514.9 \\
+50\%-discount profit   & 58{,}718{,}967.38 & 66{,}485{,}662.3 & 70{,}378{,}275.8 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Discussion: the paper's full constraint set is infeasible on the official
+attachments, so the anchor is a reproducible MILP optimum; the models' plans sit
+in the same regime. Note the anchor is \emph{between} the two models on the
+discount column, which is why a single scalar cannot summarise this task.
+
+\subsection{F.3 Juneau tourism (MCM 2025 B, final question)}
+\begin{table}[h]
+\centering
+\small
+\caption{Juneau tourism recommended policy. The sustainability score is reported on different unit scales by different agents.}
+\label{tab:case-juneau}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Quantity & Anchor & GPT-5.5 & DeepSeek V4.1 & Fable 5.1 \\
+\midrule
+daily cap            & 11{,}000 & 20{,}000 & 16{,}000 & 14{,}000 \\
+visitor fee (USD)    & 55       & 20       & 30       & 30 \\
+annual visitors      & 1{,}491{,}526 & 1{,}453{,}152 & 1{,}433{,}729 & 1{,}727{,}733 \\
+resident acceptance  & 1.0      & 0.743    & 0.938    & 0.696 \\
+sustainability score & 1.007    & 0.900    & 0.706    & 79.1 \\
+total revenue (USD)  & 431{,}610{,}328 & 369{,}645{,}540 & 366{,}651{,}514 & 458{,}497{,}065 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Discussion: this is the clearest scale problem. The anchor is on a $\sim$1 unit
+scale; one third-party agent reports the same field on a 0--100 ``multiattribute
+utility'' scale (a scale it explicitly declares in its own artifact). The task's
+output schema does not pin the range, so the agent is not wrong---which is why the
+correct repair is to specify the field's range in the schema, not to rescale in
+the scorer.

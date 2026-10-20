@@ -1,0 +1,5 @@
+name = "feasibility_demo"
+defaultTargets = ["FeasibilityDemo"]
+
+[[lean_lib]]
+name = "FeasibilityDemo"

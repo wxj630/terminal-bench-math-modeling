@@ -1,0 +1,84 @@
+\section{Appendix H: Lean Obligation Catalogue}
+\label{app:lean}
+
+\subsection{Per-task obligation counts}
+The generator emits one obligation per checkable field; the totals by task are:
+
+\begin{table}[h]
+\centering
+\small
+\caption{Obligations per task (624 total across 18 tasks). ``Skipped'' obligations were reported as missing evidence rather than silently satisfied.}
+\label{tab:lean}
+\begin{tabular}{@{}lcclc@{}}
+\toprule
+Task & Oblig. & Skipped & Task & Oblig. \\
+\midrule
+cumcm-2023-a-heliostat-field   & 12  & 0 & mcm-2023-a-plant-community   & 66 \\
+cumcm-2023-b-multibeam-lines   & 3   & 1 & mcm-2023-b-maasai-mara       & 17 \\
+cumcm-2023-c-vegetable-pricing & 7   & 0 & mcm-2023-c-wordle            & 3 \\
+cumcm-2024-a-dragon-dance      & 3   & 0 & mcm-2024-a-lamprey           & 302 \\
+cumcm-2024-b-production-decision& 61 & 0 & mcm-2024-b-submersible-search& 8 \\
+cumcm-2024-c-crop-planting     & 5   & 0 & mcm-2024-c-tennis-momentum   & 7 \\
+cumcm-2025-a-smoke-screen      & 10  & 0 & mcm-2025-a-stair-wear        & 6 \\
+cumcm-2025-b-sic-thickness     & 4   & 0 & mcm-2025-b-juneau-tourism    & 12 \\
+cumcm-2025-c-nipt              & 16  & 0 & mcm-2025-c-olympic-medals    & 82 (1 skipped) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Four skipped obligations are visible in the generator output: one missing overlap
+field (multibeam), four scenarios whose declared grid count is null (maasai
+partition), and one recommendation-count interpretation difference (Olympic).
+
+\subsection{Representative obligations}
+Over the invariant library, a task supplies bounds and the obligations are
+generated. Examples:
+\begin{verbatim}
+-- domain/range: a rate must lie in [0,1] (scaled x1000)
+example : (0 <= 43 /\ 43 <= 1000) := by decide
+
+-- ordering: q95 must not fall below the mean
+example : (posterior_mean <= posterior_q95) := by ...
+
+-- exact identity: head_speed * ratio = 2 m/s (scaled)
+example : (1980000 <= 1246266 * 1604793 /\ 1246266 * 1604793 <= 2020000) := by decide
+
+-- finite domain: count of decision bits is 16 or 17
+example : (len = 16 \/ len = 17) := by decide
+\end{verbatim}
+Every generated obligation is annotated with the JSON path it came from, so a
+reviewer can trace each claim back to the artifact.
+
+\subsection{Trust audit (verbatim excerpt)}
+\begin{verbatim}
+'Feasibility.atMost_trans'                depends on axioms: [propext, Quot.sound]
+'Feasibility.atLeast_mono'                depends on axioms: [propext, Quot.sound]
+'CropPlanting.ua_feasible'                does not depend on any axioms
+'CropPlanting.ua_in_interpretation_gap'   does not depend on any axioms
+'Juneau.ua_acceptance_percent_only'       does not depend on any axioms
+'Juneau.ua_sustainability_out_for_any_sane_tol'
+                                          depends on axioms: [propext, Quot.sound]
+'JuneauSensitivity.reported_infeasible'   depends on axioms: [propext, Quot.sound]
+\end{verbatim}
+Only \texttt{propext} and \texttt{Quot.sound} (Lean's standard classical logic)
+appear, or no axioms at all. No \texttt{sorryAx}, no \texttt{Lean.ofReduceBool}
+(i.e.\ no \texttt{native\_decide}); the pipeline greps for both.
+
+\subsection{Discrimination suite}
+\texttt{negative\_test.py} mutates one numeric leaf at a time and requires the
+build to fail \emph{and} to cite the mutated field. Ten mutations across the six
+forms are covered (out-of-range probability, out-of-range correlation, reversed
+ordering, violated exact identity, non-positive thickness, reversed interval,
+non-binary decision bit, negative acceptance index, $q_{95}$ below mean, zero
+species count). All ten are rejected; the suite exits non-zero if any is not.
+
+\subsection{Reproducing the layer}
+\begin{verbatim}
+export PATH="$HOME/.elan/bin:$PATH"     # Lean 4 via elan
+cd lean-feasibility-demo
+./verify.sh        # generate -> kernel check -> audit -> discriminate -> references
+\end{verbatim}
+Toolchain: \texttt{leanprover/lean4:v4.22.0}. No Mathlib; clean build under a
+second. The generator also runs against the committed O-award references
+(326 obligations, 1 skipped), so the layer can be exercised without the saved
+agent artifacts.

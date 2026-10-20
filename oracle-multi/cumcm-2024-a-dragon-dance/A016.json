@@ -1,0 +1,10 @@
+{
+  "paper_id": "A016",
+  "task_slug": "cumcm-2024-a-dragon-dance",
+  "source": "cumcm/2024-A/A016/ocr/A016.md",
+  "fields": {
+    "experiment_result.q5.max_head_speed_mps": 1.406276,
+    "experiment_result.q5.max_speed_ratio_when_head_1mps": null
+  },
+  "notes": "5.5.3节原文：'得出龙头的最大行进速度为：1.406276 m/s'。方法为在整数秒采样的速度矩阵中取最大速度，再用 2/v_max 缩放龙头速度（k=2/v_max）；论文只给出该比值常数的定义式(47)，未打印其数值，故 ratio 字段置 null。按论文值反推 k≈1.422195，但这是笔者计算而非论文报告值，不写入。该 1.406276 为整数秒采样结果，跨过连续时间峰值，按此速度驱动会在 t≈14.48 s 超过 2 m/s（仅作背景说明，未改动论文原值）。"
+}

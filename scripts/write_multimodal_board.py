@@ -32,6 +32,8 @@ MULTIMODAL_MODELS = (
     "codex + gpt-5.5 xhigh",
     "opencode + deepseek-flash",
     "opencode + deepseek-flash (max)",
+    "codex + GPT-6 Astra",
+    "claude-code + Fable 5.1",
 )
 
 #: Filenames produced into <site>/assets/figures by this driver.
@@ -79,6 +81,11 @@ def main() -> int:
     # narrower 2024-2025 report used by an earlier board).
     board_path = ROOT / "jobs" / "terminus2-direction-aware-flash-baseline-bbo-2023-2025.md"
     report_path = args.report_path or board_path
+    if "multi-oracle" in report_path.name and not args.skip_splits:
+        raise SystemExit(
+            "multi-oracle reports require --skip-splits: the existing year/suite "
+            "split renderer still uses single-anchor task scores"
+        )
 
     generated: list[Path] = []
 
@@ -116,7 +123,8 @@ def main() -> int:
 
     SITE_FIGURES.mkdir(parents=True, exist_ok=True)
     copied: list[Path] = []
-    for name in FIGURE_NAMES:
+    figure_names = FIGURE_NAMES[:6] if args.skip_splits else FIGURE_NAMES
+    for name in figure_names:
         for suffix in (".svg", ".png"):
             src = args.figures_dir / f"{args.prefix}-{name}{suffix}"
             if not src.exists():

@@ -1,0 +1,13 @@
+{
+  "paper_id": "A092",
+  "task_slug": "cumcm-2023-a-heliostat-field",
+  "source": "cumcm/2023-A/A092/ocr/A092.md",
+  "fields": {
+    "reproduced.design_summary[2].annual_optical_efficiency": 0.7818,
+    "reproduced.design_summary[2].mirror_area_m2": 87633.4929,
+    "reproduced.design_summary[2].mirror_count": 2315,
+    "reproduced.design_summary[2].unit_area_power_kw_m2": 0.7551,
+    "target_comparison.q3_annual_thermal_power_mw.actual": 60.359
+  },
+  "notes": "Q3 results: Table 6 gives 2315 heliostats and total mirror area 87633.4929 m2; Table 8 gives annual optical efficiency 0.7818, annual thermal power 60.359 MW and unit-area power 0.7551 kW/m2. Quote: '表8 问题三年平均光学效率及功率表 ... 0.7818 ... 60.359 ... 0.7551'. Units already match (m2, MW, kW/m2); no conversion. Audit flag: 60359 kW / 87633.49 m2 = 0.689 kW/m2, which conflicts with the reported 0.7551; both printed values are kept as-is."
+}

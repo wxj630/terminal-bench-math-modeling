@@ -16,6 +16,7 @@ from html import escape
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
+import http.client
 from urllib.request import Request, urlopen
 
 from feasibility_checks import validate_artifact
@@ -88,18 +89,30 @@ def openrouter_price_map(pricing: dict[str, Any]) -> dict[str, float | None]:
     }
 
 
-def apply_openrouter_catalog_prices(models: dict[str, dict[str, Any]]) -> None:
-    """Refresh prices from OpenRouter's public model catalog; keep local fallback on failure."""
+def apply_openrouter_catalog_prices(models: dict[str, dict[str, Any]], refresh: bool = False) -> None:
+    """Set price_source labels; refresh prices from OpenRouter only when asked.
+
+    The board must be reproducible. A live catalog fetch is nondeterministic (it can
+    also fail mid-read), and it silently rewrote every model's cost between runs. The
+    authoritative prices are therefore the ones baked into ``model_config`` (verified
+    to reproduce the published leaderboard exactly); a network refresh is opt-in.
+    """
     for meta in models.values():
         if meta.get("omit_cost"):
             meta["price_source"] = "cost omitted"
-            continue
-        meta["price_source"] = "user-supplied fixed snapshot" if meta.get("fixed_price") else "local fallback"
+        elif meta.get("fixed_price"):
+            meta["price_source"] = "user-supplied fixed snapshot"
+        elif meta.get("price_rmb_per_mtok"):
+            meta["price_source"] = "model_config (fixed)"
+        else:
+            meta["price_source"] = "local fallback"
+    if not refresh:
+        return
     try:
         request = Request(OPENROUTER_MODELS_API, headers={"User-Agent": "terminal-bench-math-modeling-price-refresh/1.0"})
         with urlopen(request, timeout=20) as response:
             payload = json.loads(response.read().decode("utf-8"))
-    except (OSError, HTTPError, URLError, json.JSONDecodeError):
+    except (OSError, HTTPError, URLError, json.JSONDecodeError, http.client.HTTPException):
         return
 
     catalog = {item.get("id"): item for item in payload.get("data", []) if isinstance(item, dict)}
@@ -197,14 +210,14 @@ def model_config(builder: Any) -> dict[str, dict[str, Any]]:
             "color": "#00897b",
             "openrouter_model": "deepseek/deepseek-v4.1-flash",
             "price_rmb_per_mtok": {
-                # DeepSeek V4.1 Flash is priced at 2x during weekday UTC windows
-                # 100-400 and 600-1000. OpenRouter's catalog exposes the PEAK rate
-                # as the base `prompt`/`completion` price and the off-peak rate as
-                # an override, so the quoted base is already the peak: no extra
-                # multiplier is applied here (doing so double-counts the peak).
-                # Its reasoning counter is additive
-                # (total == input + output + reasoning + cache_read, verified per
-                # step across every trial), so reasoning is billed on top.
+                # Rates pinned from the published OpenRouter quote so the board is
+                # reproducible without a network fetch. DeepSeek V4.1 Flash is priced
+                # at 2x during weekday UTC windows 100-400 and 600-1000; OpenRouter
+                # exposes the PEAK rate as the base price, so no extra multiplier is
+                # applied (that would double-count the peak). Its reasoning counter is
+                # additive (total == input + output + reasoning + cache_read), so
+                # reasoning is billed on top.
+                "input_uncached": 2.0211, "input_cached": 0.0404, "output": 8.0844,
                 "billing": {"peak_multiplier": 1.0, "reasoning_is_additive": True},
             },
             "provenance": "opencode CLI agent jobs run 2026-09-11: opencode-deepseek-flash-2023-2025-cumcm and opencode-deepseek-flash-2023-2025-mcm (model openai/deepseek-flash via api.deepseek.com)",
@@ -221,21 +234,44 @@ def model_config(builder: Any) -> dict[str, dict[str, Any]]:
             "color": "#00695c",
             "openrouter_model": "deepseek/deepseek-v4.1-flash",
             "price_rmb_per_mtok": {
+                "input_uncached": 2.0211, "input_cached": 0.0404, "output": 8.0844,
                 "billing": {"peak_multiplier": 1.0, "reasoning_is_additive": True},
             },
             "provenance": "opencode CLI agent jobs run 2026-09-15: opencode-deepseek-flash-max-cumcm and opencode-deepseek-flash-max-mcm (model openai/deepseek-flash via api.deepseek.com, --variant max)",
         },
+        "codex_gpt6_astra": {
+            "label": "codex + GPT-6 Astra",
+            "short": "GPT-6 Astra (codex)",
+            "template": "wxj630-gpt6-astra-2023-2025-{contest}",
+            "artifact_job_overrides": {},
+            "color": "#5f3dc4",
+            "omit_cost": True,
+            # Third-party run by DING FAN (Rayward) on Modal, 2026-10-05, at repo a5ae348.
+            # Submissions were re-scored here with THIS repo's direction-aware scorer and
+            # the current oracle values (their verifier used a different reward formula).
+            # Cost is reported from their measured per-trial USD in the token/stats table.
+            "provenance": "codex CLI + gpt-6-astra, reasoning_effort=max; 18 tasks, 1 attempt each; cost from their summary.json",
+        },
+        "claude_fable51": {
+            "label": "claude-code + Fable 5.1",
+            "short": "Fable 5.1 (claude-code)",
+            "template": "wxj630-fable51-2023-2025-{contest}",
+            "artifact_job_overrides": {},
+            "color": "#e8590c",
+            "omit_cost": True,
+            "provenance": "claude-code + claude-fable-5-1, reasoning_effort=max; 18 tasks, 1 attempt each; cost from their summary.json",
+        },
         "codex_gpt55_xhigh": {
             "label": "codex + gpt-5.5 xhigh",
             "short": "GPT-5.5 xhigh (codex)",
-            "template": "codex-gpt55-xhigh-2023-2025-{contest}",
-            "artifact_job_overrides": {},
+            "template": "codex-gpt55-xhigh-2023-2025-{contest}",            "artifact_job_overrides": {},
             "color": "#000000",
             "openrouter_model": "openai/gpt-5.5",
             "price_rmb_per_mtok": {
                 # OpenAI reports output_tokens already including reasoning, and
                 # its >272k-token long-context tier was never reached (max single
                 # request observed 219,735), so the base rate applies.
+                "input_uncached": 33.6851, "input_cached": 3.3685, "output": 202.1104,
                 "billing": {"peak_multiplier": 1.0, "reasoning_is_additive": False},
             },
             "provenance": "codex CLI agent jobs run 2026-09-12: codex-gpt55-xhigh-2023-2025-cumcm and codex-gpt55-xhigh-2023-2025-mcm (model gpt-5.5, reasoning_effort=xhigh, via CLIPROXY)",
@@ -845,6 +881,29 @@ def write_token_audit(token_stats: dict[str, dict[str, Any]], cases: list[Any]) 
     TOKEN_AUDIT_PATH.write_text(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True), encoding="utf-8")
 
 
+def _measured_model_cost_usd(base: Any, model: str, cases: list[Any]) -> float | None:
+    """Sum a model's measured per-trial USD cost when trials record it.
+
+    Third-party runs (e.g. GPT-6 Astra / Fable 5.1) were costed by their own
+    harness and do not expose a cache split, so their measured total is used
+    verbatim rather than re-estimated from tokens.
+    """
+    total = 0.0
+    seen = False
+    for case in cases:
+        for item in _candidate_trials(base, model, case):
+            path = Path(item["path"]) / "result.json"
+            try:
+                data = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                continue
+            value = data.get("wxj630_measured_cost_usd")
+            if isinstance(value, (int, float)):
+                total += float(value)
+                seen = True
+    return total if seen else None
+
+
 def model_token_stats(base: Any, model: str, cases: list[Any]) -> dict[str, Any]:
     stats = {
         "job_count": 0,
@@ -1045,6 +1104,7 @@ def compute() -> tuple[Any, list[Any], list[dict[str, Any]], list[Summary]]:
             ]
         hard_gate_count = sum(1 for record in records if record["hard_gate"].get(model))
         ts = token_stats[model]
+        _measured_cost = _measured_model_cost_usd(base, model, cases)
         summaries.append(
             Summary(
                 model=model,
@@ -1064,12 +1124,16 @@ def compute() -> tuple[Any, list[Any], list[dict[str, Any]], list[Summary]]:
                 reasoning_tokens=int(ts.get("n_reasoning_tokens") or 0),
                 billable_input_tokens=int(ts["billable_input_tokens"]),
                 cost_rmb=ts["estimated_cost_rmb"],
-                cost_usd=estimate_model_cost_usd(
-                    model,
-                    int(ts["n_input_tokens"]),
-                    int(ts["n_cache_tokens"]),
-                    int(ts["n_output_tokens"]),
-                    int(ts.get("n_reasoning_tokens") or 0),
+                cost_usd=(
+                    _measured_cost
+                    if _measured_cost is not None
+                    else estimate_model_cost_usd(
+                        model,
+                        int(ts["n_input_tokens"]),
+                        int(ts["n_cache_tokens"]),
+                        int(ts["n_output_tokens"]),
+                        int(ts.get("n_reasoning_tokens") or 0),
+                    )
                 ),
                 cache_hit_rate=ts["cache_hit_rate"],
                 cache_imputed_from_peer_avg=bool(ts["cache_imputed_from_peer_avg"]),

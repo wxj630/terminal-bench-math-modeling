@@ -1,0 +1,9 @@
+{
+  "paper_id": "2311717",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2311717/ocr/2311717.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": null
+  },
+  "notes": "Difficulty classification is K-Means into 4 levels (Easy/Normal/Hard/Master) plus a nearest-typical-sample rule using word attributes; no accuracy, precision, recall or F1 for the classifier is reported anywhere (only Pearson correlations of attributes with difficulty and the distances R1..R4 for EERIE). Field is null. EERIE is classified 'Master' (hardest)."
+}

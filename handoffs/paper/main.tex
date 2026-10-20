@@ -1,0 +1,70 @@
+% !TEX program = pdflatex
+% TB-MathModeling: a multimodal, artifact-scored, feasibility-verified benchmark
+% for mathematical modeling.
+%
+% Build:  pdflatex main && pdflatex main && pdflatex main
+% (or latexmk -pdf main.tex)
+%
+% Files marked [TODO] need author input; everything else is populated from the repo.
+
+\documentclass[11pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{siunitx}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+
+\newcommand{\bench}{\textsc{TB-MathModeling}}
+\newcommand{\oeval}{\textsc{O-Eval}}
+\newcommand{\beval}{\textsc{B-Eval}}
+\newcommand{\roeval}{\textsc{Robust BO-Eval}}
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+
+\title{\bench{}: An Artifact-Scored, Feasibility-Verified Benchmark\\
+for Multimodal LLM Agents on Mathematical Modeling}
+\author{\todo{authors}\\
+\todo{affiliations}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/00-abstract}
+\end{abstract}
+
+\input{sections/01-intro}
+\input{sections/02-related}
+\input{sections/03-benchmark}
+\input{sections/04-scoring}
+\input{sections/05-verification}
+\input{sections/06-setup}
+\input{sections/07-results}
+\input{sections/08-analysis}
+\input{sections/09-case-studies}
+\input{sections/10-limitations}
+\input{sections/11-conclusion}
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\appendix
+\input{appendix/A-dataset}
+\input{appendix/B-environment}
+\input{appendix/C-settings}
+\input{appendix/D-baselines}
+\input{appendix/E-prompts}
+\input{appendix/F-case-studies}
+\input{appendix/G-scoring-details}
+\input{appendix/H-lean-catalog}
+
+\end{document}

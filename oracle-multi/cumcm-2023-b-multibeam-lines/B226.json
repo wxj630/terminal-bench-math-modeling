@@ -1,0 +1,12 @@
+{
+  "paper_id": "B226",
+  "task_slug": "cumcm-2023-b-multibeam-lines",
+  "source": "cumcm/2023-B/B226/ocr/B226.md",
+  "fields": {
+    "reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles": 30.0,
+    "reproduced.problem4_summary.sa_avg_overlap_pct": 10.48,
+    "target_comparison.problem4_missed_area_pct.actual": 3.48,
+    "target_comparison.problem4_total_length_nm.actual": 622.0
+  },
+  "notes": "Q4 summary table: total 622 nautical miles, missed 3.48%, over-20% overlap 55560 m = 30 nm. Quote: '测线总长度为622海里...3.48%...重叠率超过20%部分的总长度为55560m，即30海里'. The paper never prints an average overlap for Q4; 10.48% is its Q3 simulated-annealing validation '平均重叠率' (Table: greedy 10.35, SA 10.48), the only average-overlap value reported."
+}

@@ -1,0 +1,7 @@
+\section{Conclusion}
+
+We presented \bench{}, a multimodal, artifact-scored benchmark of 18 real mathematical-modeling problems with two distinguishing design choices: \emph{direction-aware, one-sided scoring} that never penalises beating the anchor, and \emph{two-layer feasibility verification} combining a programmatic gate over six decidable invariant forms with 624 kernel-checked Lean obligations.
+
+Across 16 model/harness configurations we find that frontier capability is compressed relative to cost---a \$2.54 model reaches 65.76\% \oeval{} against 68.07\% for a \$99.37 model---that raising a model's thinking tier can hurt, and that most residual failures trace to reference scale and scope rather than to modeling error. We documented several anchor-based scoring pitfalls, repaired the ones that were ours, and quantified which of them actually move the leaderboard. Finally, we showed a case where the benchmark itself was wrong and the models were right, which is the sharpest argument for making feasibility independently checkable.
+
+The two-layer verification design is, we believe, the transferable idea: use a fast programmatic gate to cover every task, and a proof assistant to make the audit's own correctness machine-checkable---while stating plainly the questions (external physical truth, witness completeness) that neither can answer.

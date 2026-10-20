@@ -1,0 +1,64 @@
+\section{Appendix A: Dataset Details and Split}
+\label{app:dataset}
+
+\subsection{Composition}
+\bench{} has \textbf{18 tasks}, listed in Table~\ref{tab:tasks} (main text). Composition:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{CUMCM} (Chinese): 2023, 2024, 2025 $\times$ problems A, B, C $=$ 9 tasks.
+\item \textbf{MCM} (English): 2023, 2024, 2025 $\times$ problems A, B, C $=$ 9 tasks.
+\end{itemize}
+Each task is a full contest problem (several sub-questions); only the numeric core of the \emph{final} question is scored (Section~\ref{sec:scoring}). Problem A is typically physical/engineering, B optimization/data, C data-science; taking all three of each year avoids topical cherry-picking.
+
+\subsection{Per-task summary}
+\begin{table}[h]
+\centering
+\small
+\caption{Per-task summary. ``\#Fig.'' counts unique figures cropped from the official PDF; ``\#Metric'' the number of scored metrics; ``Final Q'' the sanctioned final question.}
+\label{tab:dataset}
+\begin{tabular}{@{}lllcc@{}}
+\toprule
+Slug & Final Q & Source & \#Fig. & \#Metric \\
+\midrule
+cumcm-2023-a-heliostat-field   & Q3 & CUMCM 2023 A & 2 & 5 \\
+cumcm-2023-b-multibeam-lines   & Q4 & CUMCM 2023 B & 8 & 4 \\
+cumcm-2023-c-vegetable-pricing & Q4 & CUMCM 2023 C & 0 & 2 \\
+cumcm-2024-a-dragon-dance      & Q5 & CUMCM 2024 A & 5 & 2 \\
+cumcm-2024-b-production-decision& Q4 & CUMCM 2024 B & 1 & 6 \\
+cumcm-2024-c-crop-planting     & Q1 & CUMCM 2024 C & 0 & 2 \\
+cumcm-2025-a-smoke-screen      & Q5 & CUMCM 2025 A & 0 & 2 \\
+cumcm-2025-b-sic-thickness     & Q3 & CUMCM 2025 B & 2 & 2 \\
+cumcm-2025-c-nipt              & Q4 & CUMCM 2025 C & 0 & 2 \\
+mcm-2023-a-plant-community     & final & MCM 2023 A & 0 & 3 \\
+mcm-2023-b-maasai-mara         & final & MCM 2023 B & 0 & 5 \\
+mcm-2023-c-wordle              & final & MCM 2023 C & 2 & 2 \\
+mcm-2024-a-lamprey             & final & MCM 2024 A & 0 & 3 \\
+mcm-2024-b-submersible-search  & Q4 & MCM 2024 B & 0 & 2 \\
+mcm-2024-c-tennis-momentum     & Q5 & MCM 2024 C & 0 & 4 \\
+mcm-2025-a-stair-wear          & Q8 & MCM 2025 A & 1 & 3 \\
+mcm-2025-b-juneau-tourism      & Q3 & MCM 2025 B & 0 & 6 \\
+mcm-2025-c-olympic-medals      & final & MCM 2025 C & 0 & 5 \\
+\midrule
+\textbf{Total} & & & \textbf{21} & \textbf{61}$^{\dagger}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+$^{\dagger}$62 declared metrics, 61 scored (one weight-0 Wordle metric excluded).
+
+(Counts verified against the repository; the 21 figures are unique after de-duplication, delivered twice---once inline in \texttt{instruction.md} and once under the container \texttt{figures/} path---for 42 files on disk.)
+
+\subsection{Delivered structure}
+Each task directory contains: \texttt{instruction.md} (the prompt), \texttt{task.toml} (metadata and limits), \texttt{environment/} (agent Dockerfile + \texttt{data/}), \texttt{tests/} (verifier + scoring config + anchor), and \texttt{solution/} (oracle). Inside \texttt{environment/data/}:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \texttt{problem.md} --- statement copy;
+\item \texttt{output\_schema.json} --- the required artifact's field/type template (no values);
+\item \texttt{source\_manifest.json} --- maps each visible file to its path in the source corpus;
+\item \texttt{attachments/} --- verbatim official attachments under flat filenames, with \texttt{INDEX.md};
+\item \texttt{repo/} --- the same material at its original nested corpus paths, for reproducibility;
+\item \texttt{figures/} --- the cropped figures for the 6 tasks that have them.
+\end{itemize}
+
+\subsection{Split}
+\textbf{There is no train/validation/test split.} \bench{} is a pure evaluation set: the 18 tasks are all evaluation tasks, evaluated uniformly, with no held-out partition and no per-task difficulty tier. (The repository does contain one in-task \texttt{train\_test\_split} inside a single task's oracle model for the Wordle problem; that is part of that problem's modeling content and is unrelated to benchmark partitioning.)
+
+\subsection{Data sources}
+Statements, attachments, and figures derive from the official contest material, mirrored locally via the ``Math-Modeling-BAO'' corpus: CUMCM statements from \texttt{cumcm/problems/\{year\}/\{X\}.md} and MCM from \texttt{mcm/problems/\{year\}/\{X\}.md}. Outstanding-paper PDFs/OCR used for anchors come from the same corpus's \texttt{outstanding/} tree. Every task records its paper id, the PDF/OCR source paths, and its \texttt{reproduction\_scope}.

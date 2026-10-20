@@ -1,0 +1,9 @@
+{
+  "paper_id": "2307166",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2307166/ocr/2307166.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": 0.7528
+  },
+  "notes": "Sec. 7.2: 'We chose K = 8 as the parameter, and the prediction accuracy was 75.28%' - this is KNN classifier accuracy selected by cross-validation (accuracy interval given as [63.16%, 82.76%]). Converted 75.28% -> 0.7528. EERIE is predicted as 'ordinary difficulty' (3 classes: easy/normal/hard)."
+}

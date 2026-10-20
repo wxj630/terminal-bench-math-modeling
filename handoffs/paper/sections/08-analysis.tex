@@ -1,0 +1,59 @@
+\section{Analysis}
+\label{sec:analysis}
+
+\subsection{Per-task behaviour}
+Table~\ref{tab:pertask} gives per-task \oeval{} for the five multimodal entries. Three patterns stand out.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Per-task \oeval{} (\%) for the five multimodal entries.}
+\label{tab:pertask}
+\begin{tabular}{@{}lccccc@{}}
+\toprule
+Task & GPT-5.5 & DS-4.1 & Fable & DS-4.1 (max) & GPT-6 \\
+\midrule
+\texttt{cumcm-2023-a-heliostat-field} & 100.00 & 100.00 & 95.16 & 100.00 & 100.00 \\
+\texttt{cumcm-2023-b-multibeam-lines} & 100.00 & 100.00 & 100.00 & 100.00 & 100.00 \\
+\texttt{cumcm-2023-c-vegetable-pricing} & 100.00 & 100.00 & 100.00 & 100.00 & 40.73 \\
+\texttt{cumcm-2024-a-dragon-dance} & 100.00 & 100.00 & 100.00 & 99.99 & 100.00 \\
+\texttt{cumcm-2024-b-production-decision} & 78.89 & 73.77 & 36.27 & 75.02 & 29.73 \\
+\texttt{cumcm-2024-c-crop-planting} & 100.00 & 100.00 & 100.00 & 91.12 & 100.00 \\
+\texttt{cumcm-2025-a-smoke-screen} & 100.00 & 100.00 & 100.00 & 0.00 & 100.00 \\
+\texttt{cumcm-2025-b-sic-thickness} & 70.43 & 66.82 & 70.30 & 70.79 & 70.77 \\
+\texttt{cumcm-2025-c-nipt} & 94.91 & 100.00 & 100.00 & 100.00 & 48.73 \\
+\texttt{mcm-2023-a-plant-community} & 70.26 & 100.00 & 27.18 & 30.24 & 100.00 \\
+\texttt{mcm-2023-b-maasai-mara} & 3.35 & 13.03 & 4.65 & 3.07 & 6.81 \\
+\texttt{mcm-2023-c-wordle} & 28.00 & 54.60 & 64.22 & 48.02 & 21.79 \\
+\texttt{mcm-2024-a-lamprey} & 44.44 & 21.05 & 37.50 & 21.05 & 21.05 \\
+\texttt{mcm-2024-b-submersible-search} & 40.31 & 21.24 & 12.10 & 51.46 & 29.45 \\
+\texttt{mcm-2024-c-tennis-momentum} & 85.63 & 38.56 & 36.38 & 34.75 & 57.26 \\
+\texttt{mcm-2025-a-stair-wear} & 0.00 & 0.00 & 0.00 & 0.00 & 0.00 \\
+\texttt{mcm-2025-b-juneau-tourism} & 9.01 & 17.10 & 66.06 & 16.67 & 11.33 \\
+\texttt{mcm-2025-c-olympic-medals} & 100.00 & 77.43 & 77.29 & 46.58 & 13.70 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{(a) CUMCM is nearly saturated; MCM is not.} Almost all CUMCM cells are at or near 100\%, while most MCM cells sit between 0\% and 60\%. The engineering CUMCM problems have well-defined final numbers that strong models reach; the MCM problems are more open and their anchors are more contestable, which pushes scores down (see (c)).
+
+\textbf{(b) Two tasks separate models where the rest do not.} \texttt{mcm-2023-b-maasai-mara} is near-zero for everyone (3.07\%--13.03\%), and \texttt{mcm-2025-a-stair-wear} is exactly 0.00\% for all five. These are tasks where the reference value cannot discriminate between submissions at all.
+
+\textbf{(c) Many low scores reflect reference scale/scope, not modeling error.} The clearest quantitative evidence: across the third-party pair (Astra, Fable), 7 and 5 of 18 tasks respectively contain a metric whose model/reference ratio exceeds $5\times$. Examples: a host-fish index anchored at 1080 while models report a normalised $[0,1]$ quantity; a sustainability score anchored at 1.007 while models report a 0--100 utility (which one model explicitly declares as ``100-scaled''); a 6$\times$6~$=$~36-cell grid anchor against models discretising the same region into hundreds of cells; and a scoring band of $72.67\!\to\!73.52$ (1.2\% wide) in which the paper's own baseline scores zero. This mirrors the ``most loss is due to the reference, not the model'' pattern reported by the independent evaluators of the same runs.
+
+\subsection{Scoring pitfalls we found and fixed}
+Because the benchmark is anchor-based, its failure modes are worth reporting as first-class results. During this study we found, fixed, and quantified several, and we verified which of them actually move the leaderboard.
+
+\textbf{Two gate false positives (fixed; no score change).} The stair-wear check treated a \emph{signed elasticity} (\texttt{d\_log\_daily\_passages\_d\_log\_age} $=-1$) as a negative user count, and the production-decision check treated a \emph{missing} field as a hard contradiction rather than incomplete evidence. Both were corrected. They changed gate flags but \emph{not} any score, because the gate only affects the tempered board.
+
+\textbf{Degenerate-band widening (fixed; $+0.35$\,pp on one model).} The only score moved by the band rule was v4~pro ($+0.35$\,pp), confirming the rule is surgical.
+
+\textbf{Non-comparable-unit exclusion (fixed; $+0.05$ to $+2.62$\,pp on every model).} Excluding two unpinned raw-index metrics raised \emph{every} entry, since the penalty applied to all submissions equally. This is the signature of a systematic scoring error rather than a model difference---an important diagnostic lesson.
+
+\textbf{Anchor direction and value corrections.} The dragon-dance anchor was a \texttt{higher\_is\_better} field whose stated value was itself physically infeasible: the paper's 1.406276~m/s would drive a handle to $1.406276\times1.604793=2.2568$~m/s, above the problem's 2~m/s cap, because the paper maximised over integer seconds and stepped over the true continuous-time peak at $t=14.48$~s ($k=1.604793$). We corrected the anchor to 1.246266~m/s and changed the direction to \texttt{target\_value}; of the models we evaluate, twelve had reported the correct value and had been sitting at 49.82\%, while the two matching the erroneous paper value had been at 100\%. This is a case where the benchmark, not the model, was wrong.
+
+\subsection{What the feasibility layers caught}
+The programmatic gate hard-invalidated 7 cells across the 16 models, concentrated on the heliostat task (rated power below 60~MW, or a mirror below the 2~m installation minimum) plus single cells for smoke-screen, Juneau, and Olympic. The Lean layer's own contribution is qualitative but sharp: it turns two soft warnings into proofs---an acceptance index refuted for the unit convention, and a sustainability score refuted for \emph{all} tolerances within a declared budget---and it proves non-vacuity by accepting a corrected artifact under the same predicate that rejects the reported one.
+
+\subsection{Determinism probe}
+On the one numerically well-posed task with repeated attempts, the four runs per model agree to machine precision on the scored fields, so the single-run protocol does not hide run-to-run instability \emph{on that task}. We do not generalise this to the open-ended tasks, where a single run may not be enough; this is stated as a limitation.

@@ -207,6 +207,12 @@ def build_experiment() -> dict[str, Any]:
             "median_ljung_box_p": clean(tests["ljung_box_p_value"].median(), 6),
             "matches_rejecting_iid_at_5pct": int((tests["ljung_box_p_value"] < 0.05).sum()),
             "median_runs_p": clean(tests["runs_p_value"].median(), 6),
+            # Share of matches where the iid (random-swing) null is rejected by at least
+            # one test. Higher means the data support momentum -- the direction the
+            # coach's claim is about.
+            "share_rejecting_iid_at_5pct": clean(
+                float(((tests["ljung_box_p_value"] < 0.05) | (tests["runs_p_value"] < 0.05)).mean()), 6
+            ),
         },
         "dual_temporal_bayes": {
             "transition_rows": int(len(transitions)),

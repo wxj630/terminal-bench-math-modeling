@@ -1,0 +1,11 @@
+{
+  "paper_id": "2501567",
+  "task_slug": "mcm-2025-a-stair-wear",
+  "source": "mcm/2025-A/2501567/ocr/2501567.md",
+  "fields": {
+    "daily_use_pattern.peak_period_users": null,
+    "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": null,
+    "experiment_result.estimated_daily_users": 52.0
+  },
+  "notes": "Daily users: Sec. 4.3.2 validation states 'with a walking frequency of f_use ≈ 52 passages/day and a total usage time of 1647 days, the predicted wear volume was 29.2 cm^3, while the actual measured wear volume was 30.7 cm^3'. This is a calibrated/validation example rather than a single surveyed staircase, but it is the only numeric daily-frequency estimate. Peak-period users: not reported. Regular-hour users: not reported; the paper only compares 1000 people over 10 hours vs 1000 people over 1 hour in the Chaboche fatigue example (damage ratio ~48) without giving observed peak counts."
+}

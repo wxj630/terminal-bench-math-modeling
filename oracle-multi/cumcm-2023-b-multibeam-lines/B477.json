@@ -1,0 +1,12 @@
+{
+  "paper_id": "B477",
+  "task_slug": "cumcm-2023-b-multibeam-lines",
+  "source": "cumcm/2023-B/B477/ocr/B477.md",
+  "fields": {
+    "reproduced.problem4_summary.overlap_over_20pct_length_nautical_miles": 11.88,
+    "reproduced.problem4_summary.sa_avg_overlap_pct": 10.0,
+    "target_comparison.problem4_missed_area_pct.actual": 0.04,
+    "target_comparison.problem4_total_length_nm.actual": 234.7
+  },
+  "notes": "Q4 Table 4: total length 434662 (m), missed 0.04%, overlap>20% length 21998 (m). Quote: '测线的总长度 434662 ... 漏测海区所占百分比 0.04% ... 重叠率超过20%部分的总长度 21998'. Converted to nm: 434662/1852=234.70; 21998/1852=11.88. Average overlap: paper states '由于测线之间有 10% 重叠率' - this is its fixed design overlap, not an independently measured average."
+}

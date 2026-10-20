@@ -1,0 +1,9 @@
+{
+  "paper_id": "2322645",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2322645/ocr/2322645.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": null
+  },
+  "notes": "The paper does not build a discrete difficulty classifier: difficulty is represented continuously by Beta-distribution parameters alpha,beta and reported as a percentile (EERIE alpha/(alpha+beta) ~ 0.52, ~50th percentile). No accuracy/precision/recall/F1 and no train/test accuracy is reported (evaluation is by posterior retrodiction plots and prediction intervals), so the field is null."
+}

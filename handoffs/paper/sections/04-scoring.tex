@@ -1,0 +1,64 @@
+\section{Scoring: Direction-Aware, One-Sided, Auditable}
+\label{sec:scoring}
+
+Scoring a modeling artifact against a reproduced paper is a comparison of numbers, but a naive distance metric silently rewards copying and punishes improvement. \bench{} therefore scores each task through a \emph{per-metric panel} with an explicit semantic direction, and aggregates at three levels.
+
+\subsection{Per-metric scoring}
+\label{sec:per-metric}
+Each task's \texttt{score\_config.json} declares a small panel of metrics (2--6 per task; 62 declared metrics in total, of which 61 are scored), each with a path into the artifact JSON, an anchor value $O$, a direction, and a weight. Let $\mathrm{actual}$ be the model's reported value (after a percent-to-fraction hook: a unit-interval, percent-like metric reported in $(10,100]$ is divided by 100).
+
+\textbf{Directions.} A metric is one of \texttt{higher\_is\_better}, \texttt{lower\_is\_better}, \texttt{target\_value} (closest to $O$ wins), or \texttt{exact\_value} (integer/discrete match). Direction is set per metric from the modeling semantics, not from the number's sign.
+
+\textbf{Two normalisation modes.} A metric either uses a \emph{legacy target-distance} scale
+\[
+\mathrm{scale} = \max\bigl(\mathrm{abs\_scale},\; r\cdot\max(|O|,1)\bigr),\qquad r = 0.12,\ \mathrm{abs\_scale}=10^{-6},
+\]
+or a \emph{baseline-to-outstanding endpoint} band $B = |O - b|$ (where $b$ is a baseline value), used by the three endpoint-style tasks.
+
+\textbf{One-sided reward.} For directional metrics the reward is asymmetric by construction:
+\begin{align}
+\texttt{higher\_is\_better}:&\quad
+\begin{cases}
+1 + \log\!\bigl(1 + (\mathrm{actual}-O)/\mathrm{scale}\bigr), & \mathrm{actual}\ge O,\\[2pt]
+\dfrac{1}{1 + (O-\mathrm{actual})/\mathrm{scale}}, & \mathrm{actual}< O,
+\end{cases}\\
+\texttt{lower\_is\_better}:&\quad \text{symmetric in } O-\mathrm{actual},\\
+\texttt{target\_value}:&\quad \dfrac{1}{1 + |\mathrm{actual}-O|/\mathrm{scale}},\qquad
+\texttt{exact\_value}:\quad \mathbb{1}[\mathrm{actual}=O].
+\end{align}
+The key property is that \emph{meeting or beating the anchor never scores below 1.0}: a model that improves on the paper is not punished. In endpoint mode the same asymmetry holds, with the below-anchor branch replaced by $\mathrm{clamp}_{[0,1]}\bigl((\mathrm{actual}-b)/B\bigr)$.
+
+\subsection{Edge-case rules, made explicit}
+\label{sec:edge-rules}
+Three failure modes of anchor-based scoring are common enough to deserve named, testable rules.
+
+\paragraph{(i) Degenerate bands.} When an endpoint band is narrower than 2\% of the value magnitude, it cannot discriminate: the paper's own baseline sits at 0 and so does every other answer. We widen such a band to 5\% (overridable per metric via \texttt{min\_rel\_band}); a merely narrow-but-sane band is left exactly as configured. This rule changed exactly one cell (stair-wear, whose band was $72.67\!\to\!73.52$, i.e.\ 1.2\%).
+
+\paragraph{(ii) Non-comparable reference units.} Some anchors report an \emph{arbitrary raw index} the schema never defines a unit for (e.g.\ a host-fish population index of 1080). A model that reports the same quantity normalised to $[0,1]$ is not demonstrably wrong. Rather than auto-rescaling (which would also pass real errors), such metrics are \emph{dropped from the panel for every model and for the oracle alike}, keeping the comparison like-for-like. This rule is keyed only on the metric configuration, so it is identical for all submissions.
+
+\paragraph{(iii) Prompt/reference cardinality mismatch.} When the prompt asks for a fixed number of items but the reproduction emits more (a country--sport recommendation list of 4 rows where the prompt asks for three), the surplus row is excluded rather than counted as missing.
+
+\paragraph{Validity zeroing (distinct from exclusion).} A metric whose reported value is out of its declared domain---a correlation outside $[-1,1]$, a unit-interval quantity outside $[0,1]$, a negative count or a non-positive physical quantity---has its reward set to zero, with the reason recorded.
+
+\subsection{Aggregation}
+Let $R=\sum_m w_m r_m / \sum_m w_m$ be the weighted panel score (\emph{direction-aware raw}) of a submission on a task, and let $F$ and $O$ be the same panel applied to the flash baseline and to the oracle reproduction. Then
+\begin{align}
+\oeval &= \min\bigl(1,\ \max(0,\ R / O)\bigr) \quad\text{per task, averaged over 18 tasks},\\
+\beval &= R - F \quad\text{(raw units; reported as percentage points)},\\
+\roeval &= \begin{cases}
+\mathrm{clip}\bigl((R-F)/(O-F),\,-1,\,+1\bigr), & O-F \ge 0.10,\\[2pt]
+\mathrm{clip}\bigl(R-F,\,-0.10,\,+0.10\bigr), & \text{otherwise},
+\end{cases}
+\end{align}
+with any missing or non-scoreable artifact assigned $\roeval=-1$. \oeval{} is the headline absolute score (100\% $=$ the O-award reproduction's raw panel level, overshoots capped). \roeval{} is a robustness diagnostic that compensates for tiny or saturated gaps, so that a leaderboard is not driven by ratio outliers.
+
+\subsection{Hard gate}
+\label{sec:hard-gate}
+If a submission fails the feasibility gate of Section~\ref{sec:verification}, its panel score is not merely reduced: the whole task's raw is set to $0$ (\oeval{}$\,=0\%$) and \roeval{} to $-1$. The gate has two sources: programmatic checks (all 18 tasks) and a small set of hand-adjudicated whole-task penalties (4 rules) for constraints that need an independent replay. Section~\ref{sec:analysis} shows how many cells this affects and why.
+
+\subsection{Contract tests}
+Two properties are enforced by \texttt{scripts/test\_scoring\_contracts.py}, because they are exactly the ones that break silently:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt]
+\item \textbf{Oracle self-consistency}: every task's reproduction must score a panel of exactly $1.0$. If it does not, the anchors or schema paths are wrong and every downstream \oeval{} is meaningless.
+\item \textbf{One-sidedness}: on \texttt{higher\_is\_better}, a result at or above the anchor is never a failure (and symmetrically for \texttt{lower\_is\_better}).
+\end{itemize}

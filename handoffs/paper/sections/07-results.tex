@@ -1,0 +1,71 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Main result: 16 configurations on 18 tasks}
+Table~\ref{tab:main} reports the primary leaderboard. \oeval{} is the absolute oracle-normalised score (100\% $=$ the O-award reproduction), \beval{} the raw gain over the flash baseline in percentage points, and \roeval{} the gap-compensated robustness score.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Main leaderboard, 18 tasks. Rows sorted by \oeval{}. ``Art.'' is the number of tasks with a scoreable artifact (out of 18). Cost is USD for one 18-task pass.}
+\label{tab:main}
+\begin{tabular}{@{}lccccr@{}}
+\toprule
+Model / harness & Art. & \oeval{} & \beval{} & \roeval{} & Cost \\
+\midrule
+codex + gpt-5.5 xhigh          & 18 & 68.07\% & +10.82\,pp & 23.62\% & \$99.37 \\
+Qwen3.8-27B-FP8 thinking       & 18 & 65.81\% & +8.25\,pp  & 22.41\% & \$28.18 \\
+opencode + deepseek-flash      & 18 & 65.76\% & +15.88\,pp & 18.36\% & \$2.54 \\
+Kimi K3                        & 18 & 65.36\% & +16.20\,pp & 21.41\% & \$26.68 \\
+Tencent Hy4 Preview            & 18 & 64.78\% & +15.83\,pp & 16.50\% & \$14.54 \\
+GPT-5.6 SOL high               & 18 & 63.67\% & +14.44\,pp & 16.12\% & \$8.90 \\
+claude-code + Fable 5.1        & 18 & 62.62\% & +10.61\,pp & 20.22\% & \$272.80 \\
+GLM-5.3                        & 18 & 60.43\% & $-9.61$\,pp & 12.97\% & \$38.30 \\
+GPT-5.6 SOL xhigh              & 17 & 60.40\% & $-4.81$\,pp & 9.79\%  & \$14.73 \\
+v4 pro                         & 18 & 58.62\% & $-6.83$\,pp & 12.30\% & \$5.55 \\
+GLM-5.3-Flash (ox-alpha)       & 18 & 57.93\% & $-3.14$\,pp & 10.13\% & \$2.91 \\
+Qwen3.8 Flash (Bailian)        & 18 & 55.31\% & $-11.74$\,pp & 4.86\% & \$8.81 \\
+opencode + deepseek-flash (max)& 17 & 54.93\% & $-13.26$\,pp & 12.74\% & \$2.78 \\
+v4 flash baseline              & 17 & 54.59\% & +0.00\,pp & 0.00\% & \$0.68 \\
+codex + GPT-6 Astra            & 18 & 52.85\% & $-0.84$\,pp & 16.03\% & \$246.41 \\
+Gemini 3.7 Flash high          & 15 & 51.99\% & $-12.55$\,pp & $-4.91$\% & \$6.15 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\textbf{Findings.}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{Frontier capability is compressed, cost is not.} The top five entries fall within 3.3 \oeval{} points (68.07\%--64.78\%), yet the cheapest of them costs \$2.54 and the most expensive \$99.37---a $39\times$ gap for 2.3 points between the first and third rows. On this benchmark, spend buys very little beyond a certain point.
+\item \textbf{Thinking tier is not monotone.} opencode + deepseek-flash with the maximum tier scores 54.93\%, \emph{below} its default-tier counterpart at 65.76\%, at higher cost. A more expensive deliberative setting hurt this model on these tasks.
+\item \textbf{Newer flagship labels do not imply higher scores here.} codex + GPT-6 Astra (52.85\%) and claude-code + Fable 5.1 (62.62\%)---both recent, both multimodal, and together costing \$519---land below the cheaper entries. Fable's \roeval{} (20.22\%) is a genuine strength, but its \oeval{} does not lead.
+\item \textbf{Robustness is not the same ranking as accuracy.} Kimi K3 has a high \beval{} (+16.20\,pp) yet only 21.41\% \roeval{}; GPT-5.6 SOL xhigh has a \emph{negative} \beval{} ($-4.81$\,pp) and a low \roeval{} despite a 60\% \oeval{}. The two metrics surface different failure modes.
+\end{enumerate}
+
+\subsection{The multimodal subset}
+Five entries can read the official figures. Table~\ref{tab:mm} isolates them; the subset is the paper's multimodal claim, so we report it separately from the 11 text-only \texttt{terminus-2} entries.
+
+\begin{table}[h]
+\centering
+\small
+\caption{Multimodal subset (harnesses with an image channel).}
+\label{tab:mm}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Entry & \oeval{} & \roeval{} & Cost (USD) \\
+\midrule
+codex + gpt-5.5 xhigh            & 68.07\% & 23.62\% & 99.37 \\
+opencode + deepseek-flash        & 65.76\% & 18.36\% & 2.54 \\
+claude-code + Fable 5.1          & 62.62\% & 20.22\% & 272.80 \\
+opencode + deepseek-flash (max)  & 54.93\% & 12.74\% & 2.78 \\
+codex + GPT-6 Astra              & 52.85\% & 16.03\% & 246.41 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The figures turn out \emph{not} to be the binding difficulty: the best multimodal entry and the best text-only entries are within a few points, and multimodal agents are not uniformly ahead. What the figure channel changes is \emph{which} mistakes are made, not how many; we return to this in Section~\ref{sec:analysis}.
+
+\subsection{Hard-gate effect}
+The tempered hard-gated board (Appendix~\ref{app:scoring}) reports the gate's effect. Applying the gate moves or removes exactly the cells whose answers violate a stated constraint: GLM-5.3 and Kimi K3 each lose one to two whole tasks, GLM-5.3-Flash (ox-alpha) loses the smoke-screen task on an independent replay, and the flash baseline, the max tier, and Gemini lose the heliostat task on a rated-power shortfall. The ranking is otherwise stable, which indicates the gate is surgical rather than a blanket penalty.
+
+\subsection{Cost and tokens}
+Cost is dominated by per-token price, not usage. GPT-5.5's \$99.37 is mostly cache-read input (\$52.6) and output (\$29.8) at rates roughly $33\times$ (input) and $50\times$ (output) those of DeepSeek V4.1 Flash, even though the two consume comparable token counts. Two entries had to recover a scoreable artifact from a misfiled output (a hyphen/underscore filename typo); we replayed the recorded run to reproduce those artifacts, and disclose this in Appendix~\ref{app:settings}.

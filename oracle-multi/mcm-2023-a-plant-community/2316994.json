@@ -1,0 +1,11 @@
+{
+  "paper_id": "2316994",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2316994/ocr/2316994.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": null,
+    "target_comparison.five_species_pielou_evenness.actual": null,
+    "target_comparison.optimal_species_count.actual": 5
+  },
+  "notes": "Species threshold: Summary and Sec. 5.3.1: 'the minimal number of plant species is 5 if the community want to benefit from this biodiversity'; at n=5 the change rates of Shannon-Wiener index and ICV are near zero. No beta sensitivity and no Pielou evenness; diversity is measured by Shannon-Wiener H and ICV (=1/CoV)."
+}

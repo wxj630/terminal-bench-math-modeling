@@ -1,0 +1,9 @@
+{
+  "paper_id": "2300348",
+  "task_slug": "mcm-2023-c-wordle",
+  "source": "mcm/2023-C/2300348/ocr/2300348.md",
+  "fields": {
+    "target_comparison.lightgbm_like_accuracy.actual": 0.9333
+  },
+  "notes": "Sec. 7.4: 'we randomly sampled 30 words, manually labeled their difficulty levels, and used the K-Means++ model for clustering analysis... 28 out of 30 data points matched, resulting in a 93.33% match rate'. This is the only accuracy figure for a difficulty-classification model (K-Means++ clustering with 5 difficulty levels validated against manual labels), so recorded as 0.9333 (93.33/100) with the caveat that it is a 30-word manual-agreement rate, not a held-out classifier test-set accuracy. The paper also reports an EERIE difficulty rate of 0.35916 in level 3 of 5, but eerie_group is not a scored field (score_weight 0) and is not included."
+}

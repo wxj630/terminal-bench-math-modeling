@@ -91,25 +91,25 @@
   },
   {
     "path": "experiment_result.q5.max_head_speed_mps",
-    "expected": 1.406277,
+    "expected": 1.246266,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q5.max_speed_handle",
-    "expected": 1,
+    "expected": 7,
     "rel_tol": 0.12,
-    "abs_tol": 0.0001
+    "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q5.max_speed_ratio_when_head_1mps",
-    "expected": 1.422195,
+    "expected": 1.604793,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },
   {
     "path": "experiment_result.q5.max_speed_time_s",
-    "expected": 14,
+    "expected": 14.48,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   }

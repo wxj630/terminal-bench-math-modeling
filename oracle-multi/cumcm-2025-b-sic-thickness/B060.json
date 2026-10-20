@@ -1,0 +1,10 @@
+{
+  "paper_id": "B060",
+  "task_slug": "cumcm-2025-b-sic-thickness",
+  "source": "cumcm/2025-B/B060/ocr/B060.md",
+  "fields": {
+    "experiment_result.si_recommended_thickness_um": 3.432,
+    "experiment_result.sic_recommended_thickness_um": 7.544
+  },
+  "notes": "Units are micrometres (μm) as written in the paper; no conversion needed. Si: abstract line 11 states '最终以 3.432μm 作为附件3、4硅晶片的厚度计算结果' (direct method 3.453 μm, Newton inversion 3.414 μm; 3.432 is the reported final combination for the Si wafers). SiC: the Q3 section concludes '我们认为在附件1，2中，多光束效应是较弱的且可以 d = 7.544, σ = 0.170 作为附件1，2求解的最终结果' (line 725); the multi-beam-corrected direct method gave d = 7.5461 ± 0.1801 (line 722) and corrected Newton fits gave 7.560 and 7.571 (line 736), all consistent with 7.544. CAUTION: the abstract (line 11) instead says '最终可信的厚度值是 7.455μm' for SiC, which conflicts with the body's 7.544 and looks like a digit transposition/OCR error; the body's explicitly reasoned final value 7.544 was used and 7.455 is recorded here for audit."
+}

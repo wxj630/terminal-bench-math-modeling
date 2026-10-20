@@ -1,0 +1,11 @@
+{
+  "paper_id": "2322687",
+  "task_slug": "mcm-2023-a-plant-community",
+  "source": "mcm/2023-A/2322687/ocr/2322687.md",
+  "fields": {
+    "target_comparison.beta_decline_pct.actual": null,
+    "target_comparison.five_species_pielou_evenness.actual": null,
+    "target_comparison.optimal_species_count.actual": 2
+  },
+  "notes": "Conclusion item 2: 'Only two species are required to benefit from the biodiversity phenomenon. This is also where the greatest marginal benefit occurs'. Model is a dimensionless PDE; sensitivity analysis varies growth rate c, mortality m and habitat size L, so there is no beta-decline percentage and no Pielou evenness value (only qualitative total-biomass comparisons)."
+}

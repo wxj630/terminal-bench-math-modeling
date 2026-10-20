@@ -1,0 +1,14 @@
+{
+  "paper_id": "2517929",
+  "task_slug": "mcm-2025-b-juneau-tourism",
+  "source": "mcm/2025-B/2517929/ocr/2517929.md",
+  "fields": {
+    "experiment_result.annual_visitors": 1430000.0,
+    "experiment_result.optimal_daily_cap": null,
+    "experiment_result.optimal_visitor_fee_usd": 72.4388,
+    "experiment_result.resident_acceptance_index": null,
+    "experiment_result.sustainability_score": null,
+    "experiment_result.total_revenue_usd": null
+  },
+  "notes": "Abstract: 'limit the tourist flow to around 1.43 million, increase the tourist fee by 72.4 USD per person, and increase the hotel tax rate by 0.08'; memo: 'limit the total number of tourists to tourist attractions to about 1.43 million per year'. Table 5 x0 = 1.3864-1.4836 and Delta t = 72.2892-72.9 (for group 1: x0=1.4836, Delta t=72.4388). Units caveat: Table 1 labels x0 'Caps on the number of daily visitors ... k/day', but the paper's own abstract and memo interpret the optimum as ~1.43 million per year, so annual_visitors=1,430,000 was entered and optimal_daily_cap left null (the two interpretations are inconsistent and x0 is not reliably a daily cap). Visitor fee is an INCREASE of 72.44 USD/person, not the total fee level. Resident acceptance: RS is a signed objective value (-1.5 to -2.1), not a 0-1 index. Sustainability: none. Revenue: objective TR is signed and unitless in the table (-464.26), not a USD total."
+}

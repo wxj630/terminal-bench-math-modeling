@@ -1,0 +1,25 @@
+\section{Introduction}
+
+\subsection{Motivation}
+Mathematical modeling contests (CUMCM in China, MCM/ICM internationally) ask teams to convert a deliberately under-specified real-world problem into a defensible quantitative answer within days. The deliverable is not a single number but a chain: assumptions $\rightarrow$ model $\rightarrow$ solution $\rightarrow$ sensitivity $\rightarrow$ recommendation. Two properties make this an attractive target for agent evaluation. It is \emph{quantitative}---the final question usually ends in numbers that can be checked---and it is \emph{multimodal}---official statements reference figures, and standard attachments are spreadsheets and CSVs.
+
+Existing LLM benchmarks cover adjacent but distinct ground. Code benchmarks measure repository edits; terminal benchmarks measure command-line competence; other math benchmarks measure closed-form answers. None of them measures the modeling loop, and none of them asks whether the numbers an agent reports are \emph{feasible} under the problem's own physical constraints.
+
+\subsection{What makes modeling hard to score}
+Scoring modeling is harder than scoring code, for three reasons that shape the entire design of \bench{}:
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{There is no single ground truth.} Different teams make different assumptions. We therefore anchor on a \emph{reproduction of one outstanding paper} per task and normalise against it, rather than pretending to a canonical optimum.
+\item \textbf{Anchoring creates asymmetric failure.} If the anchor is a reported number, a model that does \emph{better} than the paper can be scored worse than one that matches it. Naive distance-to-anchor scoring rewards copying and penalises improvement. \bench{} makes this direction explicit per metric and scores one-sidedly.
+\item \textbf{A wrong-but-plausible answer is easy to produce.} A model can report numbers that look reasonable yet violate the problem's physics (a mirror below its allowed height, a dragon handle above its speed cap). Checking proximity to an anchor does not catch this. \bench{} adds an independent feasibility layer.
+\end{enumerate}
+
+\subsection{Contributions}
+\begin{enumerate}[leftmargin=1.4em,itemsep=2pt]
+\item \textbf{A multimodal, artifact-scored benchmark of 18 real modeling problems.} Verbatim statements, official attachments, and 21 figures cropped from the source PDFs; one structured JSON artifact per task; scoring restricted to the numeric core of the final contest question.
+\item \textbf{Direction-aware, one-sided scoring with auditable edge-case rules.} Per-metric semantic direction (\texttt{higher\_is\_better} / \texttt{lower\_is\_better} / \texttt{target\_value} / \texttt{exact\_value}); three reported metrics (\oeval{}, \beval{}, \roeval{}); explicit rules for degenerate scoring bands and for reference values whose units are not pinned by the schema, together with contract tests that lock the two properties down.
+\item \textbf{A two-layer feasibility verification design.} A programmatic gate covering 18/18 tasks via six decidable invariant forms, and a Lean~4 certificate layer of 624 kernel-checked obligations; we characterise precisely which feasibility questions each layer can and cannot answer.
+\item \textbf{An empirical study of 16 model/harness configurations}, including five multimodal agents, with per-task behaviour, cost/robustness analysis, and three case studies. We additionally document systematic scoring pitfalls that we found and fixed, and quantify their effect on the leaderboard.
+\end{enumerate}
+
+\subsection{Summary of findings}
+The best entry, codex + GPT-5.5 (xhigh), reaches \oeval{} 68.07\% and \roeval{} 23.62\% at \$99.37 per run. A low-cost open model, opencode + DeepSeek~V4.1~Flash, reaches 65.76\% / 18.36\% at \$2.54---roughly a 39$\times$ cost gap for 2.3 points of \oeval{}. Raising a model's thinking tier from its default to its maximum does \emph{not} help (54.93\% vs.\ 65.76\% for the same model). Most residual failures are attributable to reference-value scale/scope mismatches rather than to modeling errors, a finding we quantify and partially repair.

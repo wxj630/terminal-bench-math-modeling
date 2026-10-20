@@ -631,8 +631,8 @@
             <span>2023、2024、2025 三个年度，避免单年偶然性。</span>
           </div>
           <div class="kpi">
-            <strong>2 组</strong>
-            <span>多模态主榜条目（可读题图），另有 11 组纯文本条目作为对照。</span>
+            <strong>5 组</strong>
+            <span>多模态主榜条目（可读题图），另有纯文本条目作为历史对照。</span>
           </div>
           <div class="kpi">
             <strong>JSON</strong>
@@ -647,21 +647,21 @@
         <div class="section-head">
           <div>
             <h2>Multimodal Leaderboard</h2>
-            <p class="lead">主榜。三个条目都是 <b>文本+图像</b> 多模态配置，可以打开题目随附的官方插图（7 道题带图，共 21 张裁切图）。它们用同一套 verifier、同一批 18 道题，所以与后面的纯文本榜可直接对照。成本统一按 <b>OpenRouter 目录价（美元）</b> 计算。<b>第 3 个条目是思考档位对照</b>：同一模型（DeepSeek V4.1 Flash）配同一 opencode CLI，只把 thinking 档位从默认 <code>high</code> 提到 <code>max</code>，用来直接观察提高思考预算是否换来更好成绩。</p>
+            <p class="lead">主榜。五个条目都是 <b>文本+图像</b> 多模态配置，可以打开题目随附的官方插图（7 道题带图，共 21 张裁切图）。它们统一用本仓库当前的方向感知 scorer 对同一批 18 道题重评。成本列采用各次运行已记录的美元总成本；DeepSeek 的 <code>high</code> 与 <code>max</code> 条目可直接观察提高思考预算是否带来收益。</p>
           </div>
         </div>
         <div class="leaderboard-stack">
           <div>
             <h3 class="table-title">Multimodal O-Eval</h3>
-            <p class="table-caption">O-Eval 是相对 O 奖参照解的绝对完成度（100% = 平均达到 O 奖复现答案的 raw 水平，超出部分封顶）。codex 与 opencode(high) 分数几乎持平，但成本相差约 39 倍；而 opencode(max) 分数反而<b>低于</b>它的 high 档（51.48% vs 62.19%），成本却更高（按下述计费口径）。</p>
+            <p class="table-caption">主指标是 <b>Multi-O Eval</b>：每篇可用 O 奖论文形成一个只含其明确报告数值的参考面板，每道题先对论文等权平均，再对 18 道题等权平均。<b>claude-code + Fable 5.1</b> 与 <b>codex + GPT-6 Astra</b> 来自第三方（Rayward）在 2026-10 对同一任务库的运行；其产物已用本仓库当前 scorer 重评。最终排名在仅看至少 2/3 篇参考的题以及全局按论文等权时也保持 Fable 第一。</p>
             <div class="table-shell">
               <table id="multimodal-table" class="sortable-table">
                 <thead>
                   <tr>
                     <th data-type="text">Model</th>
                     <th data-type="number">Artifacts</th>
-                    <th data-type="number">O-Eval</th>
-                    <th data-type="number">Robust BO-Eval</th>
+                    <th data-type="number">Multi-O Eval</th>
+                    <th data-type="number">Robust BO-Eval (single anchor)</th>
                     <th data-type="number">Cost USD</th>
                     <th data-type="number">Cost RMB</th>
                     <th data-type="text">Status</th>
@@ -669,28 +669,46 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="rank">1</span><b>codex + GPT-5.5 xhigh</b><small>OpenAI GPT-5.5（<code>text+image-&gt;text</code>），reasoning_effort=xhigh，codex CLI。全 18 题均产出可评分结果，0 hard gate。</small></td>
+                    <td><span class="rank">1</span><b>claude-code + Fable 5.1</b><small>Anthropic <code>claude-fable-5-1</code>（多模态），claude-code CLI，reasoning_effort=max。第三方评测（DING FAN / Rayward，Modal，2026-10-05，仓库 a5ae348 @ 我们的 HEAD）。下载包漏收的潜水器结果已从同次轨迹恢复；18/18 题均用当前多参考 scorer 重评。</small></td>
                     <td data-sort="18">18 / 18</td>
-                    <td data-sort="64.29"><b>64.29%</b></td>
-                    <td data-sort="17.03"><b>17.03%</b></td>
+                    <td data-sort="64.67"><b>64.67%</b></td>
+                    <td data-sort="-3.20"><b>-3.20%</b></td>
+                    <td data-sort="272.80"><b>$272.80</b></td>
+                    <td data-sort="—">—</td>
+                    <td><span class="status done">18 valid + 0 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">2</span><b>opencode + DeepSeek V4.1 Flash</b><small>DeepSeek V4.1 Flash（<code>text+image-&gt;text</code>），opencode CLI，thinking effort=high。18/18 均产出可评分结果，并用当前多参考 scorer 重评。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="62.87"><b>62.87%</b></td>
+                    <td data-sort="0.00"><b>0.00%</b></td>
+                    <td data-sort="2.54"><b>$2.54</b></td>
+                    <td data-sort="17.08">¥17.08</td>
+                    <td><span class="status done">18 valid + 0 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">3</span><b>codex + GPT-6 Astra</b><small>OpenAI <code>gpt-6-astra</code>（多模态），codex CLI，reasoning_effort=max。同一第三方评测；18/18 题均用当前多参考 scorer 重评。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="59.66"><b>59.66%</b></td>
+                    <td data-sort="-19.17"><b>-19.17%</b></td>
+                    <td data-sort="246.41">$246.41</td>
+                    <td data-sort="—">—</td>
+                    <td><span class="status done">18 valid + 0 error</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="rank">4</span><b>codex + GPT-5.5 xhigh</b><small>OpenAI GPT-5.5（<code>text+image-&gt;text</code>），reasoning_effort=xhigh，codex CLI。全 18 题均产出可评分结果。</small></td>
+                    <td data-sort="18">18 / 18</td>
+                    <td data-sort="58.57"><b>58.57%</b></td>
+                    <td data-sort="-5.15"><b>-5.15%</b></td>
                     <td data-sort="99.37"><b>$99.37</b></td>
                     <td data-sort="669.45">¥669.45</td>
                     <td><span class="status done">18 valid + 0 error</span></td>
                   </tr>
                   <tr>
-                    <td><span class="rank">2</span><b>opencode + DeepSeek V4.1 Flash</b><small>DeepSeek V4.1 Flash（<code>text+image-&gt;text</code>），opencode CLI；thinking 默认开启、effort=high（DeepSeek 默认档，档位为 low/high/max）。18/18 均产出可评分结果。<code>mcm-2024-a-lamprey</code> 曾因把产物写成 <code>-result.json</code>（题目要求 <code>_result.json</code>）而未被收集，已按该次运行重放脚本复原产物并重新评分（<b>O-Eval 7.02%</b>）。</small></td>
-                    <td data-sort="18">18 / 18</td>
-                    <td data-sort="62.19"><b>62.19%</b></td>
-                    <td data-sort="12.24"><b>12.24%</b></td>
-                    <td data-sort="2.54"><b>$2.54</b></td>
-                    <td data-sort="17.09">¥17.09</td>
-                    <td><span class="status done">18 valid + 0 error</span></td>
-                  </tr>
-                  <tr>
-                    <td><span class="rank">3</span><b>opencode + DeepSeek V4.1 Flash (max)</b><small>同一模型、同一 opencode CLI，仅把 thinking 档位从默认 <code>high</code> 提到 <code>max</code>（<code>--agent-kwarg variant=max</code>）。这是 <b>high vs max</b> 的对照条目。<code>mcm-2024-a-lamprey</code> 与 high 档同样写错文件名（<code>-result.json</code>），已从轨迹复原并重评（<b>O-Eval 9.15%</b>）；<code>cumcm-2025-a-smoke-screen</code> 四次尝试后触及 4 小时上限超时，且 <code>cumcm-2023-a-heliostat-field</code> 的额定功率为 59.997 MW（差 0.003 MW 未达 60 MW）被 hard gate。因此 17/18 有效。</small></td>
+                    <td><span class="rank">5</span><b>opencode + DeepSeek V4.1 Flash (max)</b><small>同一模型、同一 opencode CLI，仅把 thinking 档位从 <code>high</code> 提到 <code>max</code>。Lamprey 的最终交付值已从同次轨迹恢复；<code>cumcm-2025-a-smoke-screen</code> 超时，因此仅 17/18 有 artifact，但主分仍严格按 18 题平均。</small></td>
                     <td data-sort="17">17 / 18</td>
-                    <td data-sort="51.48">51.48%</td>
-                    <td data-sort="6.76">6.76%</td>
+                    <td data-sort="52.36"><b>52.36%</b></td>
+                    <td data-sort="-15.19"><b>-15.19%</b></td>
                     <td data-sort="2.78">$2.78</td>
                     <td data-sort="18.75">¥18.75</td>
                     <td><span class="status partial">17 valid + 1 timeout</span></td>
@@ -698,17 +716,21 @@
                 </tbody>
               </table>
             </div>
-            <p class="table-caption">O-Eval / Robust BO-Eval 与下面纯文本榜同口径（<code>write_all_models_boeval_2023_2025.py</code> 生成）。</p>
-            <p class="table-caption"><b>产物复原说明</b>：<code>mcm-2024-a-lamprey</code> 那次运行其实完成了完整建模（三物种 ODE、20 组情景、敏感性分析、图表），但把结果写成了 <code>mcm-2024-a-lamprey<b>-</b>result.json</code>，而题目要求 <code>mcm-2024-a-lamprey<b>_</b>result.json</code>，因此未被收集。我们按同一次运行重放它的脚本复现了产物并用官方 verifier 重新评分，得 <b>O-Eval 7.02%</b>。复核发现它报的是归一化值（0.09 / 0.42）而非题目要求的原始种群指数（8.56 / 1080.36），属于量纲/字段理解错误——所以这是个低分但仍有效的作答，不是"没交卷"。</p>
-                        <p class="table-caption"><b>O 奖参照值修正说明</b>：核对 O 奖原论文后发现三道题的参照值此前取自复现产物、与论文不一致，已按论文重设锚点：<code>cumcm-2024-a-dragon-dance</code> 最大龙头速度 2.00002 → <b>1.406276 m/s</b>（速度比 0.99999 → 1.422195）；<code>cumcm-2025-b-sic-thickness</code> 厚度 SiC 8.9815 → <b>7.604 µm</b>、Si 10.5145 → <b>3.814 µm</b>；<code>cumcm-2024-c-crop-planting</code> 改用论文式(19)口径下的可复现精确最优解（见下）。修正后全榜（含纯文本榜）分数均按同一份报告重算。</p>
+            <p class="table-caption"><b>参考覆盖</b>：共整理 <b>99 篇</b> O 奖论文，其中 <b>67 篇</b>形成可评分面板，共提供 <b>131 条</b>数值字段报告。18 道题现在都至少有一篇人类参考，不再有 reproduction fallback；但 production decision、smoke screen、Maasai Mara 与 submersible search 仍各只有一篇可用论文。</p>
+            <p class="table-caption"><b>缺失值契约</b>：模型缺少某篇论文报告的字段时，该字段计 0，论文仍保留在分母；整题缺产物时该题计 0，仍保留在固定的 18 题分母。逐题覆盖、论文面板和敏感性结果见 <a href="reports/multimodal-multi-oracle-2023-2025.md">完整多参考报告</a>。</p>
+            <p class="table-caption"><b>聚合敏感性</b>：Fable 5.1 在四种审计口径下都保持第一：全 18 题等权 64.67%、仅 ≥2 refs 的 14 题 61.38%、仅 ≥3 refs 的 12 题 60.19%、67 个论文面板全局等权 58.75%。因此当前榜首不再依赖单参考题或 task-equal 聚合。</p>
+            <p class="table-caption"><b>遗漏产物恢复</b>：Fable 的 submersible 下载包漏收了结果，但同次 trajectory 明确记录了 Q3 搜索发现概率，恢复后该题 Multi-O 从 0 升至 100%，总分由 59.11% 升至 64.67%。DeepSeek max 的 lamprey 下载产物只剩旧字段；同次最终 schema 校验记录了 <code>adaptive_gain_pct = 4.0921</code>，恢复后该题从 0 升至 14.36%，总分由 51.57% 升至 52.36%。</p>
+            <p class="table-caption"><b>辅助指标口径</b>：表中的 Robust BO-Eval 仍沿用原 reproduction anchor，仅用于和旧榜连续对照，<b>不是</b>多参考 robustness。不要用这一列解释 Multi-O 的最终排名。</p>
+            <p class="table-caption"><b>参照值修正说明</b>：dragon-dance 当前使用连续时间可行解 <b>1.246266 m/s</b>，不是论文按整数秒采样得到但会违反 2 m/s 硬约束的 1.406276 m/s；SiC 厚度使用论文的 <b>7.604 µm / 3.814 µm</b>；crop-planting 使用可复现的精确优化口径。</p>
+            <p class="table-caption"><b>dragon-dance 再修正（O 奖论文该小问本身有错）</b>：<code>cumcm-2024-a-dragon-dance</code> 第 5 问的参照值原为论文的 <b>1.406276 m/s</b>，复算确认论文只在<b>整数秒</b>上取速度矩阵最大值，跨过了真正的连续时间峰值：t=14 s 时速度比 1.422195，而真峰在 <b>t=14.48 s</b>、速度比 <b>1.604793</b>。按论文值驱动龙头，该把手在 t=14.48 s 达 1.406276×1.604793 = <b>2.2568 m/s</b>，超过题目 2 m/s 上限，故论文值<b>物理不可行</b>。参照值已改为连续时间求解的 <b>1.246266 m/s</b>（k=1.604793），并把该字段方向由 <code>higher_is_better</code> 改为 <code>target_value</code>（原方向会把一个超限的 1.91 m/s 答案误判为满分）。修正后：此前答对 1.246266 的 12 个模型由 49.82% 升至 100%，而恰好复制论文错值的条目降至 49.82%。</p>
             <p class="table-caption"><b>农作物种植（special case）</b>：该题 O 奖论文的完整约束集——含其自创的"实际产量≥0.9×预期销量"——在官方附件上与题目硬约束联立后<b>无可行解</b>（HiGHS 判定 INFEASIBLE，多次复现），且论文使用未公开的 DEGA 启发式，其汇报值无法忠实复现。因此该题锚点改为按论文式(19)（<code>min(x·y, d)</code> 在逐地块求和之内）建模、用 HiGHS 求得的可复现精确最优解：<b>滞销 40,418,877 元 / 半价 58,718,967 元</b>（MIP gap &lt; 0.15%）。该题已在计分配置中标为 special case。</p>
 <p class="table-caption"><b>计费口径（成本列的算法）</b>：按 OpenRouter 目录价对实测 token 用量计算，并做两项保守处理——<br>
             (1) <b>推理 token 计入费用</b>。OpenAI 的 <code>output_tokens</code> 已包含推理，不再另加；DeepSeek（opencode 侧）的推理是独立计数器（每步满足 <code>total = input + output + reasoning + cache_read</code>），因此在其输出上补加 923,275 个推理 token。<br>
             (2) <b>按高峰时段计价</b>。DeepSeek V4.1 Flash 在工作日 UTC 100–400 与 600–1000 三个项目均为 2 倍价，成本列按高峰价计，避免低估；GPT-5.5 的 &gt;272k 长上下文档位本次未触发（最大单请求 219,735）。</p>
           </div>
           <div>
-            <h3 class="table-title">Multimodal Tempered Hard-Gated</h3>
-            <p class="table-caption">温和版 hard-gated 对照。两个多模态条目均为 <b>0 gates</b>，说明它们的高分不是靠不可行解刷出来的。</p>
+            <h3 class="table-title">Historical Single-Anchor Hard-Gated Diagnostic</h3>
+            <p class="table-caption">这是旧单参考管线中 GPT-5.5 与 DeepSeek Flash(high) 的温和 hard-gated 诊断，仅保留用于追溯；它不是当前 Multi-O 榜，也不参与上方五模型排名。</p>
             <div class="table-shell">
               <table id="multimodal-hard-gated-table" class="sortable-table">
                 <thead>
@@ -724,17 +746,17 @@
                 <tbody>
                   <tr>
                     <td><span class="rank">1</span><b>codex + GPT-5.5 xhigh</b><small>没有被判为明显不可行的题，gate 前后分数一致。</small></td>
-                    <td data-sort="64.29">64.29%</td>
-                    <td data-sort="17.03">17.03%</td>
-                    <td data-sort="64.29">64.29%</td>
+                    <td data-sort="68.07">68.07%</td>
+                    <td data-sort="23.62">23.62%</td>
+                    <td data-sort="68.07">68.07%</td>
                     <td data-sort="99.37">$99.37</td>
                     <td><span class="status done">0 gates</span></td>
                   </tr>
                   <tr>
                     <td><span class="rank">2</span><b>opencode + DeepSeek V4.1 Flash</b><small>同样 0 gate；Robust BO-Eval 为正但明显低于旗舰，说明它在若干题上未超过 baseline。</small></td>
-                    <td data-sort="62.19">62.19%</td>
-                    <td data-sort="12.24">12.24%</td>
-                    <td data-sort="62.19">62.19%</td>
+                    <td data-sort="65.76">65.76%</td>
+                    <td data-sort="18.36">18.36%</td>
+                    <td data-sort="65.76">65.76%</td>
                     <td data-sort="2.54">$2.54</td>
                     <td><span class="status done">0 gates</span></td>
                   </tr>
@@ -751,41 +773,33 @@
         <div class="section-head">
           <div>
             <h2>Multimodal Visuals</h2>
-            <p class="lead">多模态主榜的配套可视化，与纯文本榜共用同一套 AA 风格绘图脚本（<code>write_aa_style_eval_figures.py</code> 与 <code>write_all_models_boeval_2023_2025.py</code>），只是把模型集合收窄到两个多模态条目、并把成本统一为美元。所有数字都由同一份生成报告解析，和主榜不会漂移。</p>
+            <p class="lead">多参考多模态主榜的 5 模型配套可视化。分数、token 与实测美元成本全部从同一份生成报告解析；其中 Multi-O 是主指标，Robust BO-Eval 明确保留为 single-anchor 辅助诊断。</p>
           </div>
         </div>
         <div class="gallery">
           <figure class="viz">
-            <img src="assets/figures/mm-o-eval-bar.png" loading="lazy" alt="Multimodal O-Eval bar chart">
-            <figcaption><b>O-Eval</b>主指标：codex 与 opencode(high) 在 62%–64% 区间只差约 2.1 个百分点，而同一模型的 max 档掉到 51.48%——档位提高并未带来收益。</figcaption>
+            <img src="assets/figures/mo-o-eval-bar.png" loading="lazy" alt="Multi-reference multimodal O-Eval bar chart">
+            <figcaption><b>Multi-O Eval</b>主指标：Fable 5.1 以 64.67% 排第一，DeepSeek V4.1 Flash 为 62.87%，Astra 与 GPT-5.5 分别为 59.66% 和 58.57%。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-o-eval-cost-scatter.png" loading="lazy" alt="Multimodal O-Eval versus USD cost scatter chart">
-            <figcaption><b>O-Eval vs. Cost（USD，对数轴）</b>codex 与 opencode(high) 分数几乎持平、成本差约 <b>39 倍</b>（$99.37 vs $2.54）；opencode(max) 在相近低价位却明显低于 high 档。</figcaption>
+            <img src="assets/figures/mo-o-eval-cost-scatter.png" loading="lazy" alt="Multi-reference multimodal O-Eval versus USD cost">
+            <figcaption><b>Multi-O vs. Cost（USD，对数轴）</b>DeepSeek high 只需 $2.54 即达到 62.87%；Fable 以 $272.80 换得最高的 64.67%。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-o-eval-suite-split.png" loading="lazy" alt="Multimodal O-Eval by contest suite">
-            <figcaption><b>O-Eval by Suite</b>两个模型都是中文赛题（CUMCM 88% / 88%）显著高于英文赛题（MCM 40% / 37%），与纯文本榜规律一致。</figcaption>
+            <img src="assets/figures/mo-token-usage.png" loading="lazy" alt="Multimodal token usage for five models">
+            <figcaption><b>Token Usage</b>五个模型的总 token 用量约 56M–110M；是否命中缓存会显著改变实际计费输入量。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-o-eval-year-split.png" loading="lazy" alt="Multimodal O-Eval by year">
-            <figcaption><b>O-Eval by Year</b>GPT-5.5 跨年更稳（66.9 / 52.0 / 55.9）；DeepSeek V4.1 Flash 2023 最高但在 2024 明显回落。</figcaption>
+            <img src="assets/figures/mo-cost.png" loading="lazy" alt="Measured multimodal cost by model in USD">
+            <figcaption><b>Measured Cost（USD）</b>Astra/Fable 采用第三方实测总成本；缺少 provider token 单价时不虚构输入/输出拆分，统一画为灰色总额。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-cost.png" loading="lazy" alt="Multimodal cost by model in USD">
-            <figcaption><b>Estimated Cost（USD）</b>按输入 / 缓存命中 / 输出拆分。GPT-5.5 的 $99.37 里最大一块是缓存输入 $52.6，输出 $29.8，未命中输入 $16.9。</figcaption>
+            <img src="assets/figures/mo-effect-bar.png" loading="lazy" alt="Single-anchor Robust BO-Eval for multimodal models">
+            <figcaption><b>Robust BO-Eval（single anchor）</b>仅用于旧榜连续性；它不是多参考指标，也不参与 Multi-O 最终排名。</figcaption>
           </figure>
           <figure class="viz">
-            <img src="assets/figures/mm-token-usage.png" loading="lazy" alt="Multimodal token usage">
-            <figcaption><b>Token Usage</b>两个模型的用量只差数倍，真正的成本差来自每 token 单价（输入约 33 倍、输出约 50 倍）。</figcaption>
-          </figure>
-          <figure class="viz">
-            <img src="assets/figures/mm-effect-bar.png" loading="lazy" alt="Multimodal Robust BO-Eval bar chart">
-            <figcaption><b>Robust BO-Eval</b>辅助指标：相对 baseline 的稳健增益。GPT-5.5 为 17.03%，V4.1 Flash(high) 为 12.24%，Flash(max) 仅 6.76%——max 档的追分效率明显更低。</figcaption>
-          </figure>
-          <figure class="viz">
-            <img src="assets/figures/mm-effect-cost-scatter.png" loading="lazy" alt="Multimodal Robust BO-Eval versus USD cost">
-            <figcaption><b>Robust BO-Eval vs. Cost</b>同一性价比视角的辅助对照，结论与 O-Eval 版本一致。</figcaption>
+            <img src="assets/figures/mo-effect-cost-scatter.png" loading="lazy" alt="Single-anchor Robust BO-Eval versus USD cost">
+            <figcaption><b>Single-anchor Robust vs. Cost</b>辅助诊断显示高成本不保证相对旧 baseline 的正增益，但不能替代 Multi-O 的多参考结论。</figcaption>
           </figure>
         </div>
       </div>
@@ -1093,24 +1107,24 @@
         <div class="section-head">
           <div>
             <h2>Evaluation Metrics</h2>
-            <p class="lead">数学建模没有唯一标准答案，所以 TB-MathModel 先用原始 O-Eval 追踪自动 scorer 的完整输出，再用 hard-gated O-Eval 作为更谨慎的公开对照，把 Robust BO-Eval 作为 baseline-relative 的稳健辅助。</p>
+            <p class="lead">数学建模没有唯一标准答案，所以当前多模态主榜用 Multi-O Eval 对每道题的多篇 O 奖论文等权，再对 18 题等权；旧单参考 O-Eval、hard-gated O-Eval 与 Robust BO-Eval 只保留为历史和稳健性诊断。</p>
           </div>
         </div>
         <div class="metric-grid">
           <article class="metric">
-            <span class="tag">O-Eval</span>
-            <h3>主汇报指标</h3>
-            <p>直接看 agent 的可行解离 O 奖参照解有多近。100% 就是平均达到 O 奖复现答案的 raw 水平，超过的部分现在会封顶。</p>
+            <span class="tag">Multi-O Eval</span>
+            <h3>多模态主汇报指标</h3>
+            <p>一篇可用人类论文一票，每题先平均论文面板，再平均 18 题。模型缺字段计 0，不能靠省略难字段逃出分母。</p>
           </article>
           <article class="metric">
             <span class="tag">Robust BO-Eval</span>
-            <h3>辅助看优化增益</h3>
-            <p>先看模型相对基础方案有没有进步，再用截断和失败处罚压住离群点。它回答的是“有没有比 baseline 多做对一点”。</p>
+            <h3>单参考辅助诊断</h3>
+            <p>沿用原 reproduction anchor 看模型相对 baseline 的增益，仅用于和旧榜连续对照，不参与 Multi-O 排名。</p>
           </article>
           <article class="metric">
-            <span class="tag">Failure</span>
-            <h3>明显不可行要处罚</h3>
-            <p>缺失、无可评分 artifact、自动 hard-invalid 或人工复核确认不可行的异常高分，O-Eval 记 raw 0，Robust BO-Eval 对非 baseline 记 -100%。</p>
+            <span class="tag">Missing / Failure</span>
+            <h3>固定分母，不奖励漏答</h3>
+            <p>缺整题 artifact 时 Multi-O 该题记 0 并保留在 18 题分母；缺某篇论文的字段时该字段记 0，论文仍保留一票。</p>
           </article>
         </div>
       </div>
@@ -1205,7 +1219,7 @@
   <footer>
     <div class="wrap">
       <span>TB-MathModel, generated from 2023-2025 benchmark artifacts.</span>
-      <span>Last updated: 2026-09-13</span>
+      <span>Last updated: 2026-10-19</span>
     </div>
   </footer>
 
