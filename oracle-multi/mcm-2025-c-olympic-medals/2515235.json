@@ -1,13 +1,9 @@
 {
-  "paper_id": "2515235",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2515235/ocr/2515235.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Sec. 6.2/7 recommends Japan (women's gymnastics), the United States (women's epee), Germany (women's ... ) and mentions women's hockey, but the estimates are on a weighted 'medal score': Table 8 beta3 = 9.556 for China and 4.875 for the Netherlands (women's hockey, scores not medals) and an overall coach coefficient of 3.1084. No per-recommendation medal-count gain is reported, so all are null."
+ "paper_id": "2515235",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2515235/ocr/2515235.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 148.0
+ },
+ "notes": "Predicted table: USA total = 148 (95% CI 141-155). | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

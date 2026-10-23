@@ -1,13 +1,9 @@
 {
-  "paper_id": "2505964",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2505964/ocr/2505964.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "This is the benchmark's anchor paper, but the four benchmark numbers are produced by the benchmark reproduction script, not stated in the paper text. No 75th-percentile jump appears anywhere in the OCR. Sec. 3.4.4 gives four country-sport recommendation pairs in this order: India - Badminton, India - Hockey, Sweden - Swimming, Romania - Rowing (the same order used by solution/oracle/.../solution.py). The paper reports no medal-count gain for any of them: 'Badminton has the potential to secure 1-2 bronze medals' (a range, and phrased as potential achievement, not a gain), 'Swimmers are expected to have a higher capability of winning medals, including potential gold medals', 'The number of medal-winning teams is expected to increase'. The only numeric coach outputs are capability levels P_{n,y,e|c} on a 0-3 bronze/silver/gold scale: Lang Ping +1.16 average for USA volleyball and 1.67 for China volleyball. All fields left null rather than inventing values."
+ "paper_id": "2505964",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2505964/ocr/2505964.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 142.0
+ },
+ "notes": "Table 2: United States 2028 predicted total medals = 142. | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

@@ -99,6 +99,16 @@ B 题  生产过程中的决策问题
 
 - `/root/data/figures/fig_1.png`
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 原题问题 2 要求对表 1 六种生产情形给出最优检测/装配/拆解决策，并报告相应指标结果。请给出情形 1 在最优决策下的单位成品期望利润（元/件），这是三篇 O 奖论文都用统一单位报告的核心指标。
+
+Report that value in the required result JSON at:
+
+- `experiment_result.q2.best_decisions[0].expected_profit`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

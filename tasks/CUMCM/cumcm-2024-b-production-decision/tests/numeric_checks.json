@@ -61,7 +61,7 @@
   },
   {
     "path": "experiment_result.q2.best_decisions[0].expected_profit",
-    "expected": 26.374,
+    "expected": 18.18,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   },

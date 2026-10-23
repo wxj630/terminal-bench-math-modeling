@@ -54,6 +54,16 @@ B 题 碳化硅外延层厚度的确定
 - `/root/data/figures/fig_1.png`
 - `/root/data/figures/fig_2.png`
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 把多光束反射/透射造成的干涉也考虑进去，重新确定碳化硅外延层厚度，并分析结果可靠性。
+
+Report that value in the required result JSON at:
+
+- `experiment_result.sic_recommended_thickness_um`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

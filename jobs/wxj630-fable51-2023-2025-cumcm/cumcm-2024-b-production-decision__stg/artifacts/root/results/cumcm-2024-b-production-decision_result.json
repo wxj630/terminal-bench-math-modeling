@@ -1,0 +1,85 @@
+{
+ "experiment_result": {
+  "q4": {
+   "posterior_rows": [
+    {
+     "q2_best_profit_case1": 22.9848,
+     "q3_best_policy_profit_under_posterior": 72.7501
+    },
+    {
+     "q2_best_profit_case1": 20.2971,
+     "q3_best_policy_profit_under_posterior": 64.9902
+    },
+    {
+     "q2_best_profit_case1": 18.1633,
+     "q3_best_policy_profit_under_posterior": 58.1021
+    }
+   ]
+  },
+  "q2": {
+   "enumerated_decisions": 96,
+   "best_decisions": [
+    {
+     "case": 1,
+     "inspect_part1": 1,
+     "inspect_part2": 0,
+     "inspect_final": 0,
+     "dismantle_bad_final": 1,
+     "expected_profit": 18.8889
+    },
+    {
+     "case": 2,
+     "inspect_part1": 1,
+     "inspect_part2": 1,
+     "inspect_final": 0,
+     "dismantle_bad_final": 1,
+     "expected_profit": 12.0
+    },
+    {
+     "case": 3,
+     "inspect_part1": 1,
+     "inspect_part2": 0,
+     "inspect_final": 1,
+     "dismantle_bad_final": 1,
+     "expected_profit": 16.5556
+    },
+    {
+     "case": 4,
+     "inspect_part1": 1,
+     "inspect_part2": 1,
+     "inspect_final": 1,
+     "dismantle_bad_final": 1,
+     "expected_profit": 14.75
+    },
+    {
+     "case": 5,
+     "inspect_part1": 0,
+     "inspect_part2": 1,
+     "inspect_final": 0,
+     "dismantle_bad_final": 1,
+     "expected_profit": 15.3611
+    },
+    {
+     "case": 6,
+     "inspect_part1": 0,
+     "inspect_part2": 0,
+     "inspect_final": 0,
+     "dismantle_bad_final": 0,
+     "expected_profit": 21.6787
+    }
+   ],
+   "best_profit_mean": 16.53905
+  }
+ },
+ "_recovery_provenance": {
+  "source_trial": "fable-claude-code/cumcm-2024-b-production-decision__UMjTKea",
+  "trajectory_sha256": "158b689609366a8d5c214c316e19d2f813eea989d4dcad7478e656e219521e17",
+  "evidence_steps": [
+   46
+  ],
+  "method": "Direct transcription of the Q2 case-1 optimal profit printed by the original run; the download package retained only the Q4 subtree.",
+  "fields": {
+   "experiment_result.q2.best_decisions[0].expected_profit": 18.8889
+  }
+ }
+}

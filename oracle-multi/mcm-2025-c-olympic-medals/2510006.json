@@ -1,13 +1,9 @@
 {
-  "paper_id": "2510006",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2510006/ocr/2510006.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Sec. 5.2 recommends China (women's volleyball), India (athletics) and Brazil (gymnastics), but Table 6/7 express the expected impact only as qualitative ranking movements (China Top 8 -> Top 3, India Top 5 (Asia) -> Top 8, Brazil Top 20 -> Top 10) and 'Main Impact Area'; no medal-count gain is stated. The only numeric coach measure is Lang Ping's 0.75/0.5 'medal points' contribution, a different unit."
+ "paper_id": "2510006",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2510006/ocr/2510006.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 139.0
+ },
+ "notes": "Text: USA 2028 total = 54.57 gold + 52.16 silver + 32.37 bronze = 139 medals. | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

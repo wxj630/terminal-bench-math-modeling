@@ -1,14 +1,14 @@
 {
   "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
   "question_scope": "final_question_only",
-  "candidate_metric_count_before_final_filter": 20,
+  "candidate_metric_count_before_final_filter": 21,
   "final_question": {
-    "label": "Q1",
-    "plain_question": "2024-2030 年最优种植方案：超产分别按（1）滞销浪费、（2）按 2023 年价格 50% 降价出售，求两种情形下七年总利润最大的种植策略。",
-    "final_answer_summary": "本题为 special case：O 奖论文的完整约束集（含其自创的“实际产量≥0.9×预期销量”）在官方附件上不可行，且论文使用未公开的启发式，其汇报值无法忠实复现。评分锚点改为一套可复现的精确求解结果：按论文式(19)的逐地块销量封顶建模（min(x·y, d) 在逐地块求和之内），用 HiGHS 混合整数规划求解，滞销情境七年总利润约 36271603 元、50% 降价情境约 43282389 元（MIP gap < 1%）。",
-    "baseline_model_summary": "baseline 用规划优化和资源配置模型，在候选种植方案间比较收益与风险。",
+    "label": "Q3 correlated-risk optimal profit",
+    "plain_question": "原题最后一问要求在问题 2 的基础上加入作物间可替代性/互补性以及销售量-价格-成本相关性，用模拟数据求 2024–2030 年最优种植策略，并给出七年总利润这一核心标量。",
+    "final_answer_summary": "O 奖复现的 Q3 相关性情景最优七年总利润为 118,550,698.19 元（best_correlated_cvar10_profit_yuan）。四篇人类论文都报告了 Q3 口径的七年总利润，数值因各自模型假设不同而分布在约 2,180 万–7,013 万元之间。",
+    "baseline_model_summary": "baseline 在 Q2 随机规划基础上加入作物替代/互补和相关性的 CVaR 情景优化，输出七年总利润。",
     "metric_selection": "final_question_only_numeric_core",
-    "note": "special case：O 奖论文的完整约束集在官方附件上无可行解（“分散度≤5 块地”与“实际产量≥0.9×预期销量”联立冲突），论文亦使用未公开的 DEGA 启发式，其汇报值无法忠实复现。本题锚点改为论文式(19)口径下用 HiGHS 求得的可复现解（脚本：outstanding_solutions/2024/C/C038/solution.py）。"
+    "note": "多参考改造：原评分停在 Q1（题面最后一问实际是 Q3），且用复现脚本自定的滞销/降价双目标。现改为原题 Q3 直接要求、4/4 篇人类论文都报告的单一核心标量：相关性情景下的七年总利润。复现锚点来自现有 Q3 输出，未改 oracle 解算代码。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -19,40 +19,25 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 2,
-  "effective_metric_count": 2,
-  "final_answer_numeric_field_count": 2,
-  "scored_final_answer_numeric_field_count": 2,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "experiment_result.q1.discount_profit_yuan",
-      "oracle_value": 58718967.38,
+      "path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
+      "oracle_value": 21799420.9,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
       "direction": "higher_is_better",
       "semantic_direction": "higher_is_better",
-      "direction_basis": "Seven-year total profit under the 50%-discount rule is the problem-1 objective.",
-      "semantic_direction_basis": "Seven-year total profit under the 50%-discount rule is the problem-1 objective.",
+      "direction_basis": "Seven-year total profit under the correlated-risk Q3 model is the final-question objective.",
+      "semantic_direction_basis": "Seven-year total profit under the correlated-risk Q3 model is the final-question objective.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Q1"
-    },
-    {
-      "path": "experiment_result.q1.waste_profit_yuan",
-      "oracle_value": 40418876.72,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Seven-year total profit under the surplus-wasted rule is the problem-1 objective.",
-      "semantic_direction_basis": "Seven-year total profit under the surplus-wasted rule is the problem-1 objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q1"
+      "final_question_label": "Q3 correlated-risk optimal profit"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -90,7 +75,7 @@
       "cumcm/question_results/2024/C/q03/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 2
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

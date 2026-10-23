@@ -124,5 +124,8 @@
     "mcm/outstanding_solutions/2023/B/2315379/artifacts/scenario2_grid_allocation.png",
     "mcm/outstanding_solutions/2023/B/2315379/artifacts/scenario_economic_comparison.csv"
   ],
-  "artifact_dir": "mcm/outstanding_solutions/2023/B/2315379/artifacts"
+  "artifact_dir": "mcm/outstanding_solutions/2023/B/2315379/artifacts",
+  "experiment_result": {
+    "recommended_zone_count": 4
+  }
 }

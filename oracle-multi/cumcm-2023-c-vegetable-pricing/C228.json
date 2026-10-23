@@ -1,10 +1,9 @@
 {
-  "paper_id": "C228",
-  "task_slug": "cumcm-2023-c-vegetable-pricing",
-  "source": "cumcm/2023-C/C228/ocr/C228.md",
-  "fields": {
-    "target_comparison.future_week_max_profit_yuan.actual": 12500.8806,
-    "target_comparison.problem3_selected_item_count.actual": 33
-  },
-  "notes": "Q2 Table 8 gives seven daily max profits (1810.02, 1802.87, 1745.22, 1758.42, 1790.44, 1794.12, 1799.79); the paper prints no weekly total, so the field value is their sum = 12500.8806 (yen). Q3 selected 33 items: Appendix D lists exactly 33 SKUs (constraint 27-33). Quote: '表8 七日收益最大值'; Q3 text '最终得到四十种单品进行决策' is the candidate pool, not the selected count."
+ "paper_id": "C228",
+ "task_slug": "cumcm-2023-c-vegetable-pricing",
+ "source": "cumcm/2023-C/C228/ocr/C228.md",
+ "fields": {
+  "target_comparison.problem3_selected_item_count.actual": 33.0
+ },
+ "notes": "Q2 Table 8 gives seven daily max profits (1810.02, 1802.87, 1745.22, 1758.42, 1790.44, 1794.12, 1799.79); the paper prints no weekly total, so the field value is their sum = 12500.8806 (yen). Q3 selected 33 items: Appendix D lists exactly 33 SKUs (constraint 27-33). Quote: '表8 七日收益最大值'; Q3 text '最终得到四十种单品进行决策' is the candidate pool, not the selected count. | Replaced the profit proxy with the Q3 selected-SKU count, which all three papers report."
 }

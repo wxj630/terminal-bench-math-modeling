@@ -19,8 +19,9 @@ ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
 EXPECTED_TASKS = 18
 EXPECTED_PAPERS = 99
-EXPECTED_PANELS = 67
+EXPECTED_PANELS = 94
 OLYMPIC_FOURTH = "great_coach_model.recommendations[3].estimated_medal_count_gain"
+OLYMPIC_CORE = "monte_carlo_summary_top_total[0].expected_total"
 
 
 def _load(name: str, filename: str):
@@ -191,13 +192,13 @@ def check_real_panel_contracts(multi, base, builder) -> list[str]:
             olympic_checked = True
             for panel in panels:
                 paths = {m["path"] for m in panel["config"]["metrics"]}
-                if OLYMPIC_FOURTH in paths:
+                if OLYMPIC_CORE not in paths:
                     failures.append(
-                        f"OLYMPIC: excluded fourth recommendation leaked into {panel['paper_id']}"
+                        f"OLYMPIC: core scalar missing from panel {panel['paper_id']}"
                     )
-                if panel["n_scored_in_task"] != 4:
+                if panel["n_scored_in_task"] != 1:
                     failures.append(
-                        "OLYMPIC: coverage denominator must contain four active metrics, got "
+                        "OLYMPIC: coverage denominator must contain one core scalar, got "
                         f"{panel['n_scored_in_task']!r}"
                     )
     if paper_count != EXPECTED_PAPERS:
@@ -251,6 +252,17 @@ def check_derivation_provenance(multi) -> list[str]:
                     expected = 100.0 * (float(values["fixed"]) - float(values["adaptive"])) / float(values["fixed"])
                 elif kind == "sum_reported_components":
                     expected = sum(float(value) for value in values)
+                elif kind == "divide_by_batch":
+                    expected = float(values["total_profit_yuan"]) / float(values["batch_units"])
+                elif kind == "digitized_from_figure":
+                    # The value is read off a plot; require that the two printed
+                    # calibration anchors were recorded and are consistent.
+                    expected = float(derivation["computed_value"])
+                    if not {"p_5h", "p_50h"}.issubset(values):
+                        failures.append(
+                            f"DERIVATION: {path.name}/{field} lacks its figure calibration anchors"
+                        )
+                        continue
                 else:
                     failures.append(f"DERIVATION: {path.name}/{field} has unknown kind {kind!r}")
                     continue
@@ -259,13 +271,94 @@ def check_derivation_provenance(multi) -> list[str]:
                 continue
             declared = float(derivation.get("computed_value"))
             field_value = float(data["fields"][field])
-            if abs(round(expected, 2) - declared) > 1e-12 or abs(declared - field_value) > 1e-12:
+            tolerance = max(5e-3, abs(expected) * 1e-9)
+            if abs(expected - declared) > tolerance or abs(declared - field_value) > 1e-12:
                 failures.append(
                     f"DERIVATION: {path.name}/{field} expected {expected!r}, "
                     f"declared {declared!r}, field {field_value!r}"
                 )
-    if derived_fields != 6:
-        failures.append(f"DERIVATION: expected 6 audited derived fields, got {derived_fields}")
+    if derived_fields != 8:
+        failures.append(f"DERIVATION: expected 8 audited derived fields, got {derived_fields}")
+    return failures
+
+
+def check_single_value_and_coverage(multi_result, base, builder) -> list[str]:
+    """Every task must expose exactly one core scalar, and coverage must not regress.
+
+    The objective is a simple final answer that still uses as many human papers as
+    possible. A task may not keep multiple scored fields: if no common scalar can
+    be found, the paper-coverage requirement forces one to be defined rather than
+    silently averaging incommensurable columns.
+    """
+    failures: list[str] = []
+    total_panels = 0
+    for case in builder.CASES:
+        if case.year not in (2023, 2024, 2025):
+            continue
+        record = multi_result["tasks"][case.slug]
+        config = base._score_config(case)
+        n_metrics = len(config["metrics"])
+        n_used = record["n_oracles_used"]
+        total_panels += n_used
+        if n_metrics != 1:
+            failures.append(
+                f"FINAL ANSWER: {case.slug} has {n_metrics} scored metrics; expected exactly 1"
+            )
+        if n_used == 0:
+            failures.append(f"FINAL ANSWER: {case.slug} has no usable human panel")
+    if total_panels < 94:
+        failures.append(
+            f"COVERAGE: usable panels dropped to {total_panels}; expected at least 94"
+        )
+    return failures
+
+
+def check_instruction_states_the_core(base, builder) -> list[str]:
+    """The task instruction must name the one field the verifier will score."""
+    failures: list[str] = []
+    for case in builder.CASES:
+        if case.year not in (2023, 2024, 2025):
+            continue
+        task = ROOT / "tasks" / case.contest_dir / case.slug
+        instruction = (task / "instruction.md").read_text(encoding="utf-8")
+        config = base._score_config(case)
+        paths = [metric["path"] for metric in config["metrics"]]
+        if len(paths) != 1:
+            failures.append(f"INSTRUCTION: {case.slug} has {len(paths)} scored paths")
+            continue
+        if "Benchmark Final-Answer Requirement" not in instruction:
+            failures.append(f"INSTRUCTION: {case.slug} has no final-answer section")
+        if paths[0] not in instruction:
+            failures.append(
+                f"INSTRUCTION: {case.slug} does not name its scored field {paths[0]!r}"
+            )
+    return failures
+
+
+def check_every_paper_is_accounted_for(multi) -> list[str]:
+    """Every one of the 99 papers must be used or carry a structured exclusion reason."""
+    failures: list[str] = []
+    total = 0
+    used = 0
+    excluded = 0
+    for path in sorted(multi.MULTI.glob("*/*.json")):
+        if path.name == "ANCHOR_OVERRIDES.json":
+            continue
+        data = json.loads(path.read_text(encoding="utf-8"))
+        total += 1
+        fields = data.get("fields") or {}
+        has_value = any(value is not None for value in fields.values())
+        reason = str(data.get("exclusion_reason") or "").strip()
+        if has_value:
+            used += 1
+        elif reason:
+            excluded += 1
+        else:
+            failures.append(f"PAPER AUDIT: {path.relative_to(multi.MULTI)} is neither used nor excluded")
+    if total != EXPECTED_PAPERS:
+        failures.append(f"PAPER AUDIT: expected {EXPECTED_PAPERS} papers, found {total}")
+    if used + excluded != total:
+        failures.append(f"PAPER AUDIT: {used} used + {excluded} excluded != {total}")
     return failures
 
 
@@ -273,8 +366,8 @@ def check_recovery_manifest(multi) -> list[str]:
     failures: list[str] = []
     manifest = json.loads((multi.MULTI / "MODEL_ARTIFACT_RECOVERY.json").read_text(encoding="utf-8"))
     recoveries = manifest.get("recoveries") or []
-    if len(recoveries) != 2:
-        failures.append(f"RECOVERY: expected 2 recovery records, got {len(recoveries)}")
+    if len(recoveries) != 4:
+        failures.append(f"RECOVERY: expected 4 recovery records, got {len(recoveries)}")
     for recovery in recoveries:
         artifact_path = ROOT / recovery["artifact_path"]
         if not artifact_path.exists():
@@ -296,11 +389,22 @@ def check_recovery_manifest(multi) -> list[str]:
 
 
 def _get_path(data: dict[str, Any], path: str) -> tuple[bool, Any]:
+    """Resolve dotted paths, including ``list[index]`` segments."""
     current: Any = data
-    for token in path.split("."):
-        if not isinstance(current, dict) or token not in current:
+    for token in path.replace("]", "").replace("[", ".").split("."):
+        if not token:
+            continue
+        if isinstance(current, list):
+            try:
+                current = current[int(token)]
+            except (IndexError, ValueError):
+                return False, None
+        elif isinstance(current, dict):
+            if token not in current:
+                return False, None
+            current = current[token]
+        else:
             return False, None
-        current = current[token]
     return True, current
 
 
@@ -339,12 +443,19 @@ def main() -> int:
     board = _load("multi_contract_board", "write_multimodal_multi_oracle.py")
     figures = _load("multi_contract_figures", "write_aa_style_eval_figures.py")
     builder = base._load_builder()
+    multi_result = json.loads((ROOT / "jobs" / "multi-oracle-eval.json").read_text(encoding="utf-8"))
     suites = (
         ("missing model field keeps paper", check_missing_field_keeps_paper(multi, base)),
         ("missing artifact is zero", check_missing_artifact_is_zero(multi, base)),
         ("fallback semantics", check_fallback_only_without_usable_paper(multi, base)),
         ("real paper panels", check_real_panel_contracts(multi, base, builder)),
         ("fixed 18-task denominator", check_fixed_task_denominator(board)),
+        (
+            "single scalar for every task",
+            check_single_value_and_coverage(multi_result, base, builder),
+        ),
+        ("instruction states the core", check_instruction_states_the_core(base, builder)),
+        ("every paper used or excluded", check_every_paper_is_accounted_for(multi)),
         ("derived reference provenance", check_derivation_provenance(multi)),
         ("model artifact recovery manifest", check_recovery_manifest(multi)),
         ("five-model renderer", check_multimodal_renderer(figures)),

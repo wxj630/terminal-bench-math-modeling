@@ -1,10 +1,9 @@
 {
-  "paper_id": "C094",
-  "task_slug": "cumcm-2024-c-crop-planting",
-  "source": "cumcm/2024-C/C094/ocr/C094.md",
-  "fields": {
-    "experiment_result.q1.discount_profit_yuan": 56325297.78,
-    "experiment_result.q1.waste_profit_yuan": 40244799.2
-  },
-  "notes": "摘要原文：'使用求解器求解得：超出部分滞销结果为40244799.20元，超出部分折价结果为56325297.78元'；5.1.2 表5 亦列 '超出滞销 40,244,799.20 / 超出半价 56,325,297.78'。该文目标函数式(10) Z=总收入-总成本（即利润），表5列名写作'总收入（元）'但数值对应目标函数 Z，按利润记录。表中 p=3,q=8 行给出滞销 40244799.20、p=3,q=3 行给出半价 56325297.78（论文选定 p/q 约束后的结果）；表4中半价最大值 58860743.46 对应 p=4,q=5，未采用。单位元，无换算。"
+ "paper_id": "C094",
+ "task_slug": "cumcm-2024-c-crop-planting",
+ "source": "cumcm/2024-C/C094/ocr/C094.md",
+ "fields": {
+  "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan": 53078389.86
+ },
+ "notes": "Q3 best strategy expected income 53,078,389.86 yuan (problem 3 result, compared with problem 2 51,667,432.02). | Replaced Q1 waste/discount panels with the original final-question Q3 total profit."
 }

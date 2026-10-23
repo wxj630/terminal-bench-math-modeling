@@ -6,5 +6,6 @@
   "experiment_result.largest_stability_gain.adaptive_gain_pct": null,
   "experiment_result.largest_stability_gain.adaptive_stability": null
  },
- "notes": "Sec. 5.3 reports the 3-R index only in Figure 17 (\"3-R Index - $\\Delta p$\"); the text says \"the resilience of the sea lampreys is greater when there is a higher proportion of males in the population, while the resistance (Rst) slightly decreases\". No numeric Rst/Rsl/Rc, no numeric composite stability, and no gain percentage are given, so both fields are null. | No comparable pair of numbers; field left null."
+ "notes": "Sec. 5.3 reports the 3-R index only in Figure 17 (\"3-R Index - $\\Delta p$\"); the text says \"the resilience of the sea lampreys is greater when there is a higher proportion of males in the population, while the resistance (Rst) slightly decreases\". No numeric Rst/Rsl/Rc, no numeric composite stability, and no gain percentage are given, so both fields are null. | No comparable pair of numbers; field left null.",
+ "exclusion_reason": "number_only_in_figure: the paper reports the 3-R index only as Figure 17 and gives no fixed-vs-adaptive numeric pair or percentage."
 }

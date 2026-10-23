@@ -3,11 +3,12 @@
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 96,
   "final_question": {
-    "label": "Final NOC insight question",
-    "plain_question": "说明模型还能发现哪些原创奖牌规律，以及这些规律怎样指导国家奥委会分配项目和教练资源。",
-    "final_answer_summary": "O 奖复现的教练效应建议中，四个候选投资的预计奖牌增益为 1.666667、2.0、3.0、1.777778，全局强教练效应 75 分位跳升为 6.0。",
-    "baseline_model_summary": "baseline 用奥运奖牌预测、项目重要性分析和滚动三届历史成绩跳升来筛选可能的强教练效应。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Q1 2028 host-nation total medal forecast",
+    "plain_question": "原题首先要求预测 2028 年洛杉矶奥运会各国的奖牌数。请给出美国（东道主）在 2028 年的预计总奖牌数（金+银+铜）。这是后续所有教练效应与项目投资分析的共同基准量。",
+    "final_answer_summary": "O 奖复现的 Monte Carlo 预测中，美国 2028 年预计总奖牌数为 139.012（95% 区间 123.475–155.0）。不同人类论文的预测落在约 115–148 之间，因此以每篇论文自己的预测值作为参考面板。",
+    "baseline_model_summary": "baseline 用历史奖牌、东道主效应、项目设置和运动员规模预测 2028 年美国总奖牌数。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：原“教练建议增益”只有 7/18 篇论文报告可比的奖牌数增益，且量纲混杂；改为原题 Q1 直接要求、约 15/18 篇论文都报告的“美国 2028 总奖牌数”单一标量。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,85 +19,26 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 5,
-  "effective_metric_count": 5,
-  "final_answer_numeric_field_count": 5,
-  "scored_final_answer_numeric_field_count": 5,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "great_coach_model.global_top_jump_75pct",
-      "oracle_value": 6.0,
+      "path": "monte_carlo_summary_top_total[0].expected_total",
+      "oracle_value": 139.012,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "A larger 75th-percentile jump indicates a stronger coach-effect signal.",
-      "semantic_direction_basis": "A larger 75th-percentile jump indicates a stronger coach-effect signal.",
+      "direction": "target_value",
+      "semantic_direction": "target_value",
+      "direction_basis": "The task asks for a forecast of the host nation's 2028 total medal count; accuracy is the target, so a larger forecast is not automatically better.",
+      "semantic_direction_basis": "The task asks for a forecast of the host nation's 2028 total medal count; accuracy is the target, so a larger forecast is not automatically better.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
+      "baseline_value": null,
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Final NOC insight question"
-    },
-    {
-      "path": "great_coach_model.recommendations[0].estimated_medal_count_gain",
-      "oracle_value": 1.666667,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The candidate investment value is estimated medal gain.",
-      "semantic_direction_basis": "The candidate investment value is estimated medal gain.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final NOC insight question"
-    },
-    {
-      "path": "great_coach_model.recommendations[1].estimated_medal_count_gain",
-      "oracle_value": 2.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The candidate investment value is estimated medal gain.",
-      "semantic_direction_basis": "The candidate investment value is estimated medal gain.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final NOC insight question"
-    },
-    {
-      "path": "great_coach_model.recommendations[2].estimated_medal_count_gain",
-      "oracle_value": 3.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The candidate investment value is estimated medal gain.",
-      "semantic_direction_basis": "The candidate investment value is estimated medal gain.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final NOC insight question"
-    },
-    {
-      "path": "great_coach_model.recommendations[3].estimated_medal_count_gain",
-      "oracle_value": 1.777778,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The candidate investment value is estimated medal gain.",
-      "semantic_direction_basis": "The candidate investment value is estimated medal gain.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final NOC insight question"
+      "final_question_label": "Q1 2028 host-nation total medal forecast"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -152,7 +94,7 @@
       "mcm/question_results/2025/C/q06/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 5
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

@@ -1,11 +1,9 @@
 {
-  "paper_id": "2418251",
-  "task_slug": "mcm-2024-c-tennis-momentum",
-  "source": "mcm/2024-C/2418251/ocr/2418251.md",
-  "fields": {
-    "experiment_result.randomness_tests.median_ljung_box_p": null,
-    "experiment_result.randomness_tests.median_runs_p": null,
-    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
-  },
-  "notes": "Problem 2 is assessed via correlation between model momentum and single-game winning probability (0.704 and 0.729: \"a player's success is not random but related to momentum\") and via ARIMA autocorrelation for prediction. No Ljung-Box, runs-test p-value, or per-match iid rejection share is reported, so all three fields are null."
+ "paper_id": "2418251",
+ "task_slug": "mcm-2024-c-tennis-momentum",
+ "source": "mcm/2024-C/2418251/ocr/2418251.md",
+ "fields": {
+  "experiment_result.randomness_tests.momentum_supported": 1.0
+ },
+ "notes": "The paper assesses momentum through model correlation and concludes it is related to winning probability. | Binary verdict: 1 = momentum supported / randomness rejected; 0 = randomness not rejected."
 }

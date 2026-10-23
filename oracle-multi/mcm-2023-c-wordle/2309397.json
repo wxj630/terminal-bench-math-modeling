@@ -1,9 +1,9 @@
 {
-  "paper_id": "2309397",
-  "task_slug": "mcm-2023-c-wordle",
-  "source": "mcm/2023-C/2309397/ocr/2309397.md",
-  "fields": {
-    "target_comparison.lightgbm_like_accuracy.actual": null
-  },
-  "notes": "Difficulty model is GMM clustering into 5 levels; the only quality figure is a silhouette value ('Silhouette Values of the five categories... all in the range of 0.8'), which is a cluster-separation index, not a classification accuracy. No accuracy/precision/recall/F1 for a difficulty classifier is reported, so the field is null. EERIE is assigned difficulty level III."
+ "paper_id": "2309397",
+ "task_slug": "mcm-2023-c-wordle",
+ "source": "mcm/2023-C/2309397/ocr/2309397.md",
+ "fields": {
+  "paper_targets.eerie_distribution_pct[3]": 24.0
+ },
+ "notes": "LSTM predicted distribution [2,11,25,24,19,14,5]%; fourth-try share = 24%. | Replaced the classifier-accuracy panel with the common EERIE four-try share."
 }

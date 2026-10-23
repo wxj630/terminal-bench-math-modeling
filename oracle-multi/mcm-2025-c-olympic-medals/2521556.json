@@ -1,13 +1,9 @@
 {
-  "paper_id": "2521556",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2521556/ocr/2521556.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": 0.8,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": 0.9,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": 1.0,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Sec. 7.2 recommendations verbatim: 'For the USA NOC, we suggested hiring a great coach for Rowing, Fencing, and Canoeing. With the influence of a great coach, these sports are expected to add 0.8 medals'; 'For the SWE NOC ... Table Tennis, expecting an increase of 0.9 medals'; 'For the CHN NOC ... Football, expecting an increase of 1 medal'. Filled in paper order (USA, SWE, CHN). recommendations[3] null (only three)."
+ "paper_id": "2521556",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2521556/ocr/2521556.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 139.0
+ },
+ "notes": "2028 virtual/medal table figure on the PDF page reports United States total medals = 139. | Core scalar: USA 2028 total medals."
 }

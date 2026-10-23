@@ -7,7 +7,10 @@
       "artifact_path": "jobs/wxj630-fable51-2023-2025-mcm/mcm-2024-b-submersible-search__stg/artifacts/root/results/mcm-2024-b-submersible-search_result.json",
       "source_trial": "fable-claude-code/mcm-2024-b-submersible-search__aCCG3VW",
       "source_trajectory_sha256": "aaf04ac06e462854aa49257efc954c5eb00956f04bcb5a46cd3b60619cdb37cb",
-      "evidence_steps": [19, 26],
+      "evidence_steps": [
+        19,
+        26
+      ],
       "method": "Direct transcription of values printed by the original run; no rerun or recomputation.",
       "fields": {
         "experiment_result.search_strategy.find_probability_6h": 0.6748667542975262,
@@ -23,13 +26,46 @@
       "artifact_path": "jobs/opencode-deepseek-flash-max-mcm/mcm-2024-a-lamprey__qPJTREn/artifacts/root/results/mcm-2024-a-lamprey_result.json",
       "source_trial": "opencode-deepseek-flash-max-mcm/mcm-2024-a-lamprey__qPJTREn",
       "source_trajectory_sha256": "23b8842d8052f4b8495bdf41d6b1cde925db9a914e6230df3a26cd5fd82e7a8f",
-      "evidence_steps": [70, 71, 76],
+      "evidence_steps": [
+        70,
+        71,
+        76
+      ],
       "method": "Direct transcription of the final schema-validated result printed by the original run; the earlier intermediate 1.3596% result is excluded.",
       "fields": {
         "experiment_result.largest_stability_gain.resource_level": 0.8,
         "experiment_result.largest_stability_gain.adaptive_stability": 0.86975,
         "experiment_result.largest_stability_gain.fixed_stability": 0.835558,
         "experiment_result.largest_stability_gain.adaptive_gain_pct": 4.0921
+      }
+    },
+    {
+      "model": "claude_fable51",
+      "task_slug": "cumcm-2024-b-production-decision",
+      "artifact_path": "jobs/wxj630-fable51-2023-2025-cumcm/cumcm-2024-b-production-decision__stg/artifacts/root/results/cumcm-2024-b-production-decision_result.json",
+      "source_trial": "fable-claude-code/cumcm-2024-b-production-decision__UMjTKea",
+      "source_trajectory_sha256": "158b689609366a8d5c214c316e19d2f813eea989d4dcad7478e656e219521e17",
+      "evidence_steps": [
+        46
+      ],
+      "method": "Direct transcription of the Q2 case-1 optimal profit printed by the original run.",
+      "fields": {
+        "experiment_result.q2.best_decisions[0].expected_profit": 18.8889
+      }
+    },
+    {
+      "model": "codex_gpt6_astra",
+      "task_slug": "cumcm-2024-b-production-decision",
+      "artifact_path": "jobs/wxj630-gpt6-astra-2023-2025-cumcm/cumcm-2024-b-production-decision__stg/artifacts/root/results/cumcm-2024-b-production-decision_result.json",
+      "source_trial": "astra-codex/cumcm-2024-b-production-decision__cWnf8b9",
+      "source_trajectory_sha256": "c5dd94b5a23255c2b5494f5f1e3178d0f1c6e13c5fe2168aef59d04a9d5fe7f9",
+      "evidence_steps": [
+        17,
+        39
+      ],
+      "method": "Direct transcription of the Q2 case-1 optimal profit printed by the original run.",
+      "fields": {
+        "experiment_result.q2.best_decisions[0].expected_profit": 18.922222222222224
       }
     }
   ]

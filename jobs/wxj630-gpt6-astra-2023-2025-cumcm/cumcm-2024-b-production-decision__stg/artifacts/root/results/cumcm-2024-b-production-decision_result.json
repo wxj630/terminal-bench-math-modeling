@@ -1,0 +1,86 @@
+{
+ "experiment_result": {
+  "q4": {
+   "posterior_rows": [
+    {
+     "q2_best_profit_case1": 22.577093321467096,
+     "q3_best_policy_profit_under_posterior": 71.42600619195048
+    },
+    {
+     "q2_best_profit_case1": 18.220915032679756,
+     "q3_best_policy_profit_under_posterior": 58.144444444444446
+    },
+    {
+     "q2_best_profit_case1": 11.45000000000001,
+     "q3_best_policy_profit_under_posterior": 34.837500000000034
+    }
+   ]
+  },
+  "q2": {
+   "enumerated_decisions": 96,
+   "best_decisions": [
+    {
+     "case": 1,
+     "inspect_part1": 1,
+     "inspect_part2": 0,
+     "inspect_final": 0,
+     "dismantle_bad_final": 1,
+     "expected_profit": 18.922222222222224
+    },
+    {
+     "case": 2,
+     "inspect_part1": 1,
+     "inspect_part2": 1,
+     "inspect_final": 0,
+     "dismantle_bad_final": 1,
+     "expected_profit": 12.0
+    },
+    {
+     "case": 3,
+     "inspect_part1": 1,
+     "inspect_part2": 0,
+     "inspect_final": 1,
+     "dismantle_bad_final": 1,
+     "expected_profit": 16.58888888888889
+    },
+    {
+     "case": 4,
+     "inspect_part1": 1,
+     "inspect_part2": 1,
+     "inspect_final": 1,
+     "dismantle_bad_final": 1,
+     "expected_profit": 14.75
+    },
+    {
+     "case": 5,
+     "inspect_part1": 0,
+     "inspect_part2": 1,
+     "inspect_final": 0,
+     "dismantle_bad_final": 1,
+     "expected_profit": 15.450000000000003
+    },
+    {
+     "case": 6,
+     "inspect_part1": 0,
+     "inspect_part2": 0,
+     "inspect_final": 0,
+     "dismantle_bad_final": 0,
+     "expected_profit": 21.6786703601108
+    }
+   ],
+   "best_profit_mean": 16.564963578536986
+  }
+ },
+ "_recovery_provenance": {
+  "source_trial": "astra-codex/cumcm-2024-b-production-decision__cWnf8b9",
+  "trajectory_sha256": "c5dd94b5a23255c2b5494f5f1e3178d0f1c6e13c5fe2168aef59d04a9d5fe7f9",
+  "evidence_steps": [
+   17,
+   39
+  ],
+  "method": "Direct transcription of the Q2 case-1 optimal profit printed by the original run; the download package retained only the Q4 subtree.",
+  "fields": {
+   "experiment_result.q2.best_decisions[0].expected_profit": 18.922222222222224
+  }
+ }
+}

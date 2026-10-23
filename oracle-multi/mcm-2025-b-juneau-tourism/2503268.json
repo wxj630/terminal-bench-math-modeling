@@ -1,14 +1,9 @@
 {
-  "paper_id": "2503268",
-  "task_slug": "mcm-2025-b-juneau-tourism",
-  "source": "mcm/2025-B/2503268/ocr/2503268.md",
-  "fields": {
-    "experiment_result.annual_visitors": null,
-    "experiment_result.optimal_daily_cap": 15000.0,
-    "experiment_result.optimal_visitor_fee_usd": null,
-    "experiment_result.resident_acceptance_index": null,
-    "experiment_result.sustainability_score": 0.6894,
-    "experiment_result.total_revenue_usd": null
-  },
-  "notes": "Daily cap: memo 'A cap of 15,000 visitors per day would balance ecological protection with revenue retention.' Sustainability score: Sec. 8 'a final score of 0.6894' (AHP-based overall evaluation, 0-1 scale; abstract rounds it to 0.692 and says the model improves a score from 0.446 to 0.692). Annual visitors: not reported - the state variable N_Juneau is an annual tourist count but no optimized value is given (T0=2,448,159 is hotel tax revenue). Visitor fee: none. Resident acceptance: not separately reported (the AHP score aggregates residents' quality of life, environment, and economy). Total revenue: not reported."
+ "paper_id": "2503268",
+ "task_slug": "mcm-2025-b-juneau-tourism",
+ "source": "mcm/2025-B/2503268/ocr/2503268.md",
+ "fields": {
+  "experiment_result.recommends_daily_visitor_cap": 1.0
+ },
+ "notes": "Memo recommends a cap of 15,000 visitors per day. | Binary verdict: 1 = recommends a daily visitor cap; 0 = does not."
 }

@@ -43,7 +43,6 @@ MULTIMODAL = (
 REPORT_PATH = JOBS / "multimodal-multi-oracle-2023-2025.md"
 EXPECTED_TASKS = 18
 
-
 def _mean(values: list[float]) -> float:
     return sum(values) / len(values) if values else 0.0
 
@@ -281,14 +280,38 @@ def main() -> int:
             f"{'**reproduction**' if rec.get('fallback_to_reproduction') else '—'} |"
         )
 
+    exclusions = []
+    for slug in multi["tasks"]:
+        for path in sorted((ROOT / "oracle-multi" / slug).glob("*.json")):
+            data = json.loads(path.read_text(encoding="utf-8"))
+            fields = data.get("fields") or {}
+            if any(value is not None for value in fields.values()):
+                continue
+            exclusions.append((slug, data.get("paper_id", path.stem),
+                               data.get("exclusion_reason", "")))
+    lines += [
+        "",
+        "## Human papers not in any panel",
+        "",
+        "Every one of the 99 papers is either used or listed here with a structured",
+        "reason. These five cannot answer the task's single core scalar without",
+        "inventing a conversion.",
+        "",
+        "| Task | Paper | Reason |",
+        "|---|---|---|",
+    ]
+    for slug, paper_id, reason in exclusions:
+        lines.append(f"| `{slug}` | {paper_id} | {reason.replace('|', '/')} |")
+
     lines += [
         "",
         "## Caveats a reader must know",
         "",
-        "1. **Coverage is uneven.** The 99 O-award papers were extracted from OCR of",
-        "   the PDFs; 67 papers form usable panels with 131 numeric field-reports. Every",
-        "   task now has at least one human panel, but four tasks still rest on one paper:",
-        "   production decision, smoke screen, Maasai Mara, and submersible search.",
+        f"1. **Coverage is uneven.** The 99 O-award papers were extracted from OCR of",
+        f"   the PDFs; {sum(r['n_oracles_used'] for r in multi['tasks'].values())} papers form usable panels with "
+        f"{sum(sum(o['n_fields'] for o in r['oracles']) for r in multi['tasks'].values())} numeric field-reports.",
+        "   Every task has at least one human panel. Fourteen tasks are fully covered; smoke",
+        "   screen has one paper available, submersible 2 of 4, lamprey 4 of 5, stair-wear 3 of 5.",
         "2. **A paper may not report the reproduction's numbers.** MCM answers are often",
         "   prose, figures, or defined on a different grid or scale. Where the current",
         "   anchor came from the reproduction rather than the paper text (for example,",

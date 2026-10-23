@@ -1,11 +1,9 @@
 {
-  "paper_id": "2401445",
-  "task_slug": "mcm-2024-c-tennis-momentum",
-  "source": "mcm/2024-C/2401445/ocr/2401445.md",
-  "fields": {
-    "experiment_result.randomness_tests.median_ljung_box_p": null,
-    "experiment_result.randomness_tests.median_runs_p": null,
-    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
-  },
-  "notes": "Sec. 5 (Problem 2) compares DTW distances between real matches, Model-I predictions, and randomly simulated matches (\"the simulated random sequences fail to accurately represent real-world data\"), but reports no Ljung-Box or runs-test p-value and no per-match iid rejection share. All three fields null."
+ "paper_id": "2401445",
+ "task_slug": "mcm-2024-c-tennis-momentum",
+ "source": "mcm/2024-C/2401445/ocr/2401445.md",
+ "fields": {
+  "experiment_result.randomness_tests.momentum_supported": 1.0
+ },
+ "notes": "Simulated random sequences diverge from real data, so the randomness hypothesis is rejected. | Binary verdict: 1 = momentum supported / randomness rejected; 0 = randomness not rejected."
 }

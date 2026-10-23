@@ -1,13 +1,9 @@
 {
-  "paper_id": "2514461",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2514461/ocr/2514461.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": 5.0,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": 3.0,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": 9.0,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Model IV: 'We predicted that CHN Archery would go from 2 in 2024 to 7 in 2028, USA Taekwondo from 5 to 8, and TPE Swimming from 0 to 9, after hiring great coaches.' Gains computed as 7-2=5, 8-5=3, 9-0=9 and entered in the sentence order (CHN, USA, TPE; note the paper earlier lists the countries as USA, CHN, TPE). recommendations[3] null (only three)."
+ "paper_id": "2514461",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2514461/ocr/2514461.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 128.0
+ },
+ "notes": "Predicted 2028 medal table: USA total = 128 (47 gold, 45 silver, 36 bronze). | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

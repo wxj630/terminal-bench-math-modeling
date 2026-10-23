@@ -150,7 +150,8 @@
     "total_revenue_usd": 431610327.83,
     "sustainability_score": 1.007,
     "resident_acceptance_index": 1.0,
-    "top_sensitivity_factor": "visitor_fee_usd"
+    "top_sensitivity_factor": "visitor_fee_usd",
+    "recommends_daily_visitor_cap": 1
   },
   "difference_from_advanced": "不再复制 policy grid 结果；本脚本直接构建 2024-2028 动态规划状态转移，显式耦合游客需求、税费、保护支出、冰川压力和居民接受度。",
   "artifact_paths": {

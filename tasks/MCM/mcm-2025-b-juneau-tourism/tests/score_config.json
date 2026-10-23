@@ -1,13 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v5-final-question-endpoint-target-minmax",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
   "question_scope": "final_question_only",
-  "candidate_metric_count_before_final_filter": 27,
+  "candidate_metric_count_before_final_filter": 28,
   "final_question": {
-    "label": "Q3",
-    "plain_question": "给朱诺旅游委员会写一页备忘录，概括预测、各种限制/收费措施的效果，并推荐最优可持续旅游政策。",
-    "final_answer_summary": "O 奖复现推荐终端政策：日容量 11000 人，游客费 55 USD，年游客 1491526，总收入 431610327.83 USD，居民接受度 1.0，可持续得分 1.007。",
-    "baseline_model_summary": "baseline 用可持续旅游政策优化，把游客量、收费、保护投入、居民接受度和冰川压力一起做动态规划。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Q3 daily visitor cap recommendation (1 = recommend a cap, 0 = no cap)",
+    "plain_question": "原题最后一问要求给朱诺旅游委员会一页备忘录，推荐最优可持续旅游政策。请给出核心政策判决：是否建议设置每日游客人数上限？建议填 1，不建议填 0。",
+    "final_answer_summary": "O 奖复现推荐每日 11,000 人的终端容量，因此判决为 1。七篇人类论文中四篇明确设置每日上限（13993、15000、12000 等），三篇只做年度总量或价格调控，判决为 0。",
+    "baseline_model_summary": "baseline 用可持续旅游政策优化，比较容量限制、收费和投资组合并给出是否设置每日上限的判决。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：七篇论文的量化政策变量不同（日容量、年度总量、游客费、税率、可持续得分），无法用同一个数值比较；但“是否设置每日游客上限”是它们对最后一问共同给出的核心政策判决。该 0/1 判决覆盖 7/7 篇论文。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,218 +19,68 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 6,
-  "effective_metric_count": 6,
-  "final_answer_numeric_field_count": 6,
-  "scored_final_answer_numeric_field_count": 6,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "experiment_result.annual_visitors",
-      "oracle_value": 1491526.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Visitor volume is beneficial when the sustainability constraints are satisfied.",
-      "semantic_direction_basis": "Visitor volume is beneficial when the sustainability constraints are satisfied.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3",
-      "outstanding_value": 1491526.0,
-      "baseline_source_path": "sustainability_model.optimal_policy.annual_visitors",
-      "baseline_value": 1408000.0,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
-    },
-    {
-      "path": "experiment_result.optimal_daily_cap",
-      "oracle_value": 11000.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "The daily cap is a recommended policy setting, not a monotone objective by itself.",
-      "semantic_direction_basis": "The daily cap is a recommended policy setting, not a monotone objective by itself.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3",
-      "outstanding_value": 11000.0,
-      "baseline_source_path": "sustainability_model.optimal_policy.daily_cap",
-      "baseline_value": 10000.0,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
-    },
-    {
-      "path": "experiment_result.optimal_visitor_fee_usd",
-      "oracle_value": 55.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "The visitor fee is a recommended policy setting, not a monotone objective by itself.",
-      "semantic_direction_basis": "The visitor fee is a recommended policy setting, not a monotone objective by itself.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3",
-      "outstanding_value": 55.0,
-      "baseline_source_path": "sustainability_model.optimal_policy.visitor_fee_usd",
-      "baseline_value": 50.0,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
-    },
-    {
-      "path": "experiment_result.resident_acceptance_index",
+      "path": "experiment_result.recommends_daily_visitor_cap",
       "oracle_value": 1.0,
       "rel_scale": 0.12,
       "abs_scale": 0.0001,
       "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Higher resident acceptance is better for a sustainable policy.",
-      "semantic_direction_basis": "Higher resident acceptance is better for a sustainable policy.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "direction": "exact_value",
+      "semantic_direction": "exact_value",
+      "direction_basis": "The final-question policy verdict is binary: 1 recommends a daily visitor cap, 0 does not.",
+      "semantic_direction_basis": "The final-question policy verdict is binary: 1 recommends a daily visitor cap, 0 does not.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "baseline_value": null,
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Q3",
-      "outstanding_value": 1.0,
-      "baseline_source_path": "sustainability_model.optimal_policy.resident_acceptance_index",
-      "baseline_value": 0.78,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
-    },
-    {
-      "path": "experiment_result.sustainability_score",
-      "oracle_value": 1.007,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The model defines this score so larger values mean a stronger sustainable policy.",
-      "semantic_direction_basis": "The model defines this score so larger values mean a stronger sustainable policy.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3",
-      "outstanding_value": 1.007,
-      "baseline_source_path": "sustainability_model.optimal_policy.sustainability_score",
-      "baseline_value": 0.908447,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
-    },
-    {
-      "path": "experiment_result.total_revenue_usd",
-      "oracle_value": 431610327.83,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Revenue is a benefit term in the tourism policy model.",
-      "semantic_direction_basis": "Revenue is a benefit term in the tourism policy model.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3",
-      "outstanding_value": 431610327.83,
-      "baseline_source_path": "sustainability_model.optimal_policy.total_revenue_usd",
-      "baseline_value": 400400000.0,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+      "final_question_label": "Q3 daily visitor cap recommendation (1 = recommend a cap, 0 = no cap)"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
-  "metric_reward": "per-metric target-distance min-max between baseline_value and outstanding_value, using normalization_direction",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "question_result_minmax_endpoint",
-    "panel_score": 0.5579115845869755,
-    "matched_metric_count": 6,
-    "unmatched_metric_count": 0,
+    "kind": "legacy_explicit_generic_baseline_score_mean_no_question_metric_match",
+    "panel_score": 0.5036763333333333,
+    "matched_metric_count": null,
     "result_count": 3,
     "result_paths": [
-      "mcm/question_results/2025/B/q01/result.json",
-      "mcm/question_results/2025/B/q02/result.json",
-      "mcm/question_results/2025/B/q03/result.json"
-    ],
-    "question_result_dir": "mcm/question_results/2025/B",
-    "legacy_generic_result_paths": [
       "mcm/generic_baselines/results/2025/B/q01/result.json",
       "mcm/generic_baselines/results/2025/B/q02/result.json",
       "mcm/generic_baselines/results/2025/B/q03/result.json"
     ],
-    "metric_details": [
+    "sources": [
       {
-        "path": "experiment_result.annual_visitors",
-        "outstanding_value": 1491526.0,
-        "found": true,
-        "closeness_reward": 0.6818167688802583,
-        "baseline_source_path": "sustainability_model.optimal_policy.annual_visitors",
-        "baseline_actual": 1408000
+        "result_path": "mcm/generic_baselines/results/2025/B/q01/result.json",
+        "explicit_score": 0.493029
       },
       {
-        "path": "experiment_result.optimal_daily_cap",
-        "outstanding_value": 11000.0,
-        "found": true,
-        "closeness_reward": 0.5689655172413793,
-        "baseline_source_path": "sustainability_model.optimal_policy.daily_cap",
-        "baseline_actual": 10000
+        "result_path": "mcm/generic_baselines/results/2025/B/q02/result.json",
+        "explicit_score": 0.472457
       },
       {
-        "path": "experiment_result.optimal_visitor_fee_usd",
-        "outstanding_value": 55.0,
-        "found": true,
-        "closeness_reward": 0.5689655172413793,
-        "baseline_source_path": "sustainability_model.optimal_policy.visitor_fee_usd",
-        "baseline_actual": 50.0
-      },
-      {
-        "path": "experiment_result.resident_acceptance_index",
-        "outstanding_value": 1.0,
-        "found": true,
-        "closeness_reward": 0.35294117647058826,
-        "baseline_source_path": "sustainability_model.optimal_policy.resident_acceptance_index",
-        "baseline_actual": 0.78
-      },
-      {
-        "path": "experiment_result.sustainability_score",
-        "outstanding_value": 1.007,
-        "found": true,
-        "closeness_reward": 0.550792413613926,
-        "baseline_source_path": "sustainability_model.optimal_policy.sustainability_score",
-        "baseline_actual": 0.908447
-      },
-      {
-        "path": "experiment_result.total_revenue_usd",
-        "outstanding_value": 431610327.83,
-        "found": true,
-        "closeness_reward": 0.623988114074322,
-        "baseline_source_path": "sustainability_model.optimal_policy.total_revenue_usd",
-        "baseline_actual": 400400000.0
+        "result_path": "mcm/generic_baselines/results/2025/B/q03/result.json",
+        "explicit_score": 0.545543
       }
     ],
-    "normalized_panel_score": 0.0,
-    "effective_metric_count": 6,
-    "constant_endpoint_metric_count": 0,
-    "missing_baseline_metric_count": 0
+    "note": "Fallback retained only because no comparable question_results numeric metrics were matched.",
+    "question_result_dir": "mcm/question_results/2025/B",
+    "question_result_paths": [
+      "mcm/question_results/2025/B/q01/result.json",
+      "mcm/question_results/2025/B/q02/result.json",
+      "mcm/question_results/2025/B/q03/result.json"
+    ],
+    "question_matched_metric_count": 0,
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
-    "kind": "outstanding_paper_reproduction_metric_values",
-    "normalized_panel_score": 1.0,
-    "effective_metric_count": 6,
-    "note": "The normalized endpoint is 1 because each metric uses its own outstanding_value as the max/min endpoint."
+    "kind": "outstanding_paper_reproduction",
+    "panel_score": 1.0
   },
   "final_reward": "raw_panel_score - baseline_endpoint_score",
   "evaluation_methods": {
@@ -237,7 +88,7 @@
       "role": "optional_reward",
       "name": "Baseline-Outstanding Evaluation",
       "description": "Compares a submission to the baseline and outstanding-paper endpoints.",
-      "final_reward": "weighted_mean(metric_target_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization"
+      "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)"
     },
     "B-Eval": {
       "role": "default_reward",

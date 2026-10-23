@@ -75,7 +75,8 @@
     "total_revenue_usd": "number",
     "sustainability_score": "number",
     "resident_acceptance_index": "number",
-    "top_sensitivity_factor": "string"
+    "top_sensitivity_factor": "string",
+    "recommends_daily_visitor_cap": "integer"
   },
   "difference_from_advanced": "string",
   "artifact_paths": {

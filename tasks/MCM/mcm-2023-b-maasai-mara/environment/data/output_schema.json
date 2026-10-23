@@ -89,5 +89,8 @@
   "generated_files": [
     "string"
   ],
-  "artifact_dir": "string"
+  "artifact_dir": "string",
+  "experiment_result": {
+    "recommended_zone_count": "integer"
+  }
 }

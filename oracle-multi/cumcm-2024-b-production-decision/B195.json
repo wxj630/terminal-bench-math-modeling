@@ -1,14 +1,20 @@
 {
-  "paper_id": "B195",
-  "task_slug": "cumcm-2024-b-production-decision",
-  "source": "cumcm/2024-B/B195/ocr/B195.md",
-  "fields": {
-    "experiment_result.q4.posterior_rows[0].q2_best_profit_case1": null,
-    "experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior": null,
-    "experiment_result.q4.posterior_rows[1].q2_best_profit_case1": null,
-    "experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior": null,
-    "experiment_result.q4.posterior_rows[2].q2_best_profit_case1": null,
-    "experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior": null
-  },
-  "notes": "5.4.5 节原文：'(1) 对于问题二，在0.95置信区间下，所得决策不变'——只说明决策不变，未给出后验下的利润数值，故 Q2 六个后验情景均无可填。Q3 原文：'若带入置信区间的左侧值，两种决策方案所得利润值分别为：448491.9298575758、436619.5888。若带入置信区间的右侧值，两种决策方案所得利润值分别为：425153.86094869545、421234.6082'。这是 0.95 置信区间左/右两个端点情景（且为'初始零件10000套'的仿真口径），不是基准的 3 组 (c-2,c,c+2) 后验情景，单位口径也无法与基准元/件直接对应，故按 spec 全部置 null，不强行映射。"
+ "paper_id": "B195",
+ "task_slug": "cumcm-2024-b-production-decision",
+ "source": "cumcm/2024-B/B195/ocr/B195.md",
+ "fields": {
+  "experiment_result.q2.best_decisions[0].expected_profit": 16.89932
+ },
+ "notes": "Simulation uses 10000 units per part; net profit for case 1 is 168,993.2 yuan, so 168993.2/10000 = 16.89932 yuan/unit. | Unit-price normalization; batch size is stated by the paper.",
+ "derivations": {
+  "experiment_result.q2.best_decisions[0].expected_profit": {
+   "kind": "divide_by_batch",
+   "reported_values": {
+    "total_profit_yuan": 168993.2,
+    "batch_units": 10000.0
+   },
+   "formula": "total_profit_yuan / batch_units",
+   "computed_value": 16.89932
+  }
+ }
 }

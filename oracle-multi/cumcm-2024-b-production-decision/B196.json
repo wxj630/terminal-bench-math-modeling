@@ -1,14 +1,20 @@
 {
-  "paper_id": "B196",
-  "task_slug": "cumcm-2024-b-production-decision",
-  "source": "cumcm/2024-B/B196/ocr/B196.md",
-  "fields": {
-    "experiment_result.q4.posterior_rows[0].q2_best_profit_case1": null,
-    "experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior": null,
-    "experiment_result.q4.posterior_rows[1].q2_best_profit_case1": null,
-    "experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior": null,
-    "experiment_result.q4.posterior_rows[2].q2_best_profit_case1": null,
-    "experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior": null
-  },
-  "notes": "第5.4节（抽样检测条件下决策的鲁棒性分析）只按 3σ 准则把实际次品率取为 μ±3σ，重算'最优决策'（表4 给出 95%/90% 信度下各情况是否检测/拆解的决策），通篇没有给出任何后验情景下的利润数值，也没有基准所需的 3 组后验情景，故 6 个字段全部 null。"
+ "paper_id": "B196",
+ "task_slug": "cumcm-2024-b-production-decision",
+ "source": "cumcm/2024-B/B196/ocr/B196.md",
+ "fields": {
+  "experiment_result.q2.best_decisions[0].expected_profit": 17.967
+ },
+ "notes": "1000 simulations, 2000 parts A and B per case, case 1 average profit 35,934 yuan; 35934/2000 = 17.967 yuan per finished unit. | Unit-price normalization; batch size is stated by the paper.",
+ "derivations": {
+  "experiment_result.q2.best_decisions[0].expected_profit": {
+   "kind": "divide_by_batch",
+   "reported_values": {
+    "total_profit_yuan": 35934.0,
+    "batch_units": 2000.0
+   },
+   "formula": "total_profit_yuan / batch_units",
+   "computed_value": 17.967
+  }
+ }
 }

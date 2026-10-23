@@ -1,13 +1,9 @@
 {
-  "paper_id": "2516695",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2516695/ocr/2516695.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": 2.7,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": 2.4,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": 2.1,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Table 8 'Investment Recommendations for High-Potential Sports Events' gives Exp. Medal Incr. (90% CI): Norway - Biathlon 2.7 [1.8,3.5]; Japan - Skateboarding 2.4 [1.6,3.2]; Australia - BMX 2.1 [1.3,2.9]. Filled in table order. recommendations[3] null (only three)."
+ "paper_id": "2516695",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2516695/ocr/2516695.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 115.0
+ },
+ "notes": "Table: USA 2028 total = 115 (45 gold, 38 silver, 32 bronze). | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

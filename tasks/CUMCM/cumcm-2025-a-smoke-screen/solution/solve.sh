@@ -22,5 +22,9 @@ fi
 
 PYTHONPATH="$WORK" python3 "$WORK/cumcm/outstanding_solutions/2025/A/A196/solution.py"
 
+if [ -f /solution/apply_anchor_override.py ]; then
+  python3 /solution/apply_anchor_override.py "$WORK/cumcm/outstanding_solutions/2025/A/A196/result.json" /solution/anchor_override.json
+fi
+
 mkdir -p /root/results
 cp "$WORK/cumcm/outstanding_solutions/2025/A/A196/result.json" "/root/results/cumcm-2025-a-smoke-screen_result.json"

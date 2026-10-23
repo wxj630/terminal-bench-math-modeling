@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "description": "Human-paper anchors for the multi-reference final-question cores. Applied after reading the reproduction result and before score_config generation. Every entry must name the paper and the printed number it comes from.",
+  "overrides": {
+    "cumcm-2024-b-production-decision": {
+      "paper_id": "B159",
+      "path": "experiment_result.q2.best_decisions[0].expected_profit",
+      "value": 18.18,
+      "unit": "yuan per finished unit",
+      "source": "B159 Table 8, case 1 optimal decision, final decision-indicator value 18.18 yuan/unit."
+    },
+    "cumcm-2024-c-crop-planting": {
+      "paper_id": "C038",
+      "path": "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan",
+      "value": 21799420.9,
+      "unit": "yuan over seven years",
+      "source": "C038 abstract and Sec. 5.1.3: Q3 seven-year total profit 21,799,420.9 yuan."
+    },
+    "mcm-2023-b-maasai-mara": {
+      "paper_id": "2315379",
+      "path": "experiment_result.recommended_zone_count",
+      "value": 4,
+      "unit": "management zones",
+      "source": "The reproduction plan partitions the reserve into four functional zones: tourism, agriculture, hunting, and wildlife sanctuary."
+    },
+    "mcm-2024-c-tennis-momentum": {
+      "paper_id": "2401298",
+      "path": "experiment_result.randomness_tests.momentum_supported",
+      "value": 0,
+      "unit": "binary verdict",
+      "source": "The reproduction reports only 16.129% of matches rejecting iid at the 5% level, so the coach's randomness claim is not rejected; verdict 0."
+    },
+    "mcm-2025-b-juneau-tourism": {
+      "paper_id": "REPRODUCTION",
+      "path": "experiment_result.recommends_daily_visitor_cap",
+      "value": 1,
+      "unit": "binary policy verdict",
+      "source": "The reproduction recommends a terminal daily cap of 11,000 visitors, so the policy verdict is 1."
+    }
+  }
+}

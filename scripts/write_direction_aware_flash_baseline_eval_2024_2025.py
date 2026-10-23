@@ -90,7 +90,7 @@ def _as_float(value: Any) -> float:
     return number
 
 
-def _try_get(data: Any, path: str) -> tuple[bool, Any]:
+def _try_get_raw(data: Any, path: str) -> tuple[bool, Any]:
     cur = data
     token = ""
     i = 0
@@ -117,6 +117,67 @@ def _try_get(data: Any, path: str) -> tuple[bool, Any]:
         return True, cur
     except (KeyError, IndexError, TypeError, ValueError):
         return False, None
+
+
+def _derived_legacy_value(data: dict[str, Any], path: str) -> tuple[bool, Any]:
+    """Deterministic recoding of a legacy artifact's existing fields.
+
+    Older runs predate the single-value question, so the exact core path can be
+    absent even though the run answered the underlying question. Each rule below is
+    a pure function of numbers the artifact already contains; nothing is imputed.
+    """
+    def leaf(inner: str) -> Any:
+        found, value = _try_get_raw(data, inner)
+        return value if found else None
+
+    if path == "experiment_result.recommended_zone_count":
+        counts = [
+            leaf(f"target_comparison.scenario2_{name}_cells.actual")
+            for name in ("agriculture", "hunting", "tourism", "wildlife")
+        ]
+        if any(value is None for value in counts):
+            return False, None
+        return True, float(sum(1 for value in counts if float(value) > 0))
+    if path == "experiment_result.randomness_tests.momentum_supported":
+        rejected = leaf("experiment_result.randomness_tests.matches_rejecting_iid_at_5pct")
+        matches = leaf("experiment_result.data_source.matches")
+        if rejected is None or matches is None or float(matches) <= 0:
+            return False, None
+        return True, 1.0 if float(rejected) / float(matches) >= 0.5 else 0.0
+    if path == "experiment_result.recommends_daily_visitor_cap":
+        cap = leaf("experiment_result.optimal_daily_cap")
+        if cap is None:
+            return False, None
+        return True, 1.0 if float(cap) > 0 else 0.0
+    if path == "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan":
+        # Two artifact generations stored the Q3 objective in different places.
+        for inner in (
+            "experiment_result.q2_q3.q3.objective_mean_cvar",
+            "experiment_result.q2_q3.q3.solver.objective_yuan",
+        ):
+            value = leaf(inner)
+            if value is not None:
+                return True, float(value)
+        found, rows = _try_get_raw(data, "experiment_result.q2_q3.risk_summary")
+        if found and isinstance(rows, list):
+            for row in rows:
+                plan = str(row.get("plan", "")).lower()
+                if "q3" in plan and row.get("correlated_cvar10_profit_yuan") is not None:
+                    return True, float(row["correlated_cvar10_profit_yuan"])
+        return False, None
+    if path == "paper_targets.eerie_distribution_pct[3]":
+        value = leaf("reproduced.eerie.distribution_pct[3]")
+        if value is not None:
+            return True, float(value)
+        return False, None
+    return False, None
+
+
+def _try_get(data: dict[str, Any], path: str) -> tuple[bool, Any]:
+    found, value = _try_get_raw(data, path)
+    if found:
+        return found, value
+    return _derived_legacy_value(data, path)
 
 
 def _clamp01(value: float) -> float:

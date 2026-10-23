@@ -48,6 +48,12 @@
     "abs_tol": 0.0001
   },
   {
+    "path": "experiment_result.randomness_tests.momentum_supported",
+    "expected": 0,
+    "rel_tol": 0.12,
+    "abs_tol": 0.0001
+  },
+  {
     "path": "experiment_result.randomness_tests.share_rejecting_iid_at_5pct",
     "expected": 0.16129,
     "rel_tol": 0.12,

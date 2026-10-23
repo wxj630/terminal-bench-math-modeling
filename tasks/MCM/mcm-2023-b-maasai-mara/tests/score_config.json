@@ -1,13 +1,14 @@
 {
   "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
   "question_scope": "final_question_only",
-  "candidate_metric_count_before_final_filter": 11,
+  "candidate_metric_count_before_final_filter": 12,
   "final_question": {
-    "label": "Final report question",
-    "plain_question": "把土地分区和政策方案整理成给当地管理者的非技术报告，说明推荐方案的收益和用地分配。",
-    "final_answer_summary": "O 奖复现的方案 2 收益指标值约 154948.974，农业/狩猎/旅游/保护区格点数分别为 12、2、9、13。",
-    "baseline_model_summary": "baseline 用空间土地利用优化，把农业、狩猎、旅游和野生动物保护的格点分配成收益最大化问题。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Final management question: recommended management-zone count",
+    "plain_question": "原题要求针对保护区内不同区域推荐具体政策与管理策略。请给出推荐方案明确划分并分别管理的管理分区/部门数量（整数）。若模型是纯动态系统、没有空间分区，则填 0。",
+    "final_answer_summary": "O 奖复现的方案把保护区划为 4 个功能分区：旅游、农业、狩猎和野生动物保护区。三篇人类论文分别推荐 3 个土地利用类型、4 个功能区和 0 个空间分区（纯 ODE 政策模型）。",
+    "baseline_model_summary": "baseline 用空间土地利用优化或动态系统模型，把保护区分成不同管理单元并提出对应政策。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：三篇论文的收益/生态指标量纲完全不同（经济价值、AHP 分数、ODE 百分比变化），没有共同的数值目标。改为原题直接要求的“分区管理”结构量：推荐方案覆盖多少个管理分区。3/3 篇人类论文均可回答；0 表示该模型没有空间分区。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,85 +19,26 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 5,
-  "effective_metric_count": 5,
-  "final_answer_numeric_field_count": 5,
-  "scored_final_answer_numeric_field_count": 5,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "target_comparison.scenario2_agriculture_cells.actual",
-      "oracle_value": 12.0,
+      "path": "experiment_result.recommended_zone_count",
+      "oracle_value": 4.0,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
       "direction": "target_value",
       "semantic_direction": "target_value",
-      "direction_basis": "This is one component of a feasible land-allocation plan.",
-      "semantic_direction_basis": "This is one component of a feasible land-allocation plan.",
+      "direction_basis": "The number of management zones in the recommended plan is a structural decision, not a monotone objective.",
+      "semantic_direction_basis": "The number of management zones in the recommended plan is a structural decision, not a monotone objective.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
+      "baseline_value": null,
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Final report question"
-    },
-    {
-      "path": "target_comparison.scenario2_benefit_million.actual",
-      "oracle_value": 154948.974,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The land-use optimization maximizes benefit.",
-      "semantic_direction_basis": "The land-use optimization maximizes benefit.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final report question"
-    },
-    {
-      "path": "target_comparison.scenario2_hunting_cells.actual",
-      "oracle_value": 2.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "This is one component of a feasible land-allocation plan.",
-      "semantic_direction_basis": "This is one component of a feasible land-allocation plan.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final report question"
-    },
-    {
-      "path": "target_comparison.scenario2_tourism_cells.actual",
-      "oracle_value": 9.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "This is one component of a feasible land-allocation plan.",
-      "semantic_direction_basis": "This is one component of a feasible land-allocation plan.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final report question"
-    },
-    {
-      "path": "target_comparison.scenario2_wildlife_cells.actual",
-      "oracle_value": 13.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "This is one component of a feasible land-allocation plan.",
-      "semantic_direction_basis": "This is one component of a feasible land-allocation plan.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final report question"
+      "final_question_label": "Final management question: recommended management-zone count"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -140,7 +82,7 @@
       "mcm/question_results/2023/B/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 5
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

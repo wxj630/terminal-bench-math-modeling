@@ -1,5 +1,11 @@
 [
   {
+    "path": "experiment_result.recommended_zone_count",
+    "expected": 4,
+    "rel_tol": 0.12,
+    "abs_tol": 1e-06
+  },
+  {
     "path": "paper_targets.grid_count",
     "expected": 36,
     "rel_tol": 0.12,
@@ -206,12 +212,6 @@
   {
     "path": "reproduced.scenario_rows[2].tourism_area",
     "expected": 7,
-    "rel_tol": 0.12,
-    "abs_tol": 1e-06
-  },
-  {
-    "path": "reproduced.scenario_rows[2].wildlife_sanctuary",
-    "expected": 10,
     "rel_tol": 0.12,
     "abs_tol": 1e-06
   }

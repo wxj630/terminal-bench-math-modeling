@@ -4,19 +4,18 @@
 - Required output: `/root/results/mcm-2023-a-plant-community_result.json`
 - Scoring version: `tb-mathmodeling-v3-final-question-legacy-baseline-panel`
 - Scoring scope: `final_question_only`
-- Final question: 综合物种数、干旱、污染和栖息地压力，说明怎样保证植物群落长期可生存。
-- Final answer: O 奖复现的核心量化结论包括最优/阈值物种数 2，beta 压力下生物量下降 32.0%，五物种均匀度 0.8826。
-- Baseline model: baseline 把物种数阈值、功能性状、干旱敏感性和污染/栖息地压力合成为管理前沿。
+- Final question: 原题要求说明群落需要多少个物种才能从生物多样性中获益。请给出这个最小物种数，这是本题所有人类论文都会直接回答的核心标量。
+- Final answer: O 奖复现给出最小物种数 2。多篇人类论文给出 2、3、4、5、8 等不同阈值，因此该字段以每篇论文自己的阈值为参考面板。
+- Baseline model: baseline 用物种数-生物量/稳定性关系确定群落开始获益的最小物种数。
+- Note: 多参考改造：只保留原题最后一问直接要求的“最小物种数”标量，去掉复现脚本自创的 beta_decline_pct 与 Pielou evenness。6/7 篇人类论文报告了该阈值。
 - Primary evaluation: `B-Eval`
 - Secondary evaluation: `BO-Eval`
 - Candidate metric count before final-question filter: 41
-- Final-answer numeric field count: 3
-- Scored final-answer numeric field count: 3
+- Final-answer numeric field count: 1
+- Scored final-answer numeric field count: 1
 - Baseline endpoint: `legacy_explicit_generic_baseline_score_mean_no_question_metric_match`, score `0.502804666667`
 - Outstanding endpoint: `outstanding_paper_reproduction`, score `1`
 
 | # | Metric path | Baseline value | Outstanding value | Semantic direction | Normalization mode | Normalization direction | Scored | Weight | Baseline source |
 |---:|---|---:|---:|---|---|---|---|---:|---|
-| 1 | `target_comparison.beta_decline_pct.actual` |  | 32 | `lower_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
-| 2 | `target_comparison.five_species_pielou_evenness.actual` |  | 0.8826 | `higher_is_better` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
-| 3 | `target_comparison.optimal_species_count.actual` |  | 2 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |
+| 1 | `target_comparison.optimal_species_count.actual` |  | 2 | `target_value` | `legacy_target_distance_to_outstanding` |  | yes | 1 |  |

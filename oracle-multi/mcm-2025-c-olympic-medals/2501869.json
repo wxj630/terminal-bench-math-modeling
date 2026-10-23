@@ -1,33 +1,20 @@
 {
-  "paper_id": "2501869",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2501869/ocr/2501869.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": 7.0,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": 6.0,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": 6.0,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "derivations": {
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": {
-      "kind": "sum_reported_components",
-      "reported_values": [2.0, 1.0, 1.0, 1.0, 2.0],
-      "formula": "sum(per-sport Magnitude for USA)",
-      "computed_value": 7.0
-    },
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": {
-      "kind": "sum_reported_components",
-      "reported_values": [1.0, 2.0, 1.0, 1.0, 1.0],
-      "formula": "sum(per-sport Magnitude for Great Britain)",
-      "computed_value": 6.0
-    },
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": {
-      "kind": "sum_reported_components",
-      "reported_values": [1.0, 1.0, 1.0, 2.0, 1.0],
-      "formula": "sum(per-sport Magnitude for France)",
-      "computed_value": 6.0
-    }
-  },
-  "notes": "No 75th-percentile jump reported. Sec. 6.3 Table 10 gives per-sport 'Magnitude' (medals) for three countries: USA - Wrestling 2, Rowing 1, Judo 1, Archery 1, Triathlon 2; Great Britain - Wrestling 1, Canoeing 2, Judo 1, Shooting 1, Weightlifting 1; France - Table tennis 1, Badminton 1, Athletics 1, Gymnastics 2, Rowing 1. The paper never prints country totals; DERIVED values are the deterministic arithmetic sums of all five listed sports for each country (USA 7, GBR 6, FRA 6). recommendations[3] null because only three countries are recommended."
+ "paper_id": "2501869",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2501869/ocr/2501869.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 141.0
+ },
+ "notes": "DERIVED: 2024 actual USA total 126 plus the paper-reported 2028 improve magnitude +15 = 141. The 2028 table itself is a figure, so the total is derived from two directly reported numbers. | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals.",
+ "derivations": {
+  "monte_carlo_summary_top_total[0].expected_total": {
+   "kind": "sum_reported_components",
+   "reported_values": [
+    126.0,
+    15.0
+   ],
+   "formula": "2024 actual USA total + reported 2028 improve magnitude",
+   "computed_value": 141.0
+  }
+ }
 }

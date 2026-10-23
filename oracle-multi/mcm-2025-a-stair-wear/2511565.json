@@ -1,11 +1,12 @@
 {
-  "paper_id": "2511565",
-  "task_slug": "mcm-2025-a-stair-wear",
-  "source": "mcm/2025-A/2511565/ocr/2511565.md",
-  "fields": {
-    "daily_use_pattern.peak_period_users": null,
-    "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": null,
-    "experiment_result.estimated_daily_users": null
-  },
-  "notes": "Section 3.2.2, Table 3 'Foot Traffic Estimation for Stair Samples' gives per-sample daily traffic n (day^-1): 1925.5, 1214.7, 1944.0, 3183.6, 8390.6, 6399.1, 5093.5, 4553.7, 5952.3, 4739.6, 3637.6 for 11 different staircases. There is no single estimate for one staircase and no stated representative sample, so no scalar value was entered. Usage pattern is only classified by kurtosis (>3 long-term low-intensity vs <=3 short-term high-intensity) with no numeric peak count and no 10-hour equivalent."
+ "paper_id": "2511565",
+ "task_slug": "mcm-2025-a-stair-wear",
+ "source": "mcm/2025-A/2511565/ocr/2511565.md",
+ "fields": {
+  "daily_use_pattern.peak_period_users": null,
+  "daily_use_pattern.regular_hour_users_if_spread_over_10_hours": null,
+  "experiment_result.estimated_daily_users": null
+ },
+ "notes": "Section 3.2.2, Table 3 'Foot Traffic Estimation for Stair Samples' gives per-sample daily traffic n (day^-1): 1925.5, 1214.7, 1944.0, 3183.6, 8390.6, 6399.1, 5093.5, 4553.7, 5952.3, 4739.6, 3637.6 for 11 different staircases. There is no single estimate for one staircase and no stated representative sample, so no scalar value was entered. Usage pattern is only classified by kurtosis (>3 long-term low-intensity vs <=3 short-term high-intensity) with no numeric peak count and no 10-hour equivalent.",
+ "exclusion_reason": "different_unit_of_analysis: reports daily traffic for 11 distinct staircases, not a single estimate for the benchmark staircase."
 }

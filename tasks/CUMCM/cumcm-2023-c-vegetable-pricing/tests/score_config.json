@@ -3,12 +3,12 @@
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 38,
   "final_question": {
-    "label": "Q4 numeric proxy",
-    "plain_question": "最后一问本身是让商超说明还应采集哪些数据、这些数据怎样帮助补货和定价；它主要是文字建议。",
-    "final_answer_summary": "当前数值 verifier 只看支撑这些建议的最后可量化补货定价结果：未来一周最大利润 5105.6 元，并选择 29 个单品进入补货定价方案。",
-    "baseline_model_summary": "baseline 用规划优化和资源配置模型，把可售空间、补货量和价格决策转成利润最大化问题。",
+    "label": "Q3 selected-SKU count",
+    "plain_question": "原题 Q3 要求在可售单品总数控制在 27–33 个、且每个单品至少陈列 2.5 kg 的约束下，给出 2023-07-01 的单品补货与定价方案。请给出最终入选的单品数量（整数）。",
+    "final_answer_summary": "O 奖复现最终选择 29 个单品进入补货定价方案。三篇人类论文分别报告 29、29、33 个单品，均落在题面 27–33 的约束内。",
+    "baseline_model_summary": "baseline 用规划优化和品类/单品两级补货定价模型，在销售空间约束下选择可售单品。",
     "metric_selection": "final_question_only_numeric_core",
-    "note": "Q4 is qualitative, so this benchmark records the last quantifiable pricing/replenishment answer that Q4 asks to improve with more data."
+    "note": "多参考改造：Q4 是文字建议，回退到 Q3 的数值核心。三篇论文对周利润的口径不同（有的只给成本利润率、有的只给逐日收益），但都明确报告了入选单品数；该整数也是 Q3 约束的直接结果。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -19,26 +19,11 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 2,
-  "effective_metric_count": 2,
-  "final_answer_numeric_field_count": 2,
-  "scored_final_answer_numeric_field_count": 2,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
-    {
-      "path": "target_comparison.future_week_max_profit_yuan.actual",
-      "oracle_value": 5105.6,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "The replenishment and pricing model maximizes profit.",
-      "semantic_direction_basis": "The replenishment and pricing model maximizes profit.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q4 numeric proxy"
-    },
     {
       "path": "target_comparison.problem3_selected_item_count.actual",
       "oracle_value": 29.0,
@@ -47,12 +32,13 @@
       "weight": 1.0,
       "direction": "target_value",
       "semantic_direction": "target_value",
-      "direction_basis": "The selected SKU count is part of a feasible policy, not a monotone objective by itself.",
-      "semantic_direction_basis": "The selected SKU count is part of a feasible policy, not a monotone objective by itself.",
+      "direction_basis": "The selected SKU count is a constrained decision, not a monotone objective; 27-33 are all feasible.",
+      "semantic_direction_basis": "The selected SKU count is a constrained decision, not a monotone objective; 27-33 are all feasible.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
+      "baseline_value": null,
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Q4 numeric proxy"
+      "final_question_label": "Q3 selected-SKU count"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -96,7 +82,7 @@
       "cumcm/question_results/2023/C/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 2
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

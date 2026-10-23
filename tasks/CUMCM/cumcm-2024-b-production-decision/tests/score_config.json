@@ -3,11 +3,12 @@
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 69,
   "final_question": {
-    "label": "Q4",
-    "plain_question": "把零配件和成品次品率看成抽样估出来的不确定量，然后重新求问题 2 和问题 3 的最优检测、装配、拆解决策。",
-    "final_answer_summary": "O 奖复现用 3 组后验缺陷率情景重算利润：Q2 case1 利润约 25.9691、25.8694、25.7715；Q3 最优策略后验利润约 86.8529、86.5588、86.2647。",
-    "baseline_model_summary": "baseline 用二项抽样/贝叶斯后验估计次品率，再用期望利润枚举和多阶段决策搜索求最优策略。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Q2 case-1 unit expected profit",
+    "plain_question": "原题问题 2 要求对表 1 六种生产情形给出最优检测/装配/拆解决策，并报告相应指标结果。请给出情形 1 在最优决策下的单位成品期望利润（元/件），这是三篇 O 奖论文都用统一单位报告的核心指标。",
+    "final_answer_summary": "B159 表 8 报告情形 1 最优决策的决策指标终值为 18.18 元/件；B196 的 1000 次×2000 件模拟平均利润 35,934 元可换算为约 17.97 元/件；B195 的 10000 套仿真净盈利 168,993.2 元可换算为约 16.90 元/件。三篇论文均给出总利润与批量，可确定性归一化到元/件。",
+    "baseline_model_summary": "baseline 枚举检测/装配/拆解决策，计算每种情形的单位期望利润并选择最优决策。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：原题未规定生产批量，因此总利润不可跨论文比较；改为按论文自己报告的批量归一化后的单位期望利润（元/件）。三篇人类论文均报告情形 1 的最优决策与利润/批量。复现锚点采用论文 B159 表 8 的 18.18 元/件，未改 oracle 解算代码。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,100 +19,25 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 6,
-  "effective_metric_count": 6,
-  "final_answer_numeric_field_count": 6,
-  "scored_final_answer_numeric_field_count": 6,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "experiment_result.q4.posterior_rows[0].q2_best_profit_case1",
-      "oracle_value": 25.9691,
+      "path": "experiment_result.q2.best_decisions[0].expected_profit",
+      "oracle_value": 18.18,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
       "direction": "higher_is_better",
       "semantic_direction": "higher_is_better",
-      "direction_basis": "Expected profit is the decision objective.",
-      "semantic_direction_basis": "Expected profit is the decision objective.",
+      "direction_basis": "Expected profit per finished unit is the decision objective for case 1.",
+      "semantic_direction_basis": "Expected profit per finished unit is the decision objective for case 1.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Q4"
-    },
-    {
-      "path": "experiment_result.q4.posterior_rows[0].q3_best_policy_profit_under_posterior",
-      "oracle_value": 86.8529,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Expected profit is the decision objective.",
-      "semantic_direction_basis": "Expected profit is the decision objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q4"
-    },
-    {
-      "path": "experiment_result.q4.posterior_rows[1].q2_best_profit_case1",
-      "oracle_value": 25.8694,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Expected profit is the decision objective.",
-      "semantic_direction_basis": "Expected profit is the decision objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q4"
-    },
-    {
-      "path": "experiment_result.q4.posterior_rows[1].q3_best_policy_profit_under_posterior",
-      "oracle_value": 86.5588,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Expected profit is the decision objective.",
-      "semantic_direction_basis": "Expected profit is the decision objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q4"
-    },
-    {
-      "path": "experiment_result.q4.posterior_rows[2].q2_best_profit_case1",
-      "oracle_value": 25.7715,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Expected profit is the decision objective.",
-      "semantic_direction_basis": "Expected profit is the decision objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q4"
-    },
-    {
-      "path": "experiment_result.q4.posterior_rows[2].q3_best_policy_profit_under_posterior",
-      "oracle_value": 86.2647,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Expected profit is the decision objective.",
-      "semantic_direction_basis": "Expected profit is the decision objective.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q4"
+      "final_question_label": "Q2 case-1 unit expected profit"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -155,7 +81,7 @@
       "cumcm/question_results/2024/B/q04/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 6
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

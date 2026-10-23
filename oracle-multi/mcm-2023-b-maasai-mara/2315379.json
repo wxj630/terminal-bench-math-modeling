@@ -1,13 +1,9 @@
 {
-  "paper_id": "2315379",
-  "task_slug": "mcm-2023-b-maasai-mara",
-  "source": "mcm/2023-B/2315379/ocr/2315379.md",
-  "fields": {
-    "target_comparison.scenario2_agriculture_cells.actual": 12,
-    "target_comparison.scenario2_benefit_million.actual": 154948.974,
-    "target_comparison.scenario2_hunting_cells.actual": 2,
-    "target_comparison.scenario2_tourism_cells.actual": 9,
-    "target_comparison.scenario2_wildlife_cells.actual": 13
-  },
-  "notes": "Grid: the reserve is split into 36 isometric grids of 50 km^2 each (Sec. 5.3.1). Scenario 2 allocation (Table 5, Sec. 5.4): tourist area 9, agricultural expansion area 12, hunting area 2, wildlife sanctuary 13 (sum 36). Summary and Sec. 6.3 (Table 8): 'Scenario2 154948.974million' - recorded as the printed 154948.974 (unit in the paper is labelled million, matching the benchmark's benefit_million scale; no scaling applied). Scenario 2 was selected as best (least human-animal interaction by Dijkstra + largest economic value). Note: hunting area is row 'Hunting area' = 2, matching the benchmark's hunting_cells."
+ "paper_id": "2315379",
+ "task_slug": "mcm-2023-b-maasai-mara",
+ "source": "mcm/2023-B/2315379/ocr/2315379.md",
+ "fields": {
+  "experiment_result.recommended_zone_count": 4
+ },
+ "notes": "The recommended plan partitions the 36-grid reserve into four functional areas: tourism, agricultural expansion, hunting, and wildlife sanctuary. | Replaced dimension-specific benefit/cell panels with the common structural count."
 }

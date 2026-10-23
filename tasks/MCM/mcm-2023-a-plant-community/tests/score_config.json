@@ -3,11 +3,12 @@
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 41,
   "final_question": {
-    "label": "Final management question",
-    "plain_question": "综合物种数、干旱、污染和栖息地压力，说明怎样保证植物群落长期可生存。",
-    "final_answer_summary": "O 奖复现的核心量化结论包括最优/阈值物种数 2，beta 压力下生物量下降 32.0%，五物种均匀度 0.8826。",
-    "baseline_model_summary": "baseline 把物种数阈值、功能性状、干旱敏感性和污染/栖息地压力合成为管理前沿。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Final management question: minimum viable species count",
+    "plain_question": "原题要求说明群落需要多少个物种才能从生物多样性中获益。请给出这个最小物种数，这是本题所有人类论文都会直接回答的核心标量。",
+    "final_answer_summary": "O 奖复现给出最小物种数 2。多篇人类论文给出 2、3、4、5、8 等不同阈值，因此该字段以每篇论文自己的阈值为参考面板。",
+    "baseline_model_summary": "baseline 用物种数-生物量/稳定性关系确定群落开始获益的最小物种数。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：只保留原题最后一问直接要求的“最小物种数”标量，去掉复现脚本自创的 beta_decline_pct 与 Pielou evenness。6/7 篇人类论文报告了该阈值。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,41 +19,11 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 3,
-  "effective_metric_count": 3,
-  "final_answer_numeric_field_count": 3,
-  "scored_final_answer_numeric_field_count": 3,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
-    {
-      "path": "target_comparison.beta_decline_pct.actual",
-      "oracle_value": 32.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "lower_is_better",
-      "semantic_direction": "lower_is_better",
-      "direction_basis": "Biomass decline under stress is a loss.",
-      "semantic_direction_basis": "Biomass decline under stress is a loss.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final management question"
-    },
-    {
-      "path": "target_comparison.five_species_pielou_evenness.actual",
-      "oracle_value": 0.8826,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Higher evenness means a more balanced plant community.",
-      "semantic_direction_basis": "Higher evenness means a more balanced plant community.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final management question"
-    },
     {
       "path": "target_comparison.optimal_species_count.actual",
       "oracle_value": 2.0,
@@ -64,9 +35,10 @@
       "direction_basis": "The species count is a recommended threshold/policy value, not a monotone endpoint.",
       "semantic_direction_basis": "The species count is a recommended threshold/policy value, not a monotone endpoint.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
+      "baseline_value": null,
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Final management question"
+      "final_question_label": "Final management question: minimum viable species count"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
@@ -122,7 +94,7 @@
       "mcm/question_results/2023/A/q06/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 3
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

@@ -1,10 +1,9 @@
 {
-  "paper_id": "C063",
-  "task_slug": "cumcm-2024-c-crop-planting",
-  "source": "cumcm/2024-C/C063/ocr/C063.md",
-  "fields": {
-    "experiment_result.q1.discount_profit_yuan": 64690000.0,
-    "experiment_result.q1.waste_profit_yuan": 45300000.0
-  },
-  "notes": "摘要原文：'若滞销部分浪费，则7年最大收益约为4530万元；若超过部分半价销售，则7年最大收益约为6469万元'。论文以万元、约数报告，按 1万元=10000元 换算：4530万元→45300000元，6469万元→64690000元。正文未再给出更精确的数值（仅该摘要句报告），因此保留其四位有效数字的近似值，notes 说明其为'约'值。"
+ "paper_id": "C063",
+ "task_slug": "cumcm-2024-c-crop-planting",
+ "source": "cumcm/2024-C/C063/ocr/C063.md",
+ "fields": {
+  "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan": 70131049.92
+ },
+ "notes": "Q3 optimal seven-year total profit 70,131,049.92 yuan (Sec. 7 problem 3 result). | Replaced Q1 waste/discount panels with the original final-question Q3 total profit."
 }

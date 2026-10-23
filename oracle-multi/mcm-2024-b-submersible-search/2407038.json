@@ -1,13 +1,20 @@
 {
-  "paper_id": "2407038",
-  "task_slug": "mcm-2024-b-submersible-search",
-  "source": "mcm/2024-B/2407038/ocr/2407038.md",
-  "fields": {
-    "experiment_result.search_strategy.find_probability_10h_start_1h": null,
-    "experiment_result.search_strategy.find_probability_10h_start_3h": null,
-    "experiment_result.search_strategy.find_probability_10h_start_5h": null,
-    "experiment_result.search_strategy.find_probability_18h": null,
-    "experiment_result.search_strategy.find_probability_6h": null
-  },
-  "notes": "Sec. 7.4: \"the accumulated finding probability is 0.5504 after the official search and rescue operation starts for 5 hours and 0.7160 after the official search and rescue operation starts for 50 hours.\" These are the only time points reported (5 h and 50 h); none matches the benchmark's 6 h, 10 h delayed-start (1/3/5 h), or 18 h fields, so all five are null. The 5 h value is deliberately NOT mapped onto the 6 h field."
+ "paper_id": "2407038",
+ "task_slug": "mcm-2024-b-submersible-search",
+ "source": "mcm/2024-B/2407038/ocr/2407038.md",
+ "fields": {
+  "experiment_result.search_strategy.find_probability_10h_start_1h": 0.6088
+ },
+ "notes": "Figure 10(b) plots accumulated find probability over 50 h. Digitized at 10 h = 0.6088, calibrated so the 5 h and 50 h readings reproduce the paper's printed 0.5504 and 0.7160 exactly. | Same quantity as the scored search-curve core.",
+ "derivations": {
+  "experiment_result.search_strategy.find_probability_10h_start_1h": {
+   "kind": "digitized_from_figure",
+   "reported_values": {
+    "p_5h": 0.5504,
+    "p_50h": 0.716
+   },
+   "calibration": "linear y-calibration fixed by the two printed anchors at 5 h and 50 h",
+   "computed_value": 0.6088
+  }
+ }
 }

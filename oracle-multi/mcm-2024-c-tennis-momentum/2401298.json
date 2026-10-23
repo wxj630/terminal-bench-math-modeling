@@ -1,11 +1,9 @@
 {
-  "paper_id": "2401298",
-  "task_slug": "mcm-2024-c-tennis-momentum",
-  "source": "mcm/2024-C/2401298/ocr/2401298.md",
-  "fields": {
-    "experiment_result.randomness_tests.median_ljung_box_p": 0.497,
-    "experiment_result.randomness_tests.median_runs_p": 0.691,
-    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
-  },
-  "notes": "Sec. 4.2: \"The Ljung-Box Q test results for the first match, with a corresponding p-value of 0.497 ... The results of other matches are similar.\" The runs test gives \"$P = 0.691$\". Both values are representative single-match values (the paper does not tabulate per-match p-values, so no true median exists), hence they are placed in the median fields. The paper concludes the iid null cannot be rejected and gives no numeric share of rejecting matches, so share_rejecting_iid_at_5pct = null."
+ "paper_id": "2401298",
+ "task_slug": "mcm-2024-c-tennis-momentum",
+ "source": "mcm/2024-C/2401298/ocr/2401298.md",
+ "fields": {
+  "experiment_result.randomness_tests.momentum_supported": 0.0
+ },
+ "notes": "Ljung-Box and runs tests fail to reject the iid null; the paper explicitly says the evidence is insufficient. | Binary verdict: 1 = momentum supported / randomness rejected; 0 = randomness not rejected."
 }

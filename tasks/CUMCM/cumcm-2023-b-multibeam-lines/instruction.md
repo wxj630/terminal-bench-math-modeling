@@ -151,6 +151,16 @@ B 题 多波束测线问题
 - `/root/data/figures/fig_7.png`
 - `/root/data/figures/fig_8.png`
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 给定真实海深数据，设计测线方案，尽量减少测线总长度，同时控制漏测面积和重叠过大的测线长度。
+
+Report that value in the required result JSON at:
+
+- `target_comparison.problem4_total_length_nm.actual`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

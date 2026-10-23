@@ -138,6 +138,16 @@ O
 - `/root/data/figures/fig_4.png`
 - `/root/data/figures/fig_5.png`
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 沿着前面求出的调头路径行进时，求龙头最大能跑多快，才能保证所有把手速度都不超过 2 m/s。
+
+Report that value in the required result JSON at:
+
+- `experiment_result.q5.max_head_speed_mps`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

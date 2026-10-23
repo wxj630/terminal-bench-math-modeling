@@ -1,11 +1,9 @@
 {
-  "paper_id": "2403774",
-  "task_slug": "mcm-2024-c-tennis-momentum",
-  "source": "mcm/2024-C/2403774/ocr/2403774.md",
-  "fields": {
-    "experiment_result.randomness_tests.median_ljung_box_p": null,
-    "experiment_result.randomness_tests.median_runs_p": null,
-    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
-  },
-  "notes": "Problem 2 is tested by generating random match scenarios and comparing MSE/RMSE/MAE, R-squared and Pearson correlation against real matches (Table 5), not by Ljung-Box or a runs test; the table's \"ks_real\" column is a K-S distance, not a p-value. No iid rejection share or median p-value is reported, so all three fields are null."
+ "paper_id": "2403774",
+ "task_slug": "mcm-2024-c-tennis-momentum",
+ "source": "mcm/2024-C/2403774/ocr/2403774.md",
+ "fields": {
+  "experiment_result.randomness_tests.momentum_supported": 1.0
+ },
+ "notes": "Random-match simulations have near-zero correlation and much worse fit than real matches, supporting momentum. | Binary verdict: 1 = momentum supported / randomness rejected; 0 = randomness not rejected."
 }

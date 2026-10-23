@@ -1,10 +1,9 @@
 {
-  "paper_id": "C234",
-  "task_slug": "cumcm-2024-c-crop-planting",
-  "source": "cumcm/2024-C/C234/ocr/C234.md",
-  "fields": {
-    "experiment_result.q1.discount_profit_yuan": 42837286.75,
-    "experiment_result.q1.waste_profit_yuan": 29276719.5
-  },
-  "notes": "摘要原文：'情况1——超过部分滞销，造成浪费的总利润为：29276719.5元；情况2——超过部分按2023年销售价格的 50% 降价出售的总利润为：42837286.75元'。第5.1节结果处重复给出同样两值（'最优种植方案从2024年到2030年的总利润为：29276719.5元' / '42837286.75元'）。单位元，无换算。"
+ "paper_id": "C234",
+ "task_slug": "cumcm-2024-c-crop-planting",
+ "source": "cumcm/2024-C/C234/ocr/C234.md",
+ "fields": {
+  "experiment_result.q2_q3.best_correlated_cvar10_profit_yuan": 37304570.2468
+ },
+ "notes": "Q3 optimal plan total profit 37,304,570.2468 yuan (Sec. 6.3.4). | Replaced Q1 waste/discount panels with the original final-question Q3 total profit."
 }

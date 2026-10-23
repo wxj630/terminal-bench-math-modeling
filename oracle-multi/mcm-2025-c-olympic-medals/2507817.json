@@ -1,13 +1,9 @@
 {
-  "paper_id": "2507817",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2507817/ocr/2507817.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Sec. 8.2.2/Table 15 recommends CHN women's volleyball, BRA women's soccer and ROU women's gymnastics, but reports only weighted medal SCORES: 2024 -> 2028 of 0 -> 5.33, 6 -> 8.86, 3 -> 36.65 (implied score gains 5.33, 2.86, 33.65). The 'score' is the paper's weighted medal score (a Lasso regression response), not a medal count, and the weights are not defined well enough to convert, so no medal-count gain was entered."
+ "paper_id": "2507817",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2507817/ocr/2507817.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 124.0
+ },
+ "notes": "Predicted 2028 total-medal table: USA total medals = 124. | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

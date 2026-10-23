@@ -1,14 +1,9 @@
 {
-  "paper_id": "2504448",
-  "task_slug": "mcm-2025-b-juneau-tourism",
-  "source": "mcm/2025-B/2504448/ocr/2504448.md",
-  "fields": {
-    "experiment_result.annual_visitors": 1600000.0,
-    "experiment_result.optimal_daily_cap": null,
-    "experiment_result.optimal_visitor_fee_usd": null,
-    "experiment_result.resident_acceptance_index": 0.917,
-    "experiment_result.sustainability_score": null,
-    "experiment_result.total_revenue_usd": null
-  },
-  "notes": "Annual visitors: abstract/memo 'Our results predict a stable tourist volume of around 1.6 million visitors per year'; Table 3 gives a 5-year path 1.537, 1.548, 1.522, 1.583, 1.683 million, so 1.6M is the stated central value. Daily cap: not used as a decision variable (no numeric cap). Visitor fee: none. Resident acceptance: Table 3 'Resident Sat' rises 0.882 -> 0.917 by year 5; 0.917 used (0-1 scale). Sustainability score: no composite score; only Env Index 0.029 -> 0.181, which is not a sustainability score. Total revenue: only government tax revenue 11.71-16.6 million USD/yr is reported, not gross tourism revenue."
+ "paper_id": "2504448",
+ "task_slug": "mcm-2025-b-juneau-tourism",
+ "source": "mcm/2025-B/2504448/ocr/2504448.md",
+ "fields": {
+  "experiment_result.recommends_daily_visitor_cap": 0.0
+ },
+ "notes": "Optimizes annual tourist volume; no daily cap decision variable. | Binary verdict: 1 = recommends a daily visitor cap; 0 = does not."
 }

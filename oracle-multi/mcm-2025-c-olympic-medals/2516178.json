@@ -1,13 +1,9 @@
 {
-  "paper_id": "2516178",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2516178/ocr/2516178.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. The DID model is fitted on 'medal scores' and the paper recommends Australia, Great Britain and Germany invest in women's hockey, but only projected score trajectories (Table 9) are given, never a medal-count gain. The regression coefficients beta3 = 9.556 (China) and 4.875 (Netherlands) are score increments; p-values 0.03 and 0.05 are the only significance results. All recommendation fields null."
+ "paper_id": "2516178",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2516178/ocr/2516178.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 142.0
+ },
+ "notes": "Predicted table: USA total = 142 (45 gold, 48 silver, 49 bronze). | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

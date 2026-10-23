@@ -1,11 +1,9 @@
 {
-  "paper_id": "2409961",
-  "task_slug": "mcm-2024-c-tennis-momentum",
-  "source": "mcm/2024-C/2409961/ocr/2409961.md",
-  "fields": {
-    "experiment_result.randomness_tests.median_ljung_box_p": null,
-    "experiment_result.randomness_tests.median_runs_p": null,
-    "experiment_result.randomness_tests.share_rejecting_iid_at_5pct": null
-  },
-  "notes": "Problem 2 tests independence through the shape of the normalized scoring-rate difference distribution (\"the difference distribution has bimodal peaks and does not obey the normal distribution\") rather than Ljung-Box or a runs test. No p-value, median p, or rejection share is reported, so all three fields are null."
+ "paper_id": "2409961",
+ "task_slug": "mcm-2024-c-tennis-momentum",
+ "source": "mcm/2024-C/2409961/ocr/2409961.md",
+ "fields": {
+  "experiment_result.randomness_tests.momentum_supported": 1.0
+ },
+ "notes": "The paper concludes momentum and player success are not independent. | Binary verdict: 1 = momentum supported / randomness rejected; 0 = randomness not rejected."
 }

@@ -1,13 +1,9 @@
 {
-  "paper_id": "2513314",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2513314/ocr/2513314.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Sec. 6.3 recommends the United States (fencing, sport climbing), China (basketball, beach volleyball) and Japan (gymnastics, short-track speed skating). The reported effects are elasticities of a one-unit increase in the coach-strength variable on medal counts: USA +3.74%, China +4.55%, Japan +2.87% (posterior betas 0.0367/0.0445/0.0283). These are percentage changes, not medal-count gains, and 'one unit of coaching capacity' is not a specific coaching hire, so no conversion was made."
+ "paper_id": "2513314",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2513314/ocr/2513314.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 146.0
+ },
+ "notes": "Text: USA 2028 projected total = 146 medals (95% CI 136-156). | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

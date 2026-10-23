@@ -47,7 +47,8 @@
     "q2_q3": {
       "spearman_price_cost": 0.0782,
       "spearman_yield_cost": 0.7629,
-      "spearman_yield_price": -0.1927
+      "spearman_yield_price": -0.1927,
+      "best_correlated_cvar10_profit_yuan": 21799420.9
     },
     "artifacts": []
   },

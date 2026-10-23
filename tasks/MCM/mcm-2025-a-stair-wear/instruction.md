@@ -75,6 +75,16 @@ short time or a small number of people over a longer time?
 
 - `/root/data/figures/fig_1.png`
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 根据楼梯磨损反推典型一天大约多少人使用，以及这些人是短时间集中经过还是长时间稀疏经过。
+
+Report that value in the required result JSON at:
+
+- `experiment_result.estimated_daily_users`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

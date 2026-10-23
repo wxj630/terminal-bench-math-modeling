@@ -24,7 +24,8 @@
       "median_ljung_box_p": "number",
       "matches_rejecting_iid_at_5pct": "integer",
       "median_runs_p": "number",
-      "share_rejecting_iid_at_5pct": "number"
+      "share_rejecting_iid_at_5pct": "number",
+      "momentum_supported": "integer"
     },
     "dual_temporal_bayes": {
       "transition_rows": "integer",

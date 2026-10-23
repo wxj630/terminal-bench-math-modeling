@@ -125,6 +125,16 @@ GC 含量，序列中碱基 G（鸟嘌呤）和 C
 围为40% ~ 60%，GC 含量过高、过低、
 或分布异常可能意味着测序质量存在问题
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 按 BMI 分组后，各组的最佳 NIPT 检测时点应定在什么孕周，才能把孕妇的潜在风险降到最低。
+
+Report that value in the required result JSON at:
+
+- `experiment_result.earliest_recommended_week`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

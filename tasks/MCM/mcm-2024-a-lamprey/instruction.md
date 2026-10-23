@@ -44,6 +44,16 @@ lampreys?
 - Can an ecosystem with variable sex ratios in the lamprey population offer advantages to
 others in the ecosystem, such as parasites?
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 可变性别比例下生态系统的稳定性如何比较：在最优资源水平上，可变性别比例比固定比例带来多少稳定性收益。
+
+Report that value in the required result JSON at:
+
+- `experiment_result.largest_stability_gain.adaptive_gain_pct`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:

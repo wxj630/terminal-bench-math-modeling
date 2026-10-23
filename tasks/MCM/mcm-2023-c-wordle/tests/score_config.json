@@ -1,13 +1,14 @@
 {
-  "scoring_version": "tb-mathmodeling-v5-final-question-endpoint-target-minmax",
+  "scoring_version": "tb-mathmodeling-v3-final-question-legacy-baseline-panel",
   "question_scope": "final_question_only",
   "candidate_metric_count_before_final_filter": 23,
   "final_question": {
-    "label": "Final numeric Wordle question",
-    "plain_question": "在给纽约时报编辑的总结信之前，最后一个可量化核心是判断 EERIE 的难度，并给出难度分类模型准确率。",
-    "final_answer_summary": "O 奖复现把 EERIE 判为中等难度组 2，难度分类模型 holdout accuracy 为 0.7。",
-    "baseline_model_summary": "baseline 用报告量时间序列、单词属性特征和分类模型来预测 Wordle 分布及难度等级。",
-    "metric_selection": "final_question_only_numeric_core"
+    "label": "Final Wordle difficulty: EERIE four-try share",
+    "plain_question": "最后一问要求判断 EERIE 的难度。请给出 EERIE 在 2023-03-01 的预测分布中“第 4 次猜中”的百分比，这是各篇论文用来刻画该词难度的共同单值指标。",
+    "final_answer_summary": "O 奖复现的 EERIE 预测分布为 [0.649, 7.579, 26.298, 32.614, 20.930, 9.63, 2.298]%，其中第 4 次猜中占比为 32.614%。11/12 篇人类论文报告了可比的 EERIE 四猜占比。",
+    "baseline_model_summary": "baseline 用报告量时间序列和单词属性预测 EERIE 的 1–X 次猜中分布，再据此判定难度。",
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：不同论文把难度分成 3/4/5 类，类别标签不可比；改为所有论文都直接报告的EERIE 四猜占比这一连续标量。2307946 的标签为 4 类、2311717 为 4 类、其余多为 3 类，但四猜占比仍可直接比较。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,106 +19,80 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 2,
+  "metric_count": 1,
   "effective_metric_count": 1,
-  "final_answer_numeric_field_count": 2,
+  "final_answer_numeric_field_count": 1,
   "scored_final_answer_numeric_field_count": 1,
   "metrics": [
     {
-      "path": "target_comparison.eerie_group.actual",
-      "oracle_value": 2.0,
+      "path": "paper_targets.eerie_distribution_pct[3]",
+      "oracle_value": 32.614,
       "rel_scale": 0.12,
       "abs_scale": 1e-06,
       "weight": 1.0,
-      "direction": "exact_value",
-      "semantic_direction": "exact_value",
-      "direction_basis": "The Wordle difficulty group is a discrete class label.",
-      "semantic_direction_basis": "The Wordle difficulty group is a discrete class label.",
-      "normalization_mode": "constant_endpoint",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
+      "direction": "target_value",
+      "semantic_direction": "target_value",
+      "direction_basis": "The share of players solving EERIE on the fourth try is a forecast value; accuracy is the target, not a larger share.",
+      "semantic_direction_basis": "The share of players solving EERIE on the fourth try is a forecast value; accuracy is the target, not a larger share.",
+      "normalization_mode": "legacy_target_distance_to_outstanding",
+      "baseline_value": null,
+      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
-      "final_question_label": "Final numeric Wordle question",
-      "outstanding_value": 2.0,
-      "baseline_source_path": "difficulty_model.eerie_classifier_class",
-      "baseline_value": 2.0,
-      "score_weight": 0.0,
-      "normalization_direction": "exact_value",
-      "normalization_formula": "baseline_value == outstanding_value; excluded from min-max panel"
-    },
-    {
-      "path": "target_comparison.lightgbm_like_accuracy.actual",
-      "oracle_value": 0.7,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Higher holdout accuracy means a better difficulty classifier.",
-      "semantic_direction_basis": "Higher holdout accuracy means a better difficulty classifier.",
-      "normalization_mode": "baseline_to_outstanding_target_minmax",
-      "normalization_basis": "outstanding_value compared with baseline_value; the outstanding endpoint is the target",
-      "question_scope": "final_question_only",
-      "final_question_label": "Final numeric Wordle question",
-      "outstanding_value": 0.7,
-      "baseline_source_path": "difficulty_model.holdout_accuracy",
-      "baseline_value": 0.422222,
-      "score_weight": 1.0,
-      "normalization_direction": "higher_is_better",
-      "normalization_formula": "clamp(1 - abs(actual - outstanding_value) / (outstanding_value - baseline_value), 0, 1)"
+      "final_question_label": "Final Wordle difficulty: EERIE four-try share"
     }
   ],
   "raw_panel_aggregation": "weighted_mean",
-  "metric_reward": "per-metric target-distance min-max between baseline_value and outstanding_value, using normalization_direction",
+  "metric_reward": "1 / (1 + abs(actual - oracle_value) / max(abs_scale, rel_scale * abs(oracle_value)))",
   "missing_or_nonnumeric_metric_reward": 0.0,
   "baseline_endpoint": {
-    "kind": "question_result_minmax_endpoint",
-    "panel_score": 0.6160932947829885,
-    "matched_metric_count": 2,
-    "unmatched_metric_count": 0,
+    "kind": "legacy_explicit_generic_baseline_score_mean_no_question_metric_match",
+    "panel_score": 0.6470056,
+    "matched_metric_count": null,
     "result_count": 5,
     "result_paths": [
-      "mcm/question_results/2023/C-Wordle/q01/result.json",
-      "mcm/question_results/2023/C-Wordle/q02/result.json",
-      "mcm/question_results/2023/C-Wordle/q03/result.json",
-      "mcm/question_results/2023/C-Wordle/q04/result.json",
-      "mcm/question_results/2023/C-Wordle/q05/result.json"
-    ],
-    "question_result_dir": "mcm/question_results/2023/C-Wordle",
-    "legacy_generic_result_paths": [
       "mcm/generic_baselines/results/2023/C/q01/result.json",
       "mcm/generic_baselines/results/2023/C/q02/result.json",
       "mcm/generic_baselines/results/2023/C/q03/result.json",
       "mcm/generic_baselines/results/2023/C/q04/result.json",
       "mcm/generic_baselines/results/2023/C/q05/result.json"
     ],
-    "metric_details": [
+    "sources": [
       {
-        "path": "target_comparison.eerie_group.actual",
-        "outstanding_value": 2.0,
-        "found": true,
-        "closeness_reward": 1.0,
-        "baseline_source_path": "difficulty_model.eerie_classifier_class",
-        "baseline_actual": 2.0
+        "result_path": "mcm/generic_baselines/results/2023/C/q01/result.json",
+        "explicit_score": 0.685086
       },
       {
-        "path": "target_comparison.lightgbm_like_accuracy.actual",
-        "outstanding_value": 0.7,
-        "found": true,
-        "closeness_reward": 0.23218658956597693,
-        "baseline_source_path": "difficulty_model.holdout_accuracy",
-        "baseline_actual": 0.422222
+        "result_path": "mcm/generic_baselines/results/2023/C/q02/result.json",
+        "explicit_score": 0.827143
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2023/C/q03/result.json",
+        "explicit_score": 0.692571
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2023/C/q04/result.json",
+        "explicit_score": 0.512714
+      },
+      {
+        "result_path": "mcm/generic_baselines/results/2023/C/q05/result.json",
+        "explicit_score": 0.517514
       }
     ],
-    "normalized_panel_score": 0.0,
-    "effective_metric_count": 1,
-    "constant_endpoint_metric_count": 1,
-    "missing_baseline_metric_count": 0
+    "note": "Fallback retained only because no comparable question_results numeric metrics were matched.",
+    "question_result_dir": "mcm/question_results/2023/C-Wordle",
+    "question_result_paths": [
+      "mcm/question_results/2023/C-Wordle/q01/result.json",
+      "mcm/question_results/2023/C-Wordle/q02/result.json",
+      "mcm/question_results/2023/C-Wordle/q03/result.json",
+      "mcm/question_results/2023/C-Wordle/q04/result.json",
+      "mcm/question_results/2023/C-Wordle/q05/result.json"
+    ],
+    "question_matched_metric_count": 0,
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
-    "kind": "outstanding_paper_reproduction_metric_values",
-    "normalized_panel_score": 1.0,
-    "effective_metric_count": 1,
-    "note": "The normalized endpoint is 1 because each metric uses its own outstanding_value as the max/min endpoint."
+    "kind": "outstanding_paper_reproduction",
+    "panel_score": 1.0
   },
   "final_reward": "raw_panel_score - baseline_endpoint_score",
   "evaluation_methods": {
@@ -125,7 +100,7 @@
       "role": "optional_reward",
       "name": "Baseline-Outstanding Evaluation",
       "description": "Compares a submission to the baseline and outstanding-paper endpoints.",
-      "final_reward": "weighted_mean(metric_target_minmax_score), where baseline endpoint is 0 and outstanding endpoint is 1 after per-metric normalization"
+      "final_reward": "clamp((raw_panel_score - baseline_endpoint.panel_score) / (outstanding_endpoint.panel_score - baseline_endpoint.panel_score), 0, 1)"
     },
     "B-Eval": {
       "role": "default_reward",

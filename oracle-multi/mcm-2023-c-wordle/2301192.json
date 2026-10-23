@@ -1,9 +1,9 @@
 {
-  "paper_id": "2301192",
-  "task_slug": "mcm-2023-c-wordle",
-  "source": "mcm/2023-C/2301192/ocr/2301192.md",
-  "fields": {
-    "target_comparison.lightgbm_like_accuracy.actual": null
-  },
-  "notes": "The difficulty model is K-Means++ clustering into 3 levels (easy/medium/hard); accuracy is discussed only qualitatively via PCA (first two components explain 82.88% variance) and cluster separation (average 5+ try share 25.35%/39.92%/58.59%). No classification accuracy, precision/recall or F1 is reported, so the field is null. EERIE is classified 'medium'."
+ "paper_id": "2301192",
+ "task_slug": "mcm-2023-c-wordle",
+ "source": "mcm/2023-C/2301192/ocr/2301192.md",
+ "fields": {
+  "paper_targets.eerie_distribution_pct[3]": 29.0
+ },
+ "notes": "Predicted distribution [0,6,18,29,27,15,5]; fourth-try share = 29%. | Replaced the classifier-accuracy panel with the common EERIE four-try share."
 }

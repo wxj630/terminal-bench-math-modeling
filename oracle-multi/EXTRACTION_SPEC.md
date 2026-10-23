@@ -68,6 +68,29 @@ already has a full reproduction) is in the task's
 `solution/oracle/**/solution.py` path; you may use its value only as a
 sanity reference in `notes`, never to overwrite another paper's answer.
 
+## One core scalar per task
+
+Every task must expose exactly **one** scored field: the final-question core.
+The field must be something the original last question asks for (or, when that
+question is a memo/qualitative recommendation, the last numeric or binary decision
+it rests on), and it must be reported by as many human papers as possible.
+
+A paper either supplies a non-null value for that core or carries a machine-readable
+`exclusion_reason`. Papers may never be silently dropped. Valid reasons include:
+
+- `number_only_in_figure`: the paper reports the quantity only as a plot and gives
+  no fixed-vs-adaptive pair or percentage;
+- `different_time_points`: the paper reports the quantity at times the benchmark
+  does not score;
+- `figure_only`: only a closed-form curve or heatmap is given;
+- `no_numeric_estimate`: only relative uncertainties are reported;
+- `different_unit_of_analysis`: the paper reports per-sample values for many
+  different objects, not one estimate for the benchmark object.
+
+Do not average across incompatible objects (for example, 11 different staircases)
+and do not digitize a curve silently. If neither a reported value nor a
+deterministic, auditable conversion exists, exclude the paper and record why.
+
 ## Reporting back
-Return a compact table: paper_id, how many of the scored fields found, and the
-key numbers. Flag any paper that is unusable (no numbers, or OCR too corrupted).
+Return a compact table: paper_id, whether the task core is present, and the key
+number. Flag any paper that is unusable with one of the structured reasons above.

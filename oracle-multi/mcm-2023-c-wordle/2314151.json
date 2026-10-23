@@ -1,9 +1,9 @@
 {
-  "paper_id": "2314151",
-  "task_slug": "mcm-2023-c-wordle",
-  "source": "mcm/2023-C/2314151/ocr/2314151.md",
-  "fields": {
-    "target_comparison.lightgbm_like_accuracy.actual": 0.9136
-  },
-  "notes": "Sec. 6.5: 'The accuracy of our model is calculated to be 91.3649025%' by matching attribute-interval-derived difficulty against the K-means difficulty label on 405 words (Jan 7 2022 - Feb 16 2023). Converted 91.3649025% -> 0.9136 (rounded to 4 dp). This is an interval-matching validation rate, not a train/test classifier accuracy; noted as such. EERIE classified 'difficult' (mean tries 4.384952)."
+ "paper_id": "2314151",
+ "task_slug": "mcm-2023-c-wordle",
+ "source": "mcm/2023-C/2314151/ocr/2314151.md",
+ "fields": {
+  "paper_targets.eerie_distribution_pct[3]": 34.0
+ },
+ "notes": "Predicted distribution (0,4,17,34,30,13,2); fourth-try share = 34%. | Replaced the classifier-accuracy panel with the common EERIE four-try share."
 }

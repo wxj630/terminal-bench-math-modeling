@@ -189,3 +189,12 @@ def test_result_has_enough_substantive_structure():
     assert top_keys & substantive_keys, (
         "result should expose the main computational findings, not just metadata"
     )
+
+
+def test_final_answer_core_is_present():
+    data = _load_output()
+    for metric in SCORE_CONFIG["metrics"]:
+        path = metric["path"]
+        value = _get(data, path)
+        number = _as_float(value, path)
+        assert number == number, f"{path} must be a number, got {value!r}"

@@ -1,13 +1,14 @@
 {
-  "paper_id": "2411570",
-  "task_slug": "mcm-2024-b-submersible-search",
-  "source": "mcm/2024-B/2411570/ocr/2411570.md",
-  "fields": {
-    "experiment_result.search_strategy.find_probability_10h_start_1h": null,
-    "experiment_result.search_strategy.find_probability_10h_start_3h": null,
-    "experiment_result.search_strategy.find_probability_10h_start_5h": null,
-    "experiment_result.search_strategy.find_probability_18h": null,
-    "experiment_result.search_strategy.find_probability_6h": null
-  },
-  "notes": "Sec. 7.4.2 derives the closed form $P = 1/(1+e^{at-b S'/S})$ and plots it in Fig. 12 (\"Probability of finding the submersible\"), but states no numeric probability at 6 h, 10 h with 1/3/5 h delayed starts, or 18 h. All five fields null."
+ "paper_id": "2411570",
+ "task_slug": "mcm-2024-b-submersible-search",
+ "source": "mcm/2024-B/2411570/ocr/2411570.md",
+ "fields": {
+  "experiment_result.search_strategy.find_probability_10h_start_1h": null,
+  "experiment_result.search_strategy.find_probability_10h_start_3h": null,
+  "experiment_result.search_strategy.find_probability_10h_start_5h": null,
+  "experiment_result.search_strategy.find_probability_18h": null,
+  "experiment_result.search_strategy.find_probability_6h": null
+ },
+ "notes": "Sec. 7.4.2 derives the closed form $P = 1/(1+e^{at-b S'/S})$ and plots it in Fig. 12 (\"Probability of finding the submersible\"), but states no numeric probability at 6 h, 10 h with 1/3/5 h delayed starts, or 18 h. All five fields null.",
+ "exclusion_reason": "figure_only_logistic_prior: plots P=1/(1+exp(at-bS'/S)), whose value at t=0 is 0.5; it is not a cumulative discovery probability from zero and cannot be mapped to the scored curve."
 }

@@ -7,7 +7,8 @@
     "plain_question": "在定日镜尺寸和安装高度都可以变化时，重新设计镜场，在满足约 60 MW 年平均输出功率的同时，让单位镜面面积输出尽量大。",
     "final_answer_summary": "O 奖复现给出的核心设计是年平均热功率 60.336111 MW，单位面积功率 0.506192417 kW/m2，年平均光学效率 0.496428083，镜面总面积 119196 m2，定日镜 3311 面。",
     "baseline_model_summary": "baseline 用几何解析和太阳运动参数方程做一个简化镜场拟合，再从几何约束中估计设计参数。",
-    "metric_selection": "final_question_only_numeric_core"
+    "metric_selection": "final_question_only_numeric_core",
+    "note": "多参考改造：最后一问的目标是单位镜面面积输出最大，因此只评这一个核心标量；60 MW 约束作为题目条件保留在题面，不另设评分项。4/4 篇人类论文均报告该量。"
   },
   "default_eval_method": "B-Eval",
   "supported_eval_methods": [
@@ -18,56 +19,11 @@
   "secondary_evals": [
     "BO-Eval"
   ],
-  "metric_count": 5,
-  "effective_metric_count": 5,
-  "final_answer_numeric_field_count": 5,
-  "scored_final_answer_numeric_field_count": 5,
+  "metric_count": 1,
+  "effective_metric_count": 1,
+  "final_answer_numeric_field_count": 1,
+  "scored_final_answer_numeric_field_count": 1,
   "metrics": [
-    {
-      "path": "reproduced.design_summary[2].annual_optical_efficiency",
-      "oracle_value": 0.496428083,
-      "rel_scale": 0.12,
-      "abs_scale": 0.0001,
-      "weight": 1.0,
-      "direction": "higher_is_better",
-      "semantic_direction": "higher_is_better",
-      "direction_basis": "Higher optical efficiency means the heliostat field uses sunlight more effectively.",
-      "semantic_direction_basis": "Higher optical efficiency means the heliostat field uses sunlight more effectively.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3"
-    },
-    {
-      "path": "reproduced.design_summary[2].mirror_area_m2",
-      "oracle_value": 119196.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "lower_is_better",
-      "semantic_direction": "lower_is_better",
-      "direction_basis": "For a design that satisfies the power target, less mirror area is a cheaper/more efficient field.",
-      "semantic_direction_basis": "For a design that satisfies the power target, less mirror area is a cheaper/more efficient field.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3"
-    },
-    {
-      "path": "reproduced.design_summary[2].mirror_count",
-      "oracle_value": 3311.0,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "lower_is_better",
-      "semantic_direction": "lower_is_better",
-      "direction_basis": "For a design that satisfies the power target, fewer mirrors usually means a simpler/cheaper field.",
-      "semantic_direction_basis": "For a design that satisfies the power target, fewer mirrors usually means a simpler/cheaper field.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3"
-    },
     {
       "path": "reproduced.design_summary[2].unit_area_power_kw_m2",
       "oracle_value": 0.506192417,
@@ -78,21 +34,6 @@
       "semantic_direction": "higher_is_better",
       "direction_basis": "The final design objective asks for stronger output per mirror area.",
       "semantic_direction_basis": "The final design objective asks for stronger output per mirror area.",
-      "normalization_mode": "legacy_target_distance_to_outstanding",
-      "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
-      "question_scope": "final_question_only",
-      "final_question_label": "Q3"
-    },
-    {
-      "path": "target_comparison.q3_annual_thermal_power_mw.actual",
-      "oracle_value": 60.336111,
-      "rel_scale": 0.12,
-      "abs_scale": 1e-06,
-      "weight": 1.0,
-      "direction": "target_value",
-      "semantic_direction": "target_value",
-      "direction_basis": "The design must meet the 60 MW thermal-power requirement; extra power is not automatically better if it wastes field area.",
-      "semantic_direction_basis": "The design must meet the 60 MW thermal-power requirement; extra power is not automatically better if it wastes field area.",
       "normalization_mode": "legacy_target_distance_to_outstanding",
       "normalization_basis": "No comparable per-metric baseline endpoint is available yet, so this field uses target-distance scoring against the outstanding-paper value.",
       "question_scope": "final_question_only",
@@ -134,7 +75,7 @@
       "cumcm/question_results/2023/A/q03/result.json"
     ],
     "question_matched_metric_count": 0,
-    "question_unmatched_metric_count": 5
+    "question_unmatched_metric_count": 1
   },
   "outstanding_endpoint": {
     "kind": "outstanding_paper_reproduction",

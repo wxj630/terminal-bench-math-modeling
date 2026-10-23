@@ -1,13 +1,9 @@
 {
-  "paper_id": "2522820",
-  "task_slug": "mcm-2025-c-olympic-medals",
-  "source": "mcm/2025-C/2522820/ocr/2522820.md",
-  "fields": {
-    "great_coach_model.global_top_jump_75pct": null,
-    "great_coach_model.recommendations[0].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[1].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[2].estimated_medal_count_gain": null,
-    "great_coach_model.recommendations[3].estimated_medal_count_gain": null
-  },
-  "notes": "No 75th-percentile jump. Recommends Russia (weightlifting), China (trampolining) and Hungary (weightlifting), but the outputs are ranking POINTS under a Gold 6 / Silver 3 / Bronze 2 scheme: 'up to 20 points for Russia, 14 points for China, and 6.8 points for Hungary'. Points are not medal counts, so no medal-count gain was entered."
+ "paper_id": "2522820",
+ "task_slug": "mcm-2025-c-olympic-medals",
+ "source": "mcm/2025-C/2522820/ocr/2522820.md",
+ "fields": {
+  "monte_carlo_summary_top_total[0].expected_total": 136.0
+ },
+ "notes": "Predicted table: United States total = 136 (95% CI 108-164). | Replaced the former coach-gain panel with the common Q1 core scalar: USA 2028 total medals."
 }

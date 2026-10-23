@@ -47,7 +47,8 @@
     "q2_q3": {
       "spearman_price_cost": "number",
       "spearman_yield_cost": "number",
-      "spearman_yield_price": "number"
+      "spearman_yield_price": "number",
+      "best_correlated_cvar10_profit_yuan": "number"
     },
     "artifacts": []
   },

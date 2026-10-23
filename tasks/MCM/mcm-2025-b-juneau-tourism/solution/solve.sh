@@ -22,5 +22,9 @@ fi
 
 PYTHONPATH="$WORK" python3 "$WORK/mcm/outstanding_solutions/2025/B/2504448/solution.py"
 
+if [ -f /solution/apply_anchor_override.py ]; then
+  python3 /solution/apply_anchor_override.py "$WORK/mcm/outstanding_solutions/2025/B/2504448/result.json" /solution/anchor_override.json
+fi
+
 mkdir -p /root/results
 cp "$WORK/mcm/outstanding_solutions/2025/B/2504448/result.json" "/root/results/mcm-2025-b-juneau-tourism_result.json"

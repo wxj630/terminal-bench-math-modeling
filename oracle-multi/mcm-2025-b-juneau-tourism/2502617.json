@@ -1,14 +1,9 @@
 {
-  "paper_id": "2502617",
-  "task_slug": "mcm-2025-b-juneau-tourism",
-  "source": "mcm/2025-B/2502617/ocr/2502617.md",
-  "fields": {
-    "experiment_result.annual_visitors": 1320000.0,
-    "experiment_result.optimal_daily_cap": null,
-    "experiment_result.optimal_visitor_fee_usd": null,
-    "experiment_result.resident_acceptance_index": null,
-    "experiment_result.sustainability_score": null,
-    "experiment_result.total_revenue_usd": null
-  },
-  "notes": "Annual visitors: Sec. 5.3 'the total benefits is maximized when the total number of tourists is 1.32 million'; memo 'The social benefit is maximized when the total number of tourists is 1.32 million in the year.' Daily cap: no daily cap decision variable - optimization is over annual tourist volume (traverse 0-10 million). Visitor fee: no per-visitor fee; the memo recommends raising the tax rate to 0.58 (58%), which is a tax rate not a fee. Resident acceptance: no normalized acceptance index; social satisfaction is monetized inside the objective. Sustainability score: no composite score. Total revenue: the paper reports net income 576 million USD (C_t - C_gc), not gross tourism revenue, so it was not entered."
+ "paper_id": "2502617",
+ "task_slug": "mcm-2025-b-juneau-tourism",
+ "source": "mcm/2025-B/2502617/ocr/2502617.md",
+ "fields": {
+  "experiment_result.recommends_daily_visitor_cap": 0.0
+ },
+ "notes": "Optimizes annual visitor volume; no daily headcount cap is recommended. | Binary verdict: 1 = recommends a daily visitor cap; 0 = does not."
 }

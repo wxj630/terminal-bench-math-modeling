@@ -196,6 +196,16 @@ Renewable Energy, 2018, 119:345-353.
 - `/root/data/figures/fig_1.png`
 - `/root/data/figures/fig_2.png`
 
+# Benchmark Final-Answer Requirement
+
+The verifier scores the numeric core of the final contest question:
+
+> 在定日镜尺寸和安装高度都可以变化时，重新设计镜场，在满足约 60 MW 年平均输出功率的同时，让单位镜面面积输出尽量大。
+
+Report that value in the required result JSON at:
+
+- `reproduced.design_summary[2].unit_area_power_kw_m2`
+
 # Required Benchmark Artifact
 
 Solve the contest problem above. The official attachments are mirrored at `/root/data/attachments` (flat filenames; see `/root/data/attachments/INDEX.md`) and also remain at their full corpus paths under `/root/data/repo`. Use them whenever they are relevant. Write your final structured answer to:
