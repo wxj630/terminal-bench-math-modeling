@@ -4,6 +4,8 @@ Terminal-Bench Math Modeling (TB-MathModeling, short: `tb-mathmodeling`) is a Te
 
 This repository treats mathematical modeling as the top-level benchmark domain. Tasks are organized directly under `tasks/CUMCM/` and `tasks/MCM/`. The current task set covers CUMCM and MCM problems A, B, and C from 2023, 2024, and 2025. Task instructions are based on the original contest problem statements; oracle solutions and verifier references are derived from the local outstanding-paper reproduction code and results in `Math-Modeling-BAO`.
 
+The task set is also published as a Hugging Face dataset: [IDEA-FinAI/TB-MathModel](https://huggingface.co/datasets/IDEA-FinAI/TB-MathModel), which mirrors `tasks/` for direct download.
+
 ## Why This Benchmark
 
 Much of the world can be understood, predicted, and improved through mathematical models. Applied mathematics gives us languages for dynamics, optimization, statistics, uncertainty, networks, control, and computation; mathematical modeling turns those languages into usable descriptions of real systems. It asks what matters in an open-ended situation, what can be ignored, which assumptions are defensible, how data should be used, and how a result should guide action.
