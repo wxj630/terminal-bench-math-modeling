@@ -661,7 +661,7 @@
                     <th data-type="text">Model</th>
                     <th data-type="number">Artifacts</th>
                     <th data-type="number">Multi-O Eval</th>
-                    <th data-type="number">Robust BO-Eval (single anchor)</th>
+                    <th data-type="number">Multi-BO (Flash = 1.000)</th>
                     <th data-type="number">Cost USD</th>
                     <th data-type="number">Cost RMB</th>
                     <th data-type="text">Status</th>
@@ -672,7 +672,7 @@
                     <td><span class="rank">1</span><b>claude-code + Fable 5.1</b><small>Anthropic <code>claude-fable-5-1</code>（多模态），claude-code CLI，reasoning_effort=max。第三方评测（DING FAN / Rayward，Modal，2026-10-05，仓库 a5ae348 @ 我们的 HEAD）。18/18 题均用当前单值多条参考 scorer 重评。</small></td>
                     <td data-sort="18">18 / 18</td>
                     <td data-sort="64.62"><b>64.62%</b></td>
-                    <td data-sort="-3.20"><b>-3.20%</b></td>
+                    <td data-sort="1.1637"><b>1.1637</b></td>
                     <td data-sort="272.80"><b>$272.80</b></td>
                     <td data-sort="—">—</td>
                     <td><span class="status done">18 valid + 0 error</span></td>
@@ -681,16 +681,16 @@
                     <td><span class="rank">2</span><b>codex + GPT-6 Astra</b><small>OpenAI <code>gpt-6-astra</code>（多模态），codex CLI，reasoning_effort=max。同一第三方评测；18/18 题均用当前单值多条参考 scorer 重评。</small></td>
                     <td data-sort="18">18 / 18</td>
                     <td data-sort="61.47"><b>61.47%</b></td>
-                    <td data-sort="-19.17"><b>-19.17%</b></td>
+                    <td data-sort="1.1200"><b>1.1200</b></td>
                     <td data-sort="246.41">$246.41</td>
                     <td data-sort="—">—</td>
                     <td><span class="status done">18 valid + 0 error</span></td>
                   </tr>
                   <tr>
-                    <td><span class="rank">3</span><b>opencode + DeepSeek V4.1 Flash</b><small>DeepSeek V4.1 Flash（<code>text+image-&gt;text</code>），opencode CLI，thinking effort=high。18/18 均产出可评分结果。</small></td>
+                    <td><span class="rank">3</span><b>opencode + DeepSeek V4.1 Flash</b><small>DeepSeek V4.1 Flash（<code>text+image-&gt;text</code>），opencode CLI，thinking effort=high。18/18 均产出可评分结果。<b>作为 Multi-BO 的基线，指数固定为 1.0000。</b></small></td>
                     <td data-sort="18">18 / 18</td>
                     <td data-sort="59.81"><b>59.81%</b></td>
-                    <td data-sort="0.00"><b>0.00%</b></td>
+                    <td data-sort="1.0000"><b>1.0000</b></td>
                     <td data-sort="2.54"><b>$2.54</b></td>
                     <td data-sort="17.08">¥17.08</td>
                     <td><span class="status done">18 valid + 0 error</span></td>
@@ -699,7 +699,7 @@
                     <td><span class="rank">4</span><b>codex + GPT-5.5 xhigh</b><small>OpenAI GPT-5.5（<code>text+image-&gt;text</code>），reasoning_effort=xhigh，codex CLI。全 18 题均产出可评分结果。</small></td>
                     <td data-sort="18">18 / 18</td>
                     <td data-sort="59.75"><b>59.75%</b></td>
-                    <td data-sort="-5.15"><b>-5.15%</b></td>
+                    <td data-sort="1.0061"><b>1.0061</b></td>
                     <td data-sort="99.37"><b>$99.37</b></td>
                     <td data-sort="669.45">¥669.45</td>
                     <td><span class="status done">18 valid + 0 error</span></td>
@@ -708,7 +708,7 @@
                     <td><span class="rank">5</span><b>opencode + DeepSeek V4.1 Flash (max)</b><small>同一模型、同一 opencode CLI，仅把 thinking 档位从 <code>high</code> 提到 <code>max</code>。<code>cumcm-2025-a-smoke-screen</code> 超时，因此仅 17/18 有 artifact，但主分仍严格按 18 题平均。</small></td>
                     <td data-sort="17">17 / 18</td>
                     <td data-sort="48.11"><b>48.11%</b></td>
-                    <td data-sort="-15.19"><b>-15.19%</b></td>
+                    <td data-sort="0.8636"><b>0.8636</b></td>
                     <td data-sort="2.78">$2.78</td>
                     <td data-sort="18.75">¥18.75</td>
                     <td><span class="status partial">17 valid + 1 timeout</span></td>
@@ -720,7 +720,7 @@
             <p class="table-caption"><b>缺失值契约</b>：模型缺少某篇论文报告的字段时，该字段计 0，论文仍保留在分母；整题缺产物时该题计 0，仍保留在固定的 18 题分母。逐题覆盖、论文面板和敏感性结果见 <a href="reports/multimodal-multi-oracle-2023-2025.md">完整多参考报告</a>。</p>
             <p class="table-caption"><b>旧产物兼容性</b>：18 题均已改为单一核心量，并且全部可从 v0.1 产物直接评分或确定性重编码。Fable/Astra 的 production Q2 单位利润已从原始 trajectory 恢复（18.8889 / 18.9222 元/件），不再有整题缺字段导致的人为归零。</p>
             <p class="table-caption"><b>遗漏产物恢复</b>：Fable 的 submersible 下载包漏收了结果，但同次 trajectory 明确记录了 Q3 搜索发现概率，恢复后该题 Multi-O 从 0 升至 100%。DeepSeek max 的 lamprey 下载产物只剩旧字段；同次最终 schema 校验记录了 <code>adaptive_gain_pct = 4.0921</code>，恢复后该题从 0 升至 14.36%。</p>
-            <p class="table-caption"><b>辅助指标口径</b>：表中的 Robust BO-Eval 仍沿用原 reproduction anchor，仅用于和旧榜连续对照，<b>不是</b>多参考 robustness。不要用这一列解释 Multi-O 的最终排名。</p>
+            <p class="table-caption"><b>Multi-BO 口径</b>：以 DeepSeek V4.1 Flash 为基线（指数固定 1.0000）。逐题计算 <code>1 + clip((模型 Multi-O − Flash Multi-O) / (1 − Flash Multi-O), −1, +1)</code>，再对 18 题等权平均；当 Flash 到 oracle 的差距小于 0.10 时退化为 <code>1 + clip(模型 − Flash, −0.10, +0.10)</code>。因此 1.16 表示比 Flash 多走了 16% 的剩余提升空间，不是 O-Eval 百分比。</p>
             <p class="table-caption"><b>参照值修正说明</b>：dragon-dance 当前使用连续时间可行解 <b>1.246266 m/s</b>，不是论文按整数秒采样得到但会违反 2 m/s 硬约束的 1.406276 m/s；SiC 厚度使用论文的 <b>7.604 µm / 3.814 µm</b>；crop-planting 使用可复现的精确优化口径。</p>
             <p class="table-caption"><b>dragon-dance 再修正（O 奖论文该小问本身有错）</b>：<code>cumcm-2024-a-dragon-dance</code> 第 5 问的参照值原为论文的 <b>1.406276 m/s</b>，复算确认论文只在<b>整数秒</b>上取速度矩阵最大值，跨过了真正的连续时间峰值：t=14 s 时速度比 1.422195，而真峰在 <b>t=14.48 s</b>、速度比 <b>1.604793</b>。按论文值驱动龙头，该把手在 t=14.48 s 达 1.406276×1.604793 = <b>2.2568 m/s</b>，超过题目 2 m/s 上限，故论文值<b>物理不可行</b>。参照值已改为连续时间求解的 <b>1.246266 m/s</b>（k=1.604793），并把该字段方向由 <code>higher_is_better</code> 改为 <code>target_value</code>（原方向会把一个超限的 1.91 m/s 答案误判为满分）。修正后：此前答对 1.246266 的 12 个模型由 49.82% 升至 100%，而恰好复制论文错值的条目降至 49.82%。</p>
             <p class="table-caption"><b>农作物种植（special case）</b>：该题 O 奖论文的完整约束集——含其自创的"实际产量≥0.9×预期销量"——在官方附件上与题目硬约束联立后<b>无可行解</b>（HiGHS 判定 INFEASIBLE，多次复现），且论文使用未公开的 DEGA 启发式，其汇报值无法忠实复现。因此该题锚点改为按论文式(19)（<code>min(x·y, d)</code> 在逐地块求和之内）建模、用 HiGHS 求得的可复现精确最优解：<b>滞销 40,418,877 元 / 半价 58,718,967 元</b>（MIP gap &lt; 0.15%）。该题已在计分配置中标为 special case。</p>

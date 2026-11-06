@@ -189,6 +189,12 @@ def main() -> int:
                 raw, flash_raw, oracle_raw, failure=details is None
             )
 
+    tasks_all = multi["tasks"]
+    flash_multi = {
+        slug: rec["per_model"]["flash_opencode"]["o_eval"]
+        for slug, rec in tasks_all.items()
+    }
+
     rows = []
     for key, label in MULTIMODAL:
         if key not in models:
@@ -205,6 +211,16 @@ def main() -> int:
                 "multi": _mean_over_tasks(multi_vals),
                 "single": _mean_over_tasks(single_vals),
                 "robust": _mean_over_tasks(robust_vals),
+                "multi_bo": _mean(
+                    [
+                        board.robust_effect(
+                            tasks_all[s]["per_model"][key]["o_eval"],
+                            flash_multi[s],
+                            1.0,
+                        )
+                        for s in tasks_all
+                    ]
+                ),
                 "per_task_multi": multi_vals,
                 "per_task_single": single_vals,
                 "sensitivity": _sensitivity_scores(multi, key),
@@ -230,14 +246,13 @@ def main() -> int:
         "",
         "## Leaderboard",
         "",
-        "| Rank | Model | Multi-O Eval | Single-O Eval | Δ | Robust BO-Eval (single anchor) |",
-        "|---:|---|---:|---:|---:|---:|",
+        "| Rank | Model | Multi-O Eval | Multi-BO index (Flash = 1.000) |",
+        "|---:|---|---:|---:|",
     ]
     for i, row in enumerate(rows, 1):
         lines.append(
             f"| {i} | {row['label']} | **{100*row['multi']:.2f}%** | "
-            f"{100*row['single']:.2f}% | {100*(row['multi']-row['single']):+.2f}pp | "
-            f"{100*row['robust']:.2f}% |"
+            f"{1+row['multi_bo']:.4f} |"
         )
 
     n_ge2 = rows[0]["sensitivity"]["n_ge2"]

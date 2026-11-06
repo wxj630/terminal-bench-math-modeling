@@ -1,6 +1,6 @@
 # Multimodal board — multi-oracle O-Eval
 
-Generated: 2026-10-20
+Generated: 2026-11-01
 
 ## What changed
 
@@ -14,13 +14,13 @@ back to the reproduced anchor and is flagged below.
 
 ## Leaderboard
 
-| Rank | Model | Multi-O Eval | Single-O Eval | Δ | Robust BO-Eval (single anchor) |
-|---:|---|---:|---:|---:|---:|
-| 1 | claude-code + Fable 5.1 | **64.62%** | 76.31% | -11.69pp | 17.62% |
-| 2 | codex + GPT-6 Astra | **61.47%** | 72.65% | -11.18pp | 7.66% |
-| 3 | opencode + DeepSeek V4.1 Flash | **59.81%** | 75.33% | -15.53pp | 0.00% |
-| 4 | codex + GPT-5.5 xhigh | **59.75%** | 71.73% | -11.99pp | 0.22% |
-| 5 | opencode + DeepSeek V4.1 Flash (max) | **48.11%** | 64.17% | -16.07pp | -6.20% |
+| Rank | Model | Multi-O Eval | Multi-BO index (Flash = 1.000) |
+|---:|---|---:|---:|
+| 1 | claude-code + Fable 5.1 | **64.62%** | 1.1637 |
+| 2 | codex + GPT-6 Astra | **61.47%** | 1.1200 |
+| 3 | opencode + DeepSeek V4.1 Flash | **59.81%** | 1.0000 |
+| 4 | codex + GPT-5.5 xhigh | **59.75%** | 1.0061 |
+| 5 | opencode + DeepSeek V4.1 Flash (max) | **48.11%** | 0.8636 |
 
 ## Aggregation sensitivity
 
