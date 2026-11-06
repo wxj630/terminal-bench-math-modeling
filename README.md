@@ -6,6 +6,20 @@ This repository treats mathematical modeling as the top-level benchmark domain. 
 
 The task set is also published as a Hugging Face dataset: [IDEA-FinAI/TB-MathModel](https://huggingface.co/datasets/IDEA-FinAI/TB-MathModel), which mirrors `tasks/` for direct download.
 
+## Leaderboard
+
+Multimodal board, scored with **Multi-O Eval**: each task is compared against every O-award human paper that reports the task's scored field (99 papers, one paper = one vote), then averaged over all 18 tasks. A missing answer scores 0 and stays in the denominator. **Multi-BO index** re-scales the same per-task gaps against DeepSeek V4.1 Flash, whose index is pinned at 1.000.
+
+| Rank | Model | Multi-O Eval | Multi-BO index (Flash = 1.000) |
+|---:|---|---:|---:|
+| 1 | claude-code + Fable 5.1 | **64.62%** | 1.1637 |
+| 2 | codex + GPT-6 Astra | **61.47%** | 1.1200 |
+| 3 | opencode + DeepSeek V4.1 Flash | **59.81%** | 1.0000 |
+| 4 | codex + GPT-5.5 xhigh | **59.75%** | 1.0061 |
+| 5 | opencode + DeepSeek V4.1 Flash (max) | **48.11%** | 0.8636 |
+
+These are single runs. Across 3 seeds (Fable 5.1 and GPT-6 Astra) the spread is ±2.93pp and ±1.33pp, so a 1–2pp gap between two nearby models is inside seed noise. No model clears 65% of the multi-paper reference.
+
 ## Why This Benchmark
 
 Much of the world can be understood, predicted, and improved through mathematical models. Applied mathematics gives us languages for dynamics, optimization, statistics, uncertainty, networks, control, and computation; mathematical modeling turns those languages into usable descriptions of real systems. It asks what matters in an open-ended situation, what can be ignored, which assumptions are defensible, how data should be used, and how a result should guide action.
