@@ -7,6 +7,25 @@ repository-code: "https://github.com/harbor-framework/terminal-bench-math-modeli
 type: dataset
 authors:
   - name: "Terminal-Bench Math Modeling Team"
+preferred-citation:
+  type: conference-paper
+  title: "Terminal-style Mathematical Modeling Bench: The First Agentic and Verifiable Benchmark for Mathematical Modeling"
+  year: 2026
+  url: "https://arxiv.org/abs/2611.08237"
+  doi: "10.48550/arXiv.2611.08237"
+  authors:
+    - family-names: "Wu"
+      given-names: "Xiaojun"
+    - family-names: "Yang"
+      given-names: "Cehao"
+    - family-names: "Jiang"
+      given-names: "Xuhui"
+    - family-names: "Xu"
+      given-names: "Chengjin"
+    - family-names: "Li"
+      given-names: "Jia"
+    - family-names: "Guo"
+      given-names: "Jian"
 keywords:
   - "artificial intelligence"
   - "agent evaluation"

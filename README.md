@@ -57,6 +57,23 @@ Official attachments are delivered twice: at their full corpus path under `/root
 | MCM | 2025 | B | `mcm-2025-b-juneau-tourism` | MCM 2025 B: sustainable tourism management in Juneau |
 | MCM | 2025 | C | `mcm-2025-c-olympic-medals` | MCM 2025 C: Olympic medal prediction |
 
+## Citation
+
+Paper: [arXiv:2611.08237](https://arxiv.org/abs/2611.08237) (cs.CL), doi:[10.48550/arXiv.2611.08237](https://doi.org/10.48550/arXiv.2611.08237)
+
+```bibtex
+@misc{wu2026tbmathmodel,
+  title         = {Terminal-style Mathematical Modeling Bench: The First Agentic and Verifiable Benchmark for Mathematical Modeling},
+  author        = {Wu, Xiaojun and Yang, Cehao and Jiang, Xuhui and Xu, Chengjin and Li, Jia and Guo, Jian},
+  year          = {2026},
+  eprint        = {2611.08237},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2611.08237},
+  url           = {https://arxiv.org/abs/2611.08237}
+}
+```
+
 ## Quickstart
 
 ```bash
